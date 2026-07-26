@@ -12,6 +12,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
 OUT = os.path.join(ROOT, "_LATEST - 3I-ATLAS Anomaly Console.html")
 
+# Deployed origin, e.g. "https://3i-atlas.pages.dev". Empty = relative og:image
+# (fine locally; social cards need the absolute form). Override with SITE_URL env var.
+SITE_URL = ""
+
 JS_ORDER = [
     "vendor/three.min.js",
     "vendor/OrbitControls.js",
@@ -44,6 +48,11 @@ def main():
         body = read(rel)
         scripts.append("<script>/* == %s == */\n%s\n</script>" % (rel, body))
 
+    # Social scrapers want an ABSOLUTE og:image URL. Set the deployed origin here
+    # (or via the SITE_URL env var) once the Cloudflare Pages URL exists.
+    site = os.environ.get("SITE_URL", SITE_URL).rstrip("/")
+    og_image = (site + "/og-image.png") if site else "og-image.png"
+
     title = "3I/ATLAS — Interstellar Anomaly Review Console"
     desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
             "on real JPL Horizons trajectories, with 41 fact-checked case files weighing "
@@ -67,11 +76,11 @@ def main():
         '<meta property="og:type" content="website">',
         '<meta property="og:title" content="' + title + '">',
         '<meta property="og:description" content="' + desc + '">',
-        '<meta property="og:image" content="og-image.png">',
+        '<meta property="og:image" content="' + og_image + '">',
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="' + title + '">',
         '<meta name="twitter:description" content="' + desc + '">',
-        '<meta name="twitter:image" content="og-image.png">',
+        '<meta name="twitter:image" content="' + og_image + '">',
         '<link rel="icon" href="' + favicon + '">',
     ]
     html = "\n".join([
