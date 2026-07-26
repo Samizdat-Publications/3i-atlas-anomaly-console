@@ -4,6 +4,9 @@ data/raw/
 # Superseded by git history (kept locally so the offline file keeps a rollback trail)
 _Archive (old versions)/
 
+# Wrangler local build cache (recreated on every deploy)
+.wrangler/
+
 # OS / editor noise
 Thumbs.db
 desktop.ini
