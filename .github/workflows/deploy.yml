@@ -1,13 +1,18 @@
 name: Deploy to Cloudflare Pages
 
 # Publishes public/ to the 3i-atlas-anomaly-console Pages project on every push
-# to main. Requires ONE repository secret: CLOUDFLARE_API_TOKEN
-#   Cloudflare dashboard -> My Profile -> API Tokens -> Create Token
-#   -> "Edit Cloudflare Workers" template (or a custom token with the
-#      "Cloudflare Pages: Edit" permission on this account)
-#   then: gh secret set CLOUDFLARE_API_TOKEN
+# to main. OPTIONAL — until the CLOUDFLARE_API_TOKEN secret exists the deploy
+# step is skipped with a notice and the run still passes.
 #
-# Until that secret exists this workflow will fail; deploy manually meanwhile with:
+# To enable:
+#   1. Cloudflare dashboard -> My Profile -> API Tokens -> Create Token
+#      -> "Edit Cloudflare Workers" template. Set Account Resources to your
+#      account; the Zone/Workers Routes row can be removed.
+#   2. On the final screen copy the TOKEN VALUE (a ~40-char random string) --
+#      NOT the token's name.
+#   3. gh secret set CLOUDFLARE_API_TOKEN --repo Samizdat-Publications/3i-atlas-anomaly-console
+#
+# Manual deploy any time (wrangler is logged in on Stewart's machine):
 #   python tools/build.py && npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console
 
 on:
@@ -34,9 +39,29 @@ jobs:
       - name: Fail if the committed bundle is stale
         run: git diff --exit-code -- public/index.html
 
+      # Until CLOUDFLARE_API_TOKEN exists the deploy is skipped with a notice
+      # rather than failing the run. Add the secret and it starts working —
+      # no edit to this file needed.
+      - name: Is the Cloudflare token configured?
+        id: check
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::CLOUDFLARE_API_TOKEN is not set — skipping deploy. Add it with: gh secret set CLOUDFLARE_API_TOKEN --repo Samizdat-Publications/3i-atlas-anomaly-console"
+          else
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Deploy
+        if: steps.check.outputs.has_token == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: c82dd5addf7f4ebc0260ae476166b8d1
           command: pages deploy public --project-name 3i-atlas-anomaly-console --branch main
+
+      - name: Deploy skipped
+        if: steps.check.outputs.has_token != 'true'
+        run: echo "Deploy skipped — no token. The live site is unaffected; deploy manually with 'npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console'."
