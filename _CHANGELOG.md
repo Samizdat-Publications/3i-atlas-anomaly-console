@@ -17,6 +17,10 @@
   a cookieless Cloudflare Web Analytics beacon — into `public/index.html` **only**, so the
   offline `_LATEST` file keeps zero external references (verified: 0 in both files today).
 - Help panel rewritten around the tour and search; first-run toast now points at `T` and `?`.
+- **Cloudflare Web Analytics enabled** via the Pages dashboard toggle (edge-injected beacon,
+  cookieless) — `ANALYTICS_TOKEN` stays empty so nothing double-counts.
+- **CI/CD live**: `CLOUDFLARE_API_TOKEN` secret set; a push to `main` now rebuilds and
+  auto-deploys. Verified end to end (workflow run 30188185642, Deploy → success).
 
 ## v2.2.1 — 2026-07-26 (published)
 - **Live at https://3i-atlas-anomaly-console.pages.dev** (Cloudflare Pages, Direct Upload

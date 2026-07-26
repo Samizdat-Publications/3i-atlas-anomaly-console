@@ -27,13 +27,15 @@ payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
 project (created by wrangler), NOT a dashboard Git-connected one — Cloudflare cannot convert
 between the two, so continuous deployment runs through `.github/workflows/deploy.yml`.
 
-**OPTIONAL, NOT DONE (Stewart deferred it):** that workflow needs repo secret
-`CLOUDFLARE_API_TOKEN`. Without it the run still passes — the deploy step skips with a
-notice. Gotcha that already bit once: Cloudflare's create-token screen shows a token NAME
-("Edit Cloudflare Workers") and, on the final page, the ~40-char token VALUE. Only the value
-works; the workflow now length-checks it and skips rather than failing with auth code 9106.
-Enable with `gh secret set CLOUDFLARE_API_TOKEN --repo Samizdat-Publications/3i-atlas-anomaly-console`.
-**Until then, deploy manually — wrangler is already logged in on Stewart's machine.**
+**CI/CD IS LIVE (2026-07-26).** Repo secret `CLOUDFLARE_API_TOKEN` is set and verified — a
+push to `main` rebuilds from `src/` and auto-deploys. The workflow still length-checks the
+token and skips (rather than failing) if it is ever cleared or mis-set.
+Manual deploy still works any time — wrangler is logged in on Stewart's machine.
+
+**Web Analytics is ON** via the Pages dashboard toggle (Settings -> Web Analytics), which
+injects the beacon at the EDGE. Therefore `ANALYTICS_TOKEN` in build.py must stay EMPTY —
+setting it too would double-count. The offline `_LATEST` file is unaffected (still 0
+external refs); the beacon only exists in what Cloudflare serves.
 
 Manual deploy (wrangler is already logged in locally):
 ```
