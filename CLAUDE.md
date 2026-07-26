@@ -17,8 +17,15 @@ payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
 **LIVE AT https://3i-atlas-anomaly-console.pages.dev** — Cloudflare Pages, account
 `c82dd5addf7f4ebc0260ae476166b8d1` (stewartgregerson@gmail.com). It is a **Direct Upload**
 project (created by wrangler), NOT a dashboard Git-connected one — Cloudflare cannot convert
-between the two, so continuous deployment runs through `.github/workflows/deploy.yml`
-(needs repo secret `CLOUDFLARE_API_TOKEN`).
+between the two, so continuous deployment runs through `.github/workflows/deploy.yml`.
+
+**OPTIONAL, NOT DONE (Stewart deferred it):** that workflow needs repo secret
+`CLOUDFLARE_API_TOKEN`. Without it the run still passes — the deploy step skips with a
+notice. Gotcha that already bit once: Cloudflare's create-token screen shows a token NAME
+("Edit Cloudflare Workers") and, on the final page, the ~40-char token VALUE. Only the value
+works; the workflow now length-checks it and skips rather than failing with auth code 9106.
+Enable with `gh secret set CLOUDFLARE_API_TOKEN --repo Samizdat-Publications/3i-atlas-anomaly-console`.
+**Until then, deploy manually — wrangler is already logged in on Stewart's machine.**
 
 Manual deploy (wrangler is already logged in locally):
 ```

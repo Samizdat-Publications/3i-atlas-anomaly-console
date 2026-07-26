@@ -1,6 +1,9 @@
 # 3I/ATLAS — Interstellar Anomaly Review Console
 
-**Open this file:** `_LATEST - 3I-ATLAS Anomaly Console.html` — double-click it.
+**Live on the web:** https://3i-atlas-anomaly-console.pages.dev — share this link with anyone.
+**Source:** https://github.com/Samizdat-Publications/3i-atlas-anomaly-console
+
+**Offline copy:** `_LATEST - 3I-ATLAS Anomaly Console.html` — double-click it.
 Works completely offline, nothing to install. Sound starts after you "authenticate"
 (any key on the boot screen). ESC skips the boot.
 
@@ -26,5 +29,11 @@ Try: **CHASE** camera around October 2025 (perihelion), the **A-05 case file →
 "VISUALIZE IN TRACKER"** (sunward anti-tail), **FROM MARS** on 2025-10-03, and the
 redacted documents in **ARCHIVE** (click the black bars).
 
-## Rebuilding after edits
-`python tools/build.py` regenerates the `_LATEST` file from `src/`. See `CLAUDE.md`.
+## Rebuilding and republishing after edits
+```
+python tools/build.py
+npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console
+git add -A && git commit -m "..." && git push
+```
+`build.py` writes both the offline `_LATEST` file and `public/index.html` (what the website
+serves) from the same bytes. See `CLAUDE.md` for the full architecture.

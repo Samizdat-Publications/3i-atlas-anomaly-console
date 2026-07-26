@@ -1,5 +1,18 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.2.1 — 2026-07-26 (published)
+- **Live at https://3i-atlas-anomaly-console.pages.dev** (Cloudflare Pages, Direct Upload
+  project deployed via wrangler). Verified against the live URL: v2.2 loads, 41 case files,
+  three eras, security headers applied, og-image serving, zero console errors.
+- **Source published** at https://github.com/Samizdat-Publications/3i-atlas-anomaly-console
+  (public, MIT). git history now replaces `_Archive (old versions)/`, which is gitignored.
+- `SITE_URL` in `tools/build.py` set to the deployed origin so OpenGraph/Twitter cards
+  resolve an absolute image URL.
+- `.github/workflows/deploy.yml` rebuilds from source, refuses to ship a stale bundle, and
+  **skips the deploy step with a notice when `CLOUDFLARE_API_TOKEN` is absent or malformed**
+  rather than failing the run — so the Actions tab stays green until the secret is added.
+- Untracked `.wrangler/` local build cache (no credentials in it; token lives outside the repo).
+
 ## v2.2 — 2026-07-26 (publish pass)
 - **In-app help** (`?` key or the top-bar button): full control legend, a plain-English
   briefing on how to read the case files, a "start here" tour, and the disclaimer.
