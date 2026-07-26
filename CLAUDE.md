@@ -32,6 +32,10 @@ push to `main` rebuilds from `src/` and auto-deploys. The workflow still length-
 token and skips (rather than failing) if it is ever cleared or mis-set.
 Manual deploy still works any time — wrangler is logged in on Stewart's machine.
 
+**No custom domain, by choice** — `3i-atlas-anomaly-console.pages.dev` is the permanent
+canonical URL and `SITE_URL` in build.py should stay pointed at it. Stewart deliberately
+declined a paid domain; the whole stack is free tier. Don't re-pitch one.
+
 **Web Analytics is ON** via the Pages dashboard toggle (Settings -> Web Analytics), which
 injects the beacon at the EDGE. Therefore `ANALYTICS_TOKEN` in build.py must stay EMPTY —
 setting it too would double-count. The offline `_LATEST` file is unaffected (still 0
