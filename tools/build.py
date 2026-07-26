@@ -14,7 +14,7 @@ OUT = os.path.join(ROOT, "_LATEST - 3I-ATLAS Anomaly Console.html")
 
 # Deployed origin, e.g. "https://3i-atlas.pages.dev". Empty = relative og:image
 # (fine locally; social cards need the absolute form). Override with SITE_URL env var.
-SITE_URL = ""
+SITE_URL = "https://3i-atlas-anomaly-console.pages.dev"
 
 JS_ORDER = [
     "vendor/three.min.js",

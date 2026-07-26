@@ -1,0 +1,42 @@
+name: Deploy to Cloudflare Pages
+
+# Publishes public/ to the 3i-atlas-anomaly-console Pages project on every push
+# to main. Requires ONE repository secret: CLOUDFLARE_API_TOKEN
+#   Cloudflare dashboard -> My Profile -> API Tokens -> Create Token
+#   -> "Edit Cloudflare Workers" template (or a custom token with the
+#      "Cloudflare Pages: Edit" permission on this account)
+#   then: gh secret set CLOUDFLARE_API_TOKEN
+#
+# Until that secret exists this workflow will fail; deploy manually meanwhile with:
+#   python tools/build.py && npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Rebuild from src/ so a deploy can never ship stale bundled output.
+      - name: Build single-file bundle
+        run: python tools/build.py
+
+      - name: Fail if the committed bundle is stale
+        run: git diff --exit-code -- public/index.html
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: c82dd5addf7f4ebc0260ae476166b8d1
+          command: pages deploy public --project-name 3i-atlas-anomaly-console --branch main

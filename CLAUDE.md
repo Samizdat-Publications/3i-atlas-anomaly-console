@@ -14,9 +14,20 @@ payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
 **NOW UNDER GIT + PUBLISHED.** Repo: https://github.com/Samizdat-Publications/3i-atlas-anomaly-console
 (public, main branch). `git push` after every release — git history now replaces the
 `_Archive (old versions)/` folder (which is gitignored, kept locally only).
-Deploy target: **Cloudflare Pages**, serving the `public/` directory (build command: none,
-output dir: `public`). `tools/build.py` writes BOTH `_LATEST ...html` and `public/index.html`
-from the same bytes — never edit either by hand.
+**LIVE AT https://3i-atlas-anomaly-console.pages.dev** — Cloudflare Pages, account
+`c82dd5addf7f4ebc0260ae476166b8d1` (stewartgregerson@gmail.com). It is a **Direct Upload**
+project (created by wrangler), NOT a dashboard Git-connected one — Cloudflare cannot convert
+between the two, so continuous deployment runs through `.github/workflows/deploy.yml`
+(needs repo secret `CLOUDFLARE_API_TOKEN`).
+
+Manual deploy (wrangler is already logged in locally):
+```
+python tools/build.py
+npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console --branch main
+```
+`tools/build.py` writes BOTH `_LATEST ...html` and `public/index.html` from the same bytes —
+never edit either by hand. `SITE_URL` at the top of build.py must match the deployed origin
+or social-card previews break.
 
 Stewart's sessions can be cut off by usage limits mid-task. Rules:
 1. **Everything on disk, immediately.** Fetched data → `data/`, research payloads →
