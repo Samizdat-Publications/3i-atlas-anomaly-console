@@ -1,5 +1,22 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.2 — 2026-07-26 (publish pass)
+- **In-app help** (`?` key or the top-bar button): full control legend, a plain-English
+  briefing on how to read the case files, a "start here" tour, and the disclaimer.
+  Public visitors had no way to discover the keyboard shortcuts before this.
+- **Mobile/tablet layout**: below 900px the side rails become slide-over panels with
+  top-bar toggles instead of vanishing; transport bar wraps; archive goes single-column.
+  Verified at 375x812 with no horizontal overflow.
+- **`prefers-reduced-motion`** honored — CRT flicker, pulsing alerts and panel transitions
+  stop for visitors who ask for reduced motion.
+- **Shareable on the open web**: description/OpenGraph/Twitter meta, theme-color, an inline
+  SVG favicon, and `public/og-image.png` — a 1200x630 social card rendered from the real
+  trajectory data by `tools/make_og_image.py`.
+- **Build now emits `public/index.html`** (URL-friendly, Cloudflare Pages-ready) alongside
+  the local `_LATEST ...html`.
+- Repo scaffolding for publication: `README.md`, `LICENSE` (MIT + bundled-dependency and
+  quoted-material notes), `.gitignore`; git history replaces the archive folder's role.
+
 ## v2.1 — 2026-07-24 (all three files verified)
 - The iso-research fleet completed on second resume (23/23 agents, 0 errors). Provisional
   1I/2I case files replaced with adversarially verified versions:
