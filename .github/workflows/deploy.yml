@@ -47,9 +47,15 @@ jobs:
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          # A real Cloudflare API token is a ~40-char string with no spaces.
+          # Length-check it so a mistakenly pasted token *name* skips instead
+          # of failing the run with an opaque auth error.
           if [ -z "$TOKEN" ]; then
             echo "has_token=false" >> "$GITHUB_OUTPUT"
             echo "::notice::CLOUDFLARE_API_TOKEN is not set — skipping deploy. Add it with: gh secret set CLOUDFLARE_API_TOKEN --repo Samizdat-Publications/3i-atlas-anomaly-console"
+          elif [ "${#TOKEN}" -lt 30 ] || [ "$TOKEN" != "${TOKEN// /}" ]; then
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CLOUDFLARE_API_TOKEN does not look like a Cloudflare API token (too short, or contains spaces). Did you paste the token NAME instead of its VALUE? Skipping deploy."
           else
             echo "has_token=true" >> "$GITHUB_OUTPUT"
           fi
