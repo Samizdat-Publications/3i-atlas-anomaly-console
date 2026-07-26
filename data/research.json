@@ -1,0 +1,1010 @@
+{
+ "anomalies": [
+  {
+   "id": "A-01",
+   "title": "Anomalously large size / interstellar mass budget",
+   "date": "2025-07-08",
+   "observation": "Early photometry made 3I/ATLAS far brighter than expected for an interstellar object at ~4.5 AU: if the light came from a bare nucleus (albedo ~0.05), its radius would be ~10 km (~20 km diameter) — a mass Loeb put at roughly a million times 'Oumuamua's and a thousand times Borisov's (his July paper says over ten-million-fold and hundred-thousand-fold vs Borisov's core). Later HST/JWST work capped the nucleus far smaller (Jewitt et al. HST: radius ~0.22-2.8 km; Loeb's final essay uses a 2.6 km diameter). A separate September 2025 Loeb-Cloete-Veres analysis claimed the absence of pre-perihelion non-gravitational acceleration independently forced a mass above ~33 billion tons (diameter >5 km).",
+   "loeb_take": "Loeb (arXiv:2507.05881, submitted 2025-07-08) argued the interstellar rocky-material reservoir cannot deliver ~20-km objects at this detection rate — one would expect millions of 'Oumuamua-sized objects for each object of 3I/ATLAS's mass scale, so it is either a comet with a small core (<0.6 km) or a member of an implausibly rare population exceeding the interstellar mass budget. In his November 2025 likelihood ranking he assigned the mass anomaly P<0.001, and he kept the 'mass budget discrepancy' as anomaly #1 of his final 22-item list, arguing planetary-disk reservoirs miss the required mass by orders of magnitude even for the revised 2.6-km diameter.",
+   "official_explanation": "The brightness is dominated by a dust coma, not the nucleus; Hubble imaging (Jewitt et al., Aug 2025, arXiv:2508.02934) constrained the nucleus radius to <2.8 km (albedo 0.04, lower bound ~0.22 km), eliminating the population problem. Kilometer-scale interstellar comets are consistent with expected ISO size distributions, and Rubin Observatory is expected to find many more. Jason Wright (AstroWright) notes Loeb's later 33-billion-ton mass floor rested on assuming non-gravitational-acceleration measurement precision of 1e-10 AU/day^2 when the actual precision is ~1e-7 — off by ~1000x.",
+   "loeb_quote": "[paraphrase] The inferred nucleus diameter of 2.6 kilometers and the number density of its parent population (assuming a natural comet) exceed the mass reservoir of planetary disks around low-metallicity stars by orders of magnitude.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2507.05881",
+    "https://arxiv.org/abs/2508.02934",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://en.wikipedia.org/wiki/3I/ATLAS",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "size",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Two fixes, rest confirmed. (1) CONFLATION: the \"~33 billion tons\" mass was wrongly paired with the July ~20-km bare-nucleus inference. 33 billion tons (3.3e13 kg, with diameter >5 km) is the lower bound from a separate September 2025 Loeb-Cloete-Veres claim that 3I/ATLAS showed no pre-perihelion non-gravitational acceleration — the very claim Jason Wright showed rested on assuming measurement precision of 1e-10 AU/day^2 when actual precision is ~1e-7 (off ~1000x). The July 8 arXiv paper (2507.05881) instead argued a ~10 km radius (albedo 0.05) implying mass \"over ten million times\" 'Oumuamua's and \"at least a hundred thousand times\" Borisov's core (publicly framed by Loeb as \"a million times 'Oumuamua, a thousand times Borisov\"), and that \"one would expect millions of objects like 'Oumuamua for each object on the mass scale of 3I/ATLAS.\" (2) MISATTRIBUTION: P<0.001 was not assigned in the July arXiv paper; Loeb assigned P<0.001 to the mass anomaly in his November 2025 Medium essay \"Anomalies of 3I/ATLAS, Organized by Likelihood.\" Confirmed: date 2025-07-08 matches arXiv:2507.05881 v1; Jewitt et al. HST (arXiv:2508.02934, Aug 2025) nucleus radius <2.8 km (albedo 0.04), lower bound ~0.22 km if CO-driven; Loeb's final 22-anomaly essay lists the mass-budget discrepancy as anomaly #1 using a 2.6-km nucleus diameter and \"orders of magnitude\" reservoir shortfall; official explanation (dust-coma-dominated brightness, km-scale nucleus consistent with ISO size distribution, Rubin expected to find more) is fairly stated. Added a [paraphrase]-flagged quote of anomaly #1 wording and primary-source URLs."
+  },
+  {
+   "id": "A-02",
+   "title": "Ecliptic-plane alignment (~5 deg, 0.2%)",
+   "date": "2025-07-16",
+   "observation": "3I/ATLAS's retrograde hyperbolic trajectory (inclination ~175 deg) lies within about 5 degrees of the ecliptic — the orbital plane of the planets. For a randomly oriented incoming interstellar trajectory, Loeb computed a ~0.2% chance of such alignment.",
+   "loeb_take": "In the July 2025 paper 'Is the Interstellar Object 3I/ATLAS Alien Technology?' (Hibberd, Crowl, Loeb; arXiv v1 submitted July 16, 2025), this was the founding anomaly: a low retrograde tilt to the ecliptic 'offers various benefits to an Extra-terrestrial Intelligence,' making the path look like a designed reconnaissance trajectory with optimal access to the inner planets. After introducing the Loeb scale in August 2025 (arXiv:2508.09167), Loeb kept this among the core set anchoring his rating — 'there are eight anomalies that endow it with a rank of 4 on the Loeb scale.'",
+   "official_explanation": "Mainstream astronomers call this a textbook a-posteriori probability fallacy: the specific property was chosen after observing it ('he chose specific aspects of the comet's orbit to compute probabilities for after he knew what they were' — Jason Wright), and with any object some ~0.2%-level coincidences are guaranteed among the many orbital parameters one could examine. AstroWright (Nov 9, 2025) labels it a 'classic fallacy and misuse of probability theory,' citing Hector Socas-Navarro's detailed critique; there is also mild survey selection bias toward ecliptic discoveries. Dynamically the orbit is unremarkable for a galactic-disk object.",
+   "loeb_quote": "aligned to within 5 degrees with the orbital plane of the planets",
+   "quote_source": "'3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies', Medium, March 12, 2026",
+   "loeb_scale": 4,
+   "sources": [
+    "https://arxiv.org/abs/2507.12213",
+    "https://lweb.cfa.harvard.edu/~loeb/HCL25.pdf",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://arxiv.org/abs/2508.09167",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "trajectory",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core facts all check out: arXiv v1 of Hibberd/Crowl/Loeb was submitted exactly 2025-07-16; the 5-degree / 0.2% figures are real (and distinct from the paper's separate 0.005% planet-close-approach figure); the loeb_quote is verified verbatim in the March 12, 2026 Medium essay cited; the AstroWright post exists (Nov 9, 2025, Jason T. Wright). Two fixes: (1) official_explanation quoted Wright as 'classic misuse of probability theory' — his exact wording is 'classic fallacy and misuse of probability theory'; corrected to exact quote and added his a-posteriori elaboration. (2) loeb_take implied the rank-of-4 / '8 anomalies' statement came from the July 2025 paper; the Loeb scale was actually introduced in his August 2025 paper (arXiv:2508.09167) and the verified sentence 'there are eight anomalies that endow it with a rank of 4 on the Loeb scale' comes from later Medium posts. Reworded to keep the July paper as the founding-anomaly source without misattributing the scale ranking to it; added the Loeb-scale paper to sources."
+  },
+  {
+   "id": "A-03",
+   "title": "Fine-tuned arrival geometry (Mars/Venus/Jupiter passes)",
+   "date": "2025-07-16",
+   "observation": "The arrival time placed 3I/ATLAS within tens of millions of km of three planets: ~29 million km (0.19 AU) from Mars on Oct 3, 2025, ~0.65 AU from Venus in November, and 53.6 million km (0.358 AU) from Jupiter on Mar 16, 2026. Loeb estimated a combined probability of order 0.005% (he later listed P=0.00005) for a random interstellar object to thread this sequence.",
+   "loeb_take": "In the July 2025 paper and later essays, Loeb argued the timing looks 'fine-tuned' for planetary reconnaissance — exactly the flyby program a probe designer would choose. This was one of the original 8 anomalies behind his rank-4 assignment and remained #3 in his final 22-item list.",
+   "official_explanation": "Astronomers respond that any object traveling in the ecliptic plane will necessarily pass 'near' planets, so the claim double-counts the ecliptic-alignment anomaly; AstroWright calls it question-begging, noting Loeb treats both close approaches and non-close approaches as anomalous. Tens of millions of km are distant passes with no operational significance. NASA states all evidence points to a natural comet.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://lweb.cfa.harvard.edu/~loeb/HCL25.pdf",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "trajectory",
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "none — all facts verified against primary sources. Date: arXiv:2507.12213 (Hibberd, Crowl, Loeb) submitted 2025-07-16; abstract states 3I/ATLAS \"approaches surprisingly close to Venus, Mars and Jupiter, with a probability of <~0.005%\". Distances: Mars 0.194 AU (~29M km) on 2025-10-03; Venus 0.65 AU on 2025-11-03; Jupiter 53.56+/-0.45M km (0.358+/-0.003 AU) on 2026-03-16 — all match the entry. The P=0.00005 figure appears in Loeb's Nov 23, 2025 \"Anomalies of 3I/ATLAS, Organized by Likelihood\" essay and is the same value as 0.005% (fraction vs percent), so the parenthetical is accurate though a reader could misread it as a revised smaller number. Item is #3 in Loeb's 22-anomaly list (exact wording: \"The arrival time of 3I/ATLAS was fine-tuned to bring it to minimum distances of 29 and 54 million kilometers from Mars and Jupiter, respectively, and be unobservable from Earth at perihelion\"). Loeb's on-record statement \"there are eight anomalies that endow it with a rank of 4 on the Loeb scale\" supports the loeb_take. Wright's Nov 9, 2025 AstroWright post verbatim: \"Claiming the arrival was 'fine tuned' is classic question begging\" and \"Close, not close, both anomalous!\", citing Steve Desch that a comet in the ecliptic unsurprisingly passes near some planets — the official_explanation is a fair rendering. loeb_quote is empty, so no quote-verification issue. All three source URLs are real and on-topic."
+  },
+  {
+   "id": "A-04",
+   "title": "Perihelion hidden behind the Sun",
+   "date": "2025-07-16",
+   "observation": "Perihelion occurred Oct 29, 2025 (Oct 29-30 across time zones) at 1.356 AU while 3I/ATLAS was on the far side of the Sun as seen from Earth (solar conjunction Oct 21) — unobservable by ground-based telescopes from late September until it re-emerged in early December 2025.",
+   "loeb_take": "In the July 16, 2025 arXiv paper (Hibberd, Crowl & Loeb, arXiv:2507.12213), Loeb and coauthors flagged that this geometry would let a technological probe execute a clandestine reverse Solar Oberth maneuver — an optimal braking burn at maximum solar depth — while hidden from Earth. In his ranked anomaly lists this is folded into the 'fine-tuned arrival time' anomaly (P=0.00005, Nov 23, 2025 Medium list), and he explicitly called for post-conjunction astrometry to check for maneuvers.",
+   "official_explanation": "Perihelion viewing geometry is set by chance orbital phase; solar conjunctions like this are routine for comets. Moreover the object was NOT unobserved: STEREO (Sep 11-Oct 2), SOHO/LASCO (Oct 16-26), GOES-19 CCOR-1, PUNCH, and Parker Solar Probe's WISPR (Oct 15-Nov 5) imaged it through conjunction and perihelion, Mars orbiters (MRO/HiRISE, ExoMars TGO) imaged it at the ~Oct 3 Mars flyby, and Europa Clipper observed it Nov 6. It re-emerged on a trajectory consistent with a natural comet; the small (~3.7-sigma) non-gravitational acceleration reported by JPL/MPC is attributed by most astronomers to ordinary cometary outgassing.",
+   "loeb_quote": "The eclipse by the Sun from Earth of 3I/ATLAS at perihelion, would allow it to conduct a clandestine reverse Solar Oberth Manoeuvre, an optimal high-thrust strategy for interstellar spacecraft to brake and stay bound to the Sun.",
+   "quote_source": "Hibberd, Crowl & Loeb, 'Is the Interstellar Object 3I/ATLAS Alien Technology?', arXiv:2507.12213 (submitted Jul 16, 2025)",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2507.12213",
+    "https://lweb.cfa.harvard.edu/~loeb/HCL25.pdf",
+    "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://science.nasa.gov/blogs/parker-solar-probe/2025/12/19/nasas-parker-solar-probe-observes-interstellar-comet-3i-atlas/",
+    "https://en.wikipedia.org/wiki/3I/ATLAS"
+   ],
+   "viz_hint": "timing",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is real and date is exact (arXiv:2507.12213 v1 submitted 2025-07-16). Fixes: (1) Oberth claim refined — the Hibberd/Crowl/Loeb paper describes a clandestine REVERSE Solar Oberth maneuver to brake and stay bound to the Sun, not merely a 'course change'; added the verified exact quote and attribution (paper is co-authored, not Loeb alone). (2) 'Final list' softened to 'ranked anomaly lists' — the folding into the fine-tuned-arrival anomaly (P=0.00005, incl. 'be unobservable from Earth at perihelion') is verified in his Nov 23, 2025 'Anomalies of 3I/ATLAS, Organized by Likelihood' (15 anomalies); his last list had 22. (3) Official explanation: removed unverified 'roughly half of comets are poorly placed' statistic; corrected spacecraft list and dates (STEREO Sep 11–Oct 2; SOHO/LASCO Oct 16–26; GOES-19 CCOR-1; PUNCH; Parker Solar Probe WISPR Oct 15–Nov 5; Mars orbiters MRO/HiRISE and ExoMars TGO at the ~Oct 3 Mars flyby; Europa Clipper Nov 6); reworded 'emerged on the predicted natural-comet trajectory' to acknowledge the reported ~3.7-sigma non-gravitational acceleration that mainstream astronomers attribute to normal cometary outgassing. (4) Noted ground observability resumed early December 2025 (conjunction from late September). Perihelion Oct 29, 2025 at ~1.356 AU confirmed."
+  },
+  {
+   "id": "A-05",
+   "title": "Sunward anti-tail / collimated sunward jet",
+   "date": "2025-08-05",
+   "observation": "The Hubble image of July 21, 2025 showed the dust distribution extended toward the Sun, about ten times longer than wide, with no classical dust tail; a sunward anti-tail re-appeared in July-August and again in November 2025, eventually reaching ~1 million km. Mars HiRISE imaging on Oct 2, 2025 also showed a glowing extension ahead of the object along its direction of motion.",
+   "loeb_take": "Loeb argued this is a genuine sunward-pointing jet, not the perspective illusion seen in thousands of normal comets (P<0.001 in his Nov 23, 2025 likelihood-ordered list), and that sustaining a collimated sunward plume is more naturally explained by a thruster pointed at the Sun for braking than by sublimating ice.",
+   "official_explanation": "Anti-tails and sunward fans are well-documented comet phenomena; Jewitt's HST modeling explains the geometry with large, slow-moving dust grains ejected from the sunlit hemisphere that lag the nucleus, combined with projection effects. AstroWright notes the underlying mechanism has been understood for ~50 years and similar features appear in comets like 17P/Holmes and C/2016 R2.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://thedebrief.org/3i-atlas-displays-more-anomalies-as-latest-data-confirms-strange-object-has-developed-an-anti-solar-tail/",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "none — all claims verified against primary sources. Hubble image date (July 21, 2025), ~10x elongation (Loeb deprojects to ~11.6x), anti-tail in July-August and November 2025, ~1 million km sunward jet extent (0.95M km measured Nov 9, 2025), HiRISE Oct 2, 2025 direction-of-motion extension, P<0.001 in Loeb's Nov 23, 2025 likelihood-ordered list, Jewitt & Luu's large-slow-grain HST model (100 um grains at ~5 m/s from sunlit hemisphere), and Wright's Nov 9, 2025 AstroWright post citing Sekanina 1974 (\"understood for 50 years\") with 17P/Holmes and C/2016 R2 examples are all accurate. Loeb quote field is empty so no wording to verify; loeb_take is a fair paraphrase of his published thruster-braking speculation. Optional (not applied): could add Loeb's \"Remarkable Large-Scale Structure of Anti-Tail and Tail Jets\" Medium essay as the direct source for the ~1 million km figure."
+  },
+  {
+   "id": "A-06",
+   "title": "CO2-dominated coma; water only ~4% of plume",
+   "date": "2025-08-25",
+   "observation": "JWST NIRSpec observations of Aug 6, 2025 at 3.32 AU (Cordiner et al., arXiv:2508.18209) found a carbon-dioxide-dominated gas coma with CO2/H2O = 7.6 +/- 0.3 (~8:1) — among the highest ratios ever observed in any comet, ~4.5 sigma above the trend for solar-system comets (survey median ~0.12). By mass the plume was ~87% CO2, ~9% CO, and only ~4% water.",
+   "loeb_take": "Loeb listed the near-absence of water — the defining volatile of familiar comets — as a minor anomaly at P<0.1 in his 13-item likelihood-ranked list (Nov 23, 2025), suggesting the 'gas plume' might not be cometary sublimation at all but sunlight releasing ices and dust accumulated on the surface of a technological object during its interstellar journey. It is not a separate item in his final 22-anomaly list (Mar 12, 2026), compiled after post-perihelion water detections.",
+   "official_explanation": "A CO2-rich nucleus is natural for a body formed near its parent disk's CO2 snowline or processed by galactic cosmic rays over billions of years (arXiv:2510.26308); at >3 AU water sublimates inefficiently while CO2 vents freely. Water/OH production rose strongly closer to the Sun — MeerKAT detected 1665/1667 MHz OH absorption on Oct 24, 2025 (ATel #17473), and SOHO/SWAN measured ~3.2e29 water molecules/s near perihelion — and interstellar comets are expected to show compositional diversity.",
+   "loeb_quote": "The gas plume surrounding 3I/ATLAS contains only 4% water by mass, a dominant constituent of familiar solar-system comets.",
+   "quote_source": "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2508.18209",
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://www.universetoday.com/articles/3iatlass-coma-is-largely-carbon-dioxide",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/",
+    "https://ui.adsabs.harvard.edu/abs/2025ATel17473....1P/abstract",
+    "https://arxiv.org/abs/2510.26308"
+   ],
+   "viz_hint": "spectrum",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Entry is substantively accurate; three fixes: (1) \"the highest ratio ever measured in any comet\" overstates the paper — Cordiner et al. say CO2/H2O = 7.6 +/- 0.3 is \"among the highest ever observed in a comet\" (4.5 sigma above the solar-system trend confirmed). Title/observation wording softened accordingly. (2) The claim that the anomaly appeared in Loeb's 15-item list (Dec 18, 2025) could not be verified; verified facts are: it appears as a minor anomaly at P<0.1 in his 13-item likelihood-ranked list (Medium, Nov 23, 2025) and is NOT a separate item in his final 22-anomaly list (Medium, Mar 12, 2026). The unverified 15-list claim was removed. (3) Added a verified Loeb quote from the Nov 23, 2025 Medium post (\"The gas plume surrounding 3I/ATLAS contains only 4% water by mass, a dominant constituent of familiar solar-system comets.\"). All other facts confirmed: obs date UT 2025-08-06 at rh ~3.32 AU, arXiv submission 2025-08-25, mass split 87% CO2 / 9% CO / ~4% H2O, official explanation real and fairly stated (cosmic-ray processing paper arXiv:2510.26308; MeerKAT 1665/1667 MHz OH absorption detected Oct 24, 2025, ATel #17473; post-perihelion SOHO/SWAN water production ~3.17e29 molecules/s on Nov 6, 2025)."
+  },
+  {
+   "id": "A-07",
+   "title": "Nickel emission without iron (nickel-carbonyl signature)",
+   "date": "2025-08-28",
+   "observation": "VLT/UVES spectroscopy (early Jul-Aug 21, 2025; ~4.4 to 2.85 AU inbound) detected strong atomic nickel (Ni I) emission with iron (Fe I) undetected — by Aug 21 the Ni production rate was 4.6 +/- 0.7 g/s versus CN at 17.6 +/- 2.0 g/s, rising steeply (Q(Ni) proportional to r^-7.7). Keck II/KCWI imaging (Aug 24, published Oct 2025) confirmed the Ni is concentrated within ~600 km of the nucleus (e-folding radius 593.7 +/- 14.8 km vs 841 km for CN). The Ni/CN ratio (~0.1) is orders of magnitude above the solar-system comet median and higher than 2I/Borisov.",
+   "loeb_take": "Loeb stressed that release of nickel without iron matches the industrial nickel-refining process via nickel tetracarbonyl, Ni(CO)4 — writing that nickel without iron 'is a signature of industrial production of nickel alloys' and that the carbonyl channel is 'an extremely rare and exotic possibility in comets, whereas it is a standard technology for industrial nickel refining.'",
+   "official_explanation": "Ni and Fe emission had already been detected together (at roughly equal abundance) in ~20 solar-system comets and in 2I/Borisov (Manfroid et al. 2021), with low-temperature carbonyl/metal-organic sublimation a leading natural mechanism. For 3I/ATLAS, the observing teams themselves proposed natural in-situ Ni(CO)4 (or Ni-organic/PAH complex) formation and photodissociation near the nucleus — which predicts exactly the observed central concentration — with Fe carbonyl being less volatile and Fe I lines harder to excite/detect at large distances. Fe was subsequently detected as 3I/ATLAS approached the Sun (arXiv 2509.26053), and the Ni/Fe ratio dropped rapidly with decreasing heliocentric distance, trending toward normal comet values. Astronomers (e.g. Jason Wright) call it an extreme but chemically explicable value, not evidence of artificial nickel plating.",
+   "loeb_quote": "is a signature of industrial production of nickel alloys",
+   "quote_source": "Avi Loeb, 'A Steeply-Rising Production of Cyanide and Nickel Without Iron in the Gas Plume Around 3I/ATLAS', Medium, Aug 28, 2025 (verified)",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2508.18382",
+    "https://arxiv.org/abs/2510.11779",
+    "https://arxiv.org/abs/2509.26053",
+    "https://avi-loeb.medium.com/a-steeply-rising-production-of-cyanide-and-nickel-without-iron-in-the-gas-plume-around-3i-atlas-536e20674303",
+    "https://avi-loeb.medium.com/images-of-nickel-and-cyanide-around-3i-atlas-from-the-keck-telescope-5aa79f94eaa5",
+    "https://watchers.news/2025/10/16/unusual-nickel-and-cyanide-emissions-detected-around-interstellar-object-3i-atlas/",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "spectrum",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "1) Date confirmed: Loeb's nickel-without-iron Medium essay published 2025-08-28. 2) Ni 4.6+/-0.7 g/s and CN 17.6+/-2.0 g/s are real but are the VLT (UVES) rates as of Aug 21, 2025 (arXiv 2508.18382), not Keck; Keck KCWI (Aug 24, arXiv 2510.11779) measured lower rates (~0.9 g/s Ni, Q(CN)=(9.1+/-0.4)e22/s ~3.9 g/s) and the ~600 km concentration (Ni e-folding radius 593.7+/-14.8 km). Ni/CN ~0.1 is orders of magnitude above the solar-system comet median but only modestly higher than 2I/Borisov. 3) \"P<0.001\" is invented — no probability appears in either Loeb essay; removed. 4) Quote \"observed only in human industrial processes\" not verifiable; replaced with verified Loeb wording \"Nickel without iron is a signature of industrial production of nickel alloys\" (Aug 28, 2025 essay). 5) Official explanation was wrong in claiming Ni-without-Fe was previously measured in many comets and Borisov — those objects showed Ni AND Fe together at roughly equal abundance (Manfroid et al. 2021); corrected to note the observing teams proposed natural carbonyl/metal-organic chemistry, and that Fe was later detected in 3I/ATLAS (arXiv 2509.26053) with Ni/Fe falling rapidly toward perihelion. Jason Wright rebuttal source verified real."
+  },
+  {
+   "id": "A-08",
+   "title": "Extreme negative polarization",
+   "date": "2025-09-05",
+   "observation": "Pre-perihelion polarimetry with FORS2/VLT, ALFOSC/NOT and FoReRo2 (phase angles 7.7-22.4 deg) revealed an unprecedentedly deep, narrow negative polarization branch: minimum -2.7% at 7 deg phase angle with an inversion angle of ~17 deg — a combination never seen in any asteroid or comet, including 2I/Borisov (arXiv:2509.05181, Sept 5, 2025).",
+   "loeb_take": "Loeb listed this at P<0.01 as a medium anomaly: light-scattering behavior unprecedented among all known comets, possibly related to the anomalous sunward anti-tail, and another entry in a chain of coincidences whose combined probability he multiplied to argue 3I/ATLAS is 'extremely rare and mysterious'. It stayed as #21 in his final 22-item list.",
+   "official_explanation": "The measuring team's own conclusion is natural: the polarization is extreme but continuous with behavior of trans-Neptunian objects and Centaur Pholus, implying fine, possibly water-ice-bearing aggregate dust — evidence 3I is a distinct type of comet, expanding known diversity. AstroWright: negative polarization itself is normal for comets; this is just a stronger case, and no one has proposed why a spacecraft would produce it.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2509.05181",
+    "https://avi-loeb.medium.com/extreme-negative-polarization-of-3i-atlas-75d01d13d5c7",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "polarization",
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "none — every checkable claim verified against primary sources. Date matches arXiv:2509.05181 submission (Sept 5, 2025; Loeb responded Sept 10). Instruments, phase-angle range 7.7-22.4 deg, minimum -2.7% at 7 deg, and ~17 deg inversion angle all match the paper abstract verbatim. Loeb's P<0.01 \"medium anomaly\" classification and the multiplied-probabilities / \"extremely rare and mysterious\" phrasing are verified in his Nov 23, 2025 post \"Anomalies of 3I/ATLAS, Organized by Likelihood\"; the #21-of-22 ranking is verified in his Mar 12, 2026 post \"3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies\" (still his most current comprehensive list as of mid-2026), which also confirms the anti-tail linkage. Official explanation fairly represents both the measuring team's conclusion (continuity with TNOs/Centaur Pholus, fine possibly water-ice-bearing dust, new class of small bodies) and Wright's Nov 9, 2025 AstroWright counterpoint. Optional enhancement (not a correction): loeb_quote could be filled with the verified sentence \"3I/ATLAS shows extreme negative polarization, unprecedented for all known comets, including 2I/Borisov. This unusual polarization may be related to its unusual anti-tail.\" sourced to the Mar 12, 2026 Medium post."
+  },
+  {
+   "id": "A-09",
+   "title": "Arrival direction matches the 1977 Wow! Signal",
+   "date": "2025-09-28",
+   "observation": "Loeb noted that 3I/ATLAS's back-traced position in mid-August 1977 (RA 19h40m = 295 deg, Dec -19 deg) lies ~4 deg in RA and 8 deg in Dec (~9 deg total) from the direction of the famous narrowband 'Wow! Signal' detected by Ohio State's Big Ear telescope on Aug 15, 1977 (RA 19h25m = 291 deg, Dec -27 deg). He put the chance of two random sky directions aligning that closely at ~0.6% (P=0.006).",
+   "loeb_take": "In 'Was the Wow! Signal Emitted from 3I/ATLAS?' (Medium, Sept 28, 2025) Loeb speculated the 1977 signal could have been radio emission from 3I/ATLAS itself, calculating that a transmitter at its then-distance of ~600 AU would have needed 0.5-2 gigawatts — 'the output of a typical nuclear reactor on Earth.' He kept the directional coincidence as anomaly #12 of his final 22-item list (March 12, 2026): arrival 'coincident with the radio Wow! Signal to within 9 degrees, with a probability of 0.6%.'",
+   "official_explanation": "Critics note 9 degrees is enormous in radio-astronomy terms — many times the Big Ear beam size. Penn State's Jason Wright (AstroWright, Nov 9, 2025) wrote '9 degrees from the Wow! Signal is a long way away!... it very definitely did not come from the direction of the Wow! Signal,' calling the anomaly 'ridiculous.' In 1977 the object was ~600 AU away with no plausible natural emission mechanism, and the Wow! Signal itself is widely attributed to terrestrial interference or a transient natural hydrogen-line source (e.g., Abel Mendez's cold hydrogen cloud hypothesis).",
+   "loeb_quote": "The chance of two random directions in the sky being aligned to that level is about 0.6 percent.",
+   "quote_source": "Avi Loeb, 'Was the Wow! Signal Emitted from 3I/ATLAS?', Medium, Sept 28, 2025",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/was-the-wow-signal-emitted-from-3i-atlas-d18d4f0d1f1e",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://www.newsweek.com/interstellar-object-could-be-mysterious-wow-signal-source-astronomer-10846853",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "trajectory",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date (2025-09-28) CONFIRMED — matches the Medium essay's publication date. Numbers CONFIRMED against the essay itself: ~4 deg RA / 8 deg Dec (~9 deg total) offset between the Wow! Signal (RA 19h25m, Dec -27) and 3I/ATLAS's back-traced August 1977 position (RA 19h40m, Dec -19); chance-alignment probability ~0.6%; distance ~600 AU in 1977. Anomaly #12 CONFIRMED — Loeb's final list ('...22 Mysterious Anomalies', Medium, March 12, 2026) lists the Wow direction coincidence as item 12. FIXED (1): the claim that the back-tracing was 'done with Adam Hibberd' (and the 'Amir Siraj-era style' framing) is unsupported — the Sept 28 essay is a solo Loeb piece with no Hibberd/Siraj mention; removed. FIXED (2): 'hundreds of Big Ear beam widths' could not be verified as AstroWright's (Jason Wright's) wording; replaced with his verbatim wording ('9 degrees from the Wow! Signal is a long way away! ... it very definitely did not come from the direction of the Wow! Signal', Nov 9, 2025 post, where he also calls the anomaly 'ridiculous'). Wright's hydrogen-cloud/interference attribution of the Wow signal is fairly stated (matches Abel Mendez's hydrogen-cloud hypothesis and the mainstream interference view). FIXED (3): empty loeb_quote filled with a verified verbatim sentence from the Sept 28 essay. Added Loeb's transmitter-power figure (0.5-2 GW at 600 AU) to the loeb_take and added the 22-anomalies essay as a source."
+  },
+  {
+   "id": "A-10",
+   "title": "Non-gravitational acceleration at perihelion",
+   "date": "2025-10-31",
+   "observation": "JPL's post-perihelion orbit solution (Davide Farnocchia, Oct 30, 2025) required a radial non-gravitational acceleration with A1 ~ 1.6e-6 AU/day^2 normalized at 1 AU — equivalent to a radial acceleration of ~135 km/day^2 (~9e-7 AU/day^2) at the 1.36 AU perihelion distance, plus a transverse component of ~60 km/day^2. As the data arc grew the coefficient dropped: ~4e-7 AU/day^2 by Nov 24, then ~6.8e-8 AU/day^2 under a 1/r^2 (CO2-sublimation) model. In 2026 Loeb continued the thread, arguing (Mar 2026) the acceleration is not directed purely away from the Sun and linking it (Apr 2026) to the object's three-jet system.",
+   "loeb_take": "In 'First Evidence for a Non-Gravitational Acceleration of 3I/ATLAS at Perihelion' and 'Afterthoughts...' (both Oct 31, 2025), Loeb calculated that producing the initial acceleration by rocket-effect outgassing would require 3I/ATLAS to shed on the order of a tenth to a sixth of its mass near perihelion (his figure quoted as ~13% in critiques) — at least 5.5 billion tons from a >=33-billion-ton nucleus — which should have produced a massive observable gas cloud by December. Absent that cloud, he argued, the acceleration 'might be regarded as a technological signature' of an internal propulsion system.",
+   "official_explanation": "Non-gravitational accelerations are standard comet behavior; the measured value shrank more than 20-fold as more astrometry accumulated, and the final magnitude is consistent with ordinary volatile outgassing (arXiv:2511.07450 finds CO-driven outgassing reproduces it with no exotic volatiles needed). Early solutions were inflated by systematic astrometric biases — ~0.5 arcsec tailward coma-photocenter offsets and the October solar-conjunction data gap (arXiv:2603.00782) — and Jason Wright noted that even 13% mass loss near perihelion 'is hardly weird' for a comet.",
+   "loeb_quote": "If we do not observe a massive cloud of gas around 3I/ATLAS in December, then the reported non-gravitational acceleration near perihelion might be regarded as a technological signature.",
+   "quote_source": "https://avi-loeb.medium.com/afterthoughts-on-the-non-gravitational-acceleration-of-3i-atlas-at-perihelion-97c609e24fc6",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/first-evidence-for-a-non-gravitational-acceleration-of-3i-atlas-at-perihelion-2698f6a453fe",
+    "https://avi-loeb.medium.com/afterthoughts-on-the-non-gravitational-acceleration-of-3i-atlas-at-perihelion-97c609e24fc6",
+    "https://avi-loeb.medium.com/updates-on-the-non-gravitational-acceleration-of-3i-atlas-89ee7220c5d7",
+    "https://arxiv.org/abs/2511.07450",
+    "https://arxiv.org/abs/2603.00782",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/",
+    "https://avi-loeb.medium.com/the-non-gravitational-acceleration-of-3i-atlas-is-not-directed-away-from-the-sun-f478b82f7175"
+   ],
+   "viz_hint": "acceleration",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "The anomaly is real and the core JPL numbers (A1 1.6e-6 -> 4e-7 -> 6.8e-8 AU/day^2) are confirmed, but four fixes were needed. (1) Date: Loeb's 'First Evidence' post published Oct 31, 2025 (JPL solution Oct 30), not Nov 5 — corrected to 2025-10-31. (2) Unit conflation: 135 km/day^2 is the radial acceleration at the 1.36 AU perihelion distance (~9e-7 AU/day^2), not the 1-AU-normalized A1 of 1.6e-6 AU/day^2; both are real but were incorrectly equated. (3) The '(P<0.1)' probability is invented — no such figure appears in Loeb's posts; the only nearby likelihood (0.00004) belongs to the separate perijove/Hill-radius anomaly. Removed. Loeb's own mass-loss figures were 'about a tenth' then 'at least a sixth' (>=5.5 of >=33 billion tons); the exact '13%' number appears in Jason Wright's critique of Loeb's math, so the take was reworded accordingly. (4) Empty loeb_quote filled with a verified verbatim sentence from the Oct 31 'Afterthoughts' post. Official explanation was fairly stated and real: Wright's 'hardly weird' quote is verbatim (Nov 9, 2025); arXiv:2511.07450 (Neukart) is real, though it credits CO-driven (not CO2/H2O) outgassing since CO2 is 'radiatively dominated and dynamically ineffective' — wording adjusted; the photocenter-bias claim is supported by arXiv:2603.00782 (~0.5 arcsec tailward astrometric bias, solar-conjunction gap), added as a source. Also added Loeb's Mar/Apr 2026 follow-ups (acceleration not anti-solar; three-jet linkage) for post-January-2026 currency."
+  },
+  {
+   "id": "A-11",
+   "title": "Anomalous brightening and blue color at perihelion",
+   "date": "2025-10-30",
+   "observation": "Analysis of STEREO-A (SECCHI HI1/COR2), SOHO/LASCO C3 and GOES-19 CCOR-1 coronagraph imagery (Zhang, Lowell Observatory & Battams, NRL; arXiv:2510.25035, submitted Oct 28, 2025) showed 3I/ATLAS brightening near perihelion roughly as r^-7.5 (±1.0) — far steeper than typical comets (r^-2 to r^-4) — while its color turned bluer than the Sun, unusual because dust comae normally redden reflected sunlight.",
+   "loeb_take": "Loeb flagged it on Oct 30, 2025 as the ninth anomaly on his running list, asking whether the object 'employs a power source hotter than the Sun'. In his Nov 23, 2025 likelihood ranking he placed it in his least-anomalous category at P<0.1: it 'brightened faster than any known comet' while bluer than sunlight, which he suggested might be 'a signature that its engine turned on' near perihelion rather than sunlight-driven sublimation. It appears as item #22 on his final 22-anomaly list (March 12, 2026).",
+   "official_explanation": "A gas-dominated coma explains both facts: rapid CO2/CO/H2O outgassing close to the Sun drives steep brightening, and gas emission bands (CN, C2, CO+) are intrinsically blue, dominating over reddish dust in broadband coronagraph photometry. Zhang & Battams themselves conclude the blue color is consistent with gas emission contributing a substantial fraction of the visible brightness. Fast-moving interstellar comets get less heating time inbound, so late, sharp activity onsets are expected.",
+   "loeb_quote": "Near perihelion, 3I/ATLAS brightened faster than any known comet and was bluer than the Sun",
+   "quote_source": "'3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies', Medium, March 12, 2026 (same wording in 'Anomalies of 3I/ATLAS, Organized by Likelihood', Nov 23, 2025)",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2510.25035",
+    "https://avi-loeb.medium.com/3i-atlas-rapidly-brightens-and-gets-bluer-than-the-sun-near-perihelion-3bf100df8390",
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://skyandtelescope.org/astronomy-news/updates-on-interstellar-comet-3i-atlas-new-images-many-tails-and-non-gravitational-forces/",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "lightcurve",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is real and well-sourced, but three fixes: (1) DATE: entry said 2025-11-10; the Zhang & Battams paper (arXiv:2510.25035, 'Rapid Brightening of 3I/ATLAS Ahead of Perihelion', later RNAAS 10.3847/2515-5172) was submitted Oct 28, 2025, and Loeb's essay '3I/ATLAS Rapidly Brightens and Gets Bluer than the Sun Near Perihelion' is dated Oct 30, 2025 — corrected date to 2025-10-30 (Nov 10 was ~12 days late, borderline within tolerance but wrong). (2) AFFILIATION: Qicheng Zhang is at Lowell Observatory; only Karl Battams is at NRL — entry credited both to NRL. (3) LOEB LIST HISTORY: Loeb introduced this as the NINTH anomaly on Oct 30, 2025; in his Nov 23, 2025 'Anomalies of 3I/ATLAS, Organized by Likelihood' essay it sits in Category III (least anomalous) at P<0.1; in the final March 12, 2026 '22 Mysterious Anomalies' essay it appears as item #22 — so 'remained #22' is wrong wording (it did not carry the number 22 throughout). CONFIRMED: r^-7.5 (±1.0) brightening from STEREO-A SECCHI, SOHO/LASCO C3, and GOES-19 CCOR-1 photometry; bluer-than-Sun color; P<0.1 rating; the quote is verbatim — the full sentence in both the Nov 23, 2025 and Mar 12, 2026 essays reads 'Near perihelion, 3I/ATLAS brightened faster than any known comet and was bluer than the Sun', and Loeb's 'engine turned on' suggestion is genuine (Oct 30 essay also asks 'Does it employ a power source that is hotter than the Sun?'). Official explanation is fairly stated: Zhang & Battams themselves conclude the blue color is 'consistent with gas emission contributing a substantial fraction of the visible brightness'; gas-emission-band blueness (CN, C2, CO+) and steep late activity onset are the mainstream reading. All three source URLs are real (Sky & Telescope article exists; AstroWright post dated Nov 9, 2025)."
+  },
+  {
+   "id": "A-12",
+   "title": "Extreme mass combined with extreme speed",
+   "date": "2025-11-23",
+   "observation": "From the smallness of the non-gravitational acceleration (<15 m/day^2, from 4,022 MPC astrometric observations May 15-Sep 23, 2025) given Webb-measured outgassing of ~150 kg/s, Loeb and colleagues derived (arXiv 2509.21408, Sep 25, 2025) a minimum nucleus mass of ~33 billion tons and minimum diameter ~5 km — roughly a million times 'Oumuamua and a thousand times Borisov — while 3I/ATLAS also moves faster than both (hyperbolic excess speed ~58 km/s vs 26 km/s for 'Oumuamua and 32 km/s for Borisov). After perihelion, Loeb revised the mass estimate down to ~1 billion tons (~100,000x 'Oumuamua) once a small non-gravitational acceleration was detected, but kept the mass-speed pairing on his anomaly lists.",
+   "loeb_take": "In his Nov 23, 2025 likelihood-ranked list Loeb assigned this P<0.001 (a Category I 'major' anomaly): known reservoirs of interstellar material should not regularly deliver objects ~a million times more massive than 'Oumuamua, and the mass-speed combination compounds the statistical strain. It appears as anomaly #20 of his final 22 (March 12, 2026). The large nucleus mass also feeds his separate 'mass-budget discrepancy' argument (anomaly #1 of the 22): the implied population of 3I-like objects would exceed the heavy-element mass available in interstellar space.",
+   "official_explanation": "Jason Wright (AstroWright, Nov 9, 2025) shows the mass floor rests on claiming a non-gravitational-acceleration precision of 1e-10 AU/day^2 when the real precision is ~1e-7 — a thousand-fold error — and notes Loeb's own non-gravitational-acceleration anomaly uses data at the coarser precision ('he can't have it both ways'); mainstream size estimates keep the nucleus km-scale (Hubble upper limit ~2.8 km diameter). The higher speed is separately explained by mainstream kinematics: 3I/ATLAS's velocity is consistent with an origin in the Galaxy's older, dynamically hotter thick-disk population, implying a kinematic age of ~7-10 Gyr — consistent with later isotope evidence of great age.",
+   "loeb_quote": "The nucleus of 3I/ATLAS is roughly a million times more massive than 1I/`Oumuamua and a thousand times more massive than 2I/Borisov, while moving faster than both",
+   "quote_source": "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/anomalies-of-3i-atlas-organized-by-likelihood-af20fb3b6d21",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/",
+    "https://arxiv.org/abs/2509.21408",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://en.wikipedia.org/wiki/3I/ATLAS"
+   ],
+   "viz_hint": "size",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is real and mostly accurate; fixes: (1) DATE: P<0.001 and the mass-speed pairing come from Loeb's 'Organized by Likelihood' post of 2025-11-23 (entry said 11-20; within tolerance but corrected); the 33-billion-ton derivation itself is from arXiv 2509.21408, posted ~2025-09-25 — now noted in observation. (2) NUMBERS: all verified — 33 billion tons minimum mass / >=5 km diameter from non-grav accel <15 m/day^2 over 4,022 MPC observations (2025-05-15 to 09-23) plus Webb outgassing 150 kg/s; P<0.001 confirmed; 'anomaly #20 of the final 22' confirmed against Loeb's 2026-03-12 22-anomaly post; v-inf 58 vs 26/32 km/s confirmed. Added nuance: Loeb later revised mass to ~1 billion tons (~10^5x 'Oumuamua) after perihelion non-grav acceleration was detected, though his Nov 23 list retained 'a million times'. (3) QUOTE: added Loeb's verified verbatim sentence from the Nov 23 post (entry had none). (4) OFFICIAL EXPLANATION: Wright's 1e-10 vs 1e-7 AU/day^2 thousand-fold precision error is verbatim real, and he adds that Loeb's own non-grav-acceleration anomaly relies on the coarser precision ('he can't have it both ways'); BUT the thick-disk/speed explanation is NOT in Wright's post — it is mainstream kinematics literature (thick-disk origin, kinematic age ~7-10 Gyr). Re-attributed. (5) CONFLATION: Loeb's 'mass budget discrepancy' is a distinct anomaly (#1 of 22, population vs interstellar reservoir); the nucleus-mass anomaly (#20) feeds it but is not identical — loeb_take reworded to distinguish. Added arXiv source."
+  },
+  {
+   "id": "A-13",
+   "title": "Perijove distance equals Jupiter's Hill radius",
+   "date": "2025-11-22",
+   "observation": "The predicted minimum distance from Jupiter on Mar 16, 2026 — 53.445 +/- 0.06 million km — matched Jupiter's Hill radius (53.502 million km) to within one standard deviation, about one part in a thousand. Loeb put the probability of the coincidence at less than 0.00004 (about 1 in 26,000, scaled to Jupiter's orbital diameter) and noted the non-gravitational acceleration measured near perihelion shifted the perijove by ~0.1 million km — exactly the course correction needed to produce the match.",
+   "loeb_take": "In 'An Extraordinary New Anomaly of 3I/ATLAS' (Nov 22, 2025), Loeb argued a passage precisely at the Hill radius — where Jupiter's Lagrange points L1 and L2 sit — is where an artificial object could release technological devices into bound Jovian orbits with minimal fuel and orbital corrections, and suggested Juno or other human-made orbiters at Jupiter could search for new objects orbiting the planet.",
+   "official_explanation": "Astronomers called the statistics post-hoc numerology: astrophysicists including Scott Manley and David Kipping publicly flagged flaws in Loeb's probability analysis, and critics (e.g. Steve Desch, Jason Wright) noted such 'fine-tuning' probabilities are computed after the fact from one of many possible 'special' distances. The prediction itself dissolved: the actual March 16, 2026 pass occurred at 53.6 million km (0.358330 AU) — slightly outside the Hill radius — with ESA's JUICE observing an ordinary cometary coma with dust and ion tails, and no new satellites of Jupiter were reported.",
+   "loeb_quote": "the level of non-gravitational acceleration was finely tuned",
+   "quote_source": "'An Extraordinary New Anomaly of 3I/ATLAS', Medium, November 22, 2025",
+   "loeb_scale": 4,
+   "sources": [
+    "https://avi-loeb.medium.com/a-remarkable-new-anomaly-of-3i-atlas-420065c2cddf",
+    "https://avi-loeb.medium.com/q-a-about-3i-atlas-a-week-before-its-closest-approach-to-jupiter-2d41a2bcccfd",
+    "https://en.wikipedia.org/wiki/3I/ATLAS",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "trajectory",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date (2025-11-22), title, distances (53.445 +/- 0.06 vs 53.502 million km), the one-part-in-a-thousand match, and the quote were all verified against the Medium essay itself — the quote \"the level of non-gravitational acceleration was finely tuned\" is verbatim. Three fixes: (1) loeb_take: the Nov 22 essay never says \"daughter probes\" and never names JUICE or Europa Clipper; it proposes 3I/ATLAS could release \"technological devices\" as artificial satellites at Jupiter's Lagrange points L1/L2 (where fuel/correction needs are minimal) and says new objects orbiting Jupiter could be spotted by Juno or \"other human-made orbiters around Jupiter\" — rewritten to that verified wording. (2) official_explanation: the \"bound orbits require ~1/3 to 1/2 of the Hill radius\" line is real orbital mechanics but no named critic was found using it against this anomaly; replaced with the verified criticisms (Scott Manley and David Kipping publicly flagged flaws in Loeb's statistical analysis; the AstroWright/Steve Desch critique of post-hoc probability numerology) and added the verified outcome: the actual March 16, 2026 perijove was 53.6054 million km (0.358330 AU), slightly OUTSIDE the 53.502 million km Hill radius, dissolving the claimed exact match; JUICE/JANUS observed a normal coma with dust and ion tails and no new Jovian satellites were reported. (3) Probability: Loeb stated the likelihood as \"smaller than 0.00004\" (~1 in 26,000) scaled to Jupiter's orbital diameter, not a computed P=0.00004 — softened accordingly."
+  },
+  {
+   "id": "A-14",
+   "title": "Dust particle size paradox",
+   "date": "2025-12-25",
+   "observation": "Sustaining the ~400,000 km sunward anti-tail jet requires dust grains far larger than the sub-micron particles that dominate ordinary comet comae: Loeb brackets them between ~1 and ~100 microns (characteristic radius ~10 microns) — big enough to resist solar radiation pressure, small enough for gas drag to accelerate to jet speeds. Millimeter-scale or larger grains are excluded because the total ejected dust mass needed to produce the observed scattered sunlight would become implausibly large for the nucleus.",
+   "loeb_take": "Loeb kept this as anomaly #16 of his final 22-item list (Mar 12, 2026): the glow is dominated by particles much larger than common sub-micron interstellar dust, yet they cannot exceed millimeter size without mass-budget inconsistencies — an anomalous size bracket for a comet. From ~10-micron grains he estimated ~10 million kg of dust shed (~3.3 kg/s) and asked whether 3I/ATLAS accumulated such grains in a molecular cloud.",
+   "official_explanation": "Refereed HST analysis (Jewitt & Luu 2025, ApJL) self-consistently explains the sunward fan that evolved into an anti-sunward tail as large grains (~100 microns) ejected slowly (~5 m/s) — behavior well documented in low-activity and distantly active comets — and an MNRAS study of the physics of cometary anti-tails as observed in 3I/ATLAS reaches similar conclusions. Mass-loss estimates fit cometary norms once realistic size distributions (not single-size grains) are used; grain properties vary widely between comets and no paradox is recognized in the refereed literature.",
+   "loeb_quote": "3I/ATLAS is therefore anomalous in the size of the particles that dominate the glow of its sunward jet.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-sheds-particles-that-are-much-bigger-than-common-sunlight-scattering-dust-703cc2220df0",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/3i-atlas-sheds-particles-that-are-much-bigger-than-common-sunlight-scattering-dust-703cc2220df0",
+    "https://avi-loeb.medium.com/the-dust-mass-shed-by-3i-atlas-b4ed260addef",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://iopscience.iop.org/article/10.3847/2041-8213/adf8d8",
+    "https://academic.oup.com/mnras/article/545/1/staf2054/8327607",
+    "https://sites.psu.edu/astrowright/2025/09/29/3i-atlass-anti-tail-isnt-unique/"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "(1) DATE: 2025-12-01 is ~3.5 weeks too early. Loeb's particle-size argument was published Dec 25, 2025 (Medium essay '3I/ATLAS Sheds Particles that Are Much Bigger Than Common Sunlight-Scattering Dust') with the mass estimate following Dec 26 ('The Dust Mass Shed by 3I/ATLAS'); his Nov 23, 2025 anomaly list did not yet include this item. Corrected to 2025-12-25. (2) NUMBERS: 'mm-scale or larger' inverts Loeb's claim. He argued grains must be >1 micron and <100 microns (characteristic ~10 microns) to sustain the ~400,000 km anti-tail; millimeter-or-larger grains are the case he EXCLUDED because they would require an untenable total dust mass to produce the observed scattered light. Total shed mass he estimated: ~10 million kg at ~3.3 kg/s (other essays cite 150-500 kg/s peak loss rates near perihelion, a separate figure). (3) LOEB_TAKE: '#16 of his final list' is CONFIRMED — the dust particle size paradox is item 16 of the 22-anomaly list in his Mar 12, 2026 essay '3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies.' But 'standard dust-sublimation picture internally inconsistent' overstates his framing; his framing is an anomalous size bracket (much larger than common sub-micron dust, yet below mm for mass-budget reasons), and he even floated a natural molecular-cloud-origin question. Rewritten. (4) QUOTE: was empty; added verified wording from the Dec 25, 2025 essay: '3I/ATLAS is therefore anomalous in the size of the particles that dominate the glow of its sunward jet.' (5) OFFICIAL EXPLANATION: fair in substance but 'JWST coma modeling' was unsupported — the refereed large-grain explanation is Jewitt & Luu 2025 (HST, ApJL: sunward fan evolving into anti-tail explained by ~100-micron grains ejected at ~5 m/s, consistent with distantly active comets) plus an MNRAS paper on the physics of cometary anti-tails; corrected attribution and added sources."
+  },
+  {
+   "id": "A-15",
+   "title": "Rotation axis aligned with sunward direction",
+   "date": "2025-12-16",
+   "observation": "A wobbling high-latitude jet observed pre-perihelion (Serra-Ricart, Licandro & Alarcon, arXiv 2512.12819) yielded a spin-axis solution (sky-projected PA 280.7 deg, ~15.48 h rotation period). Loeb inferred from this geometry that the nucleus spin axis was aligned to within 8 degrees of the sunward direction as 3I/ATLAS entered the solar system, and put the probability of a random spin pole landing there at 0.5% (P=0.005). An earlier Loeb & Scarmato coma-morphology analysis had found a looser 10-20 degree alignment (1.5-6% probability).",
+   "loeb_take": "First flagged Dec 16, 2025 as the '14th anomaly'; it became anomaly #6 of the final 22. Loeb argued a sun-pointing spin axis gives the object a permanent dayside and nightside, and that if the antipodal jet geometry requires a second sublimating ice pocket placed near the opposite pole with similar precision, the improbability compounds multiplicatively to 0.005 x 0.005 = 2.5e-5 - fine-tuned orientation he suggests is more naturally read as a maintained attitude than a random tumble.",
+   "official_explanation": "Spin-pole solutions derived from fuzzy coma and jet features are highly model-dependent (Loeb's own earlier analysis gave 10-20 degrees, and independent coma-shape fits allowed two different poles), and seasonal activity biases naturally select for apparent sunward alignment since sun-facing active regions dominate observed morphology. A published natural mechanism also exists: torque from asymmetric ice sublimation can drive the spin axis toward the sunward direction, and a ~90-degree obliquity nucleus with a sun-pointed pole naturally explains dayside-dominant sublimation - no design implication required.",
+   "loeb_quote": "The probability for that is 0.5%.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/a-14th-anomaly-of-3i-atlas-alignment-of-its-rotation-axis-with-the-sunward-direction-at-large-e8a08a0705d4",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://arxiv.org/pdf/2512.12819"
+   ],
+   "viz_hint": "other",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core facts all CONFIRMED: date 2025-12-16 (Loeb's '14th anomaly' Medium essay), 8-degree sunward alignment, P=0.005 (0.5%), anomaly #6 in the final 22-anomaly list (Medium, 2026-03-12), and arXiv 2512.12819 is a real paper (Serra-Ricart, Licandro & Alarcon, 'Pre-perihelion detection of a wobbling high-latitude jet in the interstellar comet 3I/ATLAS', A&A). Minor fixes applied: (1) clarified that the arXiv paper only derives the spin-axis orientation (PA 280.7 deg, ~15.48 h period) from jet wobble — the 0.5% sunward-alignment probability is Loeb's own inference, not the paper's claim; (2) loeb_take's vague 'compounds multiplicatively with jet-geometry coincidences' replaced with Loeb's actual argument: a second active ice pocket near the antipodal pole multiplies the improbability to 0.005^2 = 2.5e-5; (3) added Loeb's earlier, weaker version of this claim (Loeb & Scarmato, 10-20 deg, 1.5-6%) as context showing model dependence; (4) official explanation kept and strengthened with the published natural mechanism (sublimation torque aligning the axis; ~90-deg obliquity sun-pointing pole explains dayside sublimation) which Loeb himself acknowledged; (5) empty loeb_quote filled with short verified wording from the 22-anomalies article; added the Dec 16 essay URL to sources."
+  },
+  {
+   "id": "A-16",
+   "title": "Wobbling high-latitude sunward jet",
+   "date": "2025-12-16",
+   "observation": "A pre-perihelion study (arXiv:2512.12819, submitted 2025-12-14; Serra-Ricart, Licandro & Alarcon, A&A 705, L3) detected a faint high-latitude jet in the inner coma at PA 280±10 degrees across seven August 2025 nights, with a periodic 7.74±0.35 h modulation consistent with a high-latitude jet precessing around the nucleus spin axis (implied rotation period 15.48±0.70 h). Loeb argued the sunward wobble requires the jet's base to lie within 8 degrees of the sun-facing rotation pole, and assigned that pole-proximate location a probability of 0.5%.",
+   "loeb_take": "Anomaly #7 on his 22-anomaly list: the jet's base sits improbably close to the sun-facing pole (0.5%). Combined with the matching post-perihelion coincidence at the opposite pole (anomaly #8), he squares it: 0.5% x 0.5% = 0.000025 (2.5e-5) that sunward anti-tail jets appear both before and after perihelion by chance.",
+   "official_explanation": "The discovery paper itself treats this as ordinary comet physics: high-latitude vents that wobble with rotation are documented in many comets (e.g., 67P, Hale-Bopp), and a near-polar active region is exactly what sustained sun-facing illumination would activate. The 'independent' probabilities Loeb multiplies are not independent — they describe the same geometry.",
+   "loeb_quote": "The observed wobble of the pre-perihelion anti-tail jet in the direction of the Sun (as reported here during July and August 2025) requires the base of the jet to be within 8 degrees from the sun-facing pole, with a probability of 0.5%.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2512.12819",
+    "https://avi-loeb.medium.com/the-anti-tail-of-3i-atlas-wobbled-before-perihelion-3a0d286a6ad3",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is real and well-dated, but two numeric/attribution fixes: (1) loeb_take claimed a combined probability of 2.5e-7 from multiplying jet-base location with axis alignment; Loeb's actual combined figure is the square of 0.5% = 0.000025 (2.5e-5), and it combines the PRE-perihelion jet-near-sun-facing-pole coincidence with the POST-perihelion jet near the opposite pole (his anomaly #8) — the axis-alignment 0.5% is a separate anomaly (#6) not part of that product. (2) The observation implied the discovery paper (arXiv:2512.12819, Serra-Ricart, Licandro & Alarcon, submitted 2025-12-14, A&A 705 L3) measured the 8-degree pole proximity; the paper reports a high-latitude jet at PA 280±10° with 7.74±0.35 h periodic modulation (implied rotation 15.48±0.70 h) — the 'within 8 degrees of the sun-facing pole, probability 0.5%' inference is Loeb's. Added Loeb's verified verbatim anomaly #7 quote. Date 2025-12-16 confirmed (Loeb's wobble essay publication date; paper submitted Dec 14). Official explanation is fairly stated."
+  },
+  {
+   "id": "A-17",
+   "title": "Identical collimated jets before and after perihelion",
+   "date": "2025-12-17",
+   "observation": "After perihelion, 3I/ATLAS re-established a collimated sunward anti-tail jet with essentially the same ~8 degree opening angle and orientation as before perihelion, extending to ~1 million km in Dec 15, 2025 imaging — despite the intervening 16-degree (16.4 deg) gravitational deflection of its trajectory, which Loeb noted is exactly twice the jet's opening angle.",
+   "loeb_take": "In his Dec 17, 2025 essay Loeb combined the pre- and post-perihelion pointing likelihoods (0.5% each) into P = 0.5%^2 = 0.000025 (2.5e-5, ~1 in 40,000) — one of the smallest single-coincidence probabilities he quoted for any 3I/ATLAS anomaly — arguing persistent precision pointing through perihelion resembles station-kept thrust. This essay is where he consolidated the count at 15 anomalies (formalized next day in 'The 15 Anomalies of 3I/ATLAS'); he kept the object at rank 4 on his Loeb Classification Scale pending public release of data bracketing the Dec 19 perigee.",
+   "official_explanation": "A jet tied to the nucleus spin axis SHOULD look similar before and after perihelion: gravity deflects the orbit, not the spin axis, so no independent coincidence exists. Josh Winn (in a Dec 18, 2025 exchange Loeb published) objected that Loeb's statistical questions are constructed after already knowing the observations; Jason Wright added that sunward anti-tails/jets are precedented in comets (17P/Holmes, C/2016 R2, C/1961 R1, explained in the literature decades ago) and that multiplying a-posteriori probabilities is statistically invalid.",
+   "loeb_quote": "The fact that a tightly collimated jet appears as the sunward anti-tail both before and after perihelion (while reversing direction at perihelion relative to the direction of motion), has a tiny probability of occurring at random, equal to the square of 0.5% or 0.000025.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-maintained-a-sunward-jet-after-its-gravitational-deflection-by-16-degrees-at-perihelion-e6810be9b3d8",
+   "loeb_scale": 4,
+   "sources": [
+    "https://avi-loeb.medium.com/3i-atlas-maintained-a-sunward-jet-after-its-gravitational-deflection-by-16-degrees-at-perihelion-e6810be9b3d8",
+    "https://avi-loeb.medium.com/the-15-anomalies-of-3i-atlas-should-we-pay-attention-to-them-if-they-were-not-forecasted-77375f9974d5",
+    "https://www.ibtimes.co.uk/avi-loeb-keeps-3i-atlas-rank-4-suspense-builds-new-data-looms-1764870"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core facts confirmed: Dec 17, 2025 essay date; Dec 15, 2025 imaging; ~8 deg opening angle; 16 deg (16.4 deg) deflection; ~1M km jet extent; P=0.5%^2=0.000025; essay lists 15 anomalies; rank 4 held pending perigee (Dec 19) data. Fixed: (1) \"2.5e-7\" was wrong — 0.000025 is 2.5e-5; (2) removed unverifiable superlative \"his single most extreme stated probability\"; (3) added a verified verbatim Loeb quote from the Dec 17 essay; (4) official_explanation attributions sharpened — Winn's documented objection is post-hoc construction of statistical questions (Dec 18 essay exchange), Wright's are that sunward anti-tails/jets are precedented in comets (17P/Holmes, C/2016 R2, C/1961 R1) and that multiplying a-posteriori probabilities is invalid; the spin-axis physics point retained as the standard natural-comet rebuttal. Both source URLs verified real."
+  },
+  {
+   "id": "A-18",
+   "title": "Jet base 'insulation' on the nightside",
+   "date": "2025-12-17",
+   "observation": "Because 3I/ATLAS's rotation axis is nearly aligned with the sunward direction, each anti-tail jet's launch base sits on the nightside for months at a stretch (the post-perihelion jet's base was on the nightside before perihelion, and vice versa), yet the jets are active only while their base faces the Sun.",
+   "loeb_take": "Anomaly #9 of Loeb's 22-item wrap-up list (March 2026; first argued as point #8 in his Dec 17, 2025 essay): for the bases to stay dormant through months of darkness they must be extremely well insulated, but heat should naturally conduct throughout a comet's body — so, per Loeb, the on/off pattern hints at engineered surfaces or controlled venting rather than passive ice.",
+   "official_explanation": "Dayside-dominant activity is textbook comet behavior, and real cometary crusts are naturally superb insulators: Rosetta's MIRO/VIRTIS instruments measured 67P's thermal inertia at roughly 10-60 J m^-2 K^-1 s^-1/2 — a powdery, thermally insulating surface where solar heat penetrates only centimeters. Heat conduction through a porous nucleus is extremely inefficient, contradicting the premise that warmth should spread to the nightside; no exotic insulation is required. No agency-level rebuttal addresses this numbered claim specifically, but the underlying thermophysics is standard.",
+   "loeb_quote": "For these bases to be active only when facing the Sun, they must be well insulated on the nightside for a period longer than several months. However, heat would naturally flow by conduction throughout the body of a natural comet, making this insulation requirement difficult to satisfy.",
+   "quote_source": "Avi Loeb, '3I/ATLAS Maintained a Sunward Jet After Its Gravitational Deflection by 16 Degrees at Perihelion', Medium, Dec 17, 2025 (repeated as anomaly #9 in the Mar 12, 2026 22-anomaly list)",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/3i-atlas-maintained-a-sunward-jet-after-its-gravitational-deflection-by-16-degrees-at-perihelion-e6810be9b3d8",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://www.aanda.org/articles/aa/full_html/2018/08/aa33104-18/aa33104-18.html"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date (2025-12-17) and anomaly number (#9 of the 22-item March 2026 list; originally point #8 of the Dec 17, 2025 essay) are correct, and both source URLs are real and on-topic. However: (1) The observation/loeb_take misstated Loeb's physics argument — he did NOT argue \"near-zero thermal inertia\" with sublimation \"starting and stopping almost instantly\" on rotation. His actual claim is the opposite timescale: because 3I/ATLAS's rotation axis is nearly aligned with the sunward direction, each jet base sits on the nightside for MONTHS at a time, and he argues heat conduction through a natural comet body should warm those bases anyway, so months-long insulation is implausible for passive ice and hints at engineered surfaces/controlled venting. (2) The empty loeb_quote was filled with verified verbatim wording from the Dec 17, 2025 essay. (3) The official_explanation was re-aimed at the actual rebuttal: cometary crusts are naturally highly insulating precisely BECAUSE thermal inertia is low (Rosetta/MIRO at 67P: ~10-60 J m^-2 K^-1 s^-1/2, an insulating powdered surface with diurnal heat penetrating only centimeters), so efficient conduction through the nucleus — the premise of Loeb's argument — does not occur in real comets; dayside-dominant activity is textbook. Also noted no agency-level rebuttal targets this specific numbered item. (4) \"Final list\" softened: Loeb appended at least one more property in June 2026, so the 22-list is his canonical wrap-up rather than strictly final. Added a 67P thermal-inertia source (A&A 2018, MIRO/VIRTIS)."
+  },
+  {
+   "id": "A-19",
+   "title": "Gravitational deflection exactly twice the jet opening angle",
+   "date": "2025-12-17",
+   "observation": "In a Dec 17, 2025 essay, Loeb calculated that solar gravity bent 3I/ATLAS's velocity vector by ~16 degrees (2GM/(b*v^2) = 0.286 rad = 16.4 deg) at perihelion, and noted this is almost exactly twice the ~8-degree opening angle of the narrow sunward anti-tail jet measured in pre-perihelion imaging; Hubble images from Dec 12 and 27, 2025 showed the sunward jet persisting after the deflection.",
+   "loeb_take": "Loeb flagged the 2:1 ratio as one more geometric coincidence in his anomaly ledger — it became anomaly #10 of the final 22 (Geometric Coincidences) in his March 12, 2026 wrap-up essay. He also used the geometry constructively: a jet wobbling within an ~8-degree cone about a fixed spin axis could produce the sunward anti-tail before perihelion and a counter-jet after it.",
+   "official_explanation": "No mainstream astronomer published a rebuttal to this specific angle ratio. The general response to Loeb's coincidence claims (e.g., Jason Wright's critiques of his fine-tuning statistics) applies: the two angles arise from unrelated physics — the 16-degree deflection is routine orbital mechanics for any body with that perihelion distance and speed, while the jet opening angle is a soft, method-dependent measurement — and comparing enough angle pairs post hoc guarantees some near-integer ratios.",
+   "loeb_quote": "The gravitational deflection of 3I/ATLAS by 16 degrees at perihelion, is exactly twice the opening angle of the anti-tail jet.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-maintained-a-sunward-jet-after-its-gravitational-deflection-by-16-degrees-at-perihelion-e6810be9b3d8",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/3i-atlas-maintained-a-sunward-jet-after-its-gravitational-deflection-by-16-degrees-at-perihelion-e6810be9b3d8",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+   ],
+   "viz_hint": "other",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is REAL, not fabricated. Confirmed: (1) date 2025-12-17 matches Loeb's Medium essay publication; (2) numbers are real — Loeb computes deflection 2GM/(b*v^2) = 0.286 rad = 16.4 deg and cites ~8 deg anti-tail jet opening angle, explicitly claiming the 2:1 ratio; (3) 'anomaly #10 of the final 22' verified against Loeb's 2026-03-12 essay (verbatim anomaly #10 under Geometric Coincidences). Fixes applied: (a) added verified loeb_quote from the Dec 17 essay (was empty) with quote_source; (b) observation wording corrected — the ~8 deg opening angle comes from pre-perihelion anti-tail observations (Aug 2025), not 'December 2025 imaging'; Dec 2025 Hubble imaging (Dec 12/27) showed the jet persisting post-deflection, and the Dec 17 essay is where Loeb computed the ratio; (c) official_explanation softened — no published mainstream rebuttal addresses this specific angle ratio; the numerology/post-hoc-pattern critique is the general mainstream response to Loeb's coincidence claims (e.g., Jason Wright), not a specific reply to this one; (d) sources fixed — the cited Wright post (2025-11-09) predates this anomaly and does not cover it, so it is kept only as general skeptical context and the March 2026 22-anomalies essay was added as the anomaly-numbering source."
+  },
+  {
+   "id": "A-20",
+   "title": "SPHEREx icy-grain signature disappearance",
+   "date": "2026-01-11",
+   "observation": "SPHEREx detected strong water-ice absorption in the coma pre-perihelion (Aug 2025, arXiv:2508.15469), but on re-observation in December 2025 the H2O-ice spectral signature had mostly disappeared while activity rose sharply — H2O gas emission ~40x brighter — and new coma species appeared (CN, organic C-H, CO2, CO) along with refractory organo-silicaceous dust (arXiv:2601.06759, Lisse et al., RNAAS, posted 2026-01-11).",
+   "loeb_take": "Loeb listed the vanishing ice signature plus newly appearing gas-phase organics (CH3OH, H2CO, CH4, C2H6) and a ~20x jump in water production as anomaly #17 of the 22-anomaly list in his March 2026 'fading away' essay. [paraphrase] He argued the transformation was not predicted in advance, and that organics surviving cosmic-ray bombardment over an interstellar journey would require burial under at least 10 meters of material.",
+   "official_explanation": "The SPHEREx team describes expected post-perihelion evolution: solar heating sublimated the icy grains (removing the ice absorption signature) and drove the nucleus into much higher activity, releasing additional gas species. The paper's abstract describes marked evidence for development into a cometary body fully sublimating all its ices; press coverage called it a 'full cometary awakening'.",
+   "loeb_quote": "the spectral signature of ice disappeared in the SPHEREx data after perihelion",
+   "quote_source": "Avi Loeb, Medium, '3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies' (March 2026)",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2601.06759",
+    "https://arxiv.org/abs/2508.15469",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://phys.org/news/2026-01-spherex-imaging-reveals-sublimation-3iatlas.html"
+   ],
+   "viz_hint": "spectrum",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is real and correctly attributed; three fixes: (1) DATE: arXiv 2601.06759 (Lisse et al., RNAAS) was posted 2026-01-11, not 01-10 — within tolerance but corrected to exact date. (2) OFFICIAL EXPLANATION QUOTE: the phrase 'developing into a normal active comet' does NOT appear in the paper; the abstract's actual wording is development into \"a cometary body fully sublimating all its ices\" — quote replaced with verified wording. Also added the paper's specific number: H2O gas emission 40x brighter than in Aug 2025. (3) LOEB_TAKE: anomaly #17 of the 22-anomaly list in his March 2026 Medium post \"3I/ATLAS is Fading Away...\" is CONFIRMED, but it was not his \"final\" list (he published further anomalies afterward, e.g. isotope-abundance anomalies in March 2026) — \"final\" removed. His specific framing verified: ice signature vanished post-perihelion while gas-phase organics (CH3OH, H2CO, CH4, C2H6) appeared and water production rose ~20x; his stated puzzle is that such organics surviving interstellar cosmic-ray bombardment would require burial under at least 10 meters of material. Added a verified short Loeb quote (previously empty) and the Aug 2025 SPHEREx ice-detection paper (arXiv:2508.15469) as a source."
+  },
+  {
+   "id": "A-21",
+   "title": "Rare Sun-Earth axis alignment (Jan 22, 2026)",
+   "date": "2026-01-13",
+   "observation": "On Jan 22, 2026, 3I/ATLAS crossed the Sun-Earth axis at a phase angle of just 0.69 degrees (near-perfect opposition), with the phase angle below 2 degrees for about a week (Jan 19-26) and the anti-tail direction projected toward Earth at the moment of alignment.",
+   "loeb_take": "Loeb (with Mauro Barbieri, arXiv:2601.08624) announced the alignment on Jan 13, 2026 primarily as a 'narrow but well-defined observational window' to measure the opposition surge and probe whether the dust is pristine (fluffy fractal aggregates) or thermally processed; in his final March 2026 recap he then catalogued it as anomaly #11 of 22 — the alignment with the anti-tail pointing at Earth joining his chain of improbable geometric coincidences.",
+   "official_explanation": "Opposition alignments are a function of Earth's orbital motion, not of the object: every outer body passes near the Sun-Earth axis roughly once per synodic period (what was unusual here was only the very small 0.69-degree minimum phase angle). Mainstream astronomers used the same window productively — Hubble imaged 3I/ATLAS during the alignment, and coordinated photometry measured an opposition surge of about 0.2 mag with ~3-degree width and a linear phase slope of ~0.026 mag/deg, values consistent with ordinary cometary dust. Calling Earth's own viewing geometry an anomaly of the object is a category error.",
+   "loeb_quote": "The unique near-opposition geometry of 3I/ATLAS on 22 January, 2026 provides a narrow but well-defined observational window.",
+   "quote_source": "https://avi-loeb.medium.com/a-rare-alignment-of-3i-atlas-with-the-sun-earth-axis-on-22-january-2026-b1bea4a553f7",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/a-rare-alignment-of-3i-atlas-with-the-sun-earth-axis-on-22-january-2026-b1bea4a553f7",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://arxiv.org/abs/2601.08624",
+    "https://avi-loeb.medium.com/hubble-images-of-3i-atlas-during-its-rare-alignment-with-the-sun-earth-axis-on-january-22-2026-7ee2c20a70f0"
+   ],
+   "viz_hint": "timing",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "No factual errors found — date, all numbers (0.69 deg phase angle on 2026-01-22, sub-2-deg window Jan 19-26, anti-tail toward Earth), the anomaly-#11-of-22 numbering, and both source URLs all verified against Loeb's Jan 13, 2026 Medium essay, arXiv 2601.08624 (Loeb & Barbieri), and the March 12, 2026 '22 mysterious anomalies' essay. Additive fixes only: (1) filled the empty loeb_quote with the verified verbatim sentence containing 'narrow but well-defined observational window' and set quote_source; (2) refined loeb_take to note the Jan essay framed it as an opportunity while the anomaly framing (anti-tail pointing at Earth during alignment) came in the March list; (3) grounded official_explanation with the actual published measurement (opposition surge ~0.2 mag, width ~3 deg, phase slope ~0.026 mag/deg, consistent with normal cometary dust; Hubble imaged the object during the alignment); (4) added arXiv and Hubble-alignment sources."
+  },
+  {
+   "id": "A-22",
+   "title": "Methane volatility puzzle",
+   "date": "2026-01-29",
+   "observation": "Methane (CH4) was first detected in the coma only after perihelion — JWST/MIRI spectra on 2025 Dec 15-16 and 27 (2.20 and 2.54 au outbound) measured CH4 at 13.7% and 27% of the water production rate — despite CH4's volatility lying between CO2 and CO, both of which were detected well before perihelion (JWST/SPHEREx, Aug 2025, saw strong CO2 and CO but no CH4). Under simple sublimation ordering, CH4 should have appeared alongside them inbound.",
+   "loeb_take": "Anomaly #19 of his final 22-anomaly list (the 'Possible Bio-Signature' item): the out-of-order appearance of volatiles violates the layered-ice sublimation sequence expected for a natural comet, suggesting to Loeb that the plume chemistry may not be simple ice sublimation — he floated abiotic (deep-buried CH4) and speculative biological interpretations.",
+   "official_explanation": "Comet nuclei are heterogeneous: the JWST/MIRI team (Belyakov et al. 2026) attributes the late CH4 onset to past depletion of methane from the outermost processed layers, with the observed CH4 emerging from relatively unprocessed subsurface material once perihelion heating reached deeper layers — or to compositional heterogeneity of the nucleus combined with seasonal illumination effects. Volatile release order varies among well-studied solar-system comets, so a late CH4 onset is within natural diversity.",
+   "loeb_quote": "The volatility of methane (CH4) is between that of carbon dioxide (CO2) and carbon monoxide (CO), yet methane was detected in the gas plume around 3I/ATLAS only after perihelion, while CO2 and CO were detected long before perihelion.",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/2601.22034",
+    "https://avi-loeb.medium.com/the-massive-nucleus-of-3i-atlas-and-its-puzzling-methane-outgassing-based-on-new-data-from-the-72e540d8fe46",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13"
+   ],
+   "viz_hint": "spectrum",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core anomaly is REAL and correctly described, but three fixes were needed. (1) Date: announcement was 2026-01-29 (Belyakov et al., 'The Volatile Inventory of 3I/ATLAS as seen with JWST/MIRI', arXiv:2601.22034), with Loeb's Medium response on 2026-01-30; entry's 2026-01-20 was 9 days early (within the 2-week tolerance but corrected to the real date). Observations themselves were JWST/MIRI on 2025 Dec 15-16 and 27 at 2.20 and 2.54 au; CH4 measured at 13.7% and 27% of the water production rate across the two epochs; Aug 2025 JWST/SPHEREx pre-perihelion data showed no CH4 despite strong CO2 and detected CO. (2) Wrong source: cited arXiv 2601.06759 is the SPHEREx December-2025 re-observation paper, which detected CN, H2O, CO2 and CO but NOT methane — replaced with arXiv:2601.22034 (the actual methane-detection paper) and Loeb's Jan 30 essay. (3) Empty quote filled with verified exact wording from Loeb's '22 Mysterious Anomalies' article (published 2026-03-12), where the methane puzzle is confirmed as Anomaly #19 (the 'Possible Bio-Signature' item) — the entry's '#19 of the final list' claim checks out. Official explanation is fairly stated and matches the Belyakov et al. natural interpretation (delayed release from unprocessed subsurface material, or nucleus heterogeneity plus seasonal illumination); wording lightly aligned to the paper. Nothing fabricated or conflated with another anomaly."
+  },
+  {
+   "id": "A-23",
+   "title": "Three symmetric mini-jets at 120 degrees",
+   "date": "2026-01-19",
+   "observation": "Larson-Sekanina rotational-gradient filtering of Hubble Space Telescope images (key frames 2026-01-14; pattern persistent in frames from Nov 30, Dec 4, 12, 27, 2025 and Jan 7, 2026) removed the circular coma glow and revealed three mini-jets around the nucleus separated from each other by approximately 120 degrees in sky projection, plus a fourth prominent sunward anti-tail jet extending about 10 times farther. Loeb reported the jet structure wobbles by +/-20 degrees with a 7.1-hour period.",
+   "loeb_take": "Anomaly #13 of the final 22: Loeb highlighted the engineered look of three jets 'symmetrically separated by 120 degrees' from each other, noting none points anti-sunward as a normal tail would, and on 2026-04-16 published an essay (with Toni Scarmato) linking this three-jet system to the measured non-gravitational acceleration via rocket-effect thrust — discussing whether the jets are 'technological thrusters or pockets of ice' and citing a proposed 3+1-thruster configuration as an optimal steering architecture.",
+   "official_explanation": "Multiple discrete vents are common on comet nuclei (Rosetta imaged dozens on 67P), and apparent regular spacing is a projection and small-number effect: with three jets, some near-symmetric arrangement is unremarkable. Jet-driven torques and acceleration from asymmetric outgassing are standard comet dynamics.",
+   "loeb_quote": "The 3 mini-jets are separated by 120 degrees from each other in sky projection",
+   "quote_source": "https://avi-loeb.medium.com/are-the-three-mini-jets-coming-out-of-3i-atlas-at-120-degree-separation-a-technological-signature-ba748a017aa0",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/are-the-three-mini-jets-coming-out-of-3i-atlas-at-120-degree-separation-a-technological-signature-ba748a017aa0",
+    "https://avi-loeb.medium.com/linking-the-non-gravitational-acceleration-of-3i-atlas-to-its-symmetric-system-of-three-jets-847859455a16",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13"
+   ],
+   "viz_hint": "tail",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date was wrong: entry said 2026-02-01, but the three-jet pattern was announced in Loeb's Medium essay of 2026-01-19, based on Hubble images taken 2026-01-14 (pattern also persists in frames from Nov 30, Dec 4/12/27 2025 and Jan 7 2026). Observation text corrected: (a) added that the pattern was extracted via Larson-Sekanina rotational-gradient filtering of Hubble images (not simply resolved by imaging), (b) added the fourth prominent sunward anti-tail jet that accompanies the three 120-degree mini-jets, (c) replaced 'post-perigee' since the pattern also appears in pre-perigee November frames, (d) added the +/-20 degree wobble with 7.1-hour period Loeb reported. Verified as correct: anomaly #13 of the final 22 (exact match in Loeb's Mar 12 2026 '22 Mysterious Anomalies' essay, item 13: three mini-jets 'symmetrically separated by 120 degrees'); the April 2026 propulsion-linkage essay is real (published Apr 16 2026, Loeb & Toni Scarmato, arguing rocket-effect thrust from the three jets explains the measured non-gravitational acceleration, and citing a proposed 3+1-thruster steering configuration). Added a verified direct Loeb quote ('The 3 mini-jets are separated by 120 degrees from each other in sky projection', Jan 19 2026 essay) with source. Official explanation is fairly stated and real (67P/Rosetta multiple-vent precedent, projection and small-number statistics, asymmetric-outgassing acceleration). Added the Jan 19 2026 discovery essay to sources."
+  },
+  {
+   "id": "A-24",
+   "title": "Sideways (non-radial) non-gravitational acceleration",
+   "date": "2026-03-03",
+   "observation": "A February 2026 reanalysis of the orbit fits (Spada, Krolikowska & Dones, arXiv:2603.00782) showed the non-gravitational acceleration was not purely directed away from the Sun (as rocket-effect sublimation predicts to first order): Loeb highlighted that the tangential component was comparable in magnitude to the radial one, whereas NASA/JPL's fit had the radial component about 5x the tangential — itself well above the ~0.03-0.05 transverse-to-radial ratio typical of solar-system comets.",
+   "loeb_take": "Anomaly #14 of his 22-anomaly list (March 12, 2026): a sideways push is hard to get from sun-driven sublimation but natural for directed thrust; in his April 2026 analysis with Toni Scarmato (arXiv:2604.18773) Loeb connected it to the symmetric three-jet system, noting the jets could be 'technological thrusters or pockets of ice' — i.e., a candidate steering mechanism.",
+   "official_explanation": "Standard cometary NGA models (Marsden A1/A2/A3) have always included transverse and normal components, produced by rotation-lagged outgassing — sublimation peaks in the comet 'afternoon', displacing thrust from the sunward line. The mainstream rebuttal (Spada et al. 2026) is that the fitted transverse component A2 is the least stable parameter — highly sensitive to data selection, parameter correlations, and orbital phase coverage — while total acceleration estimates agree with JPL's solution and require no exotic physics.",
+   "loeb_quote": "The non-gravitational acceleration of 3I/ATLAS was not directed away from the Sun but had a substantial sideways component",
+   "quote_source": "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+   "loeb_scale": null,
+   "sources": [
+    "https://avi-loeb.medium.com/the-non-gravitational-acceleration-of-3i-atlas-is-not-directed-away-from-the-sun-f478b82f7175",
+    "https://avi-loeb.medium.com/linking-the-non-gravitational-acceleration-of-3i-atlas-to-its-symmetric-system-of-three-jets-847859455a16",
+    "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+    "https://arxiv.org/abs/2603.00782",
+    "https://arxiv.org/abs/2604.18773"
+   ],
+   "viz_hint": "acceleration",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "(1) DATE: 2026-02-05 was wrong by ~4 weeks. The underlying analysis (Spada, Krolikowska & Dones, arXiv:2603.00782) was submitted Feb 28, 2026, and Loeb's essay announcing the sideways NGA published March 3, 2026. Corrected date to 2026-03-03. (2) SOURCES: arXiv:2511.07450 (Neukart, Nov 2025) is about the NGA's magnitude and volatile-outgassing constraints, not its direction — removed as conflated; replaced with arXiv:2603.00782 (the transverse-NGA uncertainty paper) and arXiv:2604.18773 (Loeb & Scarmato, jets-NGA link), plus the March 3 Medium essay. (3) OFFICIAL EXPLANATION: 'comet-typical in magnitude' was overstated — JPL's fit had radial ~5x tangential (ratio ~0.2, larger than the ~0.03-0.05 typical of solar-system comets); the actual mainstream rebuttal (Spada et al.) is that A2 is the least stable fitted component, highly sensitive to data selection and parameter correlations. Rewrote to reflect this. (4) QUOTE: added verified wording of anomaly #14 from the March 12, 2026 '22 mysterious anomalies' essay. (5) CONFIRMED: anomaly #14 numbering in the 22-anomaly list is correct; the April 2026 three-jet/thruster connection is real (Medium + arXiv:2604.18773); observation description is accurate."
+  },
+  {
+   "id": "A-25",
+   "title": "Anomalous isotope abundances (D/H, 12C/13C, 14N/15N)",
+   "date": "2026-03-10",
+   "observation": "JWST (Cordiner et al.) reported deuterium-enriched water with D/H more than ten times higher than known comets, and 12C/13C of 141-191 (CO2) and 123-172 (CO), above typical solar-system values; VLT (Opitom et al.) found 12C/13C = 147 (+87/-40) and 14N/15N = 343 (+454/-124), over twice the ~150 typical of solar-system comets.",
+   "loeb_take": "In 'New Anomalies in the Isotope Abundances of 3I/ATLAS' (Mar 10, 2026) Loeb accepted the papers' inference of formation below 30 K in a metal-poor environment 10-12 billion years ago, but argued that ancient low-metallicity stellar populations cannot supply enough rocky material — they 'miss the required mass budget by at least three orders of magnitude'. The same day he reduced 3I/ATLAS to rank 3 on the Loeb scale, conditional on an uneventful Jupiter pass.",
+   "official_explanation": "The measuring teams interpret the isotopes as strong evidence for a natural, extremely ancient comet formed at freezing temperatures early in the Milky Way's history — the isotopic signature of great age, not technology. The mass-budget objection depends on Loeb's contested large-mass estimate; for a km-scale nucleus no reservoir problem arises.",
+   "loeb_quote": "miss the required mass budget by at least three orders of magnitude",
+   "quote_source": "'New Anomalies in the Isotope Abundances of 3I/ATLAS', Medium, March 10, 2026",
+   "loeb_scale": 3,
+   "sources": [
+    "https://avi-loeb.medium.com/new-anomalies-in-the-isotope-abundances-of-3i-atlas-1bb3790207f1",
+    "https://avi-loeb.medium.com/q-a-about-3i-atlas-a-week-before-its-closest-approach-to-jupiter-2d41a2bcccfd"
+   ],
+   "viz_hint": "spectrum",
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "none — date (Mar 10, 2026 essay; Mar 6, 2026 papers), all isotope values (D/H 0.95±0.06%, 12C/13C 141-191 CO2 / 123-172 CO, Opitom 147 +87/-40, 14N/15N 343 +454/-124 vs ~150), the verbatim quote (\"low-metallicity stars miss the required mass budget by at least three orders of magnitude\"), the same-day conditional rank-3 Loeb-scale reduction (in the cited Q&A essay, conditional on \"nothing unusual\" near Jupiter; approach Mar 16, 2026 at 53.6M km ≈ 0.36 AU), and the official interpretation (natural comet formed ≲30 K, ~10-12 Gyr ago) all verified against primary sources."
+  }
+ ],
+ "anomalyNotes": "RUNNING COUNT: Loeb's anomaly tally grew 8 (Jul 2025, initial rank-4 justification) -> ~10 (autumn) -> 13 (Nov 23, 2025 'Anomalies of 3I/ATLAS, Organized by Likelihood': 6 major / 2 medium / 5 minor) -> 15 (Dec 17, 2025 'Sunward Jet After Gravitational Deflection' essay) -> 18 (Mar 10, 2026 Jupiter Q&A) -> FINAL COUNT: 22 (Mar 12, 2026 essay '3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies'). Mapping notes: the 'perihelion hidden behind the Sun' item (A-04) is folded into final-list #3 (fine-tuned arrival time); the 'only ~4% water' anomaly (A-06, P<0.1 in the 13- and 15-item lists) does NOT appear as a separate item in the final 22, plausibly because post-perihelion water/OH detections rose (SPHEREx/radio OH); combined-probability claim: Loeb multiplies individual anomaly probabilities (most extreme single item: identical pre/post-perihelion jets, P=2.5e-7). LOEB SCALE HISTORY: rank 4 assigned July 2025 ('most likely a comet of natural origin, but there are 8 anomalies that endow it with a rank of 4'); explicitly HELD at 4 on Dec 21, 2025 ('Updating the Loeb Classification Scale') pending perigee-epoch data, with a stated commitment to revise downward absent a technosignature; REDUCED to 3 on Mar 10, 2026 ('I would reduce the rank of 3I/ATLAS now to 3 on the Loeb Scale') conditional on nothing unusual at Jupiter. Scale definition: 0 = natural comet, 10 = threatening alien technology; 4 = anomalies notable but natural explanations prevalent. 2026 EVENTS: Jupiter closest approach Mar 16, 2026 at 53.6M km (~= Hill radius 53.5M km) passed WITHOUT incident — no new Jovian satellites or maneuvers detected; Loeb urged checks of Juno/JUICE/Europa Clipper data (Juno data still awaited as of his Apr 23, 2026 essay 'Where is 3I/ATLAS Now?', which reports the object ~1 billion km / 6.7 AU away, fading, outbound, with 'no evidence for artificial (self-produced) light' in its light curve). As of July 2026 Loeb is still publishing reflective essays (June 29-30, 2026: 'The Challenge of Recognizing Alien Technology', 'Dusting Off 3I/ATLAS') and frames 3I/ATLAS as most likely natural but 'only slightly less anomalous than 1I/'Oumuamua', advocating interceptor missions for the next ISO. OFFICIAL POSITION: NASA press briefing Nov 19, 2025 (Associate Administrator Amit Kshatriya): 'It looks and behaves like a comet, and all evidence points to it being a comet'; no technosignatures detected by any of the ~dozen NASA/ESA assets that observed it (JWST, HST, SPHEREx, Mars orbiters, STEREO, SOHO, Parker, Lucy, Psyche, Juno). Systematic rebuttal source: Jason Wright's AstroWright post 'Loeb's 3I/ATLAS Anomalies Explained' (Nov 9, 2025). DATE CAVEATS: A-05, A-07, A-14, A-15/16, A-20, A-22, A-23, A-24 dates are approximate (grounded to the observation/paper/essay window); all probabilities are Loeb's own published figures. Wikipedia key orbit facts: discovery 2025-07-01 (ATLAS Rio Hurtado), perihelion 2025-10-29 at 1.356 AU, Mars pass 0.19 AU on 2025-10-03, Earth closest 1.8 AU on 2025-12-19, eccentricity ~6.14, v_inf ~58 km/s.",
+ "timeline": {
+  "events": [
+   {
+    "date": "2025-05-07",
+    "title": "TESS pre-discovery detections begin",
+    "kind": "observation",
+    "description": "NASA's TESS spacecraft serendipitously imaged 3I/ATLAS from 2025-05-07 to 2025-06-02, 55 days before discovery, at roughly 6.4 AU from the Sun. Precovery photometry suggests the object was already active at ~6 AU, implying sublimation of ices more volatile than water.",
+    "sources": [
+     "https://arxiv.org/abs/2508.02499",
+     "https://arxiv.org/html/2507.21967v2",
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ae1f91"
+    ]
+   },
+   {
+    "date": "2025-05-22",
+    "title": "Earliest ZTF precovery images",
+    "kind": "observation",
+    "description": "Zwicky Transient Facility precovery detections date back to 2025-05-22 (identified on individual unstacked images by Seligman et al.), with additional detection runs 2025-06-14 to 2025-06-21 and 2025-06-22 to 2025-06-29 identified within hours of the discovery report. ATLAS's own archives held precoveries from 2025-06-05 to 2025-06-29.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://arxiv.org/abs/2507.02757",
+     "https://arxiv.org/html/2509.08792v1"
+    ]
+   },
+   {
+    "date": "2025-06-21",
+    "title": "Vera C. Rubin Observatory serendipitous imaging",
+    "kind": "observation",
+    "description": "The Rubin Observatory captured 3I/ATLAS by chance during science-validation imaging starting 2025-06-21, ten days before discovery — among the highest-quality early data on the object.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://arxiv.org/html/2507.13409"
+    ]
+   },
+   {
+    "date": "2025-07-01",
+    "title": "Discovery by ATLAS, Rio Hurtado, Chile",
+    "kind": "discovery",
+    "description": "The ATLAS survey telescope at Rio Hurtado, Chile (station W68) discovered the object at apparent magnitude ~18, 4.51 AU from the Sun and 3.50 AU from Earth, inbound at ~61 km/s relative to the Sun.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://science.nasa.gov/solar-system/comets/3i-atlas/"
+    ]
+   },
+   {
+    "date": "2025-07-02",
+    "title": "Confirmed interstellar — designated 3I/ATLAS (C/2025 N1)",
+    "kind": "discovery",
+    "description": "Follow-up astrometry confirmed a strongly hyperbolic orbit (eccentricity 6.141, hyperbolic excess velocity ~58 km/s — faster than 1I/'Oumuamua at 26 km/s and 2I/Borisov at 32 km/s). The Minor Planet Center announced it as the third confirmed interstellar object; Nordic Optical Telescope and Teide Observatory confirmed cometary activity the same day.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://science.nasa.gov/solar-system/comets/3i-atlas/"
+    ]
+   },
+   {
+    "date": "2025-07-16",
+    "title": "Loeb raises 'alien technology' hypothesis; anomaly list begins",
+    "kind": "statement",
+    "description": "Avi Loeb (with Adam Hibberd and Adam Crowl) posted the arXiv paper 'Is the Interstellar Object 3I/ATLAS Alien Technology?' (arXiv:2507.12213, v1 2025-07-16), starting a running numbered list of anomalies (retrograde ecliptic-aligned trajectory ~0.2% probability, fine-tuned Mars/Jupiter arrival geometry, etc.) that grew to 22 items by March 2026. NASA/ESA and most astronomers maintained it is a natural comet throughout.",
+    "sources": [
+     "https://arxiv.org/abs/2507.12213",
+     "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+     "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+    ]
+   },
+   {
+    "date": "2025-07-21",
+    "title": "Hubble images constrain nucleus size",
+    "kind": "observation",
+    "description": "Hubble Space Telescope imaging constrained the nucleus diameter to 0.32-5.6 km and revealed a sunward dust fan / anti-solar tail. Later non-gravitational-acceleration analyses pointed to a sub-kilometer nucleus — roughly 0.8-1.1 km diameter and mass ~1.6e11 kg if the acceleration is driven by CO2 outgassing (Thoss, Loeb & Burkert).",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+     "https://arxiv.org/abs/2512.18341",
+     "https://arxiv.org/abs/2603.15735"
+    ]
+   },
+   {
+    "date": "2025-08-06",
+    "title": "JWST: unusually CO2-rich composition",
+    "kind": "observation",
+    "description": "JWST NIRSpec observations (results announced 2025-08-25) found a coma unusually rich in carbon dioxide — CO2/H2O mixing ratio 8.0±1.0, among the highest ever measured — with CO2 at 129±1 kg/s, water 6.6±0.2 kg/s, CO 14.0±0.9 kg/s, plus water ice and carbonyl sulfide.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS"
+    ]
+   },
+   {
+    "date": "2025-08-21",
+    "title": "SPHEREx maps giant CO2 coma; VLT confirms cyanide and nickel",
+    "kind": "observation",
+    "description": "NASA's SPHEREx (observing 2025-08-08 to 08-12) reported a CO2 gas coma spanning at least 348,000 km in radius (~70 kg/s CO2) plus water ice. Concurrent VLT spectroscopy confirmed cyanide (17.6±2.0 g/s) alongside atomic nickel (4.6±0.7 g/s, first detected 2025-07-20) with no accompanying iron vapor — the nickel-without-iron signature became Loeb anomaly material, though nickel-carbonyl chemistry in normal comets can explain it.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://arxiv.org/abs/2508.15469"
+    ]
+   },
+   {
+    "date": "2025-10-03",
+    "title": "Mars close approach — 0.194 AU; imaged by Mars orbiters",
+    "kind": "close_approach",
+    "description": "3I/ATLAS passed 0.194 AU (29.0 million km) from Mars at 04:38 UT. NASA's Mars Reconnaissance Orbiter HiRISE imaged it at ~30 km/pixel (a diffuse, comet-consistent smear), ESA's ExoMars TGO CaSSIS captured the coma in 5-second exposures, and MAVEN detected hydrogen in the UV. HiRISE image release was delayed ~6 weeks by the US government shutdown.",
+    "sources": [
+     "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/",
+     "https://en.wikipedia.org/wiki/3I/ATLAS"
+    ]
+   },
+   {
+    "date": "2025-10-21",
+    "title": "Solar conjunction — unobservable from Earth",
+    "kind": "status",
+    "description": "The comet passed behind the Sun as seen from Earth around 2025-10-21, making its perihelion unobservable from the ground; Earth-based observers lost it for roughly late October through early November 2025 (solar elongation under ~25 deg from 2025-10-04 to 2025-11-06). Spacecraft (including GOES-19 and Mars/solar assets) provided partial coverage.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS"
+    ]
+   },
+   {
+    "date": "2025-10-29",
+    "title": "Perihelion — 1.36 AU from the Sun",
+    "kind": "close_approach",
+    "description": "Perihelion at 11:45 UT on 2025-10-29 at 1.356 AU (203 million km), between the orbits of Earth and Mars, moving at its maximum speed of ~68 km/s. It brightened faster near perihelion than typical comets — item 22 on Loeb's anomaly list, attributed by most astronomers to hypervolatile-driven outgassing.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://science.nasa.gov/solar-system/comets/3i-atlas/"
+    ]
+   },
+   {
+    "date": "2025-11-08",
+    "title": "Post-conjunction reemergence in the morning sky",
+    "kind": "observation",
+    "description": "Ground-based observers recovered the comet after solar conjunction; astrophotographer Michael Jaeger imaged the revived dust tail on 2025-11-08. Post-perihelion astrometry soon showed non-gravitational acceleration peaking at (89.3±4.6)e-9 AU/day^2 about a month before perihelion — normal for a small actively-outgassing nucleus, but logged by Loeb as an anomaly for its sideways component.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://skyandtelescope.org/astronomy-news/updates-on-interstellar-comet-3i-atlas-new-images-many-tails-and-non-gravitational-forces/"
+    ]
+   },
+   {
+    "date": "2025-11-19",
+    "title": "NASA press event: 'it's a comet' — HiRISE, MAVEN, Hubble, JWST data released",
+    "kind": "statement",
+    "description": "After the government shutdown ended, NASA held a live press event releasing spacecraft imagery (HiRISE at 30 km/pixel, MAVEN UV hydrogen detection, Hubble, JWST, SPHEREx) and stating 3I/ATLAS 'exhibits behaviors typical of comets' — gas and dust shedding, gravitational response — i.e., a natural comet. Loeb publicly criticized the conference for dismissing his anomalies. ESA's JUICE spacecraft also observed the comet during November 2025 en route to Jupiter.",
+    "sources": [
+     "https://www.nasa.gov/news-release/nasa-to-share-comet-3i-atlas-images-from-spacecraft-telescopes/",
+     "https://avi-loeb.medium.com/there-is-nothing-more-deceptive-than-an-obvious-fact-nasas-press-conference-on-3i-atlas-9b44e632771f",
+     "https://www.primetimer.com/features/nasa-press-conference-shares-new-data-on-interstellar-comet-3i-atlas"
+    ]
+   },
+   {
+    "date": "2025-12-19",
+    "title": "Earth closest approach — 1.80 AU",
+    "kind": "close_approach",
+    "description": "Closest approach to Earth at 06:01 UT on 2025-12-19 at 1.798 AU (269 million km), out beyond the 4:1 Kirkwood gap of the asteroid belt, at apparent magnitude ~19.9 — never any threat to Earth. Around the same period a second JWST epoch detected methane that had been absent pre-perihelion.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://www.livescience.com/space/comets/interstellar-comet-3i-atlas-makes-closest-pass-of-earth-wheres-it-heading-next"
+    ]
+   },
+   {
+    "date": "2025-12-19",
+    "title": "Radio technosignature searches come up empty (ATA + MeerKAT)",
+    "kind": "observation",
+    "description": "A SETI Institute / Allen Telescope Array search (Sheikh et al., arXiv:2512.18142, submitted 2025-12-19) scanned 1-9 GHz for 7.25 hours around the Earth close approach: ~74 million narrowband hits reduced to 211 candidates by RFI filtering, all rejected — no technosignatures, with EIRP upper limits of ~10-110 W across the band. An earlier MeerKAT search (900-1670 MHz) had likewise found nothing, with a minimum EIRP limit of ~0.17 W (below cellphone-handset power).",
+    "sources": [
+     "https://arxiv.org/abs/2512.18142",
+     "https://www.seti.org/news/seti-institute-looks-for-signs-of-technology-in-interstellar-visitor-3iatlas/",
+     "https://phys.org/news/2026-06-interstellar-3iatlas-reveals-technosignatures-hour.html"
+    ]
+   },
+   {
+    "date": "2026-01-22",
+    "title": "Opposition — best final viewing geometry",
+    "kind": "observation",
+    "description": "3I/ATLAS reached opposition at 177.6 deg solar elongation, visible all night but fading; Loeb separately flagged the 2026-01-22 alignment with the Sun-Earth axis to within 0.69 deg (phase angle under 2 deg for about a week) as a rare chance to measure the opposition surge of its dust. Large telescopes continued photometric monitoring of the outbound comet.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://arxiv.org/abs/2601.08624",
+     "https://avi-loeb.medium.com/a-rare-alignment-of-3i-atlas-with-the-sun-earth-axis-on-22-january-2026-b1bea4a553f7"
+    ]
+   },
+   {
+    "date": "2026-03-12",
+    "title": "Loeb publishes final tally of 22 anomalies",
+    "kind": "statement",
+    "description": "As the comet faded, Loeb's Medium essay enumerated 22 anomalies across mass/geometry, jet behavior, composition (nickel>iron, unusual isotopes), and trajectory coincidences (including a claimed 0.6%-probability alignment within 9 deg of the 1977 'Wow! Signal' arrival direction), ranking it Level 4 on his own 'Loeb Scale.' Mainstream rebuttals (e.g., Penn State's AstroWright) argued each item is explicable for a natural comet.",
+    "sources": [
+     "https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13",
+     "https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/"
+    ]
+   },
+   {
+    "date": "2026-03-16",
+    "title": "Jupiter close approach — 0.358 AU; Juno stays home",
+    "kind": "close_approach",
+    "description": "Closest approach to Jupiter at 12:22 UT at 0.358 AU (53.6 million km); it also passed 0.204 AU from the small Jovian moon Eupheme on 2026-03-17. A proposed Juno intercept (Loeb/Hibberd, arXiv:2507.21402 — requiring a ~2.7 km/s burn in September 2025) was never executed: Juno was low on fuel with engine problems and was not redirected; no Juno flyby observations resulted.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://arxiv.org/html/2507.21402v2",
+     "https://www.universetoday.com/articles/nasas-juno-spacecraft-could-intercept-3iatlas-as-it-approaches-jupiter"
+    ]
+   },
+   {
+    "date": "2026-04-02",
+    "title": "ESA JUICE results: an ordinary comet seen from close range",
+    "kind": "observation",
+    "description": "ESA released JUICE observations taken in November 2025, days after perihelion, from ~60 million km (JANUS camera and NavCam plus the MAJIS, SWI, and UVS spectrometers): a distinct coma with gas and dust extending over 5 million km, separate dust and anti-solar tails, and water output of ~2,000 kg/s on 2025-11-02 — equivalent to ~70 Olympic swimming pools per day, mostly from the sunward side — all consistent with a normal, if volatile-rich, comet.",
+    "sources": [
+     "https://www.esa.int/Science_Exploration/Space_Science/Juice/Five_things_Juice_has_revealed_about_Comet_3I_ATLAS",
+     "https://en.wikipedia.org/wiki/3I/ATLAS"
+    ]
+   },
+   {
+    "date": "2026-04-23",
+    "title": "Loeb status essay: a fading dot at 6.7 AU",
+    "kind": "statement",
+    "description": "Loeb's 'Where is 3I/ATLAS Now?' put the comet at ~1 billion km (6.7 AU) from the Sun, well beyond Jupiter, 'heading away from us back to interstellar space' and nearing the detectability horizon; he reorganized his claims into 12 anomaly categories at 'Loeb Scale' Level 4, while conceding the object is leaving without any close inspection.",
+    "sources": [
+     "https://avi-loeb.medium.com/where-is-3i-atlas-now-58f98865a20a"
+    ]
+   },
+   {
+    "date": "2026-05-15",
+    "title": "Second solar conjunction — ground observability ends",
+    "kind": "status",
+    "description": "Around May 2026 (date approximate) 3I/ATLAS entered its second solar conjunction, ending routine ground-based observation. When it reemerges around September 2026 it will be beyond Saturn's orbit and fainter than magnitude 20 — effectively the end of its observable apparition for all but the largest telescopes.",
+    "sources": [
+     "https://theskylive.com/articles/2025/07/3i-atlas-a-month-by-month-observing-guide",
+     "https://en.wikipedia.org/wiki/3I/ATLAS"
+    ]
+   },
+   {
+    "date": "2026-06-15",
+    "title": "Published ATA study reaffirms: no signals",
+    "kind": "statement",
+    "description": "The peer-reviewed Allen Telescope Array result (published in The Astronomical Journal, revised May 2026) circulated widely in June 2026 (date approximate): a seven-hour, 1-9 GHz scan found no technosignatures from 3I/ATLAS, closing out the SETI angle as the object receded. Loeb continued essays into June 2026 (e.g., on dust 'windshield' effects) but no new observational anomalies emerged.",
+    "sources": [
+     "https://phys.org/news/2026-06-interstellar-3iatlas-reveals-technosignatures-hour.html",
+     "https://iopscience.iop.org/article/10.3847/1538-3881/ae6651",
+     "https://avi-loeb.medium.com/dusting-off-3i-atlas-interstellar-travelers-must-clean-their-windshields-132dcd338bda"
+    ]
+   },
+   {
+    "date": "2026-07-17",
+    "title": "Current status: nearing Saturn's orbital distance, outbound for good",
+    "kind": "status",
+    "description": "As of today 3I/ATLAS is about 9.25 AU from the Sun (~1.38 billion km; 10.25 AU from Earth per JPL Horizons), reaching Saturn's ~9.5 AU orbital distance in late July while hidden in solar conjunction (solar elongation ~9 deg) — unobservable and fainter than magnitude 20. It is escaping on its hyperbolic trajectory at ~58 km/s excess velocity, nearly symmetric to its inbound path; it will pass the inner Oort cloud region (~2,000 AU) around the year 2189 and leave the Sun's influence entirely in a few thousand years. Consensus verdict: the most-studied interstellar object ever, and a natural — though unusually CO2-rich, nickel-emitting, and ancient (possibly 7-14 billion years old) — comet.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/3I/ATLAS",
+     "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+     "https://ssd.jpl.nasa.gov/horizons/"
+    ]
+   }
+  ]
+ },
+ "comparison": {
+  "objects": [
+   {
+    "designation": "1I/2017 U1",
+    "name": "'Oumuamua",
+    "discovered": "2017-10-19, Pan-STARRS1 (Haleakala, Hawaii) — found ~40 days after perihelion, on the way out",
+    "eccentricity": 1.20113,
+    "inclination_deg": 122.74,
+    "perihelion_au": 0.2559,
+    "perihelion_date": "2017-09-09",
+    "closest_earth_au": 0.1618,
+    "v_infinity_kms": 26.33,
+    "size_estimate": "~100-400 m long (est. 100-1,000 m range), width/thickness ~35-167 m; extreme axis ratio ~6:1 to 10:1 (cigar or pancake shape)",
+    "nature": "Inert/rocky-appearing; no detected coma, dust, or gas despite deep searches — yet accelerated like a comet. Composition still debated (nitrogen ice, hydrogen ice, dark organic-rich crust all proposed)",
+    "weird_notes": [
+     "Non-gravitational acceleration (~5x10^-6 m/s^2 at 1 AU, radial ~2.8x10^-7 AU/d^2) with NO visible outgassing — no coma, no dust, no detected gas to explain it",
+     "Extreme lightcurve amplitude ~2.5 magnitudes implying axis ratio of at least 6:1, more elongated than any known solar-system asteroid or comet",
+     "Tumbling (non-principal-axis) rotation, period ~7.3-8 h",
+     "Red, comet-like surface color but zero cometary activity detected by Spitzer and deep ground-based imaging",
+     "Excess velocity vector close to the Local Standard of Rest — dynamically 'young' / unusual for an ejected planetesimal",
+     "Only detected post-perihelion at close range; observed arc was short (~2.5 months), so many properties remain unresolved"
+    ],
+    "loeb_position": "Loeb (Bialy & Loeb 2018, ApJL) argued the non-gravitational acceleration without outgassing could be explained by solar radiation pressure on a thin, flat artificial object — a lightsail or discarded 'technological debris' from an alien civilization. He expanded this in his 2021 book 'Extraterrestrial,' maintaining the artificial-origin hypothesis is more plausible than exotic natural explanations like hydrogen icebergs."
+   },
+   {
+    "designation": "2I/2019 Q4 (C/2019 Q4)",
+    "name": "Borisov",
+    "discovered": "2019-08-30, Gennadiy Borisov (amateur astronomer), 0.65-m MARGO observatory, Nauchnij, Crimea",
+    "eccentricity": 3.356,
+    "inclination_deg": 44.05,
+    "perihelion_au": 2.007,
+    "perihelion_date": "2019-12-08",
+    "closest_earth_au": 1.9,
+    "v_infinity_kms": 32.2,
+    "size_estimate": "Nucleus effective radius 0.2-0.5 km (HST); early ~975 m estimates were revised down. Coma/tail much larger (tail ~160,000 km)",
+    "nature": "Clearly cometary from first detection — bright coma and tail, normal dust and gas production. The 'ordinary' interstellar object; behaved like a moderately active solar-system comet",
+    "weird_notes": [
+     "Extremely CO-rich: CO/H2O ratio 3x+ higher than any comet measured in the inner solar system, suggesting formation beyond the CO ice line of a cold M-dwarf or outer disk (Bodewits et al. / Cordiner et al. 2020)",
+     "NH2-rich chemistry relative to typical comets",
+     "Unusually pristine dust — suggested it had never before passed close to any star",
+     "Nucleus fragmented/split in March 2020 after an outburst, post-perihelion (a normal thing for comets to do, but notable)",
+     "Otherwise the control case: proved interstellar comets can look exactly like ordinary comets"
+    ],
+    "loeb_position": "Loeb accepted Borisov as a genuine natural comet and repeatedly uses it as his control case: 'Borisov looked like a comet from day one, which shows astronomers can recognize a comet when they see one — making 'Oumuamua's weirdness stand out.' He noted its pristine condition was mildly interesting but did not claim artificiality."
+   },
+   {
+    "designation": "3I/ATLAS (C/2025 N1)",
+    "name": "ATLAS",
+    "discovered": "2025-07-01, ATLAS survey telescope, Rio Hurtado, Chile (prediscovery images: ATLAS back to 2025-06-05, ZTF to 2025-06-14; TESS imagery from May 2025 recovered later)",
+    "eccentricity": 6.14135,
+    "inclination_deg": 175.12,
+    "perihelion_au": 1.35645,
+    "perihelion_date": "2025-10-29 (11:45 UT); perihelion occurred behind the Sun as seen from Earth",
+    "closest_earth_au": 1.798,
+    "v_infinity_kms": 58,
+    "size_estimate": "Nucleus diameter 0.32-5.6 km (HST upper/lower bounds); non-gravitational-acceleration-based estimate ~0.82-1.05 km diameter (Forbes & Butler 2025, for density 0.5 g/cm^3); Loeb et al.'s pre-perihelion NGA upper limit instead implied a MINIMUM mass ~33 billion metric tons (3.3x10^13 kg) and diameter >~5 km — the two are in tension; rotation period 16.16 h",
+    "nature": "Active comet, CO2-dominated: JWST/NIRSpec (2025-08-06, 3.32 AU) measured CO2/H2O mixing ratio 7.6+/-0.3 (exceptionally high, 4.5-sigma above the comet trend), Q(CO2) 9.5x10^26 molecules/s (~70 kg/s) vs Q(H2O) 1.07x10^26 (~3 kg/s) pre-perihelion; also CO, carbonyl sulfide, water ice, later methane, plus nickel vapor. Likely an old, thick-crusted comet from the Milky Way thick disk. NASA/ESA and mainstream astronomy: natural comet",
+    "weird_notes": [
+     "Most eccentric orbit ever recorded for a solar-system-passing object: e = 6.14135 +/- 0.00002 (vs 1.2 for 1I, 3.36 for 2I) — v_inf ~58 km/s, faster than both predecessors",
+     "Retrograde orbit inclined only ~5 deg from the ecliptic plane (i = 175.12 deg) — Loeb puts chance alignment at ~0.2%",
+     "Trajectory threaded close to Mars (0.19 AU, 2025-10-03), Venus, and Jupiter (0.357 AU, 2026-03-16) while unobservable from Earth at perihelion",
+     "CO2/H2O ratio ~8 (7.6+/-0.3, JWST) — among the highest ever measured in any comet",
+     "Nickel-rich gas plume with anomalously low iron and Ni/CN ratio orders of magnitude above known comets (detected Aug 2025, VLT/UVES; Ni production ~0.9 g/s rising to ~5 g/s by 2.8 AU)",
+     "Pre-perihelion sunward anti-tail/collimated jet, later roughly symmetric jets post-perihelion; reported mini-jets separated ~120 deg",
+     "Non-gravitational acceleration detected at perihelion with a substantial non-radial (sideways) component (per Loeb's analysis of MPC/JPL astrometry)",
+     "Extreme negative polarization reported as unprecedented among known comets; near perihelion it brightened faster than known comets and appeared bluer than the Sun",
+     "Post-perihelion chemistry shift: methane emerged as ices faded — first CH4 detection on an interstellar object (Belyakov et al. 2026, ApJL, JWST/MIRI, Dec 2025 obs): CH4/H2O mixing ratio 11.0+/-0.5% rising to 21.6+/-1.3%, vs 0.1-10% for typical solar-system comets; separate June 2026 Nature paper (Cordiner et al., JWST isotopes: 12C/13C = 147, 14N/15N = 343) points to a cold, distant birth environment",
+     "Big and fast: nucleus estimated 3-5 orders of magnitude more massive than both 1I and 2I (Loeb: 'at least 100,000x Oumuamua'), in tension with expected interstellar-object mass distribution",
+     "Jupiter flyby 2026-03-16 at 0.357 AU passed as predicted on the gravitational trajectory (perijove 53.445 Mkm ~ Jupiter's Hill radius 53.502 Mkm — Loeb anomaly); ESA's Juice spacecraft (MAJIS, obs 2025-11-02, published 2026-04-02) measured water output ~2,000 kg/s (~70 Olympic pools/day) and a tail ~6 million km long",
+     "Status July 2026: outbound beyond Jupiter's distance in Gemini, magnitude ~15 and fading, leaving the solar system permanently (beyond Saturn's orbit and fainter than mag 20 by ~Sept 2026)"
+    ],
+    "loeb_position": "Loeb maintained a running numbered anomaly file (reaching 22 anomalies by his March 2026 Medium summary '3I/ATLAS is Fading Away...'), assigning individual probabilities to coincidences (perijove ~ Jupiter's Hill radius, Wow! Signal alignment within 9 deg at 0.6% probability, ecliptic alignment, jet geometry). He rated it 4 on his 0-10 'Loeb scale' (10 = alien threat) — anomalous enough to warrant the technological hypothesis but 'slightly less anomalous' than 'Oumuamua — and repeatedly urged agencies to collect more data rather than dismiss the possibility; NASA/ESA and nearly all astronomers concluded it is a natural, unusually CO2-rich interstellar comet."
+   }
+  ]
+ },
+ "quotes": {
+  "quotes": [
+   {
+    "text": "As of now, I assign a 30 to 40 percent likelihood that 3I/ATLAS does not have a fully natural origin",
+    "speaker": "Avi Loeb",
+    "date": "2025-10-09",
+    "context": "Probability estimate of non-natural origin, as reported while anomaly count grew",
+    "source": "Futurism (futurism.com/space/astronomer-probability-alien-craft-comet)",
+    "camp": "loeb"
+   },
+   {
+    "text": "This low-probability scenario includes the possibility of a black swan event akin to a Trojan Horse, where a technological object masquerades as a natural comet.",
+    "speaker": "Avi Loeb",
+    "date": "2025-10-09",
+    "context": "Explaining his 'black swan' framing of the technological hypothesis",
+    "source": "Futurism, quoting Loeb's Medium blog",
+    "camp": "loeb"
+   },
+   {
+    "text": "As far as I know, there are no protocols for responding to the discovery of functioning alien devices near Earth.",
+    "speaker": "Avi Loeb",
+    "date": "2025-10-09",
+    "context": "On planetary preparedness if 3I/ATLAS proved technological",
+    "source": "Futurism, quoting Loeb",
+    "camp": "loeb"
+   },
+   {
+    "text": "As largely a pedagogical exercise, in this paper we present additional analysis into the astrodynamics of 3I/ATLAS, and hypothesize that this object could be technological",
+    "speaker": "Avi Loeb (with Adam Hibberd, Adam Crowl)",
+    "date": "2025-07-16",
+    "context": "Abstract of the paper 'Is the Interstellar Object 3I/ATLAS Alien Technology?'",
+    "source": "arXiv:2507.12213",
+    "camp": "loeb"
+   },
+   {
+    "text": "possibly hostile as would be expected from the 'Dark Forest' resolution to the 'Fermi Paradox'",
+    "speaker": "Avi Loeb (with Adam Hibberd, Adam Crowl)",
+    "date": "2025-07-16",
+    "context": "The 'dark forest' line in the same arXiv paper's abstract",
+    "source": "arXiv:2507.12213",
+    "camp": "loeb"
+   },
+   {
+    "text": "If it is technological — it may maneuver to benefit from the Sun's gravitational assist or release probes that could intercept the Earth or other planets owing to its retrograde orbit.",
+    "speaker": "Avi Loeb",
+    "date": "2025-10-03",
+    "context": "Warning about the perihelion pass hidden behind the Sun, in his Mars-flyby anomaly recap",
+    "source": "Avi Loeb, Medium (A Recap of the Anomalies of 3I/ATLAS on the Day of Its Closest Approach to Mars)",
+    "camp": "loeb"
+   },
+   {
+    "text": "If we find technological satellites of Jupiter that we did not send, it would imply that Jupiter is of interest to an extraterrestrial civilization.",
+    "speaker": "Avi Loeb",
+    "date": "2026-03",
+    "context": "On the March 16, 2026 Jupiter approach at ~Jupiter's Hill radius and the idea of released 'devices'",
+    "source": "Avi Loeb, Medium (Jupiter-approach essays); IBTimes UK coverage",
+    "camp": "loeb"
+   },
+   {
+    "text": "NASA's representatives should have emphasized what we do not understand about 3I/ATLAS rather than insist that it is a familiar comet from a new birth environment.",
+    "speaker": "Avi Loeb",
+    "date": "2025-11-19",
+    "context": "Reaction to NASA's post-shutdown press conference",
+    "source": "Avi Loeb, Medium (There is Nothing More Deceptive than an Obvious Fact)",
+    "camp": "loeb"
+   },
+   {
+    "text": "We should be humble about the little we know and curious about 3I/ATLAS rather than insist that we know its nature before data is shared and analyzed.",
+    "speaker": "Avi Loeb",
+    "date": "2025-11-03",
+    "context": "Essay inviting Kim Kardashian to join his research team, criticizing NASA data withholding",
+    "source": "Avi Loeb, Medium (Kim Kardashian is Welcome to Join my Research Team on 3I/ATLAS)",
+    "camp": "loeb"
+   },
+   {
+    "text": "Scientific truth is not decided by authority or popularity but by attention to data.",
+    "speaker": "Avi Loeb",
+    "date": "2025-11",
+    "context": "Response to astronomers insisting 3I/ATLAS is a natural comet",
+    "source": "Newsweek interview",
+    "camp": "loeb"
+   },
+   {
+    "text": "It is the responsibility of scientists and NASA officials to acknowledge the existence of unexplained puzzles rather than display the arrogance of expertise while ignoring them.",
+    "speaker": "Avi Loeb",
+    "date": "2026-03-12",
+    "context": "Farewell essay as the object faded, tallying 22 anomalies and lowering it to Loeb Scale 3",
+    "source": "Avi Loeb, Medium (3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies)",
+    "camp": "loeb"
+   },
+   {
+    "text": "Given how well aligned its trajectory was with the orbital plane of Earth around the Sun, we might never witness a visitor like it in our lifetime.",
+    "speaker": "Avi Loeb",
+    "date": "2026-04-23",
+    "context": "Status essay with 3I/ATLAS a billion km out, well beyond Jupiter, leaving the solar system",
+    "source": "Avi Loeb, Medium (Where is 3I/ATLAS Now?)",
+    "camp": "loeb"
+   },
+   {
+    "text": "This object is a comet. It looks and behaves like a comet, and all evidence points to it being a comet.",
+    "speaker": "Amit Kshatriya, NASA Associate Administrator",
+    "date": "2025-11-19",
+    "context": "NASA press conference releasing post-shutdown 3I/ATLAS imagery",
+    "source": "NASA live event; LiveNOW from FOX / Space.com coverage",
+    "camp": "official"
+   },
+   {
+    "text": "We very much want to find signs of life in our universe... but 3I/ATLAS is a comet.",
+    "speaker": "Amit Kshatriya, NASA Associate Administrator",
+    "date": "2025-11-19",
+    "context": "Same NASA press conference, addressing alien-technology speculation directly",
+    "source": "NASA press conference; LiveNOW from FOX coverage",
+    "camp": "official"
+   },
+   {
+    "text": "Everybody has got a camera and they're trying to get a picture of the ball. Nobody has the perfect view, and everybody has a different camera.",
+    "speaker": "Tom Statler, NASA lead scientist for solar system small bodies",
+    "date": "2025-11-19",
+    "context": "Baseball-stadium analogy for the multi-spacecraft observation campaign at the NASA press conference",
+    "source": "NASA press conference; Space.com coverage",
+    "camp": "official"
+   },
+   {
+    "text": "Great question! NASA's observations show that this is the third interstellar comet to pass through our solar system. No aliens. No threat to life here on Earth.",
+    "speaker": "Sean Duffy, NASA Acting Administrator",
+    "date": "2025-11-03",
+    "context": "Reply on X to Kim Kardashian's question about 3I/ATLAS",
+    "source": "X (Twitter); quoted in Loeb's Medium essay and IBTimes UK",
+    "camp": "official"
+   },
+   {
+    "text": "[paraphrase] Wait... what's the tea on 3I/ATLAS?!",
+    "speaker": "Kim Kardashian",
+    "date": "2025-11-03",
+    "context": "X post asking NASA about the interstellar object; outlets render the punctuation differently",
+    "source": "X (Twitter); IBTimes UK / Express Tribune coverage",
+    "camp": "media"
+   },
+   {
+    "text": "Any suggestion that it's artificial is nonsense on stilts, and is an insult to the exciting work going on to understand this object.",
+    "speaker": "Chris Lintott, University of Oxford astronomer",
+    "date": "2025-07",
+    "context": "Reacting to Loeb's alien-technology paper shortly after discovery",
+    "source": "Live Science (Here we go again! Controversial paper...)",
+    "camp": "media"
+   },
+   {
+    "text": "There have been numerous telescopic observations of 3I/ATLAS demonstrating that it's displaying classical signatures of cometary activity.",
+    "speaker": "Darryl Seligman, Michigan State University astronomer",
+    "date": "2025-07",
+    "context": "Lead author of the first characterization study, pushing back on the artificial hypothesis",
+    "source": "Live Science / Newsweek interviews",
+    "camp": "media"
+   },
+   {
+    "text": "You have a piece of another star system that's close enough to home that we can actually study it in detail.",
+    "speaker": "Karen Meech, University of Hawaii astronomer",
+    "date": "2025-07",
+    "context": "On the scientific value of the third interstellar visitor after discovery",
+    "source": "University of Michigan News / phys.org",
+    "camp": "media"
+   }
+  ]
+ },
+ "timelineVerify": {
+  "verdict": "CORRECTED",
+  "corrections": "Five entries corrected; all other 18 confirmed against primary sources. (1) 2026-04-02 JUICE entry: observations were NOT taken \"around the Jupiter approach\" — ESA's 2026-04-02 release covers observations made in November 2025, days after perihelion, from ~60 million km (MAJIS measured 2000 kg/s of water on 2025-11-02 = ~70 Olympic pools/day); instruments were the JANUS camera plus MAJIS/SWI/UVS spectrometers and NavCam; gas and dust extended >5 million km. Loeb Medium source replaced with the actual ESA release. (2) 2025-07-21 Hubble entry: the claimed later size estimate \"~0.52-0.75 km, mass ~4.4e10 kg\" is unsupported by any located paper; actual non-gravitational-acceleration analyses (arXiv:2512.18341; Thoss, Loeb & Burkert arXiv:2603.15735) give ~0.42 km radius (~0.84 km diameter, or 0.82-1.05 km with time-lag solutions) and mass ~1.6e11 kg for CO2-dominated outgassing. (3) 2025-08-21 entry: VLT first detected atomic nickel on 2025-07-20, weeks before the 2025-08-21 cyanide confirmation (dataset implied both were detected the same day); SPHEREx observations were 2025-08-08 to 08-12 with results posted ~Aug 21 (arXiv:2508.15469, CO2 mass loss ~70 kg/s). (4) ATA radio-search entry: date tightened from 2025-12-22 to 2025-12-19 (arXiv:2512.18142 v1 submission, Sheikh et al.); the ATA search's own EIRP upper limit is 10-110 W — the 0.17 W figure is MeerKAT's minimum EIRP (900-1670 MHz), which the dataset had right but is now stated unambiguously. Paper later published in The Astronomical Journal (revised 2026-05-20), consistent with the June 2026 publicity entry. (5) 2026-07-17 current-status entry: JPL Horizons gives r = 9.25 AU (1.38 billion km) from the Sun and 10.25 AU from Earth on 2026-07-17, solar elongation 8.9 deg (deep in conjunction, confirmed), receding at ~58.8 km/s — corrected from \"roughly 9.5 AU (~1.4 billion km)\"; it crosses Saturn's ~9.54 AU orbital distance in late July 2026, so \"crossing Saturn's orbital distance this month\" stands. Minor: ZTF entry's later detection run corrected from \"2025-06-28/29\" to 2025-06-22 to 06-29 (per Wikipedia's precovery table); earliest ZTF precovery 2025-05-22 confirmed via Seligman et al. Everything else verified exact: discovery 2025-07-01 (W68, mag 18, 4.51 AU, 61 km/s); e=6.14135 and MPC confirmation 2025-07-02; Loeb arXiv:2507.12213 v1 2025-07-16; TESS 2025-05-07 to 06-02 (arXiv:2508.02499); JWST 2025-08-06, CO2/H2O 8.0+/-1.0; Mars 2025-10-03 0.1937 AU; conjunction 2025-10-21; perihelion 2025-10-29 11:45 UT, 1.3564 AU, 68 km/s; non-grav accel (89.3+/-4.6)e-9 AU/day^2; NASA event 2025-11-19; Earth approach 2025-12-19 06:01 UT, 1.7976 AU; Dec methane; opposition 2026-01-22 at 177.6 deg with 0.69-deg Sun-Earth-axis alignment (arXiv:2601.08624); Loeb 22-anomalies essay published 2026-03-12 (Wow-signal 0.6%, Loeb Scale Level 4 confirmed); Jupiter approach 2026-03-16 12:22 UT, 0.3583 AU; Eupheme 0.2036 AU on 2026-03-17; Juno intercept paper arXiv:2507.21402 (~2.7 km/s burn, never executed); Loeb \"Where is 3I/ATLAS Now?\" published 2026-04-23 (6.7 AU, 12 anomaly categories); second solar conjunction ~May 2026 with September 2026 reemergence beyond Saturn's orbit fainter than mag 20."
+ },
+ "comparisonVerify": {
+  "verdict": "CORRECTED",
+  "corrections": "1I and 2I entries: fully confirmed against JPL SBDB/MPC (no changes). 3I/ATLAS entry corrected on 7 points: (1) Methane result misattributed — it is Belyakov et al., ApJL (JWST/MIRI, Dec 2025 observations at 2.20-2.54 AU, DOI 10.3847/2041-8213/ae5700, announced Apr-Jun 2026), NOT the June 2026 Nature Cordiner/NIRSpec paper; the '~11x higher than any solar-system object' claim is a garbling of the measured CH4:H2O mixing ratio of 11.0+/-0.5% (rising to 21.6+/-1.3% at the second epoch) vs 0.1-10% for typical comets (C/2016 R2 is higher at 181%). The June 2026 Nature paper (Cordiner et al., 'Isotopic evidence for a cold and distant origin of 3I/ATLAS') is the ISOTOPE study: 12C/13C = 147(+87/-40), 14N/15N = 343 (>2x solar-system comets). (2) JWST CO2/H2O mixing ratio: published ApJL value is 7.6+/-0.3 (8.0+/-1.0 was the early preprint value); production rates at 3.32 AU were Q(CO2)=9.5e26 molecules/s (~70 kg/s) and Q(H2O)=1.07e26 molecules/s (~3 kg/s), not 129 and 6.6 kg/s. (3) Non-gravitational-acceleration-based nucleus size is 0.82-1.05 km (Forbes & Butler, arXiv 2512.18341), not 0.44-0.75 km; the 'mass ~4.4e10 kg' figure is unsupported — the published mass claim is Loeb et al.'s MINIMUM ~33 billion metric tons (3.3e13 kg, implying diameter >~5 km) derived from the pre-perihelion NGA upper limit (arXiv 2509.21408), in tension with the ~1 km post-perihelion NGA estimate. (4) Mass-ratio anomaly: published claim is 3-5 orders of magnitude more massive than both 1I and 2I (Loeb: 'at least a hundred thousand times that of Oumuamua'), not 10^6x vs 1I and 10^3x vs 2I. (5) The April 2026 ESA results came from the Juice spacecraft (MAJIS instrument, observations 2025-11-02, four days post-perihelion, published 2026-04-02): water ~2,000 kg/s = ~70 Olympic pools/day (confirmed) but ion tail ~6 million km long (gas/dust envelope >5 million km) — not 'tail ~5 million km'. (6) Nickel production: reported ~0.9 g/s (Aug 2025, VLT/UVES) rising to ~5 g/s at 2.8 AU; replaced flat '4.6 g/s'. (7) Prediscovery detail expanded: ATLAS images to 2025-06-05, ZTF to 2025-06-14, with TESS imagery from May 2025 recovered later (JPL orbit fits use observations back to late May 2025). All other 3I values verified correct: e=6.14135+/-0.00002, i=175.12 deg (4.89 deg from ecliptic plane, retrograde), q=1.35645 AU, perihelion 2025-10-29 11:45 UT, Earth closest 1.80 AU on 2025-12-19, Mars 0.19 AU on 2025-10-03, Jupiter 0.357 AU on 2026-03-16 (perijove 53.445 Mkm ~ Jupiter Hill radius 53.502 Mkm), v_inf 58 km/s, rotation 16.16 h, HST diameter bounds 0.32-5.6 km, Loeb's 22 anomalies (March 2026 'Fading Away' essay), Loeb scale rating 4 (unchanged as of Dec 2025 update essay), 'slightly less anomalous than Oumuamua' (Loeb's exact framing), Wow! Signal alignment within 9 deg (Loeb probability 0.6%), July 2026 status (outbound beyond Jupiter's distance, constellation Gemini, magnitude ~15 and fading, beyond Saturn's orbit and mag >20 by ~Sept 2026)."
+ }
+}

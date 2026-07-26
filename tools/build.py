@@ -1,0 +1,103 @@
+"""Build the single self-contained HTML file.
+
+Inlines CSS (with the terminal font as a base64 data URI), vendor JS,
+baked data, and app JS into ONE file at the project root:
+  _LATEST - 3I-ATLAS Anomaly Console.html
+
+Usage: python tools/build.py
+"""
+import base64, os, re, time
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, "src")
+OUT = os.path.join(ROOT, "_LATEST - 3I-ATLAS Anomaly Console.html")
+
+JS_ORDER = [
+    "vendor/three.min.js",
+    "vendor/OrbitControls.js",
+    "data-ephemeris.js",
+    "data-content.js",
+    "js/core.js",
+    "js/charts.js",
+    "js/scene3d.js",
+    "js/ui.js",
+    "js/main.js",
+]
+
+
+def read(rel):
+    with open(os.path.join(SRC, rel), "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def main():
+    css = read("console.css")
+    font_path = os.path.join(SRC, "vendor", "sharetechmono.woff2")
+    if os.path.exists(font_path):
+        with open(font_path, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode("ascii")
+        css = css.replace('url("vendor/sharetechmono.woff2")',
+                          'url(data:font/woff2;base64,' + b64 + ')')
+
+    scripts = []
+    for rel in JS_ORDER:
+        body = read(rel)
+        scripts.append("<script>/* == %s == */\n%s\n</script>" % (rel, body))
+
+    title = "3I/ATLAS — Interstellar Anomaly Review Console"
+    desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
+            "on real JPL Horizons trajectories, with 41 fact-checked case files weighing "
+            "Avi Loeb's anomaly claims against the official explanations.")
+    # inline SVG favicon: the console's sigil
+    favicon = (
+        "data:image/svg+xml,"
+        "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E"
+        "%3Crect width='64' height='64' fill='%23041019'/%3E"
+        "%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%2334e1ff' stroke-width='3'/%3E"
+        "%3Ccircle cx='32' cy='32' r='7' fill='%23ffb347'/%3E"
+        "%3C/svg%3E"
+    )
+    head = [
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        "<title>" + title + "</title>",
+        '<meta name="description" content="' + desc + '">',
+        '<meta name="theme-color" content="#041019">',
+        '<meta name="color-scheme" content="dark">',
+        '<meta property="og:type" content="website">',
+        '<meta property="og:title" content="' + title + '">',
+        '<meta property="og:description" content="' + desc + '">',
+        '<meta property="og:image" content="og-image.png">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:title" content="' + title + '">',
+        '<meta name="twitter:description" content="' + desc + '">',
+        '<meta name="twitter:image" content="og-image.png">',
+        '<link rel="icon" href="' + favicon + '">',
+    ]
+    html = "\n".join([
+        "<!doctype html>",
+        '<html lang="en">',
+        "<head>",
+        "\n".join(head),
+        "<style>", css, "</style>",
+        "</head>",
+        "<body>",
+        "\n".join(scripts),
+        "</body>",
+        "</html>",
+    ])
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("Built %s (%d KB)" % (OUT, os.path.getsize(OUT) // 1024))
+
+    # Cloudflare Pages deploy directory: same bytes, URL-friendly name.
+    pub_dir = os.path.join(ROOT, "public")
+    os.makedirs(pub_dir, exist_ok=True)
+    pub = os.path.join(pub_dir, "index.html")
+    with open(pub, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("Built %s (%d KB)" % (pub, os.path.getsize(pub) // 1024))
+
+
+if __name__ == "__main__":
+    main()

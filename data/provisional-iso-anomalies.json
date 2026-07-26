@@ -1,0 +1,103 @@
+{
+  "_note": "Hand-authored provisional case files, used by bake_content.py ONLY while the iso-research workflow's verified anomalies are missing. Replaced wholesale when research-iso.json carries non-empty anomalies1i/anomalies2i.",
+  "anomalies1i": [
+    {
+      "id": "O-01", "title": "An interstellar visitor with no coma", "date": "2017-10-25",
+      "observation": "First designated comet C/2017 U1, the object was re-designated asteroidal A/2017 U1 within a week: deep imaging showed zero dust or gas, even though it had just rounded the Sun at 0.26 AU — well inside Mercury's orbit.",
+      "loeb_take": "Interstellar bodies were expected to be icy comets; the very first one arriving bone-dry and inert was, for Loeb, the opening oddity in the file.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Long exposure to cosmic rays during millions of years in interstellar space can devolatilize an object's surface, leaving an extinct-comet crust that no longer outgasses.",
+      "loeb_scale": null, "viz_hint": "tail", "sources": []
+    },
+    {
+      "id": "O-02", "title": "Extreme 10:1 elongation", "date": "2017-11-20",
+      "observation": "Its brightness varied by a factor of ~10 every 7.3 hours (Meech et al., Nature), implying an axis ratio of at least 6:1 and plausibly 10:1 — more elongated than any known solar-system asteroid or comet.",
+      "loeb_take": "No natural population produces such shapes routinely; a thin, flat artifact tumbling through space would show exactly this kind of lightcurve.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Extreme but not impossible: tidal fragmentation of a parent body during a close stellar or planetary encounter can draw out cigar-shaped shards (Zhang & Lin 2020), and lightcurve amplitudes can be inflated by viewing geometry.",
+      "loeb_scale": null, "viz_hint": "lightcurve", "sources": []
+    },
+    {
+      "id": "O-03", "title": "Pancake, not cigar", "date": "2019-02-15",
+      "observation": "Detailed lightcurve modeling (Mashchenko) found the best fit is not a cigar but an oblate disc about 6:1 — a pancake — with ~91% likelihood over prolate solutions.",
+      "loeb_take": "A thin disc is the geometry of a solar sail; Loeb noted the shape inference moved toward, not away from, the sail hypothesis.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Shape inversion from a sparse lightcurve is degenerate; both extreme prolate and oblate solutions fit, and either can arise naturally (e.g. sublimation sculpting of an icy body).",
+      "loeb_scale": null, "viz_hint": "size", "sources": []
+    },
+    {
+      "id": "O-04", "title": "Acceleration with nothing pushing", "date": "2018-06-27",
+      "observation": "Micheli et al. (Nature) found the trajectory requires a non-gravitational acceleration of ~4.9e-6 m/s^2 at 1 AU, falling off as 1/r^2 and pointed away from the Sun — yet no gas, dust, or torque change was ever detected.",
+      "loeb_take": "A 1/r^2 radial push with no visible exhaust is the signature of solar radiation pressure — which only works if the object is extremely thin, of order millimeters (Bialy & Loeb).",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Outgassing of species that are hard to detect (H2, N2, or water at low levels) could supply the push while staying below observational limits — formalized later in the 'dark comet' H2O/H2 models (Bergner & Seligman 2023).",
+      "loeb_scale": null, "viz_hint": "acceleration", "sources": []
+    },
+    {
+      "id": "O-05", "title": "At rest in the Local Standard of Rest", "date": "2018-01-15",
+      "observation": "Before entering the solar system, 'Oumuamua was moving within a few km/s of the Local Standard of Rest — the average motion of stars in the Sun's neighborhood. Fewer than roughly 1 star in 500 is that co-moving.",
+      "loeb_take": "Loeb likened it to a buoy floating at rest on the ocean while the Sun ran into it — a natural rock ejected from a star should carry its parent star's peculiar velocity.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Objects ejected gently from young, dynamically cold stellar systems inherit low peculiar velocities; the youngest stars cluster near the LSR, so a young ejected object plausibly does too.",
+      "loeb_scale": null, "viz_hint": "trajectory", "sources": []
+    },
+    {
+      "id": "O-06", "title": "Spitzer non-detection — small and shiny", "date": "2018-11-14",
+      "observation": "Spitzer stared for 30 hours at 4.5 microns and saw nothing (Trilling et al.), capping the size at roughly 100-400 m and implying an albedo possibly above 0.1 — several times brighter than typical asteroids — plus tight limits on CO/CO2 outgassing.",
+      "loeb_take": "High reflectivity is consistent with a polished or metallic surface; the CO/CO2 limits simultaneously squeezed the mundane explanations for the acceleration.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "The albedo estimate is model-dependent and its range overlaps natural surfaces; fresh ice-cleaned crusts can be reflective without being artificial.",
+      "loeb_scale": null, "viz_hint": "size", "sources": []
+    },
+    {
+      "id": "O-07", "title": "Radio silence — checked anyway", "date": "2017-12-13",
+      "observation": "Breakthrough Listen pointed the 100-m Green Bank Telescope at 'Oumuamua across 1-12 GHz and found no artificial narrowband transmissions down to sub-watt equivalent power.",
+      "loeb_take": "Silence is not exoneration: a billion-year-old derelict artifact — Loeb's actual proposal — would be exactly as silent as a rock.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "A null result consistent with the mainstream position that the object is natural; the search was undertaken as due diligence given the unusual properties.",
+      "loeb_scale": null, "viz_hint": "other", "sources": []
+    },
+    {
+      "id": "O-08", "title": "Too many of them to be rocks", "date": "2018-09-01",
+      "observation": "Detecting one 'Oumuamua-like object in Pan-STARRS's survey volume implies an enormous space density of similar bodies — around 10^15 per cubic parsec by some estimates.",
+      "loeb_take": "Loeb argued planetary systems cannot eject anywhere near enough rocky mass to supply that population — the mass budget fails by orders of magnitude unless the objects are targeted or artificial (an argument he later re-ran for 3I/ATLAS).",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "The inferred density rests on a single detection with huge Poisson and size-distribution uncertainty; if most ejected mass sits in small bodies, natural budgets can plausibly cover it. Rubin Observatory will settle the statistics.",
+      "loeb_scale": null, "viz_hint": "size", "sources": []
+    }
+  ],
+  "anomalies2i": [
+    {
+      "id": "B-01", "title": "Carbon-monoxide super-rich coma", "date": "2020-04-20",
+      "observation": "ALMA and HST measurements (Cordiner et al., Bodewits et al.) found CO/H2O of order 35-155% — richer in carbon monoxide than essentially every solar-system comet measured at similar distances.",
+      "loeb_take": "Even the control case carries a birthmark: Loeb and others read the CO excess as ordinary chemistry from an exotic birthplace — a disc far colder than the Sun's.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Formation near the CO snowline of a cool M-dwarf disc (or ejection from a cold outer disc region) naturally produces CO-enriched ice; unusual provenance, conventional physics.",
+      "loeb_scale": null, "viz_hint": "spectrum", "sources": []
+    },
+    {
+      "id": "B-02", "title": "Nickel vapor in a cold coma — the 3I context case", "date": "2021-05-19",
+      "observation": "Guzik & Drahus (Nature) detected atomic nickel vapor in Borisov's coma at ~2.3 AU, far too cold to sublimate metal. Simultaneously, Manfroid et al. reported Ni AND Fe vapors in ~20 ordinary solar-system comets.",
+      "loeb_take": "For the 3I/ATLAS debate this cuts against the anomaly: nickel release at low temperature exists in nature — though 3I's measured Ni/Fe ratio was still argued by Loeb to be extreme.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Low-temperature release of nickel-bearing organometallic molecules (nickel-carbonyl-like species) explains metal vapors in cold comae — interstellar and solar comets alike.",
+      "loeb_scale": null, "viz_hint": "spectrum", "sources": []
+    },
+    {
+      "id": "B-03", "title": "Outburst and fragment shedding", "date": "2020-04-06",
+      "observation": "Borisov brightened abruptly in early March 2020, and HST then imaged a discrete fragment detaching from the nucleus — roughly 0.1% of its mass — which dissipated over weeks.",
+      "loeb_take": "Noted in the file as textbook behavior: this is what an actual icy comet under first-time solar heating does.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "Seasonal heating of fresh volatiles and possible spin-up torque; entirely typical of dynamically new comets on first perihelion passage.",
+      "loeb_scale": null, "viz_hint": "lightcurve", "sources": []
+    },
+    {
+      "id": "B-04", "title": "The most pristine comet ever measured", "date": "2021-03-30",
+      "observation": "Polarimetry (Bagnulo et al., Nature Communications) showed dust unlike any solar-system comet except possibly Hale-Bopp — indicating material never processed by a close stellar passage.",
+      "loeb_take": "The control case earns its title: an untouched sample of another star's protoplanetary disc, behaving exactly as nature predicts.",
+      "loeb_quote": "", "quote_source": "",
+      "official_explanation": "A first-passage interstellar comet should be pristine; the measurement confirms expectations rather than defying them.",
+      "loeb_scale": null, "viz_hint": "polarization", "sources": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# Raw JPL Horizons API responses — regenerate with tools/fetch_ephemeris.py
+data/raw/
+
+# Superseded by git history (kept locally so the offline file keeps a rollback trail)
+_Archive (old versions)/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+__pycache__/
+*.pyc

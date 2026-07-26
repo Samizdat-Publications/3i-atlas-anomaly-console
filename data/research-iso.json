@@ -1,0 +1,828 @@
+{
+ "anomalies1i": [
+  {
+   "id": "O-01",
+   "title": "Origin at the Local Standard of Rest (the 'buoy at rest')",
+   "date": "2017-10-31",
+   "observation": "Before entering the solar system, 'Oumuamua was moving at only ~10 km/s relative to the Local Standard of Rest (LSR): its heliocentric velocity was (U,V,W) = (-11.5, -22.4, -7.7) km/s (26.32 km/s total), which in the LSR frame leaves negligible radial (U) and vertical (W) galactic motion and only a ~11 km/s lag in the rotational (V) component. Mamajek (arXiv:1710.11364, submitted Oct 31, 2017) computed that its velocity sat within 5 km/s of the median UVW velocity of local field stars and that fewer than ~1 in 500 field stars in the solar neighborhood have velocities so close to that local median (essentially the LSR). The Sun itself moves faster relative to the LSR (~18 km/s peculiar motion) than 'Oumuamua did.",
+   "loeb_take": "Loeb argued this is exactly where you would park an artificial object meant to survey passing stars — or to hide its origin: in 'Six Strange Facts about 'Oumuamua' (arXiv:1811.08832, Nov 2018) he noted only one star in 500 moves as slowly in the LSR frame and called the LSR 'the ideal frame for camouflage,' avoiding association with any particular star. In 'Extraterrestrial' (2021) he counted the ~1-in-500 kinematic coincidence among the improbabilities any natural ejection model must explain, since ejected rocks inherit their parent star's velocity plus an ejection kick — 'Oumuamua was effectively at rest in the galactic frame and the solar system ran into it.",
+   "official_explanation": "Young objects ejected at low velocity from nearby young stellar systems naturally cluster near the LSR before gravitational scattering ('disk heating') ages their kinematics; the low LSR velocity implies 'Oumuamua is dynamically young (<~100 Myr — Hallatt & Wiegert 2020, arXiv:1911.02473, AJ; Hsieh, Laughlin & Arce 2021 linked it to the ~30 Myr Carina moving group and a molecular-cloud origin, arXiv:2105.14670, ApJ). The ISSI team (Nature Astronomy 3, 594, 2019) treated the kinematics as pointing to a young planetesimal population, not design.",
+   "loeb_quote": "Perhaps 'Oumuamua was like a buoy resting in the expanse of the universe, and our solar system was like a ship that ran into it at high speed.",
+   "quote_source": "Avi Loeb, 'Extraterrestrial' (2021) — verbatim; same buoy-and-ship analogy repeated in 2019-2021 interviews. The LSR/1-in-500 'camouflage' argument is in 'Six Strange Facts about 'Oumuamua' (arXiv:1811.08832; Scientific American, Nov 20, 2018).",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/1710.11364",
+    "https://arxiv.org/abs/1811.08832",
+    "https://www.scientificamerican.com/blog/observations/6-strange-facts-about-the-interstellar-visitor-oumuamua/",
+    "https://arxiv.org/abs/1911.02473",
+    "https://arxiv.org/abs/2105.14670",
+    "https://www.centauri-dreams.org/2021/03/23/thoughts-on-acceleration-nitrogen-ice-the-local-standard-of-rest/"
+   ],
+   "viz_hint": "trajectory",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Minor corrections only; the entry was substantively accurate. (1) Date CONFIRMED exactly: Mamajek arXiv:1710.11364 v1 submitted 2017-10-31. (2) Numbers CONFIRMED: heliocentric U,V,W = (-11.457, -22.395, -7.746) km/s (26.32 km/s total); LSR-frame motion ~10 km/s dominated by a ~11 km/s lag in V with negligible U/W; the '<1 in 500 field stars' figure is verbatim from Mamajek, though he phrased it as stars 'so close to the median UVW velocity' of local stars (within 5 km/s of the median) — wording tightened. Sun's peculiar motion (~18 km/s) > 'Oumuamua's ~10 km/s is true. (3) Quote UPGRADED from paraphrase to verified verbatim from Extraterrestrial (2021): 'Perhaps Oumuamua was like a buoy resting in the expanse of the universe, and our solar system was like a ship that ran into it at high speed.' Attribution fixed: the buoy analogy is from the book/interviews; arXiv:1811.08832 ('Six Strange Facts', submitted 2018-11-21, also Scientific American 2018-11-20) carries the LSR/1-in-500 item, which Loeb there frames as 'the ideal frame for camouflage'. (4) Official explanation CONFIRMED and fairly stated: Hallatt & Wiegert 2020 (arXiv:1911.02473, AJ — low LSR velocity implies age <~100 Myr) and Hsieh, Laughlin & Arce 2021 (arXiv:2105.14670, ApJ — ~30 Myr Carina moving group / molecular-cloud origin); ISSI team citation Nature Astronomy 3, 594 (2019) is correct. Added arXiv:1911.02473 and the Scientific American essay to sources. (5) Nothing invented or conflated beyond the two attribution nits."
+  },
+  {
+   "id": "O-02",
+   "title": "Extreme lightcurve elongation (~10x brightness swings)",
+   "date": "2017-11-20",
+   "observation": "Meech et al. (Nature 552, 378; published 2017-11-20 with ESO release eso1737) reported brightness variations by a factor of ~10 (about 2.5 magnitudes) every ~7.3 hours as the object rotated. The original fit implied an axis ratio of up to ~10:1; later reanalyses accounting for phase-angle effects put the most likely aspect ratio at ~6:1 (6±1) — still more elongated than any of the hundreds of thousands of asteroids and comets ever measured in the solar system (typical bodies are ~2:1 or 3:1).",
+   "loeb_take": "Loeb repeatedly listed the record-setting elongation as strange fact number one: no known solar-system body comes close, and an extreme aspect ratio is what an artificial thin structure (cigar or disc seen edge-on) would produce. In 'Six Strange Facts' (arXiv:1811.08832, also published in Scientific American on 2018-11-20) he noted the shape inference, combined with the later acceleration anomaly, pushed him toward a thin-membrane geometry rather than a rocky ellipsoid.",
+   "official_explanation": "Natural shaping mechanisms proposed: tidal fragmentation of a body during a close stellar or planetary encounter can spin off highly elongated splinters (Zhang & Lin, Nature Astronomy, April 2020, reproduced ~10:1 and even more elongated fragments); prolonged interstellar-dust erosion or collisional grinding can also elongate small bodies. The ISSI team (Nature Astronomy 3, 594, 2019) called the shape unusual but consistent with a purely natural origin, noting that lightcurve amplitude is enhanced at the observed phase angles (19-27 deg), softening the required ratio to ~6:1; McNeill et al. (2018) independently derived 6±1 from lightcurve inversion, and Vazan & Sari (MNRAS 493, 1546, 2020) argued irregular surface reflection properties could mimic part of the amplitude, allowing an even less elongated body.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://www.nature.com/articles/nature25020",
+    "https://www.eso.org/public/news/eso1737/",
+    "https://arxiv.org/pdf/1811.08832",
+    "https://www.nature.com/articles/s41550-019-0816-x",
+    "https://www.nature.com/articles/s41550-020-1065-8",
+    "https://arxiv.org/abs/2001.09283"
+   ],
+   "viz_hint": "lightcurve",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Verified against Nature/ESO/arXiv primary sources. (1) Date CONFIRMED: Nature paper and ESO eso1737 both 2017-11-20. (2) Numbers CONFIRMED: factor-of-10 (~2.5 mag) variation, ~7.3 h period, original ~10:1 description, later ~6:1 (ISSI: '6±1:1 most likely after accounting for phase-angle effects'; McNeill et al. 2018: 6±1; Zhang & Lin, Nature Astronomy 2020-04-13, real and produces >=10:1 tidal fragments). (3) No quote present; Loeb 'Six Strange Facts' arXiv:1811.08832 confirmed real and correctly characterized. (4) One CONFLATION fixed: the original entry attributed the amplitude-softening to 'tumbling geometry' by 'McNeill et al. and Vazan & Sari'. Actually the softening from ~10:1 to >=6:1 comes from phase-angle amplitude enhancement (ISSI team, observed phase angles 19-27 deg); McNeill et al. 2018 got 6±1 via lightcurve inversion; Vazan & Sari (MNRAS 493, 1546, 2020; arXiv:2001.09283) argued irregular SURFACE REFLECTION properties, not tumbling, could allow a less elongated shape. Also tightened observation wording ('at least 6:1' -> most-likely 6±1 after phase-angle correction) and added Zhang & Lin and Vazan & Sari URLs to sources. ISSI wording adjusted from 'within reach of natural processes' to their actual conclusion 'consistent with a purely natural origin'."
+  },
+  {
+   "id": "O-03",
+   "title": "Complex tumbling (non-principal-axis rotation)",
+   "date": "2017-12-01",
+   "observation": "Photometry from multiple telescopes could not be phased to a single rotation period; Fraser et al. (Nature Astronomy, arXiv 2017-11-30, published 2018-02-09) and Drahus et al. (Nature Astronomy 2018, Gemini North data) showed 'Oumuamua is tumbling — rotating in an excited non-principal-axis state with lightcurve periodicities near ~7.3-8.7 h (Drahus: ~7.34 h average; Belton: 8.67 h). Belton et al. (ApJL 856, L21, April 2018) formalized the spin-state families from 818 observations over 29.3 days. Fraser et al. computed a damping timescale for the tumbling of at least a billion years, so it likely tumbled through interstellar space since a violent event (e.g. a collision) long before reaching us.",
+   "loeb_take": "Loeb counted the excited spin as another oddity constraining natural origins (a collision or fragmentation is needed to set it tumbling) and argued the tumbling made the outgassing explanation for the acceleration harder: citing Rafikov (2018), he noted that cometary jets should have torqued the object and rapidly changed its spin — Rafikov showed outgassing strong enough to supply the acceleration would drive spin evolution within days (even rotational breakup) unless the jet's torque lever arm was finely tuned, yet no spin change or sudden kicks were observed. Separately, Loeb cited Mashchenko's (2019) lightcurve-torque modeling approvingly for its conclusion that the shape is disc-like at ~91% confidence — though Mashchenko's own best fit (a thin disc under moderate outgassing torque of comet-like amplitude) actually supports the natural-comet reading.",
+   "official_explanation": "Tumbling is common among small solar-system bodies after collisions; Fraser et al. attributed it to a collision in 'Oumuamua's birth system before or during ejection. Belton et al. showed several spin states fit the data, including ones consistent with either cigar or pancake shapes. Rafikov (2018) argued the observed spin stability limits any outgassing torques — a point against the comet interpretation — but later modeling (Mashchenko 2019; Seligman et al.) showed outgassing concentrated at the substellar point can supply the acceleration while leaving the tumbling period essentially unchanged.",
+   "loeb_quote": "showing no change in spin or sudden kicks as routinely observed from localized jets",
+   "quote_source": "Loeb, 'On the Possibility of an Artificial Origin for `Oumuamua', Astrobiology review (lweb.cfa.harvard.edu/~loeb/Loeb_Astrobiology.pdf), citing Rafikov 2018",
+   "loeb_scale": null,
+   "sources": [
+    "https://www.nature.com/articles/s41550-018-0398-z",
+    "https://arxiv.org/abs/1711.11530",
+    "https://www.nature.com/articles/s41550-018-0440-1",
+    "https://iopscience.iop.org/article/10.3847/2041-8213/aab370",
+    "https://arxiv.org/abs/1906.03696",
+    "https://arxiv.org/abs/1809.06389"
+   ],
+   "viz_hint": "lightcurve",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core facts all verified (date within window; Fraser arXiv 2017-11-30 / Nature Astronomy 2018-02-09; Drahus ~7.34 h; Belton ApJL 856 L21 April 2018, DOI aab370; billion-year damping timescale is Fraser et al.'s own statement; all four source URLs resolve to the claimed papers, with the fourth being Mashchenko 2019 MNRAS 489, 3003, arXiv:1906.03696). Two fixes: (1) loeb_take conflated three claims — the 'very finely tuned outgassing' argument belongs to Rafikov (2018: fine tuning of the jet's torque lever arm needed to avoid rapid spin evolution 'on a timescale of a few days'), not to Mashchenko, whose own 'fine-tuning problem' wording refers to cigar-shaped models (16% probability) vs disc models (91%); Loeb cited Mashchenko approvingly for the ~90%-confidence disc-like shape, and Mashchenko's fitted torque was actually comet-like in amplitude (supporting the natural interpretation). Reworded loeb_take accordingly. (2) official_explanation's 'used both for and against' clause sharpened: Rafikov's spin-stability point argued against the outgassing interpretation; later substellar-point outgassing models (Seligman et al.) reconciled stable spin with jets. Also added a verified short Loeb quote (extracted directly from his Astrobiology review PDF) to the previously empty loeb_quote field, and added the Rafikov ApJL DOI link to sources."
+  },
+  {
+   "id": "O-04",
+   "title": "Breakthrough Listen radio silence",
+   "date": "2017-12-13",
+   "observation": "On 2017-12-13 (3:45-9:45 pm ET) Breakthrough Listen observed 'Oumuamua with the Green Bank Telescope across four bands (L, S, X, C; 1.1-11.6 GHz), accumulating ~90 TB of raw data over the 2-hour on-source observation plus calibration scans. No artificial narrowband signals were found. The published analysis (Enriquez et al. 2018, Res. Notes AAS 2, 9) set limits sensitive to omnidirectional transmitters with power as low as ~0.08 W — a fraction of a cellphone — at the object's distance.",
+   "loeb_take": "Loeb (who chairs Breakthrough Starshot's advisory committee) endorsed the search and treated the null result as consistent with, not fatal to, the artifact hypothesis: a defunct piece of technological debris or a passive lightsail need not transmit. In 'Extraterrestrial' he argued most artifacts we encounter would likely be dead 'space junk' of other civilizations, so radio silence carries limited evidential weight.",
+   "official_explanation": "The mainstream reading is straightforward: a natural rock does not transmit, and the deep non-detection removed the most testable technosignature prediction. The SETI Institute's Allen Telescope Array had already observed it 2017-11-23 to 12-05 (Harp et al. 2019, Acta Astronautica) and independently found no signals down to ~10 W EIRP at 1 GHz (rising to ~100 W at 7 GHz), and the ISSI team's Nature Astronomy review found no compelling evidence for an artificial origin, citing the radio quiet as consistent with a natural body.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://breakthroughinitiatives.org/news/15",
+    "https://iopscience.iop.org/article/10.3847/2515-5172/aaa6c9",
+    "https://arxiv.org/abs/1801.02814",
+    "https://arxiv.org/abs/1808.09355",
+    "https://parabolicarc.com/2017/12/18/breakthrough-listen-releases-initial-results-data-observations-oumuamua/"
+   ],
+   "viz_hint": "other",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Two minor corrections; everything else verified. (1) Date/time exact: Breakthrough Listen's first block ran 3:45-9:45 pm ET on 2017-12-13 at GBT (breakthroughinitiatives.org/news/15). (2) Numbers: L/S/X/C bands, 1.1-11.6 GHz, and the 0.08 W transmitter limit confirmed verbatim against Enriquez et al. (arXiv:1801.02814, RNAAS 2, 9, DOI 10.3847/2515-5172/aaa6c9). Nuance fixed: the 90 TB was accumulated over the 2-hour on-source observation of 'Oumuamua (plus calibration), not the whole 6-hour block. ERROR fixed: the Harp et al. 2019 ATA limit is not a flat ~10 W — the corrected published version (a Jansky-to-EIRP calculation error was fixed in revision) gives ~10 W EIRP at 1 GHz rising to ~100 W at 7 GHz; also the ATA observations (2017-11-23 to 12-05) preceded the GBT session, so phrasing adjusted so it doesn't read as a follow-up. (3) loeb_quote is empty — nothing to verify; loeb_take is a fair paraphrase (Loeb chairing the Breakthrough Starshot advisory committee confirmed via CfA news; 'debris from advanced technological equipment' framing is genuine Bialy & Loeb 2018 language and the space-junk argument appears in Extraterrestrial). (4) Official explanation fairly stated and backed by real papers (Enriquez 2018; Harp 2019; ISSI 'Oumuamua Team, Nature Astronomy 2019 — 'no compelling evidence' for artificial origin). (5) Nothing invented or conflated; all three original source URLs are real, and I added the two arXiv links to the sources list."
+  },
+  {
+   "id": "O-05",
+   "title": "Population density too high for ejected rocks",
+   "date": "2018-03-06",
+   "observation": "Scaling from Pan-STARRS's single detection, Do, Tucker & Tonry (ApJL 855, L10, published 2018-03-06) inferred a space density of 'Oumuamua-like objects of ~0.2 per AU^3 — a mass density of ~4 Earth masses of ejecta per cubic parsec, requiring each star to account for over 10^16 ejected bodies. The required planetesimal disk mass exceeds all estimates of the solar system's own planetesimal disk by an order of magnitude; Loeb noted the density is 2-8 orders of magnitude above the pre-detection prediction of Moro-Martin, Turner & Loeb (2009), and rounded the requirement to ~10^15 (a quadrillion) objects per star.",
+   "loeb_take": "Loeb ('Six Strange Facts', arXiv:1811.08832, and book 'Extraterrestrial') argued each star would need to eject ~10^15 'Oumuamua-like objects — 2-8 orders of magnitude more than he and Moro-Martin had predicted in 2009 — an implausible budget if they are random rocks. A random population of 10^15 solar sails per star is equally unreasonable, so he argued targeted trajectories 'add explanatory power': far fewer artifacts are needed if they aim for the habitable zones of stars rather than sampling all orbits randomly. Separately, Siraj & Loeb (New Astronomy 2022) ran the same mass-budget attack against the nitrogen-iceberg model, and Loeb repeatedly cited Moro-Martin's 2018-2019 finding that ejection scenarios fall short.",
+   "official_explanation": "The ISSI team (Bannister et al., Nature Astronomy 2019) countered that with a single detected object there are no firm constraints on the size-frequency distribution, so the measured number density cannot be converted to a mass density: plausible SFDs with a few percent of mass in ~50 m fragments match the observed density with only 0.02-15 Earth masses ejected per star, making the 'higher than expected' claim unsupported. Do et al. themselves proposed Oort-cloud shedding by post-main-sequence stars as a supplementary source; Zhang & Lin (2020) and Desch & Jackson (2021) each predict abundant small fragments. Moro-Martin (2018, 2019), however, found the tension persists under many assumptions — the debate hinged on the unknown size distribution, which detections of 2I and 3I are only now starting to constrain (km-scale ISOs are far rarer, ~10^-4 to 10^-2 per AU^3).",
+   "loeb_quote": "Each star in the Milky-Way needs to eject 10^15 such objects during its lifetime to account for the inferred population, much more than anticipated based on the Solar System.",
+   "quote_source": "Loeb, 'Six Strange Facts about 'Oumuamua', arXiv:1811.08832 (Nov 2018; also Scientific American, 2018-11-20)",
+   "loeb_scale": null,
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/2041-8213/aaae67",
+    "https://arxiv.org/abs/1801.02821",
+    "https://arxiv.org/abs/1811.08832",
+    "https://www.nature.com/articles/s41550-019-0816-x",
+    "https://arxiv.org/abs/1811.00023"
+   ],
+   "viz_hint": "size",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date 2018-03-06 CONFIRMED exact (ApJL publication date). Density 0.2 au^-3 and ~4 M-earth/pc^3 confirmed verbatim. THREE corrections: (1) Do et al. state 'each star must account for over 10^16 ejected bodies', not ~10^15 — the quadrillion-per-star figure is Loeb's rounding in Six Strange Facts, now attributed correctly; Do et al.'s own stated excess is 'an order of magnitude' over solar-system planetesimal-disk estimates, while the '2-8 orders of magnitude above prediction' comparison is Loeb's, versus Moro-Martin, Turner & LOEB 2009 (Loeb co-authored the prediction — 'Moro-Martin's own tension' framing fixed). (2) Official explanation misattributed: Moro-Martin 2018/2019 CONFIRMED the tension rather than resolving it; the actual rebuttal is the ISSI team's size-frequency-distribution argument ('with a single detected object there are no firm constraints... the claim that the observed number density is higher than expected... is not supported'), not primarily Poisson error; 'later surveys refining density downward' softened to an SFD-constraint statement since 3I-era densities (~10^-4-10^-2 au^-3) apply to km-scale objects. (3) Added verified verbatim Loeb quote from arXiv:1811.08832 with source; added Moro-Martin 2019 (arXiv:1811.00023) to sources. Loeb's targeted-mission corollary verified verbatim ('the required numbers could be reduced dramatically if...special orbits that dive into the innermost, habitable regions')."
+  },
+  {
+   "id": "O-06",
+   "title": "Non-gravitational acceleration with no visible coma or tail",
+   "date": "2018-06-27",
+   "observation": "Micheli et al. (Nature 559, 223; published 2018-06-27) detected, at ~30-sigma significance, a non-gravitational acceleration of 'Oumuamua of 4.92 +/- 0.16 x 10^-6 m/s^2 at 1 AU, pointed radially away from the Sun and falling off roughly as 1/r^2. Yet deep imaging (VLT, HST, Gemini) and Spitzer showed no coma, no dust tail, and no detected gas — the usual engine of such accelerations in comets. Explaining it with outgassing would need ~10 kg/s of gas with a gas-to-dust ratio >100x any known comet.",
+   "loeb_take": "This is the anomaly that launched the artifact hypothesis: an excess sunward-decaying push with no visible propellant is precisely the signature of solar radiation pressure on a thin, low-mass-per-area object. Loeb called the combination of acceleration plus no coma the single most anomalous fact about 'Oumuamua, and in later essays assigned the natural-comet explanation a low likelihood given the additional fine-tuning (no spin-up torque, no infrared detection) it requires.",
+   "official_explanation": "Micheli et al. themselves concluded comet-like outgassing is physically viable if 'Oumuamua has unusual thermal/compositional properties (large grains, low dust). The ISSI team (Nature Astronomy 2019) endorsed volatile outgassing below detection thresholds. Dedicated exotic-ice models followed: hydrogen iceberg (Seligman & Laughlin, ApJL 896, L8, 2020), nitrogen-ice fragment (Desch & Jackson, JGR Planets, 2021), and radiolytic H2 trapped in water ice (Bergner & Seligman, Nature 615, 610, March 2023). A minority view (Katz 2019, arXiv:1904.02218) disputed the acceleration itself, but the 30-sigma detection is broadly accepted.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://www.nature.com/articles/s41586-018-0254-4",
+    "https://arxiv.org/abs/1904.02218",
+    "https://www.nature.com/articles/s41550-019-0816-x",
+    "https://www.nature.com/articles/s41586-022-05687-w"
+   ],
+   "viz_hint": "acceleration",
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "All claims verified against primary sources; no corrections required. (1) Date exact: Nature 559, 223-226 published 2018-06-27. (2) Acceleration (4.92 +/- 0.16) x 10^-6 m/s^2 confirmed verbatim; ratio = 30.8 so ~30-sigma is accurate; radially anti-solar ~1/r^2 confirmed; ~10 kg/s is Micheli et al.'s own adopted best estimate (their stated range 0.7-140 kg/s); the 'gas-to-dust ratio >100x any known comet' figure is Katz's (arXiv:1904.02218 / Ap&SS 364, 51, 2019) explicit calculation ('at least 100 times greater than that of known Solar System comets') — Katz is already cited in sources, so the claim is grounded, though a pedant could attribute it to Katz explicitly. (3) loeb_quote empty, nothing to verify; loeb_take is fair paraphrase of documented Loeb positions (Bialy & Loeb 2018 ApJL radiation-pressure sail 0.3-0.9 mm; repeated citation of 30-sigma acceleration + no coma as central anomaly; spin-up and Spitzer fine-tuning arguments). (4) Official explanation fairly stated with real papers: Micheli et al. attribute to comet-like outgassing; ISSI team = Nature Astronomy 3, 594-602 (2019), DOI 10.1038/s41550-019-0816-x, matches source URL; Seligman & Laughlin ApJL 896, L8 (2020) H2 ice confirmed; Desch & Jackson JGR Planets 126, e2020JE006807 (March 2021) N2 ice confirmed; Bergner & Seligman Nature 615, 610 (22 March 2023), DOI s41586-022-05687-w confirmed and matches source URL 4. (5) Nothing invented or conflated; all four source URLs resolve to the claimed papers."
+  },
+  {
+   "id": "O-07",
+   "title": "Bialy-Loeb lightsail hypothesis (the 0.3-0.9 mm sail)",
+   "date": "2018-11-12",
+   "observation": "Bialy & Loeb (ApJL 868, L1; arXiv 2018-10-26, published 2018-11-12) showed that solar radiation pressure alone reproduces the observed 1/r^2 excess acceleration (Micheli et al. 2018) if 'Oumuamua's mass-to-area ratio is ~0.1 g/cm^2 - i.e., a thin sheet only ~0.3-0.9 mm thick for normal material densities. They calculated such a thin film would survive interstellar dust/gas ablation and tidal/centrifugal (tensile) stresses over galactic distances.",
+   "loeb_take": "The paper offered two readings: a naturally produced ultra-thin object of a new class, or an artificial origin - 'a lightsail, floating in interstellar space as debris from advanced technological equipment' - with a 'more exotic' alternative that it was a deliberate probe. Loeb expanded this into 'Extraterrestrial' (Jan 2021), arguing the artifact hypothesis was the most economical explanation of all the anomalies jointly and publicly calling artificial origin a 'serious possibility'; in his August 2025 Loeb Scale paper (arXiv:2508.09167) he retroactively ranked 'Oumuamua Level 4 ('critical threshold' - technological explanation must be considered), versus Level 0 for 2I/Borisov and Level 4 for 3I/ATLAS.",
+   "official_explanation": "Curran (A&A 649, L17, 2021, ''Oumuamua as a light sail: Evidence against artificial origin') showed light sails asymptotically approach a terminal velocity, so a sail with 'Oumuamua's parameters (thickness <~1 mm, mass ~4x10^4 kg) would need roughly half a billion years just to reach the Sun from its closest likely system of origin - making an artificial sail very unlikely. Zhou et al. (A&A 667, A108, 2022) added that a tumbling sail is inconsistent with the data: <1.5% probability of matching the observed lightcurve amplitude and ~0.4% probability of remaining visible in all 55 post-discovery observations. The ISSI team (Nature Astronomy, 2019) found all observations consistent with a purely natural origin, and porous fractal-aggregate models (Moro-Martin 2019; Luu, Flekkoy & Toussaint 2020) offered a natural route to lightsail-like area-to-mass ratios.",
+   "loeb_quote": "Alternatively, a more exotic scenario is that 'Oumuamua may be a fully operational probe sent intentionally to Earth vicinity by an alien civilization.",
+   "quote_source": "Bialy & Loeb 2018, ApJL 868, L1 ('Could Solar Radiation Pressure Explain 'Oumuamua's Peculiar Acceleration?'), Section 5 - exact sentence verified against the published text",
+   "loeb_scale": 4,
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/2041-8213/aaeda8",
+    "https://arxiv.org/abs/1810.11490",
+    "https://www.aanda.org/articles/aa/full_html/2021/05/aa41283-21/aa41283-21.html",
+    "https://www.aanda.org/articles/aa/abs/2022/11/aa44119-22/aa44119-22.html",
+    "https://arxiv.org/abs/1907.01910",
+    "https://arxiv.org/abs/2508.09167",
+    "https://www.space.com/42352-oumuamua-interstellar-object-alien-light-sail.html"
+   ],
+   "viz_hint": "acceleration",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Date and physics confirmed exactly (arXiv 2018-10-26; ApJL 868 L1 published 2018-11-12; m/A ~0.1 g/cm^2; 0.3-0.9 mm sheet; dust/gas and tensile-stress survival analysis in paper). Three fixes: (1) loeb_quote was a silent truncation - restored the full sentence beginning \"Alternatively, a more exotic scenario is that...\"; the paper's actual lightsail wording (\"a lightsail, floating in interstellar space as debris from advanced technological equipment\") substituted for the invented phrase \"a lightsail of artificial origin\". (2) official_explanation conflated papers: Curran 2021 (A&A 649, L17) argues terminal-velocity/travel-time (~0.5 Gyr from nearest plausible origin) and extreme thinness/mass constraints, NOT tumbling; the tumbling/brightness-modulation argument is Zhou et al. 2022 (A&A 667, A108: <1.5% lightcurve-amplitude match, 0.4% visibility probability) - both now correctly attributed, Zhou added to sources. (3) \"publicly estimated better-than-even personal odds\" is unsourced - no >50% Loeb statement found; replaced with documented \"serious possibility\" framing and his book's most-economical-hypothesis argument, plus his Aug 2025 retroactive Loeb Scale Level 4 ranking of 1I (arXiv:2508.09167; 2I=0, 3I/ATLAS=4)."
+  },
+  {
+   "id": "O-08",
+   "title": "Spitzer infrared non-detection: small and shiny",
+   "date": "2018-11-14",
+   "observation": "Spitzer stared at 'Oumuamua's position for 30.2 hours at 4.5 microns (IRAC channel 2) on 2017-11-21/22 UT and saw nothing, with a 3-sigma flux upper limit of 0.3 microJy (Trilling et al., AJ 156, 261; published 2018-11-14). This caps the effective spherical diameter at <98, <140, or <440 m (for low/middle/high thermal beaming) and forces the albedo above 0.2, 0.1, or 0.01 respectively — plus tight 3-sigma upper limits on outgassing: CO2 < 9e22 and CO < ~9e21 molecules/s.",
+   "loeb_take": "Loeb highlighted that the preferred solutions make 'Oumuamua small and at least ~10x more reflective than typical solar-system comets and asteroids — consistent with a polished metallic or icy-clean artificial surface — while the CO/CO2 limits simultaneously starve the outgassing explanation for the acceleration of its most common propellants. Smaller size also means the non-gravitational push acted on a lower-mass object, easing the radiation-pressure requirement.",
+   "official_explanation": "Trilling et al. proposed that if 'Oumuamua is a comet-like body, low-level post-perihelion volatile emission after its 0.256 AU perihelion passage could have deposited a fresh, bright icy mantle, explaining the high albedo; water vapor (invisible at 4.5 microns, ~6e25 molecules/s needed) could still drive the acceleration. The nitrogen-ice model (Jackson & Desch 2021) naturally yields a high albedo (~0.64, N2 frost like Pluto's surface) and a small body (~45 x 44 x 7.5 m), fitting Spitzer's limits, as does the hydrogen-iceberg model.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/1538-3881/aae88f",
+    "https://arxiv.org/abs/1811.08072",
+    "https://www.jpl.nasa.gov/news/nasa-learns-more-about-interstellar-visitor-oumuamua/",
+    "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JE006706"
+   ],
+   "viz_hint": "size",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "All core facts verified against primary sources — date (AJ published exactly 2018-11-14), 30.2 hr / 4.5 um / 2017-11-21-22 UT, 0.3 uJy 3-sigma limit, diameter <98/<140/<440 m, albedo >0.2/>0.1/>0.01, and real CO/CO2 limits (now quantified: CO2 < 9e22, CO < ~9e21 molec/s from the paper). Three minor fixes: (1) citation attribution — the nitrogen-ice paper at DOI 10.1029/2020JE006706 is Jackson & Desch 2021 (Paper I), not 'Desch & Jackson'; also added their derived dimensions 45x44x7.5 m. (2) official_explanation mechanism reworded from 'ice-scoured' to the paper's actual proposal: post-perihelion volatile emission depositing a fresh bright icy mantle; added Trilling's ~6e25 H2O molecules/s figure. (3) loeb_take 'up to ~10x' tightened to 'at least ~10x' to match Loeb's actual claim in 'Six Strange Facts' / Extraterrestrial. Empty loeb_quote is fine (nothing fabricated). Replaced the NAU press-release link (redundant) with arXiv:1811.08072 and the JPL 2018-11-14 release."
+  },
+  {
+   "id": "O-09",
+   "title": "Pancake, not cigar: the 91% oblate fit",
+   "date": "2019-06-09",
+   "observation": "Mashchenko (MNRAS 489, 3003; arXiv:1906.03696, submitted 9 June 2019) fit the full October-November 2017 lightcurve with a physical tumbling-plus-torque model and found disc-shaped (oblate) bodies reproduce the deep brightness minima with 91% likelihood, versus only 16% for cigar shapes, which additionally suffer an orientation fine-tuning problem. The best-fit body is a thin slab of ~115 x 111 x 19 m — an aspect ratio near 6:6:1 (assumed geometric albedo 0.1) — under a modest outgassing torque whose amplitude, relative to the non-gravitational acceleration, matches Solar System comets.",
+   "loeb_take": "Loeb seized on this: the popular cigar was an artist's conception, while the data statistically favor a flat pancake at 91% confidence — far closer to a sail geometry. In essays and in 'Extraterrestrial' he emphasized that a razor-thin disc is even harder to make naturally than a cigar (Mashchenko's fits even allow a millimeter-thin sheet), and — following Rafikov's 2018 argument that outgassing torques should have measurably spun the object up — that the required torque balance further strains the invisible-outgassing story. The 2025 Loeb Scale paper (arXiv:2508.09167) again cites 1I's 'extreme geometry' among the accumulated anomalies justifying its Level 4 ranking.",
+   "official_explanation": "Natural routes to oblate shapes exist: Seligman & Laughlin (ApJL 896, L8, 2020) showed sublimation mass wasting on an H2 iceberg monotonically raises the axis ratio, sculpting the body toward the observed 6:6:1 oblate form; Jackson & Desch's N2-ice fragment (JGR Planets 2021) likewise ablates to an oblate 45 x 44 x 7.5 m sliver — 'like a bar of soap', per the AGU release; and gravitational collapse of rotating pebble clouds can yield flattened planetesimals (Lorek & Johansen, arXiv:2401.05101 — a general formation result, not an Oumuamua study). By contrast, Zhang & Lin's tidal-fragmentation simulations (Nature Astronomy 2020) produce almost exclusively prolate, cigar-like fragments and argue the elongated interpretation of the lightcurve remains viable — so the mainstream view spans both shape families, with the pancake merely statistically preferred.",
+   "loeb_quote": "",
+   "quote_source": "",
+   "loeb_scale": null,
+   "sources": [
+    "https://arxiv.org/abs/1906.03696",
+    "https://doi.org/10.1093/mnras/stz2380",
+    "https://academic.oup.com/mnras/article/489/3/3003/5556541",
+    "https://arxiv.org/abs/2004.07218",
+    "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JE006706",
+    "https://arxiv.org/abs/2508.09167"
+   ],
+   "viz_hint": "lightcurve",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Core observation VERIFIED: arXiv:1906.03696 (Sergey Mashchenko, v1 submitted 2019-06-09; MNRAS 489, 3003-3021) really finds disc models produce the required deep lightcurve minima at 91% probability vs 16% for cigars; best-fit oblate ellipsoid 115 x 111 x 19 m (~6:6:1) assuming geometric albedo 0.1; torque required, with amplitude relative to the non-gravitational acceleration matching Solar System comets. DOI 10.1093/mnras/stz2380 correct. Errors fixed: (1) DATE: v1 was submitted June 9, 2019, not June 10 (1 day off, within tolerance but corrected). (2) OBSERVATION: 'finely balanced outgassing torque' misattributed the fine-tuning — Mashchenko's abstract assigns the fine-tuning problem to the CIGAR models (orientation needed to make deep minima), while the disc's torque is simply comet-like in amplitude; reworded. (3) LOEB_TAKE misquote: the 2025 Loeb Scale paper (arXiv:2508.09167) says 'extreme geometry' and 'unusual geometry', NOT 'extreme flattened' — quote corrected. Loeb's pancake/91% emphasis and lightsail framing in Extraterrestrial and essays is well documented (e.g. his 'On the Possibility of an Artificial Origin for Oumuamua' Astrobiology draft cites the disk favored at 91% confidence); his torque-fine-tuning argument traces to Rafikov 2018 (outgassing torques should have spun it up), rephrased accordingly. (4) OFFICIAL_EXPLANATION conflations: Zhang & Lin (Nature Astronomy 2020, arXiv:2004.07218) do NOT produce flattened fragments — 'Nearly all the fragments are triaxial prolate' and they explicitly argue an elongated cigar is MORE likely than a flat pancake, so they are a counterpoint to the oblate fit, not a natural oblate route; corrected. (5) The 'bar of soap' analogy belongs to Jackson & Desch's N2-ice work (AGU press release for JGR Planets 2021, 10.1029/2020JE006706 — body ablates to 45 x 44 x 7.5 m oblate slab), NOT to Seligman & Laughlin, whose H2-ice ApJL (896, L8) paper says sublimation mass wasting 'leads to monotonic increase in the body axis ratio' toward the observed 6:6:1 oblate form and never uses the soap analogy; attributions swapped. (6) arXiv:2401.05101 (Lorek & Johansen 2024, flattened planetesimals from collapsing rotating pebble clouds) is real but compares to Arrokoth/comet lobes and never mentions Oumuamua — caveat added. Sources: swapped ResearchGate mirror for the OUP journal page and added the arXiv abstract."
+  },
+  {
+   "id": "O-10",
+   "title": "Counter-explanation wars and Loeb's rebuttals (2019-2023)",
+   "date": "2023-03-22",
+   "observation": "Each natural model for the coma-less acceleration drew a published Loeb counter. Hydrogen iceberg (Seligman & Laughlin, ApJL 896 L8, 2020) vs Hoang & Loeb (ApJL 899 L23, 2020): H2-ice grains cannot form in dense GMCs (collisional heating sublimates mantles) and only bodies larger than ~5 km would survive the journey. Nitrogen fragment (Jackson & Desch / Desch & Jackson, JGR Planets 126, 2021) vs Siraj & Loeb (New Astronomy 92, 101730, 2022): the required exo-Pluto mass of heavy elements exceeds the total locked in all stars (95% confidence). Radiolytic H2-in-water-ice (Bergner & Seligman, Nature 615, 610, 2023-03-22) vs Hoang & Loeb (ApJL 951 L34, 2023): neglecting H2 evaporative cooling overestimated the surface temperature by a factor of ~9, cutting the thermal speed of outgassing H2 (and thus the thrust) by a factor of ~3 — too little to propel 'Oumuamua. A separate Nature Matters Arising by N. F. W. Ligterink ('Accelerating 'Oumuamua with H2 is challenging', Nature 623, E14, 2023-11-29) independently argued GCR radiolysis cannot make enough H2 in a water-ice body.",
+   "loeb_take": "Loeb's position: the succession of exotic, never-before-observed objects (hydrogen icebergs, nitrogen icebergs, 'dust bunnies', dark comets) invented to save a natural origin shows the anomaly is real, and each fails quantitatively — so an artificial thin object remains on the table. Bergner and Seligman published a formal Reply in Nature (623, E16, 2023) defending their model against Ligterink's Matters Arising (Hoang & Loeb's critique ran in ApJL, not Nature), and the mainstream treats the 2023 Nature paper as the leading closure of the case; Loeb explicitly does not.",
+   "official_explanation": "The consensus anchor remains the ISSI 'Oumuamua team (Nature Astronomy 3, 594, 2019-07-01): every observed property is consistent with a purely natural planetesimal, and 'we find no compelling evidence to favor an alien explanation'. Bergner & Seligman (2023) plus the emerging 'dark comet' population (Seligman et al. 2023-2024, small solar-system bodies with non-gravitational accelerations and no comae) are cited as showing 'Oumuamua-like behavior occurs naturally.",
+   "loeb_quote": "[paraphrase] Adding hypothetical objects we have never seen — hydrogen icebergs, nitrogen icebergs — to explain the first interstellar visitor is not simpler than considering an artificial origin.",
+   "quote_source": "Avi Loeb, Medium essay ''Oumuamua Was Not a Hydrogen-Water Iceberg' (2023-03-23) and EarthSky interview 'Was 'Oumuamua a comet? Avi Loeb responds' (2023)",
+   "loeb_scale": null,
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/2041-8213/ab963f",
+    "https://iopscience.iop.org/article/10.3847/2041-8213/abab0c",
+    "https://ui.adsabs.harvard.edu/abs/2022NewA...9201730S/abstract",
+    "https://www.nature.com/articles/s41586-022-05687-w",
+    "https://arxiv.org/abs/2303.13861",
+    "https://www.nature.com/articles/s41586-023-06697-y",
+    "https://www.nature.com/articles/s41586-023-06698-x",
+    "https://avi-loeb.medium.com/oumuamua-was-not-a-hydrogen-water-iceberg-1dd2f7a6107f",
+    "https://earthsky.org/space/oumuamua-a-comet-avi-loeb-responds/",
+    "https://scitechdaily.com/not-saying-it-was-aliens-but-oumuamua-probably-wasnt-a-nitrogen-iceberg/",
+    "https://www.nature.com/articles/s41550-019-0816-x"
+   ],
+   "viz_hint": "other",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "MAIN ERROR (fixed): The entry attributed the Nature Matters Arising 'Accelerating 'Oumuamua with H2 is challenging' to Hoang & Loeb. It is actually by N. F. W. Ligterink (Univ. of Bern), Nature 623, E14-E15, published 2023-11-29 (PubMed 38030786), and Bergner & Seligman's Nature Reply (623, E16, s41586-023-06698-x) answers Ligterink, not Loeb. Hoang & Loeb's 2023 critique appeared only in ApJL 951, L34 ('Implications of evaporative cooling by H2 for 1I/'Oumuamua', arXiv:2303.13861). SECONDARY FIX: Siraj & Loeb (New Astronomy 92, 101730, 2022) did not show a shortfall 'by orders of magnitude'; their stated result is that the required exo-Pluto heavy-element mass exceeds the total locked in all stars at 95% confidence — rephrased to the actual claim. VERIFIED AS CORRECT: date 2023-03-22 is exactly the Bergner & Seligman Nature 615, 610-613 publication date; Seligman & Laughlin ApJL 896 L8 (2020); Hoang & Loeb ApJL 899 L23 (2020-08-17) including the GMC-formation and en-route-sublimation arguments; Desch & Jackson JGR Planets 2021 (two-paper series, part I is Jackson & Desch); the factor-9 surface-temperature overestimate and factor-3 thermal-speed/thrust reduction (both in ApJL 951 L34 and Loeb's Medium essay of 2023-03-23); the Medium URL (real, correct slug); the EarthSky interview (real); ISSI team Nature Astronomy 3, 594 published 2019-07-01 with the 'no compelling evidence to favor an alien explanation' quote; dark-comet population papers (Seligman et al. 2023 ApJL / 2024 PNAS). The loeb_quote is honestly [paraphrase]-labeled and fairly reflects Loeb's repeated argument (his essay lists 'hydrogen iceberg', 'nitrogen iceberg', 'dust bunny' as ad-hoc never-observed proposals). Also added the Seligman & Laughlin ApJL source URL (ab963f) which was missing, plus arXiv:2303.13861 for Hoang & Loeb 2023 and the B&S Reply URL."
+  },
+  {
+   "id": "O-11",
+   "title": "Retroactive Loeb Scale rank: Level 4",
+   "date": "2025-08-06",
+   "observation": "In 'The Loeb Scale: Astronomical Classification of Interstellar Objects' (Eldadi, Tenenbaum & Loeb, arXiv:2508.09167, submitted Aug 6, 2025; later published in the International Journal of Astrobiology as the 'Interstellar Object Significance Scale (IOSS)'), Loeb and coauthors defined a 0-10 anomaly scale extending the Torino Scale framework (levels 0-3 natural, 4-7 increasingly anomalous, 8-10 confirmed artificial) and retroactively scored the known interstellar objects: 1I/'Oumuamua = Level 4, 2I/Borisov = Level 0, 3I/ATLAS = Level 4 (at the time of writing). A follow-up, 'Quantitative Mapping of the Loeb Scale' (Trivedi & Loeb, arXiv:2509.06253, Sep 2025), formalized the scoring numerically, explicitly modeled on Sagan's quantification of the Kardashev scale.",
+   "loeb_take": "Level 4 marks 'Oumuamua as genuinely anomalous — multiple independent deviations from any known natural class (non-gravitational acceleration without a coma of gas or dust, extreme geometry, spectral properties unexplained by conventional models) — while Borisov's Level 0 shows the scale is not alien-hype: a normal comet scores zero. Loeb used the 1I-vs-2I contrast throughout 2025-2026 essays as the template for judging 3I/ATLAS, arguing anomaly-scoring should be systematic rather than dismissed case-by-case.",
+   "official_explanation": "The scale is Loeb's framework, not community consensus — though it did pass peer review (published in the International Journal of Astrobiology). Critics note the ISSI 'Oumuamua team's 2019 Nature Astronomy paper ('The Natural History of 'Oumuamua') already found no compelling evidence to favor an alien explanation, and that anomaly scales with author-controlled thresholds risk baking in the author's priors. No IAU or NASA body has adopted the scale; mainstream papers continue to classify 1I as a natural (if unusual) planetesimal and 3I/ATLAS as an active comet.",
+   "loeb_quote": "[paraphrase] On the Loeb scale, 'Oumuamua ranks at Level 4 — the critical threshold, anomalous enough to warrant enhanced follow-up — while Borisov, a classical comet despite its interstellar origin, ranks Level 0.",
+   "quote_source": "Eldadi, Tenenbaum & Loeb, 'The Loeb Scale' (arXiv:2508.09167) and Avi Loeb Medium essay 'The Loeb Scale: Astronomical Classification of Interstellar Objects' (Aug 6, 2025)",
+   "loeb_scale": 4,
+   "sources": [
+    "https://arxiv.org/abs/2508.09167",
+    "https://avi-loeb.medium.com/the-loeb-scale-astronomical-classification-of-interstellar-objects-62b909644351",
+    "https://arxiv.org/abs/2509.06253",
+    "https://avi-loeb.medium.com/quantitative-mapping-of-the-loeb-scale-6b8b93554430",
+    "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/interstellar-object-significance-scale-loeb-scale-astronomical-classification-of-interstellar-objects/33F927C9600721DF14D1AA8525D7EDC0"
+   ],
+   "viz_hint": "other",
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Only minor fixes; the entry is substantively accurate. (1) DATE: changed 2025-08-12 to 2025-08-06 — arXiv:2508.09167 (Eldadi, Tenenbaum & Loeb) was submitted Aug 6, 2025, and Loeb's companion Medium essay also posted Aug 6, 2025. (2) Verified rankings 1I=Level 4, 2I=Level 0, 3I=Level 4 and the 0-3/4-7/8-10 band structure directly against the arXiv abstract and the Medium essay — all correct. (3) Verified follow-up paper Trivedi & Loeb arXiv:2509.06253 (submitted 2025-09-08; Medium essay 2025-09-07) — real, and explicitly modeled on Sagan's quantification of the Kardashev scale. (4) Quote was already honestly [paraphrase]-prefixed and matches the source's meaning; kept, lightly tightened. (5) Added nuance to observation/official_explanation: the scale's formal name is the 'Interstellar Object Significance Scale (IOSS)', it extends the Torino Scale framework, and it WAS peer-reviewed and published in the International Journal of Astrobiology (Cambridge) — so it is not merely a preprint, though it remains Loeb's framework and not IAU/NASA-adopted community consensus. ISSI-team claim checked: 'The Natural History of 'Oumuamua' (Nature Astronomy 2019) did conclude no compelling evidence favors an alien explanation. Note for dashboard context: Loeb later revisited 3I/ATLAS's score ('Evolving the Loeb Scale', arXiv:2512.13743), consistent with the entry's '(at the time of writing)' hedge."
+  }
+ ],
+ "anomalies2i": [
+  {
+   "id": "B-01",
+   "title": "Extreme carbon-monoxide enrichment — the most CO-rich comet measured inside 2.5 AU",
+   "date": "2020-04-20",
+   "observation": "Two independent teams reported on 2I/Borisov's coma in the weeks after its 2019-12-08 perihelion (q = 2.0065 AU, e = 3.3565). Bodewits et al. (HST/COS ultraviolet, four post-perihelion epochs from 2019-12-11 to 2020-01-13) derived Q(CO) = 6.4–10.7 × 10^26 molecules s^-1 (equivalent to 30–50 kg s^-1) and CO/H2O of at least 173% — 'more than three times higher than previously measured for any comet in the inner (<2.5 au) solar system,' where CO/H2O mostly ranges 0.2–23% with typical values near 4%. Simultaneous Swift/UVOT + HST/COS epochs (2019-12-19/22 and 2020-01-13) gave CO/H2O = 130–155% directly. Cordiner et al. (ALMA, 2019-12-15/16) measured Q(CO) = (4.4 ± 0.7) × 10^26 s^-1 and Q(HCN) = (7.0 ± 1.1) × 10^23 s^-1, giving CO/H2O ≈ 35–105%, HCN/H2O ≈ 0.06–0.16% (ordinary), and CO/HCN = 630 (+200/−340) — higher than any comet previously observed except the peculiar Oort Cloud comet C/2016 R2 (PanSTARRS), whose CO/HCN was 26,400 at rH = 2.8 AU. Excluding C/2016 R2, the next-highest CO/HCN was 238 ± 21 for C/2006 W3 (Christensen) at rH = 3.3 AU. The ALMA/NASA release put Borisov's CO abundance at 9–26× the solar-system comet average.",
+   "loeb_take": "Loeb has never treated Borisov's CO excess as a technosignature — it is chemistry, not engineering. In his retrospective framing Borisov is the one interstellar object that looked ordinary: a comet whose volatiles simply record a colder, more carbon-rich birth disk than the Sun's. In the 2025 Loeb Scale paper he co-authored (formally the Interstellar Object Significance Scale, IOSS; Eldadi, Tenenbaum & Loeb, arXiv:2508.09167, submitted 2025-08-06) Borisov is assigned Level 0 — fully consistent with natural processes — the lowest score of the three interstellar objects, against Level 4 for both 1I/'Oumuamua and 3I/ATLAS.",
+   "official_explanation": "Both teams read the CO excess as a formation-environment signature, not an anomaly. Cordiner et al.: Borisov 'must have formed in a relatively CO-rich environment — probably beyond the CO ice-line in the very cold, outer regions of a distant protoplanetary accretion disk, as part of a population of small, icy bodies analogous to our Solar System's own proto-Kuiper Belt.' Bodewits et al. add that the volatile carbon-to-oxygen ratio is 'nearly six times higher than that of previously measured solar system comets,' and derive three constraints on the host system: it must be chemically distinct from ours, Borisov must have formed beyond a CO snowline (with CO ice condensing alongside H2O rather than trapped in clathrate), and the system must have undergone dynamical stripping of planetesimals from beyond that snowline — an M-dwarf host, whose CO snowline sits near 6.6 AU, fits well. Bodewits et al. call the result 'the first glimpse into the ice content and chemical composition of the protoplanetary disk of another star that is substantially different from our own.' Notably, the papers do NOT treat known CO-rich solar-system comets as equivalent cases: Bodewits et al. explicitly exclude C/2016 R2 (PanSTARRS) from the comparison because its 2.6 AU perihelion meant it 'never reached the inner solar system where water sublimation is fully effective,' no H2O was detected in its coma, and its dominant volatile is most likely CO2 rather than CO. CO-driven comets outside 2.5 AU do commonly show CO exceeding H2O, so a CO-rich nucleus is not unprecedented in kind — but Borisov's ratio inside 2.5 AU, where water sublimation is fully effective, is the record.",
+   "loeb_quote": "Among the four interstellar objects, only Borisov appeared familiar. It was a comet, not much different from the analogous snowballs found in the Solar system.",
+   "quote_source": "Avi Loeb, 'The Unfamiliar Nature of Interstellar Objects,' Medium, 2022-09-23 (verified verbatim)",
+   "loeb_scale": 0,
+   "viz_hint": "spectrum",
+   "sources": [
+    "https://arxiv.org/abs/2004.08972",
+    "https://www.nature.com/articles/s41550-020-1095-2",
+    "https://arxiv.org/abs/2004.09586",
+    "https://www.nature.com/articles/s41550-020-1087-2",
+    "https://www.almaobservatory.org/en/press-releases/alma-reveals-unusual-composition-of-interstellar-comet-2i-borisov/",
+    "https://www.nasa.gov/solar-system/interstellar-comet-borisov-reveals-its-chemistry-and-possible-origins/",
+    "https://avi-loeb.medium.com/the-unfamiliar-nature-of-interstellar-objects-de8c855677e4",
+    "https://arxiv.org/abs/2508.09167",
+    "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2I&full-prec=true"
+   ],
+   "_verify": "CORRECTED",
+   "_verifyNotes": "VERDICT: CORRECTED — the entry is substantially accurate (every headline number verified verbatim against the two primary papers), but contains one factual error about the observing geometry and one misattributed comparison that misrepresents what both papers actually say.\n\n=== (1) DATE — CONFIRMED ===\n2020-04-20 is exact. Both Nature Astronomy papers (Bodewits et al., s41550-020-1095-2; Cordiner et al., s41550-020-1087-2) were published 2020-04-20, and the ALMA/NASA press release \"ALMA Reveals Unusual Composition of Interstellar Comet 2I/Borisov\" is dated 2020-04-20 (verified by fetch). arXiv postings: 2004.08972 submitted 2020-04-19, 2004.09586 submitted 2020-04-20. No change.\n\n=== (2) NUMBERS — ALL CONFIRMED VERBATIM (one attribution fix) ===\nExtracted the Bodewits and Cordiner PDFs to text and grepped the exact sentences:\n- Bodewits: \"The derived CO production rates range between 6.4 to 10.7 x 10^26 molecules/s, equivalent to 30 – 50 kg/s.\" EXACT MATCH to entry.\n- Bodewits abstract: \"...contains significantly more CO than H2O gas, with abundances of at least 173%, more than three times higher than previously measured for any comet in the inner (<2.5 au) solar system.\" EXACT MATCH.\n- Bodewits: \"perihelion on Dec. 8, 2019, when 2I/Borisov came within 2.006 au of the Sun\". q CONFIRMED. JPL SBDB (queried live): q = 2.006520878 au, e = 3.356475783, tp = JD 2458826.0528 (2019-12-07.55 UT). Entry's q≈2.006 and e≈3.356 both CONFIRMED.\n- Cordiner: \"Q(HCN) = (7.0 ± 1.1) × 10^23 s^-1 and Q(CO) = (4.4 ± 0.7) × 10^26 s^-1... HCN abundance relative to water (0.06–0.16%)... the abundance of CO (35–105%)\". ALL EXACT MATCHES.\n- Cordiner: \"we find that the maximum error margin for CO/HCN is 630 +200/-340\" and \"After 2I/Borisov, the next highest CO/HCN ratio (238 ± 21) was for C/2006 W3 (Christensen), at a relatively large heliocentric distance rH = 3.3 au\". Both values CONFIRMED (entry's ≈630 and 238±21 correct).\n- ALMA epochs: \"2019 December 15th and 16th\". CONFIRMED.\n- \"9–26×\": arithmetically consistent (35–105% vs Bodewits' \"typical values around 4%\") and stated verbatim in the ALMA/NASA release as \"9 to 26 times higher\". MINOR ATTRIBUTION FIX: this multiple comes from the press release, not the Cordiner paper text — the corrected entry now attributes it correctly.\n\n=== (3) QUOTE — CONFIRMED VERBATIM ===\nFetched https://avi-loeb.medium.com/the-unfamiliar-nature-of-interstellar-objects-de8c855677e4 . Publication date September 23, 2022 CONFIRMED. Quote returned word-for-word: \"Among the four interstellar objects, only Borisov appeared familiar. It was a comet, not much different from the analogous snowballs found in the Solar system.\" No paraphrase prefix needed. (\"Four\" = 1I, 2I, IM1, IM2 in Loeb's 2022 counting — internally consistent, not an error.)\n\n=== (4) ERROR #1: \"four epochs bracketing perihelion\" is FALSE ===\nBodewits et al., verbatim: \"We report on its observation by the Cosmic Origins Spectrograph (COS) on the Hubble Space Telescope (HST) during four epochs between December 11, 2019, and January 13, 2020.\" Perihelion was 2019-12-08. ALL FOUR HST/COS EPOCHS WERE POST-PERIHELION — they do not bracket it. Cordiner's ALMA epochs (Dec 15–16) are also post-perihelion. Corrected to \"four post-perihelion epochs (2019-12-11 through 2020-01-13)\" and the opening line changed from \"around its perihelion\" to \"in the weeks after its perihelion\".\n\n=== (5) ERROR #2: C/2006 W3 is NOT \"the previous record-holder\", and the official_explanation misrepresents both papers ===\nCordiner, verbatim: \"This CO/HCN ratio is still higher than seen before in any comet ... apart from C/2016 R2, which had CO/HCN = 26,400 (at rH = 2.8 au)\" and \"with the exception of the recently discovered, peculiar Oort Cloud comet C/2016 R2 (PanSTARRS), which had CO/H2O = 30,800%\". So C/2016 R2 — not C/2006 W3 — is the actual solar-system CO record-holder, and it is roughly 300x more CO-rich than Borisov, not \"comparably\" so. C/2006 W3 is only the next-highest *after excluding* R2.\nWorse, the entry's claim that the papers treat R2 as showing \"comparably CO-rich chemistry, so the value is extreme but not unprecedented in kind\" INVERTS Bodewits, who explicitly rules R2 out as a comparison: \"A notable CO-rich comet is C/2016 R2 (PanSTARRS), though with a perihelion of 2.6 au, it never reached the inner solar system where water sublimation is fully effective, and while high CO+ and N2+ production levels were detected, no evidence of H2O or its fragments was observed in its coma, which complicates the comparison with 2I/Borisov. Further complicating the comparison, in C/2016 R2 (PanSTARRS) the dominant volatile is most likely CO2, not CO.\" The official_explanation has been rewritten to state this accurately.\nAlso: \"hyperactive\" is the wrong term of art (it denotes water production exceeding nucleus-area sublimation, e.g. 103P/Hartley 2, 46P/Wirtanen) — replaced with \"CO-rich / CO-driven\".\n\n=== (6) OFFICIAL EXPLANATION — otherwise well-sourced, now strengthened ===\n\"Proto-Kuiper belt\" framing is verbatim Cordiner: \"probably beyond the CO ice-line in the very cold, outer regions of a distant protoplanetary accretion disk, as part of a population of small, icy bodies analogous to our Solar System's own proto-Kuiper Belt.\" CONFIRMED. The \"first glimpse into the ice content and chemical composition of the protoplanetary disk of another star that is substantially different from our own\" quote is verbatim from the Bodewits abstract. CONFIRMED. Added Bodewits' actual three origin constraints, the C/O ratio result (\"the elemental abundance of carbon relative to oxygen in 2I/Borisov's volatiles is nearly six times higher than that of previously measured solar system comets\"), the M-dwarf host scenario (CO snowline ~6.6 au), the direct simultaneous Swift/UVOT + HST/COS CO/H2O of 130–155%, and the inner-solar-system baseline (0.2–23%, typical ~4%).\n\n=== (7) LOEB SCALE — CONFIRMED, attribution refined ===\narXiv:2508.09167 abstract verbatim: \"We present the Loeb Scale, formally the Interstellar Object Significance Scale (IOSS), a 0-10 classification system... We demonstrate the scale's application using 1I/'Oumuamua (Level 4), 2I/Borisov (Level 0), and 3I/ATLAS (Level 4) as test cases.\" Borisov = Level 0 CONFIRMED; \"lowest score of the three\" CONFIRMED. The entry's use of the name \"Interstellar Object Significance Scale\" is correct (it is the paper's own formal name). Refinement only: the paper is co-authored (Omer Eldadi, Gershon Tenenbaum, Abraham Loeb), submitted 2025-08-06 — \"his paper\" changed to \"co-authored\". The loeb_take claim that Loeb never treated the CO excess as a technosignature is consistent with the Level 0 assignment and with the 2022 essay; nothing found to contradict it.\n\n=== NOTHING INVENTED ===\nNo fabricated numbers, no fabricated quote, no fabricated paper. Both DOIs, both arXiv IDs, the ALMA release URL and the Medium URL all resolve to real, correctly-described sources. loeb_scale=0 and viz_hint unchanged."
+  },
+  {
+   "id": "B-02",
+   "title": "Atomic nickel (and iron) vapor in a 180 K coma — and the solar-system comets that did the same thing",
+   "date": "2021-05-19",
+   "observation": "Guzik & Drahus (Nature 593, 375–378) detected gaseous atomic Ni I in Borisov's cold coma from VLT/X-shooter spectra taken 28, 30 and 31 January 2020 UT at a mean heliocentric distance of 2.322 AU (geocentric 2.064 AU) — equilibrium temperature ~180 K, far below the >700 K normally needed to vaporize metal-bearing dust. Production rate Q(Ni) = (0.9 ± 0.3) × 10^22 atoms s^-1, i.e. 0.002% of OH and 0.3% of CN, from a short-lived nickel-bearing parent with a 340 (+260/-200) s lifetime at 1 AU. Opitom et al. 2021 (A&A 650, L19; VLT/UVES, 12 epochs over ~21 h, 2019-11-15 to 2020-03-16, spanning 2.1 AU pre-perihelion to 2.6 AU post-perihelion) independently found Fe I and Ni I, measuring log(Ni I/Fe I) = 0.21 ± 0.18 for 2I against an average of -0.06 ± 0.31 for 17 solar-system comets — i.e. an ordinary ratio.",
+   "loeb_take": "Loeb explicitly uses Borisov as the metals baseline rather than an anomaly: he notes Borisov's Ni/Fe ratio matched ordinary comets, which is exactly why he treats 3I/ATLAS's early nickel-heavy, iron-poor plume as the outlier worth flagging. Under his own scale Borisov's metal chemistry contributes nothing to its Level 0 score.",
+   "official_explanation": "Published back-to-back in the same issue of Nature, Manfroid, Hutsemékers & Jehin (593, 372–374) showed the same phenomenon is ubiquitous at home: high-resolution UV-optical VLT/UVES spectra of about 20 solar-system comets collected since 2002 between 0.68 and 3.25 AU show up to about 40 Fe I and 25 Ni I emission lines, with Ni and Fe of the same order of magnitude (unlike the solar/meteoritic ratio, which runs ~10× more Fe). The paper weighs several release mechanisms — partial sublimation of Ni-rich sulfides such as pentlandite (needs >600 K), superheating of submicrometre fluffy aggregates, nanoparticle impact vapor (~1000 K) — and, on the strength of the Fe/Ni–carbon-oxide correlation, favors sublimation of low-temperature organometallic carriers, specifically the carbonyls Fe(CO)5 and Ni(CO)4, whose sublimation temperatures are only slightly above that of CO2 (later A&A work puts them near ~100 K, between CO2 and H2O); Ni(CO)4 sublimates ~10× faster than Fe(CO)5 near 300 K, which explains the cometary Ni overabundance. This pairing is the standard mainstream rebuttal invoked against the 3I/ATLAS 'nickel without iron' claim — and later VLT work (Hutsemékers et al. 2026, A&A 706, A43) showed 3I/ATLAS's log(Ni I/Fe I) fell from 1.27 ± 0.10 at 2.64 AU (the first epoch at which Fe I was detected at all; only lower limits, >0.99, exist at 3.78 and 3.14 AU) to ~0.3 near 1.9–2.0 AU, becoming indistinguishable from solar-system comets and from 2I/Borisov.",
+   "loeb_quote": "The interstellar comet 2I/Borisov showed nickel and iron with an abundance ratio that is similar to that observed in solar system comets.",
+   "quote_source": "Avi Loeb, 'New Data on the Extreme Nickel Production of 3I/ATLAS,' Medium, 2025-10-01",
+   "loeb_scale": 0,
+   "viz_hint": "spectrum",
+   "sources": [
+    "https://arxiv.org/abs/2105.09305",
+    "https://www.nature.com/articles/s41586-021-03485-4",
+    "https://www.nature.com/articles/s41586-021-03435-0",
+    "https://www.eso.org/public/archives/releases/sciencepapers/eso2108/eso2108a.pdf",
+    "https://www.eso.org/public/news/eso2108/",
+    "https://arxiv.org/abs/2106.04431",
+    "https://www.aanda.org/articles/aa/full_html/2021/06/aa41245-21/aa41245-21.html",
+    "https://www.aanda.org/articles/aa/full_html/2021/08/aa41554-21/aa41554-21.html",
+    "https://arxiv.org/abs/2509.26053",
+    "https://www.aanda.org/articles/aa/full_html/2026/02/aa57484-25/aa57484-25.html",
+    "https://avi-loeb.medium.com/new-data-on-the-extreme-nickel-production-of-3i-atlas-c889b20342c1",
+    "https://arxiv.org/abs/2508.09167"
+   ],
+   "_verify": "CORRECTED",
+   "_verifyNotes": "THREE issues found; the entry is ~90% sound and the Loeb quote is verbatim.\n\n(1) NUMERIC ERROR — \"log ≈ 1.5 at 2.64 AU\" is wrong. Hutsemekers et al., Table 3 (arXiv:2509.26053v2 -> A&A 706, A43, 2026) gives log10[Q(NiI)/Q(FeI)] = 1.27 +/- 0.10 at r_h = 2.64 au (2025-08-28), which is the FIRST epoch where Fe I was detected at all; at larger distances only lower limits exist (>0.99 at 3.78 and 3.14 au, >0.60 at 3.04 au). The decline to ~0.3 near 2 au IS correct (0.37 +/- 0.06 at 1.97 au; 0.32 at 1.92; 0.30 at 1.90; 0.23-0.24 at 1.85-1.87 au). Corrected to 1.27 +/- 0.10.\n\n(2) MIS-ATTRIBUTED SOURCE URL — the entry cites https://www.aanda.org/articles/aa/full_html/2021/08/aa41554-21/aa41554-21.html for Opitom et al. A&A 650, L19. That URL is a DIFFERENT paper: Hutsemekers, Manfroid, Jehin, Opitom & Moulane 2021, A&A 652, L1, \"FeI and NiI in cometary atmospheres - Connections between the NiI/FeI abundance ratio and chemical characteristics of Jupiter-family and Oort-cloud comets\". The real Opitom et al. 2021 (A&A 650, L19, doi 10.1051/0004-6361/202141245, arXiv:2106.04431) lives at .../2021/06/aa41245-21/aa41245-21.html. Both URLs retained but now correctly labeled; the A&A 652 L1 paper is in fact the correct source for the ~100 K carbonyl sublimation figure.\n\n(3) FAIRNESS NUANCE in official_explanation — the Manfroid Nature paper presents carbonyls as ONE OF SEVERAL candidate mechanisms, not \"the proposed mechanism\". Its text also evaluates Ni-rich sulfides/pentlandite (needs >600 K), superheating of submicrometre fluffy aggregates, and nanoparticle impact vapour (~1000 K), before saying the strong Fe/Ni-carbon-oxide correlation \"led us to evaluate the possibility of the carbonyl hypothesis\". The Nature paper itself says only that carbonyl sublimation temperatures \"are only slightly higher than that of CO2\" and never prints \"~100 K\"; the explicit ~100 K value (intermediate between CO2 and H2O) appears in the follow-up A&A papers (Hutsemekers et al. 2021 A&A 652 L1; 2026 A&A 706 A43). Rephrased accordingly.\n\nEVERYTHING ELSE CONFIRMED AGAINST PRIMARY SOURCES:\n- Date 2021-05-19 correct: both Nature papers published online 19 May 2021, same issue, back-to-back (Manfroid's own text reads \"NiI lines were recently identified in the interstellar comet 2I/Borisov (Guzig & Drahus, this issue)\"). ESO release eso2108 also 19 May 2021.\n- Guzik & Drahus, Nature 593, 375-378 (2021). Observation dates 28, 30 and 31 January 2020 UT with VLT/X-shooter (UVB arm) CONFIRMED; mean heliocentric distance 2.322 au and geocentric 2.064 au CONFIRMED; equilibrium temperature 180 K CONFIRMED; \">700 K\" normally required CONFIRMED verbatim from abstract; Q(Ni) = 0.9 +/- 0.3 x 10^22 atoms/s CONFIRMED; \"0.002% relative to OH and 0.3% relative to CN\" CONFIRMED verbatim; parent lifetime 340 (+260/-200) s at 1 au CONFIRMED (entry's \"~340 s\" fine).\n- Opitom et al. 2021, A&A 650, L19: VLT/UVES, 12 epochs, 15 November 2019 to 16 March 2020 (~21 h of data), 2.1 au pre-perihelion to 2.6 au post-perihelion — ALL CONFIRMED. Fe I and Ni I both detected; log(NiI/FeI) = 0.21 +/- 0.18 for 2I vs. average -0.06 +/- 0.31 for 17 Solar System comets, i.e. \"similar\" — CONFIRMED, and now quantified in the corrected entry.\n- Manfroid, Hutsemekers & Jehin, Nature 593, 372-374 (2021): \"The spectra of about 20 different comets were collected since 2002 over a large range of heliocentric distances (0.68 to 3.25 astronomical units) with the UVES spectrograph\" and \"up to about 40 FeI lines and 25 NiI lines for some of them\" — BOTH CONFIRMED verbatim from the ESO-hosted manuscript PDF. Abundances \"of the same order of magnitude, contrasting the typical Solar System abundance ratio\"; NiI/FeI on average one order of magnitude above the solar photosphere value — so the entry's \"~10x more Fe in meteorites\" framing is fair (ESO release: \"usually there is 10 times more iron than nickel\").\n- Fe(CO)5 and Ni(CO)4 carbonyls CONFIRMED as named in the Nature paper, with Ni(CO)4 sublimating ~10x faster than Fe(CO)5 at ~300 K — which is the paper's own explanation for cometary Ni overabundance.\n- Later 3I/ATLAS work: Hutsemekers et al., A&A 706, A43 (2026), \"Pre-perihelion evolution of the NiI/FeI abundance ratio in the coma of the interstellar comet 3I/ATLAS: From extreme to normal\" (arXiv:2509.26053, submitted 2025-09-30, revised 2025-12-17). Abstract verbatim: \"comet 3I first exhibited extreme and unusual NiI/FeI abundance ratios during the initial stages of its activity. However, as its heliocentric distance decreased, this ratio became indistinguishable from those observed in Solar System comets and in comet 2I/Borisov.\" Spectra span 3.14-1.85 au; Ni I detected at all epochs, Fe I only below 2.64 au. So the entry's claim that 3I converged on the Borisov/SS-comet value is CONFIRMED — only the starting number was wrong.\n- LOEB QUOTE IS GENUINE AND VERBATIM. Fetched https://avi-loeb.medium.com/new-data-on-the-extreme-nickel-production-of-3i-atlas-c889b20342c1 — title \"New Data on the Extreme Nickel Production of 3I/ATLAS\", dated October 1, 2025, contains exactly: \"The interstellar comet 2I/Borisov showed nickel and iron with an abundance ratio that is similar to that observed in solar system comets.\" No paraphrase prefix needed.\n- loeb_scale: 0 CONFIRMED. arXiv:2508.09167 (\"The Loeb Scale: Astronomical Classification of Interstellar Objects\") demonstrates the 0-10 IOSS scale on 1I/'Oumuamua (Level 4), 2I/Borisov (Level 0) and 3I/ATLAS (Level 4).\n\nNOTHING INVENTED OR CONFLATED beyond the two items above. The loeb_take is a fair characterization: Loeb does use Borisov as the metals baseline against which he flags 3I's early nickel-heavy, iron-poor plume."
+  },
+  {
+   "id": "B-03",
+   "title": "March 2020 outburst and the transient 'double nucleus' — a textbook comet splitting event",
+   "date": "2020-03-30",
+   "observation": "Drahus et al. (ATel #13549, OGLE 1.3-m, Las Campanas) recorded two consecutive outbursts — ~0.3 mag between UT 2020 March 4.3 and 5.3 and ~0.4 mag between March 8.3 and 9.3, ~0.7 mag total in 5 days. Jewitt, Kim, Mutchler et al. (ApJL 896, L39), whose photometry independently shows a steady brightening from January 3 to February 24 indicating rising activity, tied the outburst to solids ejected with the comet outbound at ~2.8 AU: combined cross-section ~100 km^2 and ~2 × 10^7 kg in 0.1 mm grains — roughly 10^-4 of the nucleus mass for an assumed 500 m nucleus radius. HST then resolved a transient secondary on 2020-03-30 (cross-section ~0.6 km^2, dust mass ~10^5 kg). The secondary was absent in images on and before March 28 and gone again on and after April 3.",
+   "loeb_take": "Loeb has not treated the outburst or splitting as anomalous; both are standard comet behavior and are among the reasons he classes Borisov as a 'classical comet.' In his scale paper Borisov's coma onset and volatile-driven activity are cited as the evidence placing it in the green zone (Level 0), in direct contrast with 1I (no coma at all) and 3I (which he argues showed activity inconsistent with its spectrum).",
+   "official_explanation": "Jewitt et al. attribute the delayed appearance and rapid disappearance of the secondary to rotational bursting of one or more large (meter-sized) boulders under outgassing torques after ejection from the main nucleus — not a nucleus break-up. They characterize the events as 'minor events involving a negligible fraction of the total mass,' with the comet surviving the planetary region essentially intact. Outbursts and fragment shedding are common in solar-system comets.",
+   "official_explanation_note": "",
+   "loeb_quote": "In stark contrast, Borisov presented as a classical comet despite its interstellar origin",
+   "quote_source": "Eldadi, Tenenbaum & Loeb, 'The Loeb Scale: Astronomical Classification of Interstellar Objects', arXiv:2508.09167, 2025-08",
+   "loeb_scale": 0,
+   "viz_hint": "lightcurve",
+   "sources": [
+    "https://arxiv.org/abs/2006.01242",
+    "https://iopscience.iop.org/article/10.3847/2041-8213/ab99cb",
+    "https://www.astronomerstelegram.org/?read=13549",
+    "http://www2.ess.ucla.edu/~jewitt/papers/2020/JKM20.pdf",
+    "https://arxiv.org/abs/2508.09167"
+   ],
+   "_verify": "CORRECTED",
+   "_verifyNotes": "One minor misattribution, everything else verified. (1) The \"steady rise in activity from January 3 to February 24\" was attributed to Drahus et al. ATel #13549, but ATel #13549 contains no January/February dates (it reports only the two March outbursts, with monitoring since mid-December 2019). The Jan 3 - Feb 24 steady brightening is from Jewitt et al.'s own photometry in ApJL 896 L39 (\"the data show a steady brightening from January 3 to February 24, indicating a period of increasing activity\"). Observation text reworded to attribute it correctly, and the two outburst magnitudes made precise (0.3 mag March 4.3-5.3, 0.4 mag March 8.3-9.3, per the ATel verbatim). (2) All other facts confirmed against primary sources: HST secondary on 2020-03-30, absent on/before Mar 28 and on/after Apr 3; ~2.8 AU outbound; ~100 km^2 cross-section; ~2e7 kg in 0.1 mm grains; fractional mass lost ~1e-4 of a 500-m-radius nucleus; secondary ~0.6 km^2 and ~1e5 kg; mechanism verbatim \"rotational bursting of one or more large (meter-sized) boulders under the action of outgassing torques, following their ejection from the main nucleus\"; closing quote verbatim \"minor events involving a negligible fraction of the total mass: 2I/Borisov will survive its passage through the planetary region largely unscathed.\" (3) Loeb quote verified verbatim in arXiv:2508.09167 PDF: \"In stark contrast, Borisov presented as a classical comet despite its interstellar origin (Guzik et al., 2020).\" Borisov = Level 0 in the green zone; 1I/'Oumuamua and 3I/ATLAS both Level 4; paper cites Borisov's coma at 2.8 AU consistent with water-ice sublimation plus CN/C2 volatiles — matching the loeb_take. loeb_scale: 0 is correct. (4) Added ATel #13549 URL to sources; changed \"meter-scale\" to \"meter-sized\" to match the paper's wording."
+  },
+  {
+   "id": "B-04",
+   "title": "'May be the first truly pristine comet ever observed' — anomalously high, spatially uniform polarization",
+   "date": "2021-03-30",
+   "observation": "Bagnulo et al. (Nature Communications 12, 1797) imaged Borisov in polarimetric mode with VLT/FORS2 from 2019-12-25 to 2020-03-20. Measured coma polarization Pr (R_SPECIAL filter) fell from 3.76 ± 0.08% at phase angle 28.48 deg (2019-12-25) through 1.19 ± 0.21% at 24.14 deg (2020-02-06) to -0.82 ± 0.13% at 18.06 deg (2020-03-20), with V- and I-filter values consistent (e.g. V: 3.35 ± 0.07% at 28.48 deg) — systematically higher than typical solar-system comets at matching phase angles. The only solar-system object with a comparable polarimetric curve is C/1995 O1 (Hale-Bopp), and unlike Hale-Bopp (whose polarimetric images showed jets and arcs), Borisov's coma is polarimetrically homogeneous.",
+   "loeb_take": "Loeb does not contest this result and has not framed Borisov's dust as anomalous in the technosignature sense. His consistent public position is that Borisov is the natural interstellar comet against which 1I and 3I should be judged — pristine but ordinary in kind. No Borisov-specific Loeb quote on the polarimetry exists; his general characterization is that Borisov 'appeared familiar', and his Loeb-scale paper (arXiv:2508.09167) rates Borisov Level 0 versus Level 4 for both 1I/'Oumuamua and 3I/ATLAS.",
+   "official_explanation": "ESO and the authors read the high, uniform polarization as evidence of an unprocessed, compositionally homogeneous dust population: Borisov apparently never passed close to any star before its 2019 solar passage, so its grains were never thermally or radiatively altered — making it more pristine than Hale-Bopp, which had made one prior solar passage (~2250 BCE). Co-author Alberto Cellino's polarization-plus-color analysis concluded the formation environment was not so different in composition from the early Solar System.",
+   "loeb_quote": "Among the four interstellar objects, only Borisov appeared familiar.",
+   "quote_source": "Avi Loeb, 'The Unfamiliar Nature of Interstellar Objects', Medium, Sep 2022 — https://avi-loeb.medium.com/the-unfamiliar-nature-of-interstellar-objects-de8c855677e4",
+   "loeb_scale": 0,
+   "viz_hint": "polarization",
+   "sources": [
+    "https://www.nature.com/articles/s41467-021-22000-x",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC8009915/",
+    "https://www.eso.org/public/news/eso2106/",
+    "https://arxiv.org/abs/2508.09167",
+    "https://avi-loeb.medium.com/the-unfamiliar-nature-of-interstellar-objects-de8c855677e4"
+   ],
+   "_verify": "CORRECTED",
+   "_verifyNotes": "Minor corrections only; core entry is accurate. (1) Title fixed: the paper hedges — abstract says Borisov \"may\" be the first truly pristine comet ever observed; original title-quote dropped the \"may\". (2) Observation clarified: the three cited Pr values are specifically the R_SPECIAL-filter measurements from Table 1 (V and I filters were also measured; e.g. V gives 3.35 +/- 0.07% at 28.48 deg and -1.05 +/- 0.15% at 18.06 deg). All three quoted values verified verbatim against Table 1 with correct dates and phase angles. (3) Publication date 2021-03-30 exact (Nat Commun 12:1797; ESO eso2106 same day). (4) Loeb side verified: Borisov = Level 0 in arXiv:2508.09167 (1I=4, 3I=4); the \"appeared familiar\" phrasing is genuine, from Loeb's Sep 2022 Medium essay \"The Unfamiliar Nature of Interstellar Objects\" — added as loeb_quote with source. (5) Official explanation fairly stated: ESO release confirms pristine/never-passed-a-star interpretation, Hale-Bopp's single prior solar passage (~2250 BCE per paper), and the Cellino polarization-plus-color quote (\"not so different in composition from the environment in the early Solar System\"). Nothing invented or conflated."
+  },
+  {
+   "id": "B-05",
+   "title": "Compact sub-kilometre nucleus — small, ordinary, and tightly bracketed",
+   "date": "2019-12-11",
+   "observation": "Jewitt, Hui, Kim et al. (arXiv:1912.05422, published ApJL 888, L23) modelled HST high-resolution imaging and found the scattering is dominated by a coma of large particles (characteristic size ~0.1 mm) ejected anisotropically. Convolution modelling of the coma surface-brightness profile sets a robust upper limit of spherical-equivalent nucleus radius rn <= 0.5 km (geometric albedo 0.04 assumed); an independent constraint from the measured non-gravitational acceleration gives rn > 0.2 km (density 500 kg m^-3 assumed). So 0.2 km < rn <= 0.5 km, i.e. a few hundred metres.",
+   "loeb_take": "Loeb accepts the sub-kilometre nucleus at face value and uses it purely as a scale reference: he describes Borisov's nucleus as 'about a few hundred meters in radius,' and in his 3I/ATLAS essays states that 3I's nucleus is roughly a thousand times more massive than Borisov's and about a million times more massive than 1I/'Oumuamua. For Borisov the size is a datum, not an anomaly.",
+   "official_explanation": "A few-hundred-metre icy nucleus with a large-grain, anisotropically ejected dust coma is entirely typical of active solar-system comets; the non-gravitational acceleration is fully accounted for by measured outgassing (unlike 1I/'Oumuamua, where acceleration occurred with no detected coma). Independent estimates (e.g. Hui et al. 2020; VISIR thermal work) converge on the same few-hundred-metre range.",
+   "loeb_quote": "about a few hundred meters in radius",
+   "quote_source": "Avi Loeb, 'The Unfamiliar Nature of Interstellar Objects,' Medium, 2022-09-23",
+   "loeb_scale": 0,
+   "viz_hint": "size",
+   "sources": [
+    "https://arxiv.org/abs/1912.05422",
+    "https://iopscience.iop.org/article/10.3847/2041-8213/ab621b",
+    "http://www2.ess.ucla.edu/~jewitt/papers/2020/JHK20.pdf",
+    "https://avi-loeb.medium.com/the-unfamiliar-nature-of-interstellar-objects-de8c855677e4"
+   ],
+   "_verify": "CONFIRMED",
+   "_verifyNotes": "All claims verified against primary sources. (1) Date 2019-12-11 is the exact arXiv v1 submission date of 1912.05422 (ApJL publication 2020-01-13). (2) All numbers match the abstract verbatim: 0.1 mm characteristic particle size, anisotropic ejection, coma convolution modelling upper limit rn < 0.5 km at albedo 0.04, non-gravitational lower limit rn > 0.2 km at density 500 kg/m^3; journal ref ApJL 888, L23 (2020) and author list confirmed via IOPscience. Sole nit: abstract writes the upper limit as strict '<' rather than '<='; immaterial. (3) Quote 'about a few hundred meters in radius' appears verbatim in Loeb's Medium essay 'The Unfamiliar Nature of Interstellar Objects', confirmed published Sep 23, 2022; the loeb_take's 3I/ATLAS ratios (thousand x Borisov, million x 'Oumuamua) match Loeb's 2025 anomalies essays. (4) Official explanation is fairly stated and backed by real work: Hui et al. 2020 (AJ) independently derived a most-likely ~0.4 km radius from non-gravitational acceleration, and VLT/VISIR thermal characterization (Bolin et al., EPSC 2020) exists, converging on the few-hundred-metre range. (5) Nothing invented or conflated. No changes needed."
+  }
+ ],
+ "notes1i": "All headline numbers verified against primary sources via web search on 2026-07-24: Micheli et al. Nature 2018 acceleration 4.92±0.16e-6 m/s^2 at 1 AU (30-sigma, ~10 kg/s mass loss if outgassing, gas/dust >100x comets); Meech et al. 2017 factor-~10 lightcurve and >=6:1 (up to 10:1) axis ratio; Mashchenko 2019 91% disc likelihood, 115x111x19 m ~6:6:1; Trilling 2018 Spitzer 30.2 h, 0.3 uJy 3-sigma, D<98/140/440 m, albedo >0.2/0.1/0.01; Bialy-Loeb 0.3-0.9 mm sail thickness (real quote confirmed from ApJL 868 L1); Mamajek <1-in-500 LSR statistic; Do-Tucker-Tonry 0.2 AU^-3 (~10^15 per star); Breakthrough Listen 2017-12-13 GBT 1-12 GHz null (the ~0.08 W transmitter-power sensitivity figure is from Breakthrough's December 2017 press materials/Enriquez et al. RNAAS 2018 — the news/15 page fetched does not itself state the wattage, so treat 0.08 W as press-reported); Loeb Scale arXiv:2508.09167 ranks 1I=4, 2I=0, 3I=4 (confirmed). Counter-explanation chain fully paper-trailed: ISSI Nature Astronomy 3,594 (2019-07-01); Seligman-Laughlin ApJL 896 L8 (2020) vs Hoang-Loeb ApJL 899 L23 (2020); Desch-Jackson JGR Planets (2021) vs Siraj-Loeb New Astronomy 92 (2022); Zhang-Lin Nature Astronomy (2020); Bergner-Seligman Nature 615,610 (2023-03-22) vs Hoang-Loeb (ApJL 951 L34 + Nature Matters Arising s41586-023-06697-y, which reports the 9x temperature / 3x thermal-speed correction; Bergner-Seligman published a reply). Curran A&A 649 L17 (2021) is the direct anti-lightsail paper. Quotes: only the Bialy-Loeb probe sentence is a verified verbatim quote; all others are [paraphrase]-prefixed per schema. Loeb's often-cited personal probability for artificial origin appeared in interviews around 'Extraterrestrial' (2021) as roughly even-or-better odds, but no single canonical percentage exists in his papers, so none is asserted in the records. IDs run O-01..O-11: O-10 bundles the counter-explanation wars (dated by the Bergner-Seligman Nature publication); if the dashboard wants exactly the ten prompt-listed anomalies, O-10's content can be redistributed into the official_explanation fields of O-06/O-09.",
+ "notes2i": "DASHBOARD FRAMING — 2I/Borisov is the control case and the file is intentionally thin (5 entries, all Loeb-scale 0).\n\nVERIFIED BASELINE FACTS (safe to render as fixed context, not anomalies):\n- Discovered 2019-08-30 by Gennadiy Borisov (Crimea), MPC designation C/2019 Q4; some Loeb essays date the detection 2019-08-29.\n- Perihelion 2019-12-08 at q = 2.006–2.007 AU; eccentricity e = 3.356.\n- Second confirmed interstellar object; first with unambiguous cometary activity.\n\nLOEB-SCALE ANCHOR (the single most useful cross-object number): in Loeb's August 2025 \"Interstellar Object Significance Scale\" (IOSS, arXiv:2508.09167), a 0–10 framework extending the Torino Scale — Levels 0–3 natural, 4–7 progressively anomalous, 8–10 confirmed artificial — the retroactive rankings are 1I/'Oumuamua = Level 4, 2I/Borisov = Level 0, 3I/ATLAS = Level 4. Borisov is the only interstellar object Loeb has scored at 0. Recommend showing this as a three-object bar on the dashboard.\n\nQUOTE CONFIDENCE:\n- HIGH (clean HTML fetch, verbatim): the two Medium quotes (2022-09-23 \"only Borisov appeared familiar…\"; 2025-10-01 \"…nickel and iron with an abundance ratio that is similar to that observed in solar system comets.\"); Bagnulo's \"2I/Borisov could represent the first truly pristine comet ever observed\" (ESO release eso2106, 2021-03-30 — not used as a loeb_quote but good for a discoverer callout on B-04).\n- MEDIUM (extracted from a PDF via summarizer, returned inside quote marks): the B-03 Loeb quote \"In stark contrast, Borisov presented as a classical comet despite its interstellar origin\" from arXiv:2508.09167. Treat as near-verbatim; if the dashboard needs bulletproof wording, swap in the 2022 Medium quote.\n- B-04 has NO Borisov-specific Loeb quote — left empty deliberately rather than fabricated.\n\nCONTRADICTION TO PRESERVE, NOT SMOOTH OVER (B-01): the two CO measurements disagree in magnitude — Bodewits/HST-COS gives CO/H2O >= 173%, Cordiner/ALMA gives 35–105%. Different techniques, different epochs, different assumed water rates. Both conclude \"most CO-rich comet observed inside ~2.5 AU.\" Show both bars side by side rather than averaging.\n\nTHE B-02 PAIRING IS THE LOAD-BEARING ITEM FOR THE 3I/ATLAS DASHBOARD: Guzik & Drahus (Nature 593, 375) and Manfroid, Hutsemékers & Jehin (Nature 593, 372) published in the SAME issue on 2021-05-19, with a joint ESO release (eso2108). That simultaneity is the whole point — the \"exotic\" interstellar metal vapor was shown to be universal cometary chemistry on the same day it was announced. Follow-on VLT work (A&A, arXiv:2509.26053 and arXiv:2605.07652) tracks 3I/ATLAS's Ni I/Fe I from log ≈ 1.5 at 2.64 AU down to log ≈ 0.3 near 2 AU, at which point it is \"indistinguishable\" from solar-system comets and from 2I/Borisov. Solar reference: log10(Ni/Fe) = −1.25 ± 0.04.\n\nNOT INCLUDED (checked, judged not genuinely notable enough for a thin control file): C2 depletion / NH2-richness (Opitom et al. 2019; Bannister et al. 2020 — real but firmly within solar-system carbon-chain-depleted comet range); water production rates (Xing et al. 2020, rising from 7.0e26 to 10.7e26 s^-1 Nov–Dec 2019 — normal); plasma-tail detection (arXiv:2210.16633); Kruger 60 origin hypothesis (arXiv:1909.10952, since disfavored). Add any of these only if the dashboard needs a 6th tile.\n\nSTRAY FIELD WARNING: entry B-03 carries an extra key \"official_explanation_note\" with an empty-string value, left over from drafting. Drop it during ingest if the schema is strict.",
+ "timeline1i": {
+  "events": [
+   {
+    "date": "2017-09-09",
+    "title": "Perihelion at 0.256 AU (pre-discovery)",
+    "kind": "close_approach",
+    "description": "'Oumuamua made its closest approach to the Sun at 0.256 AU (inside Mercury's orbit), moving at ~87.7 km/s at perihelion — far too fast for the Sun to retain it. Nothing on Earth saw it: perihelion occurred ~40 days before discovery, so the entire inbound leg and the solar flyby were unobserved. This gap later mattered enormously — every acceleration measurement and every thermal model had to extrapolate back through a perihelion no one witnessed.",
+    "sources": [
+     "https://science.nasa.gov/solar-system/comets/oumuamua/",
+     "https://sci.esa.int/web/solar-system/-/60465-oumuamua-journey-through-our-solar-system"
+    ]
+   },
+   {
+    "date": "2017-10-14",
+    "title": "Closest approach to Earth at ~0.162 AU (still undetected)",
+    "kind": "close_approach",
+    "description": "The object passed ~0.16175 AU (~24.2 million km, about 63 lunar distances) from Earth — its minimum Earth distance — five days before anyone found it. It was detected only on the outbound leg, already receding, which compressed the entire global observing campaign into a few frantic weeks before it faded beyond reach of ground-based telescopes.",
+    "sources": [
+     "https://science.nasa.gov/solar-system/comets/oumuamua/",
+     "https://en.wikipedia.org/wiki/1I/%CA%BBOumuamua"
+    ]
+   },
+   {
+    "date": "2017-10-19",
+    "title": "Discovery by Robert Weryk / Pan-STARRS1",
+    "kind": "discovery",
+    "description": "Robert Weryk found the fast-moving ~20th-magnitude object (it had peaked at magnitude 19.7 the night before) in Pan-STARRS1 survey images from Haleakala, Hawaii, while searching for near-Earth asteroids. Follow-up astrometry (including pre-discovery images from Oct 18) quickly showed an eccentricity of ~1.2 — the first solidly hyperbolic small body ever recorded, meaning it came from outside the Solar System. Initially designated comet C/2017 U1 (PANSTARRS).",
+    "sources": [
+     "https://www.minorplanetcenter.net/mpec/K17/K17V17.html",
+     "https://science.nasa.gov/solar-system/comets/oumuamua/",
+     "https://en.wikipedia.org/wiki/1I/%CA%BBOumuamua"
+    ]
+   },
+   {
+    "date": "2017-11-06",
+    "title": "Designation saga ends: first-ever 'I' class — 1I/'Oumuamua",
+    "kind": "status",
+    "description": "A two-week identity crisis: designated comet C/2017 U1 at discovery, reclassified asteroid A/2017 U1 on Oct 25 when deep imaging showed no coma or tail, then on Nov 6 the Minor Planet Center (MPEC 2017-V17) created an entirely new designation class — 'I' for interstellar — making it 1I/'Oumuamua, with the IAU-approved Hawaiian name meaning roughly 'a messenger from afar arriving first' (suggested by the Pan-STARRS team). No object had ever forced the IAU to invent a new category before.",
+    "sources": [
+     "https://www.minorplanetcenter.net/mpec/K17/K17V17.html",
+     "https://www.space.com/38798-first-interstellar-object-name-oumuamua.html"
+    ]
+   },
+   {
+    "date": "2017-11-20",
+    "title": "VLT/Gemini lightcurve: extreme 10:1 elongation (Meech et al., Nature)",
+    "kind": "observation",
+    "description": "Meech et al. published the coordinated ESO VLT / Gemini / CFHT / UKIRT / Keck lightcurve campaign in Nature: brightness varied by a factor of ~10 every 7.3 hours, implying an axis ratio of at least ~10:1 (later refined to ~6:1–8:1) — more elongated than any known Solar System asteroid or comet. Reddish surface, no dust, no coma, tumbling rotation. The 'cigar' (or 'pancake', per later modeling) shape became anomaly #1 in the alien-tech debate.",
+    "sources": [
+     "https://www.eso.org/public/news/eso1737/",
+     "https://www.nature.com/articles/nature25020"
+    ]
+   },
+   {
+    "date": "2017-12-13",
+    "title": "Breakthrough Listen scans 'Oumuamua with Green Bank — radio silence",
+    "kind": "observation",
+    "description": "Breakthrough Listen pointed the 100-m Green Bank Telescope at 'Oumuamua for the first of four observing blocks (3:45–9:45 pm ET), sweeping 1–12 GHz across the L, S, C and X bands and accumulating 90 TB of raw data over the ~2-hour on-target observation. Sensitivity was good enough to detect a transmitter with the power of a cellphone at the object's distance in under a minute. No artificial signals were found then or in the completed analysis (Enriquez et al. 2018) — the natural-vs-artificial question would instead be fought over dynamics, not radio.",
+    "sources": [
+     "https://breakthroughinitiatives.org/news/14",
+     "https://breakthroughinitiatives.org/news/15",
+     "https://www.sci.news/astronomy/breakthrough-listen-no-artificial-signals-interstellar-asteroid-oumuamua-05550.html"
+    ]
+   },
+   {
+    "date": "2018-06-27",
+    "title": "Non-gravitational acceleration detected (Micheli et al., Nature)",
+    "kind": "observation",
+    "description": "Micheli et al. reported in Nature that 'Oumuamua's trajectory — reconstructed from ground data plus late Hubble astrometry through January 2018 — required a non-gravitational acceleration of ~4.9e-6 m/s^2 at 1 AU, falling off roughly as 1/r^2. For a comet this is normal outgassing; for an object with no detected coma, dust, or tail it was a paradox. This single measurement is the load-bearing anomaly behind every exotic hypothesis that followed, from hydrogen icebergs to lightsails.",
+    "sources": [
+     "https://www.nature.com/articles/s41586-018-0254-4",
+     "https://www.eso.org/public/news/eso1820/"
+    ]
+   },
+   {
+    "date": "2018-10-26",
+    "title": "Bialy & Loeb lightsail paper ignites global media storm",
+    "kind": "statement",
+    "description": "Shmuel Bialy and Avi Loeb (Harvard CfA) posted 'Could Solar Radiation Pressure Explain 'Oumuamua's Peculiar Acceleration?' (arXiv:1810.11490, published ApJL 868 L1 on 2018-11-12). They showed radiation pressure could produce the observed acceleration if the object were a thin sheet with mass-to-area ratio ~0.1 g/cm^2 — about 0.3–0.9 mm thick, a lightsail geometry — and floated that it 'may be a fully operational probe sent intentionally to Earth vicinity by an alien civilization.' The paper triggered a worldwide media storm and made Loeb the public face of the alien-artifact hypothesis.",
+    "sources": [
+     "https://arxiv.org/abs/1810.11490",
+     "https://iopscience.iop.org/article/10.3847/2041-8213/aaeda8"
+    ]
+   },
+   {
+    "date": "2018-11-14",
+    "title": "Spitzer non-detection caps the size and rules out normal outgassing",
+    "kind": "observation",
+    "description": "Trilling et al. (AJ; NASA release Nov 14, 2018) reported that Spitzer stared at 'Oumuamua's position for 30.2 hours on 2017 Nov 21–22 and saw nothing in the infrared. The non-detection capped the size (effective radius roughly 49–220 m depending on albedo, implying a possibly highly reflective surface) and set tight limits on CO/CO2 outgassing — deepening the acceleration paradox: whatever pushed it was not detectable as gas or dust. Bialy & Loeb leaned on these limits.",
+    "sources": [
+     "https://www.jpl.nasa.gov/news/nasa-learns-more-about-interstellar-visitor-oumuamua/",
+     "https://arxiv.org/abs/1811.08072"
+    ]
+   },
+   {
+    "date": "2019-07-01",
+    "title": "ISSI team verdict: 'no compelling evidence to favor an alien explanation' (Nature Astronomy)",
+    "kind": "statement",
+    "description": "The 14-member International Space Science Institute (ISSI) 'Oumuamua team ('The natural history of 'Oumuamua', Bannister et al., Nature Astronomy) published the mainstream consensus review: every observed property — shape, tumbling, color, acceleration — lies within plausible ranges for a natural interstellar planetesimal, and 'we find no compelling evidence to favor an alien explanation.' Loeb publicly rejected the conclusion; the paper remains the standard natural-origin reference against which his claims are measured.",
+    "sources": [
+     "https://www.nature.com/articles/s41550-019-0816-x",
+     "https://arxiv.org/abs/1907.01910"
+    ]
+   },
+   {
+    "date": "2020-06-09",
+    "title": "Seligman & Laughlin hydrogen-iceberg hypothesis (ApJL)",
+    "kind": "statement",
+    "description": "Darryl Seligman and Gregory Laughlin proposed (ApJL 896 L8; arXiv:2005.12932) that 'Oumuamua was a hydrogen iceberg formed in the coldest cores of giant molecular clouds: H2 outgassing is nearly invisible (no dust, no detectable coma) yet provides the acceleration, and H2 sublimation sculpting naturally explains the extreme elongation. Critics (including Loeb, and Hoang & Loeb 2020) countered that H2 ice could not survive the interstellar journey — but the paper opened the 'exotic ice' family of natural explanations.",
+    "sources": [
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ab963f",
+     "https://arxiv.org/abs/2005.12932"
+    ]
+   },
+   {
+    "date": "2021-01-26",
+    "title": "Loeb publishes 'Extraterrestrial' — the case goes mainstream",
+    "kind": "statement",
+    "description": "Avi Loeb's book 'Extraterrestrial: The First Sign of Intelligent Life Beyond Earth' (Houghton Mifflin Harcourt) hit shelves and became an international bestseller, arguing 'Oumuamua's anomalies — the acceleration without a coma, the extreme shape, the unusual initial rest-frame trajectory — are best explained as artificial technology, possibly a defunct lightsail. The book transformed a technical dispute into a public referendum on scientific open-mindedness and directly seeded Loeb's Galileo Project (announced July 2021).",
+    "sources": [
+     "https://www.hmhbooks.com/shop/books/Extraterrestrial/9780358278146",
+     "https://avi-loeb.medium.com/"
+    ]
+   },
+   {
+    "date": "2021-03-16",
+    "title": "Desch & Jackson: nitrogen-ice fragment of an exo-Pluto (JGR Planets)",
+    "kind": "statement",
+    "description": "Steven Desch and Alan Jackson (ASU) published paired papers in JGR: Planets (AGU release Mar 16, 2021) proposing 'Oumuamua was a chip of solid nitrogen ice blasted off a Pluto-like exoplanet ~half a billion years ago: N2 sublimation matches the acceleration with no visible coma, and the high albedo of N2 ice allows a smaller body. Loeb and collaborators (Siraj & Loeb) rebutted that the required mass of exo-Pluto ejecta strains the galactic budget; Desch defended the numbers. The 'nitrogen iceberg' remains a leading natural candidate.",
+    "sources": [
+     "https://news.agu.org/press-release/interstellar-object-oumuamua-may-be-chip-off-an-icy-n2-covered-exo-pluto/",
+     "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JE006706"
+    ]
+   },
+   {
+    "date": "2023-03-22",
+    "title": "Bergner & Seligman 'dark comet' H2 answer in Nature — and Loeb's rebuttal",
+    "kind": "statement",
+    "description": "Jennifer Bergner (Berkeley) and Darryl Seligman published in Nature that cosmic-ray radiolysis of ordinary water ice during 'Oumuamua's interstellar transit created trapped molecular hydrogen; solar warming then released the H2, producing the acceleration with no visible coma — no exotic composition needed. Widely reported as 'mystery solved.' Within days Thiem Hoang and Avi Loeb posted a rebuttal (arXiv:2303.13861; Loeb's Medium essay ''Oumuamua Was Not a Hydrogen-Water Iceberg', Mar 2023) arguing that evaporative cooling by the escaping H2 leaves the surface a factor of ~9 colder than Bergner & Seligman assumed, cutting the H2 thrust below what is required; Bergner countered that the cooling effects do not change the conclusion. The dispute remains unresolved in print.",
+    "sources": [
+     "https://www.nature.com/articles/s41586-022-05687-w",
+     "https://arxiv.org/abs/2303.13861",
+     "https://avi-loeb.medium.com/oumuamua-was-not-a-hydrogen-water-iceberg-1dd2f7a6107f",
+     "https://www.centauri-dreams.org/2023/03/27/oumuamua-avi-loebs-response-to-the-molecular-hydrogen-theory/"
+    ]
+   },
+   {
+    "date": "2025-08-06",
+    "title": "Loeb Scale retroactively ranks 'Oumuamua Level 4 (vs Borisov Level 0)",
+    "kind": "statement",
+    "description": "Amid the 3I/ATLAS debate, Loeb formalized 'The Loeb Scale: Astronomical Classification of Interstellar Objects' (arXiv:2508.09167, submitted Aug 6, 2025; later published in the International Journal of Astrobiology) — a 0-10 anomaly scale for interstellar objects modeled on the Torino Scale (Levels 0-3 natural, 4-7 increasingly anomalous, 8-10 confirmed artificial). Applied retroactively: 1I/'Oumuamua scores Level 4 (multiple unexplained anomalies), 2I/Borisov Level 0 (the perfectly natural control comet), and 3I/ATLAS Level 4. The scale is Loeb's institutionalization of his 1I-vs-2I framing: Borisov is what a normal interstellar comet looks like; 'Oumuamua is not that.",
+    "sources": [
+     "https://arxiv.org/abs/2508.09167",
+     "https://avi-loeb.medium.com/the-loeb-scale-astronomical-classification-of-interstellar-objects-62b909644351",
+     "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/interstellar-object-significance-scale-loeb-scale-astronomical-classification-of-interstellar-objects/33F927C9600721DF14D1AA8525D7EDC0"
+    ]
+   },
+   {
+    "date": "2026-07-24",
+    "title": "Outbound: 53.6 AU from the Sun, headed for Pegasus",
+    "kind": "status",
+    "description": "Per JPL Horizons, 'Oumuamua is 53.58 AU from the Sun as of today (2026-07-24) — beyond Pluto's average orbit, receding at ~27.0 km/s and asymptotically slowing toward its hyperbolic excess speed of 26.33 km/s, headed for the constellation Pegasus. It passed Neptune's orbital distance in 2022 and is far beyond recovery by any existing telescope; its true nature is now permanently unmeasurable unless a chase mission (e.g. a Project Lyra concept) is ever launched. Every remaining argument is fought over the 2017-2018 data alone.",
+    "sources": [
+     "https://ssd.jpl.nasa.gov/horizons/ (COMMAND='1I', heliocentric r on 2026-07-24 = 53.580 AU, range-rate 27.0 km/s)",
+     "https://science.nasa.gov/solar-system/comets/oumuamua/"
+    ]
+   }
+  ]
+ },
+ "timeline2i": {
+  "events": [
+   {
+    "date": "2019-08-30",
+    "title": "Discovery by Gennadiy Borisov at MARGO, Crimea",
+    "kind": "discovery",
+    "description": "Amateur astronomer Gennadiy Borisov discovers a ~magnitude 17.8 comet at low solar elongation using his self-built 0.65 m telescope at his MARGO observatory (MPC code L51) in Nauchnij, Crimea — the first interstellar object ever found by an amateur, and found while it was still inbound (~3 AU from the Sun), unlike 'Oumuamua which was found outbound. It showed a condensed coma and short tail from the start: an unambiguously active comet.",
+    "sources": [
+     "https://www.minorplanetcenter.net/mpec/K19/K19RA6.html",
+     "https://en.wikipedia.org/wiki/2I/Borisov",
+     "https://www.sci.news/astronomy/c2019-q4-second-interstellar-object-07595.html"
+    ]
+   },
+   {
+    "date": "2019-09-11",
+    "title": "Provisional designation C/2019 Q4 (Borisov); hyperbolic orbit suspected",
+    "kind": "status",
+    "description": "The Minor Planet Center announces the object as comet C/2019 Q4 (Borisov) (MPEC 2019-R106), noting the orbit solution 'has converged to the hyperbolic elements shown below, which would indicate an interstellar origin.' The first published solution gave eccentricity e = 3.08 — far beyond any bound solar-system orbit (later refined to e = 3.36) — with JPL's Farnocchia, Bill Gray, and Dave Tholen independently reaching the same conclusion: a likely interstellar comet flagged within two weeks of discovery.",
+    "sources": [
+     "https://www.minorplanetcenter.net/mpec/K19/K19RA6.html",
+     "https://www.sci.news/astronomy/c2019-q4-second-interstellar-object-07595.html",
+     "https://www.centauri-dreams.org/2019/09/12/c-2019-q4-borisov-a-likely-interstellar-comet/"
+    ]
+   },
+   {
+    "date": "2019-09-20",
+    "title": "First gas detected: cyanogen (CN) with the William Herschel Telescope",
+    "kind": "observation",
+    "description": "Fitzsimmons et al. detect the CN (0-0) emission band at 388 nm using the 4.2 m William Herschel Telescope + ISIS spectrograph on La Palma (2019 Sep 20.2 UT) — the first spectroscopic detection of gas from any interstellar object. CN production rate (3.7 +/- 0.4) x 10^24 molecules/s at r = 2.7 AU; follow-up work showed 2I is depleted in C2, but overall its gas chemistry looked like a normal solar-system comet (ApJL 885, L9; arXiv:1909.12144).",
+    "sources": [
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ab49fc",
+     "https://arxiv.org/abs/1909.12144",
+     "https://phys.org/news/2019-09-frontier-science-astronomers-gas-molecules.html",
+     "https://www.aanda.org/articles/aa/full_html/2019/11/aa36959-19/aa36959-19.html"
+    ]
+   },
+   {
+    "date": "2019-09-24",
+    "title": "Confirmed interstellar: named 2I/Borisov (MPEC 2019-S72)",
+    "kind": "status",
+    "description": "The IAU/Minor Planet Center issues MPEC 2019-S72, confirming the interstellar hyperbolic orbit (e = 3.372 in the circular's solution, from 472 observations spanning Aug 30 - Sep 24) and assigning the permanent designation 2I/Borisov — the second interstellar object and the first unambiguous interstellar comet. The IAU retained the discoverer's name, honoring the amateur discovery.",
+    "sources": [
+     "https://www.minorplanetcenter.net/mpec/K19/K19S72.html",
+     "https://www.sci.news/astronomy/second-known-interstellar-object-2i-borisov-07626.html",
+     "https://www.virtualtelescope.eu/2019/09/25/2i-borisov-c-2019q4-the-first-interstellar-comet-is-now-official-a-new-image-24-sept-2019/"
+    ]
+   },
+   {
+    "date": "2019-10-12",
+    "title": "First Hubble imaging: tiny nucleus, radius under 0.5 km",
+    "kind": "observation",
+    "description": "HST/WFC3 obtains the sharpest images yet (Jewitt, Luu et al.), beginning a monitoring campaign through perihelion. Convolution modeling of the coma profile sets a nucleus radius limit of r <= 0.5 km (with r > 0.2 km from the non-gravitational acceleration constraint) — roughly 15x smaller than early ground-based estimates (0.7-3.3 km), per NASA's release. A small, ordinary comet nucleus wrapped in dust (Jewitt et al. 2020, ApJL 888, L23; arXiv:1912.05422).",
+    "sources": [
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ab621b",
+     "https://arxiv.org/abs/1912.05422",
+     "https://arxiv.org/abs/1910.11457",
+     "https://hubblesite.org/contents/media/images/2019/53/4578-Image"
+    ]
+   },
+   {
+    "date": "2019-12-08",
+    "title": "Perihelion at 2.006 AU",
+    "kind": "close_approach",
+    "description": "2I/Borisov reaches perihelion at 2.006 AU (just outside Mars' orbit), moving ~44 km/s — well above the ~30 km/s local solar escape speed, with a hyperbolic excess velocity of ~32 km/s that guarantees it will leave the solar system. Throughout, it behaves as a classic active comet — sustained water and CO outgassing, dust coma and tail — the natural 'control case' against 'Oumuamua's inert, accelerating anomaly. Hubble imaged it near perihelion on Dec 9.",
+    "sources": [
+     "https://esahubble.org/news/heic1922/",
+     "https://science.nasa.gov/missions/hubble/interstellar-comet-2iborisov-swings-past-sun/",
+     "https://hubblesite.org/contents/media/images/2019/61/4588-Image",
+     "https://theskylive.com/c2019q4-info"
+    ]
+   },
+   {
+    "date": "2019-12-28",
+    "title": "Closest approach to Earth: ~1.9 AU",
+    "kind": "close_approach",
+    "description": "The comet makes its closest approach to Earth at roughly 1.9 AU (~290 million km) — never a threat and never close, but well-placed for the VLT, ALMA, and Hubble campaigns that bracketed this date: ALMA had observed Dec 15-16, and Bagnulo's VLT/FORS2 polarimetric monitoring spanned late December 2019 through March 2020.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/2I/Borisov",
+     "https://theskylive.com/c2019q4-info",
+     "https://www.nature.com/articles/s41467-021-22000-x"
+    ]
+   },
+   {
+    "date": "2020-03-09",
+    "title": "Double outburst: two brightenings in five days",
+    "kind": "observation",
+    "description": "Between March 4-9, 2020 (outbound, ~2.8 AU), Polish astronomers Drahus and Guzik (Jagiellonian University) with the OGLE team report the comet brightening ~0.7 magnitudes in two distinct outbursts within days — ~0.3 mag between Mar 4.3-5.3 and ~0.4 mag between Mar 8.3-9.3 UT (ATel #13549, issued Mar 12). Jewitt et al. later measured the ejected dust: ~100 km^2 cross-section, ~2 x 10^7 kg — a warning sign of nucleus instability after perihelion heating.",
+    "sources": [
+     "https://arxiv.org/abs/2006.01242",
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ab99cb",
+     "https://www.astronomerstelegram.org/?read=13549",
+     "https://www.sciencealert.com/interstellar-comet-2i-borisov-is-breaking-apart"
+    ]
+   },
+   {
+    "date": "2020-03-30",
+    "title": "Hubble catches the nucleus splitting: transient double nucleus",
+    "kind": "observation",
+    "description": "HST/WFC3 images from two programs (PI Jewitt, ATel #13611; PI Bolin, ATel #13613, announced early April 2020) reveal a fragment ~0.3 arcsec from the optocenter. A transient 'double nucleus' with ~0.6 km^2 cross-section (~10^5 kg of dust) appears on March 30 — absent March 28 and gone by April 3. Jewitt, Kim & Mutchler interpret it as rotational bursting of meter-sized boulders ejected in the March outburst, not catastrophic disruption: the comet shed a splinter but survived (ApJL 896, L39).",
+    "sources": [
+     "https://iopscience.iop.org/article/10.3847/2041-8213/ab99cb",
+     "https://arxiv.org/abs/2006.01242",
+     "https://ui.adsabs.harvard.edu/abs/2020ATel13613....1B/abstract",
+     "https://epss.ucla.edu/comet-borisov-the-first-confirmed-interstellar-comet-is-breaking-up/"
+    ]
+   },
+   {
+    "date": "2020-04-20",
+    "title": "ALMA: unusually CO-rich coma (Cordiner et al., Nature Astronomy)",
+    "kind": "observation",
+    "description": "Cordiner, Milam et al. publish ALMA observations (taken 2019 Dec 15-16) detecting HCN and CO — the first direct measurement of gas from another planetary system. CO is 9-26x more abundant relative to water than in average solar-system comets, suggesting 2I/Borisov formed in an extremely cold, CO-ice-rich outer region of its home system, perhaps around a carbon-rich or M-dwarf star (Nature Astronomy 4, 861; the chemically distinct fingerprint of an alien comet).",
+    "sources": [
+     "https://www.nature.com/articles/s41550-020-1087-2",
+     "https://www.almaobservatory.org/en/press-releases/alma-reveals-unusual-composition-of-interstellar-comet-2i-borisov/",
+     "https://www.sciencedaily.com/releases/2020/04/200420124927.htm"
+    ]
+   },
+   {
+    "date": "2021-03-30",
+    "title": "VLT polarimetry: 'the most pristine comet ever observed' (Bagnulo et al.)",
+    "kind": "observation",
+    "description": "Bagnulo et al. publish VLT/FORS2 polarimetry (taken Dec 2019 - Mar 2020) in Nature Communications: 2I/Borisov's polarization exceeds that of all typical comets and its coma is polarimetrically homogeneous, resembling only the unique comet Hale-Bopp. Conclusion: it likely never passed close to any star before ours — possibly the first truly pristine comet ever observed, carrying unaltered material from its birth cloud (Nat. Commun. 12, 1797).",
+    "sources": [
+     "https://www.nature.com/articles/s41467-021-22000-x",
+     "https://www.eso.org/public/news/eso2106/",
+     "https://www.sciencedaily.com/releases/2021/03/210330121256.htm"
+    ]
+   },
+   {
+    "date": "2021-05-19",
+    "title": "Atomic nickel vapor in a cold coma (Guzik & Drahus, Nature)",
+    "kind": "observation",
+    "description": "Guzik & Drahus report gaseous atomic nickel in 2I/Borisov's coma at 2.322 AU (~180 K equilibrium temperature), produced at 0.9 +/- 0.3 x 10^22 atoms/s, likely from photolysis of a short-lived nickel-bearing molecule (Nature 593, 375). Heavy-metal vapor had previously been seen only in ultrahot environments like sungrazing comets. Published back-to-back with Manfroid et al.'s discovery of Fe and Ni vapor in ~20 solar-system comets — a shared, previously unnoticed chemistry linking 2I to home-grown comets and reinforcing its natural-comet status.",
+    "sources": [
+     "https://www.nature.com/articles/s41586-021-03485-4",
+     "https://pubmed.ncbi.nlm.nih.gov/34012084/",
+     "https://www.sci.news/astronomy/nickel-interstellar-comet-2i-borisov-09675.html"
+    ]
+   },
+   {
+    "date": "2025-08-06",
+    "title": "Loeb Scale ranks 2I/Borisov Level 0: the natural control case",
+    "kind": "statement",
+    "description": "In the wake of 3I/ATLAS, the Interstellar Object Significance Scale ('Loeb Scale') paper by Omer Eldadi, Gershon Tenenbaum, and Avi Loeb (arXiv:2508.09167, submitted Aug 6, 2025; later Int. J. Astrobiology) retroactively scores the three known interstellar objects on its 0-10 scale: 1I/'Oumuamua Level 4 (anomalous), 3I/ATLAS Level 4, and 2I/Borisov Level 0 — fully consistent with natural cometary behavior. Loeb has consistently treated Borisov as the benchmark 'ordinary comet' proving the detection pipeline works, sharpening the contrast with 'Oumuamua's anomalies.",
+    "sources": [
+     "https://arxiv.org/abs/2508.09167",
+     "https://www.cambridge.org/core/journals/international-journal-of-astrobiology/article/interstellar-object-significance-scale-loeb-scale-astronomical-classification-of-interstellar-objects/33F927C9600721DF14D1AA8525D7EDC0"
+    ]
+   },
+   {
+    "date": "2026-07-24",
+    "title": "Outbound: receding toward interstellar space",
+    "kind": "status",
+    "description": "2I/Borisov is far beyond observability, now tens of AU from the Sun and departing on its hyperbolic trajectory at ~32 km/s excess velocity, never to return. Its legacy: it confirmed that other planetary systems make comets much like ours (CN, HCN, dust, outbursts, nickel vapor), yet with distinct fingerprints (extreme CO enrichment, C2 depletion, unusually pristine dust) — the well-behaved sibling that makes 'Oumuamua's and 3I/ATLAS's oddities stand out.",
+    "sources": [
+     "https://theskylive.com/c2019q4-info",
+     "https://en.wikipedia.org/wiki/2I/Borisov",
+     "https://arxiv.org/abs/2304.00568"
+    ]
+   }
+  ]
+ },
+ "quotes": {
+  "quotes": [
+   {
+    "text": "Considering an artificial origin, one possibility is that 'Oumuamua is a lightsail, floating in interstellar space as debris from an advanced technological equipment.",
+    "speaker": "Shmuel Bialy & Abraham Loeb",
+    "date": "2018-11-12",
+    "source": "Bialy & Loeb, 'Could Solar Radiation Pressure Explain 'Oumuamua's Peculiar Acceleration?', ApJL 868 L1 (arXiv:1810.11490, posted 2018-10-26)",
+    "camp": "loeb",
+    "context": "The lightsail sentence from the paper that launched the alien-technology hypothesis; verified verbatim against the arXiv full text."
+   },
+   {
+    "text": "Alternatively, a more exotic scenario is that 'Oumuamua may be a fully operational probe sent intentionally to Earth vicinity by an alien civilization.",
+    "speaker": "Shmuel Bialy & Abraham Loeb",
+    "date": "2018-11-12",
+    "source": "Bialy & Loeb, ApJL 868 L1 (arXiv:1810.11490)",
+    "camp": "loeb",
+    "context": "The paper's most-quoted line, immediately following the lightsail-debris suggestion; verified verbatim against the arXiv full text."
+   },
+   {
+    "text": "'Oumuamua was like a buoy resting in the expanse of the universe, and our solar system was like a ship that ran into it at high speed.",
+    "speaker": "Avi Loeb",
+    "date": "2021-01-26",
+    "source": "Loeb, 'Extraterrestrial: The First Sign of Intelligent Life Beyond Earth' (Houghton Mifflin Harcourt)",
+    "camp": "loeb",
+    "context": "Loeb's signature buoy analogy from his bestselling book — 'Oumuamua as a stationary object the solar system ran into, echoing its LSR-rest-frame kinematics."
+   },
+   {
+    "text": "If radiation pressure is the accelerating force, then 'Oumuamua represents a new class of thin interstellar material, either produced naturally . . . or is of an artificial origin.",
+    "speaker": "Avi Loeb",
+    "date": "2021-01-26",
+    "source": "Loeb, 'Extraterrestrial' (restating the Bialy-Loeb argument)",
+    "camp": "loeb",
+    "context": "Loeb's book-form framing of the radiation-pressure argument; near-identical sentence appears in the 2018 paper. Verified via published book excerpts."
+   },
+   {
+    "text": "Thus, we find no compelling evidence to favor an alien explanation for 'Oumuamua.",
+    "speaker": "The 'Oumuamua ISSI Team (Bannister, Meech, Knight, Fitzsimmons et al.)",
+    "date": "2019-07-01",
+    "source": "'The Natural History of 'Oumuamua', Nature Astronomy 3, 594-602 (arXiv:1907.01910)",
+    "camp": "official",
+    "context": "The 14-expert International Space Science Institute team's formal verdict, closing the section that assessed the artificial hypothesis; verified verbatim from the paper PDF."
+   },
+   {
+    "text": "Assertions that 'Oumuamua may be artificial are not justified when the wide body of current knowledge about solar system minor bodies and planetary formation is considered.",
+    "speaker": "The 'Oumuamua ISSI Team",
+    "date": "2019-07-01",
+    "source": "'The Natural History of 'Oumuamua', Nature Astronomy — Conclusions section",
+    "camp": "official",
+    "context": "The paper's concluding rebuttal sentence; verified verbatim from the arXiv PDF Conclusions."
+   },
+   {
+    "text": "We have never seen anything like 'Oumuamua in our solar system. It's really a mystery still.",
+    "speaker": "Matthew Knight",
+    "date": "2019-07-01",
+    "source": "University of Maryland press release for the ISSI Nature Astronomy paper",
+    "camp": "official",
+    "context": "ISSI team co-lead acknowledging the object remains strange even while ruling it natural — the honest tension in the official position."
+   },
+   {
+    "text": "The alien spacecraft hypothesis is a fun idea, but our analysis suggests there is a whole host of natural phenomena that could explain it.",
+    "speaker": "Matthew Knight",
+    "date": "2019-07-01",
+    "source": "University of Maryland / ISSI team press release (also carried by Sci-News, EurekAlert)",
+    "camp": "official",
+    "context": "The ISSI team's public-facing dismissal of the Loeb lightsail interpretation."
+   },
+   {
+    "text": "This unusually large variation in brightness means that the object is highly elongated: about ten times as long as it is wide, with a complex, convoluted shape.",
+    "speaker": "Karen Meech",
+    "date": "2017-11-20",
+    "source": "ESO press release eso1737, 'ESO Observations Show First Interstellar Asteroid is Like Nothing Seen Before' (VLT results, Meech et al. Nature 552)",
+    "camp": "official",
+    "context": "Discovery-team lead describing the record 10:1 elongation from the VLT lightcurve; she added it was 'completely inert, without the faintest hint of dust around it.'"
+   },
+   {
+    "text": "I think it's a remnant from another solar system. It's just something that happened to run into us, and we were very lucky to have been operating the telescope that night.",
+    "speaker": "Robert Weryk",
+    "date": "2018-11-06",
+    "source": "CBC News interview, 'Oumuamua not an alien probe, says scientist who discovered it' (also carried by Fox News 2018-11-12)",
+    "camp": "official",
+    "context": "The Pan-STARRS astronomer who discovered 'Oumuamua, dismissing the Bialy-Loeb lightsail idea as 'wild speculation' — 'we actually believe that's not true based on the data we obtained.'"
+   },
+   {
+    "text": "I saw a moving object in the frame, it moved in a direction that was slightly different from that of main asteroids.",
+    "speaker": "Gennadiy Borisov",
+    "date": "2019-09-16",
+    "source": "RIA Novosti interview (translated from Russian; as cited on the 2I/Borisov Wikipedia discovery account)",
+    "camp": "official",
+    "context": "The Crimean amateur astronomer describing the 2019-08-30 pre-dawn discovery of 2I/Borisov with his self-built 0.65 m telescope at MARGO observatory. English is a translation."
+   },
+   {
+    "text": "Every amateur … dreams of discovering something unusual and extraordinary. When you manage to do that, you feel joy and happiness, and you set a new task.",
+    "speaker": "Gennadiy Borisov",
+    "date": "2019-12-08",
+    "source": "Space.com Q&A with Meghan Bartels (email interview via Roscosmos), published on 2I/Borisov's perihelion day",
+    "camp": "official",
+    "context": "Borisov on what the discovery meant to him, published the day his comet reached perihelion (~2 AU)."
+   },
+   {
+    "text": "2I/Borisov could represent the first truly pristine comet ever observed.",
+    "speaker": "Stefano Bagnulo",
+    "date": "2021-03-30",
+    "source": "ESO press release eso2106, 'First interstellar comet may be the most pristine ever found' (VLT polarimetry; Bagnulo et al., Nature Communications)",
+    "camp": "official",
+    "context": "The 'most pristine comet' line: VLT polarimetry showed 2I/Borisov more pristine than Hale-Bopp, apparently never having passed close to any star — the classic-comet control case to 'Oumuamua."
+   },
+   {
+    "text": "1I/'Oumuamua is anomalous relative to 2I/Borisov and 3I/ATLAS … it had an extreme disk-like shape, it exhibited a non-gravitational acceleration and it did not show any evidence for cometary activity.",
+    "speaker": "Avi Loeb",
+    "date": "2025-07-09",
+    "source": "Loeb, 'Origin and Age of Three Interstellar Objects: 1I/'Oumuamua, 2I/Borisov, and 3I/ATLAS', Medium essay",
+    "camp": "loeb",
+    "context": "Loeb's retrospective three-object comparison after 3I/ATLAS's discovery: Borisov and ATLAS behave like comets, 'Oumuamua still stands apart. Ellipsis trims 'not only because it is much younger than they are.' Verified verbatim."
+   },
+   {
+    "text": "3I/ATLAS is most likely a comet of natural origin, but there are 8 anomalies that endow it with a rank of 4 on the Loeb scale.",
+    "speaker": "Avi Loeb",
+    "date": "2025-12-21",
+    "source": "Loeb, 'Updating the Loeb Classification Scale of 3I/ATLAS', Medium (the Loeb scale itself defined in Trivedi & Loeb, arXiv:2508.09167, Aug 2025)",
+    "camp": "loeb",
+    "context": "Loeb applying his 0-10 anomaly scale to 3I/ATLAS; the companion Loeb-scale framework retroactively treats 2I/Borisov as a rank-0 natural baseline while 'Oumuamua keeps an elevated rank. Verified verbatim from the Medium essay."
+   }
+  ]
+ },
+ "timeline1iVerify": {
+  "verdict": "CORRECTED",
+  "corrections": "7 corrections applied after verification against primary sources (Breakthrough Initiatives news/14 and news/15, arXiv:1811.08072, arXiv:1810.11490 submission history, arXiv:2303.13861, arXiv:2508.09167 v1, live JPL Horizons API query, Wikipedia/JPL orbital data). (1) Spitzer event 2018-11-14: observation duration corrected from \"~33 hours\" to 30.2 hours (Trilling et al. abstract: 30.2 hr at 4.5 micron, 2017 Nov 21-22 UT); radius limits 49/70/220 m confirmed. (2) Loeb Scale event: arXiv:2508.09167 v1 was submitted Wed 6 Aug 2025 (13:02:29 UTC, only version) — event date changed from 2025-08-12 to 2025-08-06 and text corrected; levels confirmed exactly as stated (1I=4, 2I=0, 3I=4; 0-10 scale modeled on Torino). (3) Bialy & Loeb event: the paper's abstract derives thickness 0.3-0.9 mm and mass-to-area ~0.1 g/cm^2 but does NOT derive a \"~20 m sheet\" — that figure comes from later Loeb commentary/media; description rephrased to the paper's actual numbers. arXiv v1 Oct 26 2018 and ApJL 868 L1 pub Nov 12 2018 confirmed. (4) Earth close approach: 0.1616 AU corrected to 0.16175 AU (24.2 million km, ~63 lunar distances) per JPL. (5) Today-status event: Horizons gives r=53.580 AU and heliocentric range-rate 27.0 km/s on 2026-07-24 — it is receding at 27.0 km/s, asymptotically approaching (still above) the 26.33 km/s hyperbolic excess; wording fixed (\"close to ~26.3\" was subtly wrong in direction). Neptune-distance crossing in 2022 and Pegasus direction confirmed. (6) Discovery event: brightness peaked at magnitude 19.7 on Oct 18 (pre-discovery imaging); at discovery it was a ~20th-magnitude object — wording adjusted; eccentricity 1.201 and pre-discovery Oct 18 images confirmed. (7) Breakthrough Listen event: first block 3:45-9:45 pm ET Dec 13 2017 confirmed via news/15, but the 90 TB was accumulated over the ~2-hour on-target portion of that block (clarified); 1-12 GHz across L/S/C/X, cellphone-level sensitivity, and Enriquez et al. 2018 no-detection all confirmed. Everything else checked out: perihelion 2017-09-09 at 0.256 AU and 87.7 km/s, ~40-day pre-discovery gap, MPEC 2017-V17 on Nov 6 2017, A/2017 U1 reclassification Oct 25, Meech et al. Nature Nov 20 2017 (factor-10 lightcurve, 7.3 h, 10:1 later refined 6:1-8:1), Micheli et al. Nature June 27 2018 (4.9e-6 m/s^2 at 1 AU, HST astrometry through Jan 2018), ISSI Nature Astronomy July 1 2019 quote, Seligman & Laughlin ApJL 896 L8, book Jan 26 2021, Desch & Jackson AGU Mar 16 2021, Bergner & Seligman Nature Mar 22 2023, and Hoang & Loeb factor-of-9 surface-temperature rebuttal (arXiv:2303.13861 abstract confirms the factor 9)."
+ },
+ "timeline2iVerify": {
+  "verdict": "CORRECTED",
+  "corrections": "1) DISCOVERY SOURCES: The discovery event cited MPEC 2019-S72 (the Sept 24 naming circular, not the discovery announcement) and the intended discovery MPEC URL was malformed — MPC encodes circular 106 as 'A6', so the correct URL is https://www.minorplanetcenter.net/mpec/K19/K19RA6.html (MPEC 2019-R106, issued 2019-09-11, which confirms Aug 30 discovery, mag 17.8, G. Borisov at L51 MARGO Nauchnij). Fixed source list. 2) ECCENTRICITY AT ANNOUNCEMENT: The Sept 11 event claimed 'eccentricity near 3.4'; MPEC 2019-R106's first published orbit solution actually gave e = 3.08 (Farnocchia/Gray/Tholen concurring); the ~3.36 value is the later refined solution (MPEC 2019-S72 gives 3.372). Corrected and added the R106 URL as a source. 3) PERIHELION VELOCITY: 'traveling ~32 km/s faster than escape velocity' was garbled — 32 km/s is the hyperbolic EXCESS velocity (v-infinity); at perihelion the comet moved ~44 km/s, versus ~30 km/s local solar escape at 2 AU. Rewritten. 4) LOEB SCALE PAPER: arXiv:2508.09167 is authored by Omer Eldadi, Gershon Tenenbaum, and Abraham Loeb — NOT 'Avi Loeb and Adam Hibberd' (Hibberd co-authored other 3I/ATLAS papers with Loeb, but not this one). arXiv v1 was submitted 2025-08-06, so the event date changed from 2025-08-12 to 2025-08-06. Levels confirmed as stated (1I=4, 2I=0, 3I=0... 2I=0, 3I=4). 5) ORDERING + MINOR: events were not chronological (2020-04-20 ALMA listed before the 2020-03-09 outburst) — reordered; CN production rate tightened to the paper's (3.7±0.4)x10^24 s^-1 (the '3.7-4.0' range overstated precision of a second value); the unverified claim that Bagnulo's VLT monitoring 'began Dec 25' softened to the verified span (late Dec 2019 - Mar 2020, per Nat. Commun. 12, 1797). All other dates, distances, production rates, ATel/MPEC numbers, journal citations (ApJL 885 L9; ApJL 888 L23; ApJL 896 L39; Nat Astron 4, 861; Nat Commun 12, 1797; Nature 593, 375) and the 9-26x CO enrichment, 1.9 AU Earth approach, 2.006 AU perihelion, 0.7 mag double outburst, and Mar 28/30/Apr 3 split chronology verified against primary sources."
+ }
+}

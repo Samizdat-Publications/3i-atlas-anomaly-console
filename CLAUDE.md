@@ -1,0 +1,74 @@
+# 3I/ATLAS — Interstellar Anomaly Review Console (project guide for Claude sessions)
+
+A single-file, framework-free "NASA terminal" dashboard about the interstellar object
+**3I/ATLAS (C/2025 N1)** — real JPL Horizons trajectory data + Avi Loeb's 25-case anomaly
+register (each case shows Loeb's claim AND the official explanation side by side).
+Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
+
+## Resume protocol (usage limits hit often — checkpoint everything)
+**CURRENT STATE (2026-07-24):** v2.1 shipped, browser-verified, NO open items. Three-object
+console complete: 41 fact-checked case files (3I: 25, 1I: 11, 2I: 5), 54 timeline events,
+35 quotes, all datasets either real Horizons geometry or adversarially verified. Both
+research payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
+Next session starts clean.
+
+Stewart's sessions can be cut off by usage limits mid-task. Rules:
+1. **Everything on disk, immediately.** Fetched data → `data/`, research payloads →
+   `data/research.json`, source edits saved as you go, `_CHANGELOG.md` updated per release.
+   Nothing important lives only in conversation.
+2. **Archive before overwrite.** Copy the current `_LATEST ...html` into
+   `_Archive (old versions)/YYYY-MM-DD - ... vX.Y (note).html` before rebuilding.
+3. **Multi-agent runs go through Workflow** so `resumeFromRunId` can replay completed
+   agents from cache after a cutoff (only failed agents re-run).
+4. **This file is the resume note.** If a task is left half-done, add a "CURRENT STATE /
+   NEXT STEP" line at the top of this section before ending the session; remove it when done.
+
+## The one rule: edit source → build → ship LATEST
+- **Source of truth:** `src/`
+  - `console.css` — design system (`cx-` prefix; phosphor cyan / signal amber / alert red on deep navy).
+  - `js/core.js` — state, time engine (t = fractional days from 2025-05-15), ephemeris interpolation, WebAudio synth engine (no audio assets).
+  - `js/scene3d.js` — Three.js r128 scene: starfield + Milky Way band, planets on real positions + element-derived orbit lines, comet with 3 particle tail systems (ion / dust / **anti-tail** for the A-05 viz), traveled-path drawRange trail, camera presets (free/top/chase/mars/sun), HUD labels + range line.
+  - `js/charts.js` — canvas chart lib; right-rail telemetry (real data) + dossier charts (spectrum, polarization, acceleration, lightcurve, trajectory-side-view, size — stylized illustrations of published results).
+  - `js/ui.js` — DOM skeleton, boot sequence, timeline scrubber, anomaly dossiers, compare table, archive docs (redactions + stamps), all wiring (delegated `data-act` clicks).
+  - `js/main.js` — boot flow + frame loop. `APP_VERSION` lives here.
+  - `data-ephemeris.js` / `data-content.js` — GENERATED. Never hand-edit.
+  - `vendor/` — three.min.js r128 (UMD), OrbitControls, Share Tech Mono woff2 (OFL).
+- **Build:** `python tools/build.py` → overwrites **`_LATEST - 3I-ATLAS Anomaly Console.html`**
+  (project root, ~1 MB, fully offline, double-click to open — the only file Stewart needs).
+- **Verify before claiming done:** `node --check` each edited js; serve (`python -m http.server`)
+  and load in a browser; console must be clean. NOTE: browser caches aggressively — bust with
+  `?bust=N` query when re-testing, and remember background tabs throttle the boot-sequence
+  timers (front the tab or the auth prompt takes ~a minute to appear).
+
+## Data pipelines (both real)
+- **Ephemeris:** `python tools/fetch_ephemeris.py` — pulls heliocentric ecliptic J2000 vectors
+  from JPL Horizons (3I/ATLAS + 8 planets daily 2025-05-15→2026-12-31; 1I/'Oumuamua 2017;
+  2I/Borisov 2019-20) → `data/ephemeris.json` → baked to `src/data-ephemeris.js`.
+  Computed close approaches match published values (Mars 0.1939 AU 2025-10-03, perihelion
+  1.3566 AU 2025-10-29, Earth 1.7978 AU 2025-12-19, Jupiter 0.3588 AU 2026-03-17).
+- **Content:** `python tools/bake_content.py <research-json>` — converts the research payload
+  (`data/research.json`, produced 2026-07-17 by a 31-agent web-research + per-anomaly
+  adversarial fact-check workflow) → `src/data-content.js`. 25 anomaly cases (each with
+  `verify: CONFIRMED|CORRECTED|UNCHECKED`), 24 timeline events, 20 sourced quotes, 3 ISO
+  comparison profiles. Loeb scale: 4 (Jul 2025) → held 4 (Dec 2025) → 3 (Mar 2026).
+  Known gap: the timeline + comparison DATASET-level verifiers and the A-24 case verifier
+  never ran (usage limit); everything else was individually fact-checked.
+
+## Constraints
+- Self-contained, offline, no admin, no server to run. All assets inline (font base64'd at build).
+- The security hook blocks Write/Edit content containing the raw HTML-set property name —
+  inject markup via `setH()` in ui.js (uses `insertAdjacentHTML`); never write that property
+  name in code or docs.
+- Keep the anomaly framing balanced: every Loeb claim is shown WITH the official explanation.
+  The fiction ("IOWG", clearance banners, stamps) stays obviously playful; the disclaimer
+  footer stays.
+
+## App architecture notes
+- Modes: `track` (default 3D) / `anomalies` (dossier overlay) / `compare` (1I·2I·3I paths +
+  bottom-docked table) / `archive` (paper documents; HUD hidden in this mode).
+- Timeline: click markers to jump (anomaly markers open the dossier); drag to scrub; SPACE
+  play/pause; 1/2/3/4 modes; N=now (live position for today); M mute; Esc close.
+- "VISUALIZE IN TRACKER" in a dossier jumps the clock to the anomaly date and applies its
+  viz (anti-tail → sunward particles + chase cam; trajectory → ecliptic disc + top-down).
+- Event crossings during playback fire toasts + synth alert tones (mission=cyan, anomaly=amber).
+- Boot sequence doubles as the audio-unlock gesture; ESC skips.
