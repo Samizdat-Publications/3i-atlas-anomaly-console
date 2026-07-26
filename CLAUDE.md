@@ -6,7 +6,15 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-07-26):** v2.2 shipped, browser-verified, NO open items. Three-object
+**CURRENT STATE (2026-07-26):** v2.3 shipped + deployed + browser-verified against the live
+URL. Adds deep links (`#<era>/<case>`, see `syncHash`/`applyHash` in ui.js), the 8-beat
+guided tour (`TOUR` array; steps resolve case files by KEYWORD via `findCase` so they survive
+renumbering), cross-object case search (searches all 41 cases, badges foreign objects), and
+`ANALYTICS_TOKEN` support in build.py (public/index.html only — the offline file must stay at
+ZERO external refs; assert with a grep for `src="http`).
+Git history was rewritten 2026-07-26 to use the GitHub noreply email — do NOT re-introduce
+`stewartgregerson@gmail.com` as the git author; use
+`179866421+Samizdat-Publications@users.noreply.github.com`. Three-object
 console complete: 41 fact-checked case files (3I: 25, 1I: 11, 2I: 5), 54 timeline events,
 35 quotes, all datasets either real Horizons geometry or adversarially verified. Research
 payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
