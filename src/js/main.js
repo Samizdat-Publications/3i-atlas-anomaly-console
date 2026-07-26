@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.2';
+  window.APP_VERSION = '2.3';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -25,14 +25,17 @@
       CX.ui.renderTimeline();
       CX.charts.renderRail();
 
-      // roll the tape
+      // honour a deep link (#3i/A-05, #1i/compare) before rolling the tape
+      const deepLinked = CX.ui.applyHash();
+
       setTimeout(function () {
         S.playing = true;
         CX.emit('playstate');
+        if (deepLinked) return;
         CX.ui.showToast({
-          title: 'REPLAY ARMED — 3I/ATLAS TRANSIT · 2025-2026',
+          title: 'REPLAY ARMED — ' + CX.ERA_META[S.era].label + ' TRANSIT',
           t: S.t, cls: 'mission',
-          desc: 'SPACE pauses · click markers for events · switch target with 3I / 1I / 2I · press ? for controls.',
+          desc: 'SPACE pauses · switch target with 3I / 1I / 2I · press T for the guided tour · ? for controls.',
         });
       }, 900);
 

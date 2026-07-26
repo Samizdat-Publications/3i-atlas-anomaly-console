@@ -58,6 +58,7 @@ Press **?** at any time for the full control legend.
 
 | Key | Action |
 |---|---|
+| `T` | **guided tour** — 8 beats across all three objects, ~90s |
 | `SPACE` | play / pause the replay |
 | `←` `→` | step a day (with `SHIFT`, a week) |
 | `1` `2` `3` `4` | Track / Anomalies / Compare / Archive |
@@ -65,9 +66,19 @@ Press **?** at any time for the full control legend.
 | `M` `L` `G` | mute · labels · grid |
 | `?` | controls and briefing |
 
-Try: the **CHASE** camera around perihelion; case **A-05** → *Visualize in tracker* to watch
-the tail point the wrong way; **FROM MARS** on 2025-10-03; and the clickable redaction bars in
-**ARCHIVE**.
+Try: the **guided tour** if you're new; searching **"nickel"** in the case log, which returns
+3I/ATLAS's anomaly *and* 2I/Borisov's control-case rebuttal side by side; the **CHASE** camera
+around perihelion; case **A-05** → *Visualize in tracker* to watch the tail point the wrong
+way; **FROM MARS** on 2025-10-03; and the clickable redaction bars in **ARCHIVE**.
+
+### Linking to a specific case
+
+The URL hash is `#<object>[/<case-id>|/<mode>]`, so you can link straight to any of the 41
+case files — [`#3i/A-05`](https://3i-atlas-anomaly-console.pages.dev/#3i/A-05) (the sunward
+anti-tail), [`#1i/O-04`](https://3i-atlas-anomaly-console.pages.dev/#1i/O-04),
+[`#2i`](https://3i-atlas-anomaly-console.pages.dev/#2i),
+[`#3i/compare`](https://3i-atlas-anomaly-console.pages.dev/#3i/compare). Every dossier has a
+**⧉ COPY LINK** button.
 
 ## Building from source
 

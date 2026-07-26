@@ -1,5 +1,23 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.3 — 2026-07-26 (the four polish features)
+- **Deep links.** URL hash `#<era>[/<case>|/<mode>]` — e.g. `#3i/A-05`, `#1i/compare`, `#2i`.
+  Loading one jumps straight to that object and opens that case file; the hash updates as you
+  navigate; back/forward work. Every dossier gains a **⧉ COPY LINK** button.
+- **Guided tour** (`T`, the ▶ button, or from the help panel). Eight ~11-second beats across
+  all three objects: discovery → Mars flyby → perihelion behind the Sun → the sunward
+  anti-tail → 1I's tail-less arrival → its acceleration case → 2I as the control → all three
+  paths in compare. Steps find their case files by keyword, so they survive case renumbering.
+  Progress bar, SKIP AHEAD, and ESC to exit.
+- **Cross-object case search.** The anomaly log gains a search box that queries all 41 cases
+  across all three objects at once — searching "nickel" returns 3I's A-07 anomaly *and* 2I's
+  B-02 control-case rebuttal, badged by object; clicking a foreign result switches target and
+  opens it. Query survives era switches.
+- **Analytics support.** `ANALYTICS_TOKEN` / `CF_ANALYTICS_TOKEN` in `tools/build.py` injects
+  a cookieless Cloudflare Web Analytics beacon — into `public/index.html` **only**, so the
+  offline `_LATEST` file keeps zero external references (verified: 0 in both files today).
+- Help panel rewritten around the tour and search; first-run toast now points at `T` and `?`.
+
 ## v2.2.1 — 2026-07-26 (published)
 - **Live at https://3i-atlas-anomaly-console.pages.dev** (Cloudflare Pages, Direct Upload
   project deployed via wrangler). Verified against the live URL: v2.2 loads, 41 case files,

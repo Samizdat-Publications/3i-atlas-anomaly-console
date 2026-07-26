@@ -58,6 +58,7 @@
       '  <button class="cx-icobtn cx-railbtn" data-act="rail" data-side="right" title="telemetry">◨</button>',
       '  <button class="cx-icobtn cx-on" id="cx-btn-audio" data-act="audio" title="sound">♪</button>',
       '  <button class="cx-icobtn cx-on" id="cx-btn-crt" data-act="crt" title="CRT effect">▦</button>',
+      '  <button class="cx-icobtn" id="cx-btn-tour" data-act="tour-start" title="guided tour (T)">▶</button>',
       '  <button class="cx-icobtn" data-act="help" title="controls &amp; about (?)">?</button>',
       '</div>',
       '<div class="cx-left" id="cx-left"></div>',
@@ -77,6 +78,17 @@
       '    <button class="cx-pod" data-act="grid">GRID</button>',
       '  </div>',
       '  <div class="cx-toast" id="cx-toast"></div>',
+      '  <div class="cx-tour" id="cx-tour"><div class="cx-tour-inner">',
+      '    <div class="cx-tour-step" id="cx-tour-step"></div>',
+      '    <div class="cx-tour-title" id="cx-tour-title"></div>',
+      '    <div class="cx-tour-text" id="cx-tour-text"></div>',
+      '    <div class="cx-tour-bar"><div class="cx-tour-fill" id="cx-tour-fill"></div></div>',
+      '    <div class="cx-tour-btns">',
+      '      <button class="cx-btn cx-btn-ghost" data-act="tour-next">SKIP AHEAD ▶</button>',
+      '      <span class="cx-spacer"></span>',
+      '      <button class="cx-btn cx-btn-ghost" data-act="tour-stop">EXIT TOUR (ESC)</button>',
+      '    </div>',
+      '  </div></div>',
       '  <div class="cx-comparewrap" id="cx-comparewrap" style="display:none"><div></div>',
       '    <div class="cx-cmp-table-wrap" id="cx-cmp-table"></div>',
       '  </div>',
@@ -141,6 +153,10 @@
       '</div>',
       '<div class="cx-panel" style="padding:10px 0 0">',
       '  <div class="cx-panel-title" style="padding:0 12px"><span style="color:var(--amber)">▲</span> ANOMALY LOG <span id="cx-alog-count"></span></div>',
+      '  <div class="cx-search" id="cx-search">',
+      '    <input id="cx-q" type="search" autocomplete="off" spellcheck="false" placeholder="search all 3 objects — try &quot;nickel&quot;">',
+      '    <span class="cx-search-x" data-act="q-clear" title="clear">✕</span>',
+      '  </div>',
       '  <div class="cx-alog" id="cx-alog"></div>',
       '</div>',
       '<div class="cx-panel" style="padding:10px 0 0">',
@@ -149,22 +165,56 @@
       '</div>',
     ].join('\n'));
     UI.renderAnomalyList();
+    const qi = $('cx-q');            // rail is rebuilt on era switch — keep the query
+    if (qi && query) qi.value = query;
   }
 
+  // Case search runs across ALL three objects — searching "nickel" should surface
+  // both 3I's anomaly and 2I's control-case result, which is half the point.
+  let query = '';
   UI.renderAnomalyList = function () {
     const box = $('cx-alog');
     if (!box) return;
-    const list = CX.eraAnomalies();
+    const q = query.trim().toLowerCase();
     const cnt = $('cx-alog-count');
-    if (cnt) cnt.textContent = list.length + ' CASES';
+    const wrap = $('cx-search');
+    if (wrap) wrap.classList.toggle('cx-has-q', !!q);
+
+    let list;
+    if (q) {
+      list = (C.anomalies || []).filter(function (a) {
+        return (a.id + ' ' + a.title + ' ' + a.observation + ' ' + a.loeb_take + ' ' +
+                a.official_explanation).toLowerCase().indexOf(q) !== -1;
+      });
+      if (cnt) cnt.textContent = list.length + ' / ' + (C.anomalies || []).length + ' MATCH';
+    } else {
+      list = CX.eraAnomalies();
+      if (cnt) cnt.textContent = list.length + ' CASES';
+    }
+
+    if (!list.length) {
+      setH(box, '<div class="cx-nores">NO CASE MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
+      return;
+    }
     setH(box, list.map(function (a) {
-      const future = CX.tOfIso(a.date) > S.t;
-      return '<div class="cx-acase' + (future ? ' cx-future' : '') + (S.selAnomaly === a.id ? ' cx-on' : '') + '" data-act="anomaly" data-id="' + esc(a.id) + '">' +
-        '<div class="cx-a-dot"></div>' +
+      const obj = a.object || '3i';
+      const foreign = obj !== S.era;
+      const future = !foreign && CX.tOfIso(a.date) > S.t;
+      const em = CX.ERA_META[obj];
+      const badge = (q && foreign)
+        ? '<span class="cx-obj-badge" style="color:' + em.color + ';border-color:' + em.color + '">' + obj.toUpperCase() + '</span>'
+        : '';
+      return '<div class="cx-acase' + (future ? ' cx-future' : '') + (S.selAnomaly === a.id ? ' cx-on' : '') +
+        '" data-act="anomaly" data-id="' + esc(a.id) + '" data-obj="' + obj + '">' +
+        '<div class="cx-a-dot"' + (foreign ? ' style="background:' + em.color + ';box-shadow:none"' : '') + '></div>' +
         '<div class="cx-a-id">' + esc(a.id) + '</div>' +
-        '<div class="cx-a-name">' + esc(a.title) + '</div>' +
+        '<div class="cx-a-name">' + badge + esc(a.title) + '</div>' +
         '<div class="cx-a-date">' + esc((a.date || '').slice(2)) + '</div></div>';
     }).join(''));
+  };
+  UI.setQuery = function (v) {
+    query = v || '';
+    UI.renderAnomalyList();
   };
 
   // ============ RIGHT RAIL ============
@@ -361,11 +411,13 @@
       '  <button class="cx-btn cx-btn-amber" data-act="visualize" data-id="' + esc(a.id) + '">◈ VISUALIZE IN TRACKER</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="-1">◀ PREV</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="1">NEXT ▶</button>',
+      '  <button class="cx-btn cx-btn-ghost" data-act="copy-link" data-id="' + esc(a.id) + '" title="' + esc(caseUrl(a.id)) + '">⧉ COPY LINK</button>',
       '  <span style="flex:1"></span>',
       '  <span style="color:var(--txt-faint);font-size:10px;align-self:center">CASE ' + (dossierIdx + 1) + ' / ' + list.length + '</span>',
       '</div>',
     ].join('\n'));
     $('cx-overlay').classList.add('cx-show');
+    syncHash();
     requestAnimationFrame(function () {
       const cv = $('cx-dchart');
       if (cv) CX.charts.dossier(a.viz_hint || 'lightcurve', cv);
@@ -377,6 +429,7 @@
     S.selAnomaly = null;
     UI.renderAnomalyList();
     if (S.mode === 'anomalies') setMode('track');
+    syncHash();
   }
 
   function visualize(id) {
@@ -392,6 +445,152 @@
     else { CX.scene3d.applyPreset('free'); markCam('free'); }
     showToast({ title: a.id + ' — ' + a.title, t: CX.tOfIso(a.date), cls: 'anomaly', desc: a.observation });
     CX.audio.anomalyAlert();
+  }
+
+  // ============ DEEP LINKS ============
+  // #<era>[/<caseId>|/<mode>]  e.g. #3i/A-05, #1i/compare, #2i
+  let hashLock = false;
+  function syncHash() {
+    if (hashLock || !S.booted) return;
+    let h = '#' + S.era;
+    if (S.selAnomaly) h += '/' + S.selAnomaly;
+    else if (S.mode !== 'track') h += '/' + S.mode;
+    if (location.hash !== h) {
+      try { history.replaceState(null, '', h); } catch (e) { /* file:// can refuse */ }
+    }
+  }
+  const MODES = ['track', 'anomalies', 'compare', 'archive'];
+  function applyHash() {
+    let raw = '';
+    try { raw = decodeURIComponent(location.hash || ''); } catch (e) { raw = location.hash || ''; }
+    raw = raw.replace(/^#/, '').trim();
+    if (!raw) return false;
+    const parts = raw.split('/');
+    const era = (parts[0] || '').toLowerCase();
+    const what = (parts[1] || '').toLowerCase();
+    let applied = false;
+    hashLock = true;
+    try {
+      if (CX.EPH.eras[era] && era !== S.era) { CX.setEra(era); applied = true; }
+      if (what) {
+        if (MODES.indexOf(what) !== -1) { setMode(what); applied = true; }
+        else {
+          const c = (C.anomalies || []).find(function (a) { return String(a.id).toLowerCase() === what; });
+          if (c) {
+            const obj = c.object || '3i';
+            if (obj !== S.era) CX.setEra(obj);
+            openDossier(c.id);
+            applied = true;
+          }
+        }
+      }
+    } finally { hashLock = false; }
+    syncHash();
+    return applied;
+  }
+  UI.applyHash = applyHash;
+
+  function caseUrl(id) {
+    const obj = ((C.anomalies || []).find(function (a) { return a.id === id; }) || {}).object || S.era;
+    return location.origin + location.pathname + '#' + obj + '/' + id;
+  }
+  function copyCaseLink(id) {
+    const url = caseUrl(id);
+    const done = function (ok) {
+      showToast({ title: ok ? 'LINK COPIED TO CLIPBOARD' : 'COPY FAILED — LINK IS IN THE ADDRESS BAR',
+        t: S.t, cls: 'mission', desc: url });
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+    } else done(false);
+  }
+
+  // ============ GUIDED TOUR ============
+  function findCase(obj, kw) {
+    const re = kw.toLowerCase();
+    const c = (C.anomalies || []).filter(function (a) { return (a.object || '3i') === obj; })
+      .find(function (a) { return ((a.title || '') + ' ' + (a.observation || '')).toLowerCase().indexOf(re) !== -1; });
+    return c || null;
+  }
+  const TOUR = [
+    { era: '3i', date: '2025-07-01', cam: 'top', ms: 11000, title: 'FIRST CONTACT — 1 JULY 2025',
+      text: 'The ATLAS survey in Chile catches a fast mover. Within days the orbit solution comes back hyperbolic — an eccentricity above 6, the most extreme ever measured. This object is not bound to our Sun. It is passing through, once, and never returning.' },
+    { era: '3i', date: '2025-10-03', cam: 'mars', ms: 11000, title: 'MARS FLYBY — 0.19 AU',
+      text: 'It threads past Mars at 29 million km, close enough that orbiters there turned their cameras on it. Loeb noted the path also lines up with Venus and Jupiter, and argued that such an economical tour of the planets looks less like chance than like routing.' },
+    { era: '3i', date: '2025-10-29', cam: 'sun', ms: 11000, title: 'PERIHELION — BEHIND THE SUN',
+      text: 'Closest solar approach, 1.36 AU — and it happens while the object sits directly behind the Sun as seen from Earth. Anything it did here, it did unobserved. The official reading: an unremarkable consequence of orbital geometry.' },
+    { era: '3i', caseKw: 'anti-tail', cam: 'chase', ms: 11000, title: 'THE TAIL POINTS THE WRONG WAY',
+      text: 'A jet aimed sunward, into the light rather than away from it. Loeb logged it as an anomaly. The mainstream answer is a projection effect from large, slow dust grains — something ordinary comets do too.' },
+    { era: '1i', date: '2017-10-19', cam: 'free', ms: 11000, title: "THE ORIGINAL — 1I/ʻOUMUAMUA, 2017",
+      text: 'Switch targets and notice what is missing. No tail. No coma. Nothing at all. The first interstellar object we ever saw arrived completely inert — and then accelerated anyway.' },
+    { era: '1i', caseKw: 'acceleration', cam: 'free', ms: 11000, title: 'PUSHED BY NOTHING',
+      text: 'Astrometry showed a push falling off as 1/r², exactly like sunlight or outgassing. But no gas was ever detected. That gap between a real force and no visible cause is what launched the lightsail paper.' },
+    { era: '2i', date: '2019-12-08', cam: 'chase', ms: 11000, title: 'THE CONTROL CASE — 2I/BORISOV',
+      text: 'And this is what a normal visitor from another star looks like: a textbook comet, tail streaming dutifully away from the Sun, behaving exactly as physics says it should. Its case file is thin on purpose.' },
+    { mode: 'compare', cam: 'free', ms: 12000, title: 'THREE VISITORS, THREE STORIES',
+      text: 'All three paths at once. Two of them ordinary enough; one still argued over. Every claim in this console sits beside its official rebuttal — go read them and decide for yourself.' },
+  ];
+  let tour = null;
+  function tourStop(quiet) {
+    if (tour && tour.timer) clearTimeout(tour.timer);
+    tour = null;
+    const box = $('cx-tour');
+    if (box) box.classList.remove('cx-on');
+    const b = $('cx-btn-tour');
+    if (b) b.classList.remove('cx-on');
+    if (!quiet) showToast({ title: 'TOUR ENDED — CONSOLE IS YOURS', t: S.t, cls: 'mission',
+      desc: 'Press ? for controls, or search the case log on the left.' });
+  }
+  function tourStart() {
+    if (tour) { tourStop(true); return; }
+    closeOverlay();
+    tour = { i: -1, timer: null };
+    $('cx-tour').classList.add('cx-on');
+    const b = $('cx-btn-tour');
+    if (b) b.classList.add('cx-on');
+    CX.audio.eraSwitch();
+    tourNext();
+  }
+  function tourNext() {
+    if (!tour) return;
+    if (tour.timer) clearTimeout(tour.timer);
+    tour.i++;
+    if (tour.i >= TOUR.length) { tourStop(); return; }
+    const st = TOUR[tour.i];
+
+    if (st.era && st.era !== S.era) CX.setEra(st.era);
+    if (st.mode) setMode(st.mode);
+    else if (S.mode !== 'track') setMode('track');
+
+    S.viz.antiTail = false; S.viz.ecliptic = false;
+    let sub = '';
+    if (st.caseKw) {
+      const c = findCase(st.era, st.caseKw);
+      if (c) {
+        CX.setT(CX.tOfIso(c.date));
+        if (c.viz_hint === 'tail') S.viz.antiTail = true;
+        if (c.viz_hint === 'trajectory') S.viz.ecliptic = true;
+        sub = ' · CASE ' + c.id;
+      }
+    } else if (st.date) {
+      CX.setT(CX.tOfIso(st.date));
+    }
+    if (st.cam) { CX.scene3d.applyPreset(st.cam); markCam(st.cam); }
+    S.playing = true; CX.emit('playstate');
+
+    $('cx-tour-step').textContent = 'GUIDED TOUR · STEP ' + (tour.i + 1) + ' OF ' + TOUR.length + sub;
+    $('cx-tour-title').textContent = st.title;
+    $('cx-tour-text').textContent = st.text;
+    CX.audio.missionEvent();
+
+    const fill = $('cx-tour-fill');
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    void fill.offsetWidth;
+    fill.style.transition = 'width ' + st.ms + 'ms linear';
+    fill.style.width = '100%';
+
+    tour.timer = setTimeout(tourNext, st.ms);
   }
 
   // ============ HELP / ABOUT ============
@@ -446,10 +645,15 @@
       '    </div>',
       '  </div>',
       '  <div class="cx-block" style="margin-top:14px"><div class="cx-block-label cx-bl-obs">START HERE</div>',
-      '  <div class="cx-block-text">Open case <b>A-05</b> on 3I/ATLAS and press ',
-      '  <b style="color:var(--amber)">VISUALIZE IN TRACKER</b> to watch its tail point the wrong way. ',
-      '  Then switch to <b>1I</b> and run the replay — no tail at all, which is precisely the anomaly. ',
-      '  In <b>ARCHIVE</b>, the black redaction bars are clickable.</div></div>',
+      '  <div class="cx-block-text">New to this? Take the <b style="color:var(--cyan)">guided tour</b> — about 90 seconds, ',
+      '  flying all three objects through their highlights. Otherwise: open case <b>A-05</b> on 3I/ATLAS and press ',
+      '  <b style="color:var(--amber)">VISUALIZE IN TRACKER</b> to watch its tail point the wrong way; ',
+      '  search <b>&ldquo;nickel&rdquo;</b> in the case log to see the same measurement argued two ways on two ',
+      '  different objects; and in <b>ARCHIVE</b>, the black redaction bars are clickable.</div>',
+      '  <div class="cx-sheet-actions" style="padding:10px 0 0">',
+      '    <button class="cx-btn" data-act="tour-start">▶ START GUIDED TOUR</button>',
+      '    <button class="cx-btn cx-btn-ghost" data-act="close-overlay">CLOSE</button>',
+      '  </div></div>',
       '  <div class="cx-block"><div class="cx-block-text" style="color:var(--txt-faint);font-size:11px">',
       '    Unofficial simulation built for education and entertainment. Not affiliated with, ',
       '    endorsed by, or produced by NASA, JPL, ESA or any government agency. The "IOWG" and its ',
@@ -587,6 +791,7 @@
     if (m === 'compare') renderCompare();
     if (m === 'archive') renderArchive();
     if (m === 'anomalies') openDossier((CX.eraAnomalies()[0] || {}).id);
+    syncHash();
   }
   UI.setMode = setMode;
 
@@ -615,6 +820,7 @@
     if (S.mode !== 'track') setMode('track');
     CX.setEra(k);
     CX.audio.eraSwitch();
+    syncHash();
   }
 
   // ============ WIRING ============
@@ -642,7 +848,16 @@
       else if (act === 'labels') { S.labels = !S.labels; btn.classList.toggle('cx-on', S.labels); }
       else if (act === 'orbits') { S.orbits = !S.orbits; btn.classList.toggle('cx-on', S.orbits); }
       else if (act === 'grid') { S.grid = !S.grid; btn.classList.toggle('cx-on', S.grid); }
-      else if (act === 'anomaly') openDossier(btn.getAttribute('data-id'));
+      else if (act === 'anomaly') {
+        const obj = btn.getAttribute('data-obj');
+        if (obj && obj !== S.era) CX.setEra(obj);   // cross-object search result
+        openDossier(btn.getAttribute('data-id'));
+      }
+      else if (act === 'q-clear') { UI.setQuery(''); const qi = $('cx-q'); if (qi) { qi.value = ''; qi.focus(); } }
+      else if (act === 'tour-start') tourStart();
+      else if (act === 'tour-next') tourNext();
+      else if (act === 'tour-stop') tourStop();
+      else if (act === 'copy-link') copyCaseLink(btn.getAttribute('data-id'));
       else if (act === 'approach') { CX.setT(CX.tOfIso(btn.getAttribute('data-date'))); }
       else if (act === 'doc') { S.selDoc = Number(btn.getAttribute('data-i')); renderArchive(); }
       else if (act === 'help') openHelp();
@@ -670,6 +885,18 @@
       if (ev.target === $('cx-overlay')) closeOverlay();
     });
 
+    // Delegated: the left rail (and the search box with it) is rebuilt on era switch.
+    document.addEventListener('input', function (ev) {
+      if (ev.target && ev.target.id === 'cx-q') UI.setQuery(ev.target.value);
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.target && ev.target.id === 'cx-q' && ev.key === 'Escape') {
+        ev.stopPropagation();
+        ev.target.value = ''; UI.setQuery(''); ev.target.blur();
+      }
+    });
+    window.addEventListener('hashchange', function () { if (!hashLock) applyHash(); });
+
     const track = $('cx-tl-track');
     track.addEventListener('mousedown', function (ev) {
       if (tlClick(ev)) return;
@@ -694,9 +921,11 @@
       else if (k === 'g' || k === 'G') { S.grid = !S.grid; }
       else if (k === 'm' || k === 'M') { S.audio = !S.audio; CX.audio.setMuted(!S.audio); $('cx-btn-audio').classList.toggle('cx-on', S.audio); }
       else if (k === '?' || k === '/') { ev.preventDefault(); openHelp(); }
+      else if (k === 't' || k === 'T') tourStart();
       else if (k === 'Escape') {
         document.body.classList.remove('cx-show-left', 'cx-show-right');
-        closeOverlay();
+        if (tour) tourStop();
+        else closeOverlay();
       }
     });
 

@@ -16,6 +16,13 @@ OUT = os.path.join(ROOT, "_LATEST - 3I-ATLAS Anomaly Console.html")
 # (fine locally; social cards need the absolute form). Override with SITE_URL env var.
 SITE_URL = "https://3i-atlas-anomaly-console.pages.dev"
 
+# Cloudflare Web Analytics beacon token (cookieless, no personal data). Empty =
+# no analytics. Override with CF_ANALYTICS_TOKEN. Injected into public/index.html
+# ONLY — the offline _LATEST file must never reference an external script.
+# Alternative with no token at all: Pages project -> Settings -> enable Web
+# Analytics, which injects the same beacon at the edge.
+ANALYTICS_TOKEN = ""
+
 JS_ORDER = [
     "vendor/three.min.js",
     "vendor/OrbitControls.js",
@@ -83,29 +90,39 @@ def main():
         '<meta name="twitter:image" content="' + og_image + '">',
         '<link rel="icon" href="' + favicon + '">',
     ]
-    html = "\n".join([
-        "<!doctype html>",
-        '<html lang="en">',
-        "<head>",
-        "\n".join(head),
-        "<style>", css, "</style>",
-        "</head>",
-        "<body>",
-        "\n".join(scripts),
-        "</body>",
-        "</html>",
-    ])
+    def page(extra_body=""):
+        return "\n".join([
+            "<!doctype html>",
+            '<html lang="en">',
+            "<head>",
+            "\n".join(head),
+            "<style>", css, "</style>",
+            "</head>",
+            "<body>",
+            "\n".join(scripts),
+            extra_body,
+            "</body>",
+            "</html>",
+        ])
+
+    # Offline copy: zero external references, works with no network at all.
     with open(OUT, "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(page())
     print("Built %s (%d KB)" % (OUT, os.path.getsize(OUT) // 1024))
 
-    # Cloudflare Pages deploy directory: same bytes, URL-friendly name.
+    # Cloudflare Pages deploy directory: same bytes + optional analytics beacon.
+    token = os.environ.get("CF_ANALYTICS_TOKEN", ANALYTICS_TOKEN).strip()
+    beacon = ""
+    if token:
+        beacon = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+                  "data-cf-beacon='{\"token\": \"" + token + "\"}'></script>")
     pub_dir = os.path.join(ROOT, "public")
     os.makedirs(pub_dir, exist_ok=True)
     pub = os.path.join(pub_dir, "index.html")
     with open(pub, "w", encoding="utf-8") as f:
-        f.write(html)
-    print("Built %s (%d KB)" % (pub, os.path.getsize(pub) // 1024))
+        f.write(page(beacon))
+    print("Built %s (%d KB)%s" % (pub, os.path.getsize(pub) // 1024,
+                                  " + analytics beacon" if token else ""))
 
 
 if __name__ == "__main__":
