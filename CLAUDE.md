@@ -6,11 +6,17 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-07-24):** v2.1 shipped, browser-verified, NO open items. Three-object
+**CURRENT STATE (2026-07-26):** v2.2 shipped, browser-verified, NO open items. Three-object
 console complete: 41 fact-checked case files (3I: 25, 1I: 11, 2I: 5), 54 timeline events,
-35 quotes, all datasets either real Horizons geometry or adversarially verified. Both
-research payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
-Next session starts clean.
+35 quotes, all datasets either real Horizons geometry or adversarially verified. Research
+payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
+
+**NOW UNDER GIT + PUBLISHED.** Repo: https://github.com/Samizdat-Publications/3i-atlas-anomaly-console
+(public, main branch). `git push` after every release — git history now replaces the
+`_Archive (old versions)/` folder (which is gitignored, kept locally only).
+Deploy target: **Cloudflare Pages**, serving the `public/` directory (build command: none,
+output dir: `public`). `tools/build.py` writes BOTH `_LATEST ...html` and `public/index.html`
+from the same bytes — never edit either by hand.
 
 Stewart's sessions can be cut off by usage limits mid-task. Rules:
 1. **Everything on disk, immediately.** Fetched data → `data/`, research payloads →
