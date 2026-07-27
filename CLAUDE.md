@@ -61,6 +61,15 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
 4. **This file is the resume note.** If a task is left half-done, add a "CURRENT STATE /
    NEXT STEP" line at the top of this section before ending the session; remove it when done.
 
+## Landing page + screenshots (v2.4)
+- `src/about.html` is the project landing page. build.py copies it to `public/about.html`,
+  inlining the font and substituting `__SITE__` for SITE_URL. Pure HTML/CSS, no scripts.
+- `public/shots/*.png` are the captured views, referenced by BOTH the README (relative path
+  `public/shots/x.png`) and about.html (`shots/x.png`). Recapture with Playwright against the
+  live URL; pin the clock first (`CX.S.playing=false` AFTER boot's 900 ms autoplay timer, or
+  the replay runs to the end mid-capture) and palette-optimise with Pillow — keep the hero
+  (`track.png`) at full colour, quantise the rest to 256.
+
 ## The one rule: edit source → build → ship LATEST
 - **Source of truth:** `src/`
   - `console.css` — design system (`cx-` prefix; phosphor cyan / signal amber / alert red on deep navy).

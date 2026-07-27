@@ -124,6 +124,24 @@ def main():
     print("Built %s (%d KB)%s" % (pub, os.path.getsize(pub) // 1024,
                                   " + analytics beacon" if token else ""))
 
+    # Landing page: src/about.html -> public/about.html, with the font inlined and
+    # __SITE__ resolved so its OpenGraph tags carry absolute URLs.
+    about_src = os.path.join(SRC, "about.html")
+    if os.path.exists(about_src):
+        about = read("about.html")
+        font_uri = ""
+        if os.path.exists(font_path):
+            with open(font_path, "rb") as f:
+                font_uri = "data:font/woff2;base64," + base64.b64encode(f.read()).decode("ascii")
+        about = about.replace("__FONT__", font_uri).replace("__SITE__", SITE_URL)
+        about = "<!doctype html>\n<html lang=\"en\">\n" + about + "\n</html>\n"
+        if beacon:
+            about = about.replace("</html>", beacon + "\n</html>")
+        dest = os.path.join(pub_dir, "about.html")
+        with open(dest, "w", encoding="utf-8") as f:
+            f.write(about)
+        print("Built %s (%d KB)" % (dest, os.path.getsize(dest) // 1024))
+
 
 if __name__ == "__main__":
     main()

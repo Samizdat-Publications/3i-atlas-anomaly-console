@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.3';
+  window.APP_VERSION = '2.4';
 
   function start() {
     const CX = window.CX, S = CX.S;

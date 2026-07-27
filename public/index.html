@@ -359,7 +359,13 @@ body {
 /* ============ ARCHIVE DOCS ============ */
 .cx-docwrap { position: absolute; inset: 0; display: grid; grid-template-columns: 300px 1fr; }
 .cx-doclist { border-right: 1px solid var(--line); overflow-y: auto; background: rgba(4,16,25,.6); }
-.cx-docview { overflow-y: auto; padding: 26px 34px; background: rgba(2, 8, 14, .78); }
+.cx-docview { overflow-y: auto; padding: 26px 34px; background: #020810; }
+
+/* Camera/view controls are meaningless over the document reader — hide them there
+   so they can't bleed through the panels. */
+.cx-root[data-mode="archive"] .cx-campods,
+.cx-root[data-mode="archive"] .cx-viewopts,
+.cx-root[data-mode="archive"] .cx-crosshair { display: none; }
 .cx-doc {
   max-width: 640px; margin: 0 auto 40px; padding: 34px 40px 44px;
   background: #dfd9c8; color: #1d1a14; font-family: var(--mono);
@@ -388,7 +394,7 @@ body {
 .cx-comparewrap { position: absolute; inset: 0; pointer-events: none; }
 .cx-cmp-table-wrap {
   position: absolute; left: 0; right: 0; bottom: 0; pointer-events: auto;
-  border-top: 1px solid var(--line); background: rgba(3,12,19,.92);
+  border-top: 1px solid var(--line); background: #030c13;
   overflow-x: auto; max-height: 44%; overflow-y: auto;
 }
 table.cx-cmp { width: 100%; border-collapse: collapse; font-size: 12px; }
@@ -422,10 +428,11 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 }
 
 /* footer disclaimer */
+/* Lives INSIDE the centre pane (see ui.js) so it can never overlap the side rails. */
 .cx-disclaimer {
-  position: fixed; right: 14px; bottom: 102px; z-index: 31; max-width: 46%;
+  position: absolute; right: 12px; bottom: 6px; z-index: 6; max-width: 62%;
   color: var(--txt-faint); font-size: 8.5px; letter-spacing: .5px; opacity: .7;
-  pointer-events: none; text-align: right;
+  pointer-events: none; text-align: right; line-height: 1.4;
 }
 
 /* reveal animation for panels */
@@ -2909,7 +2916,7 @@ window.ATLAS_CONTENT = {"meta":{"tagline":"INTERSTELLAR ANOMALY REVIEW CONSOLE",
       '</div>',
     ].join('\n'));
     document.body.appendChild(root);
-    document.body.appendChild(el('div', 'cx-disclaimer',
+    $('cx-center').appendChild(el('div', 'cx-disclaimer',
       'UNOFFICIAL SIMULATION FOR EDUCATION &amp; ENTERTAINMENT · NOT AFFILIATED WITH NASA/JPL · EPHEMERIS: JPL HORIZONS · ANOMALY NARRATIVE: A. LOEB (PUBLISHED CLAIMS) VS OFFICIAL ASSESSMENTS'));
     if (S.crt) document.body.classList.add('cx-crt');
 
@@ -3575,6 +3582,8 @@ window.ATLAS_CONTENT = {"meta":{"tagline":"INTERSTELLAR ANOMALY REVIEW CONSOLE",
   // ============ MODES ============
   function setMode(m) {
     S.mode = m;
+    const rt = $('cx-root');
+    if (rt) rt.setAttribute('data-mode', m);
     document.querySelectorAll('.cx-tab').forEach(function (t) {
       t.classList.toggle('cx-on', t.getAttribute('data-tab') === m);
     });
@@ -3839,7 +3848,7 @@ window.ATLAS_CONTENT = {"meta":{"tagline":"INTERSTELLAR ANOMALY REVIEW CONSOLE",
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.3';
+  window.APP_VERSION = '2.4';
 
   function start() {
     const CX = window.CX, S = CX.S;

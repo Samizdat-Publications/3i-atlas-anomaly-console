@@ -1,5 +1,22 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.4 — 2026-07-26 (documentation + landing page)
+- **Project landing page** at `/about` (`src/about.html` → `public/about.html` via build.py,
+  font inlined, `__SITE__` resolved for absolute OG tags). Hero, stat strip, the premise,
+  a captioned screenshot gallery, feature grid, and a data-provenance table.
+- **README rewritten** as a proper front page: badges, hero screenshot, the three-object
+  table, captioned screenshots of every key view, keyboard reference, deep-link examples,
+  data provenance, and a source-tree map.
+- **Seven captured screenshots** in `public/shots/` (1600×900, palette-optimised; hero kept
+  at full colour). 2.5 MB → 1.2 MB. Lazy-loaded below the fold on the landing page.
+- Three layout bugs the screenshots exposed, now fixed:
+  - the footer disclaimer was `position:fixed` and spanned the full viewport, overlapping
+    the right rail's text — it now lives inside the centre pane and is bounded by it;
+  - camera/view pods bled through the document reader in ARCHIVE mode — the root now
+    carries `data-mode` and they're hidden there;
+  - the compare table and document reader were semi-transparent, letting the disclaimer
+    ghost through — both are now opaque.
+
 ## v2.3 — 2026-07-26 (the four polish features)
 - **Deep links.** URL hash `#<era>[/<case>|/<mode>]` — e.g. `#3i/A-05`, `#1i/compare`, `#2i`.
   Loading one jumps straight to that object and opens that case file; the hash updates as you

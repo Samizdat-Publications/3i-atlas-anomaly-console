@@ -116,7 +116,7 @@
       '</div>',
     ].join('\n'));
     document.body.appendChild(root);
-    document.body.appendChild(el('div', 'cx-disclaimer',
+    $('cx-center').appendChild(el('div', 'cx-disclaimer',
       'UNOFFICIAL SIMULATION FOR EDUCATION &amp; ENTERTAINMENT · NOT AFFILIATED WITH NASA/JPL · EPHEMERIS: JPL HORIZONS · ANOMALY NARRATIVE: A. LOEB (PUBLISHED CLAIMS) VS OFFICIAL ASSESSMENTS'));
     if (S.crt) document.body.classList.add('cx-crt');
 
@@ -782,6 +782,8 @@
   // ============ MODES ============
   function setMode(m) {
     S.mode = m;
+    const rt = $('cx-root');
+    if (rt) rt.setAttribute('data-mode', m);
     document.querySelectorAll('.cx-tab').forEach(function (t) {
       t.classList.toggle('cx-on', t.getAttribute('data-tab') === m);
     });
