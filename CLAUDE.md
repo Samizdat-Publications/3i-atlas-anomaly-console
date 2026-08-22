@@ -6,7 +6,7 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-22):** v2.6 shipped. **v2.5 (fireball register) merged to main and
+**CURRENT STATE (2026-08-22):** v2.7 shipped. **v2.5 (fireball register) merged to main and
 DEPLOYED** — the live URL now serves it. v2.6 adds touch support: the timeline scrubber and the
 fireball map use Pointer Events (a finger never emits `mousemove`, so both were dead on a phone);
 `.cx-root` on narrow screens uses `auto 1fr auto` rows and `ui.js` publishes measured
@@ -137,8 +137,15 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   adversarial fact-check workflow) → `src/data-content.js`. 25 anomaly cases (each with
   `verify: CONFIRMED|CORRECTED|UNCHECKED`), 24 timeline events, 20 sourced quotes, 3 ISO
   comparison profiles. Loeb scale: 4 (Jul 2025) → held 4 (Dec 2025) → 3 (Mar 2026).
-  Known gap: the timeline + comparison DATASET-level verifiers and the A-24 case verifier
-  never ran (usage limit); everything else was individually fact-checked.
+  **The old "known gap" note here was WRONG and has been retired** (checked 2026-08-22):
+  `timelineVerify`, `comparisonVerify` and A-24's `_verify` are all present in
+  data/research.json with CORRECTED verdicts, and every one of the 25 cases carries a
+  `_verify`. The real gap was one nobody had noticed: `quotesVerify` was absent from BOTH
+  payloads — all 35 quotes shipped unverified. Closed in v2.7: 9 matched
+  character-for-character against primary sources, 2 corrected, 1 is an explicit paraphrase,
+  23 are SECONDARY (Medium/X/paywall/print/translation — primary text not publicly
+  fetchable) and are labelled as such on the quote board rather than presented as verified.
+  Per-quote `verify` now flows through bake_content.py into the bundle.
 
 ## Constraints
 - Self-contained, offline, no admin, no server to run. All assets inline (font base64'd at build).

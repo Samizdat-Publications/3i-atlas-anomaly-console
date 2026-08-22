@@ -843,7 +843,8 @@
     "date": "2025-10-09",
     "context": "Probability estimate of non-natural origin, as reported while anomaly count grew",
     "source": "Futurism (futurism.com/space/astronomer-probability-alien-craft-comet)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "This low-probability scenario includes the possibility of a black swan event akin to a Trojan Horse, where a technological object masquerades as a natural comet.",
@@ -851,7 +852,8 @@
     "date": "2025-10-09",
     "context": "Explaining his 'black swan' framing of the technological hypothesis",
     "source": "Futurism, quoting Loeb's Medium blog",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "As far as I know, there are no protocols for responding to the discovery of functioning alien devices near Earth.",
@@ -859,7 +861,8 @@
     "date": "2025-10-09",
     "context": "On planetary preparedness if 3I/ATLAS proved technological",
     "source": "Futurism, quoting Loeb",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "As largely a pedagogical exercise, in this paper we present additional analysis into the astrodynamics of 3I/ATLAS, and hypothesize that this object could be technological",
@@ -867,7 +870,9 @@
     "date": "2025-07-16",
     "context": "Abstract of the paper 'Is the Interstellar Object 3I/ATLAS Alien Technology?'",
     "source": "arXiv:2507.12213",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "VERBATIM",
+    "verify_source": "https://arxiv.org/abs/2507.12213"
    },
    {
     "text": "possibly hostile as would be expected from the 'Dark Forest' resolution to the 'Fermi Paradox'",
@@ -875,7 +880,9 @@
     "date": "2025-07-16",
     "context": "The 'dark forest' line in the same arXiv paper's abstract",
     "source": "arXiv:2507.12213",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "VERBATIM",
+    "verify_source": "https://arxiv.org/abs/2507.12213"
    },
    {
     "text": "If it is technological — it may maneuver to benefit from the Sun's gravitational assist or release probes that could intercept the Earth or other planets owing to its retrograde orbit.",
@@ -883,7 +890,8 @@
     "date": "2025-10-03",
     "context": "Warning about the perihelion pass hidden behind the Sun, in his Mars-flyby anomaly recap",
     "source": "Avi Loeb, Medium (A Recap of the Anomalies of 3I/ATLAS on the Day of Its Closest Approach to Mars)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "If we find technological satellites of Jupiter that we did not send, it would imply that Jupiter is of interest to an extraterrestrial civilization.",
@@ -891,7 +899,8 @@
     "date": "2026-03",
     "context": "On the March 16, 2026 Jupiter approach at ~Jupiter's Hill radius and the idea of released 'devices'",
     "source": "Avi Loeb, Medium (Jupiter-approach essays); IBTimes UK coverage",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "NASA's representatives should have emphasized what we do not understand about 3I/ATLAS rather than insist that it is a familiar comet from a new birth environment.",
@@ -899,7 +908,8 @@
     "date": "2025-11-19",
     "context": "Reaction to NASA's post-shutdown press conference",
     "source": "Avi Loeb, Medium (There is Nothing More Deceptive than an Obvious Fact)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "We should be humble about the little we know and curious about 3I/ATLAS rather than insist that we know its nature before data is shared and analyzed.",
@@ -907,7 +917,8 @@
     "date": "2025-11-03",
     "context": "Essay inviting Kim Kardashian to join his research team, criticizing NASA data withholding",
     "source": "Avi Loeb, Medium (Kim Kardashian is Welcome to Join my Research Team on 3I/ATLAS)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "Scientific truth is not decided by authority or popularity but by attention to data.",
@@ -915,7 +926,8 @@
     "date": "2025-11",
     "context": "Response to astronomers insisting 3I/ATLAS is a natural comet",
     "source": "Newsweek interview",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "It is the responsibility of scientists and NASA officials to acknowledge the existence of unexplained puzzles rather than display the arrogance of expertise while ignoring them.",
@@ -923,7 +935,8 @@
     "date": "2026-03-12",
     "context": "Farewell essay as the object faded, tallying 22 anomalies and lowering it to Loeb Scale 3",
     "source": "Avi Loeb, Medium (3I/ATLAS is Fading Away, Leaving Us to Ponder Over Its 22 Mysterious Anomalies)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "Given how well aligned its trajectory was with the orbital plane of Earth around the Sun, we might never witness a visitor like it in our lifetime.",
@@ -931,7 +944,8 @@
     "date": "2026-04-23",
     "context": "Status essay with 3I/ATLAS a billion km out, well beyond Jupiter, leaving the solar system",
     "source": "Avi Loeb, Medium (Where is 3I/ATLAS Now?)",
-    "camp": "loeb"
+    "camp": "loeb",
+    "verify": "SECONDARY"
    },
    {
     "text": "This object is a comet. It looks and behaves like a comet, and all evidence points to it being a comet.",
@@ -939,7 +953,8 @@
     "date": "2025-11-19",
     "context": "NASA press conference releasing post-shutdown 3I/ATLAS imagery",
     "source": "NASA live event; LiveNOW from FOX / Space.com coverage",
-    "camp": "official"
+    "camp": "official",
+    "verify": "SECONDARY"
    },
    {
     "text": "We very much want to find signs of life in our universe... but 3I/ATLAS is a comet.",
@@ -947,7 +962,8 @@
     "date": "2025-11-19",
     "context": "Same NASA press conference, addressing alien-technology speculation directly",
     "source": "NASA press conference; LiveNOW from FOX coverage",
-    "camp": "official"
+    "camp": "official",
+    "verify": "SECONDARY"
    },
    {
     "text": "Everybody has got a camera and they're trying to get a picture of the ball. Nobody has the perfect view, and everybody has a different camera.",
@@ -955,7 +971,8 @@
     "date": "2025-11-19",
     "context": "Baseball-stadium analogy for the multi-spacecraft observation campaign at the NASA press conference",
     "source": "NASA press conference; Space.com coverage",
-    "camp": "official"
+    "camp": "official",
+    "verify": "SECONDARY"
    },
    {
     "text": "Great question! NASA's observations show that this is the third interstellar comet to pass through our solar system. No aliens. No threat to life here on Earth.",
@@ -963,7 +980,8 @@
     "date": "2025-11-03",
     "context": "Reply on X to Kim Kardashian's question about 3I/ATLAS",
     "source": "X (Twitter); quoted in Loeb's Medium essay and IBTimes UK",
-    "camp": "official"
+    "camp": "official",
+    "verify": "SECONDARY"
    },
    {
     "text": "[paraphrase] Wait... what's the tea on 3I/ATLAS?!",
@@ -971,7 +989,8 @@
     "date": "2025-11-03",
     "context": "X post asking NASA about the interstellar object; outlets render the punctuation differently",
     "source": "X (Twitter); IBTimes UK / Express Tribune coverage",
-    "camp": "media"
+    "camp": "media",
+    "verify": "PARAPHRASE"
    },
    {
     "text": "Any suggestion that it's artificial is nonsense on stilts, and is an insult to the exciting work going on to understand this object.",
@@ -979,7 +998,8 @@
     "date": "2025-07",
     "context": "Reacting to Loeb's alien-technology paper shortly after discovery",
     "source": "Live Science (Here we go again! Controversial paper...)",
-    "camp": "media"
+    "camp": "media",
+    "verify": "SECONDARY"
    },
    {
     "text": "There have been numerous telescopic observations of 3I/ATLAS demonstrating that it's displaying classical signatures of cometary activity.",
@@ -987,7 +1007,8 @@
     "date": "2025-07",
     "context": "Lead author of the first characterization study, pushing back on the artificial hypothesis",
     "source": "Live Science / Newsweek interviews",
-    "camp": "media"
+    "camp": "media",
+    "verify": "SECONDARY"
    },
    {
     "text": "You have a piece of another star system that's close enough to home that we can actually study it in detail.",
@@ -995,7 +1016,8 @@
     "date": "2025-07",
     "context": "On the scientific value of the third interstellar visitor after discovery",
     "source": "University of Michigan News / phys.org",
-    "camp": "media"
+    "camp": "media",
+    "verify": "SECONDARY"
    }
   ]
  },
@@ -1006,5 +1028,15 @@
  "comparisonVerify": {
   "verdict": "CORRECTED",
   "corrections": "1I and 2I entries: fully confirmed against JPL SBDB/MPC (no changes). 3I/ATLAS entry corrected on 7 points: (1) Methane result misattributed — it is Belyakov et al., ApJL (JWST/MIRI, Dec 2025 observations at 2.20-2.54 AU, DOI 10.3847/2041-8213/ae5700, announced Apr-Jun 2026), NOT the June 2026 Nature Cordiner/NIRSpec paper; the '~11x higher than any solar-system object' claim is a garbling of the measured CH4:H2O mixing ratio of 11.0+/-0.5% (rising to 21.6+/-1.3% at the second epoch) vs 0.1-10% for typical comets (C/2016 R2 is higher at 181%). The June 2026 Nature paper (Cordiner et al., 'Isotopic evidence for a cold and distant origin of 3I/ATLAS') is the ISOTOPE study: 12C/13C = 147(+87/-40), 14N/15N = 343 (>2x solar-system comets). (2) JWST CO2/H2O mixing ratio: published ApJL value is 7.6+/-0.3 (8.0+/-1.0 was the early preprint value); production rates at 3.32 AU were Q(CO2)=9.5e26 molecules/s (~70 kg/s) and Q(H2O)=1.07e26 molecules/s (~3 kg/s), not 129 and 6.6 kg/s. (3) Non-gravitational-acceleration-based nucleus size is 0.82-1.05 km (Forbes & Butler, arXiv 2512.18341), not 0.44-0.75 km; the 'mass ~4.4e10 kg' figure is unsupported — the published mass claim is Loeb et al.'s MINIMUM ~33 billion metric tons (3.3e13 kg, implying diameter >~5 km) derived from the pre-perihelion NGA upper limit (arXiv 2509.21408), in tension with the ~1 km post-perihelion NGA estimate. (4) Mass-ratio anomaly: published claim is 3-5 orders of magnitude more massive than both 1I and 2I (Loeb: 'at least a hundred thousand times that of Oumuamua'), not 10^6x vs 1I and 10^3x vs 2I. (5) The April 2026 ESA results came from the Juice spacecraft (MAJIS instrument, observations 2025-11-02, four days post-perihelion, published 2026-04-02): water ~2,000 kg/s = ~70 Olympic pools/day (confirmed) but ion tail ~6 million km long (gas/dust envelope >5 million km) — not 'tail ~5 million km'. (6) Nickel production: reported ~0.9 g/s (Aug 2025, VLT/UVES) rising to ~5 g/s at 2.8 AU; replaced flat '4.6 g/s'. (7) Prediscovery detail expanded: ATLAS images to 2025-06-05, ZTF to 2025-06-14, with TESS imagery from May 2025 recovered later (JPL orbit fits use observations back to late May 2025). All other 3I values verified correct: e=6.14135+/-0.00002, i=175.12 deg (4.89 deg from ecliptic plane, retrograde), q=1.35645 AU, perihelion 2025-10-29 11:45 UT, Earth closest 1.80 AU on 2025-12-19, Mars 0.19 AU on 2025-10-03, Jupiter 0.357 AU on 2026-03-16 (perijove 53.445 Mkm ~ Jupiter Hill radius 53.502 Mkm), v_inf 58 km/s, rotation 16.16 h, HST diameter bounds 0.32-5.6 km, Loeb's 22 anomalies (March 2026 'Fading Away' essay), Loeb scale rating 4 (unchanged as of Dec 2025 update essay), 'slightly less anomalous than Oumuamua' (Loeb's exact framing), Wow! Signal alignment within 9 deg (Loeb probability 0.6%), July 2026 status (outbound beyond Jupiter's distance, constellation Gemini, magnitude ~15 and fading, beyond Saturn's orbit and mag >20 by ~Sept 2026)."
+ },
+ "quotesVerify": {
+  "verdict": "CORRECTED",
+  "corrections": "First dataset-level pass over all 35 quotes (both payloads), 2026-08-22. 9 verified character-for-character against the primary source (arXiv full texts for Bialy & Loeb 1810.11490, the ISSI 'Natural History of 'Oumuamua' 1907.01910 and Hibberd/Crowl/Loeb 2507.12213; ESO releases eso1737 and eso2106; the University of Maryland ISSI release). 2 corrected: the Bialy & Loeb lightsail line had quietly regularised the paper's own phrasing ('as debris' for 'as a debris'), and the Robert Weryk CBC quote was truncated five words early and closed with a period, with its date six days off. 1 is explicitly a paraphrase and labelled as such. The remaining 23 are attributed to sources whose primary text is not publicly fetchable (Medium, X, paywalled news, a print book, a translated Russian interview) and are marked SECONDARY rather than presented as verified.",
+  "counts": {
+   "VERBATIM": 9,
+   "CORRECTED": 2,
+   "PARAPHRASE": 1,
+   "SECONDARY": 23
+  }
  }
 }

@@ -1,5 +1,29 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.7 — 2026-08-22 (the quotes get held to the same standard as the cases)
+Went to close the three fact-check gaps CLAUDE.md had recorded and found **the note was
+stale** — `timelineVerify`, `comparisonVerify` and A-24's verdict are all present and
+CORRECTED, and all 25 cases carry a verdict. The real gap was one nobody had logged:
+**`quotesVerify` was absent from both research payloads.** All 35 quotes — direct
+statements attributed to named people and institutions, on a page headed ON THE RECORD —
+had never been dataset-verified.
+- **9 verified character-for-character** against the primary source: Bialy & Loeb
+  (arXiv:1810.11490 full text), the ISSI *Natural History of 'Oumuamua* (arXiv:1907.01910),
+  Hibberd/Crowl/Loeb (arXiv:2507.12213), ESO releases eso1737 and eso2106, and the
+  University of Maryland ISSI release.
+- **2 corrected.** The Bialy & Loeb lightsail line had quietly regularised the paper's own
+  phrasing — the paper reads "as **a** debris from an advanced technological equipment".
+  The Robert Weryk CBC quote was truncated five words early and closed with a period,
+  dropping "and looking in that direction"; its date was also six days off (2018-11-06 →
+  2018-11-12, the CBC publication date).
+- **1 paraphrase**, already labelled, now formally marked.
+- **23 SECONDARY** — Medium, X, paywalled news, a print book, a translated Russian
+  interview. Their primary text is not publicly fetchable, so they are marked as such
+  rather than presented as verified. Being honest about that is the point.
+- The **quote board now shows a status chip on every statement**, the way every case file
+  already did, plus a header line stating how many were matched to source. Per-quote
+  `verify` flows through `bake_content.py` into the bundle.
+
 ## v2.6 — 2026-08-22 (touch)
 The console was desktop-only in a way that was invisible from a desktop. Two of its
 primary interactions listened for mouse events, and a finger never emits those.
