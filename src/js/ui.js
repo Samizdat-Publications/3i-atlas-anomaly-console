@@ -808,14 +808,27 @@
       },
     });
     if (q.length) {
+      // Every case file carries a verification chip; the quote board used to
+      // present all 35 statements identically whether or not anyone had checked
+      // them against the source. Each now shows how far it was actually verified.
+      const QV = { VERBATIM: ['✓ VERBATIM', '#2c6a3f'], CORRECTED: ['✎ CORRECTED', '#7a5a1e'],
+                   PARAPHRASE: ['≈ PARAPHRASE', '#5a4a7a'], SECONDARY: ['· SECONDARY SOURCE', '#6b6257'] };
+      const qmeta = (C.meta || {}).quotesVerify || {};
+      const counts = qmeta.counts || {};
       docs.push({
-        title: 'QUOTE BOARD — ON THE RECORD', sub: q.length + ' SOURCED STATEMENTS',
+        title: 'QUOTE BOARD — ON THE RECORD',
+        sub: q.length + ' STATEMENTS · ' + (counts.VERBATIM || 0) + ' VERIFIED VERBATIM',
         html: function () {
           return ['<div class="cx-doc">',
             '<div class="cx-doc-head"><div class="cx-doc-org">WHAT THEY ACTUALLY SAID</div><div class="cx-doc-sub">LOEB CAMP VS OFFICIAL CHANNELS VS PRESS</div></div>',
+            (qmeta.note ? '<p style="font-size:10.5px;color:#5a5346;border-bottom:1px solid #1d1a14;padding-bottom:9px">' + esc(qmeta.note) + '</p>' : ''),
             q.map(function (x) {
               const col = x.camp === 'loeb' ? '#7a5a1e' : x.camp === 'official' ? '#2c6a3f' : '#444';
-              return '<p>“' + esc(x.text) + '”<br><span style="color:' + col + ';font-size:10.5px">— ' + esc(x.speaker) + ' · ' + esc(x.date) + (x.context ? ' · ' + esc(x.context) : '') + '</span></p>';
+              const v = QV[x.verify] || QV.SECONDARY;
+              const chip = '<span style="color:' + v[1] + ';border:1px solid ' + v[1] +
+                ';font-size:8.5px;letter-spacing:1px;padding:0 4px;margin-left:6px;white-space:nowrap">' + v[0] + '</span>';
+              return '<p>“' + esc(x.text) + '”<br><span style="color:' + col + ';font-size:10.5px">— ' +
+                esc(x.speaker) + ' · ' + esc(x.date) + (x.context ? ' · ' + esc(x.context) : '') + '</span>' + chip + '</p>';
             }).join(''),
             '</div>'].join('');
         },

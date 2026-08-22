@@ -95,8 +95,19 @@ def main():
 
     # --- compare + quotes ---
     compare = (d3.get("comparison") or {}).get("objects", [])
-    quotes = (d3.get("quotes") or {}).get("quotes", [])
-    quotes += (diso.get("quotes") or {}).get("quotes", [])
+
+    def map_quote(q):
+        # verify: VERBATIM (matched against the primary source) / CORRECTED /
+        # PARAPHRASE / SECONDARY (primary text not publicly fetchable).
+        return {
+            "text": q.get("text"), "speaker": q.get("speaker"), "date": q.get("date"),
+            "camp": q.get("camp"), "context": q.get("context"), "source": q.get("source"),
+            "verify": q.get("verify") or "SECONDARY",
+            "verify_source": q.get("verify_source") or "",
+        }
+
+    quotes = [map_quote(q) for q in (d3.get("quotes") or {}).get("quotes", [])]
+    quotes += [map_quote(q) for q in (diso.get("quotes") or {}).get("quotes", [])]
 
     # --- per-object meta ---
     n3 = sum(1 for a in anomalies if a["object"] == "3i")
@@ -106,6 +117,8 @@ def main():
 
     tv3 = verdict_of(d3.get("timelineVerify"))
     cv3 = verdict_of(d3.get("comparisonVerify"))
+    qv = d3.get("quotesVerify") or {}
+    qcounts = qv.get("counts") or {}
     tv1 = verdict_of(diso.get("timeline1iVerify"))
     tv2 = verdict_of(diso.get("timeline2iVerify"))
 
@@ -154,6 +167,15 @@ def main():
         },
     }
 
+    meta["quotesVerify"] = {
+        "verdict": verdict_of(qv),
+        "counts": qcounts,
+        "note": ("%d OF %d QUOTES MATCHED CHARACTER-FOR-CHARACTER AGAINST THE PRIMARY SOURCE. "
+                 "THE REST CITE MEDIA WHOSE PRIMARY TEXT IS NOT PUBLICLY FETCHABLE AND ARE "
+                 "MARKED AS SUCH RATHER THAN PRESENTED AS VERIFIED."
+                 % (qcounts.get("VERBATIM", 0), len(quotes))) if qcounts else "",
+    }
+
     content = {"meta": meta, "anomalies": anomalies, "timeline": timeline, "compare": compare, "quotes": quotes}
 
     out = os.path.join(ROOT, "src", "data-content.js")
@@ -162,6 +184,7 @@ def main():
         f.write("window.ATLAS_CONTENT = ")
         json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
+    print("  quotes: " + (", ".join("%s %d" % (k, v) for k, v in sorted(qcounts.items())) or "unverified"))
     print("Wrote %s (%d KB): 3i=%d 1i=%d%s 2i=%d%s fb=%d anomalies, %d events, %d quotes, %d ISO profiles"
           % (out, os.path.getsize(out) // 1024, n3,
              n1, "(prov)" if prov1 else "", n2, "(prov)" if prov2 else "", nfb,

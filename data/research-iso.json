@@ -696,12 +696,15 @@
  "quotes": {
   "quotes": [
    {
-    "text": "Considering an artificial origin, one possibility is that 'Oumuamua is a lightsail, floating in interstellar space as debris from an advanced technological equipment.",
+    "text": "Considering an artificial origin, one possibility is that 'Oumuamua is a lightsail, floating in interstellar space as a debris from an advanced technological equipment.",
     "speaker": "Shmuel Bialy & Abraham Loeb",
     "date": "2018-11-12",
     "source": "Bialy & Loeb, 'Could Solar Radiation Pressure Explain 'Oumuamua's Peculiar Acceleration?', ApJL 868 L1 (arXiv:1810.11490, posted 2018-10-26)",
     "camp": "loeb",
-    "context": "The lightsail sentence from the paper that launched the alien-technology hypothesis; verified verbatim against the arXiv full text."
+    "context": "The lightsail sentence from the paper that launched the alien-technology hypothesis; verified verbatim against the arXiv full text.",
+    "verify": "CORRECTED",
+    "verify_source": "https://arxiv.org/abs/1810.11490",
+    "verify_note": "dropped the article in the source's own phrasing: the paper reads 'as a debris from an advanced technological equipment'"
    },
    {
     "text": "Alternatively, a more exotic scenario is that 'Oumuamua may be a fully operational probe sent intentionally to Earth vicinity by an alien civilization.",
@@ -709,7 +712,9 @@
     "date": "2018-11-12",
     "source": "Bialy & Loeb, ApJL 868 L1 (arXiv:1810.11490)",
     "camp": "loeb",
-    "context": "The paper's most-quoted line, immediately following the lightsail-debris suggestion; verified verbatim against the arXiv full text."
+    "context": "The paper's most-quoted line, immediately following the lightsail-debris suggestion; verified verbatim against the arXiv full text.",
+    "verify": "VERBATIM",
+    "verify_source": "https://arxiv.org/abs/1810.11490"
    },
    {
     "text": "'Oumuamua was like a buoy resting in the expanse of the universe, and our solar system was like a ship that ran into it at high speed.",
@@ -717,7 +722,8 @@
     "date": "2021-01-26",
     "source": "Loeb, 'Extraterrestrial: The First Sign of Intelligent Life Beyond Earth' (Houghton Mifflin Harcourt)",
     "camp": "loeb",
-    "context": "Loeb's signature buoy analogy from his bestselling book — 'Oumuamua as a stationary object the solar system ran into, echoing its LSR-rest-frame kinematics."
+    "context": "Loeb's signature buoy analogy from his bestselling book — 'Oumuamua as a stationary object the solar system ran into, echoing its LSR-rest-frame kinematics.",
+    "verify": "SECONDARY"
    },
    {
     "text": "If radiation pressure is the accelerating force, then 'Oumuamua represents a new class of thin interstellar material, either produced naturally . . . or is of an artificial origin.",
@@ -725,7 +731,8 @@
     "date": "2021-01-26",
     "source": "Loeb, 'Extraterrestrial' (restating the Bialy-Loeb argument)",
     "camp": "loeb",
-    "context": "Loeb's book-form framing of the radiation-pressure argument; near-identical sentence appears in the 2018 paper. Verified via published book excerpts."
+    "context": "Loeb's book-form framing of the radiation-pressure argument; near-identical sentence appears in the 2018 paper. Verified via published book excerpts.",
+    "verify": "SECONDARY"
    },
    {
     "text": "Thus, we find no compelling evidence to favor an alien explanation for 'Oumuamua.",
@@ -733,7 +740,9 @@
     "date": "2019-07-01",
     "source": "'The Natural History of 'Oumuamua', Nature Astronomy 3, 594-602 (arXiv:1907.01910)",
     "camp": "official",
-    "context": "The 14-expert International Space Science Institute team's formal verdict, closing the section that assessed the artificial hypothesis; verified verbatim from the paper PDF."
+    "context": "The 14-expert International Space Science Institute team's formal verdict, closing the section that assessed the artificial hypothesis; verified verbatim from the paper PDF.",
+    "verify": "VERBATIM",
+    "verify_source": "https://arxiv.org/abs/1907.01910"
    },
    {
     "text": "Assertions that 'Oumuamua may be artificial are not justified when the wide body of current knowledge about solar system minor bodies and planetary formation is considered.",
@@ -741,7 +750,9 @@
     "date": "2019-07-01",
     "source": "'The Natural History of 'Oumuamua', Nature Astronomy — Conclusions section",
     "camp": "official",
-    "context": "The paper's concluding rebuttal sentence; verified verbatim from the arXiv PDF Conclusions."
+    "context": "The paper's concluding rebuttal sentence; verified verbatim from the arXiv PDF Conclusions.",
+    "verify": "VERBATIM",
+    "verify_source": "https://arxiv.org/abs/1907.01910"
    },
    {
     "text": "We have never seen anything like 'Oumuamua in our solar system. It's really a mystery still.",
@@ -749,7 +760,9 @@
     "date": "2019-07-01",
     "source": "University of Maryland press release for the ISSI Nature Astronomy paper",
     "camp": "official",
-    "context": "ISSI team co-lead acknowledging the object remains strange even while ruling it natural — the honest tension in the official position."
+    "context": "ISSI team co-lead acknowledging the object remains strange even while ruling it natural — the honest tension in the official position.",
+    "verify": "VERBATIM",
+    "verify_source": "https://cmns.umd.edu/news-events/news/oumuamua-not-alien-spacecraft"
    },
    {
     "text": "The alien spacecraft hypothesis is a fun idea, but our analysis suggests there is a whole host of natural phenomena that could explain it.",
@@ -757,7 +770,9 @@
     "date": "2019-07-01",
     "source": "University of Maryland / ISSI team press release (also carried by Sci-News, EurekAlert)",
     "camp": "official",
-    "context": "The ISSI team's public-facing dismissal of the Loeb lightsail interpretation."
+    "context": "The ISSI team's public-facing dismissal of the Loeb lightsail interpretation.",
+    "verify": "VERBATIM",
+    "verify_source": "https://cmns.umd.edu/news-events/news/oumuamua-not-alien-spacecraft"
    },
    {
     "text": "This unusually large variation in brightness means that the object is highly elongated: about ten times as long as it is wide, with a complex, convoluted shape.",
@@ -765,15 +780,20 @@
     "date": "2017-11-20",
     "source": "ESO press release eso1737, 'ESO Observations Show First Interstellar Asteroid is Like Nothing Seen Before' (VLT results, Meech et al. Nature 552)",
     "camp": "official",
-    "context": "Discovery-team lead describing the record 10:1 elongation from the VLT lightcurve; she added it was 'completely inert, without the faintest hint of dust around it.'"
+    "context": "Discovery-team lead describing the record 10:1 elongation from the VLT lightcurve; she added it was 'completely inert, without the faintest hint of dust around it.'",
+    "verify": "VERBATIM",
+    "verify_source": "https://www.eso.org/public/news/eso1737/"
    },
    {
-    "text": "I think it's a remnant from another solar system. It's just something that happened to run into us, and we were very lucky to have been operating the telescope that night.",
+    "text": "I think it's a remnant from another solar system. It's just something that happened to run into us, and we were very lucky to have been operating the telescope that night and looking in that direction.",
     "speaker": "Robert Weryk",
-    "date": "2018-11-06",
+    "date": "2018-11-12",
     "source": "CBC News interview, 'Oumuamua not an alien probe, says scientist who discovered it' (also carried by Fox News 2018-11-12)",
     "camp": "official",
-    "context": "The Pan-STARRS astronomer who discovered 'Oumuamua, dismissing the Bialy-Loeb lightsail idea as 'wild speculation' — 'we actually believe that's not true based on the data we obtained.'"
+    "context": "The Pan-STARRS astronomer who discovered 'Oumuamua, dismissing the Bialy-Loeb lightsail idea as 'wild speculation' — 'we actually believe that's not true based on the data we obtained.'",
+    "verify": "CORRECTED",
+    "verify_source": "https://www.cbc.ca/news/canada/london/oumuamua-comet-not-an-alien-probe-says-robert-weryk-1.4899551",
+    "verify_note": "sentence was truncated five words early and closed with a period; restored in full. Interview date corrected 2018-11-06 -> 2018-11-12 (CBC publication date)"
    },
    {
     "text": "I saw a moving object in the frame, it moved in a direction that was slightly different from that of main asteroids.",
@@ -781,7 +801,8 @@
     "date": "2019-09-16",
     "source": "RIA Novosti interview (translated from Russian; as cited on the 2I/Borisov Wikipedia discovery account)",
     "camp": "official",
-    "context": "The Crimean amateur astronomer describing the 2019-08-30 pre-dawn discovery of 2I/Borisov with his self-built 0.65 m telescope at MARGO observatory. English is a translation."
+    "context": "The Crimean amateur astronomer describing the 2019-08-30 pre-dawn discovery of 2I/Borisov with his self-built 0.65 m telescope at MARGO observatory. English is a translation.",
+    "verify": "SECONDARY"
    },
    {
     "text": "Every amateur … dreams of discovering something unusual and extraordinary. When you manage to do that, you feel joy and happiness, and you set a new task.",
@@ -789,7 +810,8 @@
     "date": "2019-12-08",
     "source": "Space.com Q&A with Meghan Bartels (email interview via Roscosmos), published on 2I/Borisov's perihelion day",
     "camp": "official",
-    "context": "Borisov on what the discovery meant to him, published the day his comet reached perihelion (~2 AU)."
+    "context": "Borisov on what the discovery meant to him, published the day his comet reached perihelion (~2 AU).",
+    "verify": "SECONDARY"
    },
    {
     "text": "2I/Borisov could represent the first truly pristine comet ever observed.",
@@ -797,7 +819,9 @@
     "date": "2021-03-30",
     "source": "ESO press release eso2106, 'First interstellar comet may be the most pristine ever found' (VLT polarimetry; Bagnulo et al., Nature Communications)",
     "camp": "official",
-    "context": "The 'most pristine comet' line: VLT polarimetry showed 2I/Borisov more pristine than Hale-Bopp, apparently never having passed close to any star — the classic-comet control case to 'Oumuamua."
+    "context": "The 'most pristine comet' line: VLT polarimetry showed 2I/Borisov more pristine than Hale-Bopp, apparently never having passed close to any star — the classic-comet control case to 'Oumuamua.",
+    "verify": "VERBATIM",
+    "verify_source": "https://www.eso.org/public/news/eso2106/"
    },
    {
     "text": "1I/'Oumuamua is anomalous relative to 2I/Borisov and 3I/ATLAS … it had an extreme disk-like shape, it exhibited a non-gravitational acceleration and it did not show any evidence for cometary activity.",
@@ -805,7 +829,8 @@
     "date": "2025-07-09",
     "source": "Loeb, 'Origin and Age of Three Interstellar Objects: 1I/'Oumuamua, 2I/Borisov, and 3I/ATLAS', Medium essay",
     "camp": "loeb",
-    "context": "Loeb's retrospective three-object comparison after 3I/ATLAS's discovery: Borisov and ATLAS behave like comets, 'Oumuamua still stands apart. Ellipsis trims 'not only because it is much younger than they are.' Verified verbatim."
+    "context": "Loeb's retrospective three-object comparison after 3I/ATLAS's discovery: Borisov and ATLAS behave like comets, 'Oumuamua still stands apart. Ellipsis trims 'not only because it is much younger than they are.' Verified verbatim.",
+    "verify": "SECONDARY"
    },
    {
     "text": "3I/ATLAS is most likely a comet of natural origin, but there are 8 anomalies that endow it with a rank of 4 on the Loeb scale.",
@@ -813,7 +838,8 @@
     "date": "2025-12-21",
     "source": "Loeb, 'Updating the Loeb Classification Scale of 3I/ATLAS', Medium (the Loeb scale itself defined in Trivedi & Loeb, arXiv:2508.09167, Aug 2025)",
     "camp": "loeb",
-    "context": "Loeb applying his 0-10 anomaly scale to 3I/ATLAS; the companion Loeb-scale framework retroactively treats 2I/Borisov as a rank-0 natural baseline while 'Oumuamua keeps an elevated rank. Verified verbatim from the Medium essay."
+    "context": "Loeb applying his 0-10 anomaly scale to 3I/ATLAS; the companion Loeb-scale framework retroactively treats 2I/Borisov as a rank-0 natural baseline while 'Oumuamua keeps an elevated rank. Verified verbatim from the Medium essay.",
+    "verify": "SECONDARY"
    }
   ]
  },
