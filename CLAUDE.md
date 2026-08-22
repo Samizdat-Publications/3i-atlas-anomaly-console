@@ -6,15 +6,18 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-22):** v2.7 shipped. **v2.5 (fireball register) merged to main and
+**CURRENT STATE (2026-08-22):** v2.8 shipped — all four approved phases done. **v2.5 (fireball register) merged to main and
 DEPLOYED** — the live URL now serves it. v2.6 adds touch support: the timeline scrubber and the
 fireball map use Pointer Events (a finger never emits `mousemove`, so both were dead on a phone);
 `.cx-root` on narrow screens uses `auto 1fr auto` rows and `ui.js` publishes measured
 `--topH`/`--botH` so the slide-over rails follow a top bar that wraps to as many rows as the
 device needs — it used to clip FIREBALLS/ARCHIVE/help off the right edge entirely. Touch targets
 come from `@media (pointer: coarse)`. Verified under touch emulation at 412x940 and 884x1104.
-Working through a four-phase plan Stewart approved: 1 touch (done), 2 scheduled data-refresh
-workflow, 3 close the three fact-check gaps, 4 bring 3I/ATLAS content current to Aug 2026.
+All four approved phases are done: (1) v2.6 touch, (2) the monthly refresh workflow,
+(3) v2.7 quote verification, (4) v2.8 content current to 2026-08-18. NOTE FOR NEXT SESSION:
+two of the four phases were planned against STALE notes in this file — the fact-check "gap"
+had already been closed, and the content was current to July not March. Check the repo state
+before trusting a resume note here, including this one.
 
 **Earlier (2026-08-22):** v2.5 built + browser-verified locally (Playwright against the
 built `public/` bundle: 43 cases, 1,069 fireball rows, deep links, mobile layout, zero console
@@ -36,7 +39,7 @@ Git history was rewritten 2026-07-26 to use the GitHub noreply email — do NOT 
 `stewartgregerson@gmail.com` as the git author; use
 `179866421+Samizdat-Publications@users.noreply.github.com`. Three-object
 console complete: 43 fact-checked case files (3I: 25, 1I: 11, 2I: 5, CNEOS fireballs: 2),
-54 timeline events, 35 quotes, all datasets either real Horizons geometry, the live CNEOS
+58 timeline events, 35 quotes, all datasets either real Horizons geometry, the live CNEOS
 fireball table, or adversarially verified. Research
 payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
 

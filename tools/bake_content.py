@@ -137,7 +137,7 @@ def main():
                 "designation": "3I/ATLAS · C/2025 N1",
                 "loebScale": 3, "pillNote": "REVIEW ACTIVE",
                 "loebScaleHistory": "RANK 4 JUL 2025 · HELD 4 DEC 2025 · REDUCED TO 3 MAR 2026 (QUIET JUPITER PASS)",
-                "anomalyCountNote": "LOEB'S FINAL PUBLISHED TALLY: 22 (2026-03-12) — REGISTER TRACKS " + str(n3) + " GRANULAR CASES",
+                "anomalyCountNote": "LOEB'S FINAL PUBLISHED TALLY: 22 (2026-03-12) — REGISTER TRACKS " + str(n3) + " GRANULAR CASES · TIMELINE CURRENT TO " + (max((e["date"] for e in timeline if e.get("object") == "3i"), default="—")),
                 "datasetVerify": ("TIMELINE DATASET: %s · COMPARISON DATASET: %s · ANOMALY CASES INDIVIDUALLY FACT-CHECKED" % (tv3, cv3))
                                  if tv3 and cv3 else "DATASET VERIFY PENDING",
             },

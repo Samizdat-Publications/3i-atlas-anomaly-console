@@ -1,5 +1,26 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.8 — 2026-08-22 (content current to within four days)
+The timeline stopped at 2026-07-17. An arXiv sweep found four papers published since, all
+added as sourced timeline events — the register now runs to **2026-08-18**.
+- **2026-06-30 — Kakharov & Loeb, panspermia** (arXiv:2607.00202). Natural panspermia
+  plausible; **directed** panspermia ruled out on energy grounds — a 60 km/s impact releases
+  1.8×10⁹ J/kg, hundreds of times the specific energy of TNT, destroying any capsule. Worth
+  logging because it is Loeb publishing a negative result on a deliberate-technology scenario.
+- **2026-07-02 — FAST radio search** (arXiv:2607.01666). No credible periodic artificial
+  signal above 0.146 W. The second independent radio null after the Allen Telescope Array,
+  and it covers a signal type the first did not.
+- **2026-07-09 — JUICE/MAJIS, peer-reviewed** (arXiv:2607.08603). The April ESA press release
+  arrives as a paper: H₂O fell 8→4×10²⁸ s⁻¹ across 2–25 Nov 2025, CO₂/H₂O steady near 10%,
+  activity solar-heating controlled with CO₂ dominant, plus tentative aliphatic C–H organics
+  at 3.2–3.6 µm.
+- **2026-08-18 — Santana-Ros et al. inbound campaign** (arXiv:2608.18371). Carbon-chain
+  depleted with CN the only prominent emission, and **a persistent sunward jet at PA ≈ 280°**
+  attributed to a fixed high-latitude active region — independent confirmation that the
+  feature behind case A-05 is real, long-lived, and mundane in origin.
+- The 2026-07-17 entry no longer calls itself "current status"; the object's Loeb-scale panel
+  now states the date the timeline runs to, so staleness is visible rather than implied.
+
 ## v2.7 — 2026-08-22 (the quotes get held to the same standard as the cases)
 Went to close the three fact-check gaps CLAUDE.md had recorded and found **the note was
 stale** — `timelineVerify`, `comparisonVerify` and A-24's verdict are all present and
