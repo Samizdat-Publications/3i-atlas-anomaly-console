@@ -16,7 +16,7 @@ hand-entered, so if CNEOS revises a row the console follows it.
 
 Usage: python tools/fetch_fireballs.py
 """
-import datetime, json, math, os, sys, urllib.request
+import datetime, json, math, os, sys, time, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -33,10 +33,23 @@ SIMPLIFY_EPS = 0.32
 MIN_RING_SPAN = 1.6
 
 
-def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "3i-atlas-anomaly-console/2.5"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return r.read().decode("utf-8")
+def get(url, attempts=4):
+    """Fetch with backoff — this runs unattended from a monthly cron, where one
+    flaky response should not fail the run."""
+    req = urllib.request.Request(url, headers={"User-Agent": "3i-atlas-anomaly-console"})
+    last = None
+    for i in range(attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return r.read().decode("utf-8")
+        except Exception as exc:            # transport, HTTP, timeout — all retryable
+            last = exc
+            if i == attempts - 1:
+                break
+            wait = 2 ** i
+            print("  fetch failed (%s), retrying in %ds ..." % (exc, wait), flush=True)
+            time.sleep(wait)
+    raise RuntimeError("giving up on %s after %d attempts: %s" % (url, attempts, last))
 
 
 # ---------------------------------------------------------------- fireballs
