@@ -748,14 +748,50 @@
     ]
    },
    {
+    "date": "2026-06-30",
+    "title": "Loeb co-authors a panspermia study — and rules out the directed version",
+    "kind": "statement",
+    "description": "Kakharov & Loeb ask whether an interstellar object like 3I/ATLAS could carry life between stars, either naturally or on purpose. They find natural panspermia plausible: microbes can survive at very low metabolic rates in ice films and veins, though matching the JWST methane production by frozen survival metabolism alone would need something like 10^14-10^15 kg of biomass. Directed panspermia they rule out on energy grounds — a direct 60 km/s impact releases 1.8x10^9 J/kg, hundreds of times the specific energy of TNT, which would destroy any biological capsule. Notable for the register because it is Loeb publishing a negative result about a deliberate-technology scenario.",
+    "sources": [
+     "https://arxiv.org/abs/2607.00202"
+    ]
+   },
+   {
+    "date": "2026-07-02",
+    "title": "FAST radio search: no periodic technosignature either",
+    "kind": "observation",
+    "description": "A team using China's Five-hundred-metre Aperture Spherical Telescope ran an L-band multibeam search aimed at 3I/ATLAS, specifically for periodically modulated signals — a signal type earlier searches had not covered — using canonical polyadic decomposition to separate a genuine centre-beam source from interference. No credible artificial periodic radio technosignature was detected above 0.146 W. This is the second independent radio null result on the object after the Allen Telescope Array study, and it closes a different part of the search space rather than repeating the first.",
+    "sources": [
+     "https://arxiv.org/abs/2607.01666"
+    ]
+   },
+   {
+    "date": "2026-07-09",
+    "title": "JUICE/MAJIS peer-reviewed: CO2 drove the activity, plus tentative organics",
+    "kind": "observation",
+    "description": "The ESA JUICE results announced by press release in April arrive as a paper. MAJIS observed 3I/ATLAS from 0.5 to 5.56 microns between 2 and 25 November 2025, just after perihelion, detecting water fluorescence at 2.7 microns and CO2 at 4.3 microns. Water production fell from 8x10^28 to 4x10^28 molecules per second across the period while the CO2/H2O ratio held near 10%, and the heliocentric trend indicates activity controlled by solar heating with CO2 playing the major role. Broad emission at 3.2-3.6 microns cannot be explained by common cometary CH-bearing volatiles; the authors read it as aliphatic C-H groups and tentative evidence for complex organic material released from dust grains.",
+    "sources": [
+     "https://arxiv.org/abs/2607.08603"
+    ]
+   },
+   {
     "date": "2026-07-17",
-    "title": "Current status: nearing Saturn's orbital distance, outbound for good",
+    "title": "Crossing Saturn's orbital distance, hidden in conjunction",
     "kind": "status",
-    "description": "As of today 3I/ATLAS is about 9.25 AU from the Sun (~1.38 billion km; 10.25 AU from Earth per JPL Horizons), reaching Saturn's ~9.5 AU orbital distance in late July while hidden in solar conjunction (solar elongation ~9 deg) — unobservable and fainter than magnitude 20. It is escaping on its hyperbolic trajectory at ~58 km/s excess velocity, nearly symmetric to its inbound path; it will pass the inner Oort cloud region (~2,000 AU) around the year 2189 and leave the Sun's influence entirely in a few thousand years. Consensus verdict: the most-studied interstellar object ever, and a natural — though unusually CO2-rich, nickel-emitting, and ancient (possibly 7-14 billion years old) — comet.",
+    "description": "In mid-July 2026 3I/ATLAS was about 9.25 AU from the Sun (~1.38 billion km; 10.25 AU from Earth per JPL Horizons), reaching Saturn's ~9.5 AU orbital distance in late July while hidden in solar conjunction (solar elongation ~9 deg) — unobservable and fainter than magnitude 20. It is escaping on its hyperbolic trajectory at ~58 km/s excess velocity, nearly symmetric to its inbound path; it will pass the inner Oort cloud region (~2,000 AU) around the year 2189 and leave the Sun's influence entirely in a few thousand years. Consensus verdict: the most-studied interstellar object ever, and a natural — though unusually CO2-rich, nickel-emitting, and ancient (possibly 7-14 billion years old) — comet.",
     "sources": [
      "https://en.wikipedia.org/wiki/3I/ATLAS",
      "https://science.nasa.gov/solar-system/comets/3i-atlas/",
      "https://ssd.jpl.nasa.gov/horizons/"
+    ]
+   },
+   {
+    "date": "2026-08-18",
+    "title": "Inbound campaign published: carbon-chain poor, and a persistent sunward jet",
+    "kind": "observation",
+    "description": "A multi-band monitoring campaign covering July to September 2025 — Faulkes and Maidanak imaging with SALT and Nordic Optical Telescope spectroscopy — reports a stable reddish colour with no secular variation on the way in, carbon-chain depletion with CN the only prominent molecular emission, and a persistent sunward jet at a position angle of about 280 degrees, read as sustained localized outgassing from a high-latitude active region. That last point bears directly on case A-05: an independent campaign confirms the sunward feature is real and long-lived, and attributes it to a fixed active area rather than anything exotic. Light-scattering modelling matches dense aggregates of organic matter and silicates, with water-ice sublimation too weak to change the optical properties.",
+    "sources": [
+     "https://arxiv.org/abs/2608.18371"
     ]
    }
   ]
