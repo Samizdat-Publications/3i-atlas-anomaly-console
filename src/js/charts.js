@@ -172,7 +172,70 @@
   };
 
   // ---------- dossier charts (stylized illustrations of published results) ----------
+  // ---------- CNEOS speed distribution (REAL data, not a stylized illustration) ----------
+  // Every catalog row that reports a pre-entry speed, binned. IM1 and IM2 are marked,
+  // together with the 10-15 km/s uncertainty band Brown & Borovicka (2023) measured for
+  // USG velocities at high speed — the band is the whole argument, so it is drawn.
+  CH.speedDist = function (cv) {
+    const D = window.ATLAS_FIREBALLS || { events: [] };
+    const f = fit(cv), g = f.g, W = f.w, H = f.h;
+    g.clearRect(0, 0, W, H);
+    g.font = '9px ShareTechMono, Consolas, monospace';
+    const V0 = 10, V1 = 76, STEP = 2;
+    const nb = Math.ceil((V1 - V0) / STEP);
+    const bins = new Array(nb).fill(0);
+    let n = 0;
+    const marks = [];
+    D.events.forEach(function (e) {
+      const v = e[6];
+      if (v == null) return;
+      n++;
+      const b = Math.floor((v - V0) / STEP);
+      if (b >= 0 && b < nb) bins[b]++;
+      if (e[7]) marks.push({ v: v, tag: e[7] });
+    });
+    const peak = Math.max(1, Math.max.apply(null, bins));
+    const padL = 26, padR = 8, padT = 16, padB = 16;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    const X = function (v) { return padL + (v - V0) / (V1 - V0) * iw; };
+    const Y = function (c) { return padT + ih - (c / peak) * ih; };
+
+    // Brown & Borovicka uncertainty band around the IM1 reading
+    const im1 = marks.find(function (m) { return m.tag === 'IM1'; });
+    if (im1) {
+      g.fillStyle = 'rgba(255,74,94,.10)';
+      g.fillRect(X(Math.max(V0, im1.v - 15)), padT, X(im1.v) - X(Math.max(V0, im1.v - 15)), ih);
+    }
+    g.strokeStyle = COL.grid;
+    for (let v = 20; v <= 70; v += 10) {
+      const x = X(v);
+      g.globalAlpha = 0.6; g.beginPath(); g.moveTo(x, padT); g.lineTo(x, padT + ih); g.stroke(); g.globalAlpha = 1;
+      g.fillStyle = COL.txt; g.fillText(String(v), x - 6, H - 4);
+    }
+    g.fillStyle = COL.txt; g.fillText('km/s', W - 26, H - 4);
+    for (let i = 0; i < nb; i++) {
+      if (!bins[i]) continue;
+      const x = X(V0 + i * STEP), w = Math.max(1.5, X(V0 + STEP) - X(V0) - 1);
+      g.fillStyle = 'rgba(52,225,255,.42)';
+      g.fillRect(x, Y(bins[i]), w, padT + ih - Y(bins[i]));
+    }
+    g.strokeStyle = COL.axis; g.globalAlpha = 0.7;
+    g.beginPath(); g.moveTo(padL, padT + ih); g.lineTo(padL + iw, padT + ih); g.stroke(); g.globalAlpha = 1;
+    marks.forEach(function (m) {
+      const x = X(m.v);
+      g.strokeStyle = COL.amber; g.setLineDash([3, 3]);
+      g.beginPath(); g.moveTo(x, padT); g.lineTo(x, padT + ih); g.stroke(); g.setLineDash([]);
+      g.fillStyle = COL.amber;
+      g.fillText(m.tag + ' ' + m.v.toFixed(1), Math.min(x + 3, W - 50), padT + (m.tag === 'IM1' ? 9 : 22));
+    });
+    if (im1) {
+      g.fillStyle = 'rgba(255,74,94,.8)';
+      g.fillText('▮ 10-15 km/s USG VELOCITY ERROR', padL, 9);
+    }
+  };
+
   CH.dossier = function (kind, cv) {
+    if (kind === 'speed-dist') { CH.speedDist(cv); return; }
     buildData();
     if (kind === 'spectrum') {
       const xs = [], ys = [];

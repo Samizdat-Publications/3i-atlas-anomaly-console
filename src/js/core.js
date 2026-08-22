@@ -22,6 +22,10 @@
             discovery: '2017-10-19', designation: "1I/'OUMUAMUA · 1I/2017 U1" },
     '2i': { key: '2i', label: '2I/BORISOV', sub: 'C/2019 Q4', color: '#9fd9ff', colorHex: 0x9fd9ff,
             discovery: '2019-08-30', designation: '2I/BORISOV · C/2019 Q4' },
+    // Not an era: the fireball register has no ephemeris and never becomes S.era.
+    // It is here so cross-object case search can badge and colour its two cases.
+    'fb': { key: 'fb', label: 'CNEOS FIREBALLS', sub: 'ATMOSPHERIC IMPACTS', color: '#ff8a5e', colorHex: 0xff8a5e,
+            discovery: '2014-01-08', designation: 'CNEOS FIREBALL REGISTER' },
   };
   CX.ERA_ORDER = ['3i', '1i', '2i'];
 

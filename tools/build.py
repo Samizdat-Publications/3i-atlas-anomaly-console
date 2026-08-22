@@ -28,9 +28,11 @@ JS_ORDER = [
     "vendor/OrbitControls.js",
     "data-ephemeris.js",
     "data-content.js",
+    "data-fireballs.js",
     "js/core.js",
     "js/charts.js",
     "js/scene3d.js",
+    "js/fireballs.js",
     "js/ui.js",
     "js/main.js",
 ]
@@ -62,7 +64,8 @@ def main():
 
     title = "3I/ATLAS — Interstellar Anomaly Review Console"
     desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
-            "on real JPL Horizons trajectories, with 41 fact-checked case files weighing "
+            "on real JPL Horizons trajectories, plus the CNEOS fireball map and its two "
+            "disputed interstellar meteors, with 43 fact-checked case files weighing "
             "Avi Loeb's anomaly claims against the official explanations.")
     # inline SVG favicon: the console's sigil
     favicon = (

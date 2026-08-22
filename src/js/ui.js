@@ -49,6 +49,7 @@
       '    <button class="cx-tab cx-on" data-act="tab" data-tab="track">TRACK</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="anomalies">ANOMALIES</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE 1I·2I·3I</button>',
+      '    <button class="cx-tab" data-act="tab" data-tab="fireballs">FIREBALLS</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="archive">ARCHIVE</button>',
       '  </div>',
       '  <button class="cx-icobtn cx-railbtn" data-act="rail" data-side="left" title="anomaly log">◧</button>',
@@ -92,6 +93,14 @@
       '  <div class="cx-comparewrap" id="cx-comparewrap" style="display:none"><div></div>',
       '    <div class="cx-cmp-table-wrap" id="cx-cmp-table"></div>',
       '  </div>',
+      '  <div class="cx-fbwrap" id="cx-fbwrap" style="display:none">',
+      '    <div class="cx-fb-main">',
+      '      <div class="cx-fb-toolbar" id="cx-fb-toolbar"></div>',
+      '      <div class="cx-fb-mapbox"><canvas id="cx-fb-map"></canvas></div>',
+      '      <div class="cx-fb-readout" id="cx-fb-readout"></div>',
+      '    </div>',
+      '    <div class="cx-fb-side" id="cx-fb-side"></div>',
+      '  </div>',
       '  <div class="cx-docwrap" id="cx-docwrap" style="display:none">',
       '    <div class="cx-doclist" id="cx-doclist"></div>',
       '    <div class="cx-docview" id="cx-docview"></div>',
@@ -124,6 +133,7 @@
     buildRightRail();
     tlCanvas = $('cx-tl-canvas');
     wire();
+    CX.fireballs.wire();
     updateEraChrome();
     UI.renderClock();
     UI.renderTimeline();
@@ -184,7 +194,7 @@
     if (q) {
       list = (C.anomalies || []).filter(function (a) {
         return (a.id + ' ' + a.title + ' ' + a.observation + ' ' + a.loeb_take + ' ' +
-                a.official_explanation).toLowerCase().indexOf(q) !== -1;
+                (a.loeb_quote || '') + ' ' + a.official_explanation).toLowerCase().indexOf(q) !== -1;
       });
       if (cnt) cnt.textContent = list.length + ' / ' + (C.anomalies || []).length + ' MATCH';
     } else {
@@ -376,19 +386,29 @@
   UI.showToast = showToast;
 
   // ============ DOSSIER ============
-  let dossierIdx = -1;
+  let dossierIdx = -1, dossierList = [];
+  // Cases live under an object key: '3i'/'1i'/'2i' are eras with an ephemeris,
+  // 'fb' is the CNEOS fireball register, which has none — so opening one of its
+  // files switches MODE rather than era.
+  function objCases(obj) {
+    return obj === 'fb' ? CX.fireballs.cases()
+      : (C.anomalies || []).filter(function (x) { return (x.object || '3i') === obj; });
+  }
   function openDossier(id) {
-    const list = CX.eraAnomalies();
-    if (!list.length) return;
-    dossierIdx = Math.max(0, list.findIndex(function (a) { return a.id === id; }));
-    const a = list[dossierIdx];
+    const a = (C.anomalies || []).find(function (x) { return x.id === id; });
     if (!a) return;
+    const obj = a.object || '3i';
+    if (obj === 'fb') { if (S.mode !== 'fireballs') setMode('fireballs'); }
+    else if (obj !== S.era) CX.setEra(obj);
+    dossierList = objCases(obj);
+    dossierIdx = Math.max(0, dossierList.findIndex(function (x) { return x.id === a.id; }));
     S.selAnomaly = a.id;
     UI.renderAnomalyList();
     const sheet = $('cx-sheet');
     const chip = a.verify === 'CONFIRMED' ? '<span class="cx-chip cx-c-conf">FACTS VERIFIED</span>' :
       a.verify === 'CORRECTED' ? '<span class="cx-chip cx-c-corr">VERIFIED · CORRECTED</span>' :
       '<span class="cx-chip cx-c-unv">' + esc(a.verify || 'UNREVIEWED') + '</span>';
+    const isFb = (a.object || '3i') === 'fb';
     setH(sheet, [
       '<div class="cx-sheet-head">',
       '  <div class="cx-sh-id">' + esc(a.id) + '</div>',
@@ -408,12 +428,14 @@
       }).join(' · ') + '</div>' : ''),
       '</div>',
       '<div class="cx-sheet-actions">',
-      '  <button class="cx-btn cx-btn-amber" data-act="visualize" data-id="' + esc(a.id) + '">◈ VISUALIZE IN TRACKER</button>',
+      (isFb
+        ? '  <button class="cx-btn cx-btn-amber" data-act="fb-visualize" data-id="' + esc(a.id) + '">◎ LOCATE ON IMPACT MAP</button>'
+        : '  <button class="cx-btn cx-btn-amber" data-act="visualize" data-id="' + esc(a.id) + '">◈ VISUALIZE IN TRACKER</button>'),
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="-1">◀ PREV</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="1">NEXT ▶</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="copy-link" data-id="' + esc(a.id) + '" title="' + esc(caseUrl(a.id)) + '">⧉ COPY LINK</button>',
       '  <span style="flex:1"></span>',
-      '  <span style="color:var(--txt-faint);font-size:10px;align-self:center">CASE ' + (dossierIdx + 1) + ' / ' + list.length + '</span>',
+      '  <span style="color:var(--txt-faint);font-size:10px;align-self:center">CASE ' + (dossierIdx + 1) + ' / ' + dossierList.length + '</span>',
       '</div>',
     ].join('\n'));
     $('cx-overlay').classList.add('cx-show');
@@ -430,6 +452,15 @@
     UI.renderAnomalyList();
     if (S.mode === 'anomalies') setMode('track');
     syncHash();
+  }
+
+  // The fireball equivalent of "visualize in tracker": close the file, put the
+  // CNEOS row under a reticle on the map.
+  function fbVisualize(id) {
+    const row = CX.fireballs.rowOfCase(id);
+    closeOverlay();
+    setMode('fireballs');
+    if (row && row[7]) CX.fireballs.focus(row[7]);
   }
 
   function visualize(id) {
@@ -452,14 +483,16 @@
   let hashLock = false;
   function syncHash() {
     if (hashLock || !S.booted) return;
-    let h = '#' + S.era;
+    const selCase = S.selAnomaly
+      ? (C.anomalies || []).find(function (a) { return a.id === S.selAnomaly; }) : null;
+    let h = '#' + ((selCase && selCase.object) || S.era);
     if (S.selAnomaly) h += '/' + S.selAnomaly;
     else if (S.mode !== 'track') h += '/' + S.mode;
     if (location.hash !== h) {
       try { history.replaceState(null, '', h); } catch (e) { /* file:// can refuse */ }
     }
   }
-  const MODES = ['track', 'anomalies', 'compare', 'archive'];
+  const MODES = ['track', 'anomalies', 'compare', 'fireballs', 'archive'];
   function applyHash() {
     let raw = '';
     try { raw = decodeURIComponent(location.hash || ''); } catch (e) { raw = location.hash || ''; }
@@ -527,6 +560,8 @@
       text: 'Astrometry showed a push falling off as 1/r², exactly like sunlight or outgassing. But no gas was ever detected. That gap between a real force and no visible cause is what launched the lightsail paper.' },
     { era: '2i', date: '2019-12-08', cam: 'chase', ms: 11000, title: 'THE CONTROL CASE — 2I/BORISOV',
       text: 'And this is what a normal visitor from another star looks like: a textbook comet, tail streaming dutifully away from the Sun, behaving exactly as physics says it should. Its case file is thin on purpose.' },
+    { mode: 'fireballs', fbFocus: 'IM1', ms: 12000, title: 'AND THE TWO THAT MAY HAVE LANDED',
+      text: 'Every dot is a bolide US Government sensors logged since 1988. Two of them — IM1 off Papua New Guinea, IM2 in the Atlantic — are argued to have arrived from outside the solar system. The catalog that reports them publishes no error bars, which is exactly where the fight is.' },
     { mode: 'compare', cam: 'free', ms: 12000, title: 'THREE VISITORS, THREE STORIES',
       text: 'All three paths at once. Two of them ordinary enough; one still argued over. Every claim in this console sits beside its official rebuttal — go read them and decide for yourself.' },
   ];
@@ -575,6 +610,7 @@
     } else if (st.date) {
       CX.setT(CX.tOfIso(st.date));
     }
+    if (st.fbFocus) CX.fireballs.focus(st.fbFocus);
     if (st.cam) { CX.scene3d.applyPreset(st.cam); markCam(st.cam); }
     S.playing = true; CX.emit('playstate');
 
@@ -621,6 +657,7 @@
       keyRow('3I', 'ATLAS — the 2025-26 visitor, 25 cases'),
       keyRow('1I', "'Oumuamua — the 2017 original, 11 cases"),
       keyRow('2I', 'Borisov — the natural control case, 5 items'),
+      keyRow('4', 'CNEOS fireballs — 2 disputed meteor cases'),
       '    </div>',
       '    <div><h4>TIME</h4>',
       keyRow('SPACE', 'play / pause the replay'),
@@ -640,7 +677,8 @@
       keyRow('1', 'TRACK — the 3D tracking view'),
       keyRow('2', 'ANOMALIES — open the case files'),
       keyRow('3', 'COMPARE — all three paths at once'),
-      keyRow('4', 'ARCHIVE — declassified documents'),
+      keyRow('4', 'FIREBALLS — the CNEOS impact map'),
+      keyRow('5', 'ARCHIVE — declassified documents'),
       keyRow('ESC', 'close any open panel'),
       '    </div>',
       '  </div>',
@@ -649,7 +687,8 @@
       '  flying all three objects through their highlights. Otherwise: open case <b>A-05</b> on 3I/ATLAS and press ',
       '  <b style="color:var(--amber)">VISUALIZE IN TRACKER</b> to watch its tail point the wrong way; ',
       '  search <b>&ldquo;nickel&rdquo;</b> in the case log to see the same measurement argued two ways on two ',
-      '  different objects; and in <b>ARCHIVE</b>, the black redaction bars are clickable.</div>',
+      '  different objects; open <b style="color:var(--cyan)">FIREBALLS</b> for the CNEOS impact map and the two ',
+      '  rows Loeb argues are interstellar meteors; and in <b>ARCHIVE</b>, the black redaction bars are clickable.</div>',
       '  <div class="cx-sheet-actions" style="padding:10px 0 0">',
       '    <button class="cx-btn" data-act="tour-start">▶ START GUIDED TOUR</button>',
       '    <button class="cx-btn cx-btn-ghost" data-act="close-overlay">CLOSE</button>',
@@ -789,9 +828,13 @@
     });
     $('cx-docwrap').style.display = m === 'archive' ? 'grid' : 'none';
     $('cx-comparewrap').style.display = m === 'compare' ? 'block' : 'none';
+    // '' not 'grid': the narrow-viewport rule switches this pane to a single
+    // scrolling column, and an inline display would out-rank the media query.
+    $('cx-fbwrap').style.display = m === 'fireballs' ? '' : 'none';
     CX.scene3d.setCompare(m === 'compare');
     if (m === 'compare') renderCompare();
     if (m === 'archive') renderArchive();
+    if (m === 'fireballs') requestAnimationFrame(function () { CX.fireballs.refresh(); });
     if (m === 'anomalies') openDossier((CX.eraAnomalies()[0] || {}).id);
     syncHash();
   }
@@ -872,11 +915,13 @@
       }
       else if (act === 'close-overlay') closeOverlay();
       else if (act === 'visualize') visualize(btn.getAttribute('data-id'));
+      else if (act === 'fb-visualize') fbVisualize(btn.getAttribute('data-id'));
+      else if (act === 'fb-case') openDossier(btn.getAttribute('data-id'));
+      else if (act.indexOf('fb-') === 0) CX.fireballs.act(act, btn);
       else if (act === 'dossier-nav') {
-        const list = CX.eraAnomalies();
-        if (!list.length) return;
-        const i = (dossierIdx + Number(btn.getAttribute('data-d')) + list.length) % list.length;
-        openDossier(list[i].id);
+        if (!dossierList.length) return;
+        const i = (dossierIdx + Number(btn.getAttribute('data-d')) + dossierList.length) % dossierList.length;
+        openDossier(dossierList[i].id);
       }
       else if (act === 'redact') {
         btn.style.color = '#efe8d0'; btn.style.background = '#3a3226';
@@ -917,7 +962,8 @@
       else if (k === '1') setMode('track');
       else if (k === '2') setMode('anomalies');
       else if (k === '3') setMode('compare');
-      else if (k === '4') setMode('archive');
+      else if (k === '4') setMode('fireballs');
+      else if (k === '5') setMode('archive');
       else if (k === 'n' || k === 'N') { if (CX.NOW_T != null) CX.setT(CX.NOW_T); }
       else if (k === 'l' || k === 'L') { S.labels = !S.labels; }
       else if (k === 'g' || k === 'G') { S.grid = !S.grid; }
@@ -931,7 +977,10 @@
       }
     });
 
-    window.addEventListener('resize', throttle(function () { UI.renderTimeline(); CX.charts.renderRail(); }, 200));
+    window.addEventListener('resize', throttle(function () {
+      UI.renderTimeline(); CX.charts.renderRail();
+      if (S.mode === 'fireballs') CX.fireballs.refresh();
+    }, 200));
 
     // reactive updates
     const slow = throttle(function () { UI.renderClock(); UI.renderTimeline(); CX.charts.renderRail(); }, 120);
@@ -983,6 +1032,7 @@
       ['bar', 'EPHEMERIS CORE ......... JPL HORIZONS BAKE 2026-07-17'],
       ['bar', 'RENDER PIPELINE ........ WEBGL / 3-BODY VISUAL STACK'],
       ['bar', 'ANOMALY REGISTER ....... CASE FILES MOUNTED'],
+      ['bar', 'IMPACT REGISTER ........ CNEOS FIREBALL CATALOG'],
       ['bar', 'AUDIO TELEMETRY ........ SYNTH BUS ONLINE'],
       ['', '&nbsp;'],
       ['', 'ESTABLISHING DSN LINK'],

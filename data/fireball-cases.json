@@ -1,0 +1,41 @@
+{
+ "_note": "Hand-authored case files for the CNEOS fireball register (object 'fb'). Baked into src/data-content.js by tools/bake_content.py, same schema and same balance rule as the 41 telescope cases: every Loeb claim carries the official rebuttal beside it. Fact-checked 2026-08-22 against the primary sources listed in each entry; the CNEOS row values are not written here at all — the console reads them live from data/fireballs.json so a catalog revision propagates.",
+ "cases": [
+  {
+   "id": "F-01",
+   "title": "IM1 — the half-metre bolide that hit at 44.8 km/s",
+   "date": "2014-01-08",
+   "observation": "At 17:05:33 UTC, US Government sensors logged a fireball over the Bismarck Sea north of Manus Island, Papua New Guinea. CNEOS lists the row at 1.2°S 147.1°E, peak brightness at 18.7 km altitude, a pre-entry speed of 44.8 km/s and a total impact energy of 0.13 kt TNT — a body roughly half a metre across. As the catalog stood at the 2026-08-22 pull it was the fifth-fastest of the 360 entries that report a speed at all. Two things about that row matter more than the numbers themselves: CNEOS publishes no uncertainties on any field, and the sensors that produced it are classified, so the measurement cannot be independently audited. The published papers arguing this case quote a box centre of 1.3°S 147.6°E; the catalog now lists 1.2°S 147.1°E, having been revised in the interim.",
+   "loeb_take": "Siraj & Loeb reconstructed the velocity vector as hyperbolic — gravitationally unbound from the Sun at 99.999% confidence — with an asymptotic speed of 42.1 ± 5.5 km/s and a striking 58 ± 6 km/s relative to the Local Standard of Rest, which would place its origin outside the thin disk of ordinary nearby stars. In April 2022 the US Space Command chief scientist reviewed the classified data and signed a memo stating that the velocity estimate reported to NASA was sufficiently accurate to indicate an interstellar trajectory. Loeb adds two further arguments: IM1's inferred material strength ranks first out of 273 CNEOS fireballs, and it fragmented unusually low for a chondrite at that speed. In June 2023 his Galileo Project ran a magnetic-sled expedition over the CNEOS box and recovered hundreds of sub-millimetre spherules whose beryllium-lanthanum-uranium enrichment he reports as unlike any solar-system material.",
+   "loeb_quote": "Its high LSR speed implies a possible origin from the deep interior of a planetary system or a star in the thick disk of the Milky Way galaxy.",
+   "quote_source": "WITH A. SIRAJ · ASTROPHYS. J. 939:53 (2022), ABSTRACT",
+   "official_explanation": "The critique attacks the one number everything rests on. Brown & Borovička (ApJ 953, 2023) compared USG fireball velocities against events with independent optical or infrasound data and found 10-15 km/s uncertainties at high speeds and radiant errors above ten degrees; their conclusion is that the simplest reading of IM1 is a substantially overestimated speed — and at a lower speed the orbit is bound and ordinary. That also dissolves the strength argument, because the ablation fits that make IM1 look ultra-strong only do so at the high assumed speed; the two 'anomalies' are one measurement, not two. Hajduková et al. (A&A 691, A8, 2024) went further: with no uncertainties published, nothing in the CNEOS data can confirm or reject an interstellar origin for any nominally hyperbolic entry. On the spherules, Gallardo (2023) matched the Be-La-U enrichment pattern to coal fly ash, a common shipping-lane contaminant, and Desch and colleagues argued a half-metre body arriving at 45 km/s would have almost entirely vaporised. In 2024 a team led by Benjamin Fernando reported that the seismic pulse used to pick the search site fitted a truck driving past the Manus Island seismometer, and placed the fireball more than 150 km from where the sled ran. Loeb answered that the expedition was guided by the 11-km CNEOS satellite box rather than the seismometer, and that Fernando's own infrasound ellipse (186 by 388 km) is large enough to contain it. The most sympathetic independent verdict is Socas-Navarro (2024), who redid the statistics and put the probability of an interstellar origin at 94.1% — significant, but short of the 3-sigma a discovery claim needs.",
+   "viz_hint": "speed-dist",
+   "_verify": "CONFIRMED",
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/1538-4357/ac8eac",
+    "https://arxiv.org/abs/2306.14267",
+    "https://arxiv.org/abs/2405.17219",
+    "https://cneos.jpl.nasa.gov/fireballs/"
+   ]
+  },
+  {
+   "id": "F-02",
+   "title": "IM2 — the second candidate, and the problem of a single dataset",
+   "date": "2017-03-09",
+   "observation": "At 04:16:37 UTC a considerably larger bolide was logged over the North Atlantic well west of Portugal: 40.5°N 18.0°W, peak brightness at 23.0 km, 36.5 km/s, 1.1 kt of impact energy — roughly a metre across and about an order of magnitude more massive than IM1. Nothing was recovered, no independent optical or seismic detection of it has been published, and as with every CNEOS row the catalog reports no error bars.",
+   "loeb_take": "Siraj & Loeb identified this row as a second unbound candidate and argued the pair is the real result. Fitting a log-normal distribution to material strengths across the catalog, IM1 and IM2 rank first and third of 273 fireballs — 3.5-sigma and 2.6-sigma outliers, with a random-draw probability around one in ten thousand. Their reading is that meter-scale interstellar objects are systematically tougher than solar-system rocks, and that the implied abundance is embarrassingly large: for two such objects to be caught by Earth's atmosphere in a few years, roughly 40% of all refractory material would have to be locked up in meter-scale interstellar bodies, which they note is hard to square with ordinary planetary-system ejection.",
+   "loeb_quote": "If IM2 is confirmed, this implies that interstellar meteors come from a population with material strength characteristically higher than meteors originating from within the solar system.",
+   "quote_source": "WITH A. SIRAJ · ASTROPHYS. J. LETT. 941 (2022), ABSTRACT",
+   "official_explanation": "The conditional in Loeb's own sentence is the whole objection: IM2 has never been confirmed by anything outside the catalog that produced it. The April 2022 US Space Command memo covered the 2014 event only. No expedition has looked for material, no independent detection has been published, and the velocity-uncertainty critique of Brown & Borovička applies with equal force — 36.5 km/s sits in exactly the regime where they measured 10-15 km/s errors, and shaving a few km/s makes the orbit bound. The strength ranking is derived from the same lightcurve and the same speed, so it is not independent evidence but a second reading of the first measurement. Hajduková et al. (2024) surveyed every nominally hyperbolic CNEOS entry and found none that the data can settle either way. The mainstream position is not that IM2 is impossible — it is that a single un-audited catalog, with the error bars withheld, cannot carry a claim this large on its own.",
+   "viz_hint": "speed-dist",
+   "_verify": "CONFIRMED",
+   "sources": [
+    "https://iopscience.iop.org/article/10.3847/2041-8213/aca8a0",
+    "https://arxiv.org/abs/2306.14267",
+    "https://www.aanda.org/articles/aa/full_html/2024/11/aa49569-24/aa49569-24.html",
+    "https://cneos.jpl.nasa.gov/fireballs/"
+   ]
+  }
+ ]
+}
