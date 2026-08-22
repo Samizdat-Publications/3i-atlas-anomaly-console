@@ -177,7 +177,11 @@
       '  </div>',
       '</div>',
       '<div class="cx-panel" style="padding:10px 0 0">',
-      '  <div class="cx-panel-title" style="padding:0 12px"><span style="color:var(--amber)">▲</span> ANOMALY LOG <span id="cx-alog-count"></span></div>',
+      '  <div class="cx-logtabs">',
+      '    <button class="cx-logtab' + (logTab === 'cases' ? ' cx-on' : '') + '" data-act="log-tab" data-tab="cases"><span style="color:var(--amber)">▲</span> CASE FILES</button>',
+      '    <button class="cx-logtab' + (logTab === 'log' ? ' cx-on' : '') + '" data-act="log-tab" data-tab="log"><span style="color:var(--cyan)">◈</span> MISSION LOG</button>',
+      '    <span class="cx-logcount" id="cx-alog-count"></span>',
+      '  </div>',
       '  <div class="cx-search" id="cx-search">',
       '    <input id="cx-q" type="search" autocomplete="off" spellcheck="false" placeholder="search all 3 objects — try &quot;nickel&quot;">',
       '    <span class="cx-search-x" data-act="q-clear" title="clear">✕</span>',
@@ -192,12 +196,76 @@
     UI.renderAnomalyList();
     const qi = $('cx-q');            // rail is rebuilt on era switch — keep the query
     if (qi && query) qi.value = query;
+    syncSearchPlaceholder();
   }
 
   // Case search runs across ALL three objects — searching "nickel" should surface
   // both 3I's anomaly and 2I's control-case result, which is half the point.
   let query = '';
+  // Which list the rail is showing. The MISSION LOG tab exists because 24% of
+  // timeline records sit outside their era's scrubber window — 1I's story runs to
+  // 2026 while its ephemeris stops in 2018 — so a marker is not a reliable way in.
+  let logTab = 'cases';
+  function syncSearchPlaceholder() {
+    const qi = $('cx-q');
+    if (qi) qi.placeholder = logTab === 'log'
+      ? 'search the mission log — try \u201cperihelion\u201d'
+      : 'search all 3 objects — try \u201cnickel\u201d';
+  }
+  UI.setLogTab = function (t) {
+    if (logTab === t) return;
+    logTab = t;
+    document.querySelectorAll('[data-act="log-tab"]').forEach(function (b) {
+      b.classList.toggle('cx-on', b.getAttribute('data-tab') === t);
+    });
+    syncSearchPlaceholder();
+    UI.renderAnomalyList();
+  };
+
+  function renderEventList() {
+    const box = $('cx-alog');
+    const q = query.trim().toLowerCase();
+    const cnt = $('cx-alog-count');
+    const wrap = $('cx-search');
+    if (wrap) wrap.classList.toggle('cx-has-q', !!q);
+    const all = C.timeline || [];
+    let list;
+    if (q) {
+      list = all.filter(function (e) {
+        return ((e.title || '') + ' ' + (e.description || '')).toLowerCase().indexOf(q) !== -1;
+      });
+      if (cnt) cnt.textContent = list.length + ' / ' + all.length + ' MATCH';
+    } else {
+      list = CX.eraTimeline();
+      if (cnt) cnt.textContent = list.length + ' ENTRIES';
+    }
+    if (!list.length) {
+      setH(box, '<div class="cx-nores">NO LOG ENTRY MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
+      return;
+    }
+    setH(box, list.map(function (e) {
+      const obj = e.object || '3i';
+      const foreign = obj !== S.era;
+      const em = CX.ERA_META[obj];
+      const kind = EVENT_KIND[e.kind] || EVENT_KIND.observation;
+      const future = !foreign && CX.tOfIso(e.date) > S.t;
+      const badge = (q && foreign)
+        ? '<span class="cx-obj-badge" style="color:' + em.color + ';border-color:' + em.color + '">' + obj.toUpperCase() + '</span>'
+        : '';
+      return '<div class="cx-acase cx-logrow' + (future ? ' cx-future' : '') +
+        (S.selEvent === e.id ? ' cx-on' : '') + '" data-act="event" data-id="' + esc(e.id) + '">' +
+        '<div class="cx-a-dot"' + (foreign ? ' style="background:' + em.color + ';box-shadow:none"' : '') + '></div>' +
+        '<div class="cx-a-id" title="' + esc(kind[1]) + '">' + kind[0] + '</div>' +
+        '<div class="cx-a-name">' + badge + esc(e.title) + '</div>' +
+        '<div class="cx-a-date">' + esc((e.date || '').slice(2)) + '</div></div>';
+    }).join(''));
+  }
+
   UI.renderAnomalyList = function () {
+    if (logTab === 'log') { renderEventList(); return; }
+    return renderCaseList();
+  };
+  function renderCaseList() {
     const box = $('cx-alog');
     if (!box) return;
     const q = query.trim().toLowerCase();
@@ -300,8 +368,16 @@
     const nxt = evs.find(function (e) { return e.t > S.t; });
     const ne = $('cx-nextevent');
     if (ne) {
-      if (nxt) setH(ne, '<span style="color:var(--' + (nxt.cls === 'anomaly' ? 'amber' : 'cyan') + ')">' + esc(nxt.title) + '</span><div style="color:var(--txt-faint);font-size:10px">' + CX.fmtDate(nxt.t) + ' · IN ' + Math.ceil(nxt.t - S.t) + 'd</div>');
-      else setH(ne, '<span style="color:var(--txt-dim)">NO FURTHER SCHEDULED EVENTS — OUTBOUND CRUISE</span>');
+      if (nxt) {
+        const isAnom = nxt.cls === 'anomaly';
+        const id = nxt.src && nxt.src.id;
+        const act = id ? ' data-act="' + (isAnom ? 'anomaly' : 'event') + '" data-id="' + esc(id) + '"' +
+          (isAnom ? ' data-obj="' + esc(nxt.src.object || '3i') + '"' : '') : '';
+        setH(ne, '<div class="cx-nextev"' + act + '>' +
+          '<span style="color:var(--' + (isAnom ? 'amber' : 'cyan') + ')">' + esc(nxt.title) + '</span>' +
+          '<div style="color:var(--txt-faint);font-size:10px">' + CX.fmtDate(nxt.t) + ' · IN ' +
+          Math.ceil(nxt.t - S.t) + 'd' + (id ? ' · OPEN RECORD ▸' : '') + '</div></div>');
+      } else setH(ne, '<span style="color:var(--txt-dim)">NO FURTHER SCHEDULED EVENTS — OUTBOUND CRUISE</span>');
     }
   };
 
@@ -370,20 +446,27 @@
     CX.setT(frac * (CX.N - 1));
   }
   function tlClick(ev, tol) {
-    // marker proximity jump — a fingertip needs a wider catch than a cursor
+    // Marker hit test. The two kinds are drawn in separate rows — anomaly
+    // triangles above the baseline, mission diamonds below — so the pointer's
+    // side decides which row it can hit. Without that, the rows compete for
+    // every tap and, at phone width where markers sit ~10px apart, scrubbing
+    // by tapping became impossible.
     const r = $('cx-tl-track').getBoundingClientRect();
+    const baseline = r.top + r.height / 2 + 2;
+    const want = ev.clientY < baseline ? 'anomaly' : 'mission';
     const evs = CX.allEvents();
     let best = null, bd = tol || 6;
     evs.forEach(function (e) {
+      if (e.cls !== want) return;
       const x = (e.t / (CX.N - 1)) * r.width + r.left;
       const d = Math.abs(x - ev.clientX);
       if (d < bd) { bd = d; best = e; }
     });
     if (best) {
-      CX.setT(best.t + 0.01);
-      showToast(best);
-      if (best.cls === 'anomaly') openDossier(best.src.id);
       CX.audio.ui();
+      if (best.cls === 'anomaly') { CX.setT(best.t + 0.01); openDossier(best.src.id); }
+      else if (best.src && best.src.id) openEvent(best.src.id);
+      else { CX.setT(best.t + 0.01); showToast(best); }
       return true;
     }
     return false;
@@ -393,7 +476,9 @@
   let toastTimer = null;
   function showToast(e) {
     const t = $('cx-toast');
-    setH(t, esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) + (e.desc ? ' — ' + esc(String(e.desc).slice(0, 110)) : '') + '</span>');
+    const more = (e.desc && String(e.desc).length > 110) ? ' · MARKER OR MISSION LOG OPENS THE FULL RECORD' : '';
+    setH(t, esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
+      (e.desc ? ' — ' + esc(String(e.desc).slice(0, 110)) + '…' : '') + more + '</span>');
     t.className = 'cx-toast cx-show' + (e.cls === 'anomaly' ? ' cx-anom' : '');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { t.className = 'cx-toast'; }, 4200);
@@ -401,6 +486,66 @@
   UI.showToast = showToast;
 
   // ============ DOSSIER ============
+  // Citation row, shared by case files and timeline records so both cite the
+  // same way. Shows the domain; the full URL is the link target and the title.
+  function refsRow(sources) {
+    if (!sources || !sources.length) return '';
+    return '<div class="cx-refs">REFS: ' + sources.map(function (u) {
+      const dom = String(u).replace(/^https?:\/\//, '').split('/')[0];
+      return '<a href="' + esc(u) + '" target="_blank" rel="noreferrer" title="' + esc(u) + '">' + esc(dom) + '</a>';
+    }).join(' · ') + '</div>';
+  }
+
+  // ============ TIMELINE RECORD ============
+  // Clicking an anomaly marker has always opened its full case file. Clicking a
+  // mission marker only ever flashed a toast — 110 characters of a description
+  // that averages 456, with its citations dropped at bake time. Same component,
+  // cyan instead of amber, so the two read as siblings rather than clones.
+  const EVENT_KIND = {
+    discovery:      ['◆', 'DISCOVERY'],
+    observation:    ['◈', 'OBSERVATION'],
+    close_approach: ['◎', 'CLOSE APPROACH'],
+    statement:      ['❝', 'STATEMENT'],
+    status:         ['▪', 'STATUS'],
+  };
+  let eventIdx = -1, eventList = [];
+  function openEvent(id) {
+    const e = CX.eventById(id);
+    if (!e) return;
+    const obj = e.object || '3i';
+    if (obj !== S.era) CX.setEra(obj);
+    eventList = CX.eraTimeline();
+    eventIdx = Math.max(0, eventList.findIndex(function (x) { return x.id === e.id; }));
+    S.selEvent = e.id;
+    S.selAnomaly = null;
+    UI.renderAnomalyList();
+    CX.setT(CX.tOfIso(e.date) + 0.01);
+    const kind = EVENT_KIND[e.kind] || EVENT_KIND.observation;
+    setH($('cx-sheet'), [
+      '<div class="cx-sheet-head cx-sh-mission">',
+      '  <div class="cx-sh-id">' + kind[0] + '</div>',
+      '  <div class="cx-sh-title">' + esc(e.title) + ' <span class="cx-chip cx-c-kind">' + kind[1] + '</span></div>',
+      '  <div class="cx-sh-date">' + esc(e.date) + '</div>',
+      '  <button class="cx-x" data-act="close-overlay">✕</button>',
+      '</div>',
+      '<div class="cx-sheet-body">',
+      '  <div class="cx-block"><div class="cx-block-label cx-bl-obs">MISSION LOG ENTRY</div>',
+      '  <div class="cx-block-text">' + esc(e.description) + '</div></div>',
+      refsRow(e.sources),
+      '</div>',
+      '<div class="cx-sheet-actions">',
+      '  <button class="cx-btn cx-btn-ghost" data-act="event-nav" data-d="-1">◀ PREV</button>',
+      '  <button class="cx-btn cx-btn-ghost" data-act="event-nav" data-d="1">NEXT ▶</button>',
+      '  <button class="cx-btn cx-btn-ghost" data-act="copy-link" data-id="' + esc(e.id) + '" title="' + esc(recordUrl(e.id)) + '">⧉ COPY LINK</button>',
+      '  <span style="flex:1"></span>',
+      '  <span class="cx-sheet-count">ENTRY ' + (eventIdx + 1) + ' / ' + eventList.length + '</span>',
+      '</div>',
+    ].join('\n'));
+    $('cx-overlay').classList.add('cx-show');
+    syncHash();
+  }
+  UI.openEvent = openEvent;
+
   let dossierIdx = -1, dossierList = [];
   // Cases live under an object key: '3i'/'1i'/'2i' are eras with an ephemeris,
   // 'fb' is the CNEOS fireball register, which has none — so opening one of its
@@ -437,10 +582,7 @@
         (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">— A. LOEB · ' + esc(a.quote_source || '') + '</span></div>' : '') + '</div>',
       '  <div class="cx-block cx-b-off"><div class="cx-block-label cx-bl-off">OFFICIAL EXPLANATION</div><div class="cx-block-text">' + esc(a.official_explanation) + '</div></div>',
       '  <canvas class="cx-dchart" id="cx-dchart"></canvas>',
-      ((a.sources && a.sources.length) ? '  <div style="margin-top:8px;color:var(--txt-faint);font-size:9.5px;letter-spacing:.5px">REFS: ' + a.sources.map(function (s) {
-        let dom = String(s).replace(/^https?:\/\//, '').split('/')[0];
-        return '<a href="' + esc(s) + '" target="_blank" rel="noreferrer" style="color:var(--cyan-dim);text-decoration:none">' + esc(dom) + '</a>';
-      }).join(' · ') + '</div>' : ''),
+      refsRow(a.sources),
       '</div>',
       '<div class="cx-sheet-actions">',
       (isFb
@@ -450,7 +592,7 @@
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="1">NEXT ▶</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="copy-link" data-id="' + esc(a.id) + '" title="' + esc(caseUrl(a.id)) + '">⧉ COPY LINK</button>',
       '  <span style="flex:1"></span>',
-      '  <span style="color:var(--txt-faint);font-size:10px;align-self:center">CASE ' + (dossierIdx + 1) + ' / ' + dossierList.length + '</span>',
+      '  <span class="cx-sheet-count">CASE ' + (dossierIdx + 1) + ' / ' + dossierList.length + '</span>',
       '</div>',
     ].join('\n'));
     $('cx-overlay').classList.add('cx-show');
@@ -464,6 +606,7 @@
   function closeOverlay() {
     $('cx-overlay').classList.remove('cx-show');
     S.selAnomaly = null;
+    S.selEvent = null;
     UI.renderAnomalyList();
     if (S.mode === 'anomalies') setMode('track');
     syncHash();
@@ -502,6 +645,7 @@
       ? (C.anomalies || []).find(function (a) { return a.id === S.selAnomaly; }) : null;
     let h = '#' + ((selCase && selCase.object) || S.era);
     if (S.selAnomaly) h += '/' + S.selAnomaly;
+    else if (S.selEvent) h += '/' + S.selEvent;
     else if (S.mode !== 'track') h += '/' + S.mode;
     if (location.hash !== h) {
       try { history.replaceState(null, '', h); } catch (e) { /* file:// can refuse */ }
@@ -529,6 +673,9 @@
             if (obj !== S.era) CX.setEra(obj);
             openDossier(c.id);
             applied = true;
+          } else if (CX.eventById(what)) {
+            openEvent(CX.eventById(what).id);
+            applied = true;
           }
         }
       }
@@ -538,12 +685,14 @@
   }
   UI.applyHash = applyHash;
 
-  function caseUrl(id) {
-    const obj = ((C.anomalies || []).find(function (a) { return a.id === id; }) || {}).object || S.era;
-    return location.origin + location.pathname + '#' + obj + '/' + id;
+  // Works for a case id (A-05) or a timeline record id (E-20260818).
+  function recordUrl(id) {
+    const rec = (C.anomalies || []).find(function (a) { return a.id === id; }) || CX.eventById(id) || {};
+    return location.origin + location.pathname + '#' + (rec.object || S.era) + '/' + id;
   }
+  const caseUrl = recordUrl;
   function copyCaseLink(id) {
-    const url = caseUrl(id);
+    const url = recordUrl(id);
     const done = function (ok) {
       showToast({ title: ok ? 'LINK COPIED TO CLIPBOARD' : 'COPY FAILED — LINK IS IN THE ADDRESS BAR',
         t: S.t, cls: 'mission', desc: url });
@@ -677,8 +826,8 @@
       '    <div><h4>TIME</h4>',
       keyRow('SPACE', 'play / pause the replay'),
       keyRow('← →', 'step one day (SHIFT = one week)'),
-      keyRow('drag', 'scrub the timeline bar'),
-      keyRow('click', 'jump to a timeline marker'),
+      keyRow('drag', 'scrub the timeline bar (drag = time)'),
+      keyRow('click', 'open a marker\u2019s full record (tap = record)'),
       keyRow('N', "jump to today's real position (3I only)"),
       '    </div>',
       '    <div><h4>VIEW</h4>',
@@ -702,7 +851,10 @@
       '  flying all three objects through their highlights. Otherwise: open case <b>A-05</b> on 3I/ATLAS and press ',
       '  <b style="color:var(--amber)">VISUALIZE IN TRACKER</b> to watch its tail point the wrong way; ',
       '  search <b>&ldquo;nickel&rdquo;</b> in the case log to see the same measurement argued two ways on two ',
-      '  different objects; open <b style="color:var(--cyan)">FIREBALLS</b> for the CNEOS impact map and the two ',
+      '  different objects; click any <b style="color:var(--cyan)">timeline marker</b> to read that entry in full ',
+      '  with its sources, or browse them all under <b style="color:var(--cyan)">MISSION LOG</b> in the left rail ',
+      '  (some entries fall outside the scrubber window and have no marker); open ',
+      '  <b style="color:var(--cyan)">FIREBALLS</b> for the CNEOS impact map and the two ',
       '  rows Loeb argues are interstellar meteors; and in <b>ARCHIVE</b>, the black redaction bars are clickable.</div>',
       '  <div class="cx-sheet-actions" style="padding:10px 0 0">',
       '    <button class="cx-btn" data-act="tour-start">▶ START GUIDED TOUR</button>',
@@ -926,6 +1078,7 @@
         if (obj && obj !== S.era) CX.setEra(obj);   // cross-object search result
         openDossier(btn.getAttribute('data-id'));
       }
+      else if (act === 'log-tab') UI.setLogTab(btn.getAttribute('data-tab'));
       else if (act === 'q-clear') { UI.setQuery(''); const qi = $('cx-q'); if (qi) { qi.value = ''; qi.focus(); } }
       else if (act === 'tour-start') tourStart();
       else if (act === 'tour-next') tourNext();
@@ -945,6 +1098,12 @@
       else if (act === 'visualize') visualize(btn.getAttribute('data-id'));
       else if (act === 'fb-visualize') fbVisualize(btn.getAttribute('data-id'));
       else if (act === 'fb-case') openDossier(btn.getAttribute('data-id'));
+      else if (act === 'event') openEvent(btn.getAttribute('data-id'));
+      else if (act === 'event-nav') {
+        if (!eventList.length) return;
+        const i = (eventIdx + Number(btn.getAttribute('data-d')) + eventList.length) % eventList.length;
+        openEvent(eventList[i].id);
+      }
       else if (act.indexOf('fb-') === 0) CX.fireballs.act(act, btn);
       else if (act === 'dossier-nav') {
         if (!dossierList.length) return;
@@ -979,7 +1138,7 @@
     let tlPointer = null;
     track.addEventListener('pointerdown', function (ev) {
       if (ev.pointerType === 'mouse' && ev.button !== 0) return;
-      if (tlClick(ev, ev.pointerType === 'mouse' ? 6 : 15)) return;
+      if (tlClick(ev, ev.pointerType === 'mouse' ? 6 : 8)) return;
       tlPointer = ev.pointerId;
       tlDragging = true;
       try { track.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }

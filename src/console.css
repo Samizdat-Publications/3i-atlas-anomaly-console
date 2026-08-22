@@ -285,6 +285,21 @@ body {
 /* dossier chart canvas */
 .cx-dchart { width: 100%; height: 190px; margin-top: 6px; border: 1px solid var(--line); background: rgba(2,8,14,.6); }
 
+/* Citation row — case files and timeline records cite identically. */
+.cx-refs { margin-top: 10px; color: var(--txt-faint); font-size: 9.5px; letter-spacing: .5px; }
+.cx-refs a { color: var(--cyan-dim); text-decoration: none; border-bottom: 1px dotted rgba(24,153,189,.5); }
+.cx-refs a:hover { color: var(--cyan); border-bottom-color: var(--cyan); text-shadow: var(--glow-c); }
+.cx-sheet-count { color: var(--txt-faint); font-size: 10px; align-self: center; }
+
+/* A timeline record is the mission-side sibling of a case file: same sheet,
+   cyan where the anomaly dossier is amber. */
+.cx-sheet-head.cx-sh-mission .cx-sh-id { color: var(--cyan); text-shadow: var(--glow-c); }
+.cx-chip.cx-c-kind { color: var(--cyan-dim); border-color: var(--cyan-dim); }
+
+/* NEXT EVENT panel doubles as a way into that record. */
+.cx-nextev[data-act] { cursor: pointer; }
+.cx-nextev[data-act]:hover { background: rgba(52,225,255,.06); box-shadow: inset 2px 0 0 var(--cyan-dim); }
+
 /* verdict chip */
 .cx-chip { display: inline-block; padding: 1px 8px; font-size: 9px; letter-spacing: 1.5px; border: 1px solid; }
 .cx-chip.cx-c-conf { color: var(--green); border-color: rgba(70,255,161,.5); }
@@ -458,6 +473,28 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 @keyframes cx-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .cx-rise { animation: cx-rise .45s ease both; }
 
+/* ============ RAIL LOG TABS ============ */
+/* Two registers share one panel: the anomaly case files and the mission log.
+   The log needs a list of its own because a quarter of its records fall outside
+   the scrubber window and so have no marker to click. */
+.cx-logtabs {
+  display: flex; align-items: center; gap: 2px; padding: 0 12px 7px;
+  border-bottom: 1px solid var(--line); margin-bottom: 8px;
+}
+.cx-logtab {
+  padding: 4px 7px 3px; cursor: pointer; font-family: var(--mono);
+  font-size: 9.5px; letter-spacing: 1.5px; color: var(--txt-faint);
+  background: none; border: 1px solid transparent;
+}
+.cx-logtab:hover { color: var(--txt-dim); }
+.cx-logtab.cx-on { color: var(--txt); border-color: var(--line); background: rgba(52,225,255,.05); }
+.cx-logcount { margin-left: auto; color: var(--txt-faint); font-size: 9px; letter-spacing: 1px; }
+.cx-logrow .cx-a-id { color: var(--cyan-dim); font-size: 13px; }
+.cx-logrow.cx-future .cx-a-id { color: var(--txt-faint); }
+.cx-logrow .cx-a-dot { background: var(--cyan); box-shadow: var(--glow-c); }
+.cx-logrow.cx-future .cx-a-dot { background: var(--txt-faint); box-shadow: none; }
+.cx-logrow.cx-on { background: rgba(52,225,255,.08); box-shadow: inset 3px 0 0 var(--cyan); }
+
 /* ============ CASE SEARCH ============ */
 .cx-search { position: relative; padding: 0 12px 8px; }
 .cx-search input {
@@ -585,6 +622,10 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-search input { padding: 9px 26px 9px 9px; font-size: 13px; }
   .cx-search-x { top: 7px; padding: 4px 6px; font-size: 15px; }
   .cx-fb-tag { display: inline-block; padding: 4px 0; }
+  .cx-refs { font-size: 11px; line-height: 2.2; }
+  .cx-refs a { padding: 4px 2px; }
+  .cx-nextev[data-act] { padding: 6px 0; }
+  .cx-logtab { padding: 9px 9px 8px; font-size: 10.5px; }
   .cx-doclist .cx-row { padding: 15px 12px; }
 }
 

@@ -42,6 +42,7 @@
     speed: 3,
     booted: false,
     selAnomaly: null,
+    selEvent: null,
     selDoc: 0,
     camPreset: 'free',
     audio: true,
@@ -76,7 +77,7 @@
     S.era = k;
     CX.applyEraClock();
     S.viz.antiTail = false; S.viz.ecliptic = false;
-    S.selAnomaly = null;
+    S.selAnomaly = null; S.selEvent = null;
     CX.setT(CX.tOfIso(CX.ERA_META[k].discovery), true);
     if (!silent) { CX.emit('era'); CX.emit('time'); }
   };
@@ -132,6 +133,14 @@
   };
   CX.eraTimeline = function () {
     return (CONTENT.timeline || []).filter(function (e) { return (e.object || '3i') === S.era; });
+  };
+  // Timeline entries are addressable by id (E-YYYYMMDD), the same way case files
+  // are, so they can be deep-linked and walked.
+  CX.eventById = function (id) {
+    const want = String(id || '').toLowerCase();
+    return (CONTENT.timeline || []).find(function (e) {
+      return String(e.id || '').toLowerCase() === want;
+    }) || null;
   };
 
   // ---------- tiny event bus ----------
