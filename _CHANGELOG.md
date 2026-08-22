@@ -1,5 +1,32 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.9 — 2026-08-22 (the timeline becomes readable)
+Timeline entries were the only researched content in the console with no way to read them.
+Clicking an **anomaly** marker had always opened its full case file; clicking a **mission**
+marker flashed a toast with 110 characters of a description that averages 456, and
+`bake_content.py` threw the citations away entirely. Roughly 26,000 characters of
+fact-checked prose, and all 58 sets of sources, were shipped in the bundle and unreachable.
+- **Timeline records.** A mission marker now opens the same sheet a case file does — cyan
+  where the dossier is amber, with a kind chip (DISCOVERY / OBSERVATION / CLOSE APPROACH /
+  STATEMENT / STATUS), the description in full, **clickable citations**, PREV/NEXT through
+  the era, and COPY LINK.
+- **Citations kept at bake.** `map_events` no longer strips `sources`, and gives every entry
+  a date-derived id (`E-YYYYMMDD`) so a deep link survives events being inserted earlier —
+  which happens every time the register is brought current. Same-day entries get a suffix.
+  All 58 entries carry 1–4 sources. The anomaly dossier and the record share one citation row.
+- **Deep links** extend to records: `#1i/E-20181026`.
+- **MISSION LOG tab** in the left rail, beside CASE FILES. Not decoration: **24% of records
+  fall outside their era's scrubber window** — 1I's story runs to 2026 while its ephemeris
+  stops in 2018, stranding 9 of its 16 entries — so a marker is not a reliable way in. The
+  tab shares the search box and searches all three objects, badging foreign hits.
+- **Marker hit-testing is row-aware.** The two kinds are drawn in separate rows, above and
+  below the baseline, but the hit test only ever compared X. At phone width, where markers
+  sit ~10px apart, the rows competed for every tap and scrubbing by tap became impossible.
+  The pointer's side of the baseline now decides which row it can hit. Settled model:
+  **drag = time, tap = record.**
+- The "NEXT EVENT" panel in the right rail opens that record, and the toast says where the
+  rest of the text lives.
+
 ## v2.8 — 2026-08-22 (content current to within four days)
 The timeline stopped at 2026-07-17. An arXiv sweep found four papers published since, all
 added as sourced timeline events — the register now runs to **2026-08-18**.

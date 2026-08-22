@@ -47,11 +47,21 @@ def map_anomaly(a, obj, provisional=False):
 
 
 def map_events(events, obj):
+    """Timeline entries, chronological, each with a stable id and its citations.
+
+    The id is date-derived rather than positional so a deep link survives events
+    being inserted earlier in the era (which happens every time the register is
+    brought current). Same-day entries get a numeric suffix.
+    """
     out = []
-    for e in events or []:
+    seen = {}
+    for e in sorted(events or [], key=lambda x: x.get("date") or ""):
         e2 = dict(e)
         e2["object"] = obj
-        e2.pop("sources", None)
+        stem = "E-" + (e2.get("date") or "").replace("-", "")
+        seen[stem] = seen.get(stem, 0) + 1
+        e2["id"] = stem if seen[stem] == 1 else "%s-%d" % (stem, seen[stem])
+        e2["sources"] = (e.get("sources") or [])[:4]
         out.append(e2)
     return out
 
@@ -185,6 +195,8 @@ def main():
         json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
     print("  quotes: " + (", ".join("%s %d" % (k, v) for k, v in sorted(qcounts.items())) or "unverified"))
+    print("  timeline: %d of %d events carry citations" % (
+        sum(1 for e in timeline if e.get("sources")), len(timeline)))
     print("Wrote %s (%d KB): 3i=%d 1i=%d%s 2i=%d%s fb=%d anomalies, %d events, %d quotes, %d ISO profiles"
           % (out, os.path.getsize(out) // 1024, n3,
              n1, "(prov)" if prov1 else "", n2, "(prov)" if prov2 else "", nfb,

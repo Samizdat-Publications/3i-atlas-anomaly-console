@@ -68,9 +68,20 @@ these sensors — enough, if real, to move IM1's orbit from unbound to ordinary.
 
 ![The CNEOS fireball map](public/shots/fireballs.png)
 
+### The timeline is a register too
+
+Every marker on the scrubber opens a record: what happened, in full, with its sources as
+clickable links. Mission entries (cyan, below the line) and anomaly case files (amber, above
+it) use the same sheet. **Drag = time, tap = record.**
+
+Some entries have no marker — 1I/ʻOumuamua's story runs to 2026 while its ephemeris window
+stops in 2018, so 9 of its 16 entries sit off the end of its scrubber. The **MISSION LOG**
+tab in the left rail lists all of them, searchable across every object.
+
 ### Search across all four registers at once
 
-The case log searches all 43 files, not just the object you're viewing. Searching **`nickel`**
+The case log searches all 43 case files, not just the object you're viewing — and the
+MISSION LOG tab does the same across all 58 timeline records. Searching **`nickel`**
 returns 3I/ATLAS's anomaly *and* 2I/Borisov's rebuttal — the same measurement, argued two ways,
 side by side. Foreign results are badged by object; clicking one switches target and opens it — including the
 fireball cases, which live in their own register rather than an era.
@@ -126,12 +137,14 @@ reticle; and the redaction bars in **ARCHIVE**.
 
 ### Linking to a specific case
 
-The URL hash is `#<object>[/<case-id>|/<mode>]`, so any of the 43 case files is directly linkable:
+The URL hash is `#<object>[/<case-id>|/<record-id>|/<mode>]`, so any of the 43 case files —
+and any of the 58 timeline records — is directly linkable:
 
 - [`#3i/A-05`](https://3i-atlas-anomaly-console.pages.dev/#3i/A-05) — the sunward anti-tail
 - [`#1i/O-06`](https://3i-atlas-anomaly-console.pages.dev/#1i/O-06) — ʻOumuamua's non-gravitational acceleration
 - [`#2i`](https://3i-atlas-anomaly-console.pages.dev/#2i) — the Borisov control case
 - [`#fb/F-01`](https://3i-atlas-anomaly-console.pages.dev/#fb/F-01) — IM1, the 2014 bolide claimed as an interstellar meteor
+- [`#1i/E-20181026`](https://3i-atlas-anomaly-console.pages.dev/#1i/E-20181026) — the day the lightsail paper landed
 - [`#3i/compare`](https://3i-atlas-anomaly-console.pages.dev/#3i/compare) — all three trajectories
 
 Every dossier has a **⧉ COPY LINK** button.

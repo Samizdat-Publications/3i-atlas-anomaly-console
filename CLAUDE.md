@@ -6,7 +6,16 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-22):** v2.8 shipped — all four approved phases done. **v2.5 (fireball register) merged to main and
+**CURRENT STATE (2026-08-22):** v2.9 shipped. Timeline entries are now first-class records:
+a mission marker opens the same sheet a case file does, with the full description and
+CLICKABLE SOURCES — `map_events` used to strip `sources` and no UI existed, so ~26k chars of
+researched prose and all 58 citation sets shipped unreachable. Events get date-derived ids
+(`E-YYYYMMDD`, suffixed on same-day collisions) so deep links survive insertion. The left
+rail gained a MISSION LOG tab beside CASE FILES because **24% of records fall outside their
+era's scrubber window** (1I runs to 2026, its ephemeris stops 2018 — 9 of 16 stranded), so a
+marker is not a reliable way in. `tlClick` is now ROW-AWARE: anomaly triangles sit above the
+baseline, mission diamonds below, and the pointer's side picks the row — without that, at
+phone width the rows fought over every tap. Model: drag = time, tap = record. **v2.5 (fireball register) merged to main and
 DEPLOYED** — the live URL now serves it. v2.6 adds touch support: the timeline scrubber and the
 fireball map use Pointer Events (a finger never emits `mousemove`, so both were dead on a phone);
 `.cx-root` on narrow screens uses `auto 1fr auto` rows and `ui.js` publishes measured
@@ -113,7 +122,10 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
     Reads `window.ATLAS_FIREBALLS`; event tuple layout is documented at the top of the file and
     must stay in sync with `tools/fetch_fireballs.py`.
   - `js/charts.js` — canvas chart lib; right-rail telemetry (real data) + dossier charts (spectrum, polarization, acceleration, lightcurve, trajectory-side-view, size — stylized illustrations of published results).
-  - `js/ui.js` — DOM skeleton, boot sequence, timeline scrubber, anomaly dossiers, compare table, archive docs (redactions + stamps), all wiring (delegated `data-act` clicks).
+  - `js/ui.js` — DOM skeleton, boot sequence, timeline scrubber, anomaly dossiers + timeline
+    records (both use the `cx-sheet` overlay and share `refsRow()`), the CASE FILES / MISSION
+    LOG rail tabs, compare table, archive docs (redactions + stamps), all wiring (delegated
+    `data-act` clicks).
   - `js/main.js` — boot flow + frame loop. `APP_VERSION` lives here.
   - `data-ephemeris.js` / `data-content.js` / `data-fireballs.js` — GENERATED. Never hand-edit.
   - `vendor/` — three.min.js r128 (UMD), OrbitControls, Share Tech Mono woff2 (OFL).
