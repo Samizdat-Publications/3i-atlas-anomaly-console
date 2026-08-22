@@ -48,6 +48,15 @@ payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).
 project (created by wrangler), NOT a dashboard Git-connected one — Cloudflare cannot convert
 between the two, so continuous deployment runs through `.github/workflows/deploy.yml`.
 
+**DATA REFRESH IS AUTOMATED (2026-08-22).** `.github/workflows/refresh-data.yml` re-pulls
+CNEOS (and, on manual dispatch with the `ephemeris` input, Horizons) on the 1st of each
+month, rebuilds, and opens a PR **only if the upstream bytes changed** — never pushes to
+main, because a revised row can invalidate case-file text that quotes it.
+`tools/refresh_report.py` generates the PR body (new / withdrawn / revised rows) and exits
+1 when nothing changed, which is how the workflow decides whether to open anything. It
+also shouts if the IM1 or IM2 row moves. `tools/fetch_fireballs.py` retries with backoff
+since it now runs unattended.
+
 **CI/CD IS LIVE (2026-07-26).** Repo secret `CLOUDFLARE_API_TOKEN` is set and verified — a
 push to `main` rebuilds from `src/` and auto-deploys. The workflow still length-checks the
 token and skips (rather than failing) if it is ever cleared or mis-set.
