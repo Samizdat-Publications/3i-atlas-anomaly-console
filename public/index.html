@@ -319,7 +319,7 @@ body {
   padding: 8px 14px 6px;
   gap: 4px;
 }
-.cx-tl-track { position: relative; cursor: crosshair; }
+.cx-tl-track { position: relative; cursor: crosshair; touch-action: none; }
 #cx-tl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cx-transport { display: flex; align-items: center; gap: 10px; }
 .cx-tbtn {
@@ -383,7 +383,7 @@ body {
 }
 .cx-fb-gap { width: 12px; }
 .cx-fb-mapbox { position: relative; min-height: 0; overflow: hidden; }
-.cx-fb-mapbox canvas { position: absolute; left: 0; top: 0; cursor: crosshair; }
+.cx-fb-mapbox canvas { position: absolute; left: 0; top: 0; cursor: crosshair; touch-action: manipulation; }
 .cx-fb-readout {
   border-top: 1px solid var(--line); background: rgba(4,16,25,.75);
   padding: 8px 12px; min-height: 34px; font-size: 11px; color: var(--txt);
@@ -539,13 +539,31 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-root { grid-template-columns: 240px 1fr 260px; }
 }
 @media (max-width: 900px) {
-  .cx-root { grid-template-columns: 0 1fr 0; grid-template-rows: 46px 1fr 88px; }
+  /* Two-row top bar. On one row the mode tabs ran off the right edge and
+     FIREBALLS / ARCHIVE / help were simply unreachable on a phone. */
+  /* auto rows: the bar takes however many lines it needs on this device rather
+     than clipping at a height guessed here. ui.js publishes the measured
+     heights as --topH / --botH so the slide-over rails land between them. */
+  .cx-root { grid-template-columns: 0 1fr 0; grid-template-rows: auto 1fr auto; }
+  .cx-tl-track { min-height: 40px; }
+  .cx-top { flex-wrap: wrap; align-content: center; gap: 5px 8px; padding: 0 8px; }
+  .cx-sigil, .cx-top-spacer { display: none; }
+  /* The mode tabs get their own row, and scroll sideways if a device is
+     narrower than the five of them. */
+  .cx-tabs.cx-tabs-mode { flex-basis: 100%; margin-left: 0; overflow-x: auto; flex-wrap: nowrap; }
+  .cx-tab-long { display: none; }
+  /* The CRT toggle is pure decoration and the first thing worth the width.
+     The tour button stays — there is no T key on a phone. */
+  #cx-btn-crt { display: none; }
   .cx-railbtn { display: grid; }
+  .cx-title { font-size: 12.5px; letter-spacing: 1px; }
   .cx-title small { display: none; }
   .cx-tabs .cx-tab { padding: 5px 8px 4px; font-size: 10.5px; letter-spacing: 1px; }
   .cx-alert-pill, .cx-clockbox .cx-utc { display: none; }
+  .cx-clockbox .cx-simdate { font-size: 13px; }
   .cx-left, .cx-right {
-    display: flex; position: fixed; top: 46px; bottom: 88px; width: 282px; max-width: 84vw;
+    display: flex; position: fixed; top: var(--topH, 84px); bottom: var(--botH, 96px);
+    width: 282px; max-width: 84vw;
     z-index: 45; transform: translateX(-105%); transition: transform .25s ease;
     box-shadow: 0 0 30px rgba(0,0,0,.8);
   }
@@ -568,6 +586,25 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-sheet { width: 96%; max-height: 92%; }
   .cx-transport { gap: 6px; flex-wrap: wrap; }
   .cx-transport .cx-tdate { font-size: 9.5px; }
+}
+
+/* ============ TOUCH TARGETS ============ */
+/* Fingers need ~44px. Applies to any coarse pointer (phone, tablet, TV remote)
+   and leaves mouse layouts exactly as they were. */
+@media (pointer: coarse) {
+  .cx-tabs .cx-tab { padding: 10px 11px 9px; }
+  .cx-pod { padding: 9px 12px 8px; }
+  .cx-icobtn { width: 38px; height: 38px; font-size: 15px; }
+  .cx-tbtn { min-width: 44px; height: 36px; font-size: 13px; }
+  .cx-x { width: 36px; height: 36px; font-size: 15px; }
+  .cx-btn { padding: 11px 15px; }
+  .cx-acase { padding: 12px; }
+  .cx-row { padding: 13px 12px; }
+  .cx-tl-track { min-height: 46px; }
+  .cx-search input { padding: 9px 26px 9px 9px; font-size: 13px; }
+  .cx-search-x { top: 7px; padding: 4px 6px; font-size: 15px; }
+  .cx-fb-tag { display: inline-block; padding: 4px 0; }
+  .cx-doclist .cx-row { padding: 15px 12px; }
 }
 
 /* ============ REDUCED MOTION ============ */
@@ -3124,12 +3161,12 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
   };
 
   // ---------- hit testing ----------
-  function pick(clientX, clientY) {
+  function pick(clientX, clientY, coarse) {
     const cv = $('cx-fb-map');
     if (!cv || !map) return null;
     const r = cv.getBoundingClientRect();
     const px = clientX - r.left, py = clientY - r.top;
-    let best = null, bd = 12;
+    let best = null, bd = coarse ? 20 : 12;
     EV.forEach(function (e, i) {
       if (!passes(e) && !e[T_TAG]) return;
       if (!located(e)) return;
@@ -3281,22 +3318,29 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
   FB.wire = function () {
     const cv = $('cx-fb-map');
     if (!cv) return;
-    cv.addEventListener('mousemove', function (ev) {
-      const i = pick(ev.clientX, ev.clientY);
+    // Hover is a mouse/stylus idea — a finger has no hover state, so touch
+    // selects on tap instead and the readout shows the selection.
+    cv.addEventListener('pointermove', function (ev) {
+      if (ev.pointerType === 'touch') return;
+      const i = pick(ev.clientX, ev.clientY, false);
       if (i === F.hover) return;
       F.hover = i;
       cv.style.cursor = i == null ? 'crosshair' : 'pointer';
       renderReadout();
       FB.render();
     });
-    cv.addEventListener('mouseleave', function () {
+    cv.addEventListener('pointerleave', function () {
       if (F.hover == null) return;
       F.hover = null; renderReadout(); FB.render();
     });
-    cv.addEventListener('click', function (ev) {
-      const i = pick(ev.clientX, ev.clientY);
+    // pointerdown rather than click: fires for mouse, finger and stylus alike.
+    // Deliberately does not preventDefault, so a scroll gesture still scrolls.
+    cv.addEventListener('pointerdown', function (ev) {
+      if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+      const i = pick(ev.clientX, ev.clientY, ev.pointerType !== 'mouse');
       if (i == null) return;
       F.sel = i;
+      F.hover = null;
       CX.audio.ui();
       const e = EV[i];
       if (e[T_TAG]) {
@@ -3356,6 +3400,18 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
   const $ = function (id) { return document.getElementById(id); };
   let tlCanvas, tlDragging = false;
 
+  // The narrow-screen top bar wraps to as many rows as the device needs, so its
+  // height is not knowable from CSS. Measure it and hand it to the stylesheet,
+  // which uses it to place the slide-over rails.
+  function syncChromeVars() {
+    const top = document.querySelector('.cx-top');
+    const bot = document.querySelector('.cx-bottom');
+    const root = document.documentElement;
+    if (top) root.style.setProperty('--topH', top.offsetHeight + 'px');
+    if (bot) root.style.setProperty('--botH', bot.offsetHeight + 'px');
+  }
+  UI.syncChromeVars = syncChromeVars;
+
   // ============ BUILD ============
   UI.build = function () {
     const meta = C.meta || {};
@@ -3369,10 +3425,10 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
       '    <button class="cx-tab" data-act="era" data-era="1i" title="1I/ʻOumuamua · 2017">1I</button>',
       '    <button class="cx-tab" data-act="era" data-era="2i" title="2I/Borisov · 2019">2I</button>',
       '  </div>',
-      '  <div class="cx-tabs">',
+      '  <div class="cx-tabs cx-tabs-mode">',
       '    <button class="cx-tab cx-on" data-act="tab" data-tab="track">TRACK</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="anomalies">ANOMALIES</button>',
-      '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE 1I·2I·3I</button>',
+      '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE<span class="cx-tab-long"> 1I·2I·3I</span></button>',
       '    <button class="cx-tab" data-act="tab" data-tab="fireballs">FIREBALLS</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="archive">ARCHIVE</button>',
       '  </div>',
@@ -3458,6 +3514,9 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
     tlCanvas = $('cx-tl-canvas');
     wire();
     CX.fireballs.wire();
+    syncChromeVars();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeVars).catch(function () {});
+    setTimeout(syncChromeVars, 600);
     updateEraChrome();
     UI.renderClock();
     UI.renderTimeline();
@@ -3678,11 +3737,11 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
     const frac = Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
     CX.setT(frac * (CX.N - 1));
   }
-  function tlClick(ev) {
-    // marker proximity jump
+  function tlClick(ev, tol) {
+    // marker proximity jump — a fingertip needs a wider catch than a cursor
     const r = $('cx-tl-track').getBoundingClientRect();
     const evs = CX.allEvents();
-    let best = null, bd = 6;
+    let best = null, bd = tol || 6;
     evs.forEach(function (e) {
       const x = (e.t / (CX.N - 1)) * r.width + r.left;
       const d = Math.abs(x - ev.clientX);
@@ -4268,13 +4327,31 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
     });
     window.addEventListener('hashchange', function () { if (!hashLock) applyHash(); });
 
+    // Pointer events, not mouse events: a finger drag never emits mousemove, so
+    // the old handlers were dead on touch. Pointer capture keeps the drag alive
+    // when the finger slides outside the track.
     const track = $('cx-tl-track');
-    track.addEventListener('mousedown', function (ev) {
-      if (tlClick(ev)) return;
-      tlDragging = true; tlScrub(ev);
+    let tlPointer = null;
+    track.addEventListener('pointerdown', function (ev) {
+      if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+      if (tlClick(ev, ev.pointerType === 'mouse' ? 6 : 15)) return;
+      tlPointer = ev.pointerId;
+      tlDragging = true;
+      try { track.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
+      tlScrub(ev);
+      ev.preventDefault();
     });
-    window.addEventListener('mousemove', function (ev) { if (tlDragging) tlScrub(ev); });
-    window.addEventListener('mouseup', function () { tlDragging = false; });
+    track.addEventListener('pointermove', function (ev) {
+      if (!tlDragging || ev.pointerId !== tlPointer) return;
+      tlScrub(ev);
+      ev.preventDefault();
+    });
+    function tlRelease(ev) {
+      if (ev && tlPointer != null && ev.pointerId !== tlPointer) return;
+      tlDragging = false; tlPointer = null;
+    }
+    track.addEventListener('pointerup', tlRelease);
+    track.addEventListener('pointercancel', tlRelease);
 
     window.addEventListener('keydown', function (ev) {
       if (!S.booted) return;
@@ -4302,6 +4379,7 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
     });
 
     window.addEventListener('resize', throttle(function () {
+      syncChromeVars();
       UI.renderTimeline(); CX.charts.renderRail();
       if (S.mode === 'fireballs') CX.fireballs.refresh();
     }, 200));
@@ -4342,9 +4420,9 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
     setH(boot, [
       '<div class="cx-boot-inner">',
       '  <div class="cx-boot-log" id="cx-boot-log"></div>',
-      '  <div class="cx-boot-auth" id="cx-boot-auth">▮ PRESS ANY KEY TO AUTHENTICATE ▮</div>',
+      '  <div class="cx-boot-auth" id="cx-boot-auth">▮ TAP OR PRESS ANY KEY TO AUTHENTICATE ▮</div>',
       '</div>',
-      '<div class="cx-boot-skip">ESC — SKIP SEQUENCE</div>',
+      '<div class="cx-boot-skip" id="cx-boot-skip">TAP HERE OR PRESS ESC — SKIP SEQUENCE</div>',
     ].join(''));
     document.body.appendChild(boot);
     const log = $('cx-boot-log');
@@ -4404,13 +4482,16 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
         setTimeout(next, ln[1] === '&nbsp;' ? 90 : 150 + Math.random() * 160);
       }
     }
-    window.addEventListener('keydown', function skip(ev) {
-      if (ev.key === 'Escape' && !done) {
-        while (i < lines.length) { const ln = lines[i++]; log.appendChild(el('div', ln[0] === 'bar' ? '' : ln[0], ln[1] + (ln[0] === 'bar' ? ' [OK]' : ''))); }
-        finish(true);
-        window.removeEventListener('keydown', skip);
-      }
-    });
+    function skipAll() {
+      if (done) return;
+      while (i < lines.length) { const ln = lines[i++]; log.appendChild(el('div', ln[0] === 'bar' ? '' : ln[0], ln[1] + (ln[0] === 'bar' ? ' [OK]' : ''))); }
+      finish(true);
+      window.removeEventListener('keydown', skip);
+    }
+    function skip(ev) { if (ev.key === 'Escape') skipAll(); }
+    window.addEventListener('keydown', skip);
+    const skipBtn = $('cx-boot-skip');
+    if (skipBtn) skipBtn.addEventListener('click', skipAll);
     next();
   };
 })();
@@ -4422,7 +4503,7 @@ window.ATLAS_FIREBALLS={"meta":{"source":"NASA/JPL CNEOS Fireball Data API 1.2",
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.5';
+  window.APP_VERSION = '2.6';
 
   function start() {
     const CX = window.CX, S = CX.S;

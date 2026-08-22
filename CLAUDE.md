@@ -6,7 +6,17 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-22):** v2.5 built + browser-verified locally (Playwright against the
+**CURRENT STATE (2026-08-22):** v2.6 shipped. **v2.5 (fireball register) merged to main and
+DEPLOYED** — the live URL now serves it. v2.6 adds touch support: the timeline scrubber and the
+fireball map use Pointer Events (a finger never emits `mousemove`, so both were dead on a phone);
+`.cx-root` on narrow screens uses `auto 1fr auto` rows and `ui.js` publishes measured
+`--topH`/`--botH` so the slide-over rails follow a top bar that wraps to as many rows as the
+device needs — it used to clip FIREBALLS/ARCHIVE/help off the right edge entirely. Touch targets
+come from `@media (pointer: coarse)`. Verified under touch emulation at 412x940 and 884x1104.
+Working through a four-phase plan Stewart approved: 1 touch (done), 2 scheduled data-refresh
+workflow, 3 close the three fact-check gaps, 4 bring 3I/ATLAS content current to Aug 2026.
+
+**Earlier (2026-08-22):** v2.5 built + browser-verified locally (Playwright against the
 built `public/` bundle: 43 cases, 1,069 fireball rows, deep links, mobile layout, zero console
 errors). Adds the **FIREBALLS** mode — the CNEOS atmospheric-impact map — plus case files F-01
 (IM1) and F-02 (IM2). New pipeline `tools/fetch_fireballs.py` writes `data/fireballs.json` +

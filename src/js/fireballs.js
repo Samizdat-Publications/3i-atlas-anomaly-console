@@ -207,12 +207,12 @@
   };
 
   // ---------- hit testing ----------
-  function pick(clientX, clientY) {
+  function pick(clientX, clientY, coarse) {
     const cv = $('cx-fb-map');
     if (!cv || !map) return null;
     const r = cv.getBoundingClientRect();
     const px = clientX - r.left, py = clientY - r.top;
-    let best = null, bd = 12;
+    let best = null, bd = coarse ? 20 : 12;
     EV.forEach(function (e, i) {
       if (!passes(e) && !e[T_TAG]) return;
       if (!located(e)) return;
@@ -364,22 +364,29 @@
   FB.wire = function () {
     const cv = $('cx-fb-map');
     if (!cv) return;
-    cv.addEventListener('mousemove', function (ev) {
-      const i = pick(ev.clientX, ev.clientY);
+    // Hover is a mouse/stylus idea — a finger has no hover state, so touch
+    // selects on tap instead and the readout shows the selection.
+    cv.addEventListener('pointermove', function (ev) {
+      if (ev.pointerType === 'touch') return;
+      const i = pick(ev.clientX, ev.clientY, false);
       if (i === F.hover) return;
       F.hover = i;
       cv.style.cursor = i == null ? 'crosshair' : 'pointer';
       renderReadout();
       FB.render();
     });
-    cv.addEventListener('mouseleave', function () {
+    cv.addEventListener('pointerleave', function () {
       if (F.hover == null) return;
       F.hover = null; renderReadout(); FB.render();
     });
-    cv.addEventListener('click', function (ev) {
-      const i = pick(ev.clientX, ev.clientY);
+    // pointerdown rather than click: fires for mouse, finger and stylus alike.
+    // Deliberately does not preventDefault, so a scroll gesture still scrolls.
+    cv.addEventListener('pointerdown', function (ev) {
+      if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+      const i = pick(ev.clientX, ev.clientY, ev.pointerType !== 'mouse');
       if (i == null) return;
       F.sel = i;
+      F.hover = null;
       CX.audio.ui();
       const e = EV[i];
       if (e[T_TAG]) {

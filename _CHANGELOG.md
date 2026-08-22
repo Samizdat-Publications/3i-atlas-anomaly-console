@@ -1,5 +1,30 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.6 — 2026-08-22 (touch)
+The console was desktop-only in a way that was invisible from a desktop. Two of its
+primary interactions listened for mouse events, and a finger never emits those.
+- **Timeline scrubbing works on touch.** The scrubber moved from `mousedown`/`mousemove`/
+  `mouseup` to Pointer Events with `setPointerCapture`, so a drag survives the finger
+  sliding off the track. Marker tapping gets a 15px catch radius on touch versus 6px for a
+  cursor. `touch-action: none` on the track stops the browser claiming the gesture.
+- **The fireball map responds to taps.** `pointerdown` selects (mouse, finger or stylus);
+  hover stays a mouse-and-stylus behaviour since a finger has none. Touch hit radius 20px.
+  The handler deliberately does not `preventDefault`, so scrolling the page still works.
+- **The narrow-screen top bar was clipping its own controls** — FIREBALLS, ARCHIVE, help,
+  audio and the rail toggles all sat past the right edge and were simply unreachable on a
+  phone. The bar now wraps, the five mode tabs get their own scrollable row, and the row
+  count is whatever the device needs: `.cx-root` uses `auto 1fr auto` and ui.js publishes
+  the measured heights as `--topH` / `--botH` so the slide-over rails land between them.
+- **Touch targets under `@media (pointer: coarse)`**: tabs, pods, transport buttons, list
+  rows and the close button all reach ~44px. Mouse layouts are untouched.
+- The boot gate says "TAP OR PRESS ANY KEY" and its skip line is now tappable — it read
+  "PRESS ESC" on a device with no ESC key.
+- `COMPARE 1I·2I·3I` shortens to `COMPARE` on narrow screens; the CRT toggle is dropped
+  there (decoration, and the width is worth more).
+- Verified in Chromium under touch emulation at 412×940 and 884×1104 (Fold cover and inner):
+  drag, tap, every control on-screen, no target under 32px, no console errors — plus a
+  desktop pass confirming mouse drag, drag release and marker clicks are unchanged.
+
 ## v2.5 — 2026-08-22 (the fireball register)
 - **New FIREBALLS mode** (tab, or key `4` — ARCHIVE moves to `5`): a world map of the NASA/JPL
   **CNEOS fireball catalog**. 1,069 rows since 1988-04-15, 883 with a reported position, plotted

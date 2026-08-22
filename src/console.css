@@ -300,7 +300,7 @@ body {
   padding: 8px 14px 6px;
   gap: 4px;
 }
-.cx-tl-track { position: relative; cursor: crosshair; }
+.cx-tl-track { position: relative; cursor: crosshair; touch-action: none; }
 #cx-tl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cx-transport { display: flex; align-items: center; gap: 10px; }
 .cx-tbtn {
@@ -364,7 +364,7 @@ body {
 }
 .cx-fb-gap { width: 12px; }
 .cx-fb-mapbox { position: relative; min-height: 0; overflow: hidden; }
-.cx-fb-mapbox canvas { position: absolute; left: 0; top: 0; cursor: crosshair; }
+.cx-fb-mapbox canvas { position: absolute; left: 0; top: 0; cursor: crosshair; touch-action: manipulation; }
 .cx-fb-readout {
   border-top: 1px solid var(--line); background: rgba(4,16,25,.75);
   padding: 8px 12px; min-height: 34px; font-size: 11px; color: var(--txt);
@@ -520,13 +520,31 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-root { grid-template-columns: 240px 1fr 260px; }
 }
 @media (max-width: 900px) {
-  .cx-root { grid-template-columns: 0 1fr 0; grid-template-rows: 46px 1fr 88px; }
+  /* Two-row top bar. On one row the mode tabs ran off the right edge and
+     FIREBALLS / ARCHIVE / help were simply unreachable on a phone. */
+  /* auto rows: the bar takes however many lines it needs on this device rather
+     than clipping at a height guessed here. ui.js publishes the measured
+     heights as --topH / --botH so the slide-over rails land between them. */
+  .cx-root { grid-template-columns: 0 1fr 0; grid-template-rows: auto 1fr auto; }
+  .cx-tl-track { min-height: 40px; }
+  .cx-top { flex-wrap: wrap; align-content: center; gap: 5px 8px; padding: 0 8px; }
+  .cx-sigil, .cx-top-spacer { display: none; }
+  /* The mode tabs get their own row, and scroll sideways if a device is
+     narrower than the five of them. */
+  .cx-tabs.cx-tabs-mode { flex-basis: 100%; margin-left: 0; overflow-x: auto; flex-wrap: nowrap; }
+  .cx-tab-long { display: none; }
+  /* The CRT toggle is pure decoration and the first thing worth the width.
+     The tour button stays — there is no T key on a phone. */
+  #cx-btn-crt { display: none; }
   .cx-railbtn { display: grid; }
+  .cx-title { font-size: 12.5px; letter-spacing: 1px; }
   .cx-title small { display: none; }
   .cx-tabs .cx-tab { padding: 5px 8px 4px; font-size: 10.5px; letter-spacing: 1px; }
   .cx-alert-pill, .cx-clockbox .cx-utc { display: none; }
+  .cx-clockbox .cx-simdate { font-size: 13px; }
   .cx-left, .cx-right {
-    display: flex; position: fixed; top: 46px; bottom: 88px; width: 282px; max-width: 84vw;
+    display: flex; position: fixed; top: var(--topH, 84px); bottom: var(--botH, 96px);
+    width: 282px; max-width: 84vw;
     z-index: 45; transform: translateX(-105%); transition: transform .25s ease;
     box-shadow: 0 0 30px rgba(0,0,0,.8);
   }
@@ -549,6 +567,25 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-sheet { width: 96%; max-height: 92%; }
   .cx-transport { gap: 6px; flex-wrap: wrap; }
   .cx-transport .cx-tdate { font-size: 9.5px; }
+}
+
+/* ============ TOUCH TARGETS ============ */
+/* Fingers need ~44px. Applies to any coarse pointer (phone, tablet, TV remote)
+   and leaves mouse layouts exactly as they were. */
+@media (pointer: coarse) {
+  .cx-tabs .cx-tab { padding: 10px 11px 9px; }
+  .cx-pod { padding: 9px 12px 8px; }
+  .cx-icobtn { width: 38px; height: 38px; font-size: 15px; }
+  .cx-tbtn { min-width: 44px; height: 36px; font-size: 13px; }
+  .cx-x { width: 36px; height: 36px; font-size: 15px; }
+  .cx-btn { padding: 11px 15px; }
+  .cx-acase { padding: 12px; }
+  .cx-row { padding: 13px 12px; }
+  .cx-tl-track { min-height: 46px; }
+  .cx-search input { padding: 9px 26px 9px 9px; font-size: 13px; }
+  .cx-search-x { top: 7px; padding: 4px 6px; font-size: 15px; }
+  .cx-fb-tag { display: inline-block; padding: 4px 0; }
+  .cx-doclist .cx-row { padding: 15px 12px; }
 }
 
 /* ============ REDUCED MOTION ============ */
