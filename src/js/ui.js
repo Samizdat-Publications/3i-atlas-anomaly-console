@@ -32,6 +32,18 @@
   const $ = function (id) { return document.getElementById(id); };
   let tlCanvas, tlDragging = false;
 
+  // The narrow-screen top bar wraps to as many rows as the device needs, so its
+  // height is not knowable from CSS. Measure it and hand it to the stylesheet,
+  // which uses it to place the slide-over rails.
+  function syncChromeVars() {
+    const top = document.querySelector('.cx-top');
+    const bot = document.querySelector('.cx-bottom');
+    const root = document.documentElement;
+    if (top) root.style.setProperty('--topH', top.offsetHeight + 'px');
+    if (bot) root.style.setProperty('--botH', bot.offsetHeight + 'px');
+  }
+  UI.syncChromeVars = syncChromeVars;
+
   // ============ BUILD ============
   UI.build = function () {
     const meta = C.meta || {};
@@ -45,10 +57,10 @@
       '    <button class="cx-tab" data-act="era" data-era="1i" title="1I/ʻOumuamua · 2017">1I</button>',
       '    <button class="cx-tab" data-act="era" data-era="2i" title="2I/Borisov · 2019">2I</button>',
       '  </div>',
-      '  <div class="cx-tabs">',
+      '  <div class="cx-tabs cx-tabs-mode">',
       '    <button class="cx-tab cx-on" data-act="tab" data-tab="track">TRACK</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="anomalies">ANOMALIES</button>',
-      '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE 1I·2I·3I</button>',
+      '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE<span class="cx-tab-long"> 1I·2I·3I</span></button>',
       '    <button class="cx-tab" data-act="tab" data-tab="fireballs">FIREBALLS</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="archive">ARCHIVE</button>',
       '  </div>',
@@ -134,6 +146,9 @@
     tlCanvas = $('cx-tl-canvas');
     wire();
     CX.fireballs.wire();
+    syncChromeVars();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeVars).catch(function () {});
+    setTimeout(syncChromeVars, 600);
     updateEraChrome();
     UI.renderClock();
     UI.renderTimeline();
@@ -354,11 +369,11 @@
     const frac = Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
     CX.setT(frac * (CX.N - 1));
   }
-  function tlClick(ev) {
-    // marker proximity jump
+  function tlClick(ev, tol) {
+    // marker proximity jump — a fingertip needs a wider catch than a cursor
     const r = $('cx-tl-track').getBoundingClientRect();
     const evs = CX.allEvents();
-    let best = null, bd = 6;
+    let best = null, bd = tol || 6;
     evs.forEach(function (e) {
       const x = (e.t / (CX.N - 1)) * r.width + r.left;
       const d = Math.abs(x - ev.clientX);
@@ -944,13 +959,31 @@
     });
     window.addEventListener('hashchange', function () { if (!hashLock) applyHash(); });
 
+    // Pointer events, not mouse events: a finger drag never emits mousemove, so
+    // the old handlers were dead on touch. Pointer capture keeps the drag alive
+    // when the finger slides outside the track.
     const track = $('cx-tl-track');
-    track.addEventListener('mousedown', function (ev) {
-      if (tlClick(ev)) return;
-      tlDragging = true; tlScrub(ev);
+    let tlPointer = null;
+    track.addEventListener('pointerdown', function (ev) {
+      if (ev.pointerType === 'mouse' && ev.button !== 0) return;
+      if (tlClick(ev, ev.pointerType === 'mouse' ? 6 : 15)) return;
+      tlPointer = ev.pointerId;
+      tlDragging = true;
+      try { track.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
+      tlScrub(ev);
+      ev.preventDefault();
     });
-    window.addEventListener('mousemove', function (ev) { if (tlDragging) tlScrub(ev); });
-    window.addEventListener('mouseup', function () { tlDragging = false; });
+    track.addEventListener('pointermove', function (ev) {
+      if (!tlDragging || ev.pointerId !== tlPointer) return;
+      tlScrub(ev);
+      ev.preventDefault();
+    });
+    function tlRelease(ev) {
+      if (ev && tlPointer != null && ev.pointerId !== tlPointer) return;
+      tlDragging = false; tlPointer = null;
+    }
+    track.addEventListener('pointerup', tlRelease);
+    track.addEventListener('pointercancel', tlRelease);
 
     window.addEventListener('keydown', function (ev) {
       if (!S.booted) return;
@@ -978,6 +1011,7 @@
     });
 
     window.addEventListener('resize', throttle(function () {
+      syncChromeVars();
       UI.renderTimeline(); CX.charts.renderRail();
       if (S.mode === 'fireballs') CX.fireballs.refresh();
     }, 200));
@@ -1018,9 +1052,9 @@
     setH(boot, [
       '<div class="cx-boot-inner">',
       '  <div class="cx-boot-log" id="cx-boot-log"></div>',
-      '  <div class="cx-boot-auth" id="cx-boot-auth">▮ PRESS ANY KEY TO AUTHENTICATE ▮</div>',
+      '  <div class="cx-boot-auth" id="cx-boot-auth">▮ TAP OR PRESS ANY KEY TO AUTHENTICATE ▮</div>',
       '</div>',
-      '<div class="cx-boot-skip">ESC — SKIP SEQUENCE</div>',
+      '<div class="cx-boot-skip" id="cx-boot-skip">TAP HERE OR PRESS ESC — SKIP SEQUENCE</div>',
     ].join(''));
     document.body.appendChild(boot);
     const log = $('cx-boot-log');
@@ -1080,13 +1114,16 @@
         setTimeout(next, ln[1] === '&nbsp;' ? 90 : 150 + Math.random() * 160);
       }
     }
-    window.addEventListener('keydown', function skip(ev) {
-      if (ev.key === 'Escape' && !done) {
-        while (i < lines.length) { const ln = lines[i++]; log.appendChild(el('div', ln[0] === 'bar' ? '' : ln[0], ln[1] + (ln[0] === 'bar' ? ' [OK]' : ''))); }
-        finish(true);
-        window.removeEventListener('keydown', skip);
-      }
-    });
+    function skipAll() {
+      if (done) return;
+      while (i < lines.length) { const ln = lines[i++]; log.appendChild(el('div', ln[0] === 'bar' ? '' : ln[0], ln[1] + (ln[0] === 'bar' ? ' [OK]' : ''))); }
+      finish(true);
+      window.removeEventListener('keydown', skip);
+    }
+    function skip(ev) { if (ev.key === 'Escape') skipAll(); }
+    window.addEventListener('keydown', skip);
+    const skipBtn = $('cx-boot-skip');
+    if (skipBtn) skipBtn.addEventListener('click', skipAll);
     next();
   };
 })();

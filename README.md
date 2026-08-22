@@ -111,6 +111,10 @@ Press <kbd>?</kbd> at any time for the full control legend.
 | <kbd>Space</kbd> | Play / pause the replay |
 | <kbd>←</kbd> <kbd>→</kbd> | Step a day (with <kbd>Shift</kbd>, a week) |
 | <kbd>1</kbd>…<kbd>5</kbd> | Track / Anomalies / Compare / Fireballs / Archive |
+
+On a phone or tablet everything is touch-driven: drag the timeline to scrub, tap a marker to
+jump to it, tap a dot on the impact map to read its row. The side rails become slide-over
+panels via the ◧ / ◨ buttons, and the tour starts from the ▶ button.
 | <kbd>N</kbd> | Jump to today's real position |
 | <kbd>M</kbd> <kbd>L</kbd> <kbd>G</kbd> | Mute · labels · grid |
 | <kbd>?</kbd> | Controls and briefing |
