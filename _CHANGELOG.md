@@ -1,5 +1,34 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.5 — 2026-08-22 (the fireball register)
+- **New FIREBALLS mode** (tab, or key `4` — ARCHIVE moves to `5`): a world map of the NASA/JPL
+  **CNEOS fireball catalog**. 1,069 rows since 1988-04-15, 883 with a reported position, plotted
+  equirectangular with circle area scaling to impact energy — Chelyabinsk (441 kt) down to
+  sub-kiloton flashes. Filter by energy tier or decade, restrict to rows that report a speed,
+  hover any dot for its full row, click for a selection reticle.
+- **Two new case files, F-01 and F-02**, for Loeb's interstellar-meteor candidates **IM1**
+  (CNEOS 2014-01-08, off Manus Island) and **IM2** (2017-03-09, west of Portugal) — same
+  both-sides format as the other 41: Siraj & Loeb's unbound reconstruction, the USSC memo and
+  the material-strength argument, against Brown & Borovička's 10–15 km/s velocity uncertainties,
+  Hajduková et al. on the missing error bars, the coal-ash reading of the spherules, the
+  Fernando et al. seismometer/truck result and Loeb's reply, and Socas-Navarro's 94.1%.
+  Fact-checked against primary sources on 2026-08-22.
+- **Real-data dossier chart** (`speed-dist`): the catalog's reported speeds binned, IM1 and IM2
+  marked, with the USG velocity-error band drawn behind them — the claim and its rebuttal in one
+  picture. Not a stylized illustration; it plots the shipped rows.
+- **New pipeline** `tools/fetch_fireballs.py` → `data/fireballs.json`, `data/world-land.json`,
+  baked to `src/data-fireballs.js` (94 KB). Coastlines are Natural Earth 1:110m land (public
+  domain) simplified to ~2,200 vertices. The IM1/IM2 rows are tagged **by date**, never
+  transcribed, so a CNEOS revision propagates on the next pull.
+- `data/fireball-cases.json` is the hand-authored case source; `tools/bake_content.py` merges it
+  in under object key `fb`. `src/data-content.js` stays generated.
+- Cross-object search now also indexes `loeb_quote`, so searching *interstellar meteors* finds
+  F-02 (the phrase lives in the quoted abstract).
+- Deep links extend to the register: `#fb/F-01`, `#fb/F-02`, `#3i/fireballs`. The hash prefix now
+  follows the open case's object rather than the active era.
+- Guided tour gains a ninth beat on the impact map; help panel, boot sequence, README and the
+  landing page updated. Offline `_LATEST` build verified at **zero external references**.
+
 ## v2.4 — 2026-07-26 (documentation + landing page)
 - **Project landing page** at `/about` (`src/about.html` → `public/about.html` via build.py,
   font inlined, `__SITE__` resolved for absolute OG tags). Hero, stat strip, the premise,

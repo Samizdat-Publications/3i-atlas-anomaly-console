@@ -346,7 +346,41 @@ body {
    so they can't bleed through the panels. */
 .cx-root[data-mode="archive"] .cx-campods,
 .cx-root[data-mode="archive"] .cx-viewopts,
-.cx-root[data-mode="archive"] .cx-crosshair { display: none; }
+.cx-root[data-mode="archive"] .cx-crosshair,
+.cx-root[data-mode="fireballs"] .cx-campods,
+.cx-root[data-mode="fireballs"] .cx-viewopts,
+.cx-root[data-mode="fireballs"] .cx-crosshair { display: none; }
+
+/* ============ FIREBALLS — CNEOS atmospheric-impact map ============ */
+.cx-fbwrap {
+  position: absolute; inset: 0; z-index: 5;
+  display: grid; grid-template-columns: 1fr 296px;
+  background: var(--bg0);
+}
+.cx-fb-main { display: grid; grid-template-rows: auto 1fr auto; min-width: 0; min-height: 0; }
+.cx-fb-toolbar {
+  display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
+  padding: 8px 10px; border-bottom: 1px solid var(--line); background: rgba(4,16,25,.6);
+}
+.cx-fb-gap { width: 12px; }
+.cx-fb-mapbox { position: relative; min-height: 0; overflow: hidden; }
+.cx-fb-mapbox canvas { position: absolute; left: 0; top: 0; cursor: crosshair; }
+.cx-fb-readout {
+  border-top: 1px solid var(--line); background: rgba(4,16,25,.75);
+  padding: 8px 12px; min-height: 34px; font-size: 11px; color: var(--txt);
+  letter-spacing: .5px; line-height: 1.7;
+}
+.cx-fb-readout b { color: var(--cyan); font-weight: 400; }
+.cx-fb-sep { color: var(--txt-faint); margin: 0 9px; }
+.cx-fb-hint { color: var(--txt-faint); letter-spacing: 1.5px; }
+.cx-fb-tag {
+  margin-left: 12px; color: var(--amber); cursor: pointer;
+  border-bottom: 1px dotted var(--amber-dim); letter-spacing: 1px;
+}
+.cx-fb-tag:hover { text-shadow: var(--glow-a); }
+.cx-fb-side { border-left: 1px solid var(--line); overflow-y: auto; background: rgba(4,16,25,.6); }
+.cx-fb-note { color: var(--txt-faint); font-size: 9.5px; line-height: 1.55; margin-top: 7px; padding: 0 12px; }
+.cx-panel > .cx-fb-note { padding: 0; }
 .cx-doc {
   max-width: 640px; margin: 0 auto 40px; padding: 34px 40px 44px;
   background: #dfd9c8; color: #1d1a14; font-family: var(--mono);
@@ -415,6 +449,10 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   color: var(--txt-faint); font-size: 8.5px; letter-spacing: .5px; opacity: .7;
   pointer-events: none; text-align: right; line-height: 1.4;
 }
+
+/* In FIREBALLS the bottom of the centre pane is the hover readout and the right
+   296px is the stats rail, so the disclaimer moves up and clear of both. */
+.cx-root[data-mode="fireballs"] .cx-disclaimer { bottom: 46px; right: 306px; max-width: 46%; }
 
 /* reveal animation for panels */
 @keyframes cx-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -497,6 +535,13 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-campods { top: auto; bottom: 8px; left: 8px; max-width: 62%; }
   .cx-viewopts { top: 8px; right: 8px; }
   .cx-disclaimer { display: none; }
+  /* narrow: one scrolling column, map given an explicit height so the canvas
+     still has a box to measure */
+  .cx-fbwrap { display: block; overflow-y: auto; }
+  .cx-fb-main { display: block; }
+  .cx-fb-mapbox { height: 54vw; min-height: 190px; }
+  .cx-fb-side { border-left: none; border-top: 1px solid var(--line); overflow: visible; }
+  .cx-fb-toolbar { padding: 6px; }
   .cx-docwrap { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
   .cx-doclist { max-height: 34%; border-right: none; border-bottom: 1px solid var(--line); }
   .cx-docview { padding: 14px 10px; }

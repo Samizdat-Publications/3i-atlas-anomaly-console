@@ -78,6 +78,16 @@ def main():
     anomalies += [map_anomaly(a, "1i", prov1) for a in (a1 or prov.get("anomalies1i", []))]
     anomalies += [map_anomaly(a, "2i", prov2) for a in (a2 or prov.get("anomalies2i", []))]
 
+    # CNEOS fireball register (object 'fb') — hand-authored, fact-checked case files
+    # for Loeb's two interstellar-meteor candidates. Not era-scoped: they hang off
+    # the fireball map rather than off an ephemeris.
+    fb_path = os.path.join(ROOT, "data", "fireball-cases.json")
+    fb_cases = []
+    if os.path.exists(fb_path):
+        with open(fb_path, encoding="utf-8") as f:
+            fb_cases = json.load(f).get("cases", [])
+    anomalies += [map_anomaly(a, "fb") for a in fb_cases]
+
     # --- timeline ---
     timeline = map_events((d3.get("timeline") or {}).get("events", []), "3i")
     timeline += map_events((diso.get("timeline1i") or {}).get("events", []), "1i")
@@ -92,6 +102,7 @@ def main():
     n3 = sum(1 for a in anomalies if a["object"] == "3i")
     n1 = sum(1 for a in anomalies if a["object"] == "1i")
     n2 = sum(1 for a in anomalies if a["object"] == "2i")
+    nfb = sum(1 for a in anomalies if a["object"] == "fb")
 
     tv3 = verdict_of(d3.get("timelineVerify"))
     cv3 = verdict_of(d3.get("comparisonVerify"))
@@ -133,6 +144,13 @@ def main():
                 "datasetVerify": ("TIMELINE DATASET: " + tv2 + (" · ITEMS INDIVIDUALLY FACT-CHECKED" if not prov2 else " · ITEMS PROVISIONAL"))
                                  if tv2 else ("TIMELINE: SINGLE-SOURCE RESEARCH PASS · ITEMS " + ("PROVISIONAL" if prov2 else "FACT-CHECKED")),
             },
+            "fb": {
+                "designation": "CNEOS FIREBALL REGISTER · ATMOSPHERIC IMPACTS",
+                "loebScale": None, "pillNote": "IMPACT CATALOG",
+                "loebScaleHistory": "NO LOEB-SCALE RANK — THE SCALE IS APPLIED TO TELESCOPIC OBJECTS, NOT TO CATALOG ROWS. TWO CLAIMED INTERSTELLAR METEORS HERE, NEITHER CONFIRMED OUTSIDE THE CATALOG THAT REPORTED THEM.",
+                "anomalyCountNote": str(nfb) + " CANDIDATE CASES ON FILE — IM1 (2014-01-08) AND IM2 (2017-03-09)",
+                "datasetVerify": "CNEOS ROWS LIVE FROM THE JPL FIREBALL API · CASE FILES INDIVIDUALLY FACT-CHECKED",
+            },
         },
     }
 
@@ -144,9 +162,9 @@ def main():
         f.write("window.ATLAS_CONTENT = ")
         json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
-    print("Wrote %s (%d KB): 3i=%d 1i=%d%s 2i=%d%s anomalies, %d events, %d quotes, %d ISO profiles"
+    print("Wrote %s (%d KB): 3i=%d 1i=%d%s 2i=%d%s fb=%d anomalies, %d events, %d quotes, %d ISO profiles"
           % (out, os.path.getsize(out) // 1024, n3,
-             n1, "(prov)" if prov1 else "", n2, "(prov)" if prov2 else "",
+             n1, "(prov)" if prov1 else "", n2, "(prov)" if prov2 else "", nfb,
              len(timeline), len(quotes), len(compare)))
 
 

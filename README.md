@@ -39,6 +39,7 @@ actual geometry and judge whether the story holds up.
 | **3I/ATLAS** (C/2025 N1) | 2025–26 | 25 | The active case — CO₂-rich, with a long anomaly register |
 | **1I/ʻOumuamua** | 2017–18 | 11 | The original — inert, elongated, accelerating with no tail |
 | **2I/Borisov** (C/2019 Q4) | 2019–20 | 5 | The control — an ordinary comet from another star |
+| **CNEOS fireballs** | 1988– | 2 | The impact catalog — two rows argued to be interstellar meteors |
 
 ---
 
@@ -53,11 +54,26 @@ whether the entry survived fact-checking unchanged, and references link out.
 
 ![A case file](public/shots/case.png)
 
-### Search across all three objects at once
+### Fireballs — 1,069 atmospheric impacts, and two disputed rows
 
-The case log searches all 41 files, not just the object you're viewing. Searching **`nickel`**
+Every bolide US Government sensors have logged since 1988, plotted where it burned: circle area
+scales with impact energy, from sub-kiloton flashes up to **Chelyabinsk at 441 kt**. Filter by
+energy or decade, hover any dot for its full CNEOS row, and find the two events Avi Loeb argues
+arrived from outside the solar system — **IM1** (2014-01-08, off Papua New Guinea) and **IM2**
+(2017-03-09, west of Portugal), each under a reticle with its own case file.
+
+The speed histogram is the argument in one picture: the catalog's reported speeds, IM1 and IM2
+marked, and shaded behind them the 10–15 km/s velocity uncertainty Brown & Borovička measured for
+these sensors — enough, if real, to move IM1's orbit from unbound to ordinary.
+
+![The CNEOS fireball map](public/shots/fireballs.png)
+
+### Search across all four registers at once
+
+The case log searches all 43 files, not just the object you're viewing. Searching **`nickel`**
 returns 3I/ATLAS's anomaly *and* 2I/Borisov's rebuttal — the same measurement, argued two ways,
-side by side. Foreign results are badged by object; clicking one switches target and opens it.
+side by side. Foreign results are badged by object; clicking one switches target and opens it — including the
+fireball cases, which live in their own register rather than an era.
 
 ![Cross-object search](public/shots/search.png)
 
@@ -83,32 +99,35 @@ side by side. Foreign results are badged by object; clicking one switches target
 
 **Offline:** open `public/index.html` — or the identical `_LATEST - 3I-ATLAS Anomaly Console.html` —
 in any modern browser. No server, no install, no network. Everything (three.js, the font, the
-ephemeris, all 41 case files) is inlined into one ~1.3 MB file with **zero external references**.
+ephemeris, the fireball catalog, all 43 case files) is inlined into one ~1.4 MB file with
+**zero external references**.
 
 Press any key at the boot screen to authenticate; that gesture also unlocks the audio.
 Press <kbd>?</kbd> at any time for the full control legend.
 
 | Key | Action |
 |---|---|
-| <kbd>T</kbd> | **Guided tour** — 8 narrated beats across all three objects, ~90s |
+| <kbd>T</kbd> | **Guided tour** — 9 narrated beats across all three objects and the impact map, ~100s |
 | <kbd>Space</kbd> | Play / pause the replay |
 | <kbd>←</kbd> <kbd>→</kbd> | Step a day (with <kbd>Shift</kbd>, a week) |
-| <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> | Track / Anomalies / Compare / Archive |
+| <kbd>1</kbd>…<kbd>5</kbd> | Track / Anomalies / Compare / Fireballs / Archive |
 | <kbd>N</kbd> | Jump to today's real position |
 | <kbd>M</kbd> <kbd>L</kbd> <kbd>G</kbd> | Mute · labels · grid |
 | <kbd>?</kbd> | Controls and briefing |
 
 **Try:** the guided tour if you're new; searching `nickel`; the **CHASE** camera around
 perihelion; case **A-05** → *Visualize in tracker* to watch the tail point the wrong way;
-**FROM MARS** on 2025-10-03; and the redaction bars in **ARCHIVE**.
+**FROM MARS** on 2025-10-03; **FIREBALLS** → *◎ IM1* to put the disputed 2014 bolide under a
+reticle; and the redaction bars in **ARCHIVE**.
 
 ### Linking to a specific case
 
-The URL hash is `#<object>[/<case-id>|/<mode>]`, so any of the 41 case files is directly linkable:
+The URL hash is `#<object>[/<case-id>|/<mode>]`, so any of the 43 case files is directly linkable:
 
 - [`#3i/A-05`](https://3i-atlas-anomaly-console.pages.dev/#3i/A-05) — the sunward anti-tail
 - [`#1i/O-06`](https://3i-atlas-anomaly-console.pages.dev/#1i/O-06) — ʻOumuamua's non-gravitational acceleration
 - [`#2i`](https://3i-atlas-anomaly-console.pages.dev/#2i) — the Borisov control case
+- [`#fb/F-01`](https://3i-atlas-anomaly-console.pages.dev/#fb/F-01) — IM1, the 2014 bolide claimed as an interstellar meteor
 - [`#3i/compare`](https://3i-atlas-anomaly-console.pages.dev/#3i/compare) — all three trajectories
 
 Every dossier has a **⧉ COPY LINK** button.
@@ -124,6 +143,14 @@ NASA/JPL **Horizons** system in heliocentric ecliptic J2000 — a separate era f
 transit window. Close approaches are computed from those vectors and match published values:
 3I/ATLAS passes Mars at 0.194 AU on 2025-10-03, reaches perihelion at 1.357 AU on 2025-10-29,
 and is closest to Earth at 1.798 AU on 2025-12-19.
+
+**Fireballs** are the live **CNEOS Fireball Data API** table — every atmospheric impact event US
+Government sensors have reported since 1988-04-15, with date, radiated energy, calculated total
+impact energy and, where published, position, altitude and pre-entry speed. Nothing about the two
+candidate rows is hand-entered: they are tagged by date, so a catalog revision propagates. CNEOS
+publishes no uncertainties on any field, which is the crux of the IM1/IM2 dispute and is stated
+in the console wherever the numbers appear. Coastlines are **Natural Earth 1:110m** land (public
+domain), simplified to ~2,200 vertices at build time.
 
 **Case files, timelines and quotes** were assembled by a multi-agent research pass and then put
 through **per-case adversarial fact-checking** against primary sources — arXiv, Nature, ApJL,
@@ -141,6 +168,7 @@ Orbital geometry and the light-curve model are computed from the real ephemeris.
 
 ```bash
 python tools/fetch_ephemeris.py   # 3 eras of JPL Horizons vectors -> data/ + src/
+python tools/fetch_fireballs.py   # CNEOS bolides + Natural Earth land -> data/ + src/
 python tools/bake_content.py      # research payloads -> src/data-content.js
 python tools/make_og_image.py     # render the social card from real trajectory data
 python tools/build.py             # inline everything -> public/index.html + about.html
@@ -152,6 +180,7 @@ src/
   js/core.js         state, era/time engine, ephemeris interpolation, WebAudio synth
   js/scene3d.js      three.js scene: starfield, planets, comet tails, cameras
   js/charts.js       canvas telemetry + per-case dossier charts
+  js/fireballs.js    CNEOS impact map: projection, filters, hit testing, stats
   js/ui.js           DOM, boot, timeline, dossiers, search, tour, deep links
   js/main.js         boot flow + frame loop (APP_VERSION lives here)
   about.html         the project landing page
