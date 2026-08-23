@@ -644,3 +644,112 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   .cx-root { transition: none; }
   .cx-left, .cx-right { transition: none; }
 }
+
+/* ============ BRIEFINGS ============
+   The one surface in the console built for reading rather than scanning: a rail
+   of questions on the left, a long-form answer on the right. Everything else
+   here is a HUD; this is a page, so it gets a measure, real leading, and a text
+   colour that is comfortable for a few hundred words rather than for glowing
+   labels. */
+.cx-briefwrap {
+  position: absolute; inset: 0; z-index: 24;
+  display: grid; grid-template-columns: minmax(190px, 268px) 1fr;
+  background: linear-gradient(180deg, rgba(4,10,20,.97), rgba(3,7,15,.99));
+  overflow: hidden;
+}
+.cx-brief-rail {
+  border-right: 1px solid var(--line);
+  overflow-y: auto; padding: 10px 8px 24px;
+  background: rgba(0,0,0,.28);
+}
+.cx-brief-railhead {
+  font-size: 10px; letter-spacing: .18em; color: var(--dim);
+  padding: 4px 6px 10px;
+}
+.cx-brief-card {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: rgba(255,255,255,.02); border: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  color: var(--txt); padding: 9px 10px; margin-bottom: 7px;
+  font-family: inherit; transition: background .12s, border-color .12s;
+}
+.cx-brief-card:hover { background: rgba(52,225,255,.07); border-color: rgba(52,225,255,.4); }
+.cx-brief-card.cx-on { background: rgba(52,225,255,.11); border-left-color: var(--cyan); }
+.cx-brief-card-tag { font-size: 9px; letter-spacing: .14em; color: var(--amber); margin-bottom: 4px; }
+.cx-brief-card-q { font-size: 12px; line-height: 1.35; color: var(--txt); }
+
+.cx-brief-pane { overflow-y: auto; padding: 18px 20px 60px; -webkit-overflow-scrolling: touch; }
+.cx-brief { max-width: 68ch; margin: 0 auto; }
+.cx-brief-head { border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 16px; }
+.cx-brief-id { font-size: 9px; letter-spacing: .16em; color: var(--dim); margin-bottom: 6px; }
+.cx-brief-q {
+  font-size: clamp(17px, 2.6vw, 25px); line-height: 1.22; margin: 0 0 9px;
+  color: var(--cyan); text-shadow: 0 0 10px rgba(52,225,255,.28); font-weight: normal;
+}
+.cx-brief-short { font-size: 13px; line-height: 1.55; color: var(--amber); margin: 0; }
+.cx-brief-fig {
+  margin: 0 0 18px; padding: 8px; border: 1px solid var(--line);
+  background: rgba(0,0,0,.34);
+}
+.cx-brief-fig canvas { display: block; width: 100%; height: 210px; }
+.cx-brief-sec { margin-bottom: 15px; }
+.cx-brief-sec h3 {
+  font-size: 11px; letter-spacing: .13em; color: var(--amber);
+  margin: 0 0 5px; font-weight: normal; text-transform: uppercase;
+}
+.cx-brief-sec p {
+  margin: 0; font-size: 13.5px; line-height: 1.62;
+  color: rgba(220,236,246,.9);
+}
+.cx-brief-cases { margin: 20px 0 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+.cx-brief-caseshead { font-size: 9px; letter-spacing: .16em; color: var(--dim); margin-bottom: 8px; }
+.cx-brief-case {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: rgba(255,255,255,.02); border: 1px solid var(--line);
+  color: var(--txt); padding: 7px 9px; margin-bottom: 5px; font-family: inherit;
+}
+.cx-brief-case:hover { background: rgba(255,179,71,.09); border-color: rgba(255,179,71,.45); }
+.cx-brief-case-id { color: var(--amber); font-size: 10px; letter-spacing: .1em; margin-right: 8px; }
+.cx-brief-case-t { font-size: 11.5px; color: rgba(220,236,246,.85); }
+.cx-brief-src { font-size: 10px; color: var(--dim); margin-top: 12px; line-height: 1.9; }
+.cx-brief-src span { letter-spacing: .16em; margin-right: 6px; }
+.cx-brief-src a { color: var(--cyan); text-decoration: none; border-bottom: 1px dotted rgba(52,225,255,.45); margin-right: 9px; }
+.cx-brief-src a:hover { background: rgba(52,225,255,.12); }
+.cx-brief-foot {
+  margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--line);
+  font-size: 10px; color: var(--dim); line-height: 1.6;
+}
+
+/* Narrow: the rail becomes a horizontal strip of question chips above the
+   reading pane, because a 190px sidebar next to a text column leaves neither
+   usable at phone width. */
+@media (max-width: 720px) {
+  .cx-briefwrap { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .cx-brief-rail {
+    border-right: 0; border-bottom: 1px solid var(--line);
+    display: flex; gap: 6px; overflow-x: auto; overflow-y: hidden;
+    padding: 8px; white-space: nowrap;
+  }
+  .cx-brief-railhead { display: none; }
+  .cx-brief-card { width: auto; min-width: 168px; flex: 0 0 auto; margin-bottom: 0; white-space: normal; }
+  .cx-brief-pane { padding: 14px 14px 56px; }
+  .cx-brief-fig canvas { height: 168px; }
+}
+@media (pointer: coarse) {
+  .cx-brief-card { padding: 11px 12px; }
+  .cx-brief-case { padding: 10px 10px; }
+}
+
+/* BRIEFINGS is the intended way in, so it does not look like a peer of the
+   other mode tabs. Amber rather than the default, and a hairline underneath so
+   it reads as "start here" without shouting. */
+.cx-tab[data-tab="briefings"] {
+  color: var(--amber);
+  border-color: rgba(255,179,71,.42);
+  box-shadow: inset 0 -2px 0 rgba(255,179,71,.55);
+}
+.cx-tab[data-tab="briefings"]:hover { background: rgba(255,179,71,.13); }
+.cx-tab[data-tab="briefings"].cx-on {
+  background: rgba(255,179,71,.2); color: #ffe1b0;
+  border-color: rgba(255,179,71,.75);
+}

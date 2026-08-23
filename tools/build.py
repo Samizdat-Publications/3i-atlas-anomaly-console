@@ -34,6 +34,7 @@ JS_ORDER = [
     "js/charts.js",
     "js/scene3d.js",
     "js/fireballs.js",
+    "js/briefings.js",
     "js/ui.js",
     "js/main.js",
 ]

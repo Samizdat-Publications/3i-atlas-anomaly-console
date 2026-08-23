@@ -188,7 +188,24 @@ def main():
                  % (qcounts.get("VERBATIM", 0), len(quotes))) if qcounts else "",
     }
 
-    content = {"meta": meta, "anomalies": anomalies, "timeline": timeline, "compare": compare, "quotes": quotes}
+    # Briefings: question-led entry points, hand-authored. They argue across
+    # objects, so they are top-level rather than era-scoped.
+    bpath = os.path.join(ROOT, "data", "briefings.json")
+    briefings = []
+    if os.path.exists(bpath):
+        with open(bpath, encoding="utf-8") as f:
+            briefings = json.load(f).get("briefings", [])
+        known = {a["object"] + "/" + a["id"] for a in anomalies}
+        for b in briefings:
+            bad = [c for c in b.get("cases", []) if c not in known]
+            if bad:
+                raise SystemExit(
+                    "Briefing %s links to case(s) that do not exist: %s\n"
+                    "A dead link in the one surface built for reading is worse than no link."
+                    % (b["id"], ", ".join(bad)))
+
+    content = {"meta": meta, "anomalies": anomalies, "timeline": timeline,
+               "compare": compare, "quotes": quotes, "briefings": briefings}
 
     out = os.path.join(ROOT, "src", "data-content.js")
     with open(out, "w", encoding="utf-8") as f:
@@ -197,6 +214,7 @@ def main():
         json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
     print("  quotes: " + (", ".join("%s %d" % (k, v) for k, v in sorted(qcounts.items())) or "unverified"))
+    print("  briefings: %d, all case links resolve" % len(briefings))
     print("  timeline: %d of %d events carry citations" % (
         sum(1 for e in timeline if e.get("sources")), len(timeline)))
     print("Wrote %s (%d KB): 3i=%d 1i=%d%s 2i=%d%s fb=%d anomalies, %d events, %d quotes, %d ISO profiles"

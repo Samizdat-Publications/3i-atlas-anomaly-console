@@ -1,5 +1,33 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.13 — 2026-08-23 (BRIEFINGS — a way in)
+The console was organised by object and case, which is how the DATA is shaped, not how anyone
+arrives. People come with a question; 46 dossiers is a wall rather than a door, and the most
+original work in the register — the three-instrument analysis — was reachable only by knowing
+to look inside case F-03.
+
+- **New BRIEFINGS mode.** Five question-led entry points: is 3I/ATLAS a comet, are fireballs
+  actually increasing, has anything interstellar hit Earth, why is only one of the three
+  visitors contested, and what can these datasets actually settle. Each states the question,
+  answers it in a few hundred words, shows the one chart that carries the argument, and hands
+  off to the case files that do the detailed work.
+- **Built for reading, not scanning.** Everything else in the console is a HUD; this is a page,
+  so it gets a 68ch measure, real leading, and body text sized for a few hundred words rather
+  than for glowing labels.
+- **Deep-linkable at `#brief/<id>`**, which is the point: a single finding can be sent to
+  someone on its own, and that is how this material actually travels.
+- **Narrow screens turn the rail into a strip of question chips** above the reading pane —
+  a 190px sidebar beside a text column leaves neither usable at phone width. Verified at
+  360x780, 412x940 and 884x1104 with no horizontal scroll.
+- **The tab is amber, not a peer of the other modes**, and the guided tour now ends by pointing
+  at it.
+- **bake_content.py refuses to build if a briefing links to a case that does not exist.** A dead
+  link in the one surface built for reading is worse than no link.
+- Briefings are `BR-01`..`BR-05`: 2I's cases already use `B-01`..`B-05`, and two things sharing
+  an id in the same UI is a bug waiting to happen even when the hash namespaces differ.
+- Fixed along the way: `syncHash` was never exported, so the briefings module's hash updates
+  were silently a no-op; and entering a briefing left any open case sheet sitting on top of it.
+
 ## v2.12 — 2026-08-23 (A-26, the last uncovered anomaly)
 Reading his enumerated 24-anomaly list against the register found exactly one observational
 claim with no case file behind it. It has one now.

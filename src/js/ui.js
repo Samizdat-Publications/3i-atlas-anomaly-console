@@ -58,6 +58,7 @@
       '    <button class="cx-tab" data-act="era" data-era="2i" title="2I/Borisov · 2019">2I</button>',
       '  </div>',
       '  <div class="cx-tabs cx-tabs-mode">',
+      '    <button class="cx-tab" data-act="tab" data-tab="briefings">BRIEFINGS</button>',
       '    <button class="cx-tab cx-on" data-act="tab" data-tab="track">TRACK</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="anomalies">ANOMALIES</button>',
       '    <button class="cx-tab" data-act="tab" data-tab="compare">COMPARE<span class="cx-tab-long"> 1I·2I·3I</span></button>',
@@ -102,6 +103,10 @@
       '      <button class="cx-btn cx-btn-ghost" data-act="tour-stop">EXIT TOUR (ESC)</button>',
       '    </div>',
       '  </div></div>',
+      '  <div class="cx-briefwrap" id="cx-briefwrap" style="display:none">',
+      '    <div class="cx-brief-rail" id="cx-brief-rail"></div>',
+      '    <div class="cx-brief-pane" id="cx-brief-pane"></div>',
+      '  </div>',
       '  <div class="cx-comparewrap" id="cx-comparewrap" style="display:none"><div></div>',
       '    <div class="cx-cmp-table-wrap" id="cx-cmp-table"></div>',
       '  </div>',
@@ -639,8 +644,17 @@
   // ============ DEEP LINKS ============
   // #<era>[/<caseId>|/<mode>]  e.g. #3i/A-05, #1i/compare, #2i
   let hashLock = false;
+  // Exported: briefings.js drives its own hash after opening a card.
   function syncHash() {
     if (hashLock || !S.booted) return;
+    if (S.mode === 'briefings') {
+      const bid = CX.briefings && CX.briefings.current();
+      const bh = '#brief' + (bid ? '/' + bid : '');
+      if (location.hash !== bh) {
+        try { history.replaceState(null, '', bh); } catch (e) { /* file:// can refuse */ }
+      }
+      return;
+    }
     const selCase = S.selAnomaly
       ? (C.anomalies || []).find(function (a) { return a.id === S.selAnomaly; }) : null;
     let h = '#' + ((selCase && selCase.object) || S.era);
@@ -651,7 +665,9 @@
       try { history.replaceState(null, '', h); } catch (e) { /* file:// can refuse */ }
     }
   }
-  const MODES = ['track', 'anomalies', 'compare', 'fireballs', 'archive'];
+  UI.syncHash = syncHash;
+
+  const MODES = ['briefings', 'track', 'anomalies', 'compare', 'fireballs', 'archive'];
   function applyHash() {
     let raw = '';
     try { raw = decodeURIComponent(location.hash || ''); } catch (e) { raw = location.hash || ''; }
@@ -663,6 +679,13 @@
     let applied = false;
     hashLock = true;
     try {
+      if (era === 'brief') {
+        closeOverlay();
+        setMode('briefings');
+        CX.briefings.open((parts[1] || '').toUpperCase());
+        hashLock = false;
+        return true;
+      }
       if (CX.EPH.eras[era] && era !== S.era) { CX.setEra(era); applied = true; }
       if (what) {
         if (MODES.indexOf(what) !== -1) { setMode(what); applied = true; }
@@ -724,6 +747,8 @@
       text: 'Astrometry showed a push falling off as 1/r², exactly like sunlight or outgassing. But no gas was ever detected. That gap between a real force and no visible cause is what launched the lightsail paper.' },
     { era: '2i', date: '2019-12-08', cam: 'chase', ms: 11000, title: 'THE CONTROL CASE — 2I/BORISOV',
       text: 'And this is what a normal visitor from another star looks like: a textbook comet, tail streaming dutifully away from the Sun, behaving exactly as physics says it should. Its case file is thin on purpose.' },
+    { mode: 'briefings', brief: 'BR-02', ms: 13000, title: 'WHAT THE DATA CAN AND CANNOT SETTLE',
+      text: 'The register is 46 cases deep, which is a lot to read. BRIEFINGS is the way in: five questions, each answered from the data with the counter-reading beside it. This one asks whether fireballs are really increasing, and gets three instruments to disagree with each other in a useful way.' },
     { mode: 'fireballs', fbFocus: 'IM1', ms: 12000, title: 'AND THE TWO THAT MAY HAVE LANDED',
       text: 'Every dot is a bolide US Government sensors logged since 1988. Two of them — IM1 off Papua New Guinea, IM2 in the Atlantic — are argued to have arrived from outside the solar system. The catalog that reports them publishes no error bars, which is exactly where the fight is.' },
     { mode: 'compare', cam: 'free', ms: 12000, title: 'THREE VISITORS, THREE STORIES',
@@ -775,6 +800,7 @@
       CX.setT(CX.tOfIso(st.date));
     }
     if (st.fbFocus) CX.fireballs.focus(st.fbFocus);
+    if (st.brief) { CX.briefings.open(st.brief); sub = ' · ' + st.brief; }
     if (st.cam) { CX.scene3d.applyPreset(st.cam); markCam(st.cam); }
     S.playing = true; CX.emit('playstate');
 
@@ -1007,6 +1033,9 @@
       t.classList.toggle('cx-on', t.getAttribute('data-tab') === m);
     });
     $('cx-docwrap').style.display = m === 'archive' ? 'grid' : 'none';
+    // '' not a value: the narrow-viewport rule collapses this to one scrolling
+    // column, and an inline display would out-rank the media query.
+    $('cx-briefwrap').style.display = m === 'briefings' ? '' : 'none';
     $('cx-comparewrap').style.display = m === 'compare' ? 'block' : 'none';
     // '' not 'grid': the narrow-viewport rule switches this pane to a single
     // scrolling column, and an inline display would out-rank the media query.
@@ -1015,6 +1044,10 @@
     if (m === 'compare') renderCompare();
     if (m === 'archive') renderArchive();
     if (m === 'fireballs') requestAnimationFrame(function () { CX.fireballs.refresh(); });
+    if (m === 'briefings') {
+      closeOverlay();
+      requestAnimationFrame(function () { CX.briefings.refresh(); });
+    }
     if (m === 'anomalies') openDossier((CX.eraAnomalies()[0] || {}).id);
     syncHash();
   }
@@ -1056,6 +1089,13 @@
       const act = btn.getAttribute('data-act');
       if (act !== 'redact') CX.audio.ui();
       if (act === 'tab') setMode(btn.getAttribute('data-tab'));
+      else if (act === 'brief') CX.briefings.open(btn.getAttribute('data-brief'));
+      else if (act === 'brief-case') {
+        const obj = btn.getAttribute('data-obj');
+        if (obj && obj !== S.era && CX.EPH.eras[obj]) CX.setEra(obj);
+        setMode(obj === 'fb' ? 'fireballs' : 'anomalies');
+        openDossier(btn.getAttribute('data-case'));
+      }
       else if (act === 'era') switchEra(btn.getAttribute('data-era'));
       else if (act === 'cam') { CX.scene3d.applyPreset(btn.getAttribute('data-cam')); markCam(btn.getAttribute('data-cam')); }
       else if (act === 'play') togglePlay();

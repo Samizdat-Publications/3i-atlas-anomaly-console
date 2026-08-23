@@ -157,6 +157,9 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   - `console.css` — design system (`cx-` prefix; phosphor cyan / signal amber / alert red on deep navy).
   - `js/core.js` — state, time engine (t = fractional days from 2025-05-15), ephemeris interpolation, WebAudio synth engine (no audio assets).
   - `js/scene3d.js` — Three.js r128 scene: starfield + Milky Way band, planets on real positions + element-derived orbit lines, comet with 3 particle tail systems (ion / dust / **anti-tail** for the A-05 viz), traveled-path drawRange trail, camera presets (free/top/chase/mars/sun), HUD labels + range line.
+  - `js/briefings.js` — BRIEFINGS mode: the reading surface. Question, answer, one chart,
+    links into the case files behind it. The only place in the console meant to be read
+    start to finish, so it gets a text measure and real leading rather than HUD styling.
   - `js/fireballs.js` — FIREBALLS mode: equirectangular CNEOS impact map (land rings, graticule,
     energy-tiered dots, IM1/IM2 reticles), filter pods, hover/click hit testing, stats rail.
     Reads `window.ATLAS_FIREBALLS`; event tuple layout is documented at the top of the file and
@@ -260,7 +263,9 @@ One block = one paste = one working result; do not split a command across explan
   footer stays.
 
 ## App architecture notes
-- Modes: `track` (default 3D) / `anomalies` (dossier overlay) / `compare` (1I·2I·3I paths +
+- Modes: `briefings` (question-led entry points, the intended way in — `src/js/briefings.js`,
+  content in `data/briefings.json`, deep-linked `#brief/BR-0n`; bake_content.py HARD-FAILS on a
+  dead case link) / `track` (default 3D) / `anomalies` (dossier overlay) / `compare` (1I·2I·3I paths +
   bottom-docked table) / `fireballs` (CNEOS impact map; HUD hidden) / `archive` (paper documents;
   HUD hidden). `setMode` must set `display:''` — not `'grid'` — on `#cx-fbwrap`, or the inline
   style out-ranks the narrow-viewport rule that turns it into one scrolling column.
