@@ -1,0 +1,1513 @@
+year,month,bin,bin_definition,events
+2006,1,one,Events with only one report,25
+2006,2,one,Events with only one report,25
+2006,3,one,Events with only one report,41
+2006,4,one,Events with only one report,26
+2006,5,one,Events with only one report,21
+2006,6,one,Events with only one report,17
+2006,7,one,Events with only one report,22
+2006,8,one,Events with only one report,29
+2006,9,one,Events with only one report,35
+2006,10,one,Events with only one report,36
+2006,11,one,Events with only one report,48
+2006,12,one,Events with only one report,50
+2006,1,2_10,Events with 1< number of reports <= 10,10
+2006,2,2_10,Events with 1< number of reports <= 10,7
+2006,3,2_10,Events with 1< number of reports <= 10,8
+2006,4,2_10,Events with 1< number of reports <= 10,10
+2006,5,2_10,Events with 1< number of reports <= 10,5
+2006,6,2_10,Events with 1< number of reports <= 10,3
+2006,7,2_10,Events with 1< number of reports <= 10,5
+2006,8,2_10,Events with 1< number of reports <= 10,16
+2006,9,2_10,Events with 1< number of reports <= 10,12
+2006,10,2_10,Events with 1< number of reports <= 10,24
+2006,11,2_10,Events with 1< number of reports <= 10,19
+2006,12,2_10,Events with 1< number of reports <= 10,12
+2006,1,11_25,Events with 10< number of reports <= 25,1
+2006,2,11_25,Events with 10< number of reports <= 25,0
+2006,3,11_25,Events with 10< number of reports <= 25,0
+2006,4,11_25,Events with 10< number of reports <= 25,0
+2006,5,11_25,Events with 10< number of reports <= 25,0
+2006,6,11_25,Events with 10< number of reports <= 25,1
+2006,7,11_25,Events with 10< number of reports <= 25,0
+2006,8,11_25,Events with 10< number of reports <= 25,0
+2006,9,11_25,Events with 10< number of reports <= 25,0
+2006,10,11_25,Events with 10< number of reports <= 25,0
+2006,11,11_25,Events with 10< number of reports <= 25,0
+2006,12,11_25,Events with 10< number of reports <= 25,1
+2006,1,26_50,Events with 25< number of reports <= 50,0
+2006,2,26_50,Events with 25< number of reports <= 50,0
+2006,3,26_50,Events with 25< number of reports <= 50,0
+2006,4,26_50,Events with 25< number of reports <= 50,0
+2006,5,26_50,Events with 25< number of reports <= 50,0
+2006,6,26_50,Events with 25< number of reports <= 50,0
+2006,7,26_50,Events with 25< number of reports <= 50,0
+2006,8,26_50,Events with 25< number of reports <= 50,0
+2006,9,26_50,Events with 25< number of reports <= 50,0
+2006,10,26_50,Events with 25< number of reports <= 50,0
+2006,11,26_50,Events with 25< number of reports <= 50,1
+2006,12,26_50,Events with 25< number of reports <= 50,0
+2006,1,51_99,Events with 50< number of reports < 100,0
+2006,2,51_99,Events with 50< number of reports < 100,0
+2006,3,51_99,Events with 50< number of reports < 100,0
+2006,4,51_99,Events with 50< number of reports < 100,0
+2006,5,51_99,Events with 50< number of reports < 100,0
+2006,6,51_99,Events with 50< number of reports < 100,0
+2006,7,51_99,Events with 50< number of reports < 100,0
+2006,8,51_99,Events with 50< number of reports < 100,0
+2006,9,51_99,Events with 50< number of reports < 100,0
+2006,10,51_99,Events with 50< number of reports < 100,0
+2006,11,51_99,Events with 50< number of reports < 100,0
+2006,12,51_99,Events with 50< number of reports < 100,0
+2006,1,100_plus,Events with more than 100 reports,0
+2006,2,100_plus,Events with more than 100 reports,0
+2006,3,100_plus,Events with more than 100 reports,0
+2006,4,100_plus,Events with more than 100 reports,0
+2006,5,100_plus,Events with more than 100 reports,0
+2006,6,100_plus,Events with more than 100 reports,0
+2006,7,100_plus,Events with more than 100 reports,0
+2006,8,100_plus,Events with more than 100 reports,0
+2006,9,100_plus,Events with more than 100 reports,0
+2006,10,100_plus,Events with more than 100 reports,0
+2006,11,100_plus,Events with more than 100 reports,0
+2006,12,100_plus,Events with more than 100 reports,0
+2007,1,one,Events with only one report,38
+2007,2,one,Events with only one report,8
+2007,3,one,Events with only one report,30
+2007,4,one,Events with only one report,24
+2007,5,one,Events with only one report,32
+2007,6,one,Events with only one report,18
+2007,7,one,Events with only one report,32
+2007,8,one,Events with only one report,58
+2007,9,one,Events with only one report,35
+2007,10,one,Events with only one report,45
+2007,11,one,Events with only one report,53
+2007,12,one,Events with only one report,62
+2007,1,2_10,Events with 1< number of reports <= 10,24
+2007,2,2_10,Events with 1< number of reports <= 10,6
+2007,3,2_10,Events with 1< number of reports <= 10,7
+2007,4,2_10,Events with 1< number of reports <= 10,9
+2007,5,2_10,Events with 1< number of reports <= 10,8
+2007,6,2_10,Events with 1< number of reports <= 10,10
+2007,7,2_10,Events with 1< number of reports <= 10,7
+2007,8,2_10,Events with 1< number of reports <= 10,15
+2007,9,2_10,Events with 1< number of reports <= 10,19
+2007,10,2_10,Events with 1< number of reports <= 10,10
+2007,11,2_10,Events with 1< number of reports <= 10,8
+2007,12,2_10,Events with 1< number of reports <= 10,21
+2007,1,11_25,Events with 10< number of reports <= 25,2
+2007,2,11_25,Events with 10< number of reports <= 25,0
+2007,3,11_25,Events with 10< number of reports <= 25,2
+2007,4,11_25,Events with 10< number of reports <= 25,1
+2007,5,11_25,Events with 10< number of reports <= 25,0
+2007,6,11_25,Events with 10< number of reports <= 25,0
+2007,7,11_25,Events with 10< number of reports <= 25,0
+2007,8,11_25,Events with 10< number of reports <= 25,0
+2007,9,11_25,Events with 10< number of reports <= 25,1
+2007,10,11_25,Events with 10< number of reports <= 25,0
+2007,11,11_25,Events with 10< number of reports <= 25,1
+2007,12,11_25,Events with 10< number of reports <= 25,0
+2007,1,26_50,Events with 25< number of reports <= 50,0
+2007,2,26_50,Events with 25< number of reports <= 50,0
+2007,3,26_50,Events with 25< number of reports <= 50,0
+2007,4,26_50,Events with 25< number of reports <= 50,0
+2007,5,26_50,Events with 25< number of reports <= 50,0
+2007,6,26_50,Events with 25< number of reports <= 50,0
+2007,7,26_50,Events with 25< number of reports <= 50,0
+2007,8,26_50,Events with 25< number of reports <= 50,0
+2007,9,26_50,Events with 25< number of reports <= 50,0
+2007,10,26_50,Events with 25< number of reports <= 50,0
+2007,11,26_50,Events with 25< number of reports <= 50,0
+2007,12,26_50,Events with 25< number of reports <= 50,0
+2007,1,51_99,Events with 50< number of reports < 100,0
+2007,2,51_99,Events with 50< number of reports < 100,0
+2007,3,51_99,Events with 50< number of reports < 100,0
+2007,4,51_99,Events with 50< number of reports < 100,0
+2007,5,51_99,Events with 50< number of reports < 100,0
+2007,6,51_99,Events with 50< number of reports < 100,0
+2007,7,51_99,Events with 50< number of reports < 100,0
+2007,8,51_99,Events with 50< number of reports < 100,1
+2007,9,51_99,Events with 50< number of reports < 100,0
+2007,10,51_99,Events with 50< number of reports < 100,0
+2007,11,51_99,Events with 50< number of reports < 100,0
+2007,12,51_99,Events with 50< number of reports < 100,0
+2007,1,100_plus,Events with more than 100 reports,0
+2007,2,100_plus,Events with more than 100 reports,0
+2007,3,100_plus,Events with more than 100 reports,0
+2007,4,100_plus,Events with more than 100 reports,0
+2007,5,100_plus,Events with more than 100 reports,0
+2007,6,100_plus,Events with more than 100 reports,0
+2007,7,100_plus,Events with more than 100 reports,0
+2007,8,100_plus,Events with more than 100 reports,0
+2007,9,100_plus,Events with more than 100 reports,0
+2007,10,100_plus,Events with more than 100 reports,0
+2007,11,100_plus,Events with more than 100 reports,0
+2007,12,100_plus,Events with more than 100 reports,0
+2008,1,one,Events with only one report,31
+2008,2,one,Events with only one report,38
+2008,3,one,Events with only one report,33
+2008,4,one,Events with only one report,30
+2008,5,one,Events with only one report,23
+2008,6,one,Events with only one report,38
+2008,7,one,Events with only one report,34
+2008,8,one,Events with only one report,47
+2008,9,one,Events with only one report,36
+2008,10,one,Events with only one report,50
+2008,11,one,Events with only one report,96
+2008,12,one,Events with only one report,59
+2008,1,2_10,Events with 1< number of reports <= 10,12
+2008,2,2_10,Events with 1< number of reports <= 10,15
+2008,3,2_10,Events with 1< number of reports <= 10,14
+2008,4,2_10,Events with 1< number of reports <= 10,9
+2008,5,2_10,Events with 1< number of reports <= 10,10
+2008,6,2_10,Events with 1< number of reports <= 10,14
+2008,7,2_10,Events with 1< number of reports <= 10,9
+2008,8,2_10,Events with 1< number of reports <= 10,15
+2008,9,2_10,Events with 1< number of reports <= 10,11
+2008,10,2_10,Events with 1< number of reports <= 10,26
+2008,11,2_10,Events with 1< number of reports <= 10,45
+2008,12,2_10,Events with 1< number of reports <= 10,26
+2008,1,11_25,Events with 10< number of reports <= 25,1
+2008,2,11_25,Events with 10< number of reports <= 25,1
+2008,3,11_25,Events with 10< number of reports <= 25,1
+2008,4,11_25,Events with 10< number of reports <= 25,1
+2008,5,11_25,Events with 10< number of reports <= 25,0
+2008,6,11_25,Events with 10< number of reports <= 25,0
+2008,7,11_25,Events with 10< number of reports <= 25,0
+2008,8,11_25,Events with 10< number of reports <= 25,0
+2008,9,11_25,Events with 10< number of reports <= 25,1
+2008,10,11_25,Events with 10< number of reports <= 25,3
+2008,11,11_25,Events with 10< number of reports <= 25,5
+2008,12,11_25,Events with 10< number of reports <= 25,2
+2008,1,26_50,Events with 25< number of reports <= 50,0
+2008,2,26_50,Events with 25< number of reports <= 50,0
+2008,3,26_50,Events with 25< number of reports <= 50,0
+2008,4,26_50,Events with 25< number of reports <= 50,0
+2008,5,26_50,Events with 25< number of reports <= 50,0
+2008,6,26_50,Events with 25< number of reports <= 50,1
+2008,7,26_50,Events with 25< number of reports <= 50,0
+2008,8,26_50,Events with 25< number of reports <= 50,0
+2008,9,26_50,Events with 25< number of reports <= 50,0
+2008,10,26_50,Events with 25< number of reports <= 50,0
+2008,11,26_50,Events with 25< number of reports <= 50,1
+2008,12,26_50,Events with 25< number of reports <= 50,0
+2008,1,51_99,Events with 50< number of reports < 100,0
+2008,2,51_99,Events with 50< number of reports < 100,0
+2008,3,51_99,Events with 50< number of reports < 100,0
+2008,4,51_99,Events with 50< number of reports < 100,0
+2008,5,51_99,Events with 50< number of reports < 100,0
+2008,6,51_99,Events with 50< number of reports < 100,0
+2008,7,51_99,Events with 50< number of reports < 100,0
+2008,8,51_99,Events with 50< number of reports < 100,0
+2008,9,51_99,Events with 50< number of reports < 100,0
+2008,10,51_99,Events with 50< number of reports < 100,0
+2008,11,51_99,Events with 50< number of reports < 100,0
+2008,12,51_99,Events with 50< number of reports < 100,0
+2008,1,100_plus,Events with more than 100 reports,0
+2008,2,100_plus,Events with more than 100 reports,0
+2008,3,100_plus,Events with more than 100 reports,0
+2008,4,100_plus,Events with more than 100 reports,0
+2008,5,100_plus,Events with more than 100 reports,0
+2008,6,100_plus,Events with more than 100 reports,0
+2008,7,100_plus,Events with more than 100 reports,0
+2008,8,100_plus,Events with more than 100 reports,0
+2008,9,100_plus,Events with more than 100 reports,0
+2008,10,100_plus,Events with more than 100 reports,0
+2008,11,100_plus,Events with more than 100 reports,0
+2008,12,100_plus,Events with more than 100 reports,0
+2009,1,one,Events with only one report,61
+2009,2,one,Events with only one report,50
+2009,3,one,Events with only one report,38
+2009,4,one,Events with only one report,39
+2009,5,one,Events with only one report,28
+2009,6,one,Events with only one report,27
+2009,7,one,Events with only one report,39
+2009,8,one,Events with only one report,53
+2009,9,one,Events with only one report,58
+2009,10,one,Events with only one report,52
+2009,11,one,Events with only one report,11
+2009,12,one,Events with only one report,26
+2009,1,2_10,Events with 1< number of reports <= 10,23
+2009,2,2_10,Events with 1< number of reports <= 10,17
+2009,3,2_10,Events with 1< number of reports <= 10,15
+2009,4,2_10,Events with 1< number of reports <= 10,22
+2009,5,2_10,Events with 1< number of reports <= 10,13
+2009,6,2_10,Events with 1< number of reports <= 10,10
+2009,7,2_10,Events with 1< number of reports <= 10,18
+2009,8,2_10,Events with 1< number of reports <= 10,14
+2009,9,2_10,Events with 1< number of reports <= 10,20
+2009,10,2_10,Events with 1< number of reports <= 10,20
+2009,11,2_10,Events with 1< number of reports <= 10,5
+2009,12,2_10,Events with 1< number of reports <= 10,9
+2009,1,11_25,Events with 10< number of reports <= 25,2
+2009,2,11_25,Events with 10< number of reports <= 25,2
+2009,3,11_25,Events with 10< number of reports <= 25,0
+2009,4,11_25,Events with 10< number of reports <= 25,1
+2009,5,11_25,Events with 10< number of reports <= 25,0
+2009,6,11_25,Events with 10< number of reports <= 25,1
+2009,7,11_25,Events with 10< number of reports <= 25,0
+2009,8,11_25,Events with 10< number of reports <= 25,2
+2009,9,11_25,Events with 10< number of reports <= 25,0
+2009,10,11_25,Events with 10< number of reports <= 25,0
+2009,11,11_25,Events with 10< number of reports <= 25,0
+2009,12,11_25,Events with 10< number of reports <= 25,1
+2009,1,26_50,Events with 25< number of reports <= 50,0
+2009,2,26_50,Events with 25< number of reports <= 50,1
+2009,3,26_50,Events with 25< number of reports <= 50,0
+2009,4,26_50,Events with 25< number of reports <= 50,0
+2009,5,26_50,Events with 25< number of reports <= 50,0
+2009,6,26_50,Events with 25< number of reports <= 50,0
+2009,7,26_50,Events with 25< number of reports <= 50,0
+2009,8,26_50,Events with 25< number of reports <= 50,0
+2009,9,26_50,Events with 25< number of reports <= 50,1
+2009,10,26_50,Events with 25< number of reports <= 50,0
+2009,11,26_50,Events with 25< number of reports <= 50,0
+2009,12,26_50,Events with 25< number of reports <= 50,0
+2009,1,51_99,Events with 50< number of reports < 100,1
+2009,2,51_99,Events with 50< number of reports < 100,0
+2009,3,51_99,Events with 50< number of reports < 100,0
+2009,4,51_99,Events with 50< number of reports < 100,0
+2009,5,51_99,Events with 50< number of reports < 100,0
+2009,6,51_99,Events with 50< number of reports < 100,0
+2009,7,51_99,Events with 50< number of reports < 100,1
+2009,8,51_99,Events with 50< number of reports < 100,0
+2009,9,51_99,Events with 50< number of reports < 100,0
+2009,10,51_99,Events with 50< number of reports < 100,0
+2009,11,51_99,Events with 50< number of reports < 100,0
+2009,12,51_99,Events with 50< number of reports < 100,0
+2009,1,100_plus,Events with more than 100 reports,0
+2009,2,100_plus,Events with more than 100 reports,0
+2009,3,100_plus,Events with more than 100 reports,0
+2009,4,100_plus,Events with more than 100 reports,0
+2009,5,100_plus,Events with more than 100 reports,0
+2009,6,100_plus,Events with more than 100 reports,0
+2009,7,100_plus,Events with more than 100 reports,0
+2009,8,100_plus,Events with more than 100 reports,0
+2009,9,100_plus,Events with more than 100 reports,0
+2009,10,100_plus,Events with more than 100 reports,0
+2009,11,100_plus,Events with more than 100 reports,0
+2009,12,100_plus,Events with more than 100 reports,0
+2010,1,one,Events with only one report,22
+2010,2,one,Events with only one report,35
+2010,3,one,Events with only one report,56
+2010,4,one,Events with only one report,45
+2010,5,one,Events with only one report,40
+2010,6,one,Events with only one report,48
+2010,7,one,Events with only one report,58
+2010,8,one,Events with only one report,74
+2010,9,one,Events with only one report,70
+2010,10,one,Events with only one report,53
+2010,11,one,Events with only one report,75
+2010,12,one,Events with only one report,92
+2010,1,2_10,Events with 1< number of reports <= 10,7
+2010,2,2_10,Events with 1< number of reports <= 10,14
+2010,3,2_10,Events with 1< number of reports <= 10,19
+2010,4,2_10,Events with 1< number of reports <= 10,21
+2010,5,2_10,Events with 1< number of reports <= 10,12
+2010,6,2_10,Events with 1< number of reports <= 10,12
+2010,7,2_10,Events with 1< number of reports <= 10,22
+2010,8,2_10,Events with 1< number of reports <= 10,30
+2010,9,2_10,Events with 1< number of reports <= 10,30
+2010,10,2_10,Events with 1< number of reports <= 10,27
+2010,11,2_10,Events with 1< number of reports <= 10,37
+2010,12,2_10,Events with 1< number of reports <= 10,39
+2010,1,11_25,Events with 10< number of reports <= 25,0
+2010,2,11_25,Events with 10< number of reports <= 25,1
+2010,3,11_25,Events with 10< number of reports <= 25,3
+2010,4,11_25,Events with 10< number of reports <= 25,1
+2010,5,11_25,Events with 10< number of reports <= 25,1
+2010,6,11_25,Events with 10< number of reports <= 25,0
+2010,7,11_25,Events with 10< number of reports <= 25,1
+2010,8,11_25,Events with 10< number of reports <= 25,0
+2010,9,11_25,Events with 10< number of reports <= 25,3
+2010,10,11_25,Events with 10< number of reports <= 25,0
+2010,11,11_25,Events with 10< number of reports <= 25,3
+2010,12,11_25,Events with 10< number of reports <= 25,2
+2010,1,26_50,Events with 25< number of reports <= 50,0
+2010,2,26_50,Events with 25< number of reports <= 50,0
+2010,3,26_50,Events with 25< number of reports <= 50,0
+2010,4,26_50,Events with 25< number of reports <= 50,0
+2010,5,26_50,Events with 25< number of reports <= 50,1
+2010,6,26_50,Events with 25< number of reports <= 50,0
+2010,7,26_50,Events with 25< number of reports <= 50,0
+2010,8,26_50,Events with 25< number of reports <= 50,0
+2010,9,26_50,Events with 25< number of reports <= 50,0
+2010,10,26_50,Events with 25< number of reports <= 50,0
+2010,11,26_50,Events with 25< number of reports <= 50,0
+2010,12,26_50,Events with 25< number of reports <= 50,1
+2010,1,51_99,Events with 50< number of reports < 100,0
+2010,2,51_99,Events with 50< number of reports < 100,0
+2010,3,51_99,Events with 50< number of reports < 100,0
+2010,4,51_99,Events with 50< number of reports < 100,0
+2010,5,51_99,Events with 50< number of reports < 100,0
+2010,6,51_99,Events with 50< number of reports < 100,0
+2010,7,51_99,Events with 50< number of reports < 100,0
+2010,8,51_99,Events with 50< number of reports < 100,0
+2010,9,51_99,Events with 50< number of reports < 100,0
+2010,10,51_99,Events with 50< number of reports < 100,0
+2010,11,51_99,Events with 50< number of reports < 100,0
+2010,12,51_99,Events with 50< number of reports < 100,0
+2010,1,100_plus,Events with more than 100 reports,0
+2010,2,100_plus,Events with more than 100 reports,0
+2010,3,100_plus,Events with more than 100 reports,0
+2010,4,100_plus,Events with more than 100 reports,0
+2010,5,100_plus,Events with more than 100 reports,0
+2010,6,100_plus,Events with more than 100 reports,0
+2010,7,100_plus,Events with more than 100 reports,0
+2010,8,100_plus,Events with more than 100 reports,0
+2010,9,100_plus,Events with more than 100 reports,0
+2010,10,100_plus,Events with more than 100 reports,0
+2010,11,100_plus,Events with more than 100 reports,0
+2010,12,100_plus,Events with more than 100 reports,1
+2011,1,one,Events with only one report,115
+2011,2,one,Events with only one report,79
+2011,3,one,Events with only one report,59
+2011,4,one,Events with only one report,71
+2011,5,one,Events with only one report,56
+2011,6,one,Events with only one report,70
+2011,7,one,Events with only one report,76
+2011,8,one,Events with only one report,146
+2011,9,one,Events with only one report,93
+2011,10,one,Events with only one report,118
+2011,11,one,Events with only one report,119
+2011,12,one,Events with only one report,127
+2011,1,2_10,Events with 1< number of reports <= 10,40
+2011,2,2_10,Events with 1< number of reports <= 10,31
+2011,3,2_10,Events with 1< number of reports <= 10,32
+2011,4,2_10,Events with 1< number of reports <= 10,25
+2011,5,2_10,Events with 1< number of reports <= 10,34
+2011,6,2_10,Events with 1< number of reports <= 10,23
+2011,7,2_10,Events with 1< number of reports <= 10,39
+2011,8,2_10,Events with 1< number of reports <= 10,44
+2011,9,2_10,Events with 1< number of reports <= 10,51
+2011,10,2_10,Events with 1< number of reports <= 10,39
+2011,11,2_10,Events with 1< number of reports <= 10,54
+2011,12,2_10,Events with 1< number of reports <= 10,59
+2011,1,11_25,Events with 10< number of reports <= 25,4
+2011,2,11_25,Events with 10< number of reports <= 25,2
+2011,3,11_25,Events with 10< number of reports <= 25,3
+2011,4,11_25,Events with 10< number of reports <= 25,4
+2011,5,11_25,Events with 10< number of reports <= 25,1
+2011,6,11_25,Events with 10< number of reports <= 25,3
+2011,7,11_25,Events with 10< number of reports <= 25,2
+2011,8,11_25,Events with 10< number of reports <= 25,3
+2011,9,11_25,Events with 10< number of reports <= 25,8
+2011,10,11_25,Events with 10< number of reports <= 25,5
+2011,11,11_25,Events with 10< number of reports <= 25,2
+2011,12,11_25,Events with 10< number of reports <= 25,5
+2011,1,26_50,Events with 25< number of reports <= 50,1
+2011,2,26_50,Events with 25< number of reports <= 50,0
+2011,3,26_50,Events with 25< number of reports <= 50,1
+2011,4,26_50,Events with 25< number of reports <= 50,2
+2011,5,26_50,Events with 25< number of reports <= 50,2
+2011,6,26_50,Events with 25< number of reports <= 50,0
+2011,7,26_50,Events with 25< number of reports <= 50,2
+2011,8,26_50,Events with 25< number of reports <= 50,2
+2011,9,26_50,Events with 25< number of reports <= 50,1
+2011,10,26_50,Events with 25< number of reports <= 50,2
+2011,11,26_50,Events with 25< number of reports <= 50,0
+2011,12,26_50,Events with 25< number of reports <= 50,0
+2011,1,51_99,Events with 50< number of reports < 100,2
+2011,2,51_99,Events with 50< number of reports < 100,1
+2011,3,51_99,Events with 50< number of reports < 100,0
+2011,4,51_99,Events with 50< number of reports < 100,1
+2011,5,51_99,Events with 50< number of reports < 100,0
+2011,6,51_99,Events with 50< number of reports < 100,0
+2011,7,51_99,Events with 50< number of reports < 100,0
+2011,8,51_99,Events with 50< number of reports < 100,0
+2011,9,51_99,Events with 50< number of reports < 100,0
+2011,10,51_99,Events with 50< number of reports < 100,1
+2011,11,51_99,Events with 50< number of reports < 100,0
+2011,12,51_99,Events with 50< number of reports < 100,1
+2011,1,100_plus,Events with more than 100 reports,0
+2011,2,100_plus,Events with more than 100 reports,1
+2011,3,100_plus,Events with more than 100 reports,0
+2011,4,100_plus,Events with more than 100 reports,0
+2011,5,100_plus,Events with more than 100 reports,0
+2011,6,100_plus,Events with more than 100 reports,0
+2011,7,100_plus,Events with more than 100 reports,0
+2011,8,100_plus,Events with more than 100 reports,0
+2011,9,100_plus,Events with more than 100 reports,1
+2011,10,100_plus,Events with more than 100 reports,0
+2011,11,100_plus,Events with more than 100 reports,0
+2011,12,100_plus,Events with more than 100 reports,0
+2012,1,one,Events with only one report,106
+2012,2,one,Events with only one report,95
+2012,3,one,Events with only one report,122
+2012,4,one,Events with only one report,82
+2012,5,one,Events with only one report,100
+2012,6,one,Events with only one report,107
+2012,7,one,Events with only one report,105
+2012,8,one,Events with only one report,121
+2012,9,one,Events with only one report,117
+2012,10,one,Events with only one report,183
+2012,11,one,Events with only one report,196
+2012,12,one,Events with only one report,144
+2012,1,2_10,Events with 1< number of reports <= 10,53
+2012,2,2_10,Events with 1< number of reports <= 10,38
+2012,3,2_10,Events with 1< number of reports <= 10,39
+2012,4,2_10,Events with 1< number of reports <= 10,37
+2012,5,2_10,Events with 1< number of reports <= 10,36
+2012,6,2_10,Events with 1< number of reports <= 10,30
+2012,7,2_10,Events with 1< number of reports <= 10,30
+2012,8,2_10,Events with 1< number of reports <= 10,53
+2012,9,2_10,Events with 1< number of reports <= 10,65
+2012,10,2_10,Events with 1< number of reports <= 10,69
+2012,11,2_10,Events with 1< number of reports <= 10,92
+2012,12,2_10,Events with 1< number of reports <= 10,76
+2012,1,11_25,Events with 10< number of reports <= 25,4
+2012,2,11_25,Events with 10< number of reports <= 25,5
+2012,3,11_25,Events with 10< number of reports <= 25,8
+2012,4,11_25,Events with 10< number of reports <= 25,4
+2012,5,11_25,Events with 10< number of reports <= 25,2
+2012,6,11_25,Events with 10< number of reports <= 25,0
+2012,7,11_25,Events with 10< number of reports <= 25,4
+2012,8,11_25,Events with 10< number of reports <= 25,6
+2012,9,11_25,Events with 10< number of reports <= 25,4
+2012,10,11_25,Events with 10< number of reports <= 25,5
+2012,11,11_25,Events with 10< number of reports <= 25,6
+2012,12,11_25,Events with 10< number of reports <= 25,13
+2012,1,26_50,Events with 25< number of reports <= 50,1
+2012,2,26_50,Events with 25< number of reports <= 50,1
+2012,3,26_50,Events with 25< number of reports <= 50,2
+2012,4,26_50,Events with 25< number of reports <= 50,1
+2012,5,26_50,Events with 25< number of reports <= 50,0
+2012,6,26_50,Events with 25< number of reports <= 50,3
+2012,7,26_50,Events with 25< number of reports <= 50,0
+2012,8,26_50,Events with 25< number of reports <= 50,1
+2012,9,26_50,Events with 25< number of reports <= 50,1
+2012,10,26_50,Events with 25< number of reports <= 50,2
+2012,11,26_50,Events with 25< number of reports <= 50,1
+2012,12,26_50,Events with 25< number of reports <= 50,2
+2012,1,51_99,Events with 50< number of reports < 100,1
+2012,2,51_99,Events with 50< number of reports < 100,1
+2012,3,51_99,Events with 50< number of reports < 100,2
+2012,4,51_99,Events with 50< number of reports < 100,0
+2012,5,51_99,Events with 50< number of reports < 100,1
+2012,6,51_99,Events with 50< number of reports < 100,0
+2012,7,51_99,Events with 50< number of reports < 100,0
+2012,8,51_99,Events with 50< number of reports < 100,1
+2012,9,51_99,Events with 50< number of reports < 100,1
+2012,10,51_99,Events with 50< number of reports < 100,2
+2012,11,51_99,Events with 50< number of reports < 100,0
+2012,12,51_99,Events with 50< number of reports < 100,1
+2012,1,100_plus,Events with more than 100 reports,0
+2012,2,100_plus,Events with more than 100 reports,1
+2012,3,100_plus,Events with more than 100 reports,1
+2012,4,100_plus,Events with more than 100 reports,1
+2012,5,100_plus,Events with more than 100 reports,0
+2012,6,100_plus,Events with more than 100 reports,0
+2012,7,100_plus,Events with more than 100 reports,0
+2012,8,100_plus,Events with more than 100 reports,0
+2012,9,100_plus,Events with more than 100 reports,1
+2012,10,100_plus,Events with more than 100 reports,1
+2012,11,100_plus,Events with more than 100 reports,0
+2012,12,100_plus,Events with more than 100 reports,1
+2013,1,one,Events with only one report,168
+2013,2,one,Events with only one report,200
+2013,3,one,Events with only one report,189
+2013,4,one,Events with only one report,109
+2013,5,one,Events with only one report,147
+2013,6,one,Events with only one report,111
+2013,7,one,Events with only one report,134
+2013,8,one,Events with only one report,215
+2013,9,one,Events with only one report,261
+2013,10,one,Events with only one report,295
+2013,11,one,Events with only one report,286
+2013,12,one,Events with only one report,310
+2013,1,2_10,Events with 1< number of reports <= 10,62
+2013,2,2_10,Events with 1< number of reports <= 10,75
+2013,3,2_10,Events with 1< number of reports <= 10,83
+2013,4,2_10,Events with 1< number of reports <= 10,57
+2013,5,2_10,Events with 1< number of reports <= 10,76
+2013,6,2_10,Events with 1< number of reports <= 10,63
+2013,7,2_10,Events with 1< number of reports <= 10,48
+2013,8,2_10,Events with 1< number of reports <= 10,74
+2013,9,2_10,Events with 1< number of reports <= 10,104
+2013,10,2_10,Events with 1< number of reports <= 10,132
+2013,11,2_10,Events with 1< number of reports <= 10,132
+2013,12,2_10,Events with 1< number of reports <= 10,104
+2013,1,11_25,Events with 10< number of reports <= 25,5
+2013,2,11_25,Events with 10< number of reports <= 25,8
+2013,3,11_25,Events with 10< number of reports <= 25,5
+2013,4,11_25,Events with 10< number of reports <= 25,6
+2013,5,11_25,Events with 10< number of reports <= 25,10
+2013,6,11_25,Events with 10< number of reports <= 25,7
+2013,7,11_25,Events with 10< number of reports <= 25,2
+2013,8,11_25,Events with 10< number of reports <= 25,7
+2013,9,11_25,Events with 10< number of reports <= 25,17
+2013,10,11_25,Events with 10< number of reports <= 25,9
+2013,11,11_25,Events with 10< number of reports <= 25,9
+2013,12,11_25,Events with 10< number of reports <= 25,12
+2013,1,26_50,Events with 25< number of reports <= 50,3
+2013,2,26_50,Events with 25< number of reports <= 50,1
+2013,3,26_50,Events with 25< number of reports <= 50,2
+2013,4,26_50,Events with 25< number of reports <= 50,1
+2013,5,26_50,Events with 25< number of reports <= 50,1
+2013,6,26_50,Events with 25< number of reports <= 50,2
+2013,7,26_50,Events with 25< number of reports <= 50,1
+2013,8,26_50,Events with 25< number of reports <= 50,0
+2013,9,26_50,Events with 25< number of reports <= 50,9
+2013,10,26_50,Events with 25< number of reports <= 50,3
+2013,11,26_50,Events with 25< number of reports <= 50,2
+2013,12,26_50,Events with 25< number of reports <= 50,5
+2013,1,51_99,Events with 50< number of reports < 100,3
+2013,2,51_99,Events with 50< number of reports < 100,3
+2013,3,51_99,Events with 50< number of reports < 100,3
+2013,4,51_99,Events with 50< number of reports < 100,0
+2013,5,51_99,Events with 50< number of reports < 100,5
+2013,6,51_99,Events with 50< number of reports < 100,0
+2013,7,51_99,Events with 50< number of reports < 100,0
+2013,8,51_99,Events with 50< number of reports < 100,2
+2013,9,51_99,Events with 50< number of reports < 100,7
+2013,10,51_99,Events with 50< number of reports < 100,3
+2013,11,51_99,Events with 50< number of reports < 100,1
+2013,12,51_99,Events with 50< number of reports < 100,2
+2013,1,100_plus,Events with more than 100 reports,1
+2013,2,100_plus,Events with more than 100 reports,0
+2013,3,100_plus,Events with more than 100 reports,1
+2013,4,100_plus,Events with more than 100 reports,0
+2013,5,100_plus,Events with more than 100 reports,3
+2013,6,100_plus,Events with more than 100 reports,0
+2013,7,100_plus,Events with more than 100 reports,1
+2013,8,100_plus,Events with more than 100 reports,0
+2013,9,100_plus,Events with more than 100 reports,4
+2013,10,100_plus,Events with more than 100 reports,3
+2013,11,100_plus,Events with more than 100 reports,1
+2013,12,100_plus,Events with more than 100 reports,2
+2014,1,one,Events with only one report,256
+2014,2,one,Events with only one report,179
+2014,3,one,Events with only one report,154
+2014,4,one,Events with only one report,139
+2014,5,one,Events with only one report,143
+2014,6,one,Events with only one report,147
+2014,7,one,Events with only one report,178
+2014,8,one,Events with only one report,260
+2014,9,one,Events with only one report,295
+2014,10,one,Events with only one report,241
+2014,11,one,Events with only one report,313
+2014,12,one,Events with only one report,237
+2014,1,2_10,Events with 1< number of reports <= 10,95
+2014,2,2_10,Events with 1< number of reports <= 10,57
+2014,3,2_10,Events with 1< number of reports <= 10,71
+2014,4,2_10,Events with 1< number of reports <= 10,63
+2014,5,2_10,Events with 1< number of reports <= 10,62
+2014,6,2_10,Events with 1< number of reports <= 10,53
+2014,7,2_10,Events with 1< number of reports <= 10,61
+2014,8,2_10,Events with 1< number of reports <= 10,99
+2014,9,2_10,Events with 1< number of reports <= 10,139
+2014,10,2_10,Events with 1< number of reports <= 10,92
+2014,11,2_10,Events with 1< number of reports <= 10,171
+2014,12,2_10,Events with 1< number of reports <= 10,101
+2014,1,11_25,Events with 10< number of reports <= 25,13
+2014,2,11_25,Events with 10< number of reports <= 25,9
+2014,3,11_25,Events with 10< number of reports <= 25,6
+2014,4,11_25,Events with 10< number of reports <= 25,3
+2014,5,11_25,Events with 10< number of reports <= 25,4
+2014,6,11_25,Events with 10< number of reports <= 25,8
+2014,7,11_25,Events with 10< number of reports <= 25,8
+2014,8,11_25,Events with 10< number of reports <= 25,10
+2014,9,11_25,Events with 10< number of reports <= 25,16
+2014,10,11_25,Events with 10< number of reports <= 25,13
+2014,11,11_25,Events with 10< number of reports <= 25,13
+2014,12,11_25,Events with 10< number of reports <= 25,10
+2014,1,26_50,Events with 25< number of reports <= 50,2
+2014,2,26_50,Events with 25< number of reports <= 50,2
+2014,3,26_50,Events with 25< number of reports <= 50,1
+2014,4,26_50,Events with 25< number of reports <= 50,0
+2014,5,26_50,Events with 25< number of reports <= 50,1
+2014,6,26_50,Events with 25< number of reports <= 50,4
+2014,7,26_50,Events with 25< number of reports <= 50,2
+2014,8,26_50,Events with 25< number of reports <= 50,1
+2014,9,26_50,Events with 25< number of reports <= 50,8
+2014,10,26_50,Events with 25< number of reports <= 50,6
+2014,11,26_50,Events with 25< number of reports <= 50,6
+2014,12,26_50,Events with 25< number of reports <= 50,3
+2014,1,51_99,Events with 50< number of reports < 100,0
+2014,2,51_99,Events with 50< number of reports < 100,2
+2014,3,51_99,Events with 50< number of reports < 100,0
+2014,4,51_99,Events with 50< number of reports < 100,1
+2014,5,51_99,Events with 50< number of reports < 100,3
+2014,6,51_99,Events with 50< number of reports < 100,0
+2014,7,51_99,Events with 50< number of reports < 100,1
+2014,8,51_99,Events with 50< number of reports < 100,3
+2014,9,51_99,Events with 50< number of reports < 100,2
+2014,10,51_99,Events with 50< number of reports < 100,3
+2014,11,51_99,Events with 50< number of reports < 100,6
+2014,12,51_99,Events with 50< number of reports < 100,3
+2014,1,100_plus,Events with more than 100 reports,3
+2014,2,100_plus,Events with more than 100 reports,2
+2014,3,100_plus,Events with more than 100 reports,0
+2014,4,100_plus,Events with more than 100 reports,1
+2014,5,100_plus,Events with more than 100 reports,1
+2014,6,100_plus,Events with more than 100 reports,0
+2014,7,100_plus,Events with more than 100 reports,2
+2014,8,100_plus,Events with more than 100 reports,1
+2014,9,100_plus,Events with more than 100 reports,6
+2014,10,100_plus,Events with more than 100 reports,0
+2014,11,100_plus,Events with more than 100 reports,2
+2014,12,100_plus,Events with more than 100 reports,3
+2015,1,one,Events with only one report,205
+2015,2,one,Events with only one report,170
+2015,3,one,Events with only one report,176
+2015,4,one,Events with only one report,147
+2015,5,one,Events with only one report,139
+2015,6,one,Events with only one report,124
+2015,7,one,Events with only one report,174
+2015,8,one,Events with only one report,235
+2015,9,one,Events with only one report,223
+2015,10,one,Events with only one report,258
+2015,11,one,Events with only one report,445
+2015,12,one,Events with only one report,330
+2015,1,2_10,Events with 1< number of reports <= 10,86
+2015,2,2_10,Events with 1< number of reports <= 10,67
+2015,3,2_10,Events with 1< number of reports <= 10,76
+2015,4,2_10,Events with 1< number of reports <= 10,76
+2015,5,2_10,Events with 1< number of reports <= 10,65
+2015,6,2_10,Events with 1< number of reports <= 10,61
+2015,7,2_10,Events with 1< number of reports <= 10,95
+2015,8,2_10,Events with 1< number of reports <= 10,165
+2015,9,2_10,Events with 1< number of reports <= 10,117
+2015,10,2_10,Events with 1< number of reports <= 10,149
+2015,11,2_10,Events with 1< number of reports <= 10,336
+2015,12,2_10,Events with 1< number of reports <= 10,100
+2015,1,11_25,Events with 10< number of reports <= 25,19
+2015,2,11_25,Events with 10< number of reports <= 25,12
+2015,3,11_25,Events with 10< number of reports <= 25,13
+2015,4,11_25,Events with 10< number of reports <= 25,9
+2015,5,11_25,Events with 10< number of reports <= 25,5
+2015,6,11_25,Events with 10< number of reports <= 25,6
+2015,7,11_25,Events with 10< number of reports <= 25,9
+2015,8,11_25,Events with 10< number of reports <= 25,10
+2015,9,11_25,Events with 10< number of reports <= 25,12
+2015,10,11_25,Events with 10< number of reports <= 25,17
+2015,11,11_25,Events with 10< number of reports <= 25,47
+2015,12,11_25,Events with 10< number of reports <= 25,13
+2015,1,26_50,Events with 25< number of reports <= 50,3
+2015,2,26_50,Events with 25< number of reports <= 50,1
+2015,3,26_50,Events with 25< number of reports <= 50,4
+2015,4,26_50,Events with 25< number of reports <= 50,3
+2015,5,26_50,Events with 25< number of reports <= 50,0
+2015,6,26_50,Events with 25< number of reports <= 50,4
+2015,7,26_50,Events with 25< number of reports <= 50,1
+2015,8,26_50,Events with 25< number of reports <= 50,2
+2015,9,26_50,Events with 25< number of reports <= 50,5
+2015,10,26_50,Events with 25< number of reports <= 50,2
+2015,11,26_50,Events with 25< number of reports <= 50,16
+2015,12,26_50,Events with 25< number of reports <= 50,0
+2015,1,51_99,Events with 50< number of reports < 100,2
+2015,2,51_99,Events with 50< number of reports < 100,0
+2015,3,51_99,Events with 50< number of reports < 100,1
+2015,4,51_99,Events with 50< number of reports < 100,2
+2015,5,51_99,Events with 50< number of reports < 100,0
+2015,6,51_99,Events with 50< number of reports < 100,1
+2015,7,51_99,Events with 50< number of reports < 100,2
+2015,8,51_99,Events with 50< number of reports < 100,0
+2015,9,51_99,Events with 50< number of reports < 100,1
+2015,10,51_99,Events with 50< number of reports < 100,2
+2015,11,51_99,Events with 50< number of reports < 100,4
+2015,12,51_99,Events with 50< number of reports < 100,2
+2015,1,100_plus,Events with more than 100 reports,0
+2015,2,100_plus,Events with more than 100 reports,3
+2015,3,100_plus,Events with more than 100 reports,2
+2015,4,100_plus,Events with more than 100 reports,0
+2015,5,100_plus,Events with more than 100 reports,1
+2015,6,100_plus,Events with more than 100 reports,1
+2015,7,100_plus,Events with more than 100 reports,0
+2015,8,100_plus,Events with more than 100 reports,1
+2015,9,100_plus,Events with more than 100 reports,0
+2015,10,100_plus,Events with more than 100 reports,3
+2015,11,100_plus,Events with more than 100 reports,2
+2015,12,100_plus,Events with more than 100 reports,0
+2016,1,one,Events with only one report,281
+2016,2,one,Events with only one report,297
+2016,3,one,Events with only one report,274
+2016,4,one,Events with only one report,252
+2016,5,one,Events with only one report,226
+2016,6,one,Events with only one report,274
+2016,7,one,Events with only one report,263
+2016,8,one,Events with only one report,337
+2016,9,one,Events with only one report,280
+2016,10,one,Events with only one report,333
+2016,11,one,Events with only one report,363
+2016,12,one,Events with only one report,366
+2016,1,2_10,Events with 1< number of reports <= 10,126
+2016,2,2_10,Events with 1< number of reports <= 10,108
+2016,3,2_10,Events with 1< number of reports <= 10,105
+2016,4,2_10,Events with 1< number of reports <= 10,91
+2016,5,2_10,Events with 1< number of reports <= 10,85
+2016,6,2_10,Events with 1< number of reports <= 10,94
+2016,7,2_10,Events with 1< number of reports <= 10,125
+2016,8,2_10,Events with 1< number of reports <= 10,159
+2016,9,2_10,Events with 1< number of reports <= 10,156
+2016,10,2_10,Events with 1< number of reports <= 10,182
+2016,11,2_10,Events with 1< number of reports <= 10,202
+2016,12,2_10,Events with 1< number of reports <= 10,171
+2016,1,11_25,Events with 10< number of reports <= 25,12
+2016,2,11_25,Events with 10< number of reports <= 25,11
+2016,3,11_25,Events with 10< number of reports <= 25,10
+2016,4,11_25,Events with 10< number of reports <= 25,7
+2016,5,11_25,Events with 10< number of reports <= 25,3
+2016,6,11_25,Events with 10< number of reports <= 25,9
+2016,7,11_25,Events with 10< number of reports <= 25,17
+2016,8,11_25,Events with 10< number of reports <= 25,14
+2016,9,11_25,Events with 10< number of reports <= 25,18
+2016,10,11_25,Events with 10< number of reports <= 25,12
+2016,11,11_25,Events with 10< number of reports <= 25,15
+2016,12,11_25,Events with 10< number of reports <= 25,17
+2016,1,26_50,Events with 25< number of reports <= 50,2
+2016,2,26_50,Events with 25< number of reports <= 50,7
+2016,3,26_50,Events with 25< number of reports <= 50,4
+2016,4,26_50,Events with 25< number of reports <= 50,2
+2016,5,26_50,Events with 25< number of reports <= 50,0
+2016,6,26_50,Events with 25< number of reports <= 50,2
+2016,7,26_50,Events with 25< number of reports <= 50,7
+2016,8,26_50,Events with 25< number of reports <= 50,4
+2016,9,26_50,Events with 25< number of reports <= 50,8
+2016,10,26_50,Events with 25< number of reports <= 50,10
+2016,11,26_50,Events with 25< number of reports <= 50,8
+2016,12,26_50,Events with 25< number of reports <= 50,2
+2016,1,51_99,Events with 50< number of reports < 100,1
+2016,2,51_99,Events with 50< number of reports < 100,0
+2016,3,51_99,Events with 50< number of reports < 100,5
+2016,4,51_99,Events with 50< number of reports < 100,2
+2016,5,51_99,Events with 50< number of reports < 100,0
+2016,6,51_99,Events with 50< number of reports < 100,2
+2016,7,51_99,Events with 50< number of reports < 100,1
+2016,8,51_99,Events with 50< number of reports < 100,3
+2016,9,51_99,Events with 50< number of reports < 100,2
+2016,10,51_99,Events with 50< number of reports < 100,4
+2016,11,51_99,Events with 50< number of reports < 100,4
+2016,12,51_99,Events with 50< number of reports < 100,0
+2016,1,100_plus,Events with more than 100 reports,2
+2016,2,100_plus,Events with more than 100 reports,6
+2016,3,100_plus,Events with more than 100 reports,2
+2016,4,100_plus,Events with more than 100 reports,2
+2016,5,100_plus,Events with more than 100 reports,1
+2016,6,100_plus,Events with more than 100 reports,3
+2016,7,100_plus,Events with more than 100 reports,1
+2016,8,100_plus,Events with more than 100 reports,2
+2016,9,100_plus,Events with more than 100 reports,4
+2016,10,100_plus,Events with more than 100 reports,3
+2016,11,100_plus,Events with more than 100 reports,4
+2016,12,100_plus,Events with more than 100 reports,1
+2017,1,one,Events with only one report,299
+2017,2,one,Events with only one report,290
+2017,3,one,Events with only one report,232
+2017,4,one,Events with only one report,231
+2017,5,one,Events with only one report,175
+2017,6,one,Events with only one report,209
+2017,7,one,Events with only one report,274
+2017,8,one,Events with only one report,358
+2017,9,one,Events with only one report,310
+2017,10,one,Events with only one report,391
+2017,11,one,Events with only one report,428
+2017,12,one,Events with only one report,469
+2017,1,2_10,Events with 1< number of reports <= 10,98
+2017,2,2_10,Events with 1< number of reports <= 10,130
+2017,3,2_10,Events with 1< number of reports <= 10,113
+2017,4,2_10,Events with 1< number of reports <= 10,87
+2017,5,2_10,Events with 1< number of reports <= 10,71
+2017,6,2_10,Events with 1< number of reports <= 10,110
+2017,7,2_10,Events with 1< number of reports <= 10,101
+2017,8,2_10,Events with 1< number of reports <= 10,147
+2017,9,2_10,Events with 1< number of reports <= 10,139
+2017,10,2_10,Events with 1< number of reports <= 10,161
+2017,11,2_10,Events with 1< number of reports <= 10,220
+2017,12,2_10,Events with 1< number of reports <= 10,200
+2017,1,11_25,Events with 10< number of reports <= 25,14
+2017,2,11_25,Events with 10< number of reports <= 25,10
+2017,3,11_25,Events with 10< number of reports <= 25,19
+2017,4,11_25,Events with 10< number of reports <= 25,11
+2017,5,11_25,Events with 10< number of reports <= 25,11
+2017,6,11_25,Events with 10< number of reports <= 25,4
+2017,7,11_25,Events with 10< number of reports <= 25,13
+2017,8,11_25,Events with 10< number of reports <= 25,7
+2017,9,11_25,Events with 10< number of reports <= 25,11
+2017,10,11_25,Events with 10< number of reports <= 25,20
+2017,11,11_25,Events with 10< number of reports <= 25,26
+2017,12,11_25,Events with 10< number of reports <= 25,21
+2017,1,26_50,Events with 25< number of reports <= 50,5
+2017,2,26_50,Events with 25< number of reports <= 50,4
+2017,3,26_50,Events with 25< number of reports <= 50,3
+2017,4,26_50,Events with 25< number of reports <= 50,2
+2017,5,26_50,Events with 25< number of reports <= 50,3
+2017,6,26_50,Events with 25< number of reports <= 50,5
+2017,7,26_50,Events with 25< number of reports <= 50,3
+2017,8,26_50,Events with 25< number of reports <= 50,4
+2017,9,26_50,Events with 25< number of reports <= 50,6
+2017,10,26_50,Events with 25< number of reports <= 50,9
+2017,11,26_50,Events with 25< number of reports <= 50,8
+2017,12,26_50,Events with 25< number of reports <= 50,4
+2017,1,51_99,Events with 50< number of reports < 100,1
+2017,2,51_99,Events with 50< number of reports < 100,3
+2017,3,51_99,Events with 50< number of reports < 100,3
+2017,4,51_99,Events with 50< number of reports < 100,1
+2017,5,51_99,Events with 50< number of reports < 100,1
+2017,6,51_99,Events with 50< number of reports < 100,3
+2017,7,51_99,Events with 50< number of reports < 100,1
+2017,8,51_99,Events with 50< number of reports < 100,0
+2017,9,51_99,Events with 50< number of reports < 100,5
+2017,10,51_99,Events with 50< number of reports < 100,1
+2017,11,51_99,Events with 50< number of reports < 100,6
+2017,12,51_99,Events with 50< number of reports < 100,3
+2017,1,100_plus,Events with more than 100 reports,2
+2017,2,100_plus,Events with more than 100 reports,2
+2017,3,100_plus,Events with more than 100 reports,2
+2017,4,100_plus,Events with more than 100 reports,3
+2017,5,100_plus,Events with more than 100 reports,0
+2017,6,100_plus,Events with more than 100 reports,0
+2017,7,100_plus,Events with more than 100 reports,1
+2017,8,100_plus,Events with more than 100 reports,2
+2017,9,100_plus,Events with more than 100 reports,3
+2017,10,100_plus,Events with more than 100 reports,2
+2017,11,100_plus,Events with more than 100 reports,7
+2017,12,100_plus,Events with more than 100 reports,5
+2018,1,one,Events with only one report,318
+2018,2,one,Events with only one report,257
+2018,3,one,Events with only one report,300
+2018,4,one,Events with only one report,240
+2018,5,one,Events with only one report,210
+2018,6,one,Events with only one report,247
+2018,7,one,Events with only one report,351
+2018,8,one,Events with only one report,446
+2018,9,one,Events with only one report,374
+2018,10,one,Events with only one report,422
+2018,11,one,Events with only one report,535
+2018,12,one,Events with only one report,442
+2018,1,2_10,Events with 1< number of reports <= 10,109
+2018,2,2_10,Events with 1< number of reports <= 10,117
+2018,3,2_10,Events with 1< number of reports <= 10,118
+2018,4,2_10,Events with 1< number of reports <= 10,89
+2018,5,2_10,Events with 1< number of reports <= 10,78
+2018,6,2_10,Events with 1< number of reports <= 10,98
+2018,7,2_10,Events with 1< number of reports <= 10,118
+2018,8,2_10,Events with 1< number of reports <= 10,162
+2018,9,2_10,Events with 1< number of reports <= 10,152
+2018,10,2_10,Events with 1< number of reports <= 10,164
+2018,11,2_10,Events with 1< number of reports <= 10,221
+2018,12,2_10,Events with 1< number of reports <= 10,151
+2018,1,11_25,Events with 10< number of reports <= 25,13
+2018,2,11_25,Events with 10< number of reports <= 25,20
+2018,3,11_25,Events with 10< number of reports <= 25,15
+2018,4,11_25,Events with 10< number of reports <= 25,9
+2018,5,11_25,Events with 10< number of reports <= 25,6
+2018,6,11_25,Events with 10< number of reports <= 25,10
+2018,7,11_25,Events with 10< number of reports <= 25,19
+2018,8,11_25,Events with 10< number of reports <= 25,13
+2018,9,11_25,Events with 10< number of reports <= 25,16
+2018,10,11_25,Events with 10< number of reports <= 25,18
+2018,11,11_25,Events with 10< number of reports <= 25,21
+2018,12,11_25,Events with 10< number of reports <= 25,10
+2018,1,26_50,Events with 25< number of reports <= 50,5
+2018,2,26_50,Events with 25< number of reports <= 50,4
+2018,3,26_50,Events with 25< number of reports <= 50,11
+2018,4,26_50,Events with 25< number of reports <= 50,4
+2018,5,26_50,Events with 25< number of reports <= 50,2
+2018,6,26_50,Events with 25< number of reports <= 50,4
+2018,7,26_50,Events with 25< number of reports <= 50,5
+2018,8,26_50,Events with 25< number of reports <= 50,2
+2018,9,26_50,Events with 25< number of reports <= 50,3
+2018,10,26_50,Events with 25< number of reports <= 50,6
+2018,11,26_50,Events with 25< number of reports <= 50,8
+2018,12,26_50,Events with 25< number of reports <= 50,9
+2018,1,51_99,Events with 50< number of reports < 100,3
+2018,2,51_99,Events with 50< number of reports < 100,4
+2018,3,51_99,Events with 50< number of reports < 100,3
+2018,4,51_99,Events with 50< number of reports < 100,1
+2018,5,51_99,Events with 50< number of reports < 100,2
+2018,6,51_99,Events with 50< number of reports < 100,3
+2018,7,51_99,Events with 50< number of reports < 100,3
+2018,8,51_99,Events with 50< number of reports < 100,1
+2018,9,51_99,Events with 50< number of reports < 100,4
+2018,10,51_99,Events with 50< number of reports < 100,3
+2018,11,51_99,Events with 50< number of reports < 100,4
+2018,12,51_99,Events with 50< number of reports < 100,2
+2018,1,100_plus,Events with more than 100 reports,4
+2018,2,100_plus,Events with more than 100 reports,3
+2018,3,100_plus,Events with more than 100 reports,1
+2018,4,100_plus,Events with more than 100 reports,0
+2018,5,100_plus,Events with more than 100 reports,0
+2018,6,100_plus,Events with more than 100 reports,2
+2018,7,100_plus,Events with more than 100 reports,2
+2018,8,100_plus,Events with more than 100 reports,3
+2018,9,100_plus,Events with more than 100 reports,0
+2018,10,100_plus,Events with more than 100 reports,2
+2018,11,100_plus,Events with more than 100 reports,4
+2018,12,100_plus,Events with more than 100 reports,1
+2019,1,one,Events with only one report,404
+2019,2,one,Events with only one report,330
+2019,3,one,Events with only one report,391
+2019,4,one,Events with only one report,340
+2019,5,one,Events with only one report,290
+2019,6,one,Events with only one report,330
+2019,7,one,Events with only one report,409
+2019,8,one,Events with only one report,542
+2019,9,one,Events with only one report,434
+2019,10,one,Events with only one report,393
+2019,11,one,Events with only one report,512
+2019,12,one,Events with only one report,525
+2019,1,2_10,Events with 1< number of reports <= 10,126
+2019,2,2_10,Events with 1< number of reports <= 10,102
+2019,3,2_10,Events with 1< number of reports <= 10,114
+2019,4,2_10,Events with 1< number of reports <= 10,105
+2019,5,2_10,Events with 1< number of reports <= 10,88
+2019,6,2_10,Events with 1< number of reports <= 10,120
+2019,7,2_10,Events with 1< number of reports <= 10,149
+2019,8,2_10,Events with 1< number of reports <= 10,182
+2019,9,2_10,Events with 1< number of reports <= 10,166
+2019,10,2_10,Events with 1< number of reports <= 10,163
+2019,11,2_10,Events with 1< number of reports <= 10,224
+2019,12,2_10,Events with 1< number of reports <= 10,232
+2019,1,11_25,Events with 10< number of reports <= 25,16
+2019,2,11_25,Events with 10< number of reports <= 25,13
+2019,3,11_25,Events with 10< number of reports <= 25,20
+2019,4,11_25,Events with 10< number of reports <= 25,19
+2019,5,11_25,Events with 10< number of reports <= 25,10
+2019,6,11_25,Events with 10< number of reports <= 25,8
+2019,7,11_25,Events with 10< number of reports <= 25,10
+2019,8,11_25,Events with 10< number of reports <= 25,14
+2019,9,11_25,Events with 10< number of reports <= 25,20
+2019,10,11_25,Events with 10< number of reports <= 25,14
+2019,11,11_25,Events with 10< number of reports <= 25,15
+2019,12,11_25,Events with 10< number of reports <= 25,25
+2019,1,26_50,Events with 25< number of reports <= 50,5
+2019,2,26_50,Events with 25< number of reports <= 50,7
+2019,3,26_50,Events with 25< number of reports <= 50,8
+2019,4,26_50,Events with 25< number of reports <= 50,2
+2019,5,26_50,Events with 25< number of reports <= 50,3
+2019,6,26_50,Events with 25< number of reports <= 50,7
+2019,7,26_50,Events with 25< number of reports <= 50,4
+2019,8,26_50,Events with 25< number of reports <= 50,5
+2019,9,26_50,Events with 25< number of reports <= 50,5
+2019,10,26_50,Events with 25< number of reports <= 50,4
+2019,11,26_50,Events with 25< number of reports <= 50,6
+2019,12,26_50,Events with 25< number of reports <= 50,10
+2019,1,51_99,Events with 50< number of reports < 100,3
+2019,2,51_99,Events with 50< number of reports < 100,7
+2019,3,51_99,Events with 50< number of reports < 100,3
+2019,4,51_99,Events with 50< number of reports < 100,6
+2019,5,51_99,Events with 50< number of reports < 100,1
+2019,6,51_99,Events with 50< number of reports < 100,3
+2019,7,51_99,Events with 50< number of reports < 100,2
+2019,8,51_99,Events with 50< number of reports < 100,2
+2019,9,51_99,Events with 50< number of reports < 100,6
+2019,10,51_99,Events with 50< number of reports < 100,4
+2019,11,51_99,Events with 50< number of reports < 100,4
+2019,12,51_99,Events with 50< number of reports < 100,7
+2019,1,100_plus,Events with more than 100 reports,1
+2019,2,100_plus,Events with more than 100 reports,2
+2019,3,100_plus,Events with more than 100 reports,5
+2019,4,100_plus,Events with more than 100 reports,3
+2019,5,100_plus,Events with more than 100 reports,1
+2019,6,100_plus,Events with more than 100 reports,2
+2019,7,100_plus,Events with more than 100 reports,1
+2019,8,100_plus,Events with more than 100 reports,2
+2019,9,100_plus,Events with more than 100 reports,4
+2019,10,100_plus,Events with more than 100 reports,5
+2019,11,100_plus,Events with more than 100 reports,2
+2019,12,100_plus,Events with more than 100 reports,2
+2020,1,one,Events with only one report,415
+2020,2,one,Events with only one report,341
+2020,3,one,Events with only one report,324
+2020,4,one,Events with only one report,403
+2020,5,one,Events with only one report,389
+2020,6,one,Events with only one report,366
+2020,7,one,Events with only one report,558
+2020,8,one,Events with only one report,667
+2020,9,one,Events with only one report,411
+2020,10,one,Events with only one report,481
+2020,11,one,Events with only one report,673
+2020,12,one,Events with only one report,651
+2020,1,2_10,Events with 1< number of reports <= 10,159
+2020,2,2_10,Events with 1< number of reports <= 10,128
+2020,3,2_10,Events with 1< number of reports <= 10,124
+2020,4,2_10,Events with 1< number of reports <= 10,142
+2020,5,2_10,Events with 1< number of reports <= 10,149
+2020,6,2_10,Events with 1< number of reports <= 10,132
+2020,7,2_10,Events with 1< number of reports <= 10,203
+2020,8,2_10,Events with 1< number of reports <= 10,261
+2020,9,2_10,Events with 1< number of reports <= 10,162
+2020,10,2_10,Events with 1< number of reports <= 10,174
+2020,11,2_10,Events with 1< number of reports <= 10,317
+2020,12,2_10,Events with 1< number of reports <= 10,268
+2020,1,11_25,Events with 10< number of reports <= 25,25
+2020,2,11_25,Events with 10< number of reports <= 25,16
+2020,3,11_25,Events with 10< number of reports <= 25,9
+2020,4,11_25,Events with 10< number of reports <= 25,17
+2020,5,11_25,Events with 10< number of reports <= 25,15
+2020,6,11_25,Events with 10< number of reports <= 25,12
+2020,7,11_25,Events with 10< number of reports <= 25,18
+2020,8,11_25,Events with 10< number of reports <= 25,22
+2020,9,11_25,Events with 10< number of reports <= 25,15
+2020,10,11_25,Events with 10< number of reports <= 25,22
+2020,11,11_25,Events with 10< number of reports <= 25,43
+2020,12,11_25,Events with 10< number of reports <= 25,20
+2020,1,26_50,Events with 25< number of reports <= 50,5
+2020,2,26_50,Events with 25< number of reports <= 50,8
+2020,3,26_50,Events with 25< number of reports <= 50,4
+2020,4,26_50,Events with 25< number of reports <= 50,4
+2020,5,26_50,Events with 25< number of reports <= 50,7
+2020,6,26_50,Events with 25< number of reports <= 50,0
+2020,7,26_50,Events with 25< number of reports <= 50,14
+2020,8,26_50,Events with 25< number of reports <= 50,4
+2020,9,26_50,Events with 25< number of reports <= 50,7
+2020,10,26_50,Events with 25< number of reports <= 50,8
+2020,11,26_50,Events with 25< number of reports <= 50,13
+2020,12,26_50,Events with 25< number of reports <= 50,10
+2020,1,51_99,Events with 50< number of reports < 100,4
+2020,2,51_99,Events with 50< number of reports < 100,6
+2020,3,51_99,Events with 50< number of reports < 100,0
+2020,4,51_99,Events with 50< number of reports < 100,2
+2020,5,51_99,Events with 50< number of reports < 100,5
+2020,6,51_99,Events with 50< number of reports < 100,0
+2020,7,51_99,Events with 50< number of reports < 100,3
+2020,8,51_99,Events with 50< number of reports < 100,2
+2020,9,51_99,Events with 50< number of reports < 100,1
+2020,10,51_99,Events with 50< number of reports < 100,2
+2020,11,51_99,Events with 50< number of reports < 100,5
+2020,12,51_99,Events with 50< number of reports < 100,3
+2020,1,100_plus,Events with more than 100 reports,4
+2020,2,100_plus,Events with more than 100 reports,2
+2020,3,100_plus,Events with more than 100 reports,1
+2020,4,100_plus,Events with more than 100 reports,2
+2020,5,100_plus,Events with more than 100 reports,1
+2020,6,100_plus,Events with more than 100 reports,4
+2020,7,100_plus,Events with more than 100 reports,3
+2020,8,100_plus,Events with more than 100 reports,2
+2020,9,100_plus,Events with more than 100 reports,2
+2020,10,100_plus,Events with more than 100 reports,3
+2020,11,100_plus,Events with more than 100 reports,5
+2020,12,100_plus,Events with more than 100 reports,6
+2021,1,one,Events with only one report,460
+2021,2,one,Events with only one report,396
+2021,3,one,Events with only one report,526
+2021,4,one,Events with only one report,356
+2021,5,one,Events with only one report,398
+2021,6,one,Events with only one report,359
+2021,7,one,Events with only one report,419
+2021,8,one,Events with only one report,736
+2021,9,one,Events with only one report,631
+2021,10,one,Events with only one report,667
+2021,11,one,Events with only one report,882
+2021,12,one,Events with only one report,791
+2021,1,2_10,Events with 1< number of reports <= 10,186
+2021,2,2_10,Events with 1< number of reports <= 10,166
+2021,3,2_10,Events with 1< number of reports <= 10,218
+2021,4,2_10,Events with 1< number of reports <= 10,131
+2021,5,2_10,Events with 1< number of reports <= 10,157
+2021,6,2_10,Events with 1< number of reports <= 10,127
+2021,7,2_10,Events with 1< number of reports <= 10,138
+2021,8,2_10,Events with 1< number of reports <= 10,307
+2021,9,2_10,Events with 1< number of reports <= 10,240
+2021,10,2_10,Events with 1< number of reports <= 10,271
+2021,11,2_10,Events with 1< number of reports <= 10,368
+2021,12,2_10,Events with 1< number of reports <= 10,291
+2021,1,11_25,Events with 10< number of reports <= 25,19
+2021,2,11_25,Events with 10< number of reports <= 25,22
+2021,3,11_25,Events with 10< number of reports <= 25,20
+2021,4,11_25,Events with 10< number of reports <= 25,18
+2021,5,11_25,Events with 10< number of reports <= 25,22
+2021,6,11_25,Events with 10< number of reports <= 25,8
+2021,7,11_25,Events with 10< number of reports <= 25,10
+2021,8,11_25,Events with 10< number of reports <= 25,21
+2021,9,11_25,Events with 10< number of reports <= 25,26
+2021,10,11_25,Events with 10< number of reports <= 25,27
+2021,11,11_25,Events with 10< number of reports <= 25,29
+2021,12,11_25,Events with 10< number of reports <= 25,27
+2021,1,26_50,Events with 25< number of reports <= 50,3
+2021,2,26_50,Events with 25< number of reports <= 50,5
+2021,3,26_50,Events with 25< number of reports <= 50,14
+2021,4,26_50,Events with 25< number of reports <= 50,5
+2021,5,26_50,Events with 25< number of reports <= 50,4
+2021,6,26_50,Events with 25< number of reports <= 50,3
+2021,7,26_50,Events with 25< number of reports <= 50,3
+2021,8,26_50,Events with 25< number of reports <= 50,7
+2021,9,26_50,Events with 25< number of reports <= 50,13
+2021,10,26_50,Events with 25< number of reports <= 50,18
+2021,11,26_50,Events with 25< number of reports <= 50,13
+2021,12,26_50,Events with 25< number of reports <= 50,11
+2021,1,51_99,Events with 50< number of reports < 100,3
+2021,2,51_99,Events with 50< number of reports < 100,3
+2021,3,51_99,Events with 50< number of reports < 100,9
+2021,4,51_99,Events with 50< number of reports < 100,2
+2021,5,51_99,Events with 50< number of reports < 100,3
+2021,6,51_99,Events with 50< number of reports < 100,0
+2021,7,51_99,Events with 50< number of reports < 100,8
+2021,8,51_99,Events with 50< number of reports < 100,4
+2021,9,51_99,Events with 50< number of reports < 100,4
+2021,10,51_99,Events with 50< number of reports < 100,8
+2021,11,51_99,Events with 50< number of reports < 100,4
+2021,12,51_99,Events with 50< number of reports < 100,9
+2021,1,100_plus,Events with more than 100 reports,1
+2021,2,100_plus,Events with more than 100 reports,7
+2021,3,100_plus,Events with more than 100 reports,7
+2021,4,100_plus,Events with more than 100 reports,2
+2021,5,100_plus,Events with more than 100 reports,1
+2021,6,100_plus,Events with more than 100 reports,1
+2021,7,100_plus,Events with more than 100 reports,2
+2021,8,100_plus,Events with more than 100 reports,2
+2021,9,100_plus,Events with more than 100 reports,2
+2021,10,100_plus,Events with more than 100 reports,6
+2021,11,100_plus,Events with more than 100 reports,5
+2021,12,100_plus,Events with more than 100 reports,2
+2022,1,one,Events with only one report,548
+2022,2,one,Events with only one report,425
+2022,3,one,Events with only one report,488
+2022,4,one,Events with only one report,343
+2022,5,one,Events with only one report,401
+2022,6,one,Events with only one report,389
+2022,7,one,Events with only one report,529
+2022,8,one,Events with only one report,741
+2022,9,one,Events with only one report,581
+2022,10,one,Events with only one report,759
+2022,11,one,Events with only one report,1141
+2022,12,one,Events with only one report,567
+2022,1,2_10,Events with 1< number of reports <= 10,227
+2022,2,2_10,Events with 1< number of reports <= 10,173
+2022,3,2_10,Events with 1< number of reports <= 10,197
+2022,4,2_10,Events with 1< number of reports <= 10,141
+2022,5,2_10,Events with 1< number of reports <= 10,144
+2022,6,2_10,Events with 1< number of reports <= 10,134
+2022,7,2_10,Events with 1< number of reports <= 10,249
+2022,8,2_10,Events with 1< number of reports <= 10,388
+2022,9,2_10,Events with 1< number of reports <= 10,255
+2022,10,2_10,Events with 1< number of reports <= 10,297
+2022,11,2_10,Events with 1< number of reports <= 10,569
+2022,12,2_10,Events with 1< number of reports <= 10,270
+2022,1,11_25,Events with 10< number of reports <= 25,29
+2022,2,11_25,Events with 10< number of reports <= 25,18
+2022,3,11_25,Events with 10< number of reports <= 25,20
+2022,4,11_25,Events with 10< number of reports <= 25,20
+2022,5,11_25,Events with 10< number of reports <= 25,12
+2022,6,11_25,Events with 10< number of reports <= 25,15
+2022,7,11_25,Events with 10< number of reports <= 25,22
+2022,8,11_25,Events with 10< number of reports <= 25,29
+2022,9,11_25,Events with 10< number of reports <= 25,29
+2022,10,11_25,Events with 10< number of reports <= 25,32
+2022,11,11_25,Events with 10< number of reports <= 25,51
+2022,12,11_25,Events with 10< number of reports <= 25,23
+2022,1,26_50,Events with 25< number of reports <= 50,5
+2022,2,26_50,Events with 25< number of reports <= 50,11
+2022,3,26_50,Events with 25< number of reports <= 50,13
+2022,4,26_50,Events with 25< number of reports <= 50,7
+2022,5,26_50,Events with 25< number of reports <= 50,2
+2022,6,26_50,Events with 25< number of reports <= 50,8
+2022,7,26_50,Events with 25< number of reports <= 50,11
+2022,8,26_50,Events with 25< number of reports <= 50,9
+2022,9,26_50,Events with 25< number of reports <= 50,15
+2022,10,26_50,Events with 25< number of reports <= 50,11
+2022,11,26_50,Events with 25< number of reports <= 50,23
+2022,12,26_50,Events with 25< number of reports <= 50,2
+2022,1,51_99,Events with 50< number of reports < 100,4
+2022,2,51_99,Events with 50< number of reports < 100,2
+2022,3,51_99,Events with 50< number of reports < 100,3
+2022,4,51_99,Events with 50< number of reports < 100,4
+2022,5,51_99,Events with 50< number of reports < 100,2
+2022,6,51_99,Events with 50< number of reports < 100,3
+2022,7,51_99,Events with 50< number of reports < 100,4
+2022,8,51_99,Events with 50< number of reports < 100,3
+2022,9,51_99,Events with 50< number of reports < 100,1
+2022,10,51_99,Events with 50< number of reports < 100,6
+2022,11,51_99,Events with 50< number of reports < 100,9
+2022,12,51_99,Events with 50< number of reports < 100,5
+2022,1,100_plus,Events with more than 100 reports,3
+2022,2,100_plus,Events with more than 100 reports,0
+2022,3,100_plus,Events with more than 100 reports,3
+2022,4,100_plus,Events with more than 100 reports,4
+2022,5,100_plus,Events with more than 100 reports,2
+2022,6,100_plus,Events with more than 100 reports,2
+2022,7,100_plus,Events with more than 100 reports,5
+2022,8,100_plus,Events with more than 100 reports,1
+2022,9,100_plus,Events with more than 100 reports,2
+2022,10,100_plus,Events with more than 100 reports,6
+2022,11,100_plus,Events with more than 100 reports,9
+2022,12,100_plus,Events with more than 100 reports,1
+2023,1,one,Events with only one report,426
+2023,2,one,Events with only one report,439
+2023,3,one,Events with only one report,343
+2023,4,one,Events with only one report,392
+2023,5,one,Events with only one report,313
+2023,6,one,Events with only one report,286
+2023,7,one,Events with only one report,463
+2023,8,one,Events with only one report,707
+2023,9,one,Events with only one report,526
+2023,10,one,Events with only one report,549
+2023,11,one,Events with only one report,591
+2023,12,one,Events with only one report,535
+2023,1,2_10,Events with 1< number of reports <= 10,187
+2023,2,2_10,Events with 1< number of reports <= 10,217
+2023,3,2_10,Events with 1< number of reports <= 10,157
+2023,4,2_10,Events with 1< number of reports <= 10,145
+2023,5,2_10,Events with 1< number of reports <= 10,105
+2023,6,2_10,Events with 1< number of reports <= 10,130
+2023,7,2_10,Events with 1< number of reports <= 10,194
+2023,8,2_10,Events with 1< number of reports <= 10,277
+2023,9,2_10,Events with 1< number of reports <= 10,263
+2023,10,2_10,Events with 1< number of reports <= 10,200
+2023,11,2_10,Events with 1< number of reports <= 10,291
+2023,12,2_10,Events with 1< number of reports <= 10,255
+2023,1,11_25,Events with 10< number of reports <= 25,18
+2023,2,11_25,Events with 10< number of reports <= 25,18
+2023,3,11_25,Events with 10< number of reports <= 25,16
+2023,4,11_25,Events with 10< number of reports <= 25,18
+2023,5,11_25,Events with 10< number of reports <= 25,13
+2023,6,11_25,Events with 10< number of reports <= 25,11
+2023,7,11_25,Events with 10< number of reports <= 25,19
+2023,8,11_25,Events with 10< number of reports <= 25,20
+2023,9,11_25,Events with 10< number of reports <= 25,25
+2023,10,11_25,Events with 10< number of reports <= 25,19
+2023,11,11_25,Events with 10< number of reports <= 25,34
+2023,12,11_25,Events with 10< number of reports <= 25,22
+2023,1,26_50,Events with 25< number of reports <= 50,13
+2023,2,26_50,Events with 25< number of reports <= 50,11
+2023,3,26_50,Events with 25< number of reports <= 50,2
+2023,4,26_50,Events with 25< number of reports <= 50,9
+2023,5,26_50,Events with 25< number of reports <= 50,3
+2023,6,26_50,Events with 25< number of reports <= 50,3
+2023,7,26_50,Events with 25< number of reports <= 50,3
+2023,8,26_50,Events with 25< number of reports <= 50,6
+2023,9,26_50,Events with 25< number of reports <= 50,9
+2023,10,26_50,Events with 25< number of reports <= 50,9
+2023,11,26_50,Events with 25< number of reports <= 50,15
+2023,12,26_50,Events with 25< number of reports <= 50,3
+2023,1,51_99,Events with 50< number of reports < 100,4
+2023,2,51_99,Events with 50< number of reports < 100,4
+2023,3,51_99,Events with 50< number of reports < 100,3
+2023,4,51_99,Events with 50< number of reports < 100,4
+2023,5,51_99,Events with 50< number of reports < 100,2
+2023,6,51_99,Events with 50< number of reports < 100,2
+2023,7,51_99,Events with 50< number of reports < 100,3
+2023,8,51_99,Events with 50< number of reports < 100,8
+2023,9,51_99,Events with 50< number of reports < 100,10
+2023,10,51_99,Events with 50< number of reports < 100,4
+2023,11,51_99,Events with 50< number of reports < 100,7
+2023,12,51_99,Events with 50< number of reports < 100,1
+2023,1,100_plus,Events with more than 100 reports,4
+2023,2,100_plus,Events with more than 100 reports,3
+2023,3,100_plus,Events with more than 100 reports,2
+2023,4,100_plus,Events with more than 100 reports,4
+2023,5,100_plus,Events with more than 100 reports,0
+2023,6,100_plus,Events with more than 100 reports,2
+2023,7,100_plus,Events with more than 100 reports,1
+2023,8,100_plus,Events with more than 100 reports,2
+2023,9,100_plus,Events with more than 100 reports,3
+2023,10,100_plus,Events with more than 100 reports,2
+2023,11,100_plus,Events with more than 100 reports,4
+2023,12,100_plus,Events with more than 100 reports,1
+2024,1,one,Events with only one report,433
+2024,2,one,Events with only one report,321
+2024,3,one,Events with only one report,337
+2024,4,one,Events with only one report,316
+2024,5,one,Events with only one report,352
+2024,6,one,Events with only one report,356
+2024,7,one,Events with only one report,418
+2024,8,one,Events with only one report,664
+2024,9,one,Events with only one report,482
+2024,10,one,Events with only one report,640
+2024,11,one,Events with only one report,536
+2024,12,one,Events with only one report,586
+2024,1,2_10,Events with 1< number of reports <= 10,193
+2024,2,2_10,Events with 1< number of reports <= 10,168
+2024,3,2_10,Events with 1< number of reports <= 10,156
+2024,4,2_10,Events with 1< number of reports <= 10,141
+2024,5,2_10,Events with 1< number of reports <= 10,144
+2024,6,2_10,Events with 1< number of reports <= 10,145
+2024,7,2_10,Events with 1< number of reports <= 10,174
+2024,8,2_10,Events with 1< number of reports <= 10,308
+2024,9,2_10,Events with 1< number of reports <= 10,258
+2024,10,2_10,Events with 1< number of reports <= 10,272
+2024,11,2_10,Events with 1< number of reports <= 10,248
+2024,12,2_10,Events with 1< number of reports <= 10,279
+2024,1,11_25,Events with 10< number of reports <= 25,26
+2024,2,11_25,Events with 10< number of reports <= 25,16
+2024,3,11_25,Events with 10< number of reports <= 25,26
+2024,4,11_25,Events with 10< number of reports <= 25,12
+2024,5,11_25,Events with 10< number of reports <= 25,13
+2024,6,11_25,Events with 10< number of reports <= 25,9
+2024,7,11_25,Events with 10< number of reports <= 25,21
+2024,8,11_25,Events with 10< number of reports <= 25,31
+2024,9,11_25,Events with 10< number of reports <= 25,27
+2024,10,11_25,Events with 10< number of reports <= 25,32
+2024,11,11_25,Events with 10< number of reports <= 25,23
+2024,12,11_25,Events with 10< number of reports <= 25,23
+2024,1,26_50,Events with 25< number of reports <= 50,6
+2024,2,26_50,Events with 25< number of reports <= 50,8
+2024,3,26_50,Events with 25< number of reports <= 50,3
+2024,4,26_50,Events with 25< number of reports <= 50,4
+2024,5,26_50,Events with 25< number of reports <= 50,6
+2024,6,26_50,Events with 25< number of reports <= 50,9
+2024,7,26_50,Events with 25< number of reports <= 50,7
+2024,8,26_50,Events with 25< number of reports <= 50,4
+2024,9,26_50,Events with 25< number of reports <= 50,14
+2024,10,26_50,Events with 25< number of reports <= 50,17
+2024,11,26_50,Events with 25< number of reports <= 50,8
+2024,12,26_50,Events with 25< number of reports <= 50,12
+2024,1,51_99,Events with 50< number of reports < 100,8
+2024,2,51_99,Events with 50< number of reports < 100,1
+2024,3,51_99,Events with 50< number of reports < 100,3
+2024,4,51_99,Events with 50< number of reports < 100,2
+2024,5,51_99,Events with 50< number of reports < 100,5
+2024,6,51_99,Events with 50< number of reports < 100,3
+2024,7,51_99,Events with 50< number of reports < 100,3
+2024,8,51_99,Events with 50< number of reports < 100,0
+2024,9,51_99,Events with 50< number of reports < 100,2
+2024,10,51_99,Events with 50< number of reports < 100,2
+2024,11,51_99,Events with 50< number of reports < 100,3
+2024,12,51_99,Events with 50< number of reports < 100,2
+2024,1,100_plus,Events with more than 100 reports,4
+2024,2,100_plus,Events with more than 100 reports,3
+2024,3,100_plus,Events with more than 100 reports,2
+2024,4,100_plus,Events with more than 100 reports,6
+2024,5,100_plus,Events with more than 100 reports,2
+2024,6,100_plus,Events with more than 100 reports,1
+2024,7,100_plus,Events with more than 100 reports,5
+2024,8,100_plus,Events with more than 100 reports,6
+2024,9,100_plus,Events with more than 100 reports,2
+2024,10,100_plus,Events with more than 100 reports,2
+2024,11,100_plus,Events with more than 100 reports,3
+2024,12,100_plus,Events with more than 100 reports,1
+2025,1,one,Events with only one report,474
+2025,2,one,Events with only one report,395
+2025,3,one,Events with only one report,404
+2025,4,one,Events with only one report,371
+2025,5,one,Events with only one report,370
+2025,6,one,Events with only one report,497
+2025,7,one,Events with only one report,547
+2025,8,one,Events with only one report,687
+2025,9,one,Events with only one report,612
+2025,10,one,Events with only one report,720
+2025,11,one,Events with only one report,1044
+2025,12,one,Events with only one report,712
+2025,1,2_10,Events with 1< number of reports <= 10,198
+2025,2,2_10,Events with 1< number of reports <= 10,156
+2025,3,2_10,Events with 1< number of reports <= 10,165
+2025,4,2_10,Events with 1< number of reports <= 10,134
+2025,5,2_10,Events with 1< number of reports <= 10,155
+2025,6,2_10,Events with 1< number of reports <= 10,166
+2025,7,2_10,Events with 1< number of reports <= 10,236
+2025,8,2_10,Events with 1< number of reports <= 10,322
+2025,9,2_10,Events with 1< number of reports <= 10,254
+2025,10,2_10,Events with 1< number of reports <= 10,342
+2025,11,2_10,Events with 1< number of reports <= 10,628
+2025,12,2_10,Events with 1< number of reports <= 10,330
+2025,1,11_25,Events with 10< number of reports <= 25,26
+2025,2,11_25,Events with 10< number of reports <= 25,26
+2025,3,11_25,Events with 10< number of reports <= 25,27
+2025,4,11_25,Events with 10< number of reports <= 25,22
+2025,5,11_25,Events with 10< number of reports <= 25,15
+2025,6,11_25,Events with 10< number of reports <= 25,23
+2025,7,11_25,Events with 10< number of reports <= 25,14
+2025,8,11_25,Events with 10< number of reports <= 25,21
+2025,9,11_25,Events with 10< number of reports <= 25,24
+2025,10,11_25,Events with 10< number of reports <= 25,39
+2025,11,11_25,Events with 10< number of reports <= 25,59
+2025,12,11_25,Events with 10< number of reports <= 25,28
+2025,1,26_50,Events with 25< number of reports <= 50,5
+2025,2,26_50,Events with 25< number of reports <= 50,8
+2025,3,26_50,Events with 25< number of reports <= 50,5
+2025,4,26_50,Events with 25< number of reports <= 50,4
+2025,5,26_50,Events with 25< number of reports <= 50,3
+2025,6,26_50,Events with 25< number of reports <= 50,5
+2025,7,26_50,Events with 25< number of reports <= 50,4
+2025,8,26_50,Events with 25< number of reports <= 50,9
+2025,9,26_50,Events with 25< number of reports <= 50,17
+2025,10,26_50,Events with 25< number of reports <= 50,7
+2025,11,26_50,Events with 25< number of reports <= 50,15
+2025,12,26_50,Events with 25< number of reports <= 50,9
+2025,1,51_99,Events with 50< number of reports < 100,5
+2025,2,51_99,Events with 50< number of reports < 100,1
+2025,3,51_99,Events with 50< number of reports < 100,6
+2025,4,51_99,Events with 50< number of reports < 100,7
+2025,5,51_99,Events with 50< number of reports < 100,6
+2025,6,51_99,Events with 50< number of reports < 100,4
+2025,7,51_99,Events with 50< number of reports < 100,2
+2025,8,51_99,Events with 50< number of reports < 100,6
+2025,9,51_99,Events with 50< number of reports < 100,7
+2025,10,51_99,Events with 50< number of reports < 100,3
+2025,11,51_99,Events with 50< number of reports < 100,19
+2025,12,51_99,Events with 50< number of reports < 100,9
+2025,1,100_plus,Events with more than 100 reports,0
+2025,2,100_plus,Events with more than 100 reports,2
+2025,3,100_plus,Events with more than 100 reports,3
+2025,4,100_plus,Events with more than 100 reports,1
+2025,5,100_plus,Events with more than 100 reports,3
+2025,6,100_plus,Events with more than 100 reports,2
+2025,7,100_plus,Events with more than 100 reports,1
+2025,8,100_plus,Events with more than 100 reports,3
+2025,9,100_plus,Events with more than 100 reports,1
+2025,10,100_plus,Events with more than 100 reports,6
+2025,11,100_plus,Events with more than 100 reports,8
+2025,12,100_plus,Events with more than 100 reports,6
+2026,1,one,Events with only one report,538
+2026,2,one,Events with only one report,417
+2026,3,one,Events with only one report,647
+2026,4,one,Events with only one report,545
+2026,5,one,Events with only one report,491
+2026,6,one,Events with only one report,671
+2026,7,one,Events with only one report,770
+2026,8,one,Events with only one report,1081
+2026,9,one,Events with only one report,0
+2026,10,one,Events with only one report,0
+2026,11,one,Events with only one report,0
+2026,12,one,Events with only one report,0
+2026,1,2_10,Events with 1< number of reports <= 10,191
+2026,2,2_10,Events with 1< number of reports <= 10,155
+2026,3,2_10,Events with 1< number of reports <= 10,312
+2026,4,2_10,Events with 1< number of reports <= 10,244
+2026,5,2_10,Events with 1< number of reports <= 10,204
+2026,6,2_10,Events with 1< number of reports <= 10,268
+2026,7,2_10,Events with 1< number of reports <= 10,293
+2026,8,2_10,Events with 1< number of reports <= 10,376
+2026,9,2_10,Events with 1< number of reports <= 10,0
+2026,10,2_10,Events with 1< number of reports <= 10,0
+2026,11,2_10,Events with 1< number of reports <= 10,0
+2026,12,2_10,Events with 1< number of reports <= 10,0
+2026,1,11_25,Events with 10< number of reports <= 25,22
+2026,2,11_25,Events with 10< number of reports <= 25,19
+2026,3,11_25,Events with 10< number of reports <= 25,22
+2026,4,11_25,Events with 10< number of reports <= 25,26
+2026,5,11_25,Events with 10< number of reports <= 25,16
+2026,6,11_25,Events with 10< number of reports <= 25,34
+2026,7,11_25,Events with 10< number of reports <= 25,35
+2026,8,11_25,Events with 10< number of reports <= 25,25
+2026,9,11_25,Events with 10< number of reports <= 25,0
+2026,10,11_25,Events with 10< number of reports <= 25,0
+2026,11,11_25,Events with 10< number of reports <= 25,0
+2026,12,11_25,Events with 10< number of reports <= 25,0
+2026,1,26_50,Events with 25< number of reports <= 50,8
+2026,2,26_50,Events with 25< number of reports <= 50,13
+2026,3,26_50,Events with 25< number of reports <= 50,6
+2026,4,26_50,Events with 25< number of reports <= 50,14
+2026,5,26_50,Events with 25< number of reports <= 50,14
+2026,6,26_50,Events with 25< number of reports <= 50,7
+2026,7,26_50,Events with 25< number of reports <= 50,11
+2026,8,26_50,Events with 25< number of reports <= 50,9
+2026,9,26_50,Events with 25< number of reports <= 50,0
+2026,10,26_50,Events with 25< number of reports <= 50,0
+2026,11,26_50,Events with 25< number of reports <= 50,0
+2026,12,26_50,Events with 25< number of reports <= 50,0
+2026,1,51_99,Events with 50< number of reports < 100,8
+2026,2,51_99,Events with 50< number of reports < 100,7
+2026,3,51_99,Events with 50< number of reports < 100,10
+2026,4,51_99,Events with 50< number of reports < 100,4
+2026,5,51_99,Events with 50< number of reports < 100,3
+2026,6,51_99,Events with 50< number of reports < 100,6
+2026,7,51_99,Events with 50< number of reports < 100,6
+2026,8,51_99,Events with 50< number of reports < 100,7
+2026,9,51_99,Events with 50< number of reports < 100,0
+2026,10,51_99,Events with 50< number of reports < 100,0
+2026,11,51_99,Events with 50< number of reports < 100,0
+2026,12,51_99,Events with 50< number of reports < 100,0
+2026,1,100_plus,Events with more than 100 reports,1
+2026,2,100_plus,Events with more than 100 reports,3
+2026,3,100_plus,Events with more than 100 reports,12
+2026,4,100_plus,Events with more than 100 reports,6
+2026,5,100_plus,Events with more than 100 reports,1
+2026,6,100_plus,Events with more than 100 reports,8
+2026,7,100_plus,Events with more than 100 reports,2
+2026,8,100_plus,Events with more than 100 reports,3
+2026,9,100_plus,Events with more than 100 reports,0
+2026,10,100_plus,Events with more than 100 reports,0
+2026,11,100_plus,Events with more than 100 reports,0
+2026,12,100_plus,Events with more than 100 reports,0

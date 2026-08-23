@@ -447,6 +447,34 @@ independent anomalies.
 
 ## 6. File Manifest & Ingestion
 
+### 6.0 INGEST `dossier/` — not the raw JSON
+
+The canonical data lives in `data/*.json`, but that is a machine format. `tools/export_dossier.py`
+renders the same content as documents — prose as Markdown with headings and citations, tabular
+data as CSV with real column names — into **`dossier/`**. That folder is what a notebook can
+actually reason over: ~39,000 words of Markdown plus three CSVs, regenerated from the same
+canonical files so the two cannot drift.
+
+**Start with:** <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/dossier/00-START-HERE.md>
+
+| File | Contents |
+|---|---|
+| `dossier/00-START-HERE.md` | Manifest, ingest order, and the four misreadings to avoid |
+| `dossier/01-cases-3i-atlas.md` | 26 case files, full text, claim + counter-reading + citations |
+| `dossier/02-cases-oumuamua-borisov.md` | 16 case files for 1I and 2I |
+| `dossier/03-cases-fireballs.md` | 5 fireball-register analyses |
+| `dossier/04-briefings.md` | 6 question-led syntheses |
+| `dossier/05-timeline.md` | 58 events with citations |
+| `dossier/06-quotations.md` | 35 quotations with verification status |
+| `dossier/07-cneos-fireballs.csv` | 1,069 rows, named columns |
+| `dossier/08-ams-reports.csv` | 1,512 rows, long format |
+| `dossier/09-gmn-monthly.csv` | 92 months, incl. the bias-resistant bright fraction |
+| `dossier/10-spatial-test.md` | Monte Carlo output and distance histogram |
+| `dossier/11-comparison-profiles.md` | Three-object comparison |
+
+The `data/*.json` links in §6.3 remain valid and are the authoritative form; use them for
+exact reproduction, and `dossier/` for analysis.
+
 ### 6.1 Raw file URL pattern
 ```
 https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/<path>
