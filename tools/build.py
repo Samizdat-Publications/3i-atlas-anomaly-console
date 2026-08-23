@@ -29,6 +29,7 @@ JS_ORDER = [
     "data-ephemeris.js",
     "data-content.js",
     "data-fireballs.js",
+    "data-instruments.js",
     "js/core.js",
     "js/charts.js",
     "js/scene3d.js",

@@ -329,9 +329,92 @@
     }
   };
 
+
+  // Three instruments, one axis. Each series is divided by its own 2021-2025
+  // baseline mean, so 1.0 is "normal for that instrument" and the shapes can be
+  // compared directly. The raw counts are drawn faint behind the normalised
+  // ones: that gap IS the argument — everything that climbs is a count of
+  // cameras or of people, and everything that corrects for them is flat.
+  CH.instruments = function (cv, big) {
+    const D = window.ATLAS_INSTRUMENTS;
+    const f = fit(cv), g = f.g, W = f.w, H = f.h;
+    g.clearRect(0, 0, W, H);
+    g.font = (big ? '10px ' : '9px ') + 'ShareTechMono, Consolas, monospace';
+    if (!D || !D.years) return;
+
+    const padL = 34, padR = 10, padT = big ? 30 : 20, padB = big ? 30 : 20;
+    const rows = D.years.filter(function (r) { return r.y >= 2021; });
+    const m = D.means || {};
+    const x = function (i) { return padL + (W - padL - padR) * (rows.length < 2 ? 0.5 : i / (rows.length - 1)); };
+    const yMax = 2.6;
+    const y = function (v) { return padT + (H - padT - padB) * (1 - Math.min(v, yMax) / yMax); };
+
+    // baseline: 1.0 = the instrument's own normal
+    g.strokeStyle = 'rgba(255,255,255,.28)'; g.lineWidth = 1;
+    g.setLineDash([3, 3]); g.beginPath(); g.moveTo(padL, y(1)); g.lineTo(W - padR, y(1)); g.stroke();
+    g.setLineDash([]);
+    g.fillStyle = 'rgba(255,255,255,.5)';
+    g.fillText('1.0 = ITS OWN 2021-25 NORM', padL + 2, y(1) - 4);
+
+    const SER = [
+      { key: 'amsShare', mean: m.amsShare, color: COL.amber, w: 2, label: 'AMS · high-report share' },
+      { key: 'gmnFrac', mean: m.gmnFrac, color: '#34e1ff', w: 2, label: 'GMN · bright-meteor rate' },
+      { key: 'ams51', mean: m.ams51, color: 'rgba(255,179,71,.34)', w: 1.2, dash: [4, 3], label: 'AMS · raw count' },
+      { key: 'gmnAll', mean: m.gmnAll, color: 'rgba(52,225,255,.34)', w: 1.2, dash: [4, 3], label: 'GMN · raw count' },
+    ];
+    SER.forEach(function (sr) {
+      if (!sr.mean) return;
+      g.strokeStyle = sr.color; g.lineWidth = sr.w;
+      g.setLineDash(sr.dash || []);
+      g.beginPath();
+      let started = false;
+      rows.forEach(function (r, i) {
+        const v = r[sr.key];
+        if (v === null || v === undefined) return;
+        const px = x(i), py = y(v / sr.mean);
+        if (started) g.lineTo(px, py); else { g.moveTo(px, py); started = true; }
+      });
+      g.stroke(); g.setLineDash([]);
+      if (!sr.dash) {
+        rows.forEach(function (r, i) {
+          const v = r[sr.key];
+          if (v === null || v === undefined) return;
+          g.fillStyle = sr.color;
+          g.beginPath(); g.arc(x(i), y(v / sr.mean), r.y === 2026 ? 3.4 : 2.1, 0, 6.2832); g.fill();
+        });
+      }
+    });
+
+    g.fillStyle = 'rgba(255,255,255,.55)';
+    rows.forEach(function (r, i) {
+      if (!big && i % 2) return;
+      g.fillText(String(r.y).slice(2), x(i) - 6, H - padB + 12);
+    });
+    [0, 1, 2].forEach(function (v) {
+      g.fillStyle = 'rgba(255,255,255,.4)';
+      g.fillText(v.toFixed(1), 4, y(v) + 3);
+    });
+
+    // Legend across the top; only the two corrected series are named when the
+    // canvas is a thumbnail, since the raw ones are context rather than content.
+    let lx = padL;
+    SER.forEach(function (sr) {
+      if (!sr.mean || (!big && sr.dash)) return;
+      g.fillStyle = sr.color;
+      const txt = (sr.dash ? '--- ' : '■ ') + sr.label;
+      g.fillText(txt, lx, 10);
+      lx += g.measureText(txt).width + 14;
+    });
+    if (big) {
+      g.fillStyle = COL.txt;
+      g.fillText('Q1 EACH YEAR, EACH SERIES AGAINST ITS OWN BASELINE — THE RAW COUNTS CLIMB, THE CORRECTED RATES DO NOT', padL, 22);
+    }
+  };
+
   CH.dossier = function (kind, cv) {
     if (kind === 'speed-dist') { CH.speedDist(cv); return; }
     if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
+    if (kind === 'fireball-instruments') { CH.instruments(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {
       const xs = [], ys = [];

@@ -1,0 +1,1204 @@
+{
+ "source": "https://globalmeteornetwork.org/data/traj_summary_data/monthly/traj_summary_monthly_YYYYMM.txt",
+ "months": {
+  "202001": {
+   "n": 7539,
+   "counts": {
+    "m0": 3072,
+    "m2": 247,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 75,
+   "median_absmag": 0.34,
+   "frac_m4": 0.0,
+   "per_station": 100.5
+  },
+  "202002": {
+   "n": 5330,
+   "counts": {
+    "m0": 1868,
+    "m2": 115,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 80,
+   "median_absmag": 0.52,
+   "frac_m4": 0.0,
+   "per_station": 66.6
+  },
+  "202003": {
+   "n": 5101,
+   "counts": {
+    "m0": 1635,
+    "m2": 111,
+    "m4": 1,
+    "m6": 0
+   },
+   "stations": 86,
+   "median_absmag": 0.59,
+   "frac_m4": 0.000196,
+   "per_station": 59.3
+  },
+  "202004": {
+   "n": 7213,
+   "counts": {
+    "m0": 2768,
+    "m2": 180,
+    "m4": 3,
+    "m6": 0
+   },
+   "stations": 91,
+   "median_absmag": 0.4,
+   "frac_m4": 0.000416,
+   "per_station": 79.3
+  },
+  "202005": {
+   "n": 5654,
+   "counts": {
+    "m0": 2004,
+    "m2": 106,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 101,
+   "median_absmag": 0.42,
+   "frac_m4": 0.0,
+   "per_station": 56.0
+  },
+  "202006": {
+   "n": 5700,
+   "counts": {
+    "m0": 2180,
+    "m2": 123,
+    "m4": 1,
+    "m6": 0
+   },
+   "stations": 111,
+   "median_absmag": 0.34,
+   "frac_m4": 0.000175,
+   "per_station": 51.4
+  },
+  "202007": {
+   "n": 10973,
+   "counts": {
+    "m0": 5269,
+    "m2": 551,
+    "m4": 21,
+    "m6": 0
+   },
+   "stations": 117,
+   "median_absmag": 0.07,
+   "frac_m4": 0.001914,
+   "per_station": 93.8
+  },
+  "202008": {
+   "n": 19422,
+   "counts": {
+    "m0": 12145,
+    "m2": 2181,
+    "m4": 92,
+    "m6": 1
+   },
+   "stations": 122,
+   "median_absmag": -0.41,
+   "frac_m4": 0.004737,
+   "per_station": 159.2
+  },
+  "202009": {
+   "n": 14012,
+   "counts": {
+    "m0": 7502,
+    "m2": 1211,
+    "m4": 46,
+    "m6": 0
+   },
+   "stations": 131,
+   "median_absmag": -0.11,
+   "frac_m4": 0.003283,
+   "per_station": 107.0
+  },
+  "202010": {
+   "n": 13097,
+   "counts": {
+    "m0": 6953,
+    "m2": 989,
+    "m4": 29,
+    "m6": 0
+   },
+   "stations": 122,
+   "median_absmag": -0.1,
+   "frac_m4": 0.002214,
+   "per_station": 107.4
+  },
+  "202011": {
+   "n": 13228,
+   "counts": {
+    "m0": 6304,
+    "m2": 848,
+    "m4": 51,
+    "m6": 2
+   },
+   "stations": 142,
+   "median_absmag": 0.08,
+   "frac_m4": 0.003855,
+   "per_station": 93.2
+  },
+  "202012": {
+   "n": 17829,
+   "counts": {
+    "m0": 9647,
+    "m2": 1320,
+    "m4": 51,
+    "m6": 1
+   },
+   "stations": 155,
+   "median_absmag": -0.12,
+   "frac_m4": 0.002861,
+   "per_station": 115.0
+  },
+  "202101": {
+   "n": 9919,
+   "counts": {
+    "m0": 4660,
+    "m2": 461,
+    "m4": 15,
+    "m6": 0
+   },
+   "stations": 152,
+   "median_absmag": 0.1,
+   "frac_m4": 0.001512,
+   "per_station": 65.3
+  },
+  "201901": {
+   "n": 564,
+   "counts": {
+    "m0": 247,
+    "m2": 28,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 9,
+   "median_absmag": 0.21,
+   "frac_m4": 0.0,
+   "per_station": 62.7
+  },
+  "201902": {
+   "n": 1284,
+   "counts": {
+    "m0": 491,
+    "m2": 34,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 9,
+   "median_absmag": 0.46,
+   "frac_m4": 0.0,
+   "per_station": 142.7
+  },
+  "201903": {
+   "n": 537,
+   "counts": {
+    "m0": 175,
+    "m2": 14,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 9,
+   "median_absmag": 0.52,
+   "frac_m4": 0.0,
+   "per_station": 59.7
+  },
+  "201904": {
+   "n": 876,
+   "counts": {
+    "m0": 351,
+    "m2": 26,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 10,
+   "median_absmag": 0.33,
+   "frac_m4": 0.0,
+   "per_station": 87.6
+  },
+  "201905": {
+   "n": 1242,
+   "counts": {
+    "m0": 425,
+    "m2": 36,
+    "m4": 1,
+    "m6": 0
+   },
+   "stations": 15,
+   "median_absmag": 0.51,
+   "frac_m4": 0.000805,
+   "per_station": 82.8
+  },
+  "201906": {
+   "n": 1523,
+   "counts": {
+    "m0": 404,
+    "m2": 19,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 22,
+   "median_absmag": 0.78,
+   "frac_m4": 0.0,
+   "per_station": 69.2
+  },
+  "201907": {
+   "n": 1961,
+   "counts": {
+    "m0": 730,
+    "m2": 54,
+    "m4": 0,
+    "m6": 0
+   },
+   "stations": 29,
+   "median_absmag": 0.42,
+   "frac_m4": 0.0,
+   "per_station": 67.6
+  },
+  "201908": {
+   "n": 5387,
+   "counts": {
+    "m0": 2890,
+    "m2": 353,
+    "m4": 1,
+    "m6": 0
+   },
+   "stations": 52,
+   "median_absmag": -0.11,
+   "frac_m4": 0.000186,
+   "per_station": 103.6
+  },
+  "201909": {
+   "n": 6058,
+   "counts": {
+    "m0": 2685,
+    "m2": 227,
+    "m4": 2,
+    "m6": 0
+   },
+   "stations": 55,
+   "median_absmag": 0.21,
+   "frac_m4": 0.00033,
+   "per_station": 110.1
+  },
+  "201910": {
+   "n": 11978,
+   "counts": {
+    "m0": 5606,
+    "m2": 545,
+    "m4": 7,
+    "m6": 0
+   },
+   "stations": 65,
+   "median_absmag": 0.11,
+   "frac_m4": 0.000584,
+   "per_station": 184.3
+  },
+  "201911": {
+   "n": 7710,
+   "counts": {
+    "m0": 3154,
+    "m2": 306,
+    "m4": 1,
+    "m6": 0
+   },
+   "stations": 71,
+   "median_absmag": 0.31,
+   "frac_m4": 0.00013,
+   "per_station": 108.6
+  },
+  "201912": {
+   "n": 11143,
+   "counts": {
+    "m0": 5425,
+    "m2": 420,
+    "m4": 4,
+    "m6": 0
+   },
+   "stations": 73,
+   "median_absmag": 0.05,
+   "frac_m4": 0.000359,
+   "per_station": 152.6
+  },
+  "202102": {
+   "n": 6532,
+   "counts": {
+    "m0": 2612,
+    "m2": 269,
+    "m4": 9,
+    "m6": 0
+   },
+   "stations": 161,
+   "median_absmag": 0.35,
+   "frac_m4": 0.001378,
+   "per_station": 40.6
+  },
+  "202103": {
+   "n": 8774,
+   "counts": {
+    "m0": 3180,
+    "m2": 323,
+    "m4": 9,
+    "m6": 1
+   },
+   "stations": 182,
+   "median_absmag": 0.47,
+   "frac_m4": 0.001026,
+   "per_station": 48.2
+  },
+  "202104": {
+   "n": 9655,
+   "counts": {
+    "m0": 3900,
+    "m2": 382,
+    "m4": 16,
+    "m6": 0
+   },
+   "stations": 200,
+   "median_absmag": 0.32,
+   "frac_m4": 0.001657,
+   "per_station": 48.3
+  },
+  "202105": {
+   "n": 10224,
+   "counts": {
+    "m0": 4411,
+    "m2": 411,
+    "m4": 12,
+    "m6": 1
+   },
+   "stations": 216,
+   "median_absmag": 0.21,
+   "frac_m4": 0.001174,
+   "per_station": 47.3
+  },
+  "202106": {
+   "n": 7966,
+   "counts": {
+    "m0": 3616,
+    "m2": 402,
+    "m4": 13,
+    "m6": 0
+   },
+   "stations": 232,
+   "median_absmag": 0.14,
+   "frac_m4": 0.001632,
+   "per_station": 34.3
+  },
+  "202107": {
+   "n": 11325,
+   "counts": {
+    "m0": 6152,
+    "m2": 789,
+    "m4": 20,
+    "m6": 0
+   },
+   "stations": 239,
+   "median_absmag": -0.13,
+   "frac_m4": 0.001766,
+   "per_station": 47.4
+  },
+  "202108": {
+   "n": 31292,
+   "counts": {
+    "m0": 20968,
+    "m2": 4603,
+    "m4": 325,
+    "m6": 13
+   },
+   "stations": 285,
+   "median_absmag": -0.58,
+   "frac_m4": 0.010386,
+   "per_station": 109.8
+  },
+  "202109": {
+   "n": 21221,
+   "counts": {
+    "m0": 11532,
+    "m2": 1747,
+    "m4": 93,
+    "m6": 5
+   },
+   "stations": 304,
+   "median_absmag": -0.14,
+   "frac_m4": 0.004382,
+   "per_station": 69.8
+  },
+  "202110": {
+   "n": 31501,
+   "counts": {
+    "m0": 16770,
+    "m2": 2404,
+    "m4": 142,
+    "m6": 49
+   },
+   "stations": 316,
+   "median_absmag": -0.1,
+   "frac_m4": 0.004508,
+   "per_station": 99.7
+  },
+  "202111": {
+   "n": 30383,
+   "counts": {
+    "m0": 14690,
+    "m2": 1893,
+    "m4": 146,
+    "m6": 47
+   },
+   "stations": 326,
+   "median_absmag": 0.05,
+   "frac_m4": 0.004805,
+   "per_station": 93.2
+  },
+  "202112": {
+   "n": 33059,
+   "counts": {
+    "m0": 17642,
+    "m2": 2204,
+    "m4": 189,
+    "m6": 77
+   },
+   "stations": 341,
+   "median_absmag": -0.1,
+   "frac_m4": 0.005717,
+   "per_station": 96.9
+  },
+  "202201": {
+   "n": 23727,
+   "counts": {
+    "m0": 11842,
+    "m2": 1453,
+    "m4": 108,
+    "m6": 36
+   },
+   "stations": 363,
+   "median_absmag": 0.01,
+   "frac_m4": 0.004552,
+   "per_station": 65.4
+  },
+  "202202": {
+   "n": 14910,
+   "counts": {
+    "m0": 6901,
+    "m2": 809,
+    "m4": 48,
+    "m6": 16
+   },
+   "stations": 380,
+   "median_absmag": 0.11,
+   "frac_m4": 0.003219,
+   "per_station": 39.2
+  },
+  "202203": {
+   "n": 15404,
+   "counts": {
+    "m0": 6834,
+    "m2": 745,
+    "m4": 82,
+    "m6": 27
+   },
+   "stations": 410,
+   "median_absmag": 0.18,
+   "frac_m4": 0.005323,
+   "per_station": 37.6
+  },
+  "202204": {
+   "n": 15656,
+   "counts": {
+    "m0": 7184,
+    "m2": 766,
+    "m4": 49,
+    "m6": 21
+   },
+   "stations": 418,
+   "median_absmag": 0.13,
+   "frac_m4": 0.00313,
+   "per_station": 37.5
+  },
+  "202205": {
+   "n": 16951,
+   "counts": {
+    "m0": 7954,
+    "m2": 893,
+    "m4": 64,
+    "m6": 24
+   },
+   "stations": 458,
+   "median_absmag": 0.1,
+   "frac_m4": 0.003776,
+   "per_station": 37.0
+  },
+  "202206": {
+   "n": 13463,
+   "counts": {
+    "m0": 6367,
+    "m2": 667,
+    "m4": 30,
+    "m6": 7
+   },
+   "stations": 466,
+   "median_absmag": 0.08,
+   "frac_m4": 0.002228,
+   "per_station": 28.9
+  },
+  "202207": {
+   "n": 25226,
+   "counts": {
+    "m0": 13858,
+    "m2": 1858,
+    "m4": 111,
+    "m6": 13
+   },
+   "stations": 483,
+   "median_absmag": -0.14,
+   "frac_m4": 0.0044,
+   "per_station": 52.2
+  },
+  "202208": {
+   "n": 47300,
+   "counts": {
+    "m0": 30777,
+    "m2": 6218,
+    "m4": 495,
+    "m6": 50
+   },
+   "stations": 507,
+   "median_absmag": -0.49,
+   "frac_m4": 0.010465,
+   "per_station": 93.3
+  },
+  "202209": {
+   "n": 29984,
+   "counts": {
+    "m0": 16539,
+    "m2": 2357,
+    "m4": 149,
+    "m6": 28
+   },
+   "stations": 510,
+   "median_absmag": -0.15,
+   "frac_m4": 0.004969,
+   "per_station": 58.8
+  },
+  "202210": {
+   "n": 48360,
+   "counts": {
+    "m0": 27653,
+    "m2": 4016,
+    "m4": 233,
+    "m6": 52
+   },
+   "stations": 542,
+   "median_absmag": -0.22,
+   "frac_m4": 0.004818,
+   "per_station": 89.2
+  },
+  "202211": {
+   "n": 37895,
+   "counts": {
+    "m0": 20445,
+    "m2": 2912,
+    "m4": 215,
+    "m6": 44
+   },
+   "stations": 571,
+   "median_absmag": -0.12,
+   "frac_m4": 0.005674,
+   "per_station": 66.4
+  },
+  "202212": {
+   "n": 45785,
+   "counts": {
+    "m0": 27607,
+    "m2": 3835,
+    "m4": 324,
+    "m6": 127
+   },
+   "stations": 571,
+   "median_absmag": -0.3,
+   "frac_m4": 0.007077,
+   "per_station": 80.2
+  },
+  "202301": {
+   "n": 23972,
+   "counts": {
+    "m0": 12679,
+    "m2": 1497,
+    "m4": 62,
+    "m6": 12
+   },
+   "stations": 591,
+   "median_absmag": -0.08,
+   "frac_m4": 0.002586,
+   "per_station": 40.6
+  },
+  "202302": {
+   "n": 18602,
+   "counts": {
+    "m0": 9214,
+    "m2": 1032,
+    "m4": 49,
+    "m6": 8
+   },
+   "stations": 583,
+   "median_absmag": 0.02,
+   "frac_m4": 0.002634,
+   "per_station": 31.9
+  },
+  "202303": {
+   "n": 16310,
+   "counts": {
+    "m0": 7920,
+    "m2": 868,
+    "m4": 29,
+    "m6": 4
+   },
+   "stations": 609,
+   "median_absmag": 0.05,
+   "frac_m4": 0.001778,
+   "per_station": 26.8
+  },
+  "202304": {
+   "n": 22713,
+   "counts": {
+    "m0": 11154,
+    "m2": 1249,
+    "m4": 48,
+    "m6": 1
+   },
+   "stations": 648,
+   "median_absmag": 0.03,
+   "frac_m4": 0.002113,
+   "per_station": 35.1
+  },
+  "202305": {
+   "n": 22050,
+   "counts": {
+    "m0": 10971,
+    "m2": 1111,
+    "m4": 33,
+    "m6": 0
+   },
+   "stations": 665,
+   "median_absmag": 0.01,
+   "frac_m4": 0.001497,
+   "per_station": 33.2
+  },
+  "202306": {
+   "n": 23125,
+   "counts": {
+    "m0": 11435,
+    "m2": 1217,
+    "m4": 48,
+    "m6": 0
+   },
+   "stations": 680,
+   "median_absmag": 0.02,
+   "frac_m4": 0.002076,
+   "per_station": 34.0
+  },
+  "202307": {
+   "n": 35109,
+   "counts": {
+    "m0": 19513,
+    "m2": 2354,
+    "m4": 93,
+    "m6": 3
+   },
+   "stations": 720,
+   "median_absmag": -0.16,
+   "frac_m4": 0.002649,
+   "per_station": 48.8
+  },
+  "202308": {
+   "n": 65164,
+   "counts": {
+    "m0": 42728,
+    "m2": 8590,
+    "m4": 560,
+    "m6": 11
+   },
+   "stations": 807,
+   "median_absmag": -0.51,
+   "frac_m4": 0.008594,
+   "per_station": 80.7
+  },
+  "202309": {
+   "n": 44174,
+   "counts": {
+    "m0": 23467,
+    "m2": 3362,
+    "m4": 150,
+    "m6": 4
+   },
+   "stations": 822,
+   "median_absmag": -0.09,
+   "frac_m4": 0.003396,
+   "per_station": 53.7
+  },
+  "202310": {
+   "n": 59134,
+   "counts": {
+    "m0": 32635,
+    "m2": 4700,
+    "m4": 183,
+    "m6": 6
+   },
+   "stations": 845,
+   "median_absmag": -0.16,
+   "frac_m4": 0.003095,
+   "per_station": 70.0
+  },
+  "202311": {
+   "n": 54030,
+   "counts": {
+    "m0": 26817,
+    "m2": 3774,
+    "m4": 217,
+    "m6": 10
+   },
+   "stations": 876,
+   "median_absmag": 0.01,
+   "frac_m4": 0.004016,
+   "per_station": 61.7
+  },
+  "202312": {
+   "n": 67520,
+   "counts": {
+    "m0": 37780,
+    "m2": 4753,
+    "m4": 162,
+    "m6": 2
+   },
+   "stations": 899,
+   "median_absmag": -0.17,
+   "frac_m4": 0.002399,
+   "per_station": 75.1
+  },
+  "202401": {
+   "n": 45613,
+   "counts": {
+    "m0": 23668,
+    "m2": 3038,
+    "m4": 121,
+    "m6": 4
+   },
+   "stations": 911,
+   "median_absmag": -0.05,
+   "frac_m4": 0.002653,
+   "per_station": 50.1
+  },
+  "202402": {
+   "n": 31316,
+   "counts": {
+    "m0": 15914,
+    "m2": 1980,
+    "m4": 78,
+    "m6": 3
+   },
+   "stations": 911,
+   "median_absmag": -0.02,
+   "frac_m4": 0.002491,
+   "per_station": 34.4
+  },
+  "202403": {
+   "n": 33960,
+   "counts": {
+    "m0": 16282,
+    "m2": 2011,
+    "m4": 69,
+    "m6": 1
+   },
+   "stations": 940,
+   "median_absmag": 0.07,
+   "frac_m4": 0.002032,
+   "per_station": 36.1
+  },
+  "202404": {
+   "n": 38029,
+   "counts": {
+    "m0": 18457,
+    "m2": 2405,
+    "m4": 87,
+    "m6": 3
+   },
+   "stations": 942,
+   "median_absmag": 0.05,
+   "frac_m4": 0.002288,
+   "per_station": 40.4
+  },
+  "202405": {
+   "n": 39834,
+   "counts": {
+    "m0": 20715,
+    "m2": 2823,
+    "m4": 126,
+    "m6": 3
+   },
+   "stations": 957,
+   "median_absmag": -0.05,
+   "frac_m4": 0.003163,
+   "per_station": 41.6
+  },
+  "202406": {
+   "n": 38336,
+   "counts": {
+    "m0": 17456,
+    "m2": 2185,
+    "m4": 93,
+    "m6": 7
+   },
+   "stations": 953,
+   "median_absmag": 0.15,
+   "frac_m4": 0.002426,
+   "per_station": 40.2
+  },
+  "202407": {
+   "n": 67402,
+   "counts": {
+    "m0": 33691,
+    "m2": 4447,
+    "m4": 179,
+    "m6": 7
+   },
+   "stations": 974,
+   "median_absmag": 0.01,
+   "frac_m4": 0.002656,
+   "per_station": 69.2
+  },
+  "202408": {
+   "n": 112139,
+   "counts": {
+    "m0": 69849,
+    "m2": 14087,
+    "m4": 901,
+    "m6": 45
+   },
+   "stations": 1021,
+   "median_absmag": -0.42,
+   "frac_m4": 0.008035,
+   "per_station": 109.8
+  },
+  "202409": {
+   "n": 60747,
+   "counts": {
+    "m0": 30614,
+    "m2": 4207,
+    "m4": 172,
+    "m6": 10
+   },
+   "stations": 1014,
+   "median_absmag": -0.01,
+   "frac_m4": 0.002831,
+   "per_station": 59.9
+  },
+  "202410": {
+   "n": 81362,
+   "counts": {
+    "m0": 41070,
+    "m2": 5888,
+    "m4": 243,
+    "m6": 3
+   },
+   "stations": 996,
+   "median_absmag": -0.01,
+   "frac_m4": 0.002987,
+   "per_station": 81.7
+  },
+  "202411": {
+   "n": 67862,
+   "counts": {
+    "m0": 33912,
+    "m2": 4907,
+    "m4": 230,
+    "m6": 9
+   },
+   "stations": 1015,
+   "median_absmag": 0.01,
+   "frac_m4": 0.003389,
+   "per_station": 66.9
+  },
+  "202412": {
+   "n": 89364,
+   "counts": {
+    "m0": 50258,
+    "m2": 6916,
+    "m4": 248,
+    "m6": 6
+   },
+   "stations": 1023,
+   "median_absmag": -0.19,
+   "frac_m4": 0.002775,
+   "per_station": 87.4
+  },
+  "202501": {
+   "n": 62373,
+   "counts": {
+    "m0": 32754,
+    "m2": 4505,
+    "m4": 154,
+    "m6": 3
+   },
+   "stations": 1047,
+   "median_absmag": -0.08,
+   "frac_m4": 0.002469,
+   "per_station": 59.6
+  },
+  "202502": {
+   "n": 49527,
+   "counts": {
+    "m0": 23873,
+    "m2": 3135,
+    "m4": 143,
+    "m6": 6
+   },
+   "stations": 1178,
+   "median_absmag": 0.06,
+   "frac_m4": 0.002887,
+   "per_station": 42.0
+  },
+  "202503": {
+   "n": 64809,
+   "counts": {
+    "m0": 30074,
+    "m2": 4145,
+    "m4": 180,
+    "m6": 6
+   },
+   "stations": 1327,
+   "median_absmag": 0.13,
+   "frac_m4": 0.002777,
+   "per_station": 48.8
+  },
+  "202504": {
+   "n": 55227,
+   "counts": {
+    "m0": 24934,
+    "m2": 3225,
+    "m4": 155,
+    "m6": 4
+   },
+   "stations": 1095,
+   "median_absmag": 0.17,
+   "frac_m4": 0.002807,
+   "per_station": 50.4
+  },
+  "202505": {
+   "n": 67921,
+   "counts": {
+    "m0": 33316,
+    "m2": 4631,
+    "m4": 192,
+    "m6": 7
+   },
+   "stations": 1110,
+   "median_absmag": 0.04,
+   "frac_m4": 0.002827,
+   "per_station": 61.2
+  },
+  "202506": {
+   "n": 55659,
+   "counts": {
+    "m0": 25093,
+    "m2": 3033,
+    "m4": 111,
+    "m6": 2
+   },
+   "stations": 1095,
+   "median_absmag": 0.17,
+   "frac_m4": 0.001994,
+   "per_station": 50.8
+  },
+  "202507": {
+   "n": 88341,
+   "counts": {
+    "m0": 44724,
+    "m2": 5804,
+    "m4": 227,
+    "m6": 7
+   },
+   "stations": 1131,
+   "median_absmag": -0.02,
+   "frac_m4": 0.00257,
+   "per_station": 78.1
+  },
+  "202508": {
+   "n": 122555,
+   "counts": {
+    "m0": 73648,
+    "m2": 13627,
+    "m4": 694,
+    "m6": 17
+   },
+   "stations": 1175,
+   "median_absmag": -0.34,
+   "frac_m4": 0.005663,
+   "per_station": 104.3
+  },
+  "202509": {
+   "n": 88586,
+   "counts": {
+    "m0": 42897,
+    "m2": 6098,
+    "m4": 238,
+    "m6": 5
+   },
+   "stations": 1141,
+   "median_absmag": 0.06,
+   "frac_m4": 0.002687,
+   "per_station": 77.6
+  },
+  "202510": {
+   "n": 96024,
+   "counts": {
+    "m0": 49702,
+    "m2": 7215,
+    "m4": 331,
+    "m6": 11
+   },
+   "stations": 1162,
+   "median_absmag": -0.05,
+   "frac_m4": 0.003447,
+   "per_station": 82.6
+  },
+  "202511": {
+   "n": 93761,
+   "counts": {
+    "m0": 46986,
+    "m2": 7416,
+    "m4": 507,
+    "m6": 26
+   },
+   "stations": 1170,
+   "median_absmag": -0.0,
+   "frac_m4": 0.005407,
+   "per_station": 80.1
+  },
+  "202512": {
+   "n": 118020,
+   "counts": {
+    "m0": 66436,
+    "m2": 9690,
+    "m4": 374,
+    "m6": 23
+   },
+   "stations": 1266,
+   "median_absmag": -0.2,
+   "frac_m4": 0.003169,
+   "per_station": 93.2
+  },
+  "202601": {
+   "n": 50315,
+   "counts": {
+    "m0": 27456,
+    "m2": 3881,
+    "m4": 155,
+    "m6": 0
+   },
+   "stations": 1132,
+   "median_absmag": -0.14,
+   "frac_m4": 0.003081,
+   "per_station": 44.4
+  },
+  "202602": {
+   "n": 40368,
+   "counts": {
+    "m0": 20560,
+    "m2": 2801,
+    "m4": 98,
+    "m6": 2
+   },
+   "stations": 1103,
+   "median_absmag": -0.03,
+   "frac_m4": 0.002428,
+   "per_station": 36.6
+  },
+  "202603": {
+   "n": 55328,
+   "counts": {
+    "m0": 26466,
+    "m2": 3419,
+    "m4": 164,
+    "m6": 2
+   },
+   "stations": 1170,
+   "median_absmag": 0.08,
+   "frac_m4": 0.002964,
+   "per_station": 47.3
+  },
+  "202604": {
+   "n": 63041,
+   "counts": {
+    "m0": 28966,
+    "m2": 3810,
+    "m4": 149,
+    "m6": 5
+   },
+   "stations": 1163,
+   "median_absmag": 0.14,
+   "frac_m4": 0.002364,
+   "per_station": 54.2
+  },
+  "202605": {
+   "n": 63419,
+   "counts": {
+    "m0": 30272,
+    "m2": 3963,
+    "m4": 151,
+    "m6": 2
+   },
+   "stations": 1166,
+   "median_absmag": 0.08,
+   "frac_m4": 0.002381,
+   "per_station": 54.4
+  },
+  "202606": {
+   "n": 60014,
+   "counts": {
+    "m0": 27743,
+    "m2": 3468,
+    "m4": 139,
+    "m6": 3
+   },
+   "stations": 1167,
+   "median_absmag": 0.13,
+   "frac_m4": 0.002316,
+   "per_station": 51.4
+  },
+  "202607": {
+   "n": 91617,
+   "counts": {
+    "m0": 47115,
+    "m2": 6468,
+    "m4": 310,
+    "m6": 7
+   },
+   "stations": 1208,
+   "median_absmag": -0.04,
+   "frac_m4": 0.003384,
+   "per_station": 75.8
+  },
+  "202608": {
+   "n": 116203,
+   "counts": {
+    "m0": 75784,
+    "m2": 16608,
+    "m4": 1206,
+    "m6": 50
+   },
+   "stations": 1251,
+   "median_absmag": -0.52,
+   "frac_m4": 0.010378,
+   "per_station": 92.9
+  }
+ },
+ "fetched": "2026-08-23",
+ "note": "Monthly aggregates of GMN meteor trajectories. The network grew enormously over this period, so RAW COUNTS ARE NOT COMPARABLE ACROSS YEARS. Use frac_m4 (bright meteors as a share of all detections), which is insensitive to how many cameras were running.",
+ "columns_verified": "2026-08-23 (absmag=76, mass=79, stations=85)"
+}
