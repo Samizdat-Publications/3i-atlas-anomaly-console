@@ -198,7 +198,27 @@ python tools/bake_content.py      # research payloads -> src/data-content.js
 python tools/make_og_image.py     # render the social card from real trajectory data
 python tools/build.py             # inline everything -> public/index.html + about.html
 python tools/refresh_report.py    # what did that refresh actually change? (markdown)
+python tools/fireball_rate_check.py   # re-derive the figures case F-03 quotes
 ```
+
+### Reading the claims at source
+
+Several case files argue with claims that were made in videos. `tools/fetch_transcripts.py`
+wraps [yt-dlp](https://github.com/yt-dlp/yt-dlp) to pull a channel's captions in bulk, flatten
+YouTube's scrolling auto-captions into clean prose, and drop them in `data/transcripts/`:
+
+```bash
+pip install -U yt-dlp
+python tools/fetch_transcripts.py --list                      # see what would be fetched
+python tools/fetch_transcripts.py --match fireball,meteor     # just the relevant ones
+python tools/fetch_transcripts.py --since 2025-08-01
+```
+
+Run it from a normal home connection — YouTube blocks datacenter IPs outright, so this fails
+from a cloud shell with *"Sign in to confirm you're not a bot"*. If you hit that at home,
+add `--cookies-from-browser chrome`. `data/transcripts/` is **gitignored**: those are someone
+else's words, and this repo is public. What belongs in the repo is the analysis derived from
+them — a case file stating the claim, with its rebuttal and sources beside it.
 
 ### Keeping the data fresh
 

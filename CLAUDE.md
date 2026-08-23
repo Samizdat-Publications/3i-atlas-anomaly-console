@@ -172,6 +172,18 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   fetchable) and are labelled as such on the quote board rather than presented as verified.
   Per-quote `verify` now flows through bake_content.py into the bundle.
 
+## Pulling claims from video (tools/fetch_transcripts.py)
+Wraps yt-dlp to bulk-fetch a channel's captions. **Will not run from a cloud session** —
+YouTube 429s datacenter IPs and demands "Sign in to confirm you're not a bot"; every
+transcript route (timedtext, r.jina.ai, youtubetotranscript) is blocked the same way. Runs
+fine from Stewart's machine, `--cookies-from-browser chrome` if it ever asks. The non-obvious
+part is `vtt_to_text()`: YouTube auto-captions scroll, each cue repeating the previous cue's
+tail, and one cue holds TWO lines of that window — so parse BY CUE, not by line, and append
+only what a cue adds beyond the longest token overlap. Match on punctuation-stripped lowercase
+tokens or "decade." fails to line up with "decade". `data/transcripts/` is gitignored: the repo
+is public and those are someone else's words. Derived analysis goes in a case file; the
+transcript does not.
+
 ## Constraints
 - Self-contained, offline, no admin, no server to run. All assets inline (font base64'd at build).
 - The security hook blocks Write/Edit content containing the raw HTML-set property name —
