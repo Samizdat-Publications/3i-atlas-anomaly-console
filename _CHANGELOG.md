@@ -1,5 +1,23 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.12 — 2026-08-23 (A-26, the last uncovered anomaly)
+Reading his enumerated 24-anomaly list against the register found exactly one observational
+claim with no case file behind it. It has one now.
+- **A-26 — extreme methanol enrichment (CH3OH/HCN), ALMA.** Verified against the primary
+  source: Roth, Cordiner et al., ApJL doi:10.3847/2041-8213/ae433b (arXiv:2511.20845).
+  CH3OH/HCN of 124 (+30/-34) on 12 Sep 2025 and 79 (+11/-14) on 15 Sep — among the most
+  methanol-enriched values measured in any comet.
+- His account of the study is **accurate**, including both ratios and the comparison object.
+  The case says so, then makes the counterpoint the paper itself supplies: the single comet
+  that beats 3I/ATLAS on this measure, C/2016 R2 (PanSTARRS), formed in OUR solar system —
+  so the ratio cannot mark an object as foreign, let alone engineered. Also that the value is
+  a RATIO and rises just as well on scarce HCN as on abundant methanol; that the two figures
+  overlap inside their own error bars, so quoting "70 to 120" reports scatter as a span; and
+  that the extended methanol source beyond 258 km is icy grains acting as miniature comets,
+  which is why it is enhanced sunward where grains are hottest while nucleus-sourced HCN is
+  depleted there.
+- 46 cases now (3I 26, 1I 11, 2I 5, fireballs 4).
+
 ## v2.11 — 2026-08-23 (three instruments)
 v2.10 answered the fireball-rate question from CNEOS alone. That was the wrong instrument for
 the claim people actually make, and F-03 argued against a version of it nobody was defending.

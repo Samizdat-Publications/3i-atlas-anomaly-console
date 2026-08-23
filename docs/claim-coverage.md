@@ -8,8 +8,8 @@ archive. He presents 22 anomalies drawn from Avi Loeb's published list, then add
 Purpose: find out what the console's 25 3I/ATLAS case files already answer and
 what they miss. Compiled 2026-08-23.
 
-**Headline: coverage is close to complete.** Twenty-one of his 22 observational
-anomalies map onto existing case files. One is a genuine gap. His 2 additions are
+**Headline: coverage is complete as of 2026-08-23.** All 22 of his observational
+anomalies now map onto case files; the one gap (ALMA methanol) was closed by A-26. His 2 additions are
 interpretations rather than observations and need different handling.
 
 ---
@@ -34,7 +34,7 @@ interpretations rather than observations and need different handling.
 | 13 | Water only ~4% by mass pre-perihelion | A-06 CO₂-dominated coma; water only ~4% of plume | ✅ |
 | 14 | Brightened faster and turned bluer than any comet on record | A-11 Anomalous brightening and blue color at perihelion | ✅ |
 | 15 | Extreme negative polarization | A-08 Extreme negative polarization | ✅ |
-| 16 | **ALMA: unusually high methanol relative to hydrogen cyanide** | — | ❌ **GAP — no case file** |
+| 16 | **ALMA: unusually high methanol relative to hydrogen cyanide** | A-26 Extreme methanol enrichment (CH₃OH/HCN) | ✅ **gap closed 2026-08-23** |
 | 17 | Icy fragments visible pre-perihelion, vanished after; ~20× water spike post-perihelion | A-20 SPHEREx icy-grain signature disappearance | ⚠️ partial — the disappearance is covered, the 20× water spike is not |
 | 18 | Isotope ratios — D/H and ¹²C/¹³C far off normal | A-25 Anomalous isotope abundances | ✅ |
 | 19 | Arrival direction within 9° of the 1977 Wow! Signal (~0.6%) | A-09 Arrival direction matches the Wow! Signal | ✅ |
@@ -76,9 +76,12 @@ a framing distinction, not a factual dispute.
 
 ## What to build
 
-1. **A-26 — methanol abundance (ALMA).** The one real gap. Needs the same treatment
-   as the rest: the measurement, the technosignature reading, and the cometary
-   chemistry that may account for it.
+1. ~~**A-26 — methanol abundance (ALMA).**~~ **DONE 2026-08-23.** Verified against
+   Roth, Cordiner et al., ApJL doi:10.3847/2041-8213/ae433b (arXiv:2511.20845).
+   His account of the study is accurate, including the ratios and the C/2016 R2
+   comparison. The decisive counterpoint is the paper's own: the single object
+   that beats 3I/ATLAS on this measure formed in our solar system, so the ratio
+   cannot mark an object as foreign by itself.
 2. **Split the Ni/CN ratio out of A-07**, or state it explicitly within that case.
    It is a separate measurement against a separate comparison population.
 3. **Add the ~20× post-perihelion water spike to A-20**, which currently covers only
