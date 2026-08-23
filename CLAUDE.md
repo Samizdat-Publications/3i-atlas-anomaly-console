@@ -185,9 +185,9 @@ is public and those are someone else's words. Derived analysis goes in a case fi
 transcript does not.
 
 ## Stewart's machine — ALWAYS include the `cd`
-Stewart is not a terminal user and works from a Windows laptop. His Claude projects live under
-`C:\Users\stewa\OneDrive\Documents\Claude`, so this repo is normally
-`C:\Users\stewa\OneDrive\Documents\Claude\3i-atlas-anomaly-console`.
+Stewart is not a terminal user and works from a Windows laptop. This repo lives at
+`C:\Users\stewa\OneDrive\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
+the folder name, so the path must always be quoted or the command silently breaks at "3I".
 
 **Every command block given to him must be copy-paste-runnable on its own**: start it with the
 `cd`, use Windows path separators, and never assume he is already in the right folder or knows
