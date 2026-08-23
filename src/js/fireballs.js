@@ -292,6 +292,9 @@
         '<div class="cx-row-t">FASTEST <span style="color:var(--cyan)">' + esc(st.fast[T_VEL]) + ' KM/S</span></div>' +
         '<div class="cx-row-s">' + esc(st.fast[T_DATE].slice(0, 10)) + (st.fast[T_TAG] ? ' · ' + esc(st.fast[T_TAG]) : '') + '</div></div>' : '',
       '</div>',
+      '<div class="cx-chartbox cx-fb-rate" data-act="fb-case" data-id="F-03" title="open case F-03">' +
+        '<div class="cx-chart-title"><span>DETECTIONS PER YEAR</span><span>IS IT RISING? ▸</span></div>' +
+        '<canvas id="cx-fb-rate"></canvas></div>',
       '<div class="cx-chartbox"><div class="cx-chart-title"><span>SPEED DISTRIBUTION</span><span>' +
         EV.filter(function (e) { return e[T_VEL] != null; }).length + ' ROWS</span></div><canvas id="cx-fb-speed"></canvas></div>',
       '<div class="cx-panel" style="padding:10px 0 0">',
@@ -309,6 +312,8 @@
     ].join('\n'));
     const cv = $('cx-fb-speed');
     if (cv) CX.charts.speedDist(cv);
+    const rc = $('cx-fb-rate');
+    if (rc) CX.charts.fireballRate(rc, false);
   }
 
   // ---------- toolbar ----------

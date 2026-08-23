@@ -1,5 +1,28 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.10 — 2026-08-23 (is the fireball rate rising?)
+A recurring claim — NASA's own fireball data shows impacts climbing — is answerable from the
+catalog the console already ships, so the register now answers it instead of leaving the
+question hanging over a map of dots.
+- **DETECTIONS PER YEAR chart** in the fireball stats rail, clickable through to the case.
+  Two design choices carry the argument: the **≥ 1 kt subset is drawn inside each bar**,
+  because a change in detection and release inflates faint events far more than bright ones,
+  so a flat bright subset under a rising total means reporting rather than flux; and the
+  pre-1994 years are **shaded as pre-record** rather than plotted as honest zeroes. The final
+  year is hatched as partial so it cannot read as a decline.
+- **Case F-03 — "Are fireballs actually increasing? The catalog answers."** Steps, not a
+  slope: 1988-1993 average about one event a year, 1994 jumps to 13, and from 2000 the rate
+  sits at 34.4 / 35.4 / 36.0 per year across the three decades. The ≥ 1 kt rate over the same
+  span is 4.1 / 4.1 / 3.7, and ≥ 5 kt is 1.00 / 1.00 / 0.83 — flat while the total was
+  supposedly climbing. Monthly: 2.95 (2000-2023) against 2.70 (2024 to date), slightly lower.
+  Sourced to CNEOS's own caveats and to Brown et al. (Nature 420, 294, 2002), whose 8.5-year
+  flux study places the usable record's start right at the 1994 step.
+- **`tools/fireball_rate_check.py`** re-derives every figure F-03 quotes and exits non-zero on
+  drift. The monthly refresh workflow runs it and, if the numbers move, says so in the PR body
+  — the one case file argued from computed numbers cannot silently go stale.
+- F-03's claim block states the proposition rather than attributing it to a named person: the
+  claim was tested as commonly stated, not any one person's version of it.
+
 ## v2.9 — 2026-08-22 (the timeline becomes readable)
 Timeline entries were the only researched content in the console with no way to read them.
 Clicking an **anomaly** marker had always opened its full case file; clicking a **mission**

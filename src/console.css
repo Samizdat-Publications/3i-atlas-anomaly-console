@@ -441,6 +441,12 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 .cx-chart-title { font-size: 9.5px; letter-spacing: 2px; color: var(--txt-faint); margin-bottom: 3px; display: flex; justify-content: space-between; }
 .cx-chart-title span:last-child { color: var(--cyan-dim); }
 
+/* The per-year chart is a door into case F-03, which argues about it. */
+.cx-chartbox.cx-fb-rate { cursor: pointer; }
+.cx-chartbox.cx-fb-rate:hover { background: rgba(52,225,255,.05); }
+.cx-chartbox.cx-fb-rate:hover .cx-chart-title span:last-child { color: var(--cyan); text-shadow: var(--glow-c); }
+.cx-chartbox.cx-fb-rate canvas { height: 104px; }
+
 /* ============ CRT EFFECT ============ */
 .cx-crt::before {
   content: ''; position: fixed; inset: 0; z-index: 200; pointer-events: none;
