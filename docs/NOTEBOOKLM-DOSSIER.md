@@ -468,11 +468,11 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 | S2 | `data/ephemeris.json` | JSON | 384 KB | 3 eras | Heliocentric ecliptic J2000 daily vectors. Numeric; low text value. |
 | S3 | `data/world-land.json` | JSON | 36 KB | 100 rings | Natural Earth coastline, map rendering only. **No analytical content.** |
 | S4 | `data/provisional-iso-anomalies.json` | JSON | 12 KB | 12 | Superseded fallback drafts. **Do not ingest** — replaced by P2. |
-| D1 | `docs/two-instrument-problem.md` | Markdown | ~14 KB | — | Methodological essay: instrument bias, detection floors, the three-instrument result. |
-| D2 | `docs/claim-coverage.md` | Markdown | ~7 KB | — | 24-anomaly claim list mapped to case files. |
-| D3 | `_CHANGELOG.md` | Markdown | ~30 KB | — | Full development and finding history, v2.5 → v2.14. |
-| D4 | `CLAUDE.md` | Markdown | ~18 KB | — | Architecture, constraints, and the project's framing rules. |
-| C1 | `tools/*.py` | Python | — | 14 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
+| D1 | `docs/two-instrument-problem.md` | Markdown | 16 KB | — | Methodological essay: instrument bias, detection floors, the three-instrument result. |
+| D2 | `docs/claim-coverage.md` | Markdown | 8 KB | — | 24-anomaly claim list mapped to case files. |
+| D3 | `_CHANGELOG.md` | Markdown | 32 KB | — | Full development and finding history, v2.5 → v2.14. |
+| D4 | `CLAUDE.md` | Markdown | 24 KB | — | Architecture, constraints, and the project's framing rules. |
+| C1 | `tools/*.py` | Python | — | 17 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
 | C2 | `src/data-*.js` | JavaScript | 706 KB | — | **GENERATED. Do not ingest** — duplicates P1–P8 in compiled form. |
 
 ### 6.3 Direct links to primary sources
