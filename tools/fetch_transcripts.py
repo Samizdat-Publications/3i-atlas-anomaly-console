@@ -10,6 +10,13 @@ in videos, and reading fifty of them by hand is not a plan.
     python tools/fetch_transcripts.py --channel @SomeOtherChannel
     python tools/fetch_transcripts.py --list                # just show what would be fetched
 
+DATES: YouTube's channel listing is fast because it does not open each video,
+and the price of that is that it carries no upload date at all — every entry
+comes back undated. Rather than ask YouTube 1,500 times, this walks the listing
+(which is newest-first) with a binary search to find where uploads cross
+--since: about eleven probes instead of fifteen hundred. Real dates for the
+videos actually fetched come out of the fetch itself, for free.
+
 RUN THIS ON YOUR OWN MACHINE. YouTube blocks datacenter IPs — from a cloud
 sandbox every request comes back "Sign in to confirm you're not a bot". From a
 home connection it just works. If you do hit that from home, pass your browser's
@@ -57,10 +64,15 @@ def run(argv, **kw):
     return subprocess.run(argv, shell=False, text=True, capture_output=True, **kw)
 
 
-def list_videos(ytdlp, channel, extra):
-    """Channel listing without touching each video page — one request, fast."""
+def list_videos(ytdlp, channel, extra, newest=0):
+    """Channel listing without touching each video page — one request, fast.
+
+    Fast, but dateless: a flat listing gives id, title and ORDER (newest first)
+    and nothing else. `newest` caps the walk via --playlist-end.
+    """
     url = "https://www.youtube.com/%s/videos" % channel.lstrip("/")
-    r = run(ytdlp + ["--flat-playlist", "--dump-json"] + extra + [url])
+    bound = ["--playlist-end", str(newest)] if newest else []
+    r = run(ytdlp + ["--flat-playlist", "--dump-json"] + bound + extra + [url])
     if r.returncode != 0 and not r.stdout.strip():
         sys.exit("Listing failed.\n" + (r.stderr or "").strip()[-1500:])
     out = []
@@ -140,16 +152,89 @@ def vtt_to_text(path):
     return re.sub(r"(?<=[.!?]) (?=[A-Z])", "\n", text)   # soft paragraphs
 
 
+def resolve_dates(ytdlp, vids, extra, chunk=20, quiet=False):
+    """Fill in upload_date for entries the flat listing left blank.
+
+    Costs one request per video, so it is only ever called on a SHORT list: the
+    binary-search probes, or a --list of already-narrowed matches.
+    """
+    todo = [v for v in vids if not v["date"] and v["id"]]
+    if not todo:
+        return
+    got = {}
+    for i in range(0, len(todo), chunk):
+        part = todo[i:i + chunk]
+        r = run(ytdlp + ["--skip-download", "--no-warnings", "--ignore-errors",
+                         "--print", "%(id)s\t%(upload_date)s"] + extra
+                + ["https://www.youtube.com/watch?v=" + v["id"] for v in part])
+        for line in (r.stdout or "").splitlines():
+            if "\t" not in line:
+                continue
+            vid, d = line.strip().split("\t", 1)
+            d = d.strip()
+            if re.match(r"^\d{8}$", d):
+                got[vid] = d
+        if not quiet and len(todo) > chunk:
+            print("    dated %d/%d" % (min(i + chunk, len(todo)), len(todo)), flush=True)
+    for v in vids:
+        if not v["date"]:
+            v["date"] = got.get(v["id"])
+
+
+def cutoff_index(ytdlp, vids, extra, since_c):
+    """Index of the first video OLDER than since_c, in a newest-first listing.
+
+    Binary search: about eleven probes across a 1,500-video channel instead of
+    fifteen hundred. Assumes the listing is in upload order, which is what
+    /videos returns; a video whose date will not resolve (private, removed,
+    members-only) is stepped over rather than trusted either way.
+    """
+    def date_at(i):
+        for j in (i, i + 1, i - 1, i + 2, i - 2):
+            if 0 <= j < len(vids):
+                resolve_dates(ytdlp, [vids[j]], extra, quiet=True)
+                if vids[j]["date"]:
+                    return vids[j]["date"]
+        return None
+
+    lo, hi = 0, len(vids)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        d = date_at(mid)
+        if d is None or d >= since_c:      # unresolvable -> assume in-window
+            lo = mid + 1
+        else:
+            hi = mid
+    return lo
+
+
 def fetch_one(ytdlp, vid, extra, tmp):
+    """Download captions for one video. The info json comes along for the ride,
+    which is where the real upload date finally arrives — the listing never had
+    it, and this request was being made anyway."""
     r = run(ytdlp + ["--skip-download", "--write-auto-subs", "--write-subs",
+                     "--write-info-json",
                      "--sub-langs", "en.*", "--sub-format", "vtt", "--no-warnings"]
             + extra + ["-o", os.path.join(tmp, "%(id)s.%(ext)s"),
                        "https://www.youtube.com/watch?v=" + vid])
+
+    date = None
+    info = os.path.join(tmp, vid + ".info.json")
+    if os.path.exists(info):
+        try:
+            with open(info, encoding="utf-8", errors="ignore") as f:
+                j = json.load(f)
+            date = j.get("upload_date") or ts_to_date(j.get("timestamp"))
+        except ValueError:
+            pass
+        os.remove(info)
+
     got = [f for f in os.listdir(tmp) if f.startswith(vid) and f.endswith(".vtt")]
     if not got:
-        return None, (r.stderr or r.stdout or "").strip().splitlines()[-1:] or ["no captions"]
+        why = (r.stderr or r.stdout or "").strip().splitlines()[-1:] or ["no captions"]
+        return None, date, why
     got.sort(key=lambda f: (".en.vtt" not in f, len(f)))   # prefer plain en
-    return os.path.join(tmp, got[0]), None
+    return os.path.join(tmp, got[0]), date, None
 
 
 def main():
@@ -158,6 +243,10 @@ def main():
     ap.add_argument("--since", help="YYYY-MM-DD (default: 365 days ago)")
     ap.add_argument("--match", help="comma-separated words; keep titles containing any of them")
     ap.add_argument("--limit", type=int, default=0, help="stop after N videos")
+    ap.add_argument("--newest", type=int, default=0,
+                    help="only look at the N most recent uploads (skips the date probe entirely)")
+    ap.add_argument("--all-dates", action="store_true",
+                    help="ignore --since; consider the channel's whole back catalog")
     ap.add_argument("--list", action="store_true", help="list matches and exit")
     ap.add_argument("--cookies-from-browser", dest="cookies",
                     help="chrome | firefox | edge | safari — use if YouTube asks you to prove you are not a bot")
@@ -176,28 +265,42 @@ def main():
     words = [w.strip().lower() for w in (args.match or "").split(",") if w.strip()]
 
     print("Listing %s ..." % args.channel)
-    vids = list_videos(ytdlp, args.channel, extra)
-    print("  %d videos visible on the channel" % len(vids))
+    vids = list_videos(ytdlp, args.channel, extra, args.newest)
+    print("  %d videos visible%s" % (len(vids), " (newest %d)" % args.newest if args.newest else ""))
 
-    keep = []
-    undated = 0
-    for v in vids:
-        if not v["date"]:
-            undated += 1                      # keep it; a missing date is not a reason to skip
-        elif v["date"] < since_c:
-            continue
-        if words and not any(w in v["title"].lower() for w in words):
-            continue
-        keep.append(v)
+    # Date window. The flat listing is dateless, so unless yt-dlp surprised us
+    # with dates, find the --since boundary by probing the ordered list.
+    window = "whole back catalog"
+    if args.all_dates:
+        pass
+    elif any(v["date"] for v in vids):
+        vids = [v for v in vids if v["date"] and v["date"] >= since_c]
+        window = "since %s" % since
+    elif vids:
+        print("  listing carries no dates — probing for the %s boundary ..." % since, flush=True)
+        n = cutoff_index(ytdlp, vids, extra, since_c)
+        print("  the newest %d of %d uploads are on or after %s" % (n, len(vids), since))
+        vids = vids[:n]
+        window = "since %s" % since
+
+    keep = [v for v in vids
+            if not words or any(w in v["title"].lower() for w in words)]
     if args.limit:
         keep = keep[:args.limit]
 
-    print("  %d match (since %s%s)%s" % (len(keep), since,
-                                         ", title contains " + "/".join(words) if words else "",
-                                         "; %d had no date and were kept" % undated if undated else ""))
+    print("  %d match (%s%s)" % (len(keep), window,
+                                 ", title contains " + "/".join(words) if words else ""))
+
     if args.list or not keep:
+        # A listing that prints ???????? for every row is worse than useless —
+        # it was the bug. Resolve dates for what is actually on screen.
+        if keep and len(keep) <= 60:
+            print("  resolving upload dates ...", flush=True)
+            resolve_dates(ytdlp, keep, extra)
         for v in keep:
             print("  %s  %s" % (v["date"] or "????????", v["title"][:88]))
+        if keep and len(keep) > 60:
+            print("  (dates not resolved — narrow with --match/--limit/--newest to see them)")
         return 0
 
     os.makedirs(OUT, exist_ok=True)
@@ -206,13 +309,16 @@ def main():
 
     index, failed = [], []
     for i, v in enumerate(keep, 1):
-        dest = os.path.join(OUT, "%s-%s.txt" % (v["date"] or "00000000", v["id"]))
-        if os.path.exists(dest):
-            print("  [%d/%d] have %s" % (i, len(keep), os.path.basename(dest)))
-            index.append(dict(v, file=os.path.basename(dest)))
+        # Match on id, not on filename: the date is not known until the fetch.
+        have = [f for f in os.listdir(OUT) if f.endswith("-%s.txt" % v["id"])]
+        if have:
+            print("  [%d/%d] have %s" % (i, len(keep), have[0]))
+            index.append(dict(v, date=v["date"] or have[0][:8], file=have[0]))
             continue
         print("  [%d/%d] %s — %s" % (i, len(keep), v["id"], v["title"][:64]), flush=True)
-        vtt, err = fetch_one(ytdlp, v["id"], extra, tmp)
+        vtt, date, err = fetch_one(ytdlp, v["id"], extra, tmp)
+        if date:
+            v["date"] = date
         if not vtt:
             failed.append((v, err[0] if err else "?"))
             continue
@@ -221,14 +327,16 @@ def main():
         if len(text) < 200:
             failed.append((v, "transcript suspiciously short (%d chars)" % len(text)))
             continue
-        with open(dest, "w", encoding="utf-8") as f:
+        name = "%s-%s.txt" % (v["date"] or "00000000", v["id"])
+        with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
             f.write("# %s\n# %s  %s\n\n%s\n" % (v["title"], v["date"] or "", v["url"], text))
-        index.append(dict(v, file=os.path.basename(dest), chars=len(text)))
+        index.append(dict(v, file=name, chars=len(text)))
 
     shutil.rmtree(tmp, ignore_errors=True)
+    index.sort(key=lambda v: v.get("date") or "")
     with open(os.path.join(OUT, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"channel": args.channel, "since": since,
-                   "fetched": datetime.date.today().isoformat(),
+        json.dump({"channel": args.channel, "since": None if args.all_dates else since,
+                   "match": words, "fetched": datetime.date.today().isoformat(),
                    "videos": index}, f, ensure_ascii=False, indent=1)
 
     print("\n%d transcripts in %s" % (len(index), OUT))
