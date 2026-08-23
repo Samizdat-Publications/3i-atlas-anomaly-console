@@ -184,6 +184,16 @@ tokens or "decade." fails to line up with "decade". `data/transcripts/` is gitig
 is public and those are someone else's words. Derived analysis goes in a case file; the
 transcript does not.
 
+## Stewart's machine — ALWAYS include the `cd`
+Stewart is not a terminal user and works from a Windows laptop. His Claude projects live under
+`C:\Users\stewa\OneDrive\Documents\Claude`, so this repo is normally
+`C:\Users\stewa\OneDrive\Documents\Claude\3i-atlas-anomaly-console`.
+
+**Every command block given to him must be copy-paste-runnable on its own**: start it with the
+`cd`, use Windows path separators, and never assume he is already in the right folder or knows
+how to get there. Prefer PowerShell. If `python` is not found, `py` is the Windows launcher.
+One block = one paste = one working result; do not split a command across explanatory prose.
+
 ## Constraints
 - Self-contained, offline, no admin, no server to run. All assets inline (font base64'd at build).
 - The security hook blocks Write/Edit content containing the raw HTML-set property name —
