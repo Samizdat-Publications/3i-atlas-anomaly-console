@@ -175,6 +175,44 @@
     "https://ssd-api.jpl.nasa.gov/doc/fireball.html",
     "https://www.nature.com/articles/nature01238"
    ]
+  },
+  {
+   "id": "BR-06",
+   "question": "Do fireballs really come down at volcanoes?",
+   "short": "Tested directly against 883 located events and 1,608 volcanoes: no association at any distance, under either null model. The nearest bin sits below chance. But the reason the footage looks so convincing is worth understanding.",
+   "tag": "ORIGINAL ANALYSIS",
+   "sections": [
+    {
+     "h": "Why this claim is testable rather than arguable",
+     "p": "Most disputes in this register turn on interpretation. This one does not. It is a positional claim, and both halves are already published: the console ships 883 CNEOS fireballs with coordinates, and NOAA lists 1,608 volcano positions. Either the events fall closer to volcanoes than chance allows, or they do not, and a Monte Carlo settles it. Nobody appears to have run it, which is the main reason it is here."
+    },
+    {
+     "h": "Getting the null right is the whole test",
+     "p": "Comparing against random points scattered over the globe would be wrong. Volcanoes sit on land and cluster in arcs, so any land or latitude bias in the detections would fake an association out of nothing. Two nulls were used instead, both preserving the events' own latitude distribution. The first applies a single random longitude offset to every event at once — keeping the event set's internal clustering perfectly intact, destroying only its alignment with volcano longitudes. The second gives each event a fresh longitude. A thousand trials of each."
+    },
+    {
+     "h": "The answer",
+     "p": "Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.5. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null — and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 354 km expected."
+    },
+    {
+     "h": "Why the footage is still striking",
+     "p": "The answer is in the coverage itself, said in passing: 'Five Vulks cameras are rolling.' PHIVOLCS, the Philippine volcanology institute, keeps cameras pointed at Mayon's sky around the clock, because that is what a volcano observatory does. Active volcanoes are among the very few places on Earth with fixed cameras aimed upward twenty-four hours a day, recording continuously, watched by people who publish what they catch. A fireball over farmland is seen by whoever looked up; a fireball over a monitored volcano is filmed in high definition from several angles and posted the same day. That is enough to produce the whole pattern without anything unusual happening in the sky."
+    },
+    {
+     "h": "The limit that cuts the other way",
+     "p": "Neither the Mayon event of 2026-05-25 nor the bright 2026-06-14 fireball has a CNEOS row at all — both sit below the catalog's 0.048 kt detection floor. The nearest CNEOS row to Mayon in the whole record is 312 km away and dates from 2015. So this test shows that events large enough for satellites to see have no volcano preference; it cannot directly test the smaller events the cameras actually caught. What it does establish is that the association is absent from the one dataset immune to the camera effect, which is where a real physical association should have appeared first."
+    }
+   ],
+   "chart": "volcano-dist",
+   "cases": [
+    "fb/F-05",
+    "fb/F-03"
+   ],
+   "sources": [
+    "https://www.ngdc.noaa.gov/hazel/hazard-service/api/v1/volcanolocs",
+    "https://cneos.jpl.nasa.gov/fireballs/",
+    "https://volcano.si.edu/"
+   ]
   }
  ]
 }

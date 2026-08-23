@@ -1,5 +1,36 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.14 — 2026-08-23 (the volcano test)
+The most distinctive recurring claim in the fireball coverage is positional — another fireball,
+another volcano; three in the same place — and it had never been tested, despite both halves
+being public. It has been now.
+
+- **New `tools/fetch_volcanoes.py`** pulls 1,608 volcano positions from NOAA's National Centers
+  for Environmental Information. The Smithsonian GVP is the source the field usually cites but
+  it returns 403 to anything that is not a browser; NOAA is a primary source in its own right.
+- **New `tools/spatial_test.py`** — Monte Carlo, 1,000 trials per null. Choosing the null IS the
+  test: scattering random points over the globe would be wrong, because volcanoes sit on land
+  and cluster in arcs, so any land or latitude bias in the detections would fake an association.
+  Two nulls are used, both preserving the events' own latitude distribution — a ROTATION null
+  applying one random longitude offset to every event at once (keeping internal clustering
+  perfectly intact), and a SCATTER null redrawing each longitude.
+- **Result: no association at any distance, under either null.** Within 100 km: 23 observed
+  against 32.8 by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.5.
+  Median nearest volcano 838 km against 854 km. The closest bin — the one the claim is about —
+  sits BELOW chance. Clustering fails the same way: median nearest-event distance 353 km
+  against 354 km. The rotation null is deliberately not offered for clustering, because
+  rotating every event by the same offset leaves every event-to-event distance untouched.
+- **Case F-05 and briefing BR-06**, with a chart putting the observed distance histogram
+  against the chance curve — two lines lying on each other says more than a p-value.
+- **The explanation is in the coverage itself**: "Five Vulks cameras are rolling." PHIVOLCS
+  keeps cameras on Mayon's sky around the clock, because that is what a volcano observatory is
+  for. Active volcanoes are among the very few places on Earth with fixed cameras aimed upward
+  continuously. CNEOS has no such effect, which is why it is the right instrument here.
+- **The limit is stated inside the case**: neither headline 2026 volcano event has a CNEOS row,
+  because both are below the 0.048 kt floor. The nearest CNEOS row to Mayon in the whole record
+  is 312 km away and from 2015.
+- 47 cases, 6 briefings.
+
 ## v2.13 — 2026-08-23 (BRIEFINGS — a way in)
 The console was organised by object and case, which is how the DATA is shaped, not how anyone
 arrives. People come with a question; 46 dossiers is a wall rather than a door, and the most

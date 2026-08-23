@@ -261,6 +261,46 @@ That is not proof of a negative, and the daytime blind spot is a real gap. But t
 burden has moved: anyone maintaining that 2026 saw more bright meteors now has to
 explain why the cameras that measure brightness did not record it.
 
+## The same shape, applied to position
+
+The rate question is not the only place this structure appears. The other
+recurring claim in the same coverage is spatial: that bright fireballs keep
+coming down at volcanoes, too often to be chance.
+
+That one is directly testable, and has now been tested — 883 located CNEOS events
+against 1,608 NOAA volcano positions, 1,000 Monte Carlo trials per null model.
+The null matters as much as it did before: scattering random points over the globe
+would be wrong, because volcanoes sit on land and cluster in arcs, so any land or
+latitude bias in the detections would fake an association. Two nulls were used,
+both preserving the events' own latitude distribution — one rotating every event
+by a single random longitude offset (keeping their internal clustering exactly
+intact), one giving each event a fresh longitude.
+
+| Within | observed | expected by chance |
+|---|---|---|
+| 100 km | **23** | 32.8 |
+| 200 km | 78 | 82.3 |
+| 500 km | 260 | 250.5 |
+| median nearest volcano | 838 km | 854 km |
+
+No association at any distance, under either null — and the closest bin, the one
+the claim is actually about, comes in *below* chance. The related clustering claim
+fails the same way: median distance from an event to its nearest neighbour is
+353 km against 354 km expected.
+
+**And the reason the footage is nonetheless striking is the familiar one.** The
+evidence for the volcano claim is webcam video, and active volcanoes are among the
+very few places on Earth with fixed cameras aimed at the sky twenty-four hours a
+day — that is what a volcano observatory is. A fireball over farmland is seen by
+whoever looked up. A fireball over a monitored volcano is filmed in high
+definition from several angles and published the same day. CNEOS has no such
+effect, which is precisely why it is the right instrument for the question.
+
+The same limit applies as everywhere else here, and it is real: neither headline
+2026 volcano event has a CNEOS row at all, because both sit below the 0.048 kt
+floor. This test shows that events large enough for satellites to see have no
+volcano preference. It cannot directly test the smaller ones the cameras caught.
+
 ## Sources
 
 - **NASA JPL CNEOS Fireball data** — <https://cneos.jpl.nasa.gov/fireballs/>

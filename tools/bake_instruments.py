@@ -68,7 +68,22 @@ def main():
         vals = [r[key] for r in years if r["y"] in BASE and r[key] is not None]
         return sum(vals) / len(vals) if vals else None
 
+    # Spatial test result, if it has been run. Only the summary and the
+    # histogram travel into the bundle; the Monte Carlo itself takes minutes and
+    # is not something a build step should be doing.
+    sp = os.path.join(ROOT, "data", "spatial-test.json")
+    spatial = None
+    if os.path.exists(sp):
+        with io.open(sp, encoding="utf-8") as f:
+            t = json.load(f)
+        spatial = {
+            "events": t["events"], "volcanoes": t["volcanoes"], "trials": t["trials"],
+            "radii": t["radii"], "median": t["median"], "cluster": t["cluster"],
+            "histogram": t["histogram"],
+        }
+
     payload = {
+        "spatial": spatial,
         "window": "Q1 (January-March), whole months only",
         "baseline": "%d-%d" % (min(BASE), max(BASE)),
         "note": ("Raw counts measure the instruments; the shares and rates measure the sky. "
@@ -83,6 +98,9 @@ def main():
         f.write("window.ATLAS_INSTRUMENTS = ")
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
+    if spatial:
+        print("  spatial test included: %d events vs %d volcanoes, %d trials"
+              % (spatial["events"], spatial["volcanoes"], spatial["trials"]))
     print("Wrote %s (%d bytes), %d years, baseline %s"
           % (OUT, os.path.getsize(OUT), len(years), payload["baseline"]))
     for r in years:

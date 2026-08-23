@@ -31,9 +31,16 @@ the limits that cut against your own conclusion.
 cases. Coverage is near-complete; the one real GAP is **ALMA methanol vs HCN — no case file
 exists (would be A-26)**. Two partials: the Ni/CN ratio is folded into A-07 though it is a
 separate measurement, and A-20 covers the icy-grain disappearance but not the ~20x
-post-perihelion water spike. Also unbuilt: the volcano-proximity test (needs a volcano
-dataset; Smithsonian GVP 403s from a cloud IP), and NUFORC (Cloudflare 403) which would test
-the 2013 Cheryl Costa claim he raises.
+post-perihelion water spike. **The volcano-proximity test is DONE (v2.14)** — `tools/fetch_volcanoes.py` (NOAA NCEI, 1,608
+volcanoes; Smithsonian GVP still 403s a cloud IP) + `tools/spatial_test.py` (Monte Carlo, two
+nulls, both preserving the events' latitude distribution). NO ASSOCIATION at any radius: 23
+events within 100 km vs 32.8 by chance, 78 vs 82.3 at 200 km, median 838 vs 854 km. Clustering
+also null (353 vs 354 km). Case F-05 + briefing BR-06. The explanation is the camera selection
+effect — volcano observatories run fixed sky cameras 24/7, which is why the footage exists. Do
+NOT offer a rotation null for the clustering statistic: rotating every event by one offset
+leaves event-to-event distances unchanged and cannot test it.
+Still unbuilt: NUFORC (Cloudflare 403), which would test the 2013 Cheryl Costa claim he
+raises; and a nuclear-site dataset for the remaining positional claim.
 
 **TRANSCRIPTS ARE AVAILABLE TO CLOUD SESSIONS NOW.** 114+ of them, 2025-06 to 2026-08, in the
 PRIVATE repo `Samizdat-Publications/3i-atlas-transcripts` (attach with add_repo, then clone).
