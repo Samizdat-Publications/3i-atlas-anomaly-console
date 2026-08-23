@@ -57,12 +57,20 @@ def main():
     args = ap.parse_args()
 
     files = sorted(glob.glob(os.path.join(SRC, "*.txt")))
+    print("Source: %s" % SRC)
+    print("  %d transcript files" % len(files))
     if not files:
-        sys.exit("No transcripts in %s — run tools/fetch_transcripts.py first." % SRC)
+        sys.exit(
+            "\nNothing to push — that folder is empty or missing.\n"
+            "Either the fetch has not finished yet, or it found no usable captions.\n"
+            "Run this first, and watch for lines that say [n/N]:\n"
+            "  python tools/fetch_transcripts.py --since 2025-06-20 "
+            "--match fireball,uap,atlas,bolide,meteor,interstellar,loeb,comet,3i --limit 150")
 
     name = args.repo.split("/")[-1]
     work = os.path.abspath(os.path.join(ROOT, os.pardir, name))
     url = "https://github.com/%s.git" % args.repo
+    print("Target: %s  ->  %s" % (work, args.repo))
 
     if not os.path.isdir(os.path.join(work, ".git")):
         print("Cloning %s ..." % args.repo)
@@ -91,9 +99,12 @@ def main():
         with open(readme, "w", encoding="utf-8") as fh:
             fh.write(README)
 
+    print("  %d files copied in (%d already current)" % (copied, len(files) - copied + 1))
+
     git(["add", "-A"], work)
     if not git(["diff", "--cached", "--quiet"], work, check=False).returncode:
-        print("Nothing new to push — %d transcripts already there." % len(files))
+        print("\nNothing new to push — all %d transcripts are already in %s."
+              % (len(files), args.repo))
         return 0
 
     git(["-c", "user.name=Samizdat-Publications",
