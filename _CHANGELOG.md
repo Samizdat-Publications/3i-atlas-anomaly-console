@@ -1,5 +1,47 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.11 — 2026-08-23 (three instruments)
+v2.10 answered the fireball-rate question from CNEOS alone. That was the wrong instrument for
+the claim people actually make, and F-03 argued against a version of it nobody was defending.
+
+- **The claim, as actually made, is tested — and its figures are confirmed.** The argument is
+  built on American Meteor Society eyewitness reports, not CNEOS, and it already anticipates
+  the reporting-bias objection. Checked against AMS itself the numbers hold: Q1 2026 logged 25
+  events in the 51-99 report band against a 2021-2025 mean of 11.8, and 16 above 100 reports
+  against 8.8. F-03 now says so plainly before going any further.
+- **The test that separates the two readings.** A growing audience gives each event more
+  reports and pushes events upward through the bins, so a flat middle bin is the bias rather
+  than evidence against it. The diagnostic is whether well-witnessed events outgrew the
+  dataset — x1.21 against x1.23, they did not.
+- **A third instrument.** `tools/fetch_gmn.py` streams 92 months of Global Meteor Network
+  trajectories (100+ MB each, aggregated in flight, never stored) for absolute magnitudes
+  measured by camera with nobody deciding what to report. Bright meteors per detection run
+  0.286% in Q1 2026 against a 0.264% mean — x1.08, inside scatter three times wider. The
+  sensitivity confound is ruled out rather than assumed: median absolute magnitude holds
+  between -0.09 and +0.05 across 2021-2026.
+- **Three limits stated inside the case, because they cut the other way.** GMN is night-blind
+  and several 2026 events were daytime; its coverage is regional; its brightest bin is noisy.
+  The conclusion is that the observation stands and the burden has moved, not that the claim
+  is refuted.
+- **F-04 — the two events the sensors caught.** Both marquee 2026 US events are rows the
+  console already shipped, matching the reported sighting to the minute: Lake Erie at
+  12:56:42 UTC = 8:56:42 a.m. EDT against a reported 8:57, and the Pacific Northwest bolide
+  at 07:48:36 UTC = 12:48 a.m. PDT against a reported 12:48. Both are slow — 14.9 and
+  12.2 km/s against IM1's 44.8 — so the speed chart carries the case. It also untangles the
+  radiated-versus-total energy confusion behind "10 tons" versus 0.13 kt.
+- **New chart** `CH.instruments`: every series divided by its own 2021-2025 baseline, so raw
+  counts and corrected rates share one axis. The dashed lines climbing while the solid lines
+  stay flat is the whole argument, with no commentary.
+- **New pipelines.** `fetch_ams.py` (21 years of report-bin counts), `fetch_gmn.py`,
+  `bake_instruments.py` (a 1.6 KB per-year summary instead of gigabytes), `three_instruments.py`,
+  `match_claims.py`.
+- **`fireball_rate_check.py` rewritten** to re-derive every figure F-03 and F-04 quote across
+  all three datasets. It caught two of my own errors before they shipped: a station count taken
+  from a monthly minimum, and a fabricated timestamp. Windows are whole months throughout —
+  comparing a partial current month against full earlier ones biases the current year low, and
+  that mistake is invisible in the output.
+- **Docs:** `docs/two-instrument-problem.md` and `docs/claim-coverage.md`.
+
 ## v2.10 — 2026-08-23 (is the fireball rate rising?)
 A recurring claim — NASA's own fireball data shows impacts climbing — is answerable from the
 catalog the console already ships, so the register now answers it instead of leaving the

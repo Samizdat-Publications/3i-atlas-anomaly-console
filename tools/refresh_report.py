@@ -7,6 +7,10 @@ fetchers locally:
 
     python tools/fetch_fireballs.py && python tools/refresh_report.py
 
+The per-run `fetched` stamp is ignored when deciding whether anything changed —
+otherwise every run would look like a change and open a pull request saying
+nothing.
+
 Prints "No change." when the upstream data is identical, so the workflow can use
 the exit status: 0 = something changed, 1 = nothing did.
 """
@@ -139,11 +143,74 @@ def ephemeris_section(lines):
     return True
 
 
+def _strip_stamp(d):
+    """Everything except the fetch timestamp, which changes on every run and is
+    not a change in the data."""
+    if not isinstance(d, dict):
+        return d
+    return {k: v for k, v in d.items() if k not in ("fetched",)}
+
+
+def reports_section(lines):
+    """AMS eyewitness counts and GMN photometry — the datasets cases F-03 and
+    F-04 argue from, so a change here can invalidate case-file text just as a
+    revised CNEOS row can."""
+    changed = False
+
+    a_old, a_new = committed("data/ams-reports.json"), working("data/ams-reports.json")
+    if a_new and _strip_stamp(a_old or {}) != _strip_stamp(a_new):
+        changed = True
+        lines.append("### AMS eyewitness reports")
+        lines.append("")
+        if not a_old:
+            lines.append("First pull: %d years, %s-%s."
+                         % (len(a_new.get("years", {})), a_new.get("first_year"), a_new.get("last_year")))
+        else:
+            o, n = a_old.get("years", {}), a_new.get("years", {})
+            new_years = sorted(set(n) - set(o))
+            moved = sorted(y for y in set(n) & set(o) if n[y] != o[y])
+            if new_years:
+                lines.append("- New year(s): %s" % ", ".join(new_years))
+            for y in moved:
+                for key in n[y]:
+                    if o[y].get(key) != n[y][key]:
+                        lines.append("- %s `%s`: %s → %s"
+                                     % (y, key, sum(o[y].get(key, [])), sum(n[y][key])))
+        lines.append("")
+
+    g_old, g_new = committed("data/gmn-monthly.json"), working("data/gmn-monthly.json")
+    if g_new and _strip_stamp(g_old or {}) != _strip_stamp(g_new):
+        changed = True
+        om = (g_old or {}).get("months", {})
+        nm = g_new.get("months", {})
+        added = sorted(k for k in nm if k not in om and nm[k])
+        revised = sorted(k for k in nm if k in om and nm[k] != om[k])
+        lines.append("### Global Meteor Network")
+        lines.append("")
+        if added:
+            lines.append("- New month(s): %s" % ", ".join(added))
+        for k in revised:
+            a, b = om[k], nm[k]
+            if a and b:
+                lines.append("- %s: %d → %d meteors, bright fraction %.4f%% → %.4f%%"
+                             % (k, a["n"], b["n"], 100.0 * a["counts"]["m4"] / a["n"],
+                                100.0 * b["counts"]["m4"] / b["n"]))
+        lines.append("")
+
+    if changed:
+        lines.append("> ⚠️ Cases **F-03** and **F-04** quote figures computed from these "
+                     "datasets. `tools/fireball_rate_check.py` re-derives every one of them; "
+                     "if it failed, the case text needs rewriting before this is merged.")
+        lines.append("")
+    return changed
+
+
 def main():
     lines = ["Automated refresh of the upstream datasets. **Nothing here is hand-written** — "
              "the fetchers pulled it and `tools/build.py` rebuilt the bundle.", ""]
     changed = fireball_section(lines)
     changed = ephemeris_section(lines) or changed
+    changed = reports_section(lines) or changed
     if not changed:
         print("No change.")
         return 1

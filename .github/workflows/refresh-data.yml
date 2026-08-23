@@ -20,6 +20,10 @@ on:
         description: 'Also re-pull JPL Horizons ephemerides (slow, large diff)'
         type: boolean
         default: false
+      gmn:
+        description: 'Also re-pull Global Meteor Network (streams several GB, ~20 min)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -42,6 +46,20 @@ jobs:
       - name: Pull the CNEOS fireball catalog
         run: python tools/fetch_fireballs.py
 
+      # AMS is small and changes every month; cases F-03 and F-04 argue from it.
+      - name: Pull the AMS eyewitness-report statistics
+        run: python tools/fetch_ams.py
+
+      # GMN is gigabytes upstream. Only the newest month is re-pulled on the
+      # monthly run; --refresh-last also re-reads the previous one, which is
+      # still filling in as stations upload late.
+      - name: Top up the Global Meteor Network summary
+        run: python tools/fetch_gmn.py --refresh-last
+
+      - name: Re-pull the whole Global Meteor Network series
+        if: inputs.gmn
+        run: python tools/fetch_gmn.py --since 2019
+
       - name: Pull JPL Horizons ephemerides
         if: inputs.ephemeris
         run: python tools/fetch_ephemeris.py
@@ -49,13 +67,16 @@ jobs:
       - name: Re-bake content and rebuild the bundle
         run: |
           python tools/bake_content.py
+          python tools/bake_instruments.py
           python tools/build.py
 
       # The report exits 1 when the upstream data is byte-identical, which is the
       # normal outcome for the ephemeris and a slow month for CNEOS.
-      # F-03 argues from figures computed off this catalog. If a refresh moves
-      # them, the case file is now wrong and must not ship silently.
-      - name: Re-check the figures case F-03 quotes
+      # F-03 and F-04 argue from figures computed off these three datasets. If a
+      # refresh moves any of them the case files are now wrong, and must not ship
+      # silently — a case that quotes a number the data no longer supports is
+      # worse than no case at all.
+      - name: Re-check the figures cases F-03 and F-04 quote
         id: f03
         continue-on-error: true
         run: python tools/fireball_rate_check.py | tee -a "$GITHUB_STEP_SUMMARY"
@@ -65,7 +86,7 @@ jobs:
         run: |
           if python tools/refresh_report.py > /tmp/report.md; then
             if [ "${{ steps.f03.outcome }}" = "failure" ]; then
-              printf '\n> **Case F-03 needs rewriting.** Its per-year figures no longer match the catalog — see the job summary for the current numbers.\n' >> /tmp/report.md
+              printf '\n> **Cases F-03/F-04 need rewriting.** A figure they quote no longer matches the data — see the job summary for which one and what it is now.\n' >> /tmp/report.md
             fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
             cat /tmp/report.md >> "$GITHUB_STEP_SUMMARY"
@@ -83,6 +104,7 @@ jobs:
           test "$(grep -c 'src="http' "_LATEST - 3I-ATLAS Anomaly Console.html")" = "0"
           grep -q 'ATLAS_FIREBALLS' public/index.html
           grep -q 'ATLAS_EPHEM' public/index.html
+          grep -q 'ATLAS_INSTRUMENTS' public/index.html
           python -c "import json,sys; d=json.load(open('data/fireballs.json')); sys.exit(0 if d['count']>1000 and d['located']>800 else 1)"
 
       - name: Open a pull request
