@@ -16,3 +16,7 @@ desktop.ini
 .idea/
 __pycache__/
 *.pyc
+
+# Third-party video transcripts pulled by tools/fetch_transcripts.py.
+# Someone else's words, and this repo is public — keep the analysis, not the source.
+data/transcripts/
