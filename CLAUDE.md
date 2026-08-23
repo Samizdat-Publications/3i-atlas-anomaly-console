@@ -192,6 +192,14 @@ this one was 1.2 kilotons") is kept anyway; it is usually the most checkable lin
 video. Its output also lands in `data/transcripts/digest.md`, inside the gitignored folder,
 because a digest of his sentences is still his sentences.
 
+The digest is the phone-friendly path; the FULL path is `tools/push_transcripts.py`, which
+copies `data/transcripts/` into the separate PRIVATE repo `Samizdat-Publications/3i-atlas-transcripts`
+and pushes. A cloud session attaches that repo and reads every transcript in full. Private, not
+public: this repo is published and linked from the live site, and putting a creator's whole
+caption archive in it is republishing his work rather than storing it. The GitHub app in a
+cloud session CANNOT create repos (403), so the empty private repo has to be made by hand once
+at https://github.com/new before that script will run.
+
 ## Stewart's machine — ALWAYS include the `cd`
 Stewart is not a terminal user and works from a Windows laptop. This repo lives at
 `C:\Users\stewa\OneDrive\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
