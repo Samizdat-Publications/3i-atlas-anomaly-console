@@ -184,6 +184,14 @@ tokens or "decade." fails to line up with "decade". `data/transcripts/` is gitig
 is public and those are someone else's words. Derived analysis goes in a case file; the
 transcript does not.
 
+`tools/transcript_digest.py` is the bridge back to a cloud session: it reads the gitignored
+transcripts locally and prints only the CLAIM-BEARING sentences — a subject noun plus
+something checkable (a number, a trend word, a place correlation) — small enough to paste
+from a phone. A sentence with a measured quantity but only a pronoun subject ("the energy on
+this one was 1.2 kilotons") is kept anyway; it is usually the most checkable line in the
+video. Its output also lands in `data/transcripts/digest.md`, inside the gitignored folder,
+because a digest of his sentences is still his sentences.
+
 ## Stewart's machine — ALWAYS include the `cd`
 Stewart is not a terminal user and works from a Windows laptop. This repo lives at
 `C:\Users\stewa\OneDrive\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
@@ -200,6 +208,16 @@ One block = one paste = one working result; do not split a command across explan
   inject markup via `setH()` in ui.js (uses `insertAdjacentHTML`); never write that property
   name in code or docs.
 - Keep the anomaly framing balanced: every Loeb claim is shown WITH the official explanation.
+- **Not a debunk console** (Stewart, 2026-08-23). This is fun speculation grounded in real data,
+  leaning toward taking the UAP phenomenon seriously — not hard science, and not a scoreboard
+  against the people making the claims. Case F-03 as written argues like a prosecutor ("the
+  shape is a step, not a slope"); every sentence is sourced, but the posture is wrong and it
+  should be softened toward "here is what this catalog can and cannot settle". Detection-bias
+  findings stay, because they are real and interesting. Positional/temporal claims (clusters,
+  volcanoes, nuclear sites, 3I/ATLAS timing) are TESTABLE against the lat/lon and timestamps
+  already shipped — test them honestly and show what is there. Where CNEOS cannot speak to a
+  claim at all (sighting reports are not in it), say so plainly rather than implying a
+  refutation the data has not earned.
   The fiction ("IOWG", clearance banners, stamps) stays obviously playful; the disclaimer
   footer stays.
 
