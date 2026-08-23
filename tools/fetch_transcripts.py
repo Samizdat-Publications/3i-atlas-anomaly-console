@@ -24,31 +24,43 @@ themselves do not.
 """
 import argparse, datetime, json, os, re, shutil, subprocess, sys
 
+# Windows consoles default to cp1252 and a single em dash in a video title is
+# enough to kill the run with UnicodeEncodeError halfway through a fetch.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "transcripts")
 DEFAULT_CHANNEL = "@TheAngryAstronaut"
 
 
 def need_ytdlp():
-    if shutil.which("yt-dlp"):
-        return "yt-dlp"
-    # importable but not on PATH is common inside venvs
+    """Base argv for yt-dlp. A list, never a string: on Windows the interpreter
+    path is routinely 'C:\\Program Files\\Python312\\python.exe', and a shell
+    string would split it at the space."""
+    exe = shutil.which("yt-dlp") or shutil.which("yt-dlp.exe")
+    if exe:
+        return [exe]
     try:
-        import yt_dlp  # noqa: F401
-        return sys.executable + " -m yt_dlp"
+        import yt_dlp  # noqa: F401       importable but not on PATH — normal in a venv
+        return [sys.executable, "-m", "yt_dlp"]
     except ImportError:
         sys.exit("yt-dlp not found. Install it with:  pip install -U yt-dlp")
 
 
-def run(cmd, **kw):
-    return subprocess.run(cmd, shell=True, text=True, capture_output=True, **kw)
+def run(argv, **kw):
+    # shell=False throughout: it also stops cmd.exe trying to expand the
+    # %(id)s / %(ext)s in yt-dlp's output template as environment variables.
+    return subprocess.run(argv, shell=False, text=True, capture_output=True, **kw)
 
 
 def list_videos(ytdlp, channel, extra):
     """Channel listing without touching each video page — one request, fast."""
     url = "https://www.youtube.com/%s/videos" % channel.lstrip("/")
-    cmd = '%s --flat-playlist --dump-json %s "%s"' % (ytdlp, extra, url)
-    r = run(cmd)
+    r = run(ytdlp + ["--flat-playlist", "--dump-json"] + extra + [url])
     if r.returncode != 0 and not r.stdout.strip():
         sys.exit("Listing failed.\n" + (r.stderr or "").strip()[-1500:])
     out = []
@@ -74,7 +86,7 @@ def list_videos(ytdlp, channel, extra):
 def ts_to_date(ts):
     if not ts:
         return None
-    return datetime.datetime.utcfromtimestamp(ts).strftime("%Y%m%d")
+    return datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).strftime("%Y%m%d")
 
 
 def _norm(w):
@@ -129,11 +141,10 @@ def vtt_to_text(path):
 
 
 def fetch_one(ytdlp, vid, extra, tmp):
-    cmd = ('%s --skip-download --write-auto-subs --write-subs '
-           '--sub-langs "en.*" --sub-format vtt --no-warnings %s '
-           '-o "%s/%%(id)s.%%(ext)s" "https://www.youtube.com/watch?v=%s"'
-           % (ytdlp, extra, tmp, vid))
-    r = run(cmd)
+    r = run(ytdlp + ["--skip-download", "--write-auto-subs", "--write-subs",
+                     "--sub-langs", "en.*", "--sub-format", "vtt", "--no-warnings"]
+            + extra + ["-o", os.path.join(tmp, "%(id)s.%(ext)s"),
+                       "https://www.youtube.com/watch?v=" + vid])
     got = [f for f in os.listdir(tmp) if f.startswith(vid) and f.endswith(".vtt")]
     if not got:
         return None, (r.stderr or r.stdout or "").strip().splitlines()[-1:] or ["no captions"]
@@ -154,9 +165,11 @@ def main():
     args = ap.parse_args()
 
     ytdlp = need_ytdlp()
-    extra = ("--cookies-from-browser " + args.cookies) if args.cookies else ""
+    extra = []
+    if args.cookies:
+        extra += ["--cookies-from-browser", args.cookies]
     if args.sleep:
-        extra += " --sleep-requests %.1f" % args.sleep
+        extra += ["--sleep-requests", "%.1f" % args.sleep]
 
     since = args.since or (datetime.date.today() - datetime.timedelta(days=365)).isoformat()
     since_c = since.replace("-", "")
