@@ -6,15 +6,45 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-23):** v2.10 shipped. Case **F-03** answers the recurring "fireballs
-are increasing" claim from the shipped catalog: the record STEPS (1994, 2000) then is FLAT for
-26 years, and the >=1kt subset — which a detection-rate change cannot inflate — runs 4.1/4.1/3.7
-per decade. `CH.fireballRate()` draws it (>=1kt sub-bar INSIDE each bar; pre-1994 shaded as
-pre-record; final year hatched as partial). **F-03 is the only case file argued from computed
-numbers**, so `tools/fireball_rate_check.py` re-derives every figure it quotes and the monthly
-refresh workflow flags drift in the PR body. Its claim block deliberately does NOT name a
-person — the transcript that prompted it could not be retrieved, so the proposition was tested
-as commonly stated.
+**CURRENT STATE (2026-08-23):** v2.11 shipped + deployed + verified live. The fireball
+register now runs on THREE datasets, not one, because F-03 was answering the wrong question.
+The "fireballs are increasing" argument is built on **AMS eyewitness reports**, not CNEOS —
+and its figures are ACCURATE (Q1 2026: 25 events at 51-99 reports vs a 11.8 mean, 16 above
+100 vs 8.8). F-03 now says so before arguing, then runs the test that separates the readings:
+a bigger audience gives each event more reports and pushes events UP through the bins, so a
+flat middle bin is the bias, not evidence against it. Diagnostic = did well-witnessed events
+outgrow the dataset (x1.21 vs x1.23 — no). CNEOS can't arbitrate: floor ~0.048 kt, and only
+**4 CNEOS rows in all of 2025-26 fall in the regions these videos discuss**. GMN settles it —
+camera-measured absolute magnitudes, bright fraction x1.08 in Q1 2026, sensitivity drift ruled
+out (median AbsMag stable -0.09..+0.05). **GMN IS NIGHT-BLIND** and several 2026 events were
+daytime; that limit and two others are stated inside the case because they cut toward the claim.
+F-04 is new: both marquee 2026 US events are rows we already shipped, matched TO THE MINUTE
+(Lake Erie 12:56:42 UTC = 8:56:42 EDT vs "8:57"; Pacific NW 07:48:36 UTC = 12:48 PDT vs
+"12:48"). Both slow (14.9/12.2 km/s vs IM1's 44.8) so speed-dist carries it.
+
+**FRAMING RULE, from Stewart (see Constraints):** this is NOT a debunk console. Fun speculation
+grounded in real data, leaning toward taking UAP seriously. F-03's old prosecutorial tone was
+wrong. Test claims as their proponents actually make them, credit accurate figures, and state
+the limits that cut against your own conclusion.
+
+**NEXT STEP:** `docs/claim-coverage.md` maps his enumerated 24-anomaly list against our 25 3I
+cases. Coverage is near-complete; the one real GAP is **ALMA methanol vs HCN — no case file
+exists (would be A-26)**. Two partials: the Ni/CN ratio is folded into A-07 though it is a
+separate measurement, and A-20 covers the icy-grain disappearance but not the ~20x
+post-perihelion water spike. Also unbuilt: the volcano-proximity test (needs a volcano
+dataset; Smithsonian GVP 403s from a cloud IP), and NUFORC (Cloudflare 403) which would test
+the 2013 Cheryl Costa claim he raises.
+
+**TRANSCRIPTS ARE AVAILABLE TO CLOUD SESSIONS NOW.** 114+ of them, 2025-06 to 2026-08, in the
+PRIVATE repo `Samizdat-Publications/3i-atlas-transcripts` (attach with add_repo, then clone).
+data/transcripts/ stays gitignored here — this repo is public and those are someone else's
+words. `tools/push_transcripts.py` copies and pushes; `tools/transcript_digest.py` is the
+phone-friendly skim. Fetching still only works from Stewart's machine (YouTube blocks
+datacenter IPs).
+
+**Earlier (2026-08-23):** v2.10 shipped. Case F-03's first version answered the "fireballs are
+increasing" claim from the CNEOS catalog alone: the record STEPS (1994, 2000) then is FLAT for
+26 years. `CH.fireballRate()` draws it and still ships. Superseded as the argument by v2.11.
 
 **Earlier (2026-08-22):** v2.9 shipped. Timeline entries are now first-class records:
 a mission marker opens the same sheet a case file does, with the full description and
