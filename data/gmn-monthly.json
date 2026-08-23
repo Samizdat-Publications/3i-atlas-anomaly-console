@@ -624,6 +624,581 @@
    "median_absmag": -0.3,
    "frac_m4": 0.007077,
    "per_station": 80.2
+  },
+  "202301": {
+   "n": 23972,
+   "counts": {
+    "m0": 12679,
+    "m2": 1497,
+    "m4": 62,
+    "m6": 12
+   },
+   "stations": 591,
+   "median_absmag": -0.08,
+   "frac_m4": 0.002586,
+   "per_station": 40.6
+  },
+  "202302": {
+   "n": 18602,
+   "counts": {
+    "m0": 9214,
+    "m2": 1032,
+    "m4": 49,
+    "m6": 8
+   },
+   "stations": 583,
+   "median_absmag": 0.02,
+   "frac_m4": 0.002634,
+   "per_station": 31.9
+  },
+  "202303": {
+   "n": 16310,
+   "counts": {
+    "m0": 7920,
+    "m2": 868,
+    "m4": 29,
+    "m6": 4
+   },
+   "stations": 609,
+   "median_absmag": 0.05,
+   "frac_m4": 0.001778,
+   "per_station": 26.8
+  },
+  "202304": {
+   "n": 22713,
+   "counts": {
+    "m0": 11154,
+    "m2": 1249,
+    "m4": 48,
+    "m6": 1
+   },
+   "stations": 648,
+   "median_absmag": 0.03,
+   "frac_m4": 0.002113,
+   "per_station": 35.1
+  },
+  "202305": {
+   "n": 22050,
+   "counts": {
+    "m0": 10971,
+    "m2": 1111,
+    "m4": 33,
+    "m6": 0
+   },
+   "stations": 665,
+   "median_absmag": 0.01,
+   "frac_m4": 0.001497,
+   "per_station": 33.2
+  },
+  "202306": {
+   "n": 23125,
+   "counts": {
+    "m0": 11435,
+    "m2": 1217,
+    "m4": 48,
+    "m6": 0
+   },
+   "stations": 680,
+   "median_absmag": 0.02,
+   "frac_m4": 0.002076,
+   "per_station": 34.0
+  },
+  "202307": {
+   "n": 35109,
+   "counts": {
+    "m0": 19513,
+    "m2": 2354,
+    "m4": 93,
+    "m6": 3
+   },
+   "stations": 720,
+   "median_absmag": -0.16,
+   "frac_m4": 0.002649,
+   "per_station": 48.8
+  },
+  "202308": {
+   "n": 65164,
+   "counts": {
+    "m0": 42728,
+    "m2": 8590,
+    "m4": 560,
+    "m6": 11
+   },
+   "stations": 807,
+   "median_absmag": -0.51,
+   "frac_m4": 0.008594,
+   "per_station": 80.7
+  },
+  "202309": {
+   "n": 44174,
+   "counts": {
+    "m0": 23467,
+    "m2": 3362,
+    "m4": 150,
+    "m6": 4
+   },
+   "stations": 822,
+   "median_absmag": -0.09,
+   "frac_m4": 0.003396,
+   "per_station": 53.7
+  },
+  "202310": {
+   "n": 59134,
+   "counts": {
+    "m0": 32635,
+    "m2": 4700,
+    "m4": 183,
+    "m6": 6
+   },
+   "stations": 845,
+   "median_absmag": -0.16,
+   "frac_m4": 0.003095,
+   "per_station": 70.0
+  },
+  "202311": {
+   "n": 54030,
+   "counts": {
+    "m0": 26817,
+    "m2": 3774,
+    "m4": 217,
+    "m6": 10
+   },
+   "stations": 876,
+   "median_absmag": 0.01,
+   "frac_m4": 0.004016,
+   "per_station": 61.7
+  },
+  "202312": {
+   "n": 67520,
+   "counts": {
+    "m0": 37780,
+    "m2": 4753,
+    "m4": 162,
+    "m6": 2
+   },
+   "stations": 899,
+   "median_absmag": -0.17,
+   "frac_m4": 0.002399,
+   "per_station": 75.1
+  },
+  "202401": {
+   "n": 45613,
+   "counts": {
+    "m0": 23668,
+    "m2": 3038,
+    "m4": 121,
+    "m6": 4
+   },
+   "stations": 911,
+   "median_absmag": -0.05,
+   "frac_m4": 0.002653,
+   "per_station": 50.1
+  },
+  "202402": {
+   "n": 31316,
+   "counts": {
+    "m0": 15914,
+    "m2": 1980,
+    "m4": 78,
+    "m6": 3
+   },
+   "stations": 911,
+   "median_absmag": -0.02,
+   "frac_m4": 0.002491,
+   "per_station": 34.4
+  },
+  "202403": {
+   "n": 33960,
+   "counts": {
+    "m0": 16282,
+    "m2": 2011,
+    "m4": 69,
+    "m6": 1
+   },
+   "stations": 940,
+   "median_absmag": 0.07,
+   "frac_m4": 0.002032,
+   "per_station": 36.1
+  },
+  "202404": {
+   "n": 38029,
+   "counts": {
+    "m0": 18457,
+    "m2": 2405,
+    "m4": 87,
+    "m6": 3
+   },
+   "stations": 942,
+   "median_absmag": 0.05,
+   "frac_m4": 0.002288,
+   "per_station": 40.4
+  },
+  "202405": {
+   "n": 39834,
+   "counts": {
+    "m0": 20715,
+    "m2": 2823,
+    "m4": 126,
+    "m6": 3
+   },
+   "stations": 957,
+   "median_absmag": -0.05,
+   "frac_m4": 0.003163,
+   "per_station": 41.6
+  },
+  "202406": {
+   "n": 38336,
+   "counts": {
+    "m0": 17456,
+    "m2": 2185,
+    "m4": 93,
+    "m6": 7
+   },
+   "stations": 953,
+   "median_absmag": 0.15,
+   "frac_m4": 0.002426,
+   "per_station": 40.2
+  },
+  "202407": {
+   "n": 67402,
+   "counts": {
+    "m0": 33691,
+    "m2": 4447,
+    "m4": 179,
+    "m6": 7
+   },
+   "stations": 974,
+   "median_absmag": 0.01,
+   "frac_m4": 0.002656,
+   "per_station": 69.2
+  },
+  "202408": {
+   "n": 112139,
+   "counts": {
+    "m0": 69849,
+    "m2": 14087,
+    "m4": 901,
+    "m6": 45
+   },
+   "stations": 1021,
+   "median_absmag": -0.42,
+   "frac_m4": 0.008035,
+   "per_station": 109.8
+  },
+  "202409": {
+   "n": 60747,
+   "counts": {
+    "m0": 30614,
+    "m2": 4207,
+    "m4": 172,
+    "m6": 10
+   },
+   "stations": 1014,
+   "median_absmag": -0.01,
+   "frac_m4": 0.002831,
+   "per_station": 59.9
+  },
+  "202410": {
+   "n": 81362,
+   "counts": {
+    "m0": 41070,
+    "m2": 5888,
+    "m4": 243,
+    "m6": 3
+   },
+   "stations": 996,
+   "median_absmag": -0.01,
+   "frac_m4": 0.002987,
+   "per_station": 81.7
+  },
+  "202411": {
+   "n": 67862,
+   "counts": {
+    "m0": 33912,
+    "m2": 4907,
+    "m4": 230,
+    "m6": 9
+   },
+   "stations": 1015,
+   "median_absmag": 0.01,
+   "frac_m4": 0.003389,
+   "per_station": 66.9
+  },
+  "202412": {
+   "n": 89364,
+   "counts": {
+    "m0": 50258,
+    "m2": 6916,
+    "m4": 248,
+    "m6": 6
+   },
+   "stations": 1023,
+   "median_absmag": -0.19,
+   "frac_m4": 0.002775,
+   "per_station": 87.4
+  },
+  "202501": {
+   "n": 62373,
+   "counts": {
+    "m0": 32754,
+    "m2": 4505,
+    "m4": 154,
+    "m6": 3
+   },
+   "stations": 1047,
+   "median_absmag": -0.08,
+   "frac_m4": 0.002469,
+   "per_station": 59.6
+  },
+  "202502": {
+   "n": 49527,
+   "counts": {
+    "m0": 23873,
+    "m2": 3135,
+    "m4": 143,
+    "m6": 6
+   },
+   "stations": 1178,
+   "median_absmag": 0.06,
+   "frac_m4": 0.002887,
+   "per_station": 42.0
+  },
+  "202503": {
+   "n": 64809,
+   "counts": {
+    "m0": 30074,
+    "m2": 4145,
+    "m4": 180,
+    "m6": 6
+   },
+   "stations": 1327,
+   "median_absmag": 0.13,
+   "frac_m4": 0.002777,
+   "per_station": 48.8
+  },
+  "202504": {
+   "n": 55227,
+   "counts": {
+    "m0": 24934,
+    "m2": 3225,
+    "m4": 155,
+    "m6": 4
+   },
+   "stations": 1095,
+   "median_absmag": 0.17,
+   "frac_m4": 0.002807,
+   "per_station": 50.4
+  },
+  "202505": {
+   "n": 67921,
+   "counts": {
+    "m0": 33316,
+    "m2": 4631,
+    "m4": 192,
+    "m6": 7
+   },
+   "stations": 1110,
+   "median_absmag": 0.04,
+   "frac_m4": 0.002827,
+   "per_station": 61.2
+  },
+  "202506": {
+   "n": 55659,
+   "counts": {
+    "m0": 25093,
+    "m2": 3033,
+    "m4": 111,
+    "m6": 2
+   },
+   "stations": 1095,
+   "median_absmag": 0.17,
+   "frac_m4": 0.001994,
+   "per_station": 50.8
+  },
+  "202507": {
+   "n": 88341,
+   "counts": {
+    "m0": 44724,
+    "m2": 5804,
+    "m4": 227,
+    "m6": 7
+   },
+   "stations": 1131,
+   "median_absmag": -0.02,
+   "frac_m4": 0.00257,
+   "per_station": 78.1
+  },
+  "202508": {
+   "n": 122555,
+   "counts": {
+    "m0": 73648,
+    "m2": 13627,
+    "m4": 694,
+    "m6": 17
+   },
+   "stations": 1175,
+   "median_absmag": -0.34,
+   "frac_m4": 0.005663,
+   "per_station": 104.3
+  },
+  "202509": {
+   "n": 88586,
+   "counts": {
+    "m0": 42897,
+    "m2": 6098,
+    "m4": 238,
+    "m6": 5
+   },
+   "stations": 1141,
+   "median_absmag": 0.06,
+   "frac_m4": 0.002687,
+   "per_station": 77.6
+  },
+  "202510": {
+   "n": 96024,
+   "counts": {
+    "m0": 49702,
+    "m2": 7215,
+    "m4": 331,
+    "m6": 11
+   },
+   "stations": 1162,
+   "median_absmag": -0.05,
+   "frac_m4": 0.003447,
+   "per_station": 82.6
+  },
+  "202511": {
+   "n": 93761,
+   "counts": {
+    "m0": 46986,
+    "m2": 7416,
+    "m4": 507,
+    "m6": 26
+   },
+   "stations": 1170,
+   "median_absmag": -0.0,
+   "frac_m4": 0.005407,
+   "per_station": 80.1
+  },
+  "202512": {
+   "n": 118020,
+   "counts": {
+    "m0": 66436,
+    "m2": 9690,
+    "m4": 374,
+    "m6": 23
+   },
+   "stations": 1266,
+   "median_absmag": -0.2,
+   "frac_m4": 0.003169,
+   "per_station": 93.2
+  },
+  "202601": {
+   "n": 50315,
+   "counts": {
+    "m0": 27456,
+    "m2": 3881,
+    "m4": 155,
+    "m6": 0
+   },
+   "stations": 1132,
+   "median_absmag": -0.14,
+   "frac_m4": 0.003081,
+   "per_station": 44.4
+  },
+  "202602": {
+   "n": 40368,
+   "counts": {
+    "m0": 20560,
+    "m2": 2801,
+    "m4": 98,
+    "m6": 2
+   },
+   "stations": 1103,
+   "median_absmag": -0.03,
+   "frac_m4": 0.002428,
+   "per_station": 36.6
+  },
+  "202603": {
+   "n": 55328,
+   "counts": {
+    "m0": 26466,
+    "m2": 3419,
+    "m4": 164,
+    "m6": 2
+   },
+   "stations": 1170,
+   "median_absmag": 0.08,
+   "frac_m4": 0.002964,
+   "per_station": 47.3
+  },
+  "202604": {
+   "n": 63041,
+   "counts": {
+    "m0": 28966,
+    "m2": 3810,
+    "m4": 149,
+    "m6": 5
+   },
+   "stations": 1163,
+   "median_absmag": 0.14,
+   "frac_m4": 0.002364,
+   "per_station": 54.2
+  },
+  "202605": {
+   "n": 63419,
+   "counts": {
+    "m0": 30272,
+    "m2": 3963,
+    "m4": 151,
+    "m6": 2
+   },
+   "stations": 1166,
+   "median_absmag": 0.08,
+   "frac_m4": 0.002381,
+   "per_station": 54.4
+  },
+  "202606": {
+   "n": 60014,
+   "counts": {
+    "m0": 27743,
+    "m2": 3468,
+    "m4": 139,
+    "m6": 3
+   },
+   "stations": 1167,
+   "median_absmag": 0.13,
+   "frac_m4": 0.002316,
+   "per_station": 51.4
+  },
+  "202607": {
+   "n": 91617,
+   "counts": {
+    "m0": 47115,
+    "m2": 6468,
+    "m4": 310,
+    "m6": 7
+   },
+   "stations": 1208,
+   "median_absmag": -0.04,
+   "frac_m4": 0.003384,
+   "per_station": 75.8
+  },
+  "202608": {
+   "n": 116203,
+   "counts": {
+    "m0": 75784,
+    "m2": 16608,
+    "m4": 1206,
+    "m6": 50
+   },
+   "stations": 1251,
+   "median_absmag": -0.52,
+   "frac_m4": 0.010378,
+   "per_station": 92.9
   }
- }
+ },
+ "fetched": "2026-08-23",
+ "note": "Monthly aggregates of GMN meteor trajectories. The network grew enormously over this period, so RAW COUNTS ARE NOT COMPARABLE ACROSS YEARS. Use frac_m4 (bright meteors as a share of all detections), which is insensitive to how many cameras were running.",
+ "columns_verified": "2026-08-23 (absmag=76, mass=79, stations=85)"
 }
