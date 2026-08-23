@@ -1,5 +1,5 @@
 {
- "_note": "Hand-authored case files for the CNEOS fireball register (object 'fb'). Baked into src/data-content.js by tools/bake_content.py, same schema and same balance rule as the 41 telescope cases: every Loeb claim carries the official rebuttal beside it. Fact-checked 2026-08-22 against the primary sources listed in each entry; the CNEOS row values are not written here at all — the console reads them live from data/fireballs.json so a catalog revision propagates.",
+ "_note": "Hand-authored case files for the CNEOS fireball register (object 'fb'). Baked into src/data-content.js by tools/bake_content.py, same schema and same balance rule as the 41 telescope cases: every Loeb claim carries the official rebuttal beside it. Fact-checked 2026-08-22 against the primary sources listed in each entry; the CNEOS row values are not written here at all — the console reads them live from data/fireballs.json so a catalog revision propagates. F-03 tests a claim that is not Loeb's — the recurring 'fireballs are increasing' reading of this catalog — so its claim block states the proposition rather than attributing it to a named person; the numbers in it are computed from data/fireballs.json by tools/fireball_rate_check.py and must be recomputed whenever the catalog is refreshed.",
  "cases": [
   {
    "id": "F-01",
@@ -35,6 +35,24 @@
     "https://arxiv.org/abs/2306.14267",
     "https://www.aanda.org/articles/aa/full_html/2024/11/aa49569-24/aa49569-24.html",
     "https://cneos.jpl.nasa.gov/fireballs/"
+   ]
+  },
+  {
+   "id": "F-03",
+   "title": "Are fireballs actually increasing? The catalog answers",
+   "date": "2026-08-15",
+   "observation": "The CNEOS record contains 1,069 events between 1988-04-15 and the current pull. Counted by year it does not rise steadily — it steps, twice, and then goes flat. 1988-1993 average about one event a year. 1994 jumps to 13 and the rest of the 1990s run 13-33. From 2000 onward the rate settles and stays there: 34.4 events a year across 2000-2009, 35.4 across 2010-2019, 36.0 across 2020-2025. The current year is on pace for about 31. Monthly counts tell the same story — 2.95 per month averaged over 2000-2023 against 2.70 per month over 2024 to date, which is slightly lower, not higher.",
+   "loeb_take": "The claim, which recurs online whenever a bright fireball makes the news, is that NASA's own fireball data shows impacts climbing — sometimes framed as a long-run trend since the 1980s, sometimes as a recent cluster. The chart below is the reason the claim is easy to make in good faith: plotted as a raw count from 1988, the catalog really does show a near-empty start and a full decade of growth before 2000, and that shape looks exactly like a rising trend if the first years are read as measurements rather than as an absence of measurement.",
+   "quote_source": "",
+   "loeb_quote": "",
+   "official_explanation": "Two things in the data settle it. First, the shape is a step, not a slope. The satellite record these detections come from begins in the mid-1990s — Brown et al. (Nature 420, 294, 2002) measured the small-impactor flux from 8.5 years of exactly this sensor data, placing the usable record's start around 1994, which is precisely where the catalog jumps from about one event a year to thirteen. Years before that are not low-impact years; they are years with almost no reporting. Second, and more decisively: split the catalog by brightness. A change in how much gets detected and released inflates faint events far more than bright ones, because bright ones were never the hard case. The events at or above 1 kilotonne run 4.1 per year in 2000-2009, 4.1 in 2010-2019 and 3.7 in 2020-2025 — flat across 26 years while the total was supposedly climbing. Events at or above 5 kt: 1.00, 1.00, 0.83 per year. CNEOS states the limits itself: the data are 'derived from U.S. Government sensor detections', 'not all fireballs are reported', the agency 'does not independently verify or reanalyze these events', and the catalog 'should be used with appropriate caution and, where possible, in conjunction with independent observations and analyses'. A catalog whose own publisher says it is not a complete record cannot be read as a census. None of this makes any individual event less real — it means the count of rows per year measures the sensors and the release policy at least as much as it measures the sky.",
+   "viz_hint": "fireball-rate",
+   "_verify": "CONFIRMED",
+   "sources": [
+    "https://cneos.jpl.nasa.gov/fireballs/",
+    "https://www.nature.com/articles/nature01238",
+    "https://ui.adsabs.harvard.edu/abs/2002Natur.420..294B/abstract",
+    "https://ssd-api.jpl.nasa.gov/doc/fireball.html"
    ]
   }
  ]

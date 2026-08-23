@@ -62,6 +62,14 @@ energy or decade, hover any dot for its full CNEOS row, and find the two events 
 arrived from outside the solar system — **IM1** (2014-01-08, off Papua New Guinea) and **IM2**
 (2017-03-09, west of Portugal), each under a reticle with its own case file.
 
+**Is the fireball rate rising?** A recurring online claim says NASA's own data shows impacts
+climbing. The register answers it from the shipped catalog: a **detections-per-year** chart in
+the stats rail, and case **F-03**, which computes the rates. The short version — the record
+steps twice (1994, 2000) and is then flat for 26 years, and the ≥1 kt subset, which a
+detection-rate change cannot inflate, runs 4.1 / 4.1 / 3.7 per year across those decades.
+`tools/fireball_rate_check.py` re-derives every figure F-03 quotes and fails the monthly
+refresh if the catalog moves under it.
+
 The speed histogram is the argument in one picture: the catalog's reported speeds, IM1 and IM2
 marked, and shaded behind them the 10–15 km/s velocity uncertainty Brown & Borovička measured for
 these sensors — enough, if real, to move IM1's orbit from unbound to ordinary.
@@ -80,7 +88,7 @@ tab in the left rail lists all of them, searchable across every object.
 
 ### Search across all four registers at once
 
-The case log searches all 43 case files, not just the object you're viewing — and the
+The case log searches all 44 case files, not just the object you're viewing — and the
 MISSION LOG tab does the same across all 58 timeline records. Searching **`nickel`**
 returns 3I/ATLAS's anomaly *and* 2I/Borisov's rebuttal — the same measurement, argued two ways,
 side by side. Foreign results are badged by object; clicking one switches target and opens it — including the
@@ -110,7 +118,7 @@ fireball cases, which live in their own register rather than an era.
 
 **Offline:** open `public/index.html` — or the identical `_LATEST - 3I-ATLAS Anomaly Console.html` —
 in any modern browser. No server, no install, no network. Everything (three.js, the font, the
-ephemeris, the fireball catalog, all 43 case files) is inlined into one ~1.4 MB file with
+ephemeris, the fireball catalog, all 44 case files) is inlined into one ~1.4 MB file with
 **zero external references**.
 
 Press any key at the boot screen to authenticate; that gesture also unlocks the audio.
@@ -137,7 +145,7 @@ reticle; and the redaction bars in **ARCHIVE**.
 
 ### Linking to a specific case
 
-The URL hash is `#<object>[/<case-id>|/<record-id>|/<mode>]`, so any of the 43 case files —
+The URL hash is `#<object>[/<case-id>|/<record-id>|/<mode>]`, so any of the 44 case files —
 and any of the 58 timeline records — is directly linkable:
 
 - [`#3i/A-05`](https://3i-atlas-anomaly-console.pages.dev/#3i/A-05) — the sunward anti-tail

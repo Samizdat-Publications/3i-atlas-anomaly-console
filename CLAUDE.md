@@ -6,7 +6,17 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-22):** v2.9 shipped. Timeline entries are now first-class records:
+**CURRENT STATE (2026-08-23):** v2.10 shipped. Case **F-03** answers the recurring "fireballs
+are increasing" claim from the shipped catalog: the record STEPS (1994, 2000) then is FLAT for
+26 years, and the >=1kt subset — which a detection-rate change cannot inflate — runs 4.1/4.1/3.7
+per decade. `CH.fireballRate()` draws it (>=1kt sub-bar INSIDE each bar; pre-1994 shaded as
+pre-record; final year hatched as partial). **F-03 is the only case file argued from computed
+numbers**, so `tools/fireball_rate_check.py` re-derives every figure it quotes and the monthly
+refresh workflow flags drift in the PR body. Its claim block deliberately does NOT name a
+person — the transcript that prompted it could not be retrieved, so the proposition was tested
+as commonly stated.
+
+**Earlier (2026-08-22):** v2.9 shipped. Timeline entries are now first-class records:
 a mission marker opens the same sheet a case file does, with the full description and
 CLICKABLE SOURCES — `map_events` used to strip `sources` and no UI existed, so ~26k chars of
 researched prose and all 58 citation sets shipped unreachable. Events get date-derived ids
@@ -47,7 +57,7 @@ ZERO external refs; assert with a grep for `src="http`).
 Git history was rewritten 2026-07-26 to use the GitHub noreply email — do NOT re-introduce
 `stewartgregerson@gmail.com` as the git author; use
 `179866421+Samizdat-Publications@users.noreply.github.com`. Three-object
-console complete: 43 fact-checked case files (3I: 25, 1I: 11, 2I: 5, CNEOS fireballs: 2),
+console complete: 44 fact-checked case files (3I: 25, 1I: 11, 2I: 5, CNEOS fireballs: 3),
 58 timeline events, 35 quotes, all datasets either real Horizons geometry, the live CNEOS
 fireball table, or adversarially verified. Research
 payloads checkpointed: data/research.json (3I) + data/research-iso.json (1I/2I).

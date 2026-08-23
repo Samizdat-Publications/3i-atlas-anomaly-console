@@ -53,10 +53,20 @@ jobs:
 
       # The report exits 1 when the upstream data is byte-identical, which is the
       # normal outcome for the ephemeris and a slow month for CNEOS.
+      # F-03 argues from figures computed off this catalog. If a refresh moves
+      # them, the case file is now wrong and must not ship silently.
+      - name: Re-check the figures case F-03 quotes
+        id: f03
+        continue-on-error: true
+        run: python tools/fireball_rate_check.py | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Describe what changed
         id: report
         run: |
           if python tools/refresh_report.py > /tmp/report.md; then
+            if [ "${{ steps.f03.outcome }}" = "failure" ]; then
+              printf '\n> **Case F-03 needs rewriting.** Its per-year figures no longer match the catalog — see the job summary for the current numbers.\n' >> /tmp/report.md
+            fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
             cat /tmp/report.md >> "$GITHUB_STEP_SUMMARY"
           else

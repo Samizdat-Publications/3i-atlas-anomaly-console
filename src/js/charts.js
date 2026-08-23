@@ -234,8 +234,104 @@
     }
   };
 
+  // ---------- CNEOS detections per year (REAL data) ----------
+  // Built to answer one recurring question — "are fireballs increasing?" — from
+  // the shipped catalog rather than from impression. Two things make the honest
+  // answer visible: the >=1 kt subset is drawn INSIDE each bar (a detection-rate
+  // change inflates faint events far more than bright ones, so a flat bright
+  // subset under a rising total means reporting, not flux), and the years before
+  // the satellite record begins are shaded rather than silently plotted as zero.
+  const RATE_FROM = 1988, RATE_SPARSE_TO = 1993, RATE_BASE_FROM = 2000;
+  CH.fireballRate = function (cv, big) {
+    const D = window.ATLAS_FIREBALLS || { events: [], meta: {} };
+    const f = fit(cv), g = f.g, W = f.w, H = f.h;
+    g.clearRect(0, 0, W, H);
+    g.font = (big ? '10px ' : '9px ') + 'ShareTechMono, Consolas, monospace';
+
+    const last = String((D.meta && D.meta.last) || '').slice(0, 10);
+    const lastYear = +last.slice(0, 4) || RATE_FROM;
+    const years = [];
+    for (let y = RATE_FROM; y <= lastYear; y++) years.push(y);
+    const all = {}, kt1 = {};
+    years.forEach(function (y) { all[y] = 0; kt1[y] = 0; });
+    D.events.forEach(function (e) {
+      const y = +e[0].slice(0, 4);
+      if (all[y] == null) return;
+      all[y]++;
+      if ((e[2] || 0) >= 1) kt1[y]++;
+    });
+    // the final year is only partial — say so rather than letting it read as a fall
+    const doy = last ? (Date.UTC(lastYear, +last.slice(5, 7) - 1, +last.slice(8, 10)) -
+                        Date.UTC(lastYear, 0, 1)) / 86400000 + 1 : 365;
+    const partial = doy < 350;
+
+    const peak = Math.max.apply(null, years.map(function (y) { return all[y]; })) || 1;
+    const padL = big ? 30 : 22, padR = 6, padT = big ? 26 : 20, padB = big ? 20 : 14;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    const bw = iw / years.length;
+    const X = function (y) { return padL + (y - RATE_FROM) * bw; };
+    const Y = function (n) { return padT + ih - (n / peak) * ih; };
+
+    // the years before the satellite record begins
+    g.fillStyle = 'rgba(255,74,94,.07)';
+    g.fillRect(X(RATE_FROM), padT, bw * (RATE_SPARSE_TO - RATE_FROM + 1), ih);
+
+    g.strokeStyle = COL.grid;
+    for (let n = 10; n <= peak; n += 10) {
+      const y = Y(n);
+      g.globalAlpha = 0.5; g.beginPath(); g.moveTo(padL, y); g.lineTo(padL + iw, y); g.stroke(); g.globalAlpha = 1;
+      g.fillStyle = COL.txt; g.fillText(String(n), 2, y + 3);
+    }
+
+    years.forEach(function (y) {
+      const x = X(y), w = Math.max(1.5, bw - 1.4);
+      const isPartial = partial && y === lastYear;
+      g.fillStyle = isPartial ? 'rgba(52,225,255,.20)' : 'rgba(52,225,255,.38)';
+      g.fillRect(x, Y(all[y]), w, padT + ih - Y(all[y]));
+      if (kt1[y]) {                       // the bias-resistant subset, inside the bar
+        g.fillStyle = isPartial ? 'rgba(255,179,71,.45)' : COL.amber;
+        g.fillRect(x, Y(kt1[y]), w, padT + ih - Y(kt1[y]));
+      }
+      if (isPartial) {
+        g.strokeStyle = 'rgba(52,225,255,.5)'; g.setLineDash([2, 2]);
+        g.strokeRect(x, Y(all[y]), w, padT + ih - Y(all[y])); g.setLineDash([]);
+      }
+    });
+
+    // mean of the settled era, drawn across it only
+    let sum = 0, n = 0;
+    years.forEach(function (y) {
+      if (y >= RATE_BASE_FROM && !(partial && y === lastYear)) { sum += all[y]; n++; }
+    });
+    const mean = n ? sum / n : 0;
+    g.strokeStyle = COL.green; g.setLineDash([4, 3]);
+    g.beginPath(); g.moveTo(X(RATE_BASE_FROM), Y(mean)); g.lineTo(padL + iw, Y(mean)); g.stroke();
+    g.setLineDash([]);
+    g.fillStyle = COL.green;
+    g.fillText(mean.toFixed(1) + '/yr', Math.min(padL + iw - 34, X(RATE_BASE_FROM) + 4), Y(mean) - 3);
+
+    g.strokeStyle = COL.axis; g.globalAlpha = 0.7;
+    g.beginPath(); g.moveTo(padL, padT + ih); g.lineTo(padL + iw, padT + ih); g.stroke(); g.globalAlpha = 1;
+    g.fillStyle = COL.txt;
+    [1990, 2000, 2010, 2020].forEach(function (y) {
+      if (y <= lastYear) g.fillText(String(y), X(y) - 8, H - 3);
+    });
+
+    g.fillStyle = 'rgba(52,225,255,.75)';
+    g.fillText('■ ALL EVENTS', padL, 9);
+    g.fillStyle = COL.amber;
+    g.fillText('■ ≥ 1 kt', padL + (big ? 108 : 84), 9);
+    g.fillStyle = 'rgba(255,74,94,.75)';
+    g.fillText('■ PRE-RECORD', padL + (big ? 178 : 138), 9);
+    if (big) {
+      g.fillStyle = COL.txt;
+      g.fillText('CNEOS DETECTIONS PER YEAR — THE BRIGHT SUBSET IS THE ONE A DETECTION-RATE CHANGE CANNOT INFLATE', padL, 21);
+    }
+  };
+
   CH.dossier = function (kind, cv) {
     if (kind === 'speed-dist') { CH.speedDist(cv); return; }
+    if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {
       const xs = [], ys = [];

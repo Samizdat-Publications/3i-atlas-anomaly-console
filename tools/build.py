@@ -65,7 +65,7 @@ def main():
     title = "3I/ATLAS — Interstellar Anomaly Review Console"
     desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
             "on real JPL Horizons trajectories, plus the CNEOS fireball map and its two "
-            "disputed interstellar meteors, with 43 fact-checked case files weighing "
+            "disputed interstellar meteors, with 44 fact-checked case files weighing "
             "Avi Loeb's anomaly claims against the official explanations.")
     # inline SVG favicon: the console's sigil
     favicon = (
