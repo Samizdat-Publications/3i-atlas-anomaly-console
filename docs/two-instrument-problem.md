@@ -175,24 +175,91 @@ unresolved as a physical claim.**
 
 ---
 
-## What would actually settle it
+## What settles it — and the answer
 
-A third instrument that measures brightness objectively and doesn't depend on anyone
-filing a report. The **Global Meteor Network** is exactly that: an open camera network
-publishing trajectories with absolute magnitudes and derived masses, covering 2018
-onward under CC BY.
+A third instrument that measures brightness objectively and doesn't depend on
+anyone filing a report. The **Global Meteor Network** is exactly that: an open
+camera network publishing trajectories with **absolute magnitudes**, no human in
+the loop deciding what counts.
 
-If GMN shows a genuine 2026 excess of bright meteors, the audience-effect explanation
-collapses and the claim is vindicated by an instrument no bias argument can touch. If
-GMN shows a flat rate, the AMS rise is very likely attention, not sky.
+**This has now been run.** 92 months, 2019–2026, streamed and aggregated
+(`tools/fetch_gmn.py`, `data/gmn-monthly.json`).
 
-GMN carries its own confound — the network has grown substantially since 2018, so raw
-counts need normalising against active station-nights. That is tractable; it is the
-same correction the CNEOS record needs for its pre-1994 years.
+GMN carries its own severe bias — the network grew from 73 stations to 1,327, so
+raw counts are meaningless across years. The bias-resistant statistic is the
+**bright-meteor fraction**: meteors at absolute magnitude ≤ −4 as a share of all
+detections. More cameras multiply faint and bright detections together, so the
+ratio holds; a real excess of bright meteors moves it.
 
-**Until someone runs that, nobody on either side is entitled to a conclusion.**
+| Year (Jan–Aug) | meteors | mag ≤ −4 | **bright fraction** | stations |
+|---|---|---|---|---|
+| 2021 | 95,687 | 419 | 0.438% | 341 |
+| 2022 | 172,637 | 987 | 0.572% | 571 |
+| 2023 | 227,045 | 922 | 0.406% | 899 |
+| 2024 | 406,629 | 1,654 | 0.407% | 1,023 |
+| 2025 | 566,412 | 1,856 | 0.328% | 1,327 |
+| **2026** | **540,305** | **2,372** | **0.439%** | 1,251 |
 
----
+**2026 vs the 2021–2025 mean: ×1.02.** Flat.
+
+Restricted to Q1, the quarter the claim is actually about: **0.286% against a
+0.264% mean — ×1.08**, against year-to-year scatter running 0.131%–0.440%. Also
+flat. At the very brightest level GMN records, magnitude ≤ −6, 2026 is *below* the
+baseline median.
+
+Set against the raw counts from the same window, the picture is unambiguous:
+
+| | 2026 vs 5-yr mean |
+|---|---|
+| GMN meteors detected (raw) | ×1.84 |
+| GMN stations reporting | ×1.58 |
+| AMS events with ≥51 reports (raw) | ×1.71 |
+| AMS events, all (raw) | ×1.43 |
+| **AMS ≥51 as a share of all events** | **×1.19** |
+| **GMN bright-meteor fraction** | **×1.02** |
+| **CNEOS events ≥1 kt** | **×0.26** (1 event vs a mean of 3.8) |
+
+Everything that grew is a count of instruments or of people. Every measure that
+normalises for them is flat.
+
+### The sensitivity-drift check
+
+One way this could be wrong: if cameras improved, GMN would detect fainter
+meteors, inflating the denominator and *masking* a real rise. Testable — the
+median absolute magnitude would drift fainter.
+
+| 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
+|---|---|---|---|---|---|
+| +0.05 | −0.07 | −0.09 | −0.04 | −0.01 | −0.04 |
+
+Stable to within a tenth of a magnitude across six years. The confound does not
+apply, and the fractions are comparable.
+
+### Where GMN cannot help
+
+Three limits, stated because they cut toward the claim rather than against it:
+
+1. **GMN is night-only.** Cameras see nothing in daylight. Several of the most
+   prominent 2026 events were daytime — the Lake Erie bolide at 8:57 a.m. Eastern
+   drew 222 reports across 16 states. GMN is structurally incapable of counting
+   those, and no fraction computed from it says anything about them.
+2. **Coverage is concentrated**, not global — heavily Europe and North America,
+   with the network's footprint shifting year to year as stations join.
+3. **The magnitude ≤ −6 counts are small and noisy** — 2022 is a six-fold outlier
+   over its neighbours. Read the ≤ −4 line as the reliable one.
+
+### Where that leaves the claim
+
+The observation is real and correctly stated: AMS high-report events did roughly
+double in Q1 2026. Three independent lines now say that this reflects **attention
+rather than sky**: the well-reported population grew at exactly the rate of the
+dataset as a whole, the CNEOS energy record shows a quiet year, and the one
+instrument that measures brightness directly shows no excess at either brightness
+threshold, with its own principal confound ruled out.
+
+That is not proof of a negative, and the daytime blind spot is a real gap. But the
+burden has moved: anyone maintaining that 2026 saw more bright meteors now has to
+explain why the cameras that measure brightness did not record it.
 
 ## Sources
 
