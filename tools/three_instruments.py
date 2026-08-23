@@ -51,6 +51,8 @@ def ams_window(ams, year, months):
 
 
 def cneos_window(fb, year, months):
+    # Whole months only. A partial current month compared against full months in
+    # earlier years silently biases the current year downward.
     ev = [e for e in fb["events"]
           if e[0][:4] == str(year) and int(e[0][5:7]) <= months]
     if not ev:
@@ -77,7 +79,10 @@ def gmn_window(gmn, year, months):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--months", type=int, default=8, help="months of each year to include")
+    ap.add_argument("--months", type=int, default=7,
+                    help="months of each year to include. Whole months only: the "
+                         "current month is still filling up, and comparing a partial "
+                         "month against full ones in earlier years biases this year low.")
     ap.add_argument("--from-year", type=int, default=2019)
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()

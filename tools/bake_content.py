@@ -171,8 +171,10 @@ def main():
                 "designation": "CNEOS FIREBALL REGISTER · ATMOSPHERIC IMPACTS",
                 "loebScale": None, "pillNote": "IMPACT CATALOG",
                 "loebScaleHistory": "NO LOEB-SCALE RANK — THE SCALE IS APPLIED TO TELESCOPIC OBJECTS, NOT TO CATALOG ROWS. TWO CLAIMED INTERSTELLAR METEORS HERE, NEITHER CONFIRMED OUTSIDE THE CATALOG THAT REPORTED THEM.",
-                "anomalyCountNote": str(nfb) + " CANDIDATE CASES ON FILE — IM1 (2014-01-08) AND IM2 (2017-03-09)",
-                "datasetVerify": "CNEOS ROWS LIVE FROM THE JPL FIREBALL API · CASE FILES INDIVIDUALLY FACT-CHECKED",
+                "anomalyCountNote": str(nfb) + " CASES ON FILE — IM1 (2014-01-08), IM2 (2017-03-09), AND THE 2026 RATE QUESTION",
+                "datasetVerify": ("CNEOS ROWS LIVE FROM THE JPL FIREBALL API · RATE CASES CROSS-CHECKED AGAINST "
+                                  "AMS EYEWITNESS REPORTS AND GLOBAL METEOR NETWORK PHOTOMETRY · "
+                                  "EVERY COMPUTED FIGURE RE-DERIVED BY tools/fireball_rate_check.py"),
             },
         },
     }
