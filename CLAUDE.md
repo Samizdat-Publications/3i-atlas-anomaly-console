@@ -6,7 +6,7 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-23):** v2.11 shipped + deployed + verified live. The fireball
+**CURRENT STATE (2026-08-24):** v2.15 built + browser-verified locally; see the NUFORC paragraph below for what landed. Earlier: v2.11 shipped + deployed + verified live. The fireball
 register now runs on THREE datasets, not one, because F-03 was answering the wrong question.
 The "fireballs are increasing" argument is built on **AMS eyewitness reports**, not CNEOS —
 and its figures are ACCURATE (Q1 2026: 25 events at 51-99 reports vs a 11.8 mean, 16 above
@@ -27,7 +27,7 @@ grounded in real data, leaning toward taking UAP seriously. F-03's old prosecuto
 wrong. Test claims as their proponents actually make them, credit accurate figures, and state
 the limits that cut against your own conclusion.
 
-**NEXT STEP:** `docs/claim-coverage.md` maps his enumerated 24-anomaly list against our 25 3I
+**NEXT STEP (still open):** `docs/claim-coverage.md` maps his enumerated 24-anomaly list against our 25 3I
 cases. Coverage is near-complete; the one real GAP is **ALMA methanol vs HCN — no case file
 exists (would be A-26)**. Two partials: the Ni/CN ratio is folded into A-07 though it is a
 separate measurement, and A-20 covers the icy-grain disappearance but not the ~20x
@@ -39,14 +39,28 @@ also null (353 vs 354 km). Case F-05 + briefing BR-06. The explanation is the ca
 effect — volcano observatories run fixed sky cameras 24/7, which is why the footage exists. Do
 NOT offer a rotation null for the clustering statistic: rotating every event by one offset
 leaves event-to-event distances unchanged and cannot test it.
-**NUFORC IS DONE AS ANALYSIS, NOT YET AS A CASE FILE.** nuforc.org still 403s a cloud IP, but
-the public mirror `planetsig/ufo-reports` works (80,332 reports, 1906-2014, with the shape
-field). The 2013 Cheryl Costa claim tests out as: baseline figures NEAR-EXACT (fireball is 7.9%
-of all sightings and ranks 4th of 29 shapes, against her "~7%, 4th of ~30"); the Nov 2013
-elevation REAL but smaller than reported (14.2% through the 11th, not ~20%) and NOT unique —
-14th of 168 months since 2000, with July 2012 at 22.2%. Fireball share is also seasonal (July
-10.8%, December 10.0%). Would be case F-06 + briefing BR-07. Still unbuilt: a nuclear-site
-dataset for the last positional claim.
+**THE NUFORC CASE FILE IS DONE (v2.15).** `tools/fetch_nuforc.py` pulls the mirror
+`planetsig/ufo-reports` (nuforc.org still 403s a cloud IP) and writes AGGREGATES ONLY to
+`data/nuforc.json` — the raw CSV is 14 MB of someone else's report narrative. Case F-06 +
+briefing BR-07 + chart `CH.nuforcShare`. The result: Costa's baseline figures are near-exact
+(7.92%, 4th of 29 shapes) and the Nov 2013 elevation is real (14.6% US through the 11th), but
+it is measured against the CENTURY-LONG average. The contemporary baseline — the pooled twelve
+months before it — was 14.33%, and the month came in at 14.37%. It ranks 14th of all 172
+complete months Jan 2000-Apr 2014; July 2012 holds the record at 22.26%. THE FINDING THAT
+MATTERS is the one left standing: fireball share tripled from ~5% (2004-2009) to ~14.5%
+(2012) and stayed there, unexplained — the column found the right dataset and pointed at the
+wrong month, three years late. Limits stated inside the case: the archive is 81% US (Chelyabinsk
+day = 11 reports, 2 fireball) and STOPS 2014-05-08, so the 2026 half of the parallel is
+untestable here. Seasonality (July 10.94%, December 10.11%, April 6.03%) is evidence the
+self-assigned label does track real meteor activity.
+Also in v2.15: `claim_label` on a case overrides the dossier's "LOEB ASSESSMENT" caption —
+F-03..F-06 now read "THE CLAIM AS MADE", because those claims are not Loeb's; and
+`tools/fireball_rate_check.py` now re-derives F-05's and F-06's figures too, not just
+F-03's and F-04's.
+
+**NEXT STEP after this one:** the nuclear-site dataset for the last positional claim is
+still unbuilt. `tools/spatial_test.py` already does the Monte Carlo with the right nulls, so
+this is a fetcher plus a second call, not new statistics.
 
 **TRANSCRIPTS ARE TRACKED IN THIS REPO (owner's decision, 2026-08-23).** 114 of them,
 2025-06-28 to 2026-08-23, ~357k words, in `data/transcripts/` with attribution and a per-video
@@ -207,6 +221,11 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   summaries streamed and aggregated in flight (100+ MB each, never stored) → `data/gmn-monthly.json`.
   Network grew 73 → 1,327 stations, so ONLY `frac_m4` is comparable across years.
 - **Volcanoes:** `python tools/fetch_volcanoes.py` — NOAA NCEI, 1,608 positions → `data/volcanoes.json`.
+- **UFO sightings:** `python tools/fetch_nuforc.py` — the NUFORC archive via the
+  planetsig/ufo-reports mirror, AGGREGATES ONLY → `data/nuforc.json`. Frozen upstream (last
+  sighting 2014-05-08), so it is not in the monthly refresh. `shape` is a WITNESS'S OWN WORD,
+  not a measurement: its "fireball" is not the AMS or CNEOS quantity and must never be pooled
+  with them.
 - **Spatial test:** `python tools/spatial_test.py --save` — Monte Carlo, two nulls → `data/spatial-test.json`.
 - **Fireballs:** `python tools/fetch_fireballs.py` — pulls the whole NASA/JPL CNEOS Fireball API
   table (1,069 rows since 1988-04-15, 883 located) plus Natural Earth 1:110m land (public domain,

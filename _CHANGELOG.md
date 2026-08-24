@@ -1,5 +1,57 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.15 — 2026-08-24 (the 2013 precedent)
+
+The fireball coverage offers November 2013 as the historical rhyme for 2026: a wave of
+fireball-shaped UFO reports, spotted by Cheryl Costa in the National UFO Reporting Center
+database and written up in her New York Skies column. It is a checkable claim about a public
+dataset, so it has been checked rather than repeated.
+
+- **New `tools/fetch_nuforc.py`** pulls the NUFORC sighting archive and writes aggregates to
+  `data/nuforc.json`. nuforc.org returns 403 to a datacenter address; the route that works is
+  the planetsig/ufo-reports mirror, which geocoded and time-normalised the archive in 2014 and
+  kept the SHAPE column — the field the claim is actually about. Aggregates only: the raw file
+  is 14 MB of somebody else's report narrative, and what this needs is counts.
+- **Costa's baseline figures check out almost exactly.** Fireball is 6,208 of 78,400
+  shape-bearing reports — 7.92% — and ranks fourth of 29 shapes, against her remembered "about
+  7%, fourth of roughly 30". The November elevation is real too: 33 fireballs in 226 US
+  shape-bearing reports through the 11th, 14.6%, and her volume figure lands on the nose
+  (227 US rows against "about 238").
+- **What the month is measured against is where it comes apart, and the finding is bigger than
+  the correction.** 7.92% is the average of a century-long archive. Annual fireball share ran
+  4.85% in 2004 and 5.86% in 2009, then 8.56%, 10.72%, 14.54%, 13.97% across 2010-2013. Pool
+  the twelve months before the one in question and the share is 14.33%; November 2013 came in
+  at 14.37%. It was not a spike above the current baseline — it WAS the current baseline. It
+  ranks 14th of all 172 complete months from January 2000 to April 2014; July 2012 holds the
+  record at 22.26%.
+- **The interesting thing is the tripling, and it is left standing.** The share of reports
+  labelled fireball roughly tripled between 2009 and 2012 and stayed there. That is a large,
+  real, unexplained change — exactly the kind of thing the column was reaching for. It found
+  the right dataset and pointed at the wrong month, three years late. NUFORC cannot say whether
+  the rise was the sky, the arrival of a camera in every pocket, or the word spreading through
+  popular usage, and neither can this project.
+- **Two limits are stated inside the case because they cut against the conclusion.** The
+  archive is 81% United States: on 2013-02-15, the day of Chelyabinsk, it logged 11 reports,
+  2 of them fireball, and February 2013 finished at 8.08% — among the quietest months of its
+  year. The largest airburst since Tunguska is essentially absent from it. And the mirror
+  stops on 2014-05-08, so the 2026 half of the parallel cannot be tested here at all.
+- **The label does carry real signal**, which is worth saying plainly: fireball share peaks in
+  July (10.94%) and December (10.11%) against 6.03% in April. That is the Perseids and the
+  Geminids showing up in a database of public shape guesses.
+- **Case F-06 and briefing BR-07**, with a chart that is the whole argument in one picture:
+  the monthly share, the rolling 12-month baseline climbing under it, the flat all-time 7.9%
+  line far below, and November 2013 marked sitting on the rolling line rather than above it.
+- **New `claim_label` field.** Cases F-03 to F-06 test claims made by people other than Avi
+  Loeb, and the dossier was captioning all of them "LOEB ASSESSMENT" — attributing arguments to
+  someone who did not make them. Those four now read "THE CLAIM AS MADE"; everything else is
+  unchanged.
+- **`tools/fireball_rate_check.py` now covers F-03 through F-06**, including F-05's Monte Carlo
+  figures, which had been going unchecked. Verified it bites: perturbing three numbers in the
+  case text fails the run.
+- **New `dossier/15-nuforc-sightings.md`** from `tools/export_tables.py`, with the shape-label
+  caveat stated before any number.
+- 48 cases, 7 briefings.
+
 ## v2.14 — 2026-08-23 (the volcano test)
 The most distinctive recurring claim in the fireball coverage is positional — another fireball,
 another volcano; three in the same place — and it had never been tested, despite both halves

@@ -213,6 +213,45 @@
     "https://cneos.jpl.nasa.gov/fireballs/",
     "https://volcano.si.edu/"
    ]
+  },
+  {
+   "id": "BR-07",
+   "question": "Has a fireball wave like this happened before?",
+   "short": "One was reported in November 2013, and it is offered as the precedent for 2026. The reported figures are accurate. The month is not the interesting part of what the database actually holds.",
+   "tag": "NUFORC · 80,332 REPORTS TO 2014",
+   "sections": [
+    {
+     "h": "Why this question has a different dataset behind it",
+     "p": "The other fireball briefings argue from instruments: satellite sensors that report kilotonnes, camera networks that report absolute magnitude, eyewitness tallies that report how many people filed. The 2013 precedent comes from none of those. It comes from the National UFO Reporting Center, where every witness picks a SHAPE from a fixed list and 'fireball' is one of the choices. That makes it a record of what people called what they saw — which is the right instrument for a claim about a wave of fireball REPORTS, and the wrong one for a claim about the sky. nuforc.org returns 403 to a datacenter address; the route that works is a 2014 public mirror that geocoded the archive and kept the shape column. It holds 80,332 reports running to 2014-05-08."
+    },
+    {
+     "h": "The claim, and how well it holds up",
+     "p": "Cheryl Costa, writing the New York Skies column for the Syracuse New Times, reported in November 2013 that the database had logged about 238 reports by the 11th — an ordinary month by volume — but that roughly 50 of them, near 20%, were fireballs, against a normal share of about 7% ranking fourth among roughly 30 categories. Checked against the archive, the baseline is very nearly exact: fireball is 7.92% of shape-bearing reports and ranks fourth of 29 shapes. The volume is close too — 227 US rows against 'about 238'. The elevation is real: 33 of those 226 shape-bearing US reports are fireballs, 14.6%, roughly double the long-run share."
+    },
+    {
+     "h": "What the month is being measured against",
+     "p": "The 7.92% figure is the average of a century-long archive, and by 2013 it had stopped describing the present. Annual fireball share ran 4.85% in 2004 and 5.86% in 2009, then climbed: 8.56%, 10.72%, 14.54%, 13.97% across 2010 to 2013. Pool the twelve months immediately before the one in question and the fireball share is 14.33%. November 2013 came in at 14.37%. It was not a spike above the baseline that was current — it WAS that baseline. Ranked against all 172 complete months from January 2000 to April 2014 it comes 14th, and July 2012 holds the record at 22.26%."
+    },
+    {
+     "h": "The part that is actually interesting",
+     "p": "The share of UFO reports labelled 'fireball' roughly tripled between 2009 and 2012 and then stayed high. That is a large, real, unexplained change in the record — and it is the kind of change the 2013 column was reaching for. It found the right dataset and pointed at the wrong month, three years late. What NUFORC cannot do is say why the rise happened: a genuine change in the sky, a camera arriving in every pocket, and the word 'fireball' spreading through popular usage would all look identical in a database of self-assigned shape labels. That ambiguity is the same one the AMS eyewitness series has, and it is why the console leans on camera photometry when it wants to know about the sky rather than about the reporters."
+    },
+    {
+     "h": "Two limits, one of which decides the question",
+     "p": "The archive is 81% United States — 65,114 of the 80,332 rows — and it shows. On 2013-02-15, the day Chelyabinsk exploded over Russia and injured more than a thousand people, NUFORC logged 11 reports, 2 of them fireball, and February 2013 finished at 8.08%: among the quietest months of its year. The largest airburst since Tunguska is essentially invisible here, because it happened where the reporters are not. And the mirror stops on 2014-05-08. It can test the 2013 half of a 2013-versus-2026 parallel; it cannot test the 2026 half at all. So the honest answer to the question is: a fireball wave was reported before, the reported figures were sound, the month was ordinary for its time, and the change that WAS in the data arrived years earlier and has never been explained."
+    }
+   ],
+   "chart": "nuforc-share",
+   "cases": [
+    "fb/F-06",
+    "fb/F-03"
+   ],
+   "sources": [
+    "https://github.com/planetsig/ufo-reports",
+    "https://nuforc.org/",
+    "https://fireball.amsmeteors.org/members/imo_fireball_stats/events_per_month_per_year",
+    "https://globalmeteornetwork.org/data/traj_summary_data/"
+   ]
   }
  ]
 }

@@ -13,8 +13,8 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 |---|---|---|---|
 | `01-cases-3i-atlas.md` | Markdown | 95 KB | 13091 words |
 | `02-cases-oumuamua-borisov.md` | Markdown | 78 KB | 11213 words |
-| `03-cases-fireballs.md` | Markdown | 21 KB | 3435 words |
-| `04-briefings.md` | Markdown | 17 KB | 2812 words |
+| `03-cases-fireballs.md` | Markdown | 27 KB | 4522 words |
+| `04-briefings.md` | Markdown | 21 KB | 3521 words |
 | `05-timeline.md` | Markdown | 41 KB | 5181 words |
 | `06-quotations.md` | Markdown | 9 KB | 1690 words |
 | `07-cneos-fireballs.csv` | CSV | 48 KB | 1069 rows |
@@ -25,6 +25,7 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 | `12-cneos-fireballs.md` | Markdown | 68 KB | 17188 words |
 | `13-ams-reports.md` | Markdown | 12 KB | 4602 words |
 | `14-gmn-monthly.md` | Markdown | 7 KB | 2074 words |
+| `15-nuforc-sightings.md` | Markdown | 8 KB | 2335 words |
 
 ## Ingest in this order
 

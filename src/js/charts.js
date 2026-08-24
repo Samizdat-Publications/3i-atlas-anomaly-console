@@ -467,11 +467,113 @@
     }
   };
 
+  // NUFORC's fireball-shape share of sightings, month by month, against the two
+  // baselines the argument turns on: the flat all-time average a 2013 column
+  // compared to, and the rolling 12-month average that was actually current when
+  // it did. The claimed spike sits ON the rolling line, not above it.
+  CH.nuforcShare = function (cv, big) {
+    const D = (window.ATLAS_INSTRUMENTS || {}).nuforc;
+    const f = fit(cv), g = f.g, W = f.w, H = f.h;
+    g.clearRect(0, 0, W, H);
+    g.font = (big ? '10px ' : '9px ') + 'ShareTechMono, Consolas, monospace';
+    if (!D || !D.n || !D.n.length) return;
+
+    const n = D.n.length;
+    const share = [];
+    for (let i = 0; i < n; i++) share.push(D.n[i] ? 100 * D.fb[i] / D.n[i] : null);
+    // Trailing 12 months, pooled rather than averaged, so a thin month cannot
+    // swing the baseline the way a mean of ratios would.
+    const roll = [];
+    for (let i = 0; i < n; i++) {
+      if (i < 11) { roll.push(null); continue; }
+      let a = 0, b = 0;
+      for (let k = i - 11; k <= i; k++) { a += D.n[k]; b += D.fb[k]; }
+      roll.push(a ? 100 * b / a : null);
+    }
+
+    const y0 = parseInt(D.start.slice(0, 4), 10), m0 = parseInt(D.start.slice(5), 10);
+    const idxOf = function (ym) {
+      return (parseInt(ym.slice(0, 4), 10) - y0) * 12 + (parseInt(ym.slice(5), 10) - m0);
+    };
+    const claim = idxOf(D.claim);
+
+    const padL = 28, padR = big ? 8 : 6, padT = big ? 30 : 18, padB = big ? 26 : 16;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    let yMax = 0;
+    for (let i = 0; i < n; i++) if (share[i] > yMax) yMax = share[i];
+    yMax = Math.ceil(yMax / 5) * 5 || 25;
+    const X = function (i) { return padL + iw * (i / (n - 1)); };
+    const Y = function (v) { return padT + ih * (1 - v / yMax); };
+
+    // year gridlines
+    g.strokeStyle = COL.grid; g.lineWidth = 1;
+    g.fillStyle = 'rgba(255,255,255,.4)';
+    for (let i = 0; i < n; i++) {
+      if ((i + m0 - 1) % 12) continue;
+      const yr = y0 + Math.floor((i + m0 - 1) / 12);
+      if (yr % (big ? 2 : 4)) continue;
+      g.beginPath(); g.moveTo(X(i), padT); g.lineTo(X(i), padT + ih); g.stroke();
+      g.fillText(String(yr), X(i) - 10, H - padB + 11);
+    }
+
+    // monthly share
+    g.strokeStyle = 'rgba(52,225,255,.55)'; g.lineWidth = 1.1;
+    g.beginPath();
+    let started = false;
+    for (let i = 0; i < n; i++) {
+      if (share[i] == null) continue;
+      const px = X(i), py = Y(share[i]);
+      if (started) g.lineTo(px, py); else { g.moveTo(px, py); started = true; }
+    }
+    g.stroke();
+
+    // the baseline the claim was measured against — flat, and far below
+    g.strokeStyle = COL.red; g.lineWidth = 1.3;
+    g.setLineDash([5, 4]);
+    g.beginPath(); g.moveTo(padL, Y(D.baseline)); g.lineTo(padL + iw, Y(D.baseline)); g.stroke();
+    g.setLineDash([]);
+
+    // the baseline that was actually current
+    g.strokeStyle = COL.amber; g.lineWidth = 1.8;
+    g.beginPath(); started = false;
+    for (let i = 0; i < n; i++) {
+      if (roll[i] == null) continue;
+      const px = X(i), py = Y(roll[i]);
+      if (started) g.lineTo(px, py); else { g.moveTo(px, py); started = true; }
+    }
+    g.stroke();
+
+    // the month in question
+    if (claim >= 0 && claim < n && share[claim] != null) {
+      g.strokeStyle = 'rgba(255,255,255,.35)'; g.lineWidth = 1;
+      g.beginPath(); g.moveTo(X(claim), padT); g.lineTo(X(claim), padT + ih); g.stroke();
+      g.fillStyle = COL.green;
+      g.beginPath(); g.arc(X(claim), Y(share[claim]), big ? 4 : 3, 0, 6.2832); g.fill();
+      if (big) {
+        g.fillText('NOV 2013', X(claim) - 52, Y(share[claim]) - 6);
+      }
+    }
+
+    g.fillStyle = 'rgba(255,255,255,.4)';
+    for (let v = 0; v <= yMax; v += 5) g.fillText(String(v) + '%', 2, Y(v) + 3);
+
+    let lx = padL;
+    [['— monthly', 'rgba(52,225,255,.75)'], ['— rolling 12mo', COL.amber],
+     ['--- all-time ' + D.baseline.toFixed(1) + '%', COL.red]].forEach(function (L) {
+      g.fillStyle = L[1]; g.fillText(L[0], lx, 10); lx += g.measureText(L[0]).width + 12;
+    });
+    if (big) {
+      g.fillStyle = COL.txt;
+      g.fillText('THE CLAIMED SPIKE SITS ON THE BASELINE THAT WAS CURRENT, NOT ABOVE IT', padL, 22);
+    }
+  };
+
   CH.dossier = function (kind, cv) {
     if (kind === 'speed-dist') { CH.speedDist(cv); return; }
     if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
     if (kind === 'fireball-instruments') { CH.instruments(cv, true); return; }
     if (kind === 'volcano-dist') { CH.volcanoDist(cv, true); return; }
+    if (kind === 'nuforc-share') { CH.nuforcShare(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {
       const xs = [], ys = [];
