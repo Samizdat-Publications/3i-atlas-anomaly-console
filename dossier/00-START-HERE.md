@@ -22,6 +22,9 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 | `09-gmn-monthly.csv` | CSV | 4 KB | 92 rows |
 | `10-spatial-test.md` | Markdown | 1 KB | 363 words |
 | `11-comparison-profiles.md` | Markdown | 7 KB | 1126 words |
+| `12-cneos-fireballs.md` | Markdown | 68 KB | 17188 words |
+| `13-ams-reports.md` | Markdown | 12 KB | 4602 words |
+| `14-gmn-monthly.md` | Markdown | 7 KB | 2074 words |
 
 ## Ingest in this order
 
