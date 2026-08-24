@@ -208,6 +208,23 @@ body {
 .cx-toast.cx-show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .cx-toast.cx-anom { border-color: var(--amber-dim); color: var(--amber); box-shadow: 0 0 18px rgba(0,0,0,.6), inset 0 0 14px rgba(255,179,71,.08); }
 .cx-toast .cx-toast-date { display: block; font-size: 9.5px; color: var(--txt-faint); letter-spacing: 2px; }
+.cx-toast .cx-toast-kind {
+  display: block; font-size: 9px; letter-spacing: 3px; margin-bottom: 4px;
+  color: var(--cyan-dim); opacity: .95;
+}
+.cx-toast.cx-anom .cx-toast-kind { color: var(--amber-dim); }
+
+/* The dispatch overlay draws a claim rather than data, so it is marked as such
+   in the chrome as well as in the toast — an unlabelled particle burst reads as
+   a measurement. */
+.cx-pod-spec.cx-on { color: var(--amber); border-color: var(--amber-dim); text-shadow: 0 0 8px rgba(255,179,71,.5); }
+.cx-specnote {
+  position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+  padding: 4px 12px; border: 1px dashed var(--amber-dim); background: rgba(30,18,4,.92);
+  color: var(--amber); font-size: 9px; letter-spacing: 2.5px; text-align: center;
+  opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
+}
+.cx-specnote.cx-show { opacity: .95; }
 
 .cx-crosshair {
   position: absolute; left: 50%; top: 50%; width: 44px; height: 44px;

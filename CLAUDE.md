@@ -6,7 +6,14 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-24):** v2.15 MERGED TO MAIN + auto-deployed (PR #11). v2.16 built on top: the nuclear-site test (F-07 + BR-08) and claim coverage closed. See below. Earlier: v2.11 shipped + deployed + verified live. The fireball
+**CURRENT STATE (2026-08-24):** v2.15 merged + deployed (PR #11). v2.16 (nuclear-site test,
+F-07 + BR-08, claim coverage closed) and v2.17 both shipped in PR #12. v2.17 adds: boot now
+defaults to the CHASE camera unless a deep link set its own; the event toast carries a
+`▲ ANOMALY` / `◆ MISSION EVENT` kind chip; and the **DISPATCH overlay** (off by default) draws
+the claimed release of material at the Mars pass, perihelion and the Jupiter pass. DISPATCH is
+labelled as speculation in three places on purpose — pod, dashed banner, and toast — because an
+unlabelled particle burst inside real Horizons geometry reads as a measurement. If you touch it,
+keep all three labels. Earlier: v2.11 shipped + deployed + verified live. The fireball
 register now runs on THREE datasets, not one, because F-03 was answering the wrong question.
 The "fireballs are increasing" argument is built on **AMS eyewitness reports**, not CNEOS —
 and its figures are ACCURATE (Q1 2026: 25 events at 51-99 reports vs a 11.8 mean, 16 above
@@ -71,6 +78,16 @@ Database, 195 reactors, 31 countries) + `tools/spatial_test.py --target nuclear`
 LaPaz's 1948-51 green fireballs near Los Alamos/Sandia/Kirtland and its modern descendants
 (Malmstrom 1967, Rendlesham, the Hastings interviews). RESULT: no proximity effect — 11 events
 within 100 km vs 8.8 by chance, 68 within 500 km vs 71.5 (below chance), median 2682 vs 2687 km.
+TWO LIMITS ADDED 2026-08-24 AT STEWART'S PROMPTING, and they are the most important part of the
+case: (1) THE ENERGY FLOOR — 0.048 kt smallest row, only 195 of 1069 below 0.1 kt, which takes a
+metre-scale rock; the objects in the testimony are beach-ball to motorcycle scale and cannot
+register at all, so most of the phenomenon is excluded before geometry enters. No better public
+dataset exists (GMN discards non-meteor tracks, imagery is too coarse, infrasound has the same
+floor); only eyewitness databases and official UAP reporting see small slow objects, and neither
+yields coordinates for a Monte Carlo. (2) THE CLAIM IS ABOUT RADIATION GENERALLY, not weapons —
+research reactors, enrichment, reprocessing, waste storage, industrial and medical sources. Only
+civil power reactors have an open global position list. A wider target set is real outstanding
+work.
 ONE EXCEPTION, reported not buried: 200 km gives 34 vs 24.8, a 37% excess at p=0.025 scatter /
 p=0.070 rotation. It stays a non-result because three radii were tested AND the SHAPE is wrong —
 absent at 100 km, present at 200, gone at 500. A bump in the middle with nothing at the centre is

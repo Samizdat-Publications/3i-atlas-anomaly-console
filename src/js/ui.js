@@ -90,7 +90,9 @@
       '    <button class="cx-pod cx-on" data-act="labels">LABELS</button>',
       '    <button class="cx-pod cx-on" data-act="orbits">ORBITS</button>',
       '    <button class="cx-pod" data-act="grid">GRID</button>',
+      '    <button class="cx-pod cx-pod-spec" data-act="dispatch">DISPATCH</button>',
       '  </div>',
+      '  <div class="cx-specnote" id="cx-specnote">DISPATCH \u2014 ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT.</div>',
       '  <div class="cx-toast" id="cx-toast"></div>',
       '  <div class="cx-tour" id="cx-tour"><div class="cx-tour-inner">',
       '    <div class="cx-tour-step" id="cx-tour-step"></div>',
@@ -471,7 +473,10 @@
       CX.audio.ui();
       if (best.cls === 'anomaly') { CX.setT(best.t + 0.01); openDossier(best.src.id); }
       else if (best.src && best.src.id) openEvent(best.src.id);
-      else { CX.setT(best.t + 0.01); showToast(best); }
+      else {
+        CX.setT(best.t + 0.01);
+        showToast(Object.assign({}, best, { kind: best.cls === 'anomaly' ? 'anomaly' : 'mission' }));
+      }
       return true;
     }
     return false;
@@ -479,10 +484,17 @@
 
   // ============ TOAST ============
   let toastTimer = null;
+  // A toast raised by a RECORD crossing the playhead carries a kind chip, so it
+  // reads as "this is an anomaly" rather than as an unexplained line of amber
+  // text. UI toasts (link copied, target switched) pass no kind and get none.
+  const TOAST_KIND = { anomaly: '\u25b2 ANOMALY', mission: '\u25c6 MISSION EVENT' };
+
   function showToast(e) {
     const t = $('cx-toast');
     const more = (e.desc && String(e.desc).length > 110) ? ' · MARKER OR MISSION LOG OPENS THE FULL RECORD' : '';
-    setH(t, esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
+    const kind = e.kind ? TOAST_KIND[e.kind] : (e.cls === 'anomaly' ? TOAST_KIND.anomaly : '');
+    setH(t, (kind ? '<span class="cx-toast-kind">' + esc(kind) + '</span>' : '') +
+      esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
       (e.desc ? ' — ' + esc(String(e.desc).slice(0, 110)) + '…' : '') + more + '</span>');
     t.className = 'cx-toast cx-show' + (e.cls === 'anomaly' ? ' cx-anom' : '');
     clearTimeout(toastTimer);
@@ -1113,6 +1125,17 @@
       else if (act === 'labels') { S.labels = !S.labels; btn.classList.toggle('cx-on', S.labels); }
       else if (act === 'orbits') { S.orbits = !S.orbits; btn.classList.toggle('cx-on', S.orbits); }
       else if (act === 'grid') { S.grid = !S.grid; btn.classList.toggle('cx-on', S.grid); }
+      else if (act === 'dispatch') {
+        S.viz.dispatch = !S.viz.dispatch;
+        btn.classList.toggle('cx-on', S.viz.dispatch);
+        const n = $('cx-specnote');
+        if (n) n.classList.toggle('cx-show', S.viz.dispatch);
+        if (S.viz.dispatch) {
+          showToast({ title: 'DISPATCH OVERLAY ON \u2014 SPECULATIVE', t: S.t, cls: 'anomaly',
+            kind: 'anomaly',
+            desc: 'Draws the claim that material was released at the Mars pass, perihelion and the Jupiter pass. No instrument has observed any such release. Scrub to 2025-10-03, 2025-10-29 or 2026-03-17 to see it.' });
+        }
+      }
       else if (act === 'anomaly') {
         const obj = btn.getAttribute('data-obj');
         if (obj && obj !== S.era) CX.setEra(obj);   // cross-object search result
@@ -1233,7 +1256,7 @@
     const anomalyDim = throttle(function () { UI.renderAnomalyList(); }, 900);
     CX.on('time', function () { slow(); anomalyDim(); });
     CX.on('eventCross', function (e) {
-      showToast(e);
+      showToast(Object.assign({}, e, { kind: e.cls === 'anomaly' ? 'anomaly' : 'mission' }));
       if (e.cls === 'anomaly') CX.audio.anomalyAlert(); else CX.audio.missionEvent();
     });
     CX.on('playstate', function () {

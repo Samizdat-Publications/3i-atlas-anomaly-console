@@ -1,5 +1,38 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.17 — 2026-08-24 (chase on boot, a labelled toast, and the DISPATCH overlay)
+
+Three requests from Stewart, plus two limits added to F-07 that he was right to push on.
+
+- **The console now opens in the chase camera**, riding the target, instead of the free
+  orbit view. Only when nothing was deep-linked: a case file's viz hint sets its own camera
+  and overriding it would throw away the framing the link was shared for.
+- **The event toast says what it is.** A record crossing the playhead now carries a kind
+  chip — `▲ ANOMALY` or `◆ MISSION EVENT` — above the title. Previously an amber box just
+  appeared with a chime and no statement of what kind of thing it was. UI toasts (link
+  copied, target switched) pass no kind and get no chip, so the label always means a record.
+- **New DISPATCH overlay**, off by default. Draws the claim that 3I/ATLAS released material
+  at its three close approaches — the Mars pass (2025-10-03), perihelion (2025-10-29) and
+  the Jupiter pass (2026-03-17, which came within a fraction of a percent of Jupiter's
+  ~53.5 million km Hill radius, where material can enter Jovian orbit cheaply). Particles
+  stream from the object toward the body each burst is claimed to have been aimed at,
+  sunward at perihelion where the claim is about the anti-tail rather than a planet.
+  **It is labelled as speculation in three places** — an amber pod, a dashed banner reading
+  "ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT",
+  and a toast when it is switched on. An unlabelled particle burst in a console full of real
+  Horizons geometry would read as a measurement, which it very much is not.
+- **F-07 gains the two limits that matter most**, both raised by Stewart. The energy floor:
+  the catalog's smallest row is 0.048 kt and only 195 of 1069 fall below 0.1 kt, energies
+  that take a metre-scale rock at tens of km/s — while the objects in this testimony are
+  routinely described at beach-ball or motorcycle scale, which cannot register here at any
+  distance from anything. Most of the phenomenon is excluded before the geometry is even
+  considered, and no better public dataset exists to switch to. And the target scope: the
+  association as usually stated is with radiation and fissile material generally — research
+  reactors, enrichment and reprocessing, waste storage, industrial and medical sources — not
+  weapons specifically. Only civil power reactors have an openly licensed global position
+  list, so that is what was tested, and the case now says so.
+- `tools/fireball_rate_check.py` checks the two new figures as well.
+
 ## v2.16 — 2026-08-24 (the nuclear-site test, and closing claim coverage)
 
 The last untested positional claim in the fireball coverage is also the oldest one, and it

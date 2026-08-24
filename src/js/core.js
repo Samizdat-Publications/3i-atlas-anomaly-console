@@ -50,7 +50,7 @@
     labels: true,
     orbits: true,
     grid: false,
-    viz: { antiTail: false, ecliptic: false },
+    viz: { antiTail: false, ecliptic: false, dispatch: false },
   });
 
   // ---------- era plumbing ----------
@@ -76,7 +76,7 @@
     if (!EPH.eras[k]) return;
     S.era = k;
     CX.applyEraClock();
-    S.viz.antiTail = false; S.viz.ecliptic = false;
+    S.viz.antiTail = false; S.viz.ecliptic = false; S.viz.dispatch = false;
     S.selAnomaly = null; S.selEvent = null;
     CX.setT(CX.tOfIso(CX.ERA_META[k].discovery), true);
     if (!silent) { CX.emit('era'); CX.emit('time'); }

@@ -13,7 +13,7 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 |---|---|---|---|
 | `01-cases-3i-atlas.md` | Markdown | 97 KB | 13497 words |
 | `02-cases-oumuamua-borisov.md` | Markdown | 78 KB | 11213 words |
-| `03-cases-fireballs.md` | Markdown | 33 KB | 5493 words |
+| `03-cases-fireballs.md` | Markdown | 35 KB | 5801 words |
 | `04-briefings.md` | Markdown | 25 KB | 4225 words |
 | `05-timeline.md` | Markdown | 41 KB | 5181 words |
 | `06-quotations.md` | Markdown | 9 KB | 1690 words |

@@ -227,6 +227,23 @@ body {
 .cx-toast.cx-show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .cx-toast.cx-anom { border-color: var(--amber-dim); color: var(--amber); box-shadow: 0 0 18px rgba(0,0,0,.6), inset 0 0 14px rgba(255,179,71,.08); }
 .cx-toast .cx-toast-date { display: block; font-size: 9.5px; color: var(--txt-faint); letter-spacing: 2px; }
+.cx-toast .cx-toast-kind {
+  display: block; font-size: 9px; letter-spacing: 3px; margin-bottom: 4px;
+  color: var(--cyan-dim); opacity: .95;
+}
+.cx-toast.cx-anom .cx-toast-kind { color: var(--amber-dim); }
+
+/* The dispatch overlay draws a claim rather than data, so it is marked as such
+   in the chrome as well as in the toast — an unlabelled particle burst reads as
+   a measurement. */
+.cx-pod-spec.cx-on { color: var(--amber); border-color: var(--amber-dim); text-shadow: 0 0 8px rgba(255,179,71,.5); }
+.cx-specnote {
+  position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+  padding: 4px 12px; border: 1px dashed var(--amber-dim); background: rgba(30,18,4,.92);
+  color: var(--amber); font-size: 9px; letter-spacing: 2.5px; text-align: center;
+  opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
+}
+.cx-specnote.cx-show { opacity: .95; }
 
 .cx-crosshair {
   position: absolute; left: 50%; top: 50%; width: 44px; height: 44px;
@@ -1905,7 +1922,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
     labels: true,
     orbits: true,
     grid: false,
-    viz: { antiTail: false, ecliptic: false },
+    viz: { antiTail: false, ecliptic: false, dispatch: false },
   });
 
   // ---------- era plumbing ----------
@@ -1931,7 +1948,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
     if (!EPH.eras[k]) return;
     S.era = k;
     CX.applyEraClock();
-    S.viz.antiTail = false; S.viz.ecliptic = false;
+    S.viz.antiTail = false; S.viz.ecliptic = false; S.viz.dispatch = false;
     S.selAnomaly = null; S.selEvent = null;
     CX.setT(CX.tOfIso(CX.ERA_META[k].discovery), true);
     if (!silent) { CX.emit('era'); CX.emit('time'); }
@@ -2841,6 +2858,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
 
   let renderer, scene, camera, controls, container, hud;
   let cometGroup, coreSprite, ionPts, dustPts, antiPts, trailFull, trailDone, periMarker;
+  let dispatchPts, dispatchSeed;
   let sunLight, eclipticDisc, gridGroup, rangeLine, rangeTag;
   let compareGroup = null, compareLabels = {};
   let labelEls = {};
@@ -3019,6 +3037,22 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
   const ION_N = 750, DUST_N = 520, ANTI_N = 260;
   let ionSeed, dustSeed, antiSeed;
 
+  // ---- DISPATCH: an ILLUSTRATION OF A CLAIM, not a measurement ----------------
+  // The coverage argues that 3I/ATLAS released material at its close approaches —
+  // organics triggered at perihelion, and payload dropped at the Jupiter pass,
+  // which came within a fraction of a percent of Jupiter's ~53.5 million km Hill
+  // radius, where material can enter Jovian orbit cheaply. No instrument has
+  // observed any such release. This draws the claim so it can be looked at; the
+  // HUD says so while it is on, and it is OFF by default for that reason.
+  const DISPATCH_N = 260;
+  const DISPATCH = [
+    { iso: '2025-10-03', body: 'mars',    label: 'MARS 0.1939 AU' },
+    { iso: '2025-10-29', body: null,      label: 'PERIHELION 1.3566 AU' },
+    { iso: '2026-03-17', body: 'jupiter', label: 'JUPITER 0.3588 AU' },
+  ];
+  const DISPATCH_SPAN = 26;      // days over which a burst flies out and fades
+
+
   function particleSystem(count, size, tex) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(count * 3), 3));
@@ -3059,8 +3093,11 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
     dustPts = particleSystem(DUST_N, 0.68, dot);
     antiPts = particleSystem(ANTI_N, 0.55, dot);
     antiPts.visible = false;
-    scene.add(ionPts); scene.add(dustPts); scene.add(antiPts);
+    dispatchPts = particleSystem(DISPATCH_N, 0.5, dot);
+    dispatchPts.visible = false;
+    scene.add(ionPts); scene.add(dustPts); scene.add(antiPts); scene.add(dispatchPts);
     ionSeed = seeds(ION_N); dustSeed = seeds(DUST_N); antiSeed = seeds(ANTI_N);
+    dispatchSeed = seeds(DISPATCH_N);
 
     trailFull = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
       color: 0x2a7d96, transparent: true, opacity: 0.4, dashSize: 0.9, gapSize: 0.7, depthWrite: false,
@@ -3241,6 +3278,61 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
       start: performance.now(), dur: dur || 1200,
     };
   }
+  // Each burst leaves the object at its close-approach date and flies toward the
+  // body it is claimed to have been aimed at (sunward at perihelion, where the
+  // claim is about the anti-tail rather than a planet). Progress is driven by the
+  // clock, so scrubbing runs it backwards as readily as forwards.
+  function updateDispatch(cometPos) {
+    if (!dispatchPts) return;
+    if (!S.viz.dispatch || S.era !== '3i') { dispatchPts.visible = false; return; }
+
+    const pos = dispatchPts.geometry.attributes.position.array;
+    const col = dispatchPts.geometry.attributes.color.array;
+    const per = DISPATCH.length;
+    const each = Math.floor(DISPATCH_N / per);
+    let any = false;
+
+    for (let d = 0; d < per; d++) {
+      const ev = DISPATCH[d];
+      const t0 = CX.tOfIso(ev.iso);
+      const age = S.t - t0;
+      const live = age >= 0 && age <= DISPATCH_SPAN;
+      const frac = live ? age / DISPATCH_SPAN : 0;
+      if (live) any = true;
+
+      // Where it starts, and where it is headed.
+      const from = v3(CX.pos('target', t0));
+      let to;
+      if (ev.body) {
+        to = v3(CX.pos(ev.body, Math.min(CX.N - 1, t0 + DISPATCH_SPAN)));
+      } else {
+        to = from.clone().normalize().multiplyScalar(Math.max(0.6, from.length() - 6));
+      }
+
+      for (let k = 0; k < each; k++) {
+        const i = d * each + k;
+        const sd = dispatchSeed[i];
+        const i3 = i * 3;
+        if (!live) { pos[i3] = 0; pos[i3 + 1] = -9999; pos[i3 + 2] = 0; continue; }
+        // staggered launch, so the swarm streams rather than jumping as one
+        const f = Math.max(0, Math.min(1, (frac - sd.u * 0.35) / 0.65));
+        const p = from.clone().lerp(to, f);
+        const spread = 0.7 + 5.5 * f;
+        p.x += sd.j1 * spread; p.y += sd.j2 * spread * 0.5; p.z += sd.j3 * spread;
+        pos[i3] = p.x; pos[i3 + 1] = p.y; pos[i3 + 2] = p.z;
+        // amber going cool as it disperses, and fading out at the end of the span
+        const fade = (1 - f) * (1 - Math.pow(frac, 3));
+        col[i3] = 1.0 * fade;
+        col[i3 + 1] = (0.62 + 0.3 * f) * fade;
+        col[i3 + 2] = (0.2 + 0.75 * f) * fade;
+      }
+    }
+    dispatchPts.geometry.attributes.position.needsUpdate = true;
+    dispatchPts.geometry.attributes.color.needsUpdate = true;
+    dispatchPts.visible = any;
+    SC.dispatchLive = any;
+  }
+
   SC.applyPreset = function (name) {
     S.camPreset = name;
     const cp = v3(CX.pos('target', S.t));
@@ -3415,6 +3507,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
     }
     trailDone.geometry.setDrawRange(0, Math.max(2, Math.floor(S.t / eraStep) + 1));
 
+    updateDispatch(cp);
     eclipticDisc.visible = S.viz.ecliptic;
     gridGroup.visible = S.grid || S.viz.ecliptic;
     scene.traverse(function (o) { if (o.userData.orbit) o.visible = S.orbits; });
@@ -4116,7 +4209,9 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
       '    <button class="cx-pod cx-on" data-act="labels">LABELS</button>',
       '    <button class="cx-pod cx-on" data-act="orbits">ORBITS</button>',
       '    <button class="cx-pod" data-act="grid">GRID</button>',
+      '    <button class="cx-pod cx-pod-spec" data-act="dispatch">DISPATCH</button>',
       '  </div>',
+      '  <div class="cx-specnote" id="cx-specnote">DISPATCH \u2014 ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT.</div>',
       '  <div class="cx-toast" id="cx-toast"></div>',
       '  <div class="cx-tour" id="cx-tour"><div class="cx-tour-inner">',
       '    <div class="cx-tour-step" id="cx-tour-step"></div>',
@@ -4497,7 +4592,10 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
       CX.audio.ui();
       if (best.cls === 'anomaly') { CX.setT(best.t + 0.01); openDossier(best.src.id); }
       else if (best.src && best.src.id) openEvent(best.src.id);
-      else { CX.setT(best.t + 0.01); showToast(best); }
+      else {
+        CX.setT(best.t + 0.01);
+        showToast(Object.assign({}, best, { kind: best.cls === 'anomaly' ? 'anomaly' : 'mission' }));
+      }
       return true;
     }
     return false;
@@ -4505,10 +4603,17 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
 
   // ============ TOAST ============
   let toastTimer = null;
+  // A toast raised by a RECORD crossing the playhead carries a kind chip, so it
+  // reads as "this is an anomaly" rather than as an unexplained line of amber
+  // text. UI toasts (link copied, target switched) pass no kind and get none.
+  const TOAST_KIND = { anomaly: '\u25b2 ANOMALY', mission: '\u25c6 MISSION EVENT' };
+
   function showToast(e) {
     const t = $('cx-toast');
     const more = (e.desc && String(e.desc).length > 110) ? ' · MARKER OR MISSION LOG OPENS THE FULL RECORD' : '';
-    setH(t, esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
+    const kind = e.kind ? TOAST_KIND[e.kind] : (e.cls === 'anomaly' ? TOAST_KIND.anomaly : '');
+    setH(t, (kind ? '<span class="cx-toast-kind">' + esc(kind) + '</span>' : '') +
+      esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
       (e.desc ? ' — ' + esc(String(e.desc).slice(0, 110)) + '…' : '') + more + '</span>');
     t.className = 'cx-toast cx-show' + (e.cls === 'anomaly' ? ' cx-anom' : '');
     clearTimeout(toastTimer);
@@ -5139,6 +5244,17 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
       else if (act === 'labels') { S.labels = !S.labels; btn.classList.toggle('cx-on', S.labels); }
       else if (act === 'orbits') { S.orbits = !S.orbits; btn.classList.toggle('cx-on', S.orbits); }
       else if (act === 'grid') { S.grid = !S.grid; btn.classList.toggle('cx-on', S.grid); }
+      else if (act === 'dispatch') {
+        S.viz.dispatch = !S.viz.dispatch;
+        btn.classList.toggle('cx-on', S.viz.dispatch);
+        const n = $('cx-specnote');
+        if (n) n.classList.toggle('cx-show', S.viz.dispatch);
+        if (S.viz.dispatch) {
+          showToast({ title: 'DISPATCH OVERLAY ON \u2014 SPECULATIVE', t: S.t, cls: 'anomaly',
+            kind: 'anomaly',
+            desc: 'Draws the claim that material was released at the Mars pass, perihelion and the Jupiter pass. No instrument has observed any such release. Scrub to 2025-10-03, 2025-10-29 or 2026-03-17 to see it.' });
+        }
+      }
       else if (act === 'anomaly') {
         const obj = btn.getAttribute('data-obj');
         if (obj && obj !== S.era) CX.setEra(obj);   // cross-object search result
@@ -5259,7 +5375,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
     const anomalyDim = throttle(function () { UI.renderAnomalyList(); }, 900);
     CX.on('time', function () { slow(); anomalyDim(); });
     CX.on('eventCross', function (e) {
-      showToast(e);
+      showToast(Object.assign({}, e, { kind: e.cls === 'anomaly' ? 'anomaly' : 'mission' }));
       if (e.cls === 'anomaly') CX.audio.anomalyAlert(); else CX.audio.missionEvent();
     });
     CX.on('playstate', function () {
@@ -5373,7 +5489,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.16';
+  window.APP_VERSION = '2.17';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -5397,6 +5513,11 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":883,"targets":1608,"trials":1000
 
       // honour a deep link (#3i/A-05, #1i/compare) before rolling the tape
       const deepLinked = CX.ui.applyHash();
+
+      // Default view is the chase camera riding the target. Only when nothing was
+      // deep-linked: a case file's viz hint sets its own camera, and overriding it
+      // here would throw away the framing the link was shared for.
+      if (!deepLinked) CX.scene3d.applyPreset('chase');
 
       setTimeout(function () {
         S.playing = true;

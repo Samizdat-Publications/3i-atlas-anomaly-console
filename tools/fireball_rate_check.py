@@ -358,6 +358,10 @@ def verify(a, g, c, nreg, sp, nf):
             ("200 km rotation p", "p=%.3f under the rotation null" % RN(200, "rotation_p")),
             ("control count", "the %d reactors already commissioned by 1990"
                               % spn["recent_volcanoes"]),
+            ("energy floor", "smallest row in\nthe catalog is %.3f kt" % c["floor"]),
+            ("sub-0.1 kt rows", "only %d of %d fall below 0.1 kt" % (
+                sum(1 for e in load("fireballs.json")["events"]
+                    if e[2] and e[2] < 0.1), c["count"])),
             ("control result", "leaves %d events within 200 km and\na median of %.0f km"
                                % (spn["recent_only"]["within_200"],
                                   spn["recent_only"]["median"])),
