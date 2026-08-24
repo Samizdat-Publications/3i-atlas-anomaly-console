@@ -5,12 +5,22 @@ think 3I Atlas is an Alien Asteroid Ship!", read in full from the transcript
 archive. He presents 22 anomalies drawn from Avi Loeb's published list, then adds
 2 of his own.
 
-Purpose: find out what the console's 25 3I/ATLAS case files already answer and
-what they miss. Compiled 2026-08-23.
+Purpose: find out what the console's 26 3I/ATLAS case files already answer and
+what they miss. Compiled 2026-08-23; re-checked 2026-08-24.
 
-**Headline: coverage is complete as of 2026-08-23.** All 22 of his observational
-anomalies now map onto case files; the one gap (ALMA methanol) was closed by A-26. His 2 additions are
-interpretations rather than observations and need different handling.
+**Headline: coverage is complete, and the last two "partials" are closed as of
+2026-08-24.** All 22 of his observational anomalies map onto case files. The ALMA
+methanol gap was closed by A-26 on 2026-08-23. On re-check, the two remaining
+partial rows turned out to be different problems: row 12 was a real gap INSIDE a
+case — the Ni/CN ratio was stated in A-07's observation and argued in neither
+direction — and has been argued in both; row 17 was never a gap at all, and this
+document was simply out of date. His 2 additions are interpretations rather than
+observations and need different handling.
+
+No new case files were created for either. Splitting one set of measurements into
+extra cases is exactly the inflation BR-01 warns about — a tally overstates the
+evidence when one cause produces several of its entries — and the Ni/Fe and Ni/CN
+values come from the same spectra.
 
 ---
 
@@ -30,12 +40,12 @@ interpretations rather than observations and need different handling.
 | 9 | Wobble switches nightside → dayside cleanly at perihelion | A-15 Rotation axis aligned sunward + A-18 Jet base insulation on the nightside | ✅ |
 | 10 | Non-gravitational acceleration with a large *sideways* component (~50% toward Jupiter) | A-24 Sideways (non-radial) non-gravitational acceleration | ✅ |
 | 11 | Nickel far exceeding iron; nickel-carbonyl only known industrially | A-07 Nickel emission without iron | ✅ |
-| 12 | Nickel-to-cyanide ratio orders of magnitude above known comets | A-07 (same case) | ⚠️ partial — the Ni/CN ratio is a distinct measurement, currently folded into the Ni/Fe case |
+| 12 | Nickel-to-cyanide ratio orders of magnitude above known comets | A-07 (same case) | ✅ **closed 2026-08-24** — argued in both directions inside A-07; kept there rather than split out, since it is the same spectra as the Ni/Fe result |
 | 13 | Water only ~4% by mass pre-perihelion | A-06 CO₂-dominated coma; water only ~4% of plume | ✅ |
 | 14 | Brightened faster and turned bluer than any comet on record | A-11 Anomalous brightening and blue color at perihelion | ✅ |
 | 15 | Extreme negative polarization | A-08 Extreme negative polarization | ✅ |
 | 16 | **ALMA: unusually high methanol relative to hydrogen cyanide** | A-26 Extreme methanol enrichment (CH₃OH/HCN) | ✅ **gap closed 2026-08-23** |
-| 17 | Icy fragments visible pre-perihelion, vanished after; ~20× water spike post-perihelion | A-20 SPHEREx icy-grain signature disappearance | ⚠️ partial — the disappearance is covered, the 20× water spike is not |
+| 17 | Icy fragments visible pre-perihelion, vanished after; ~20× water spike post-perihelion | A-20 SPHEREx icy-grain signature disappearance | ✅ — **this row was stale, not partial.** A-20 covers the spike in both halves: the observation carries the sourced figure (~40× brighter H₂O emission, Lisse et al. RNAAS) and the claim section carries Loeb's remembered ~20×. Same event, two magnitudes, both attributed |
 | 18 | Isotope ratios — D/H and ¹²C/¹³C far off normal | A-25 Anomalous isotope abundances | ✅ |
 | 19 | Arrival direction within 9° of the 1977 Wow! Signal (~0.6%) | A-09 Arrival direction matches the Wow! Signal | ✅ |
 | 20 | Sunward jet as interstellar-dust shielding (Loeb's suggestion) | A-05 | ✅ interpretation of an existing case |

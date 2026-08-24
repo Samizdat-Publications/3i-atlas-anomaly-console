@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.15';
+  window.APP_VERSION = '2.17';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -27,6 +27,11 @@
 
       // honour a deep link (#3i/A-05, #1i/compare) before rolling the tape
       const deepLinked = CX.ui.applyHash();
+
+      // Default view is the chase camera riding the target. Only when nothing was
+      // deep-linked: a case file's viz hint sets its own camera, and overriding it
+      // here would throw away the framing the link was shared for.
+      if (!deepLinked) CX.scene3d.applyPreset('chase');
 
       setTimeout(function () {
         S.playing = true;

@@ -12,6 +12,7 @@
 
   let renderer, scene, camera, controls, container, hud;
   let cometGroup, coreSprite, ionPts, dustPts, antiPts, trailFull, trailDone, periMarker;
+  let dispatchPts, dispatchSeed;
   let sunLight, eclipticDisc, gridGroup, rangeLine, rangeTag;
   let compareGroup = null, compareLabels = {};
   let labelEls = {};
@@ -190,6 +191,22 @@
   const ION_N = 750, DUST_N = 520, ANTI_N = 260;
   let ionSeed, dustSeed, antiSeed;
 
+  // ---- DISPATCH: an ILLUSTRATION OF A CLAIM, not a measurement ----------------
+  // The coverage argues that 3I/ATLAS released material at its close approaches —
+  // organics triggered at perihelion, and payload dropped at the Jupiter pass,
+  // which came within a fraction of a percent of Jupiter's ~53.5 million km Hill
+  // radius, where material can enter Jovian orbit cheaply. No instrument has
+  // observed any such release. This draws the claim so it can be looked at; the
+  // HUD says so while it is on, and it is OFF by default for that reason.
+  const DISPATCH_N = 260;
+  const DISPATCH = [
+    { iso: '2025-10-03', body: 'mars',    label: 'MARS 0.1939 AU' },
+    { iso: '2025-10-29', body: null,      label: 'PERIHELION 1.3566 AU' },
+    { iso: '2026-03-17', body: 'jupiter', label: 'JUPITER 0.3588 AU' },
+  ];
+  const DISPATCH_SPAN = 26;      // days over which a burst flies out and fades
+
+
   function particleSystem(count, size, tex) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(count * 3), 3));
@@ -230,8 +247,11 @@
     dustPts = particleSystem(DUST_N, 0.68, dot);
     antiPts = particleSystem(ANTI_N, 0.55, dot);
     antiPts.visible = false;
-    scene.add(ionPts); scene.add(dustPts); scene.add(antiPts);
+    dispatchPts = particleSystem(DISPATCH_N, 0.5, dot);
+    dispatchPts.visible = false;
+    scene.add(ionPts); scene.add(dustPts); scene.add(antiPts); scene.add(dispatchPts);
     ionSeed = seeds(ION_N); dustSeed = seeds(DUST_N); antiSeed = seeds(ANTI_N);
+    dispatchSeed = seeds(DISPATCH_N);
 
     trailFull = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
       color: 0x2a7d96, transparent: true, opacity: 0.4, dashSize: 0.9, gapSize: 0.7, depthWrite: false,
@@ -412,6 +432,61 @@
       start: performance.now(), dur: dur || 1200,
     };
   }
+  // Each burst leaves the object at its close-approach date and flies toward the
+  // body it is claimed to have been aimed at (sunward at perihelion, where the
+  // claim is about the anti-tail rather than a planet). Progress is driven by the
+  // clock, so scrubbing runs it backwards as readily as forwards.
+  function updateDispatch(cometPos) {
+    if (!dispatchPts) return;
+    if (!S.viz.dispatch || S.era !== '3i') { dispatchPts.visible = false; return; }
+
+    const pos = dispatchPts.geometry.attributes.position.array;
+    const col = dispatchPts.geometry.attributes.color.array;
+    const per = DISPATCH.length;
+    const each = Math.floor(DISPATCH_N / per);
+    let any = false;
+
+    for (let d = 0; d < per; d++) {
+      const ev = DISPATCH[d];
+      const t0 = CX.tOfIso(ev.iso);
+      const age = S.t - t0;
+      const live = age >= 0 && age <= DISPATCH_SPAN;
+      const frac = live ? age / DISPATCH_SPAN : 0;
+      if (live) any = true;
+
+      // Where it starts, and where it is headed.
+      const from = v3(CX.pos('target', t0));
+      let to;
+      if (ev.body) {
+        to = v3(CX.pos(ev.body, Math.min(CX.N - 1, t0 + DISPATCH_SPAN)));
+      } else {
+        to = from.clone().normalize().multiplyScalar(Math.max(0.6, from.length() - 6));
+      }
+
+      for (let k = 0; k < each; k++) {
+        const i = d * each + k;
+        const sd = dispatchSeed[i];
+        const i3 = i * 3;
+        if (!live) { pos[i3] = 0; pos[i3 + 1] = -9999; pos[i3 + 2] = 0; continue; }
+        // staggered launch, so the swarm streams rather than jumping as one
+        const f = Math.max(0, Math.min(1, (frac - sd.u * 0.35) / 0.65));
+        const p = from.clone().lerp(to, f);
+        const spread = 0.7 + 5.5 * f;
+        p.x += sd.j1 * spread; p.y += sd.j2 * spread * 0.5; p.z += sd.j3 * spread;
+        pos[i3] = p.x; pos[i3 + 1] = p.y; pos[i3 + 2] = p.z;
+        // amber going cool as it disperses, and fading out at the end of the span
+        const fade = (1 - f) * (1 - Math.pow(frac, 3));
+        col[i3] = 1.0 * fade;
+        col[i3 + 1] = (0.62 + 0.3 * f) * fade;
+        col[i3 + 2] = (0.2 + 0.75 * f) * fade;
+      }
+    }
+    dispatchPts.geometry.attributes.position.needsUpdate = true;
+    dispatchPts.geometry.attributes.color.needsUpdate = true;
+    dispatchPts.visible = any;
+    SC.dispatchLive = any;
+  }
+
   SC.applyPreset = function (name) {
     S.camPreset = name;
     const cp = v3(CX.pos('target', S.t));
@@ -586,6 +661,7 @@
     }
     trailDone.geometry.setDrawRange(0, Math.max(2, Math.floor(S.t / eraStep) + 1));
 
+    updateDispatch(cp);
     eclipticDisc.visible = S.viz.ecliptic;
     gridGroup.visible = S.grid || S.viz.ecliptic;
     scene.traverse(function (o) { if (o.userData.orbit) o.visible = S.orbits; });

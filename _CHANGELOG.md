@@ -1,5 +1,86 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.17 — 2026-08-24 (chase on boot, a labelled toast, and the DISPATCH overlay)
+
+Three requests from Stewart, plus two limits added to F-07 that he was right to push on.
+
+- **The console now opens in the chase camera**, riding the target, instead of the free
+  orbit view. Only when nothing was deep-linked: a case file's viz hint sets its own camera
+  and overriding it would throw away the framing the link was shared for.
+- **The event toast says what it is.** A record crossing the playhead now carries a kind
+  chip — `▲ ANOMALY` or `◆ MISSION EVENT` — above the title. Previously an amber box just
+  appeared with a chime and no statement of what kind of thing it was. UI toasts (link
+  copied, target switched) pass no kind and get no chip, so the label always means a record.
+- **New DISPATCH overlay**, off by default. Draws the claim that 3I/ATLAS released material
+  at its three close approaches — the Mars pass (2025-10-03), perihelion (2025-10-29) and
+  the Jupiter pass (2026-03-17, which came within a fraction of a percent of Jupiter's
+  ~53.5 million km Hill radius, where material can enter Jovian orbit cheaply). Particles
+  stream from the object toward the body each burst is claimed to have been aimed at,
+  sunward at perihelion where the claim is about the anti-tail rather than a planet.
+  **It is labelled as speculation in three places** — an amber pod, a dashed banner reading
+  "ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT",
+  and a toast when it is switched on. An unlabelled particle burst in a console full of real
+  Horizons geometry would read as a measurement, which it very much is not.
+- **F-07 gains the two limits that matter most**, both raised by Stewart. The energy floor:
+  the catalog's smallest row is 0.048 kt and only 195 of 1069 fall below 0.1 kt, energies
+  that take a metre-scale rock at tens of km/s — while the objects in this testimony are
+  routinely described at beach-ball or motorcycle scale, which cannot register here at any
+  distance from anything. Most of the phenomenon is excluded before the geometry is even
+  considered, and no better public dataset exists to switch to. And the target scope: the
+  association as usually stated is with radiation and fissile material generally — research
+  reactors, enrichment and reprocessing, waste storage, industrial and medical sources — not
+  weapons specifically. Only civil power reactors have an openly licensed global position
+  list, so that is what was tested, and the case now says so.
+- `tools/fireball_rate_check.py` checks the two new figures as well.
+
+## v2.16 — 2026-08-24 (the nuclear-site test, and closing claim coverage)
+
+The last untested positional claim in the fireball coverage is also the oldest one, and it
+needed a different posture from the volcano test: the honest answer is mostly "this is the
+wrong instrument", said before running anything rather than after.
+
+- **New `tools/fetch_nuclear.py`** pulls 195 nuclear power reactor positions across 31
+  countries from the WRI Global Power Plant Database (CC-BY 4.0). The IAEA's PRIS is the
+  canonical register but publishes no machine-readable coordinates.
+- **`tools/spatial_test.py` now takes `--target`.** The volcano path is unchanged and was
+  regression-checked byte-for-byte against the shipped `spatial-test.json` after every
+  edit — F-05 quotes those numbers verbatim and they could not be allowed to move.
+- **The search cap is now per-target, and that was a real bug waiting to happen.** With
+  only 195 reactors on Earth, most CNEOS events sit further than the old hard-coded 2,000 km
+  cutoff, so the first nuclear run reported "median 2000 km observed vs 2000 km by chance,
+  p=1.000" — a broken statistic dressed as a null result. Raised to 20,000 km for that
+  target, and the report now warns when more than 2% of events sit at the cap. Histogram
+  bins are per-target for the same reason.
+- **The result: no proximity effect, with one honest exception that is reported rather than
+  buried.** Within 100 km, 11 events against 8.8 expected. Within 500 km, 68 against 71.5 —
+  below chance. Median distance 2682 km against 2687. But within 200 km there are 34 against
+  24.8, a 37% excess reaching p=0.025 under the scatter null. It stays a non-result for two
+  reasons: three radii were tested, and the SHAPE is wrong — absent at 100 km, present at
+  200 km, gone at 500 km. A bump in the middle with nothing at the centre is not what an
+  attraction looks like. Under the conservative rotation null it does not reach significance
+  at all (p=0.070).
+- **The selection effect turned up twice, independently.** F-05 explained the volcano footage
+  by observatory sky-cameras; LaPaz was employed by the New Mexico installations and his
+  observer network was their own staff, under standing orders to watch the sky. Same shape.
+- **What the test explicitly does NOT do**, stated inside the case: CNEOS records airbursts,
+  and the nuclear-connection testimony describes structured craft over silos. A null in a
+  bolide catalog cannot refute Malmstrom, Rendlesham or the Hastings interviews. The catalog
+  also begins in 1988, forty years after LaPaz's green fireballs, and civil power reactors
+  are not the weapons complex he meant.
+- **Case F-07, briefing BR-08**, and `CH.nuclearDist` — `CH.volcanoDist` generalised into a
+  shared `CH.proximityDist` renderer rather than copied.
+- **Claim coverage is closed.** Both remaining partials in `docs/claim-coverage.md` were
+  resolved and they were different problems. Row 12 (Ni/CN) was a genuine gap INSIDE A-07 —
+  the ratio was stated in the observation and argued in neither direction — now argued both
+  ways, the counter-reading being that CN is the *denominator* and 3I is independently
+  CO2-dominated with ~4% water, that Ni and CN are measured over different e-folding radii
+  (593.7 vs 841 km), and that the extreme values live at 4.4-2.85 AU where Ni/Fe was also
+  extreme before falling to normal. Row 17 (the ~20x water spike) was never a gap at all —
+  A-20 carries it in both halves and the doc was stale. **No new case files for either**:
+  splitting one set of spectra into extra cases is the tally inflation BR-01 warns about.
+- **`tools/fireball_rate_check.py` now covers F-03 through F-07.** Verified it bites.
+- 49 cases, 8 briefings.
+
 ## v2.15 — 2026-08-24 (the 2013 precedent)
 
 The fireball coverage offers November 2013 as the historical rhyme for 2026: a wave of

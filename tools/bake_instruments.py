@@ -71,16 +71,27 @@ def main():
     # Spatial test result, if it has been run. Only the summary and the
     # histogram travel into the bundle; the Monte Carlo itself takes minutes and
     # is not something a build step should be doing.
-    sp = os.path.join(ROOT, "data", "spatial-test.json")
-    spatial = None
-    if os.path.exists(sp):
+    def spatial_of(fname):
+        sp = os.path.join(ROOT, "data", fname)
+        if not os.path.exists(sp):
+            return None
         with io.open(sp, encoding="utf-8") as f:
             t = json.load(f)
-        spatial = {
-            "events": t["events"], "volcanoes": t["volcanoes"], "trials": t["trials"],
-            "radii": t["radii"], "median": t["median"], "cluster": t["cluster"],
-            "histogram": t["histogram"],
+        out = {
+            "events": t["events"], "targets": t["volcanoes"], "trials": t["trials"],
+            "label": t.get("target_label", "volcano"),
+            "radii": t["radii"], "median": t["median"], "histogram": t["histogram"],
         }
+        # Event-to-event clustering is target-independent and only computed once.
+        if t.get("cluster"):
+            out["cluster"] = t["cluster"]
+        return out
+
+    spatial = spatial_of("spatial-test.json")
+    spatial_nuclear = spatial_of("spatial-test-nuclear.json")
+    # The console's existing chart reads .volcanoes; keep the old key alive.
+    if spatial:
+        spatial["volcanoes"] = spatial["targets"]
 
     # NUFORC sighting archive, if it has been pulled. Case F-06 argues from the
     # MONTHLY series and from one number that is not in it — the share the claim
@@ -105,6 +116,7 @@ def main():
 
     payload = {
         "spatial": spatial,
+        "spatialNuclear": spatial_nuclear,
         "nuforc": nuforc,
         "window": "Q1 (January-March), whole months only",
         "baseline": "%d-%d" % (min(BASE), max(BASE)),
@@ -123,9 +135,10 @@ def main():
     if nuforc:
         print("  NUFORC series included: %d months %s-%s, all-time fireball share %.2f%%"
               % (len(nuforc["n"]), nuforc["start"], nuforc["end"], nuforc["baseline"]))
-    if spatial:
-        print("  spatial test included: %d events vs %d volcanoes, %d trials"
-              % (spatial["events"], spatial["volcanoes"], spatial["trials"]))
+    for tag, sp in (("volcano", spatial), ("nuclear", spatial_nuclear)):
+        if sp:
+            print("  spatial test (%s) included: %d events vs %d targets, %d trials"
+                  % (tag, sp["events"], sp["targets"], sp["trials"]))
     print("Wrote %s (%d bytes), %d years, baseline %s"
           % (OUT, os.path.getsize(OUT), len(years), payload["baseline"]))
     for r in years:

@@ -415,8 +415,11 @@
   // Distance from each CNEOS fireball to the nearest volcano, observed against
   // what chance produces. Two curves lying on top of each other is the whole
   // result — and the first bin, the one the claim is about, sits BELOW chance.
-  CH.volcanoDist = function (cv, big) {
-    const D = (window.ATLAS_INSTRUMENTS || {}).spatial;
+  CH.volcanoDist = function (cv, big) { CH.proximityDist(cv, big, 'spatial'); };
+  CH.nuclearDist = function (cv, big) { CH.proximityDist(cv, big, 'spatialNuclear'); };
+
+  CH.proximityDist = function (cv, big, key) {
+    const D = (window.ATLAS_INSTRUMENTS || {})[key];
     const f = fit(cv), g = f.g, W = f.w, H = f.h;
     g.clearRect(0, 0, W, H);
     g.font = (big ? '10px ' : '9px ') + 'ShareTechMono, Consolas, monospace';
@@ -448,22 +451,27 @@
 
     g.fillStyle = 'rgba(255,255,255,.5)';
     for (let i = 0; i < n; i += (big ? 2 : 4)) {
-      g.fillText(String(h.bins[i] / 100) + (i ? '' : ''), x(i) - 2, H - padB + 11);
+      g.fillText(String(Math.round(h.bins[i] / 100)), x(i) - 2, H - padB + 11);
     }
-    g.fillText('hundreds of km to the nearest volcano', padL, H - padB + 22 > H ? H - 2 : H - padB + 22);
+    g.fillText('hundreds of km to the nearest ' + (D.label || 'volcano'),
+               padL, H - padB + 22 > H ? H - 2 : H - padB + 22);
     [0, yMax / 2, yMax].forEach(function (v) {
       g.fillStyle = 'rgba(255,255,255,.4)';
       g.fillText(String(Math.round(v)), 4, y(v) + 3);
     });
 
     let lx = padL;
+    const b0 = h.bin_km || 100;
     [['■ observed', 'rgba(52,225,255,.75)'], ['— chance', COL.amber],
-     ['■ 0-100 km', 'rgba(255,74,94,.85)']].forEach(function (L) {
+     ['■ 0-' + b0 + ' km', 'rgba(255,74,94,.85)']].forEach(function (L) {
       g.fillStyle = L[1]; g.fillText(L[0], lx, 10); lx += g.measureText(L[0]).width + 12;
     });
     if (big) {
       g.fillStyle = COL.txt;
-      g.fillText('CNEOS FIREBALLS ARE NO CLOSER TO VOLCANOES THAN CHANCE — THE NEAREST BIN IS BELOW IT', padL, 22);
+      g.fillText(key === 'spatialNuclear'
+        ? 'NO PROXIMITY EFFECT — THE TIGHTEST BIN AND THE WIDEST BOTH SIT AT CHANCE'
+        : 'CNEOS FIREBALLS ARE NO CLOSER TO VOLCANOES THAN CHANCE — THE NEAREST BIN IS BELOW IT',
+        padL, 22);
     }
   };
 
@@ -573,6 +581,7 @@
     if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
     if (kind === 'fireball-instruments') { CH.instruments(cv, true); return; }
     if (kind === 'volcano-dist') { CH.volcanoDist(cv, true); return; }
+    if (kind === 'nuclear-dist') { CH.nuclearDist(cv, true); return; }
     if (kind === 'nuforc-share') { CH.nuforcShare(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {

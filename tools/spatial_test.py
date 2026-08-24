@@ -1,4 +1,4 @@
-"""Do CNEOS fireballs fall closer to volcanoes than chance allows?
+"""Do CNEOS fireballs fall closer to volcanoes — or to nuclear sites — than chance allows?
 
 The fireball coverage keeps returning to position: another fireball, another
 volcano; three in the same place; were these manufactured in the same place. That
@@ -6,9 +6,20 @@ is a testable claim, not just an arguable one, because the console already ships
 883 located CNEOS events with coordinates and NOAA publishes 1,608 volcano
 locations.
 
-    python tools/spatial_test.py                 # the full test
-    python tools/spatial_test.py --trials 2000   # tighter p-values, slower
-    python tools/spatial_test.py --json          # machine-readable
+    python tools/spatial_test.py                     # volcanoes (the default)
+    python tools/spatial_test.py --target nuclear    # nuclear power reactors
+    python tools/spatial_test.py --trials 2000       # tighter p-values, slower
+    python tools/spatial_test.py --json              # machine-readable
+
+THE NUCLEAR TARGET ANSWERS A DIFFERENT AND OLDER CLAIM, and the instrument fits
+it far less well. The association between unusual aerial phenomena and nuclear
+installations rests on WITNESS TESTIMONY AT GUARDED SITES — LaPaz's 1948-51 green
+fireballs over the New Mexico weapons complex, and the later missile-site reports
+— not on satellite-detected bolides. CNEOS begins in 1988 and records airbursts,
+so a null result here does NOT refute that testimony; the two are not describing
+the same kind of event. What the test can establish is narrower and still worth
+having: whether the population of objects large enough for satellites to see
+shows any positional preference for nuclear sites. Say that, do not overclaim it.
 
 WHY CNEOS IS THE RIGHT INSTRUMENT FOR THIS ONE. The visual evidence for the
 volcano claim is webcam footage, and volcanoes are among the most continuously
@@ -41,6 +52,48 @@ RADII = (100.0, 200.0, 500.0)
 BAND = 2.0                      # degrees of latitude per index bucket
 SEED = 20260823                 # fixed: the same run twice must agree
 
+# Each target names its dataset, the key its rows live under, and the subset used
+# as the "was anyone watching / was it even there" control. Adding a target must
+# never change the default one: F-05 quotes the volcano numbers verbatim.
+TARGETS = {
+    "volcanoes": {
+        "file": "volcanoes.json", "key": "volcanoes", "label": "volcano",
+        "provider": "NOAA", "out": "spatial-test.json",
+        "control_label": "historically dated (i.e. watched) volcanoes only",
+        "cluster": True,
+        # 1,608 volcanoes are dense enough that almost nothing is 2,000 km from one.
+        "cap": 2000.0, "trials": 1000, "hist_max": 2000, "hist_bin": 100,
+    },
+    "nuclear": {
+        "file": "nuclear.json", "key": "sites", "label": "nuclear site",
+        "provider": "WRI", "out": "spatial-test-nuclear.json",
+        # A reactor commissioned after the events cannot have attracted them.
+        "control_label": "reactors commissioned by 1990 only",
+        "cluster": False,       # event-to-event clustering is target-independent;
+                                # it is already answered under the volcano run.
+        # THE CAP IS NOT COSMETIC. There are only 195 reactors on Earth and most
+        # CNEOS events are thousands of km from the nearest one, so a 2,000 km
+        # search cutoff pins the median AT the cutoff in every column and
+        # manufactures a fake "observed 2000 vs chance 2000, p=1.000". That is a
+        # broken statistic, not a null result. The cap has to clear the real
+        # distances; the radius counts are unaffected either way. Fewer trials
+        # because each query now scans every site.
+        "cap": 20000.0, "trials": 600,
+        # Reactor distances run to thousands of km, so volcano-sized bins would
+        # drop most events off the end of the chart.
+        "hist_max": 6000, "hist_bin": 300,
+    },
+}
+
+
+def control_subset(target, data):
+    """The subset that a selection effect would concentrate on, if there is one."""
+    if target == "volcanoes":
+        codes = set(data.get("recent_codes") or [])
+        return [(v["lat"], v["lon"]) for v in data["volcanoes"] if v.get("erupt") in codes]
+    return [(v["lat"], v["lon"]) for v in data["sites"]
+            if v.get("commissioned") and v["commissioned"] <= 1990]
+
 
 def load(name):
     p = os.path.join(ROOT, "data", name)
@@ -59,17 +112,19 @@ def hav(lat1, lon1, lat2, lon2):
 
 
 class Index(object):
-    """Volcanoes bucketed by latitude band, so a query scans tens rather than
-    1,608. Longitude cannot be bucketed the same way without wrap-around care,
+    """Targets bucketed by latitude band, so a query scans tens rather than all
+    of them. Longitude cannot be bucketed the same way without wrap-around care,
     and the latitude cut alone is enough to make the Monte Carlo tractable."""
 
-    def __init__(self, pts):
+    def __init__(self, pts, cap=2000.0):
+        self.cap = cap
         self.bands = {}
         for lat, lon in pts:
             self.bands.setdefault(int(math.floor(lat / BAND)), []).append((lat, lon))
         self.n = len(pts)
 
-    def nearest(self, lat, lon, cap=2000.0):
+    def nearest(self, lat, lon, cap=None):
+        cap = self.cap if cap is None else cap
         span = int(math.ceil(cap / 111.0 / BAND)) + 1
         b0 = int(math.floor(lat / BAND))
         best = cap
@@ -90,7 +145,7 @@ class Index(object):
 
 
 def stats(events, idx):
-    """Counts within each radius, plus the median nearest-volcano distance."""
+    """Counts within each radius, plus the median nearest-target distance."""
     near = [idx.nearest(la, lo) for la, lo in events]
     near_sorted = sorted(near)
     return {
@@ -164,23 +219,29 @@ def cluster_stats(events):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--trials", type=int, default=600)
+    ap.add_argument("--target", choices=sorted(TARGETS), default="volcanoes",
+                    help="what to measure distance to (default: volcanoes)")
+    ap.add_argument("--trials", type=int, default=None,
+                    help="Monte Carlo trials per null (default: the target's own)")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--save", action="store_true",
-                    help="also write data/spatial-test.json for the console to chart")
+                    help="also write the target's spatial-test JSON for the console to chart")
     args = ap.parse_args()
 
-    fb, vo = load("fireballs.json"), load("volcanoes.json")
+    T = TARGETS[args.target]
+    if args.trials is None:
+        args.trials = T["trials"]
+    fb, vo = load("fireballs.json"), load(T["file"])
     events = [(e[3], e[4]) for e in fb["events"] if e[3] is not None and e[4] is not None]
-    allv = [(v["lat"], v["lon"]) for v in vo["volcanoes"]]
-    recent = [(v["lat"], v["lon"]) for v in vo["volcanoes"]
-              if v.get("erupt") in set(vo.get("recent_codes") or [])]
+    allv = [(v["lat"], v["lon"]) for v in vo[T["key"]]]
+    recent = control_subset(args.target, vo)
 
     rng = random.Random(SEED)
-    idx = Index(allv)
+    idx = Index(allv, T["cap"])
     obs, null = run(events, idx, args.trials, rng)
 
-    out = {"events": len(events), "volcanoes": len(allv), "recent_volcanoes": len(recent),
+    out = {"target": args.target, "target_label": T["label"], "cap_km": T["cap"],
+           "events": len(events), "volcanoes": len(allv), "recent_volcanoes": len(recent),
            "trials": args.trials, "radii": {}, "median": {}}
     for r in RADII:
         k = int(r)
@@ -200,17 +261,19 @@ def main():
         "scatter_p": pvalue(obs["median"], null["scatter"]["median"], "less"),
     }
 
-    # Clustering: do events repeat in the same places more than chance?
-    cobs = cluster_stats(events)
-    ctr = max(60, args.trials // 6)               # heavier per trial; fewer of them
-    cnull = {"median_nn": [], "pairs_100": [], "pairs_50": []}
-    lats = [e[0] for e in events]
-    for _ in range(ctr):
-        sca = [(lats[i], rng.uniform(-180, 180)) for i in range(len(lats))]
+    # Clustering: do events repeat in the same places more than chance? This is
+    # event-to-event and so identical whatever the target is — run it once, under
+    # the default target, and do not pay for it again.
+    if T["cluster"]:
+      cobs = cluster_stats(events)
+      ctr = max(60, args.trials // 6)             # heavier per trial; fewer of them
+      cnull = {"median_nn": [], "pairs_100": [], "pairs_50": []}
+      for _ in range(ctr):
+        sca = [(e[0], rng.uniform(-180, 180)) for e in events]
         c = cluster_stats(sca)
         for k in cnull:
             cnull[k].append(c[k])
-    out["cluster"] = {
+      out["cluster"] = {
         "trials": ctr,
         "median_nn": {"observed": cobs["median_nn"],
                       "null_mean": sum(cnull["median_nn"]) / ctr,
@@ -221,21 +284,24 @@ def main():
         "pairs_50": {"observed": cobs["pairs_50"],
                      "null_mean": sum(cnull["pairs_50"]) / ctr,
                      "p": pvalue(cobs["pairs_50"], cnull["pairs_50"], "greater")},
-    }
+      }
 
-    # Monitored-volcano control. A physical association should not care whether
-    # anyone is watching; a camera artifact would concentrate on watched ones.
-    idx_recent = Index(recent)
+    lats = [e[0] for e in events]
+
+    # Control subset. A physical association should not care whether anyone is
+    # watching, or whether the site had been built yet; a selection effect would
+    # concentrate on the watched / already-existing ones.
+    idx_recent = Index(recent, T["cap"])
     nr = [idx_recent.nearest(la, lo) for la, lo in events]
     out["recent_only"] = {
         "within_200": sum(1 for d in nr if d <= 200),
         "median": sorted(nr)[len(nr) // 2],
     }
 
-    # Histogram of distance-to-nearest-volcano, observed against the null, in
+    # Histogram of distance-to-nearest-target, observed against the null, in
     # 100 km bins. This is the figure that makes the result readable: two curves
     # lying on top of each other says more than a p-value does.
-    BINS = list(range(0, 2001, 100))
+    BINS = list(range(0, T["hist_max"] + 1, T["hist_bin"]))
     def hist(vals):
         h = [0] * (len(BINS) - 1)
         for d in vals:
@@ -253,13 +319,13 @@ def main():
         h = hist([idx.nearest(la, lo) for la, lo in sca])
         null_acc = [a + b for a, b in zip(null_acc, h)]
     out["histogram"] = {
-        "bin_km": 100, "bins": BINS[:-1],
+        "bin_km": T["hist_bin"], "bins": BINS[:-1],
         "observed": obs_h,
         "null_mean": [round(v / float(hruns), 2) for v in null_acc],
     }
 
     if args.save:
-        sp = os.path.join(ROOT, "data", "spatial-test.json")
+        sp = os.path.join(ROOT, "data", T["out"])
         with open(sp, "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
         print("Wrote %s" % sp)
@@ -268,8 +334,8 @@ def main():
         json.dump(out, sys.stdout, indent=1)
         return 0
 
-    print("CNEOS located events: %d    NOAA volcanoes: %d (%d historically dated)"
-          % (len(events), len(allv), len(recent)))
+    print("CNEOS located events: %d    %s %ss: %d (%d in the control subset)"
+          % (len(events), T["provider"], T["label"], len(allv), len(recent)))
     print("Monte Carlo trials: %d per null model\n" % args.trials)
     print("  radius   observed        rotation null        scatter null")
     for r in RADII:
@@ -280,25 +346,32 @@ def main():
                  d["rotation_mean"], d["rotation_p"],
                  d["scatter_mean"], d["scatter_p"]))
     m = out["median"]
-    print("\n  median distance to the nearest volcano")
+    sat = sum(1 for d in obs["nearest"] if d >= T["cap"] - 1e-6)
+    out["median"]["capped_out"] = sat
+    print("\n  median distance to the nearest %s%s"
+          % (T["label"],
+             "   [WARNING: %d of %d events sit at the %.0f km search cap — the median is "
+             "an artifact, not a measurement]" % (sat, len(events), T["cap"])
+             if sat > len(events) * 0.02 else ""))
     print("    observed %.0f km | rotation null %.0f km p=%.3f | scatter null %.0f km p=%.3f"
           % (m["observed"], m["rotation_mean"], m["rotation_p"],
              m["scatter_mean"], m["scatter_p"]))
-    print("\n  control — historically dated (i.e. watched) volcanoes only:")
+    print("\n  control — %s:" % T["control_label"])
     print("    %d events within 200 km, median %.0f km"
           % (out["recent_only"]["within_200"], out["recent_only"]["median"]))
-    c = out["cluster"]
-    print("\n  clustering — do events repeat in the same places? (%d trials, scatter null only:" % c["trials"])
-    print("  a rotation leaves every event-to-event distance untouched and cannot test this)")
-    print("    median nearest-event distance %.0f km vs null %.0f km  p=%.3f"
+    c = out.get("cluster")
+    if c:
+      print("\n  clustering — do events repeat in the same places? (%d trials, scatter null only:" % c["trials"])
+      print("  a rotation leaves every event-to-event distance untouched and cannot test this)")
+      print("    median nearest-event distance %.0f km vs null %.0f km  p=%.3f"
           % (c["median_nn"]["observed"], c["median_nn"]["null_mean"], c["median_nn"]["p"]))
-    print("    events with another within 100 km: %d vs null %.1f  p=%.3f"
+      print("    events with another within 100 km: %d vs null %.1f  p=%.3f"
           % (c["pairs_100"]["observed"], c["pairs_100"]["null_mean"], c["pairs_100"]["p"]))
-    print("    events with another within  50 km: %d vs null %.1f  p=%.3f"
+      print("    events with another within  50 km: %d vs null %.1f  p=%.3f"
           % (c["pairs_50"]["observed"], c["pairs_50"]["null_mean"], c["pairs_50"]["p"]))
 
     print("\n  A p above about 0.05 in BOTH null columns means the catalog shows no")
-    print("  volcano association beyond what the geometry already implies.")
+    print("  %s association beyond what the geometry already implies." % T["label"])
     return 0
 
 

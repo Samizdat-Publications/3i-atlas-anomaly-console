@@ -252,6 +252,44 @@
     "https://fireball.amsmeteors.org/members/imo_fireball_stats/events_per_month_per_year",
     "https://globalmeteornetwork.org/data/traj_summary_data/"
    ]
+  },
+  {
+   "id": "BR-08",
+   "question": "Do fireballs cluster at nuclear sites?",
+   "short": "The nuclear connection is the best-evidenced positional claim in the subject — and it rests on eyewitness testimony about craft, not on satellite detections of rocks. The catalog can only answer a narrower question, and it mostly answers no.",
+   "tag": "883 EVENTS · 195 REACTORS",
+   "sections": [
+    {
+     "h": "Why this one is different",
+     "p": "Most claims in this register are about a single object or a single dataset. The nuclear connection is neither. It starts in December 1948, when aircrews over New Mexico reported brilliant green objects flying too slowly and too flatly to be meteors, and the Air Force put Dr Lincoln LaPaz — the meteoriticist who had built America's first serious fireball-recovery programme — onto the problem. He concluded they were not ordinary meteors and that they appeared preferentially near Los Alamos, Sandia and Kirtland. Everything since has that shape: the March 1967 Malmstrom episode, Rendlesham beside the Bentwaters weapons store, the interviews Robert Hastings collected from former missile officers. It is a large, specific, first-hand evidentiary base gathered from people with clearances and careers to lose, and it deserves to be taken at full strength rather than waved at."
+    },
+    {
+     "h": "And why this dataset is the wrong instrument for it",
+     "p": "Every row in the CNEOS catalog is an atmospheric airburst — a rock arriving at tens of kilometres per second and depositing energy in kilotonnes. The nuclear testimony describes structured objects, frequently hovering, watched from the ground at close range. Those are not the same phenomenon. A null result in a catalog of bolides cannot refute accounts of craft over missile silos, and this briefing does not claim otherwise. Two further limits: the catalog begins on 1988-04-15, forty years after LaPaz's fireballs, so none of his events are in it; and the 195 positions tested are civil POWER REACTORS, while the weapons complex he meant is a few dozen sites with no open positional dataset and far too few for a Monte Carlo."
+    },
+    {
+     "h": "The narrower question, and its answer",
+     "p": "What the catalog can answer is whether the population of objects big enough for satellites to see shows any positional preference for nuclear sites. Same two nulls as the volcano test, both preserving each event's own latitude — one rotating the whole set by a single random longitude offset, one redrawing every longitude independently, 600 trials each. Within 100 km: 11 observed against 8.8 expected. Within 500 km: 68 against 71.5 — below chance. Median distance to the nearest reactor: 2682 km observed against 2687 by chance. Nothing."
+    },
+    {
+     "h": "The one place something shows up",
+     "p": "Within 200 km there are 34 events against 24.8 expected — a 37% excess, reaching p=0.025 under the scatter null. That is reported here rather than buried, because it is in the direction the claim predicts. Two things stop it being a result. Three radii were tested, and one marginal value among three correlated tests is roughly what chance delivers. More telling is the shape: a genuine proximity effect is strongest where the proximity is tightest, and this one is absent at 100 km, present at 200 km, and gone by 500 km. A bump in the middle with nothing at the centre is not what an attraction looks like. Under the conservative null — the one that leaves the events' own clustering intact — it does not reach significance at all, at p=0.070."
+    },
+    {
+     "h": "The same selection effect, found twice",
+     "p": "F-05 found that fireball footage concentrates at volcanoes because volcano observatories run fixed sky cameras around the clock. The nuclear case has the identical structure and nobody planted it there: LaPaz was employed by the New Mexico installations and based among them, and the observer network reporting to him was their own staff, under standing orders to watch the sky. A 1949 weapons complex was one of the few places on Earth with trained, instructed, cleared people looking up on purpose. That does not make a single report false. It means the geography of the reports is at least partly the geography of the watchers — and the one dataset with no watchers in it does not reproduce the pattern."
+    }
+   ],
+   "chart": "nuclear-dist",
+   "cases": [
+    "fb/F-07",
+    "fb/F-05"
+   ],
+   "sources": [
+    "https://cneos.jpl.nasa.gov/fireballs/",
+    "https://datasets.wri.org/dataset/globalpowerplantdatabase",
+    "https://www.archives.gov/research/military/air-force/ufos"
+   ]
   }
  ]
 }
