@@ -6,7 +6,7 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-24):** v2.15 built + browser-verified locally; see the NUFORC paragraph below for what landed. Earlier: v2.11 shipped + deployed + verified live. The fireball
+**CURRENT STATE (2026-08-24):** v2.15 MERGED TO MAIN + auto-deployed (PR #11). v2.16 built on top: the nuclear-site test (F-07 + BR-08) and claim coverage closed. See below. Earlier: v2.11 shipped + deployed + verified live. The fireball
 register now runs on THREE datasets, not one, because F-03 was answering the wrong question.
 The "fireballs are increasing" argument is built on **AMS eyewitness reports**, not CNEOS —
 and its figures are ACCURATE (Q1 2026: 25 events at 51-99 reports vs a 11.8 mean, 16 above
@@ -27,11 +27,19 @@ grounded in real data, leaning toward taking UAP seriously. F-03's old prosecuto
 wrong. Test claims as their proponents actually make them, credit accurate figures, and state
 the limits that cut against your own conclusion.
 
-**NEXT STEP (still open):** `docs/claim-coverage.md` maps his enumerated 24-anomaly list against our 25 3I
-cases. Coverage is near-complete; the one real GAP is **ALMA methanol vs HCN — no case file
-exists (would be A-26)**. Two partials: the Ni/CN ratio is folded into A-07 though it is a
-separate measurement, and A-20 covers the icy-grain disappearance but not the ~20x
-post-perihelion water spike. **The volcano-proximity test is DONE (v2.14)** — `tools/fetch_volcanoes.py` (NOAA NCEI, 1,608
+**CLAIM COVERAGE IS CLOSED (2026-08-24).** `docs/claim-coverage.md` maps his enumerated
+24-anomaly list against our 26 3I cases and there are now ZERO gaps and ZERO partials.
+The ALMA methanol gap was closed by **A-26** on 2026-08-23 — an earlier version of THIS
+NOTE still called it open, which was wrong and cost a re-check. The last two partials were
+resolved 2026-08-24 and they were not the same kind of problem: row 12 (Ni/CN) was a real
+gap INSIDE A-07 — the ratio was stated in the observation and argued in neither direction —
+and is now argued both ways (the counter-reading is that CN is the DENOMINATOR and 3I is
+independently CO2-dominated with ~4% water, that Ni and CN are measured over different
+e-folding radii of 593.7 vs 841 km, and that the extreme values live at 4.4-2.85 AU where
+Ni/Fe was also extreme before falling to normal); row 17 (the ~20x water spike) was never a
+gap at all — A-20 carries it in both halves and the doc was simply stale. NO new case files
+were made for either: splitting one set of spectra into extra cases is the tally inflation
+BR-01 explicitly warns about. **The volcano-proximity test is DONE (v2.14)** — `tools/fetch_volcanoes.py` (NOAA NCEI, 1,608
 volcanoes; Smithsonian GVP still 403s a cloud IP) + `tools/spatial_test.py` (Monte Carlo, two
 nulls, both preserving the events' latitude distribution). NO ASSOCIATION at any radius: 23
 events within 100 km vs 32.8 by chance, 78 vs 82.3 at 200 km, median 838 vs 854 km. Clustering
@@ -58,9 +66,28 @@ F-03..F-06 now read "THE CLAIM AS MADE", because those claims are not Loeb's; an
 `tools/fireball_rate_check.py` now re-derives F-05's and F-06's figures too, not just
 F-03's and F-04's.
 
-**NEXT STEP after this one:** the nuclear-site dataset for the last positional claim is
-still unbuilt. `tools/spatial_test.py` already does the Monte Carlo with the right nulls, so
-this is a fetcher plus a second call, not new statistics.
+**THE NUCLEAR-SITE TEST IS DONE (v2.16).** `tools/fetch_nuclear.py` (WRI Global Power Plant
+Database, 195 reactors, 31 countries) + `tools/spatial_test.py --target nuclear`. The claim is
+LaPaz's 1948-51 green fireballs near Los Alamos/Sandia/Kirtland and its modern descendants
+(Malmstrom 1967, Rendlesham, the Hastings interviews). RESULT: no proximity effect — 11 events
+within 100 km vs 8.8 by chance, 68 within 500 km vs 71.5 (below chance), median 2682 vs 2687 km.
+ONE EXCEPTION, reported not buried: 200 km gives 34 vs 24.8, a 37% excess at p=0.025 scatter /
+p=0.070 rotation. It stays a non-result because three radii were tested AND the SHAPE is wrong —
+absent at 100 km, present at 200, gone at 500. A bump in the middle with nothing at the centre is
+not an attraction. **STATE UP FRONT WHAT THIS CANNOT DO:** CNEOS records airbursts; the nuclear
+testimony describes craft over silos. A null here does NOT refute it. Catalog starts 1988, forty
+years after LaPaz. Power reactors are not the weapons complex.
+**A REAL BUG WAS FOUND AND FIXED:** `Index.nearest` had a hard-coded 2,000 km search cap. With only
+195 reactors most events are beyond it, so the first run reported "median 2000 vs 2000, p=1.000" —
+a broken statistic dressed as a null. Cap and histogram bins are now PER-TARGET, and the report
+warns when >2% of events sit at the cap. If you add a third target, set its cap from the real
+distance scale or you will ship a fake null.
+The volcano path was regression-checked byte-for-byte against the shipped `spatial-test.json`
+after every edit — F-05 quotes those figures verbatim. Do that again for any future change.
+
+**NEXT STEP (open):** nothing large is queued. Candidates: a fourth instrument for the rate
+question, per-briefing Video Overview assets (see the NotebookLM notes), or bringing content
+current past 2026-08-18.
 
 **TRANSCRIPTS ARE TRACKED IN THIS REPO (owner's decision, 2026-08-23).** 114 of them,
 2025-06-28 to 2026-08-23, ~357k words, in `data/transcripts/` with attribution and a per-video

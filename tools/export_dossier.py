@@ -24,6 +24,15 @@ OBJ_NAME = {"3i": "3I/ATLAS (C/2025 N1)", "1i": "1I/'Oumuamua (1I/2017 U1)",
             "2i": "2I/Borisov (C/2019 Q4)", "fb": "CNEOS fireball register"}
 
 
+def load_optional(name):
+    """For a dataset a checkout may legitimately not have produced yet."""
+    p = os.path.join(ROOT, "data", name)
+    if not os.path.exists(p):
+        return None
+    with io.open(p, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def load(name):
     p = os.path.join(ROOT, "data", name)
     if not os.path.exists(p):
@@ -221,6 +230,49 @@ def main():
     for b, o, nl in zip(h["bins"], h["observed"], h["null_mean"]):
         body += "| %d | %d | %.1f |\n" % (b, o, nl)
     total += write("10-spatial-test.md", body)
+
+    # --- spatial test, nuclear target ---------------------------------------
+    spn = load_optional("spatial-test-nuclear.json")
+    if spn:
+        body = header("Spatial Test — Fireball / Nuclear-Site Proximity",
+                      "Same Monte Carlo, same two nulls, a different target. Read the "
+                      "limits paragraph below BEFORE the table: this instrument can only "
+                      "answer a much narrower question than the claim it is aimed at.")
+        body += ("**What this cannot do.** Every CNEOS row is an atmospheric airburst. "
+                 "The nuclear-connection claim rests on eyewitness accounts of structured "
+                 "craft at guarded installations. Those are different phenomena, and a null "
+                 "here does not refute that testimony. The catalog also begins 1988-04-15, "
+                 "forty years after the 1948-51 green fireballs that started the claim, and "
+                 "the positions tested are civil POWER REACTORS rather than the weapons "
+                 "complex the original claim was about.\n\n")
+        body += ("%d located CNEOS events against %d WRI nuclear reactor positions, %d trials "
+                 "per null, %.0f km search cap.\n\n"
+                 % (spn["events"], spn["volcanoes"], spn["trials"], spn.get("cap_km", 0)))
+        body += "| Within | Observed | Rotation null | p | Scatter null | p |\n|---|---|---|---|---|---|\n"
+        for r in sorted(spn["radii"], key=int):
+            v = spn["radii"][r]
+            body += "| %s km | %d | %.1f | %.3f | %.1f | %.3f |\n" % (
+                r, v["observed"], v["rotation_mean"], v["rotation_p"],
+                v["scatter_mean"], v["scatter_p"])
+        m = spn["median"]
+        body += ("| median nearest reactor | %.0f km | %.0f km | %.3f | %.0f km | %.3f |\n\n"
+                 % (m["observed"], m["rotation_mean"], m["rotation_p"],
+                    m["scatter_mean"], m["scatter_p"]))
+        body += ("The 200 km row is the only one above chance and is reported rather than "
+                 "omitted. It is not treated as a result: three radii were tested, and the "
+                 "shape is wrong for a proximity effect — absent at 100 km, present at "
+                 "200 km, gone at 500 km.\n\n")
+        body += ("### Control — reactors commissioned by 1990 only (%d of %d)\n\n"
+                 "%d events within 200 km, median %.0f km.\n\n"
+                 % (spn["recent_volcanoes"], spn["volcanoes"],
+                    spn["recent_only"]["within_200"], spn["recent_only"]["median"]))
+        h = spn["histogram"]
+        body += ("### Distance histogram (%d km bins)\n\n"
+                 "| Bin start (km) | Observed | Expected by chance |\n|---|---|---|\n"
+                 % h["bin_km"])
+        for b, o, nl in zip(h["bins"], h["observed"], h["null_mean"]):
+            body += "| %d | %d | %.1f |\n" % (b, o, nl)
+        total += write("16-spatial-test-nuclear.md", body)
 
     # --- comparison --------------------------------------------------------
     comp = (d3.get("comparison") or {}).get("objects", [])

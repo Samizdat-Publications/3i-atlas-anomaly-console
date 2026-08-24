@@ -1,6 +1,6 @@
 """Re-derive every number cases F-03 and F-04 quote, and fail if any has drifted.
 
-F-03 through F-06 are the case files argued from figures COMPUTED off the shipped
+F-03 through F-07 are the case files argued from figures COMPUTED off the shipped
 datasets rather than from a published paper. Those figures go stale the moment
 CNEOS adds a row, AMS logs another month, or GMN publishes more trajectories — so
 they are checked here instead of trusted. F-05's Monte Carlo and F-06's NUFORC
@@ -324,6 +324,48 @@ def verify(a, g, c, nreg, sp, nf):
             if needle not in t5:
                 bad.append("F-05 %s: data says '%s', the case does not" % (label, needle))
 
+    t7 = case_text("F-07")
+    spn = load_optional("spatial-test-nuclear.json")
+    if t7 is None:
+        print("F-07 not found.")
+    elif spn is None:
+        print("data/spatial-test-nuclear.json absent — F-07's figures not checked.")
+    else:
+        rn, mn = spn["radii"], spn["median"]
+        def RN(k, f):
+            return rn[str(k)][f] if str(k) in rn else rn[k][f]
+        nuc = load_optional("nuclear.json") or {"sites": []}
+        countries = len({x["country"] for x in nuc["sites"]})
+        excess = 100.0 * (RN(200, "observed") / RN(200, "rotation_mean") - 1.0)
+        for label, needle in [
+            ("event count", "%d CNEOS events" % spn["events"]),
+            ("reactor count", "%d nuclear power\nreactors across %d countries"
+                              % (spn["volcanoes"], countries)),
+            ("trials", "%d trials" % spn["trials"]),
+            ("100 km", "%d events observed against %.1f expected, p=%.3f and\n%.3f"
+                       % (RN(100, "observed"), RN(100, "rotation_mean"),
+                          RN(100, "rotation_p"), RN(100, "scatter_p"))),
+            ("500 km", "%d against %.1f, p=%.3f and %.3f"
+                       % (RN(500, "observed"), RN(500, "rotation_mean"),
+                          RN(500, "rotation_p"), RN(500, "scatter_p"))),
+            ("median", "%.0f km observed against %.0f and\n%.0f by chance, p=%.3f and %.3f"
+                       % (mn["observed"], mn["rotation_mean"], mn["scatter_mean"],
+                          mn["rotation_p"], mn["scatter_p"])),
+            ("200 km", "%d events against %.1f expected" % (RN(200, "observed"),
+                                                            RN(200, "rotation_mean"))),
+            ("200 km excess", "a %.0f%% excess" % excess),
+            ("200 km scatter p", "p=%.3f under the scatter null" % RN(200, "scatter_p")),
+            ("200 km rotation p", "p=%.3f under the rotation null" % RN(200, "rotation_p")),
+            ("control count", "the %d reactors already commissioned by 1990"
+                              % spn["recent_volcanoes"]),
+            ("control result", "leaves %d events within 200 km and\na median of %.0f km"
+                               % (spn["recent_only"]["within_200"],
+                                  spn["recent_only"]["median"])),
+        ]:
+            flat = " ".join(needle.split())
+            if flat not in " ".join(t7.split()):
+                bad.append("F-07 %s: data says '%s', the case does not" % (label, flat))
+
     t6 = case_text("F-06")
     if t6 is None:
         print("F-06 not found.")
@@ -372,7 +414,7 @@ def verify(a, g, c, nreg, sp, nf):
         for b in bad:
             print("  - " + b)
         return 1
-    print("\nF-03 through F-06 check out: every figure they quote matches the current data.")
+    print("\nF-03 through F-07 check out: every figure they quote matches the current data.")
     return 0
 
 
