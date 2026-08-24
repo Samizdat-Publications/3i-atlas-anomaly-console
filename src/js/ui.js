@@ -583,7 +583,7 @@
       '</div>',
       '<div class="cx-sheet-body">',
       '  <div class="cx-block"><div class="cx-block-label cx-bl-obs">OBSERVATION</div><div class="cx-block-text">' + esc(a.observation) + '</div></div>',
-      '  <div class="cx-block cx-b-loeb"><div class="cx-block-label cx-bl-loeb">LOEB ASSESSMENT</div><div class="cx-block-text">' + esc(a.loeb_take) + '</div>' +
+      '  <div class="cx-block cx-b-loeb"><div class="cx-block-label cx-bl-loeb">' + esc(a.claim_label || 'LOEB ASSESSMENT') + '</div><div class="cx-block-text">' + esc(a.loeb_take) + '</div>' +
         (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">— A. LOEB · ' + esc(a.quote_source || '') + '</span></div>' : '') + '</div>',
       '  <div class="cx-block cx-b-off"><div class="cx-block-label cx-bl-off">OFFICIAL EXPLANATION</div><div class="cx-block-text">' + esc(a.official_explanation) + '</div></div>',
       '  <canvas class="cx-dchart" id="cx-dchart"></canvas>',
@@ -962,7 +962,7 @@
             if (!cases.length) return '';
             return '<p style="letter-spacing:3px;border-bottom:1px solid #1d1a14;margin-top:14px"><b>' + OBJ_NAMES[obj] + ' — ' + cases.length + ' CASES</b></p>' +
               cases.map(function (a) {
-                return '<p><b>' + esc(a.id) + '</b> · ' + esc(a.date) + ' — <b>' + esc(a.title) + '</b><br>' + esc(a.observation) + '<br><span style="color:#7a5a1e">LOEB:</span> ' + esc(String(a.loeb_take).slice(0, 180)) + '…<br><span style="color:#2c6a3f">OFFICIAL:</span> ' + esc(String(a.official_explanation).slice(0, 180)) + '…</p>';
+                return '<p><b>' + esc(a.id) + '</b> · ' + esc(a.date) + ' — <b>' + esc(a.title) + '</b><br>' + esc(a.observation) + '<br><span style="color:#7a5a1e">' + esc((a.claim_label || 'LOEB ASSESSMENT').split(' ')[0]) + ':</span> ' + esc(String(a.loeb_take).slice(0, 180)) + '…<br><span style="color:#2c6a3f">OFFICIAL:</span> ' + esc(String(a.official_explanation).slice(0, 180)) + '…</p>';
               }).join('');
           }).join(''),
           '</div>'].join('');

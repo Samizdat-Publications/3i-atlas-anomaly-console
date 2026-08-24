@@ -2,7 +2,7 @@
 
 **Purpose of this file:** a self-contained primary-source description of the project's
 datasets, schemas, methods and findings, written for ingestion into a research notebook
-(NotebookLM / Gemini). Generated 2026-08-23 against commit `5cc4511`, app version 2.14.
+(NotebookLM / Gemini). Generated 2026-08-24 against the v2.15 release.
 
 **Repository:** <https://github.com/Samizdat-Publications/3i-atlas-anomaly-console>
 **Branch:** `main` (single active branch; all releases merge here)
@@ -19,8 +19,8 @@ Stated first so a notebook does not go looking for them or hallucinate them.
 |---|---|
 | FOIA request identifiers | **None.** No FOIA material is used anywhere in this project. |
 | Wayback Machine first-capture dates | **None.** Sources are cited by live URL only; no archival snapshot IDs are recorded. |
-| Per-record "credibility score" (numeric) | **None.** Verification is categorical, not scored — see §2.4. |
-| Per-record "severity score" | **None.** The Loeb Scale (§2.5) is an OBJECT-level rank assigned by a third party, not a per-record severity. |
+| Per-record "credibility score" (numeric) | **None.** Verification is categorical, not scored — see §2.5. |
+| Per-record "severity score" | **None.** The Loeb Scale (§2.6) is an OBJECT-level rank assigned by a third party, not a per-record severity. |
 | Witness//personal identifiers | **None.** No personal data is stored. |
 | Cross-referenced entity tags | **None as a structured field.** Cross-references exist only as (a) `sources` URL arrays, (b) briefing→case link arrays, (c) the `tag` slot in fireball rows, used solely for `IM1`/`IM2`. |
 | Video transcripts | **Present.** 114 machine transcriptions in `data/transcripts/`, plus 3 consolidated files for notebook ingestion. See §3.6. |
@@ -144,7 +144,27 @@ Monthly aggregates keyed `"YYYYMM"`, 92 months (2019-01 → 2026-08).
 **Critical:** the network grew from 73 stations (2019) to 1,327 (2025). Raw counts are NOT
 comparable across years. Only `frac_m4` is.
 
-### 2.4 Verification taxonomy (categorical — there is no numeric score)
+### 2.4 `data/nuforc.json` — UFO sighting archive (aggregates only)
+National UFO Reporting Center reports, geocoded and time-normalised by the
+planetsig/ufo-reports mirror in 2014. 80,332 reports, 1906-11-11 → **2014-05-08**.
+Only aggregates are stored; the raw file is 14 MB of third-party report narrative.
+
+| Field | Meaning |
+|---|---|
+| `shapes[]` | every shape label with its count and share of shape-bearing rows |
+| `months[]` | `{m: "YYYY-MM", n, fb}` — shape-bearing reports and fireball-labelled ones |
+| `years[]` / `seasonal[]` | the same pair by year (2000–2013) and by calendar month |
+| `claim` | November 2013 day by day, plus the US-only subtotal through the 11th |
+| `chelyabinsk` | reports logged on 2013-02-15, the coverage reference point |
+
+**Critical, and it governs every use of this file:** `shape` is what the WITNESS called the
+object — a self-assigned label from a fixed list, NOT a measurement. "Fireball" here is not
+the quantity AMS or CNEOS report under that name and must not be compared with them
+directly. The mirror is also SCRUBBED (80,332 of NUFORC's 88,874 records survived the
+conversion) and 81% United States, and it STOPS in May 2014, so nothing after that date can
+be tested against it.
+
+### 2.5 Verification taxonomy (categorical — there is no numeric score)
 
 **Case files** — field `_verify` (in `research*.json`) / `verify` (in the built bundle):
 | Value | Meaning |
@@ -168,13 +188,13 @@ wrong and fixed — not a record of lower confidence than `CONFIRMED`.
 
 Distribution across the 35 quotations: `SECONDARY` 23, `VERBATIM` 9, `CORRECTED` 2, `PARAPHRASE` 1.
 
-### 2.5 Loeb Scale — object-level rank, third-party assigned
+### 2.6 Loeb Scale — object-level rank, third-party assigned
 0–10 scale published by Avi Loeb for likelihood of technological origin.
 Values in dataset: 3I/ATLAS = **3**; 1I/ʻOumuamua = **4** (retrospective); 2I/Borisov = **0**.
 History for 3I/ATLAS: rank 4 (Jul 2025) → held 4 (Dec 2025) → **reduced to 3 (Mar 2026)**
 after the Jupiter pass produced nothing unusual. This is not our score; it is a tracked claim.
 
-### 2.6 Controlled vocabularies
+### 2.7 Controlled vocabularies
 | Vocabulary | Values |
 |---|---|
 | Object key | `3i`, `1i`, `2i`, `fb` (fireball register — has no ephemeris) |
@@ -183,7 +203,7 @@ after the Jupiter pass produced nothing unusual. This is not our score; it is a 
 | Case `viz_hint` | `acceleration`, `lightcurve`, `other`, `polarization`, `size`, `spectrum`, `tail`, `timing`, `trajectory`, `speed-dist`, `fireball-rate`, `fireball-instruments`, `volcano-dist` |
 | Case ID prefix | `A-` 3I · `O-` 1I · `B-` 2I · `F-` fireball · `BR-` briefing |
 
-### 2.7 Coordinate and temporal formats
+### 2.8 Coordinate and temporal formats
 - Positions: decimal degrees, +N / +E, WGS84-equivalent as published upstream.
 - Fireball timestamps: `YYYY-MM-DD HH:MM:SS` **UTC**, second precision.
 - Case/event/briefing dates: `YYYY-MM-DD`.
@@ -195,18 +215,19 @@ after the Jupiter pass produced nothing unusual. This is not our score; it is a 
 
 ## 3. Full Dataset & Case Records
 
-Record counts as of commit `5cc4511`:
+Record counts as of the v2.15 release:
 
 | Collection | Count | Location |
 |---|---|---|
-| Anomaly/case files | **47** (3I 26 · 1I 11 · 2I 5 · fireball 5) | `data/research.json`, `data/research-iso.json`, `data/fireball-cases.json` |
+| Anomaly/case files | **48** (3I 26 · 1I 11 · 2I 5 · fireball 6) | `data/research.json`, `data/research-iso.json`, `data/fireball-cases.json` |
 | Timeline events | **58** (3I 28 · 1I 16 · 2I 14) | `data/research.json`, `data/research-iso.json` |
 | Sourced quotations | **35** (3I 20 · ISO 15) | same |
-| Briefings (narrative syntheses) | **6** | `data/briefings.json` |
+| Briefings (narrative syntheses) | **7** | `data/briefings.json` |
 | CNEOS fireball rows | **1,069** (883 with position) | `data/fireballs.json` |
 | AMS report-bin records | 21 years × 12 months × 6 bins | `data/ams-reports.json` |
 | GMN monthly aggregates | **92** months | `data/gmn-monthly.json` |
 | Volcano positions | **1,608** | `data/volcanoes.json` |
+| NUFORC sighting reports | **80,332** (aggregated to 172 months) | `data/nuforc.json` |
 | Comparison profiles | 3 objects | `data/research.json` |
 
 ### 3.1 Case-file record structure
@@ -456,7 +477,8 @@ independent anomalies.
 The canonical data lives in `data/*.json`, but that is a machine format. `tools/export_dossier.py`
 renders the same content as documents — prose as Markdown with headings and citations, tabular
 data as CSV with real column names — into **`dossier/`**. That folder is what a notebook can
-actually reason over: ~39,000 words of Markdown plus three CSVs, regenerated from the same
+actually reason over: ~41,000 words of Markdown plus three CSVs (and the same three
+tables re-rendered as Markdown, because notebooks handle CSV poorly), regenerated from the same
 canonical files so the two cannot drift.
 
 **Start with:** <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/dossier/00-START-HERE.md>
@@ -466,8 +488,8 @@ canonical files so the two cannot drift.
 | `dossier/00-START-HERE.md` | Manifest, ingest order, and the four misreadings to avoid |
 | `dossier/01-cases-3i-atlas.md` | 26 case files, full text, claim + counter-reading + citations |
 | `dossier/02-cases-oumuamua-borisov.md` | 16 case files for 1I and 2I |
-| `dossier/03-cases-fireballs.md` | 5 fireball-register analyses |
-| `dossier/04-briefings.md` | 6 question-led syntheses |
+| `dossier/03-cases-fireballs.md` | 6 fireball-register analyses |
+| `dossier/04-briefings.md` | 7 question-led syntheses |
 | `dossier/05-timeline.md` | 58 events with citations |
 | `dossier/06-quotations.md` | 35 quotations with verification status |
 | `dossier/07-cneos-fireballs.csv` | 1,069 rows, named columns |
@@ -475,6 +497,10 @@ canonical files so the two cannot drift.
 | `dossier/09-gmn-monthly.csv` | 92 months, incl. the bias-resistant bright fraction |
 | `dossier/10-spatial-test.md` | Monte Carlo output and distance histogram |
 | `dossier/11-comparison-profiles.md` | Three-object comparison |
+| `dossier/12-cneos-fireballs.md` | The CNEOS table as Markdown, with the caveats stated first |
+| `dossier/13-ams-reports.md` | The AMS report-count bins as Markdown |
+| `dossier/14-gmn-monthly.md` | The GMN photometry aggregates as Markdown |
+| `dossier/15-nuforc-sightings.md` | NUFORC fireball share by month, year and season |
 
 The `data/*.json` links in §6.3 remain valid and are the authoritative form; use them for
 exact reproduction, and `dossier/` for analysis.
@@ -490,21 +516,22 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 |---|---|---|---|---|---|
 | **P1** | `data/research.json` | JSON | 144 KB | 26 cases · 28 events · 20 quotes · 3 profiles | **3I/ATLAS core corpus.** Case files with both readings, verification verdicts, citations. |
 | **P2** | `data/research-iso.json` | JSON | 128 KB | 16 cases · 30 events · 15 quotes | 1I/ʻOumuamua and 2I/Borisov corpora. |
-| **P3** | `data/fireball-cases.json` | JSON | 24 KB | 5 cases | Fireball register analyses incl. the three-instrument and volcano tests. |
-| **P4** | `data/briefings.json` | JSON | 20 KB | 6 | Narrative syntheses; the interpretive layer over the case files. |
+| **P3** | `data/fireball-cases.json` | JSON | 28 KB | 6 cases | Fireball register analyses incl. the three-instrument, volcano and NUFORC tests. |
+| **P4** | `data/briefings.json` | JSON | 24 KB | 7 | Narrative syntheses; the interpretive layer over the case files. |
 | **P5** | `data/fireballs.json` | JSON | 64 KB | 1,069 rows | CNEOS atmospheric impacts 1988–2026. Positional arrays — see §2.1. |
 | **P6** | `data/ams-reports.json` | JSON | 16 KB | 21 years × 12 × 6 | Eyewitness report-count bins 2006–2026. |
 | **P7** | `data/gmn-monthly.json` | JSON | 20 KB | 92 months | Camera photometry aggregates 2019–2026. |
 | **P8** | `data/spatial-test.json` | JSON | 4 KB | 1 result set | Monte Carlo output: radii, p-values, clustering, distance histogram. |
+| **P9** | `data/nuforc.json` | JSON | 9 KB | 172 months | NUFORC sighting aggregates 1906–2014. Self-assigned shape labels — see §2.4. |
 | S1 | `data/volcanoes.json` | JSON | 188 KB | 1,608 | NOAA volcano positions (input to P8). |
 | S2 | `data/ephemeris.json` | JSON | 384 KB | 3 eras | Heliocentric ecliptic J2000 daily vectors. Numeric; low text value. |
 | S3 | `data/world-land.json` | JSON | 36 KB | 100 rings | Natural Earth coastline, map rendering only. **No analytical content.** |
 | S4 | `data/provisional-iso-anomalies.json` | JSON | 12 KB | 12 | Superseded fallback drafts. **Do not ingest** — replaced by P2. |
 | D1 | `docs/two-instrument-problem.md` | Markdown | 16 KB | — | Methodological essay: instrument bias, detection floors, the three-instrument result. |
 | D2 | `docs/claim-coverage.md` | Markdown | 8 KB | — | 24-anomaly claim list mapped to case files. |
-| D3 | `_CHANGELOG.md` | Markdown | 32 KB | — | Full development and finding history, v2.5 → v2.14. |
+| D3 | `_CHANGELOG.md` | Markdown | 36 KB | — | Full development and finding history, v2.5 → v2.15. |
 | D4 | `CLAUDE.md` | Markdown | 24 KB | — | Architecture, constraints, and the project's framing rules. |
-| C1 | `tools/*.py` | Python | — | 17 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
+| C1 | `tools/*.py` | Python | — | 21 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
 | C2 | `src/data-*.js` | JavaScript | 706 KB | — | **GENERATED. Do not ingest** — duplicates P1–P8 in compiled form. |
 
 ### 6.3 Direct links to primary sources
@@ -516,6 +543,7 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 - P6 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/ams-reports.json>
 - P7 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/gmn-monthly.json>
 - P8 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/spatial-test.json>
+- P9 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/nuforc.json>
 - D1 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/docs/two-instrument-problem.md>
 - D2 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/docs/claim-coverage.md>
 - D4 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/CLAUDE.md>
@@ -531,13 +559,13 @@ Establishes vocabulary, method, and the detection-floor concept before any raw r
 
 **Batch 2 — interpretive layer.**
 `P4` (briefings) → `P3` (fireball cases).
-Six narrative syntheses and five analytical cases. Highest information density per token.
+Seven narrative syntheses and six analytical cases. Highest information density per token.
 
 **Batch 3 — the case corpus.**
-`P1` → `P2`. The 47 case files with citations and verification verdicts.
+`P1` → `P2`. The 48 case files with citations and verification verdicts.
 
 **Batch 4 — quantitative substrate.**
-`P5` → `P6` → `P7` → `P8`. Ingest only after Batch 1, or the normalisation rules in §4.3
+`P5` → `P6` → `P7` → `P8` → `P9`. Ingest only after Batch 1, or the normalisation rules in §4.3
 will not be applied and raw counts will be misread as trends.
 
 **Optional.** `S1` (volcano positions), `D3` (changelog — useful for provenance of a
@@ -558,9 +586,12 @@ specific finding), `C1` (method verification).
    sentence without its adjacent field will invert the meaning.
 6. The transcript corpus is absent by design (§3.6); quoted excerpts are auto-caption
    derived and labelled as such.
+7. `P9`'s `shape` field is a **witness's own word**, not a measurement. Its "fireball" is a
+   different quantity from the one `P5` and `P6` report under that name, and the three
+   cannot be pooled or plotted on one axis. See §2.4.
 
 ---
 
-*Generated 2026-08-23 from commit `5cc4511`. Unofficial and educational. Where a claim is
+*Generated 2026-08-24 from the v2.15 release. Unofficial and educational. Where a claim is
 contested, both readings are given, including limits that cut against the project's own
 conclusions.*

@@ -72,11 +72,13 @@ jobs:
 
       # The report exits 1 when the upstream data is byte-identical, which is the
       # normal outcome for the ephemeris and a slow month for CNEOS.
-      # F-03 and F-04 argue from figures computed off these three datasets. If a
-      # refresh moves any of them the case files are now wrong, and must not ship
+      # F-03 through F-06 argue from figures computed off the shipped datasets. If
+      # a refresh moves any of them the case files are now wrong, and must not ship
       # silently — a case that quotes a number the data no longer supports is
-      # worse than no case at all.
-      - name: Re-check the figures cases F-03 and F-04 quote
+      # worse than no case at all. The NUFORC archive and the volcano Monte Carlo
+      # are frozen and are not re-pulled here, but their figures are re-derived on
+      # the same terms: the check catches a bad rewrite as readily as bad data.
+      - name: Re-check the figures cases F-03 to F-06 quote
         id: f03
         continue-on-error: true
         run: python tools/fireball_rate_check.py | tee -a "$GITHUB_STEP_SUMMARY"
@@ -86,7 +88,7 @@ jobs:
         run: |
           if python tools/refresh_report.py > /tmp/report.md; then
             if [ "${{ steps.f03.outcome }}" = "failure" ]; then
-              printf '\n> **Cases F-03/F-04 need rewriting.** A figure they quote no longer matches the data — see the job summary for which one and what it is now.\n' >> /tmp/report.md
+              printf '\n> **A fireball case file needs rewriting.** A figure quoted by one of F-03 to F-06 no longer matches the data — see the job summary for which one and what it is now.\n' >> /tmp/report.md
             fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
             cat /tmp/report.md >> "$GITHUB_STEP_SUMMARY"

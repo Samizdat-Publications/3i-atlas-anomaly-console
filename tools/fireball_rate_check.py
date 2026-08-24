@@ -1,9 +1,12 @@
 """Re-derive every number cases F-03 and F-04 quote, and fail if any has drifted.
 
-F-03 and F-04 are the only case files argued from figures COMPUTED off the shipped
+F-03 through F-06 are the case files argued from figures COMPUTED off the shipped
 datasets rather than from a published paper. Those figures go stale the moment
 CNEOS adds a row, AMS logs another month, or GMN publishes more trajectories — so
-they are checked here instead of trusted.
+they are checked here instead of trusted. F-05's Monte Carlo and F-06's NUFORC
+archive do not move on their own, but they are checked on the same terms: a case
+that quotes a number nothing in the repository produces is the failure mode this
+tool exists to catch, whether the drift came from upstream or from a rewrite.
 
     python tools/fireball_rate_check.py           # print the numbers, verify the cases
     python tools/fireball_rate_check.py --quiet   # exit status only
@@ -27,6 +30,15 @@ def load(name):
     p = os.path.join(ROOT, "data", name)
     if not os.path.exists(p):
         sys.exit("Missing data/%s — run the matching fetcher first." % name)
+    with io.open(p, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_optional(name):
+    """For datasets a checkout may legitimately not have pulled yet."""
+    p = os.path.join(ROOT, "data", name)
+    if not os.path.exists(p):
+        return None
     with io.open(p, encoding="utf-8") as f:
         return json.load(f)
 
@@ -124,6 +136,56 @@ def rows_in_regions(fb):
     return n
 
 
+def nuforc_stats(nf):
+    """Every figure case F-06 quotes, re-derived from the archive aggregates."""
+    ms = {m["m"]: m for m in nf["months"]}
+    yrs = {y["y"]: y for y in nf["years"]}
+    sea = {x["m"]: x for x in nf["seasonal"]}
+    days = nf["claim"]["days"]
+    through = nf["claim"]["through_day"]
+
+    def pct(t, f):
+        return 100.0 * f / t if t else 0.0
+
+    ct = sum(d["n"] for d in days[:through])
+    cf = sum(d["fb"] for d in days[:through])
+    # Trailing twelve months before the claim month, POOLED. A mean of twelve
+    # monthly ratios would let a thin month swing the baseline.
+    ky = int(nf["claim"]["month"][:4])
+    km = int(nf["claim"]["month"][5:])
+    prior = []
+    for i in range(1, 13):
+        y, m = ky, km - i
+        while m < 1:
+            y, m = y - 1, m + 12
+        prior.append("%04d-%02d" % (y, m))
+    tt = sum(ms[k]["n"] for k in prior if k in ms)
+    tf = sum(ms[k]["fb"] for k in prior if k in ms)
+    order = sorted(ms, key=lambda k: -pct(ms[k]["n"], ms[k]["fb"]))
+    top = order[0]
+    us = nf["claim"]["us_through_day"]
+    return {
+        "rows": nf["rows"], "shaped": nf["shaped"], "unlabelled": nf["unlabelled"],
+        "first": nf["first_sighting"], "last": nf["last_sighting"],
+        "us_rows": next((c["n"] for c in nf["countries"] if c["c"] == "us"), 0),
+        "fb": nf["fireball"]["count"], "share": nf["fireball"]["share"],
+        "rank": nf["fireball"]["rank"], "shapes": nf["fireball"]["shapes"],
+        "top_shapes": nf["shapes"][:3],
+        "claim_n": ct, "claim_fb": cf, "claim_pct": pct(ct, cf),
+        "claim_us_n": us["n"], "claim_us_fb": us["fb"], "claim_us_pct": pct(us["n"], us["fb"]),
+        "claim_full": pct(ms[nf["claim"]["month"]]["n"], ms[nf["claim"]["month"]]["fb"]),
+        "trailing": pct(tt, tf),
+        "months": len(ms), "month_rank": 1 + order.index(nf["claim"]["month"]),
+        "top_month": top, "top_pct": pct(ms[top]["n"], ms[top]["fb"]),
+        "top_n": ms[top]["n"], "top_fb": ms[top]["fb"],
+        "chel_n": nf["chelyabinsk"]["n"], "chel_fb": nf["chelyabinsk"]["fb"],
+        "chel_month": pct(ms[nf["chelyabinsk"]["date"][:7]]["n"],
+                          ms[nf["chelyabinsk"]["date"][:7]]["fb"]),
+        "years": {y: pct(v["n"], v["fb"]) for y, v in yrs.items()},
+        "seasonal": {m: pct(v["n"], v["fb"]) for m, v in sea.items()},
+    }
+
+
 def case_text(cid):
     with io.open(os.path.join(ROOT, "data", "fireball-cases.json"), encoding="utf-8") as f:
         case = next((c for c in json.load(f)["cases"] if c["id"] == cid), None)
@@ -134,7 +196,7 @@ def case_text(cid):
     return re.sub(r"(?<=\d),(?=\d)", "", t)      # prose writes 1,069; data says 1069
 
 
-def report(a, g, c, nreg):
+def report(a, g, c, nreg, sp, nf):
     print("CNEOS: %d rows through %s. %d so far this year, %d at >=1 kt "
           "(prior-year range %d-%d)." % (c["count"], c["last"], c["cur_n"], c["cur_1kt"],
                                          c["range_lo"], c["range_hi"]))
@@ -153,9 +215,25 @@ def report(a, g, c, nreg):
               % (label, y["frac"], y["mean"], y["frac"] / y["mean"], y["lo"], y["hi"]))
     print("GMN median AbsMag 2021-26 spans %+.2f to %+.2f; stations %d -> %d"
           % (g["median_lo"], g["median_hi"], g["stations_first"], g["stations_max"]))
+    if sp:
+        r = sp["radii"]
+        print("SPATIAL %d events vs %d volcanoes, %d trials: 100 km %d vs %.1f | "
+              "200 km %d vs %.1f | 500 km %d vs %.1f | median %.0f vs %.0f km"
+              % (sp["events"], sp["volcanoes"], sp["trials"],
+                 r["100"]["observed"], r["100"]["rotation_mean"],
+                 r["200"]["observed"], r["200"]["rotation_mean"],
+                 r["500"]["observed"], r["500"]["rotation_mean"],
+                 sp["median"]["observed"], sp["median"]["rotation_mean"]))
+    if nf:
+        print("NUFORC %d rows to %s, fireball %.2f%% all-time (rank %d of %d shapes)"
+              % (nf["rows"], nf["last"], nf["share"], nf["rank"], nf["shapes"]))
+        print("  claim month through the 11th %.2f%% (US %.2f%%) | whole month %.2f%% | "
+              "trailing 12mo %.2f%% | rank %d of %d months (top %s at %.2f%%)"
+              % (nf["claim_pct"], nf["claim_us_pct"], nf["claim_full"], nf["trailing"],
+                 nf["month_rank"], nf["months"], nf["top_month"], nf["top_pct"]))
 
 
-def verify(a, g, c, nreg):
+def verify(a, g, c, nreg, sp, nf):
     bad = []
 
     t3 = case_text("F-03")
@@ -221,12 +299,80 @@ def verify(a, g, c, nreg):
                 if stated not in t4:
                     bad.append("F-04 %s: case no longer states '%s'" % (date, stated))
 
+    t5 = case_text("F-05")
+    if t5 is None:
+        print("F-05 not found.")
+    elif sp is None:
+        print("data/spatial-test.json absent — F-05's figures not checked.")
+    else:
+        r, cl = sp["radii"], sp["cluster"]
+        for label, needle in [
+            ("event count", "%d CNEOS events" % sp["events"]),
+            ("volcano count", "%d volcano positions" % sp["volcanoes"]),
+            ("trials", "%d trials" % sp["trials"]),
+            ("100 km", "%d events observed against %.1f" % (r["100"]["observed"],
+                                                            r["100"]["rotation_mean"])),
+            ("200 km", "%d against %.1f" % (r["200"]["observed"], r["200"]["rotation_mean"])),
+            ("500 km", "%d against %.1f" % (r["500"]["observed"], r["500"]["rotation_mean"])),
+            ("median distance", "%.0f km observed against %.0f" % (sp["median"]["observed"],
+                                                                   sp["median"]["rotation_mean"])),
+            ("nearest-neighbour median", "%.0f km against %.0f" % (cl["median_nn"]["observed"],
+                                                                   cl["median_nn"]["null_mean"])),
+            ("pairs within 100 km", "%d events having another within 100 km against %.1f"
+                                    % (cl["pairs_100"]["observed"], cl["pairs_100"]["null_mean"])),
+        ]:
+            if needle not in t5:
+                bad.append("F-05 %s: data says '%s', the case does not" % (label, needle))
+
+    t6 = case_text("F-06")
+    if t6 is None:
+        print("F-06 not found.")
+    elif nf is None:
+        print("data/nuforc.json absent — F-06's figures not checked.")
+    else:
+        sh = {x["shape"]: x for x in nf["top_shapes"]}
+        checks = [
+            ("archive size", "%d reports from %s to %s" % (nf["rows"], nf["first"], nf["last"])),
+            ("shape-bearing", "%d carry a shape and %d do not" % (nf["shaped"], nf["unlabelled"])),
+            ("scrub", "project reads holds %d" % nf["rows"]),
+            ("US share", "%d of the %d rows" % (nf["us_rows"], nf["rows"])),
+            ("fireball count", "%d of %d shape-bearing" % (nf["fb"], nf["shaped"])),
+            ("fireball share", "%.2f%%" % nf["share"]),
+            ("fireball rank", "fourth of %d shapes" % nf["shapes"]),
+            ("claim month", "%d shape-bearing reports with %d fireballs, %.1f%%"
+                            % (nf["claim_n"], nf["claim_fb"], nf["claim_pct"])),
+            ("claim month US", "%d reports and %d fireballs, %.1f%%"
+                               % (nf["claim_us_n"], nf["claim_us_fb"], nf["claim_us_pct"])),
+            ("trailing baseline", "fireball share is %.2f%%" % nf["trailing"]),
+            ("claim month full", "came in at %.2f%% for the full month" % nf["claim_full"]),
+            ("claim month partial", "%.1f%% through the 11th" % nf["claim_pct"]),
+            ("month count", "%d of them" % nf["months"]),
+            ("month rank", "comes 14th"),
+            ("record month", "July 2012 at %.2f%% (%d of %d)"
+                             % (nf["top_pct"], nf["top_fb"], nf["top_n"])),
+            ("chelyabinsk day", "logged %d reports, %d of them fireball"
+                                % (nf["chel_n"], nf["chel_fb"])),
+            ("chelyabinsk month", "February 2013 finished at %.2f%%" % nf["chel_month"]),
+        ]
+        for y in (2003, 2004, 2008, 2009):
+            checks.append(("%d share" % y, "%.2f%%" % nf["years"][y]))
+        checks.append(("2010-13 run", "%.2f%%, %.2f%%, %.2f%%, %.2f%%"
+                       % tuple(nf["years"][y] for y in (2010, 2011, 2012, 2013))))
+        for m, name in ((7, "July"), (12, "December"), (4, "April")):
+            checks.append(("%s seasonal" % name, "%.2f%%" % nf["seasonal"][m]))
+        for shape, pretty in (("light", "light"), ("triangle", "triangle"), ("circle", "circle")):
+            checks.append(("%s share" % shape,
+                           "%s (%.1f%%)" % (pretty, sh[shape]["share"])))
+        for label, needle in checks:
+            if needle not in t6:
+                bad.append("F-06 %s: data says '%s', the case does not" % (label, needle))
+
     if bad:
         print("\nCASE FILES ARE OUT OF DATE:")
         for b in bad:
             print("  - " + b)
         return 1
-    print("\nF-03 and F-04 check out: every figure they quote matches the current data.")
+    print("\nF-03 through F-06 check out: every figure they quote matches the current data.")
     return 0
 
 
@@ -236,9 +382,12 @@ def main():
     fb, ams, gmn = load("fireballs.json"), load("ams-reports.json"), load("gmn-monthly.json")
     a, g, c = ams_stats(ams), gmn_stats(gmn), cneos_stats(fb)
     nreg = rows_in_regions(fb)
+    sp = load_optional("spatial-test.json")
+    raw = load_optional("nuforc.json")
+    nf = nuforc_stats(raw) if raw else None
     if not quiet:
-        report(a, g, c, nreg)
-    return verify(a, g, c, nreg)
+        report(a, g, c, nreg, sp, nf)
+    return verify(a, g, c, nreg, sp, nf)
 
 
 if __name__ == "__main__":

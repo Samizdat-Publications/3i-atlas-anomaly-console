@@ -88,7 +88,7 @@ tab in the left rail lists all of them, searchable across every object.
 
 ### Search across all four registers at once
 
-The case log searches all 44 case files, not just the object you're viewing — and the
+The case log searches all 48 case files, not just the object you're viewing — and the
 MISSION LOG tab does the same across all 58 timeline records. Searching **`nickel`**
 returns 3I/ATLAS's anomaly *and* 2I/Borisov's rebuttal — the same measurement, argued two ways,
 side by side. Foreign results are badged by object; clicking one switches target and opens it — including the
@@ -118,7 +118,7 @@ fireball cases, which live in their own register rather than an era.
 
 **Offline:** open `public/index.html` — or the identical `_LATEST - 3I-ATLAS Anomaly Console.html` —
 in any modern browser. No server, no install, no network. Everything (three.js, the font, the
-ephemeris, the fireball catalog, all 44 case files) is inlined into one ~1.4 MB file with
+ephemeris, the fireball catalog, all 48 case files) is inlined into one ~1.4 MB file with
 **zero external references**.
 
 Press any key at the boot screen to authenticate; that gesture also unlocks the audio.
@@ -145,7 +145,7 @@ reticle; and the redaction bars in **ARCHIVE**.
 
 ### Linking to a specific case
 
-The URL hash is `#<object>[/<case-id>|/<record-id>|/<mode>]`, so any of the 44 case files —
+The URL hash is `#<object>[/<case-id>|/<record-id>|/<mode>]`, so any of the 48 case files —
 and any of the 58 timeline records — is directly linkable:
 
 - [`#3i/A-05`](https://3i-atlas-anomaly-console.pages.dev/#3i/A-05) — the sunward anti-tail
@@ -194,11 +194,17 @@ Orbital geometry and the light-curve model are computed from the real ephemeris.
 ```bash
 python tools/fetch_ephemeris.py   # 3 eras of JPL Horizons vectors -> data/ + src/
 python tools/fetch_fireballs.py   # CNEOS bolides + Natural Earth land -> data/ + src/
+python tools/fetch_ams.py         # AMS eyewitness report-count bins -> data/
+python tools/fetch_gmn.py         # Global Meteor Network photometry -> data/
+python tools/fetch_volcanoes.py   # NOAA volcano positions -> data/
+python tools/fetch_nuforc.py      # NUFORC sighting aggregates -> data/
+python tools/spatial_test.py --save   # fireball/volcano Monte Carlo -> data/
 python tools/bake_content.py      # research payloads -> src/data-content.js
+python tools/bake_instruments.py  # the cross-dataset summaries the charts read
 python tools/make_og_image.py     # render the social card from real trajectory data
 python tools/build.py             # inline everything -> public/index.html + about.html
 python tools/refresh_report.py    # what did that refresh actually change? (markdown)
-python tools/fireball_rate_check.py   # re-derive the figures case F-03 quotes
+python tools/fireball_rate_check.py   # re-derive every figure cases F-03..F-06 quote
 ```
 
 ### Reading the claims at source
@@ -216,9 +222,11 @@ python tools/fetch_transcripts.py --since 2025-08-01
 
 Run it from a normal home connection — YouTube blocks datacenter IPs outright, so this fails
 from a cloud shell with *"Sign in to confirm you're not a bot"*. If you hit that at home,
-add `--cookies-from-browser chrome`. `data/transcripts/` is **gitignored**: those are someone
-else's words, and this repo is public. What belongs in the repo is the analysis derived from
-them — a case file stating the claim, with its rebuttal and sources beside it.
+add `--cookies-from-browser chrome`. `data/transcripts/` **is tracked here**, by the owner's
+decision, with attribution and a per-video index in `data/transcripts/README.md`; the batched
+copies under `notebook/` exist so a research notebook can ingest the corpus by URL. What the
+console itself ships is the analysis derived from them — a case file stating the claim, with
+its rebuttal and sources beside it.
 
 ### Keeping the data fresh
 

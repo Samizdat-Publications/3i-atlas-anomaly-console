@@ -82,8 +82,30 @@ def main():
             "histogram": t["histogram"],
         }
 
+    # NUFORC sighting archive, if it has been pulled. Case F-06 argues from the
+    # MONTHLY series and from one number that is not in it — the share the claim
+    # compares against — so both travel, along with the rolling baseline that is
+    # the whole point of the chart.
+    npath = os.path.join(ROOT, "data", "nuforc.json")
+    nuforc = None
+    if os.path.exists(npath):
+        with io.open(npath, encoding="utf-8") as f:
+            nf = json.load(f)
+        ms = nf["months"]
+        nuforc = {
+            "start": ms[0]["m"], "end": ms[-1]["m"],
+            "n": [m["n"] for m in ms],
+            "fb": [m["fb"] for m in ms],
+            "baseline": nf["fireball"]["share"],
+            "rank": nf["fireball"]["rank"],
+            "shapes": nf["fireball"]["shapes"],
+            "claim": nf["claim"]["month"],
+            "last_sighting": nf["last_sighting"],
+        }
+
     payload = {
         "spatial": spatial,
+        "nuforc": nuforc,
         "window": "Q1 (January-March), whole months only",
         "baseline": "%d-%d" % (min(BASE), max(BASE)),
         "note": ("Raw counts measure the instruments; the shares and rates measure the sky. "
@@ -98,6 +120,9 @@ def main():
         f.write("window.ATLAS_INSTRUMENTS = ")
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
+    if nuforc:
+        print("  NUFORC series included: %d months %s-%s, all-time fireball share %.2f%%"
+              % (len(nuforc["n"]), nuforc["start"], nuforc["end"], nuforc["baseline"]))
     if spatial:
         print("  spatial test included: %d events vs %d volcanoes, %d trials"
               % (spatial["events"], spatial["volcanoes"], spatial["trials"]))
