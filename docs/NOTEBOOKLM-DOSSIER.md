@@ -23,7 +23,7 @@ Stated first so a notebook does not go looking for them or hallucinate them.
 | Per-record "severity score" | **None.** The Loeb Scale (§2.5) is an OBJECT-level rank assigned by a third party, not a per-record severity. |
 | Witness//personal identifiers | **None.** No personal data is stored. |
 | Cross-referenced entity tags | **None as a structured field.** Cross-references exist only as (a) `sources` URL arrays, (b) briefing→case link arrays, (c) the `tag` slot in fireball rows, used solely for `IM1`/`IM2`. |
-| Video transcripts | **Not in this repository.** See §3.6 — they are third-party content held in a separate PRIVATE repo and are unreachable to an external ingester. |
+| Video transcripts | **Present.** 114 machine transcriptions in `data/transcripts/`, plus 3 consolidated files for notebook ingestion. See §3.6. |
 
 ---
 
@@ -269,18 +269,22 @@ match — CNEOS logs 2–3 events monthly worldwide.
 Across all of 2025–2026, only **four** CNEOS rows fall anywhere in the regions this body of
 coverage discusses. Everything else discussed is below the detection floor (§4.4).
 
-### 3.6 Transcript corpus — NOT INGESTIBLE FROM THIS REPOSITORY
-114+ auto-caption transcripts (2025-06 → 2026-08) of a third-party YouTube channel are used
-as the claim source. They are held in a **separate private repository**
-(`Samizdat-Publications/3i-atlas-transcripts`) and `data/transcripts/` is gitignored here,
-because the public repository must not republish a creator's caption archive.
+### 3.6 Transcript corpus
+114 auto-generated caption transcripts (2025-06-28 → 2026-08-23, ~357,000 words) of the
+YouTube channel **Angry Astronaut**, which is the claim source for the register. Tracked in
+`data/transcripts/`; provenance, attribution and a full per-video index with canonical URLs
+are in `data/transcripts/README.md`.
 
-**Consequence for a research notebook: these are unavailable.** What is public is the
-*derived analysis* — claims are quoted only in short, attributed excerpts inside case files,
-always labelled `TRANSCRIBED FROM AUTO-CAPTIONS, NOT A PUBLISHED TEXT`, because machine
-transcription is not a verbatim record of a person's words.
+For notebook ingestion use `data/transcripts/notebook/`, which consolidates the corpus into
+**3 files** of roughly 118,000 words each. Each carries the title, upload date and canonical
+YouTube URL of every video, so any passage traces back to its source.
 
----
+**Read them as claims, not as facts.** They record what was asserted; every factual check in
+this project runs against primary sources instead. They are also machine transcriptions:
+wording is approximate and proper nouns are frequently mangled — `3I/ATLAS` appears as
+'three eye atlas', PHIVOLCS as 'Five Vulks', perijove as 'perijove distance' or 'today's
+perijove'. Never quote them as a published text. Case files that cite them label the excerpt
+`TRANSCRIBED FROM AUTO-CAPTIONS, NOT A PUBLISHED TEXT`.
 
 ## 4. Methodological Framework & Verification Protocols
 

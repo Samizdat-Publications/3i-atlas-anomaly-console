@@ -42,10 +42,12 @@ leaves event-to-event distances unchanged and cannot test it.
 Still unbuilt: NUFORC (Cloudflare 403), which would test the 2013 Cheryl Costa claim he
 raises; and a nuclear-site dataset for the remaining positional claim.
 
-**TRANSCRIPTS ARE AVAILABLE TO CLOUD SESSIONS NOW.** 114+ of them, 2025-06 to 2026-08, in the
-PRIVATE repo `Samizdat-Publications/3i-atlas-transcripts` (attach with add_repo, then clone).
-data/transcripts/ stays gitignored here — this repo is public and those are someone else's
-words. `tools/push_transcripts.py` copies and pushes; `tools/transcript_digest.py` is the
+**TRANSCRIPTS ARE TRACKED IN THIS REPO (owner's decision, 2026-08-23).** 114 of them,
+2025-06-28 to 2026-08-23, ~357k words, in `data/transcripts/` with attribution and a per-video
+index in `data/transcripts/README.md`; `data/transcripts/notebook/` holds 3 consolidated files
+for research-notebook ingestion. Stewart's position is that the channel's material may be used
+freely. The private mirror `Samizdat-Publications/3i-atlas-transcripts` still exists and
+`tools/push_transcripts.py` still works, but is no longer the only route. `tools/push_transcripts.py` copies and pushes; `tools/transcript_digest.py` is the
 phone-friendly skim. Fetching still only works from Stewart's machine (YouTube blocks
 datacenter IPs).
 

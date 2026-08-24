@@ -1,0 +1,112 @@
+# New 3I Atlas photos!  But is NASA hiding the good stuff?
+# 20251009  https://www.youtube.com/watch?v=eEWn9RBdAVo
+
+Good evening, alien enthusiasts, and welcome to another angry alien bulletin.
+This one probably not quite so long as many of my others because in my opinion, we don't have a hell of a lot to talk about aside from the fact that I am here in Brisbane.
+This is probably going to be my final stop in Australia before I move on to other destinations. looking forward to bringing you folks some additional content and uh also hoping to meet at least a few of you here in Brisbane.
+I know I keep saying that I'm going to schedule meetups and then one hospital visit or other catastrophe after another continues to happen and just disrupts all of my plans.
+But assuming none of that happens now, I'm going to at least try to schedule a meet up here in Brisbane.
+So please stay tuned if you happen to live in somewhere in this vicinity.
+All that having been said, uh really fantastic experience and I want to thank all of you for making it possible.
+Definitely couldn't have done any of this without you.
+So let's talk about 3i Atlas and we'll just address a number of issues one by one.
+And first of all, we're going to start out with is NASA trying to hide something from us?
+Do they have more images of three Atlas that they're not showing us?
+And uh they just released a certain select few and are keeping the rest of them to themselves.
+Well, I think that's possible because even though we have this government shutdown going on, NASA apparently has had the time to process this one image, and it's the worst image imaginable.
+The cameras on the Perseverance were absolutely not designed to look at astronomical phenomena that are tens of millions of kilometers away from Mars.
+They are the worst possible cameras to observe three eye atlas.
+And so this particular image, in my opinion, really shows us nothing.
+I'm going to get a little bit further into the details of this image and tell you why it's not a tic-tac-shaped object, a cylinder, or anything else, but rather the results of a camera that simply wasn't designed to look at these sorts of things and efforts that were made to try to at least show us something visible.
+All that being the case though, we also have some images from ISSa.
+And frankly, those are equally uninspiring at this point.
+And again, it's simply because the issa orbiters also are not really equipped with cameras that are capable of taking extremely detailed photos of faraway objects in space.
+They're designed instead to look at objects on the surface of Mars from orbit.
+So really, a lot of the cameras and optical devices that are being used to have a look at three Atlas from Mars orbit, virtually none of these were really designed to do this at all.
+And I'm not expecting to get some really, really good quality imagery of three Atlas at all from these particular spacecraft.
+However, we need to at least examine the images that we have thus far because they're already starting to create a fair amount of controversy, a lot of buzz.
+But when it comes right down to it, the best images are yet to come.
+The instruments that are far better suited to look at three Atlas, well, all of that information has yet to be released.
+And again, I find it strange and perhaps a little bit suspicious that NASA showed us the Perseverance image so quickly and yet it failed to show us much of anything else.
+You would think that if the government shutdown was going to stop them from releasing anything at all, then why did we see the Perseverance image and nothing else?
+So, all that having been said though, I think it's quite likely that it is the government shutdown.
+It is all of the chaos that exists at NASA as a result of the vast majority of their staff being sent home that has actually created this problem.
+Although all of the photographs are being taken an automated fashion, signals that are being sent at least 15 minutes ahead of time given the light travel time issues that are involved in all of this stuff would have had to have been pre-programmed anyway days prior to the event.
+You would need to rotate the spacecraft into a proper position, prepare all of the instruments, all of the cameras, telescopes, etc. to photograph a moving target.
+And by the way, moving extremely fast, over 60 kilometers per second.
+All of that would have had to have been set up considerably ahead of time.
+So, I'm confident that these instruments actually did take the necessary photos.
+What I'm not confident about is how quickly NASA is going to release any of this to us, especially if the images show us something bizarre, something strange, something unexpected.
+Once again, I'm not expecting any of that to happen because we've already had James Web and Hubble photograph this object, the some of the best instruments we have at our disposal.
+So, I'm really not thinking that these are going to show us a whole lot of what we don't already know.
+Although, it might at least have a chance of giving us a better image of the nucleus better than we have right now.
+But still, there's a lot of discussion going on about the images we do have, especially the perseverance image that seems to show a cylinder.
+And I think it's important that everybody understand what this image is actually showing us.
+So, we're going to go ahead and get started on all of this right now. [Music] Okay, let's start off with the so-called tic tac because this is the one that is generating the most controversy.
+And by the way, I'm stealing from Avi Loe's Medium article about this topic because I happen to agree with his assessment completely.
+When this image was taken by the perseverance rover utilizing its right navigation camera or nav cam 3i atlas was 38 million kilometers away from Mars and this image as you can see shows an elongated stripe which is about four times longer than it is wide.
+So is this a cylindrical object?
+Well first of all we have to look at the capabilities of the perseverance nav cam.
+It has sensitivity to visible light with an angular resolution of.33 mill radians or about 68 arcseconds per pixel.
+This translates to a spatial scale of about 12,500 km at the distance of three eye atlas from Mars when the image was taken.
+In other words, we are looking at an object that is 4 pixels long or about 50,000 km.
+If 3I Atlas were a cylinder that was that absolutely enormous, we would have noticed that a very long time ago.
+Instead, what this is is a poorly rendered image taken by the nav cam from this particular rover.
+A rover that wasn't designed to photograph something like three eye atlas in the heavens.
+It was supposed to photograph nearby objects on the Martian surface.
+This is a series of photographs taken over a period of about 10 minutes and then stacking these photos one on top of the other in order to increase the brightness of the object being photographed in the heavens.
+Because the maximum exposure time for the nav cam is only 3.28 seconds.
+With that little exposure time, threeey atlas wouldn't have even appeared in the sky at all.
+The only way to get an actual object, a visible object that would appear in a photograph would be to take many photographs over a sustained period of time and then stack them on top of one another. meaning the three atlas traveling at about 60 kilometers/s would have left this streak on the time exposure photograph.
+It's very misleading.
+I don't see why NASA released this at all.
+It's really ridiculous.
+But nevertheless, that's what Avi Lo says this image is.
+And I agree with him completely.
+There's no way that this could possibly be a massive cylinder. tens of thousands of kilometers long.
+All that being the case though, the other series of images that were taken by the ISSA instrument, that is to say the color and stereo surface imaging system, also known as Cassus, on board the ExoMars trace gas orbiter, was a lot more interesting.
+Even though it ostensibly shows threeey atlas as a fuzzy ball of light, there were a series of images released, each of which were subjected to a 5second exposure.
+So even though these are very, very tiny images, I'm very intrigued by what I see here.
+It's not what one would expect from a comet.
+Instead, what we appear to be seeing is a swirling mass of gases here.
+Again, that is very, very strange and no visible tail whatsoever.
+One would expect to see a glowing coma and then a tail stretching out behind the object.
+But instead, we see this strange swirling effect taking place with this particular image.
+Again, I'm not sure if anybody else has really noticed this, it is a very odd image, but based on what we know about the size to pixel ratio of what the image represents, that is to say, how big is this glowing ball that we're seeing?
+Well, based on the number of pixels in the image and the diameter represented by these pixels, it's only a few hundred kilometers in diameter.
+In other words, not even the full extent of the coma that was observed by the Hubble telescope or observed by James Web.
+That being the case, we're only seeing the brightest portion of this object.
+But again, seeing no tail at all is really strange because we observed a very obvious tail in other images.
+Although tails pointing directly at the sun sometimes.
+So has the image changed in its appearance since our last observation? at is actually possible given the fact the threeey atlas was recently subjected to a coronal mass ejection or CME.
+This massive blast of solar plasma sometimes wipes out tails.
+The extremely powerful solar wind can blast a tail completely away and then it needs to be replaced by subsequent sublimation.
+However, if that sublimation hasn't happened yet and we're not seeing a tail at all, that is also a significant anomaly about this object and suggests that the tail that we saw originally might not have been a tail at all.
+Because every time we've seen a comet hit by a coronal mass ejection in the past, which by the way is a very rare occurrence, but every time we've seen it, even if the tail is significantly affected by the CME, it returns within a space of minutes, not days.
+So, I'm really looking forward to some more high quality imagery from other instruments, which hopefully will be coming soon because thus far, we've really only seen the worst that we have available.
+The best is yet to come.
+The highest resolution images, which are down to 30 kilometers per pixel, are expected from the highresolution imaging experiment or high-rise camera on board NASA's Mars Reconnaissance Orbiter.
+The high-rise camera has a diameter of 50 cm, a much bigger aperture than any instrument that's been turned towards this object yet, at least as far as Mars cameras are concerned, which will allow us to detect the glow around 3i atlas out to larger distances than possible with casses.
+The brightest pixel in the high-rise image will provide the best constraint ever on the diameter of the nucleus of three eye atlas. or at least we're hoping that that's what it's going to do.
+And if it turns out that this nucleus is much bigger than we thought, that makes this object anomalous in the extreme.
+So once again, so far not much to see to be honest.
+It's a little disappointing, but again, not entirely unexpected.
+And this illtimed government shutdown is really not helping matters.
+This is going to significantly delay NASA's analysis of all the images that they have.
+But once again, I continued to ask the question, if they were capable of releasing the Perseverance image, why couldn't they give us the rest of the raw images rather than keep a hold of them for so long?
+But then again, I think that NASA wants a chance to examine these better images, these better quality images from far more advanced optical devices.
+They want to have a chance to get a good look at these things before they release them to the public.
+Because if these images prove to be bizarre in some way, prove to show something that is decidedly not cometlike, NASA is going to have to take some time to determine exactly how they want to release this, how exactly they want to explain it and the type of reaction that they are likely to get from the public.
+As of right now, people are already, there's quite a few people anyway, who are quite terrified at the prospect of three eye atlas suddenly performing a slingshot maneuver around the sun and coming to wipe us all out.
+And by the way, I really don't think that that's what's going on here.
+I don't think the three Atlas is some sort of assault craft.
+I don't think that this is an alien invasion in the making.
+I think that this very well may be an alien mother ship of some kind that may be distributing probes and scouts throughout the solar system as it makes its paths through the solar system.
+But everything we have seen thus far indicates an object that is unairringly staying on the trajectory that it started on, maintaining its course in an uncanny manner.
+In spite of what appears to be obvious outgassing from this object, it hasn't shifted its trajectory even a tiny bit.
+And that is very uncomtlike.
+By the way, the total lack of non-gravitational acceleration, zero, almost zero non-gravitational acceleration suggests to me that this is an object using some sort of station keeping thrusters to stay on course.
+And if it's doing that, I don't think it has any plans of diverting its course anytime soon.
+I think it's going to maintain its trajectory all the way out of the solar system, making certain that we don't get a good look at it and that we cannot intercept it.
+Although with the Juno probe, we might be able to do that yet.
+Thanks very much for watching and until next time, stay angry about space. [Music]

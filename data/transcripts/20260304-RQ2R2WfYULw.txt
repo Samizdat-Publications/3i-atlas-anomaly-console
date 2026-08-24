@@ -1,0 +1,191 @@
+# I'm ANGRY at UFO skeptics Feynman, Degrasse Tyson!  They're WRONG about Aliens, Interstellar Travel!
+# 20260304  https://www.youtube.com/watch?v=RQ2R2WfYULw
+
+There's one thing that's made me think a lot.
+For many years in a row, one thing that most people don't bother to notice because our intuition, that very natural feeling of understanding the world, usually works quite well in everyday life.
+But, the problem is this, when you take that intuition outside the scope of the dinner table, the road in front of your house, or the drive to work, and apply it to the scale of the universe, it collapses instantly.
+And I'm telling you honestly, it doesn't just collapse.
+It gets mercilessly crushed by the universe.
+It doesn't know how to imagine a distance so vast that light, the fastest thing we know, still takes years to cross it.
+And it certainly doesn't know how to deal with the reality that to accelerate an object to near the speed of light, you have to supply it with so much energy that no intuitive system was ever designed to comprehend it.
+Good afternoon, viewers.
+Today, I am fired up as I challenge a physics legend, Richard Feynman.
+And yeah, Neil deGrasse Tyson, too.
+But, let's be honest here. deGrasse Tyson didn't win the Nobel Prize.
+He has a lot of the same views as Dr.
+Feynman.
+So, when I go after Dr.
+Feynman's views on interstellar travel and UFOs, I'm essentially going after deGrasse Tyson as well.
+I just included him to bring things into the 21st century.
+But, let's talk mostly about Dr.
+Feynman here.
+He was a genius, no doubt.
+Quantum electrodynamics and all that.
+But, when it came to space travel, he was stuck in the past.
+And I know a lot of people are going to disagree with me on this.
+But, he went on about the tyranny of the rocket equation and chemical engines to argue that Mars missions were a huge hassle, near impossible, and that interstellar trips or alien visitors are basically impossible.
+And Richard, if you're listening from the beyond, get ready.
+I'm about to break down why that's just not the case.
+We're way past chemical rockets now.
+Let's dive into how advanced propulsion makes this stuff not just possible, but realistic. &gt;&gt; [music] &gt;&gt; Good afternoon, alien enthusiasts, and welcome to another angry alien bulletin.
+I am here in a hotel room in London at the moment preparing to attend the Space Comm conference, but before I do that, a couple of things have come to my attention recently that I really thought it'd be a good idea to talk about at the moment.
+Kind of timely, not because of these two individuals that I've decided to target lately, but also because of how AI is creating new versions of at least one of these people who's been dead since 1988 in order to support their own narrow-minded views.
+The individual I'm talking about is Dr.
+Richard Feynman, and actually, the other person, Neil deGrasse Tyson, says many of the same things that he used to.
+So, I'm actually not going to talk as much about deGrasse Tyson simply because he doesn't hold as much credibility with me as Dr.
+Feynman did.
+He never won a Nobel Prize, for example, but still decided to just lump the two together because their views on UFOs are pretty similar.
+The reason I've decided to talk about Dr.
+Feynman in particular, however, is not because I think that he was stupid or narrow-minded in most regards or anything.
+He's actually kind of one of my heroes, and the The reason he was is because he put NASA's ineptitude on display in the 1980s immediately after the Challenger disaster.
+It was him that made this demonstration with the materials that were used in the O-rings that NASA was claiming should have been safe in the temperatures that they were being used in, but instead he just simply plopped it into a uh glass of ice water and demonstrated how the O-ring wouldn't have been able to maintain the kind of integrity that it should have during lift-off.
+A very simple demonstration that he carried out right in front of everybody and it was an humiliating moment for NASA, but quite a moment for him.
+It's kind of that moment that most of the public became aware of him even though the scientific community had known about him for quite some time.
+But when it comes to his views on interplanetary travel, interstellar travel, and especially UFOs, and whether or not aliens can actually visit our planet, that's where I take issue with a lot of Dr.
+Feynman's views.
+And granted, the man died back in 1988.
+There's certainly many technologies and many concepts that have come to light since his untimely passing that might have changed his views a little bit, but I doubt it to be honest.
+The guy wasn't the sort of person to change his views radically because of new information in spite of how he might talk.
+He had some very, very solid opinions when it came to these things and I have a feeling that it probably wouldn't have changed regardless of the discoveries that were made recently.
+And unfortunately, as a result of the curse of AI, Richard Feynman has been resurrected and is now being used as a source of information to prove whatever point the content creator on YouTube and elsewhere wants to make as if Dr.
+Feynman actually said anything about it trying to take advantage of people who don't know that much about Dr.
+Feynman especially the fact that he died in 1988 and so as a result you've got Dr.
+Feynman saying things for example about the Parker solar probe vehicle that's only been around for the last few years.
+So obviously he wouldn't have known anything about that or indeed about a lot of the recent spacecraft that have made their way out into the solar system since 1988.
+Very unfortunate and aggravating that he's being manipulated this way but nevertheless his views on interstellar travel and aliens, UFOs, that sort of thing were not all that different than AI would like us to believe that they were.
+And it is these views that I'm going to take issue with today.
+I am going to do my best to prove that Dr.
+Feynman had a narrow-minded point of view when it came to these sorts of things.
+He liked to believe that it was just intuition that made us think that interstellar travel was possible and not actual scientific fact but that is really not the case.
+I would instead argue that it is intuition that leads scientists and engineers today to believe that interstellar travel is impossible.
+They take the vast vast distances involved and their intuition tells them that these vast distances are an impenetrable barrier, just an insurmountable problem that no future travelers will ever be able to overcome regardless of how advanced their technology.
+And I'm going to do my best to prove to you folks today that that's just not the case and also the things that he said about UFOs aren't all that fair either.
+So, let's get going.
+When it came to traveling to Mars, Feynman stressed how high delta V for trips like Earth to Mars requires massive fuel loads with chemical engines.
+That's fair [music] if you're limited to old school tech and the rocket equation if you're using chemical engines, but nuclear engines like nuclear thermal propulsion and nuclear electric propulsion or NTP [music] and NEP change everything.
+NTP uses a nuclear reactor to heat propellant, preferably hydrogen because it's so lightweight, [music] to much higher temperatures than chemicals can reach leading to faster exhaust speeds &gt;&gt; [music] &gt;&gt; and better efficiency.
+Simply meaning that you can get more delta V out of less fuel.
+Chemical rockets top out at about 450 seconds worth of specific [music] impulse, which is a way of quantifying efficiency, but NTP [music] hits 850 to 900 seconds, roughly double.
+So, this directly [music] impacts delta V via that same rocket equation.
+Delta V equals specific impulse times gravity constant [music] times the natural logarithm of the initial mass over the final mass. [music] Higher specific impulse means you need a smaller mass ratio, in other words, less propellant relative to the dry mass in order to achieve the same delta [music] V.
+For a typical Mars transfer delta V of around 6 km per second, chemical propulsion might require 74% [music] of your initial mass as fuel, but NTP drops that to [music] about 49% saving around a third of the propellant mass you'd [music] need with chemicals.
+NASA figures it could cut Mars round trips from like eight or nine months down to maybe three or four months with far more payload room.
+Less [music] fuel rate means more space for gear or crew comforts or shielding against cosmic rays and solar radiation.
+Nuclear electric propulsion takes it even further.
+The reactor [music] powers electric thrusters like ion engines with specific impulses of 3,000 to [music] 10,000 seconds or more.
+Keep in mind, chemical rockets are 450 seconds, so this is five to 20 times better than chemical rockets.
+For that same 6 km per second delta V, the propellant fraction could plummet to 18% or less, [music] saving over 75% of the fuel mass compared to chemicals.
+High [music] delta V to the outer planets, Jupiter and Saturn, become straightforward.
+Think months to Jupiter instead [music] of years.
+The rocket equation's grip loosens with nuclear power, and prototypes are already in testing.
+And actually, when it comes to nuclear thermal propulsion, they had been [music] in testing decades before Dr.
+Feynman was even talking about this topic.
+Mars isn't virtually impossible.
+It's on the horizon.
+Okay, now that we've talked about Dr.
+Feynman's views on interplanetary travel, let's graduate up to what he believed was a near insurmountable problem, interstellar travel.
+So, [music] let's tackle interstellar journeys.
+Feynman said that reaching relativistic speeds, [music] in other words, speeds that are a substantial percentage of the speed of light, [music] would require fuel far bigger than the ship itself, and so much fuel actually as to become complete and impractical.
+Indeed, pushing even 1 ton of mass up to about 99% of the speed of light, just 1 ton, would require more energy than our entire civilization produces in a year.
+So, &gt;&gt; [music] &gt;&gt; aliens dropping by?
+No way.
+It would require far too much energy.
+But, innovative systems [music] skip the onboard fuel problem altogether using external energy for propulsion [music] across the stars.
+Photon sails, like what you're watching right now, are a [music] prime example.
+Huge, super thin mirrors pushed by laser beams or starlight via photon [music] pressure.
+Preferably, lasers generated by a massive multi-gigawatt laser array back on [music] Earth.
+Imagine a massive laser, however, powered by an alien megastructure that has a lot more power [music] at its disposal.
+Say, a Dyson swarm accelerating you from home to a good percentage of light speed.
+The energy stays behind, so your ship can stay light.
+To highlight this, let's [music] crunch the numbers.
+Accelerating a million-ton spacecraft, [music] a million tons here, which is an enormous amount of cargo, personnel, whatever, to 50% of the speed of light requires 1.39 10 25 J of kinetic energy.
+That is enormous.
+Feynman would call it a deal breaker.
+But, picture a Dyson swarm. [music] In other words, a vast swarm of solar collectors capturing just 1% of the sun's output, which is 26 [music] W total.
+That 1% gives you roughly 3.83 10 24 [music] power watts.
+And to just break this down, joules represents the amount of energy that gets produced by the same number of watts in 1 second.
+So, to produce 1.39 10 [music] 25 power joules with 3.83 10 24 power watts, well, if you directed all that [music] power into a photon sail, you'd gather the needed energy in under 4 seconds. 4 seconds.
+Megascale engineering turns the energy barrier into a minor hurdle.
+Now, of course, if you had a smaller megastructure, [music] say something large enough to gather all of the energy that strikes Earth, it might take a little longer to generate that much energy, say a couple of minutes or something along those lines.
+So, energy only becomes a barrier if you're not capturing all the free energy [music] that surrounds us here in the solar system.
+But what about slowing down?
+I hear lots of you screaming that right now. [music] Well, there's something called a magnetic sail.
+It deploys a big superconducting loop to create a field that drags against [music] the target star's magnetic field or interstellar travel.
+If you deploy this magnetic sail well before you come into contact with the star, in other words, billions and billions of kilometers away from the target star, [music] you can combine these.
+Photon sail for launch and magsail for braking, and you've got interstellar travel without hauling fuel. [music] Granted, you wouldn't decelerate as quickly because a star's [music] magnetic field wouldn't slow you down as much as the photon sail would speed you up, but nevertheless, with a magnetic sail that was deployed at [music] the appropriate time and with enough advanced notice, you could definitely slow [music] down fast enough if you were approaching a sun-like star.
+Other ideas like beam relays or advanced fusion add even more options.
+And Feynman's limits, well, they [music] fade if you think outside the box.
+And other problems such as a lack [music] of gravity, the effects of microgravity have on the human body [music] during long interstellar journeys, well, you can get rid of a lot of those problems with artificial gravity.
+In other words, rotating habitats.
+And what about cosmic rays and solar radiation?
+Well, [music] if you're not using your power for propulsion and also you have a million tons to work with, you can have a lot more shielding, for example, using your ship's water supply as radiation shielding.
+Water is extremely [music] effective at screening out radiation.
+Or you can use the ship's power plant to generate an electromagnetic [music] field that deflects these ionized particles before they even reach the hull.
+As I said, think outside the box and intriguing possibilities come to light.
+All right, so we've shown that inter- both interplanetary and interstellar travel may be a lot more feasible than Dr.
+Feynman would lead us to believe.
+Sure, it involves technologies that are far beyond our current capabilities, but it's not beyond our ability to imagine these technologies and imagine them realistically with our current understanding of science and engineering, not just making this stuff up, believing that it's some sort of magical power that it will allow us to travel between the stars.
+It's actually very feasible.
+Granted, requires things like megastructures and laser sails and magnetic sails, that sort of thing in order to accomplish these things at least easily, but it's doable.
+Now, we need to talk about UFOs and Dr.
+Feynman's view on all of that.
+So, Dr.
+Feynman supposedly applied physical reasoning to UFO sightings and observations.
+For example, reports describing craft accelerating from rest to extreme speeds instantly.
+Such motion, of course, would generate enormous forces.
+Thousands of Gs would crush biological occupants and damage materials.
+Well, of course, that only applies if these craft actually have biological occupants on board and aren't unmanned scout.
+For example, they're equivalent to Voyager 1 and 2, but we'll continue.
+Atmospheric travel also with those speeds would create intense plasma trails and sonic effects.
+You don't see that in the videos, he said.
+You see a blurry gray blob, which is, by the way, what you're actually seeing right now.
+And then he went on to say that extraordinary claims require extraordinary evidence and that blurry footage does not meet that standard.
+Well, this isn't blurry footage.
+This is military grade footage.
+It actually shows something that is quite real.
+The 2004 Tic Tac UFO encounter is a standout.
+Experienced F-18 pilots from the USS Nimitz, like Commander David Fravor and several others, saw these things up close.
+Smooth, white, Tic Tac shaped objects, approximately 12 or 13 m long with no wings or exhaust, hovering still and then blasting off at insane speeds with turns that defy physics for any known craft.
+And it wasn't just visuals.
+The USS Princeton's SPY-1 radar tracked them dropping from 80,000 feet to sea level in a second, over 24,000 miles per hour with sharp maneuvers.
+Declassified videos, multiple witnesses, solid sensors.
+This isn't fuzzy blobs.
+It's credible evidence that deserves attention.
+And Feynman also said, as I mentioned before, that extreme speeds in atmosphere would create plasma trails from the heat.
+Well, sure, if you're plowing through the air like a meteor, but what if the craft works with the atmosphere?
+Ionize the [music] air around it to create a plasma layer that cuts drag, provides lift, and even helps propulsion.
+We're experimenting with plasma aerodynamics now, advanced tech that can make hypersonic flight both smooth and trail free.
+Now, granted, and years before that, the physical evidence for UFO encounters might not have been as strong as it is now.
+But nevertheless, scientists continue to dismiss these things [music] as if they hadn't changed at all since the time of Feynman.
+Neil deGrasse Tyson is one of those people who talk this way, and it simply isn't the case.
+The evidence is far more compelling now than it was 40 years ago.
+Man, that is a drone, bro.
+There's a whole fleet of them.
+Look on the essay. &gt;&gt; [music] &gt;&gt; My gosh.
+They're all going against the wind.
+The wind's 100 knots to the west.
+Holy moly, dude.
+So, after investigating Dr.
+Feynman's views on interplanetary travel, interstellar travel, UFOs, and other matters, what is the final conclusion that we should come to about all of this.
+Well, I still admire Dr.
+Feynman.
+I think any reasonable person who enjoys science and physics should, but just because we admire somebody doesn't mean that we should take what they have to say as the gospel truth.
+In the end, it's narrow-minded to limit ideas about aliens and interstellar travel to what we know today.
+The speed of light is a real wall, but the rest we can engineer around it.
+Energy for relativistic speeds too much?
+We'll use a home system megastructure to beam it.
+Microgravity bad for health?
+Add artificial gravity with rotation.
+Cosmic rays a risk?
+Shield with electromagnetic fields.
+Now, imagine showing Isaac Newton a Saturn V rocket.
+He might not grasp it right away with all that fire and power, but based on his own laws, he wouldn't dismiss it as impossible or a dream.
+We should stay that open-minded.
+Universe is full of surprises, and our tech is just ramping up.
+Thank you very much for watching.
+Please do not forget to like and subscribe.
+My channel is back to growing again.
+I'm so grateful.
+Thanks very much to all of my new subscribers.
+And if you'd like to support this channel in other ways, Patreon's one of the best ways to do it, but all the details are in the description.
+Thanks again for watching, and until next time, stay angry about space. &gt;&gt; [music]

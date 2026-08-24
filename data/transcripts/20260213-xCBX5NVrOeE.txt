@@ -1,0 +1,143 @@
+# 3I Atlas probes reach Earth?  Two new Interstellar UFOs discovered!
+# 20260213  https://www.youtube.com/watch?v=xCBX5NVrOeE
+
+In October of last year, a mysterious meteor or double meteor event took place in the skies over Connecticut that has been generally explained away as being a trick of the light, but what appears to be a second object following a meteor into our atmosphere.
+But why would this be the case even if it isn't a trick of the light and it's some sort of UFO, what would be the point of following a meteor into our atmosphere as that meteor burns up?
+Well, interestingly enough, 3 days ago, Avi Loeb reported the discovery of two new interstellar objects that impacted our atmosphere fairly recently, one of which happened in July of 2022 and the other happened about a year ago, February 12th, 2025.
+That particular object I find to be extremely suspicious given the fact that it showed up in our atmosphere a mere 5 months before we detected the presence of 3I Atlas.
+But why are these objects significant?
+How do we know that they're not just ordinary interstellar meteors?
+Well, if they are interstellar meteors, that suggests something really astonishing and that's the fact that there are far more interstellar meteors in our solar system than we ever thought possible.
+And if that's the case, we have to rewrite a lot of astronomy books regarding how much interstellar material there actually is out there.
+And if that's not the case, if there aren't that many interstellar objects in our solar system, it means that these objects have to have impacted our atmosphere by design.
+All of this and more coming at you on the Angry Astronaut right now.
+Good afternoon, alien enthusiasts, and welcome to another angry alien bulletin.
+Getting back to 3I Atlas.
+Been a little time since we've talked about that.
+Although, this topic is going to be a little bit different than the other ones because we're going to be talking about a recent discovery that was made in regards to interstellar meteors, or rather, interstellar UFOs that entered our atmosphere in very recent years.
+As a matter of fact, one of these hit the atmosphere about a year ago, just a few months before 3I Atlas was detected.
+And so, in the case of this particular object, I am at least speculating about the possibility of it being a probe from 3I Atlas.
+But, why would I be coming to this kind of conclusion?
+I mean, they're just interstellar meteors, right?
+Why would we think that there's anything unusual about them or anything to suggest that they have a technological point of origin.
+Well, there's a very good reason.
+It's the fact that these things existed at all.
+The fact that at this point, we've had at least three and maybe four interstellar meteors that have impacted our atmosphere over the last decade and a half, actually a little less time than that, and that is a very strange thing.
+It suggests one of two things, actually.
+Either, number one, they're impacting our atmosphere by design, or number two, there's a lot of them in the solar system.
+Because, if you consider the odds of one of these things just happening to hit our planet during their journey through the solar system, because unlike ordinary meteors, these things don't orbit the sun and therefore have many opportunities to hit our planet.
+They have only one.
+So, the fact that we've had as many of them as we have recently hitting our atmosphere, that suggests that there has to be an enormous number of these things in our solar system for this to make any sense mathematically.
+So, either that's the case and there's far more interstellar meteors around than we thought or these things may have hit us by design.
+So, in a new paper from Avi Loeb, co-authored with an astronomy postdoc Richard Klettha, they are reporting on the identification of two previously unrecognized interstellar meteors in NASA's Fireball Database.
+By exploiting a new type of computer model, they have found two particular events that robustly exceeded the escape velocity from the solar system.
+Event CNEOS 22, which was detected on July 28th, 2022 in the Eastern Tropical Pacific, that one exceeded escape velocity by 8.7 standard deviations.
+Then there's CNEOS 25, which impacted on the 12th of February, 2025, exceeding escape velocity by 5.5 standard deviations.
+I'll get to what all of that means here in just a moment, but for both events, none of a million different possibilities yield an orbit that is gravitationally bound from the Sun.
+In other words, they measured the trajectories, the velocities, etc. and found that neither of these meteors could possibly have an orbit that was bound to the Sun and must be from an interstellar destination.
+The discoveries of 'Oumuamua, 2I/Borisov, and 3I/Atlas demonstrate that interstellar objects larger than a football field transit the inner solar system.
+And all those smaller bodies escape telescope detection, they can reveal themselves as fireballs when they enter Earth's atmosphere at speeds exceeding the local escape velocity from the solar system.
+The CNEOS fireball database, maintained by NASA's JPL, is a global space-based catalog providing event-level velocity vectors for [music] meteor detections from US government sensors.
+These velocity measurements enable computation of heliocentric orbits and testing whether an impactor was gravitationally unbound to the Sun.
+Previous interstellar meteor reports have focused on IM1 from January 8th of 2014 and IM2 from March the 9th, 2017, which, by the way, was the same year that 'Oumuamua passed through our solar system.
+So, seeing a pattern here?
+Interstellar meteors impacting Earth the same year that large interstellar objects are passing through the solar system.
+Independent analysis of IM1 by US Space Command [music] confirmed its interstellar identification, but some astronomers raised concerns about the velocity accuracy of pre-2008 CNEOS data, arguing that without a calibrated uncertainty model, it is impossible to distinguish genuinely unbound trajectories from measurement artifacts.
+The situation improved substantially in 2025 [music] with a new type of computer model that cross-matched CNEOS events with independent ground-truth networks.
+This analysis revealed two particular timeframes, a high discrepancy regime for pre-2018 events and a low discrepancy regime for post-2018 [music] events.
+In other words, ever since these new models came out, it is far more accurate after 2018 and far more likely that any estimations that detect an interstellar object after 2018 are probably correct.
+This calibration provides for the first time an empirically grounded basis for formal statistical assessment of interstellar candidacy.
+We analyze the complete CNEOS Fireball catalog of events with reported latitude, longitude, altitude, and three component velocity vectors.
+For each event, the Earth-fixed velocity was transformed to inertial geocentric coordinates accounting for Earth's rotation and polar motion.
+After the Earth's gravitational influence was removed, the heliocentric velocity was inferred by subtracting Earth's heliocentric velocity at the event time.
+It's pretty complicated to figure out the exact velocities of these objects and their trajectories.
+An event was classified as an interstellar candidate when its speed exceeded the escape speed from the solar system given the Earth-Sun separation at the event time.
+Restricting attention to the post-2018 low discrepancy era, two events emerge as statistically robust interstellar candidates.
+Both have positive heliocentric specific energy at their nominal velocities and remain unbound to the solar system in all of the computer models.
+Neither has been previously identified as an interstellar candidate.
+However, if you have a look at this particular graph in terms of kilometers per second for these particular events, it becomes clear that these objects have a velocity that exceeds the solar system escape velocity.
+Now, I am 1, the orange box at the top of the graph, by far had the fastest relative velocity, definitely fast enough to escape the sun's gravity and therefore the best candidate for an interstellar meteor.
+That's the one that impacted in 2012.
+I am 2 is a little bit more controversial, but still well above the margin for having this kind of velocity.
+This one impacted in 2017, the same year as 'Oumuamua passed through the solar system.
+And then you have these other objects, blue and red stars.
+These are the latest candidates that were analyzed with far greater detail with this new computer model, and they show impacts in July 28th of 2022 and February 12th of 2025.
+So, we have two interstellar objects impacting the Earth in the same years that 'Oumuamua and 3I Atlas passed through the solar system out of the four most prominent candidates.
+And incidentally, the odds of that happening purely by chance are just over 6%, not a ridiculously small chance, but still a 94% chance that this wouldn't have happened, and yet it did.
+And if you're interested as to where these objects impacted, the first CNEOS 22 hit the Pacific Ocean off the coast of Peru, and the second one hit the Barents Sea in the Arctic, CNEOS 25.
+Very interesting location for that second one because it hit a fairly shallow part of the ocean and debris might be a little easier to retrieve, although you have to keep in mind, of course, that the Barents Sea is a notoriously bad area to look for anything beneath the ocean.
+Okay, so that's what happened.
+Those are the most recent two interstellar objects that have struck our atmosphere.
+Again, one in 2022 and the other one in 2025.
+That one I'm particularly suspicious about in the fact that it hits our atmosphere just a few months prior to the detection of 3 I Atlas, but once again, how do we know that these things aren't just ordinary interstellar meteors?
+What is the point of investigating this any further?
+Indeed, why would Avi Loeb be interested in going on an expedition to scour the ocean floor looking for any remnants of these objects if they are just mundane ordinary meteors?
+Well, it's because for them to be ordinary mundane meteors, there must be a colossal number of these things in the solar system, perhaps an impossibly large number.
+So, the reason that objects that are bound to the solar system, especially near-Earth objects like Apophis, can present such a threat to our planet is because they're constantly orbiting the Sun and therefore get one chance after another after another of hitting our planet.
+And the more times we make a close approach with these kinds of objects, the more we start living on borrowed time.
+Ultimately, we will collide with a large object at some point in the future, an object perhaps large enough to create an extinction-level event unless we do something to prevent it, unless we use our technology, which is more than capable of doing this, to knock these kinds of dangerous objects off their course.
+But, when it comes to interstellar objects, those sorts of impact should be really, really unusual.
+Now, survey telescopes, like the existing Rubin Observatory or the planned Argus Array, are sensitive to reflected sunlight from large interstellar objects at a distance comparable to the Earth-Sun separation, bigger than our largest rocket Starship or more than 100 m in diameter.
+But, we can discover much smaller interstellar objects by using the Earth's atmosphere as the detector, because when a 3-m object collides with Earth, by the way, all of these interstellar objects have been similar size, anywhere from 1/2 m to about 1 and 1/2 m in diameter, its friction on air generates a meteor fireball with an energy output comparable to the Hiroshima atomic bomb.
+Such an explosion is easily detectable by the US government satellites, which are monitoring Earth routinely for the heat emitted by the launch of ballistic missiles from adversarial nations.
+And when deemed unclassified, the meteor fireballs detected by these warning systems are reported in NASA's CNEOS Fireball Catalog.
+So, according to Avi Loeb, given the detection of two interstellar meteors in the CNEOS Fireball Database over a period of just 7 years, the inferred collision rate of meter-scale interstellar objects with Earth is about 0.3 impacts per year.
+This rate equals the product of the number density of the parent population times Earth's cross-sectional area, 128 million square kilometers times Earth's orbital speed around the Sun, 30 kilometers per second.
+The measured collision rate yields a number density of 8.4 million interstellar objects of meter scale per astronomical unit cubed.
+This implies that there are 35 million meter scale interstellar objects embedded at any time within the orbit of the Earth around the Sun.
+And this is a more or less constant population that is constantly being re-supplied by new interstellar objects as the other ones make their way out of the solar system and back into interstellar space.
+Assuming they have a solid density of a few grams per cubic centimeter, each object carries about 3 million metric tons.
+All together, this population totals 100 trillion or 10 to the 14th power metric tons of interstellar material interior to the Earth's orbit around the Sun.
+We're not talking the whole solar system here, we're just talking about one astronomical unit from the Sun.
+For comparison, the estimated number density of the parent population of 31 Atlas, which is measured to have a diameter of about 2.6 kilometers, is about 0.003 per astronomical unit cubed or about 2.8 billion times smaller than the number density of two meter scale interstellar objects.
+The mass of each of these objects is larger than that of the meter scale object by a factor of 2.2 billion.
+Multiplying the number per unit volume by the object's mass, we find that the population of kilometer scale interstellar objects like 31 Atlas carries approximately the same mass per unit value as the population of meter scale interstellar objects are about 100 trillion metric tons interior to Earth's orbit.
+The fact that the mass density of kilometer-scale interstellar objects is the same as meter-scale interstellar objects suggests that the two populations might be related with the smaller objects being fragments of the bigger objects.
+Or there could be another possibility here because this is a colossal amount of interstellar material, a lot more than most astronomers estimated was actually present in our solar system at any given time.
+I mean, think about this for a moment.
+If we have that much interstellar material just between our orbits and the Sun, think about how much interstellar material there must be throughout the entire galaxy.
+And just to be clear about what Dr.
+Loeb is suggesting here, if there are indeed 35 million interstellar objects between us and the Sun at any given time in the solar system, that is actually anywhere from a thousand to a million times the interstellar objects than other estimates have suggested in the past.
+A thousand to a million times the interstellar meteors.
+And by the way, other astronomers are simply saying that the reason that this discrepancy exists is because Avi Loeb's estimates as far as the velocity of these interstellar meteors is incorrect.
+These objects were not interstellar meteors at all.
+Although these two new estimates are based on much better computer models than have ever been used before, and I think it's going to be difficult to disprove that.
+And let me tell you what I think Dr.
+Loeb is actually suggesting.
+And he's not saying this because he'll be immediately attacked by all of his peers if he suggests something this radical.
+Because these objects are impacting our atmosphere far more often than they should be, and because this suggests that there's a population that is simply impossibly dense in the galaxy of interstellar meteors, that means these things must be hitting our planet by design.
+This is not an accidental or random occurrence, especially when you consider that two of these objects impacted our atmosphere in the same years that Oumuamua and 3I Atlas passed through the solar system.
+No, these are not random occurrences.
+These are objects arriving in our atmosphere by design.
+And incidentally, the trailing object, remember I mentioned that at the beginning of the video?
+When we see an object trailing a meteor, that could actually be a probe that was protected from entering the atmosphere by a meteor.
+In other words, it was attached to the meteor previously.
+Meteor provided a natural heat shield for this object, and then the other object was able to detach and make its way through the atmosphere, perhaps to be spotted as an orb UFO sometime in the future.
+So, what does all of this mean?
+Is this actually anomalous?
+Are these discoveries a strange thing that needs to be investigated further?
+And might they have some sort of artificial point of origin?
+Well, once again, if we believe that 3I Atlas might be a modified asteroid or a modified comet of some kind containing technology, the ability to maneuver, those sorts of things, then we could also possibly believe that ordinary meteors could be modified to carry technology.
+They might simply use these meteors as heat shields to carry whatever technology that they're carrying safely into the atmosphere.
+They might not have actually completely exploded at all, but simply protected whatever was eventually released.
+And keep in mind, these things are roughly the size of a lot of the orb UFOs that the US military has reported seeing over the years.
+Again, it's impossible to say for certain, and sure, it's very possible that these things just might be meteors, but the only way we're going to know is if we find some debris, find some remnants of these things as Avi Loeb did with IM1.
+And when he went looking for that particular collection of debris, he found some very strange and very artificial-looking debris, and not what we would expect in the aftermath of a meteor impact.
+Is he going to find the same stuff when he goes looking for these objects?
+Well, hopefully he gets the funding he needs to go on this kind of expedition, even if they are just ordinary interstellar meteors.
+Studying them will be extremely useful, because anything that originates in a different solar system is going to have unique composition and unique features that we could definitely learn from.
+Thank you very much for watching.
+Please don't forget to like and subscribe.
+Also, I'd like to give you folks an update on my producer's son.
+He's back home.
+He's being treated, and hopefully he's going to be okay.
+It did look like something relatively serious, but they seem to be treating it effectively at this point, so hopefully things are going to be all right in the future.
+Just please keep him in your thoughts and prayers.
+I'm hoping things get good enough to eventually bring him back, um so that we can actually fulfill our promise to you folks to have him here for an Artemis 2 lift off.
+We'll do our very best to make all of that happen, but in the meantime, again, please like and subscribe.
+It's very important to this channel.
+If you like this channel and you like this content, please subscribe at least.
+It's very important to the success of this channel.
+And if you'd like to support me in other ways, all the details are in the description.
+Thanks again for watching and until next time.
+Stay angry about space. &gt;&gt; [music]

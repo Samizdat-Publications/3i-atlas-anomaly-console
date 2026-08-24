@@ -17,6 +17,7 @@ desktop.ini
 __pycache__/
 *.pyc
 
-# Third-party video transcripts pulled by tools/fetch_transcripts.py.
-# Someone else's words, and this repo is public — keep the analysis, not the source.
-data/transcripts/
+# Transcripts ARE tracked (owner's decision, 2026-08-23) so a research notebook
+# can ingest them by URL. Attribution and provenance: data/transcripts/README.md.
+# Only the fetcher's scratch space is ignored.
+data/transcripts/.tmp/

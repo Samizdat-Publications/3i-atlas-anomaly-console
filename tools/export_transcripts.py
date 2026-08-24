@@ -23,7 +23,7 @@ import argparse, glob, io, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "data", "transcripts")
-DEFAULT_OUT = os.path.abspath(os.path.join(ROOT, os.pardir, "3i-atlas-transcripts", "notebook"))
+DEFAULT_OUT = os.path.join(ROOT, "data", "transcripts", "notebook")
 BATCH_WORDS = 120000          # comfortably inside a per-source cap, few enough files
 
 
@@ -102,7 +102,7 @@ def main():
     with io.open(os.path.join(args.out, "00-INDEX.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(index) + "\n")
     print("\nWrote %d batch file(s) + 00-INDEX.md to %s" % (len(batches), args.out))
-    print("These are someone else's words. Private notebook only.")
+    print("Machine transcriptions of third-party videos — see data/transcripts/README.md.")
     return 0
 
 

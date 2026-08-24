@@ -1,0 +1,173 @@
+# Fifty times faster than 3I Atlas?!  All coming from the same place?  What are they??
+# 20260729  https://www.youtube.com/watch?v=WaEWTPa0p8M
+
+Good afternoon, alien enthusiasts.
+It's the Angry Astronaut, and today we're diving into one of the weirder corners of modern astrophysics, hypervelocity stars that appear to be coming from the Large Magellanic Cloud, our nearest major galactic neighbor.
+Some of these stars are moving so fast that one local candidate near the LMC itself is clocking tangential speeds at around 3,200 km per second.
+That's roughly 1% of the speed of light, or Earth to the Moon in 2 minutes for a star.
+That's not a typo, and it gets stranger.
+A significant fraction of the classic unbound hypervelocity stars we find in the outer halo of the Milky Way now trace their trajectories back not to our own galactic center and Sagittarius A, the supermassive black hole at the center galaxy, but to this tiny galaxy next to ours.
+Roughly half of a well-studied sample of 21 unbound B-type stars, according to a recent Gaia DR3 analysis, shows that they are clustered in the sky towards Leo, boosted by the Lesser Magellanic Clouds' own orbital motion around us.
+If these ejections are natural, the leading explanation is something called the Hills mechanism. [music] A binary star wanders too close to a massive black hole.
+One star gets captured, the other gets slingshotted out at extreme speed.
+For the LMC, that implies that a central black hole of around 600,000 solar masses must be sitting there.
+But, here's the problem.
+We have never detected such a black hole in the LMC.
+No bright accretion disk, no clear sphere of influence measured from stellar orbits inside the cloud, nothing.
+The evidence is entirely indirect from the stars that left.
+In other words, we're just saying because of these hypervelocity stars, there must be a huge black hole there, even though we've never seen it.
+So, what if the natural explanation is incomplete?
+What if some of these stars are not being flung by gravity alone?
+What if we're looking at the exhaust trail of something artificial?
+Stellar engines, alien technology capable of moving stars.
+Stick with me because the Large Magellanic Cloud itself is already a strange object, and the hypervelocity stars only make it stranger. &gt;&gt; [music] &gt;&gt; Let's start with the LMC itself. [music] It's not a quiet little dwarf.
+At about 160,000 light-years away, it's the largest and brightest satellite of the Milky Way, containing roughly 1/10 the stellar mass of our galaxy and actively forming stars at a healthy rate.
+It has a prominent bar irregular structure and is interacting strongly with another galaxy called the Small Magellanic Cloud, and also [music] with us.
+It's on what is likely its first or second close [music] passage around the Milky Way, and that interaction is stripping gas and stars, creating something called the Magellanic Stream.
+But, there are oddities.
+Its dynamic center and its visual photometric center may not perfectly coincide.
+Recent work using the hypervelocity stars themselves suggests that the ejection site, the theoretical black hole location, could be offset by about 1 and 1/2 degrees from the optical center.
+The Lesser Magellanic Cloud also shows evidence of a complex internal velocity field, [music] and its total mass, including dark matter, is still debated with [music] estimates ranging widely depending on whether you assume it's on its first orbit or if it's been around our galaxy longer.
+And then there are stars inside the LMC.
+The Gaia DR3 [music] studies of thousands of massive O and B stars have turned up dozens of runaways with speeds high enough to escape the cloud entirely.
+Most can be explained by the dynamic ejections in these young clusters, three and [music] four-body interactions between stars that can kick the stars out, but the extreme tail, including a B2 [music] star that has a velocity near 3,200 km per second, sits uncomfortably high.
+Classic dynamic ejection models struggle above a few hundred kilometers per second for massive stars.
+You start needing either extraordinarily tight encounters with other stars or something more exotic, like massive black holes inside of clusters.
+So, the LMC is already a place where stars are being accelerated to uncomfortable speeds [music] by whatever processes are operating there.
+Now, layer on the population that has already left and is sailing through our galaxy, the numbers, the sky distribution, and the ejection velocities line up better with [music] a central massive black hole than with pure runaways created by supernova, for example, or cluster ejections alone.
+Yet, that black hole remains unseen, quiescent, low mass by supermassive standards, and hidden in a dusty, irregular galaxy.
+It's possible that it's there, but we don't have any proof. &gt;&gt; [music] &gt;&gt; So, here's a quick recap of the data.
+The HVS survey found 21 [music] unbound main sequence stars in the outer halo.
+With Gaia proper motion and modern Milky Way LMC potential models, about nine of the confidently classified ones have an LMC origin.
+Seven prefer the Milky Way center, and a few remain ambiguous.
+The LMC ones are systematically slower on average with ejection velocities between 4 and 600 km per second.
+And keep in mind, that's up to 10 times faster than 3I Atlas, but just the slower ones relative to the LMC.
+And then, the ones around the pure galactic center around 870 [music] km per second.
+All of that makes sense because stars ejected by a lower mass black hole should go slower.
+They also show that striking [music] angular clustering around Leo because the LMC's orbital velocity boosts stars launched in the forward direction, [music] in other words, towards us from the constellation of Leo.
+But, this doesn't really explain that 3,000 km per second [music] outlier.
+That one is very difficult to explain, and without a supermassive black hole, you have real problems.
+Natural alternatives, such as supernovas that kick stars [music] out, or pure dynamic injections from the LMC disk failed to reproduce both the high speeds [music] and the tight clustering and birth rates.
+So, the black hole hypothesis is currently the best natural fit.
+Again, the mass estimate of this black hole is roughly 600,000 times that of the sun, but absence [music] of direct evidence is not evidence of absence.
+Yet, it still leaves room.
+A 600,000 solar mass black hole in a galaxy the size of the LMC is interesting.
+I mean, it doesn't seem very likely that something that big would form in such a small galaxy.
+And as I've mentioned before, aside from these hypervelocity stars and the fact that they seem to be clustered in the same rough area, there's no other evidence that this black hole actually exists.
+There's no accretion disk, there's no massive amount of radiation.
+All of the things that we detect from much smaller black holes are absent at the center of this galaxy, at least [music] at present.
+And the acceleration mechanism that created all of these hypervelocity stars, again, keep in mind, we've detected actually more coming from this region of space than appeared to be coming from Sagittarius A, which is an absolutely colossal black hole.
+All of this becomes a genuine puzzle if we never find any proof for the existence of [music] this massive singularity.
+And at that point, the door opens to non-gravitational explanations.
+So, suppose there is no massive black hole, or that the black hole cannot account for the full population.
+What else could systematically accelerate stars to hundreds or thousands of kilometers per second and launch them out of a galaxy.
+One speculative class of technology is called the stellar engine.
+I've talked about this a couple of times on this channel.
+A mega structure or system of structures that extracts energy or momentum from a star and uses it to propel the star itself or a bound system of two stars through space.
+These are not science fiction throwaways.
+They appear in serious speculative engineering and SETI literature as possible signatures of advanced civilizations.
+If a civilization wanted to move stars, perhaps to rearrange a galaxy or escape a dangerous region, harvest resources on interstellar time scales, or even use stars as relativistic projectiles or energy sources, the hypervelocity stars we observe could be the visible exhaust or the moved objects themselves.
+The LMC, being a gas-rich, actively star-forming satellite currently interacting with the Milky Way, might be an interesting laboratory or resource site for such activity.
+Stars leaving it at high speed could either be the engines in operation or the debris of industrial processes.
+This, of course, is highly speculative, but when natural models fall short, it's worth examining the design space.
+So, let's walk through the designs, ranked roughly by increasing complexity and capability.
+First of all, the class A, the Shkadov thruster.
+This was proposed by physicist Leonid Shkadov, and it's the simplest.
+You build a vast, static, parabolic mirror or a swarm of reflective elements on one side of the star.
+The mirror reflects a portion of the star's radiation pressure back, creating a net thrust in the opposite direction.
+The star is slowly accelerated, but the thrust is tiny, on the order of the star's luminosity divided by the speed of light, but it's continuous and it doesn't require any fuel.
+Over millions of years, you can change a star's trajectory significantly.
+For a sun-like star, the acceleration is minuscule, but for a luminous O or B-type star, which is exactly the spectral types that we see among the hypervelocity candidates, the thrust is higher.
+A partial or asymmetric version could produce the observed high speeds if it was operated for long enough or combined with other types of thrust.
+And what would we be looking for here?
+A star with an unusual infrared or optical excess on one side or a proper motion history that doesn't match the pure gravitational dynamics.
+And with many of these stars, we haven't been observing them long enough to see any of this stuff.
+Now, let's talk about the class B stellar engines.
+And that's improving on the Scott off design by using a partial Dyson swarm or shell that not only reflects but actively redirects and concentrates the star's energy into a directed beam or plasma exhaust.
+This has higher efficiency, higher thrust, [music] and the possible ability to modulate direction.
+You could, in principle, achieve higher terminal velocities, and these start to look like the star is being pushed by its own light in a controlled way.
+And then you have the class C and beyond active mass drivers and fusion engines.
+Here, the civilization is tapping the star more directly.
+There are a number of possibilities, like controlled mass ejection using magnetic fields or laser ablation or engineered stellar winds to fling material in one direction which produces a rocket-like thrust.
+The star loses mass and gains velocity.
+By the way, that's the model that you're watching right now.
+You also have stellar lifting combined with fusion.
+You extract the hydrogen, fuse it in artificial reactors, and expel the products as high-velocity exhaust.
+Another possibility is magnetic sails or plasma sails interacting with the star's own wind and magnetic field for continuous acceleration.
+Or in the extreme, using the star as a power source to drive a much larger interstellar propulsion system that carries planetary systems or habitats along with it.
+For the most extreme speeds, thousands of kilometers per second, you either need very long operating times or very high power-to-mass ratios.
+A civilization that could build one of these class C engines could, in principle, accelerate stars to the velocities that we observe on timescales shorter than a stellar lifetime.
+The LMC's population of massive, short-lived stars would be natural candidates.
+They are luminous, short-lived, and already being produced in large numbers.
+If some hypervelocity stars are artificial, we might eventually notice anomalies: stars whose trajectories require continuous non-gravitational acceleration, unusual abundance patterns, excess infrared emission from waste heat, or statistical overdensities that don't match our natural models.
+And now we come to one of the quieter, but genuinely unsettling facts about the space between galaxies.
+There's starlight out there, faint, diffuse, free-floating starlight that does not belong to any single galaxy.
+Astronomers call the brightest version of that intracluster light or intragroup light.
+It is the collective glow of stars that have been liberated from their home galaxies and now drift in the shared gravity of a group or cluster.
+And here is the part that feels wrong when you first sit with it.
+That glow does not behave the way a simple ongoing ejection process would lead you to expect.
+If hypervelocity stars and high-speed runaways are a natural continuous byproduct of galaxies, whether flung by central black holes, dynamic interactions in clusters, or supernova kicks, then older galaxies and older clusters should, over billions of years, have leaked more of these stars into intergalactic space.
+The longer a system has been around, the more stars it should have shed at high speed.
+The diffuse light around mature, nearby clusters should therefore be noticeably richer, or at least systematically brighter in a way that scales with cosmic time, compared with the light around younger systems still assembling at a higher redshift.
+Ejected stars should contribute to that background some measurable degree.
+They are, after all, leaving their galaxies permanently and adding to the population of unbound stars.
+But that is not what the observations show.
+Deep imaging, including recent studies of clusters at a redshift greater than one, in other words, when the universe was less than half its present age, finds that the intracluster light is already abundant early on.
+Mean fractions around 17% appears in systems that are still relatively young by cosmic standards.
+There is no clean, strong trend in which older clusters simply sit in thicker envelopes of ejected stars the way steady hypervelocity production would predict.
+The diffuse light is there early.
+It is significant and its properties, ages, metallicities, spatial dis tribution do not look like the accumulated debris of billions of years of high-speed ejections from galactic centers.
+That mismatch is the weirdness.
+Hypervelocity stars are real.
+We see them leaving the large Magellanic Cloud and the Milky Way.
+In principle, they must add, however modestly, to the reservoir of intergalactic stars.
+But when we look at the actual diffuse glow between galaxies, that contribution does not announce itself at all.
+The background does not brighten or thicken with system age in the straightforward way the ejection channel suggests it should.
+The stars that are being flung out at hundreds or thousands of kilometers per second seem statistically to vanish into a background that's already set by something else.
+Of course, there are natural explanations.
+The dominant sources of intracluster and intergroup light are gravitational rather than the rare high-speed Hills mechanism ejections.
+Stars are stripped during galaxy mergers and close tidal encounters.
+They are liberated when smaller groups fall into larger clusters.
+They are shaken loose during the growth of the brightest central galaxies.
+These processes operate efficiently early in a cluster's life and continue as the structure assembles.
+Simulations and observations both indicate that stellar stripping and mergers account for the great majority of the diffuse light.
+Still, the expectation remains.
+Over cosmic time, the high-speed ejection channels should leave a detectable cumulative effect, especially around older systems.
+The fact that the observed intergalactic starlight [music] does not show that, appearing instead early, abundant, and independent of simple older equals more ejected stars scaling is a quiet contradiction in the data.
+It does not break the natural model completely, but it does mean that free-floating stars that we do see are telling us more about the violent assembly of galaxies than a steady drizzle of hypervelocity escapees.
+And that's why the puzzle sits uncomfortably next to the LMC hypervelocity stars.
+We have a nearby galaxy apparently launching stars at extreme speeds, yet the broader intergalactic light does not look like the long-term archive of such launches.
+The background is there, it's real, [music] and it's strangely indifferent to the very process that should be feeding it.
+Now, I'll bet you can guess there's another explanation, an artificial one.
+So, there's one other possibility that turns this missing starlight into [music] something explainable.
+What if the hypervelocity stars do not remain as free-floating intergalactic wanderers at all?
+What if they are going somewhere else by design?
+In this reading, the stars accelerated out of the LMC or [music] any galaxy are not random escapees destined to drift forever in the void.
+They're being [music] deliberately directed toward other galaxies.
+Their trajectories are engineered so that after crossing intergalactic space, [music] they are captured or delivered into a different galactic system.
+The reason they do not build up a bright, [music] age-dependent diffuse glow is because they never stay in intergalactic space long enough to accumulate there.
+They are in transit.
+The [music] LMC in this speculative picture becomes a launch site or a stellar transfer node, and the hypervelocity stars are the cargo or the engines themselves en route to another destination.
+The intergalactic light stays relatively constant and early formed because the high-speed channel is not dumping stars into the void, it is [music] routing them elsewhere.
+The idea is pure speculation, of course, but it neatly accounts for the odd silence of the diffuse background [music] while giving the extreme speeds and the LMC's activity a purposeful context.
+Natural processes still explain the bulk of intracluster light.
+The artificial transfer hypothesis simply asks why the high-velocity [music] collection of stars seems to leave so little lasting trace between the galaxies. [music] So, let's put all of this together.
+Where does this leave us?
+The most conservative reading is still the natural one.
+The LMC likely hosts a quiescent intermediate-mass to low-end supermassive black hole of a few times 10 to the fifth power solar masses. [music] That object plus ordinary dynamic ejections in its star-forming regions accounts for the hypervelocity [music] and runaway stars we see.
+The lack of a detection of a black hole is unsurprising for a quiet black hole in a messy dwarf galaxy.
+The extreme local candidates that travel at 1% of the speed of light is an outlier that needs better data, but it does not yet break the model.
+But, the less conservative reading is that the absence of confirmed black holes, the extreme speeds, the LMC's own dynamic oddities, and the broader [music] context of intergalactic stars open a narrow window for non-gravitational explanations, stellar engines, Skiff thrusters, directed radiation systems, mass ejection rockets, all of these are physically possible for a sufficiently advanced civilization.
+If even a small fraction of the hypervelocity population were artificial, the LMC would be one of the most plausible places to look.
+Gas-rich, star-forming, currently being stirred by its [music] interaction with the Milky Way, and close enough for detailed study.
+And if those stars are not being ejected, but are just being [music] sent somewhere specific, the missing contribution to the intergalactic light becomes understandable.
+They were never meant to stay in the void.
+We should keep doing the ordinary science, better Gaia releases, radio velocity campaigns on extreme runaways.
+Let's study these things better, and searches for the dynamic signature of a central black hole.
+We shouldn't [music] accept that explanation just because the stars indicated, we really need to find the black hole itself.
+Stars moving at 8% of light speed are already telling us that extreme [music] physics is in operation in our cosmic backyard.
+Whether that physics is purely gravitational or includes something more intentional is a question the data will eventually decide.
+I know this was an extremely scientific episode, but if you like this kind of stuff, [music] please comment, please subscribe also and like the video.
+And also, [music] I want to thank all of the generous contributions that have been coming in that will allow me to travel to Shetland to cover this historic launch of the RFA 1 rocket from UK soil.
+If you haven't checked out that fundraiser yet, all the details are in the description.
+Thanks again for watching &gt;&gt; [music] &gt;&gt; and until next time, stay angry about space. &gt;&gt; [music]

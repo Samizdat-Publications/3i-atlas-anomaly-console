@@ -1,0 +1,180 @@
+# Is 3I Atlas coming back?  If so, how?  And why??
+# 20260113  https://www.youtube.com/watch?v=FsnnFlif1Fo
+
+As 3I Atlas makes its way out of the solar system, a number of people have been posting some hypothetical scenarios regarding what 3I Atlas might do when it makes its upcoming close approach with Jupiter.
+As of right now, 3I Atlas is scheduled to almost exactly intercept Jupiter's so-called Hill radius.
+The Hill radius being the point where Jupiter's gravity and the Sun's gravity cancel one another out.
+Jupiter's gravity takes over when you get closer than the Hill radius to Jupiter, whereas the Sun continues to dominate outside of that area.
+Currently, it appears that 3I Atlas is just going to brush the Hill radius just barely outside of it, which has led some people to think that it's about to drop off some sort of probe, some sort of exploratory spacecraft that would make use of the so-called Lagrange points that are located at the Hill radius, also known as solar system parking lots where exploratory spacecraft could theoretically loiter to explore Jupiter in the long term or perhaps keep the inner solar system under observation for whatever reason.
+But there have been others that have thought that perhaps 3I Atlas has something else in mind to change course and utilize Jupiter's immense gravitational pull to execute a slingshot maneuver and send it straight back towards the inner solar system.
+And given the position that Earth is going to be occupying at this time, 3I Atlas will be heading straight back towards our planet.
+Is this even remotely possible?
+Well, I have a feeling that the vast majority of you watching right now would say that no, it probably isn't.
+And I would tend to agree under most circumstances.
+If 3I Atlas is a natural object, I agree, absolutely not.
+But if it's a modified asteroid ship, perhaps a hollowed-out asteroid or comet that has technological modifications and more importantly, some sort of advanced propulsion system, then might this scenario be possible.
+And even if it is, why would an alien species do this?
+What could possibly be their motivation for changing course, for doing an about-face and heading straight back into the inner solar system when they could have done this when 3I Atlas reached perihelion?
+We're going to explore this scenario to discover whether or not, even with technology that we theoretically could create right now, is this something that could be accomplished or are we looking exclusively at science fiction here and 3I Atlas is not going to be deviating anytime soon.
+All of this and more coming at you on the Angry Astronaut right now.
+Good morning, alien enthusiasts, and welcome to another angry alien bulletin.
+Once again, discussing 3I Atlas, but this time focusing on a different topic.
+Sort of a theoretical topic maybe, but nevertheless, I think one that needs to be discussed given the fact that I've seen a lot of comments on this possibility, as some people see it anyway, of 3I Atlas using Jupiter, making a loop or or flyby maneuver with Jupiter, being captured by its gravity, slingshotting around the planet, and then coming back towards the inner solar system or perhaps simply ending up in orbit around Jupiter, something along those lines.
+This possibility has been suggested a number of times in the comment section, and instead of just dismissing it, as I think many astronomers and other scientists might be inclined to do, I thought that it might be better to look at how this might be possible.
+Now, if 3I Atlas is a natural object, this is absolutely impossible.
+I hate to use the term impossible with anything, but given what we know anyway about objects in space, any sort of process that we are familiar with that's created by natural circumstances aside from something like a black hole manifesting in our solar system abruptly or something along those lines, nothing could possibly change 3I Atlas's trajectory that radically through natural processes.
+Once again, I'm going to show you exactly why this is the case later on in the video.
+So, instead, the best thing to do is to focus on artificial possibilities.
+And there are quite a number of people who post on this whole thing and talk about how impossible that is as well, given how fast 3I Atlas is moving through the solar system and given how heavy it probably is.
+Once again, we don't know what its mass is, but assuming that it has even a fraction of the mass of a comet or asteroid of that size, then the amount of energy required to decelerate it would be utterly staggering.
+Impossible, according to some people.
+But is that actually the case?
+Would it be impossible to decelerate something like 3I Atlas to the degree necessary for it to be captured by Jupiter's gravity, the slingshot maneuver executed to where it starts coming back towards Earth?
+And also, why would somebody do something like this?
+Why would an intelligent species have passed up the opportunity of using the moment of perihelion with the Sun to execute a slingshot maneuver, which would have been much easier to do, especially given the staggering gravitational pull that the Sun has?
+Why not use that in order to make a close approach with Earth?
+Why would they substitute Jupiter?
+Doesn't seem to make much sense, but actually it does, depending on your perspective and depending on what the objectives of these aliens might be.
+So, what we're going to do is we're going to explore, first of all, is it possible?
+And just so you know, I'm not going to be exploring things like Alcubierre warp drives or anti-gravity or anything along those lines.
+I'm not saying that that type of propulsion is impossible, but if it is possible, then that's where our discussion ends.
+Because if 3I Atlas has an Alcubierre warp drive, all it has to do is just fire the thing up, fold space towards Earth, and turn on a dime, and simply come straight back for us.
+It would have no need of making use of Jupiter's gravity to execute any kinds of maneuvers.
+The Alcubierre warp drive would make all of that completely unnecessary.
+So, we're not going to be exploring any sort of super science or extremely advanced propulsion here.
+We're going to talk about types of propulsion that have not only been theorized, but also most of which are being worked on right now.
+Could any of these types of propulsion actually allow 3I Atlas to do these things?
+So, what if we were using chemical rocket engines?
+What would it require to turn 3I Atlas around if it were just using the same types of engines that we use on rockets today?
+Well, as of right now, 3I Atlas is traveling at about 58 km/s relative to the Sun.
+Jupiter's orbital speed is 13.1 km/s.
+In order to perform a gravity assist that reverses direction and returns the object to the inner solar system, ideally bringing it to rest relative to the Sun in the limit of a 180° deflection, the object must decelerate to 26.2 km/s before the maneuver, which is double Jupiter's orbital speed and within Jupiter's gravitational grip, assuming of course that 3I Atlas changes course to where it's making a very close approach to Jupiter.
+So, the required deceleration is 34.7 km/s.
+You need to slow this thing down by 34.7 km/s before this maneuver is executed.
+Let's assume the mass of this asteroid ship, if that is what it is, is 3 billion tons.
+By the way, that is a lot less than we think 3I Atlas actually weighs.
+It's more along the lines of 30 billion tons, but we're assuming something that's hollowed-out.
+So, maybe 10% of the total weight, 3 billion tons.
+Now, here's the problem.
+With rocket engines, the thrust of any rocket engine is about 4 to 4 and 1/2 km/s.
+That's how fast the exhaust goes.
+The faster the exhaust, the more thrust it generates.
+And most engines have an ISP, the amount of time that these engines can keep going of about 450 seconds.
+That's for things like the RS-25 that was used on the space shuttle.
+The amount of fuel that would be required in order to reduce the speed of this object by this kind of degree, something this heavy utilizing chemical rocket engines with about 4 and 1/2 km per second worth of thrust is an unbelievable 1.75 10 13 power tons, 17 and 1/2 trillion tons of fuel.
+In other words, we are looking at hundreds of times more fuel than 375 Atlas actually weighs.
+It is an insane amount of fuel that's required with the rocket engines that we understand today.
+But if what if it was using something a little bit more advanced?
+For example, ion engines with 100 km per second speed worth of exhaust versus 4 and 1/2.
+This is something that we actually use today.
+We have ion engines that are capable of this.
+The problem is they can't really produce a lot of exhaust because they don't have a lot of power behind them.
+Ion engines are typically powered by solar panels, not a lot of electrical energy behind that, and so therefore not a lot of thrust.
+But assuming this could be done and scaled up in a big way, you're still looking at 1.24 10 9 power tons, almost 1 and 1/4 billion tons or over 1/3 of the total mass of 375 This is beginning to look kind of impossible, isn't it?
+Which is probably why a lot of people come to this sort of conclusion.
+But what if we're talking about something with a much, much faster exhaust, a plasma drive?
+Even though this sounds like science fiction, this is something that we're working on right now.
+There is an experimental drive called the Vasimr drive, and the idea is to create extremely hot ionized plasma either by high energy radio waves or through some other sort of heating mechanism, and this ionized plasma is directed through a powerful electromagnetic field.
+And this field gets the exhaust speed up to velocities that are orders of magnitude more powerful and faster than any chemical rocket engine.
+Let's assume about double of what we are currently working on now.
+So, an alien species that has the capability of about double of what we are working on currently, certainly not beyond the realm of possibility, 1,000 km per second worth of exhaust.
+If you're able to do that, then the figure drops off to 1.05 10 8 power tons, 105 million tons of fuel.
+That's still a hell of a lot, but a lot less than the total mass of the object.
+And we have seen 375 shed far more mass than this in its tail and anti-tail.
+So, if you could make a plasma drive powerful enough to spew over 100 million tons worth of fuel through it over the course of a couple of months before 375 can reach its close approach with Jupiter, then yes, you could theoretically get it down to this kind of speed.
+But the amount of energy that would be required to keep a plasma drive with this kind of power going, something that's capable of blasting this much fuel through it over that amount of time, is absolutely staggering.
+We're talking much more power than our entire civilization can generate in the course of an entire year.
+So, even that doesn't sound very possible, but actually it might be.
+But before we get to that, we need to look at another possibility, another way to use Jupiter to decelerate and execute this 180° turn without using any fuel at all.
+It's through a maneuver called aerogravity, or rather an aerobrake maneuver that also utilizes gravity to execute the maneuver.
+By dipping into Jupiter's upper atmosphere during the close approach, and by the way, you're looking at a proposed European Space Agency mission to Venus that's going to be using aerobraking in order to slow the probe down sufficiently in order to enter into Venusian orbit, the ship can achieve a greater turn angle than by a pure gravity assist, effectively providing additional slow down in the heliocentric frame.
+So, without using any fuel at all, theoretically, if 375 made proper use of Jupiter's atmosphere, it could bleed off all of the additional speed necessary to execute the maneuver.
+But here's the problem.
+Even though it could bleed off all of this, that would only be if it could survive the entry.
+Keep in mind that at its current speed, when it enters Jupiter's atmosphere, 375 will be traveling a relative speed of 76 km per second, leading to extreme heating and also enormous deceleration forces.
+We're talking about hundreds of Gs if dipping too deep.
+This would almost certainly be enough to rip any asteroid to pieces.
+The ship's high mass and its large size gives it a high ballistic coefficient, meaning that it would have to penetrate deep into the atmosphere before significantly slowing, increasing the risk of breakup or excessive ablation.
+In theory, yes, this is feasible, but chances are you could probably only manage partial aerobraking, maybe bleeding off 10 km per second or so due to survival limits, which would reduce the fuel requirements by as much as a third.
+Certainly helps, but it doesn't solve the entire problem.
+Okay, so now we know the various different methods of propulsion that might be able to pull this off, all of them requiring a staggering amount of fuel, but a plasma drive being theoretically possible.
+Given the amount of matter that we've already seen this thing produce in its anti-tail and its more conventional tails, it certainly has enough matter at its disposal to convert into a plasma fuel, if you will, in order to decelerate into Jupiter's gravitational influence and then execute the slingshot maneuver.
+Could be done, a staggering amount of fuel required, but still very doable based on what we have observed thus far.
+But what if 375 were not actually trying to do anything like this?
+This is a very radical maneuver that it would be trying to execute.
+What if instead it were trying to dispatch a probe of some kind?
+But let's make it a little bit more ambitious than that.
+Let's say it's a 10-ton space platform of some kind, sort of an observational satellite to be put into Jupiter's Lagrange points, one of its two Lagrange points at the area that 375 will be passing.
+What if it were to do something like that?
+What kind of propulsion, what kind of energy would be necessary to do something a lot less ambitious than trying to turn the whole ship around?
+All right, so in this case, we're not taking advantage of Jupiter's gravitational pull, we're just trying to insert a probe into a location that coincides with Jupiter's orbital speed.
+The difference between these two figures is 60.88 km per second.
+That's going to be the heliocentric speed of 375 once it gets out to this distance, and the orbital angular velocity of Jupiter, that is to say, not necessarily its orbital speed, but the angular speed relative to 375's direction will be 12.21 km per second, meaning you have to take the difference of those two figures, 60.88 12.21 in order to get the necessary velocity, 48.67 km per second.
+That's very fast, and also a 10-ton object, we're still going to be looking at quite a lot of energy here.
+But I think 375 would be better off avoiding putting an onboard propulsion system, at least not a big one, on this orbital platform, but instead using a propulsion system that requires no propellant whatsoever.
+This is a laser sail.
+The idea is to put a solar sail onto this platform and then use a high energy laser providing the necessary energy in order to decelerate the object.
+Here's the problem.
+A high energy laser means very high energy photons that don't have a whole lot of stopping power.
+They travel so fast that they actually don't transfer a lot of their momentum over to the laser sail.
+That's why solar sails have to be so enormous, absorbing as much solar energy as possible in order to get enough energy to even accelerate a little bit.
+And if we're talking about conducting this insertion in about a month's time, something along those lines, you would need an enormous amount of energy just to decelerate 10 tons. 7.3 10 power joules is what that comes to with a laser sail.
+That is an insane amount of energy.
+We're talking about the same as a 15 megaton nuclear explosion to achieve this.
+That doesn't seem very efficient.
+Is there some other way to make this object decelerate without having to use such an insane amount of energy?
+Well, there's another concept called This was developed by Robert Winglee and funded by NASA in the early 2000s.
+What would happen is is 3I Atlas would generate a high-powered collimated beam of ionized plasma, sort of an artificial magnetic field, and it interacts with a magnetic sail that would be used to decelerate the object.
+A magsail usually interacts with the magnetic field of a star in order to speed up or slow down, but the magnetic field of the sun is far too weak this far out for this kind of system to work efficiently.
+So, you would generate an artificial magnetic field, as I said, a beam of ionized plasma that creates the magnetic field, and the magsail creates sort of a mini magnetosphere that repels or deflects the incoming plasma ions in the similar way that our magnetic field protects us from the solar wind, cosmic rays, that sort of thing.
+This approach would actually be far more efficient than a laser sail because the particles used to propel a magsail are much, much larger compared to photons.
+They also weigh a lot more, too, and they travel at relatively low speeds, about 40 km per second, meaning that a lot more of their energy gets transferred to the sail than a laser sail does.
+So, what happens is to get that 48.7 km per second worth of velocity to the platform would require about 9.7 10 12 power joules.
+That's still a lot, but 7,500 times less than the light sail.
+Based on this design, a 300 MW thruster based on 3I Atlas, keep in mind it doesn't have to be on the platform itself, could achieve this in only 9 to 14 hours worth of beaming.
+If you did this over the course of an entire month in order to provide a more gentle deceleration, the average power drops to 3.7 MW, which is comparable to a few wind turbines or a small coal power plant, definitely within the capability of an advanced alien species.
+Could we possibly use the same sort of setup to decelerate 3I Atlas?
+Well, perhaps, but you'd need a very, very big magsail, and that magsail would need to interact with the sun's magnetic field.
+How could that possibly be done?
+Well, why not use the antitail?
+As near as we can tell, the antitail is also comprised of high-energy ions, and if you inject more plasma into the antitail and also the anticoma that's pointing towards the sun as well into a ship-generated magnetic field, you could inflate a massive mini magnetosphere.
+This bubble would expand electromagnetically, deflecting the solar wind over a huge area without needing mechanical structures.
+Then you orient the magsail to drag against the solar wind, opposing the ship's inbound velocity.
+Now, if you're trying to decelerate enough in order to achieve about a 48 km per second deceleration, that's not going to happen even with something as enormous as the antitail.
+Even if it were a million kilometers across or so, the solar wind out at that distance would only provide about 1 km per second worth of meaningful deceleration over the course of a month.
+Now, if you sustain this over a couple of years, you probably could decelerate 3I Atlas enough to at least get captured by the sun's gravity.
+So, you could at least employ the antitail, again assuming the antitail were a giant artificial magnetic field, to provide at least some deceleration without any sort of actual propellant being required.
+You could combine this with a number of different solutions.
+In other words, the magnetic field decelerating you some, use some aerobraking to decelerate yourself a bit more, and then on top of that, you employ a plasma drive to get the rest of the deceleration.
+Complicated, but then again, given what we have observed with this object, this massive tail that seems to defy the solar wind, it actually is a visual representation of a giant magsail, assuming it were comprised of charged ions and assuming it could be harnessed to provide propulsion for 3I Atlas.
+Again, this is all theoretical, but still possible.
+Now, what about power?
+Could you get power out of the antitail as well?
+Well, yes, you could, actually.
+The antitail, if it were comprised partially of nanomachines, nanomachines that were capable of absorbing solar energy and then transferring that energy back to 3I Atlas, perhaps with microwaves or something along those lines, it could transfer an enormous amount of energy given the size of the antitail that we have observed.
+Let's assume that only 1% of the volume of the antitail were comprised of these nanomachines, only 1% of the solar energy striking the antitail is harnessed by a system like this.
+Assuming that could be done, an antitail comprised of solar-absorbing nanomachines, it would be enough to gobble up 1 petawatt worth of energy, 50 times the current global human energy consumption.
+Over the course of a month, the total energy would be 2.6 10 21 power joules, comparable to the kinetic energy of an asteroid hitting the Earth or the output of millions of nuclear reactors, certainly enough to achieve anything that 3I Atlas would need to do, including decelerate.
+All right.
+So, now that we've covered that, it's also time, I think, to talk about why any of this might happen.
+I mean, if 3I Atlas or the makers of 3I Atlas wanted to intercept Earth for whatever reasons, either to observe us a bit more close up or to invade us or perhaps, God forbid, collide with us and wipe out every living thing on the surface of the planet, why would they choose to do it now when 3I Atlas is intercepting Jupiter as opposed to when they should have done it, when 3I Atlas had achieved perihelion with the sun, and when an Oberth maneuver would have been a lot more efficient?
+What would be the logical reasoning behind all of that?
+Or are we just making this up because it sounds cool, it sounds exciting, and aliens don't need to have a rational motivation for what they do?
+Well, surprisingly, this is the easiest answer of all. 3I Atlas's trajectory through the solar system has brought it to a distance of less than one astronomical unit, actually a lot less than different promising planets [music] or at least planets within the Goldilocks zone of our star, Venus and also Mars and Jupiter, which has moons that could theoretically be an ideal place to harbor at least some kind of life beneath their icy surfaces.
+However, its trajectory took it away from Earth, never came very close to our planet at all.
+However, if it executed a slingshot maneuver around Jupiter and came back, it would be perfectly positioned to intercept the last planet on its agenda, planet Earth, because it's hit every other promising planet in the solar system except ours.
+And also, this trajectory would have allowed it to get a look at us first before it made its decision as to whether or not it wanted to get close to a planet where it knows there's an intelligent civilization.
+So, anytime somebody tells me that something is impossible or something is defying the laws of physics, any sort of theoretical event that we might look at in regarding alien technology, UFOs, whatever, anytime somebody tells me that something is impossible, that's when I decide to pick up the gauntlet.
+That's when I like to accept the challenge, and I hope I've demonstrated to all of you that there's nothing from a scientific and engineering perspective that says that 3I Atlas can't do this. 3I Atlas is a scientifically important, I mean, a really, really important object, regardless of whether it's artificial or not. 3I Atlas has given us all sorts of surprises.
+When this thing was first detected, if you had told me in early July or something along those lines, that this thing would produce an anti-tail half a million to a million kilometers in length, that would utterly defy the solar wind, and that anti-tail would continue to exist all the way through perihelion and for weeks and weeks afterwards, if you'd told me that this object was going to do that, I would have been pretty skeptical.
+So, we need to keep this thing under observation, cuz who knows what it's going to do next.
+And regardless of whether it's artificial or not, there's still a lot that 3I Atlas has to teach us.
+Thank you very much for watching.
+Please don't forget to like and subscribe.
+And also, you may have noticed that the merch store is open again.
+We have 3I Atlas merchandise, obviously, also a UFO shirt.
+We also have stuff for spaceflight enthusiasts, and also an Apophis shirt.
+We have hoodies, too.
+If you'd like to check that out, please do.
+And also, consider supporting this channel on Patreon or perhaps through Cash App.
+Thanks again for watching, and until next time. &gt;&gt; [snorts] &gt;&gt; Stay angry about space. &gt;&gt; [music]

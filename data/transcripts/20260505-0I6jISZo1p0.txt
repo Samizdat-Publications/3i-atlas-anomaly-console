@@ -1,0 +1,212 @@
+# NEW Breakthrough can CRUSH Interstellar Travel!  Metajet Lightsail!!
+# 20260505  https://www.youtube.com/watch?v=0I6jISZo1p0
+
+Hello everyone.
+It's the Angry Astronaut and you know me.
+I get fired up about real [music] breakthroughs that could actually get us out there amongst the stars, not just the usual [music] hype.
+Rockets?
+Well, they're great for getting to orbit or the moon, maybe to Mars, but for interstellar travel, they're a joke.
+Even the fastest probes we've ever launched would take [music] tens of thousands of years to reach the nearest star system, Alpha Centauri.
+But what if I told you that a team at Texas A&amp;M University just demonstrated a new [music] kind of light sail technology called metajets that could in theory get a probe there [music] in about 20 years using today's technology and using nothing but light for propulsion.
+No fuel, no giant engines, just lasers and smart materials.
+Today, [music] we're diving deep into this brand new concept from Dr.
+Shao-Feng Land's Lab for Advanced [music] Nanophotonics.
+We'll break down what metajets are, how they work, their insane interstellar potential, [music] and how we might actually scale them up to ship size.
+And yes, because I know a lot of you folks want [music] to know, we're talking about the deceleration method, too.
+How do you slow down from a [music] quarter of light speed without smashing into the star?
+This is long form, so buckle up.
+We're going chapter by chapter, and if you're into hard science that could change humanity's future, [music] smash that like button and that subscribe, and let's get angry about how cool this is.
+Let's go. &gt;&gt; [music] &gt;&gt; Good afternoon, spaceflight and alien enthusiasts, and welcome to another angry bulletin.
+I've been doing my best since I started covering alien UFO topics to engage folks who are into this sort of thing with conventional spaceflight in any way that I possibly can.
+And one way to do this, in my opinion, is to talk about next-generation propulsion systems or next-generation interstellar travel that we might be working on right now.
+As a matter of fact, this particular one is from Texas A&amp;M, ways that human beings might be able to at least send unmanned probes between the stars in a realistic amount of time, and how aliens might be able to upscale that technology to much bigger spacecraft.
+Because one of the biggest arguments that the skeptics use against the whole UFO argument is that it's so far between stars that why would any alien civilization invest the energy and the time in getting here in the first place.
+And the point of the matter is there's a way to do this without consuming nearly as much time, and we're not talking about things that break physics, things or like hyperspace or wormholes or anything like that, but a method of traveling between the stars that doesn't take a huge amount of time anyway that utilizes technology that we can envision right now.
+As a matter of fact, technology that we're experimenting with at this very moment at Texas A&amp;M University.
+Before I go any further with this, though, I have a couple of really quick favors to ask of you folks.
+And if you're not interested in the status of the channel, just skip to here, but I'm going to be really brief.
+Ad revenue has plunged dramatically on my channel in a huge way.
+And just to be clear, I'm not necessarily asking you guys to spend money on my channel.
+There are other ways to help the channel without having to do that.
+But in any event, this is worse than it's ever been.
+And man, I really didn't think that was possible.
+I've gone through dry spells, but now whoever sells the ads for YouTube is doing a terrible job, and the money that we get even on successful videos is pretty pathetic.
+The way to counter this is first of all, if an ad pops up, watch it for 15 to 20 seconds.
+That's it.
+If you can just hang in there for 15 to 20 seconds, I get full credit for it the ad.
+And do this on every channel you enjoy, by the way.
+It means that you watch maybe about 2 minutes worth of ads on a 20-minute video, which is a pretty damn good deal on free content.
+The other way is just to join YouTube Premium.
+You pay 16 bucks a month, and the ads go away forever.
+I've been a YouTube Premium customer for years and years now, and it's so worth it.
+Man, it's great to get rid of those ads.
+And YouTube Premium viewers on my channel, I get compensated enormously for those.
+Far more, actually, than I do for people who watch ads.
+And once again, this applies to all the channels you enjoy, all the content creators you like.
+If you're a YouTube Premium customer, they get compensated far more by YouTube.
+Anyway, and the other way, of course, if you do want to spend a little bit of money on the channels to support me on Patreon, hit that little join button, or you can send me a super chat.
+Any one of those things will make a huge difference to get me through this very dry spell.
+Okay, that's enough of that.
+Let's continue with the conversation.
+As I suggested before, Texas A&amp;M has a new type of interstellar propulsion system that they're working on called metajets.
+And in the process of this video, I'm going to tell you what metajets are, the principle behind their operation, how they might be upscaled to large-scale interstellar travel, and how extraterrestrial civilizations might be making use of them.
+So, let's get going.
+Okay, so first a quick refresher on light sails because metajets build directly on this idea.
+The concept is simple and beautiful.
+Light carries momentum.
+Photons, which are just little particles of light, hit a reflective surface and bounce off like tiny ping-pong balls smacking a paddle.
+Each bounce gives the sail a little push.
+No fuel is [music] needed.
+NASA and JAXA have already flown small [music] solar sails that use sunlight.
+Breakthrough Starshot, which is one of Avi Loeb's ideas, by the way, [music] wants to use a giant Earth-based laser array to push tiny sails up to 20% of the speed of light towards Alpha Centauri.
+But traditional light sails [music] have problems.
+They're usually flat and passive.
+You get pushed in basically one direction, and steering [music] is clunky, too.
+And stability at high speeds is a nightmare.
+And stopping?
+Well, we'll get to that a little bit later.
+But Texas A&amp;M's metajets take this to the next level by building the control [music] right into the material itself.
+So, what the hell is a metajet?
+Well, these are tiny micron-scale [music] devices, smaller than the width of a human hair.
+They're made from metasurfaces, which are ultra-thin sheets of material.
+Think silicon nanopillars engineered at a tiny scale with incredibly precise patterns.
+And these patterns aren't random.
+They're designed to act like a programmable optical surface, almost like a tiny custom lens or diffraction grating, but far more sophisticated.
+The team fabricated [music] these at Texas A&amp;M's Aggie Fab nano fabrication facility.
+And in the lab, they hit them with a laser and boom, the meta jets lift off.
+They steer sideways and move in full three-dimensional space.
+There's no physical contact, no motors, just light.
+Dr.
+Shou-Feng Lan, the lead researcher, compares it to ping-pong balls again.
+When laser light hits the pattern surface and gets redirected at an angle, the momentum transfer doesn't just push straight back.
+It creates controlled forces in multiple directions [music] at once.
+And here's the cool part explained without the heavy math. [music] Light comes in straight from the laser.
+The meta surface's nano scale [music] patterns create what they call a phase gradient.
+That means the light waves get bent, refracted, or reflected anomalously [music] in a very specific direction.
+And because of Newton's third law, every action has an equal and opposite reaction.
+When the light gets kicked sideways or at an angle, the meta jet gets kicked in the opposite way.
+You get lateral thrust, in other words, steering.
+At the same time, there's a vertical [music] levitation force that counters gravity or any other force that might be acting on the object.
+So, in the experiments, which are done in a fluid to offset Earth gravity, they haven't done this in space yet, they showed simultaneous propulsion and lift, [music] full 3D maneuverability from a single laser beam.
+Previous optical propulsion could push or trap things, but not steer freely in all directions like this.
+The paper, published in the journal Newton, lays out the equations showing these meta-photonic forces that scale directly with the laser's power.
+And if you have double the laser power, well, you get double the thrust.
+And crucially, the force doesn't depend on the size of the object.
+In other words, you can scale this up to something big.
+Okay, so those are metajets.
+Now, how are they used for interstellar travel?
+So, here comes the exciting part.
+The researchers themselves say this breakthrough could one day enable a mission to Alpha Centauri in roughly 20 years.
+How?
+Well, imagine a fleet of tiny probes or larger ones with metajet-style metasurface sails.
+Back home, a massive array of lasers, think Breakthrough Starshot on steroids, fires a continuous beam.
+The metajets' built-in patterns let the sail extract thrust efficiently and steer without needing to tilt the whole craft mechanically.
+You accelerate continuously for years, building up to around 20% of the speed of light or 0.2c.
+At that speed, the four light-years to Alpha Centauri takes about 20 years from Earth's perspective.
+The probe gets there in a human lifetime instead of 70,000 years.
+The 3D control is the game-changer.
+Traditional sails can wobble or get off course, but metajets give you programmable thrust vectors, sideways corrections, stability, and even mid-flight adjustments.
+It's like going from a sailboat to a spaceship with thrusters built into the hull.
+But, that's well and good for tiny robot ships.
+Could we actually build big ones for human beings?
+Well, the beauty is in the physics.
+Force scales with laser power and sail area, not some fundamental size limit.
+You start with microns in the lab today, you scale the same nano patterning up to a square meter or even kilometer scale sails made up ultra-light, ultra-strong materials.
+As far as manufacturing is concerned, we'd need advanced nano fabrication on a massive scale.
+Think roll-to-roll printing of meta surfaces or self-assembling structures in space.
+And the laser array would have enormous power requirements, probably in orbit or on the moon in order to avoid the atmosphere.
+Beam pointing accuracy over light-years is insanely difficult, but doable with future tech.
+Or, you could simply blast the sail with a lot of energy to begin with and a lot of acceleration, say several Gs worth of acceleration, which could theoretically get you to 20% of the speed of light in a month or so.
+That could solve the problem as well, so you don't have to aim it over light-years worth of distance.
+The team points out that this is more flexible than just shaping the laser beam itself.
+The intelligence is in the sail material.
+That makes upscaling more practical long-term.
+We're talking probes first, and then perhaps crewed missions or data relays decades from now.
+All right.
+So, now I know the question that a lot of you are probably asking right now.
+You ask this question every time we talk about propellant-less interstellar travel.
+Once you get to your destination, how the hell do you slow down if there's no huge laser array waiting for you?
+I mean, you're just going to go sailing right through the solar system without stopping?
+That's not going to be all that useful, is it?
+Well, actually, there's a natural and very effective way of slowing down once your laser-powered vehicle arrives.
+Okay, so the million-dollar question you always ask me about, how do you slow down?
+You're screaming towards the star at 20% of the speed of light.
+You can't just hit the brakes. [music] Metajets don't invent a whole new braking system, but they make the classic light sail deceleration method far more viable.
+Here's how it works.
+Once you're coasting near the destination, use the target star's own light for photon braking. [music] Remember the last time we talked about this?
+A perfectly reflective sail facing the star [music] reflects its photons backward.
+Each reflection gives you a kick away from the star, slowing you down.
+And you can start this process [music] when you're entering the outer solar system.
+Doesn't have to be when you're inside the solar system [music] when you can start this process because the light from the target star goes [music] out quite some distance.
+Now, the metajets meta surface gives you precise control.
+You can orient the sail exactly right, make tiny steering corrections, and even fine-tune the angle for maximum [music] braking efficiency.
+The 3D thrust vectoring means you can do a close [music] approach, say, skimming half a million kilometers from the star while adjusting your trajectory in real time.
+Combine that with the star's gravity, [music] what's called a photogravitational assist, and you can shed enormous amounts of velocity without carrying [music] extra fuel or engines.
+It culminates in that dramatic close pass where the star's own radiation pressure does the heavy lifting.
+You still don't require any on-board [music] repellent, just smart materials and stellar physics.
+Now, there's something else that you can add into this [music] process in order to make it even easier.
+It's something called a magsail.
+You can deploy the magsail ahead of your vehicle, and [music] the star's magnetic field strikes that magsail and decelerates your ship as well.
+So, you could use a combination of the star's light [music] and the star's magnetic field to give you deceleration.
+So, maybe you don't have to come within half a million kilometers from the star [music] and all of the insane amount of heat that would be involved with that.
+And by the way, once you have a network constructed, you can build laser arrays in the destination solar systems as well, of course, until you have a whole laser network [music] created throughout the entire galaxy, allowing you to accelerate and decelerate as needed.
+This makes an interstellar empire, an interstellar civilization, not just science fiction, but quite plausible with science and technology we can understand today. &gt;&gt; [music] &gt;&gt; Now that we've talked about that, let's talk about how extraterrestrial civilizations might be making use of meta-jets.
+How could this be up-scaled to the furthest extent to where you might be able to accelerate hundreds or perhaps even a thousand tons worth of mass up to not just 20% of the speed of light, but perhaps 50% of the speed of light or even faster.
+Okay, viewers.
+Now, let's get really fun with all of this because while I'm talking about light sails and meta-jets, the comments might light up with this question.
+What if this is exactly how alien mother ships reach Earth?
+Imagine an advanced civilization somewhere in our galactic neighborhood, maybe 10, 50, or even a hundred light-years away.
+They don't need warp drives or anti-matter rockets.
+They've mastered the Texas A&amp;M meta-jet concept on a colossal scale.
+Their mother ship is a thousand-ton vessel, big enough to carry the crew, probes, landers, the works, fitted with a gigantic meta-surface sail kilometers across.
+The nano-patterns are etched into the ultra-light, ultra-strong material that gives them perfect 3D control from a single incoming laser beam.
+Back home, they've built a mega-structure.
+Think a Dyson swarm on a modest scale, not the full star-enveloping god machine from sci-fi, just a cloud of solar collectors or a mega-structure and laser emitters or perhaps radio emitters.
+They can accomplish a lot of the same things that together absorb twice the solar energy that naturally hits Earth every second.
+Let's put that into perspective.
+The sun blasts about 174,000 terawatts of power onto our planet.
+That's energy falling on Earth's daytime side right now.
+Twice that is roughly 348,000 terawatts or 348 petawatts.
+For an alien civilization that's already interstellar, this is like us building a few big solar farms, totally doable.
+Then they convert a big chunk of that captured energy into a coherent laser beam, phased array style, focused with insane precision.
+That beam slams into the meta jet sail.
+Here's what the numbers say.
+With 348 petawatts hitting the sail, even if they only use a fraction of that power, the radiation pressure gives you enormous thrust.
+We're talking initial accelerations of hundreds of Gs if you wanted, but they dial it back to a comfortable one or two Gs for crew safety.
+Either way, the math works out to pushing that 1,000 ton ship to half the speed of light in a matter of 6 months or a couple of years, depending on exactly how hard they push.
+The meta jet's built-in steering is perfect for this.
+No wobbling at relativistic speeds, real-time course corrections.
+The sail can dynamically tweak how it redirects the laser photons for maximum efficiency the whole way.
+Acceleration distance?
+Well, maybe a few dozen astronomical units, basically the width of our solar system.
+So, by the time it reaches the orbit of Neptune, it's traveling at 50% of the speed of light.
+And then you just coast for most of the trip.
+A ship from 50 light years away gets here in about a century of ship time, but with time dilation and clever mission planning, the crew could experience a lot less. and for closer stars, the travel time drops down to decades.
+And here's the beautiful part we talked about before, deceleration.
+As they approach our sun, they flip the sail and use our stars own light for photon braking, exactly the close approach method we discussed.
+The meta jet patterns let them fine tune the angle, ride the radiation pressure, and maybe even use a photo gravitational assist to shed velocity without burning a drop of fuel.
+They arrive in their solar system already slowed down, ready to explore or whatever they came here to do.
+This isn't wild speculation pulled out of thin air.
+The physics is the same as the Texas A&amp;M breakthrough, just scaled up by an advanced civilization that's had a few thousand more years to perfect it.
+A mega structure capturing twice Earth's solar input is tiny compared to a Dyson sphere or a Dyson swarm, but it gives them far more power than they would need for something like this.
+Studies on laser light sails show that even a few petawatts can do the job for thousand ton payloads. 348 petawatts is overkill in the best possible way.
+So yeah, the next time you see a weird UAP or hear about a mothership in the news, ask yourself, is that thing running on smart sails and starlight?
+Could meta jets be the universal key that every technological species eventually discovers?
+It makes the Fermi paradox even more interesting, doesn't it?
+Maybe they're already out there quietly cruising between stars on beams of light and we just got our first glimpse of the technology that makes it possible.
+What do you think, crew?
+Alien motherships using metajet sails?
+Well, drop your wildest theories in the comments.
+But before we get too carried away, this is the early days.
+Right now, it's microscopic devices in a lab fluid.
+Scaling to space, surviving intense lasers, thermal management, radiation damage, and the sheer engineering of a laser array powerful enough for an interstellar push, those are massive hurdles.
+The team is already looking for funding to test it in actual microgravity, but the fundamental physics checks out.
+This isn't sci-fi hand waving, it's peer-reviewed and demonstrated.
+Compare it to where solar sails were 20 years ago and we've come a long way.
+This could be the next leap.
+So, what do you think?
+Could metajets be the key to the stars?
+Drop your thoughts in the comments, especially if you've got questions on the deceleration or mass scaling.
+And if you want more deep dives like this, hit subscribe, ring the bell, and consider supporting the channel on Patreon.
+All the details are in the description.
+Thanks again for watching, and until next time, stay angry about space. &gt;&gt; [music]

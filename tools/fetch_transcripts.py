@@ -1,4 +1,4 @@
-"""Bulk-pull YouTube transcripts for a channel into data/transcripts/ (local only).
+"""Bulk-pull YouTube transcripts for a channel into data/transcripts/.
 
 Wraps yt-dlp. Written because the console keeps arguing with claims that are made
 in videos, and reading fifty of them by hand is not a plan.
@@ -24,10 +24,9 @@ cookies through:
 
     python tools/fetch_transcripts.py --cookies-from-browser chrome
 
-Output: data/transcripts/YYYYMMDD-<id>.txt plus index.json. That directory is
-GITIGNORED on purpose — those transcripts are someone else's work and this repo
-is public. Analysis derived from them belongs in the repo; the transcripts
-themselves do not.
+Output: data/transcripts/YYYYMMDD-<id>.txt plus index.json. That directory IS
+tracked (owner's decision, 2026-08-23) so a research notebook can ingest the
+corpus by URL — see data/transcripts/README.md for provenance and attribution.
 """
 import argparse, datetime, json, os, re, shutil, subprocess, sys
 
@@ -344,8 +343,8 @@ def main():
         print("%d without usable captions:" % len(failed))
         for v, why in failed[:12]:
             print("  %s  %s  (%s)" % (v["date"] or "????????", v["title"][:56], str(why)[:60]))
-    print("\ndata/transcripts/ is gitignored — these are someone else's words. "
-          "Commit analysis derived from them, not the transcripts.")
+    print("\nThese are machine transcriptions of someone else's videos — approximate "
+          "wording, and\nnot a published text. See data/transcripts/README.md.")
     return 0
 
 

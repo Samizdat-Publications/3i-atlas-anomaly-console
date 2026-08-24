@@ -1,0 +1,157 @@
+# New 3I Atlas images unveiled!  This thing isn't a comet!
+# 20251017  https://www.youtube.com/watch?v=zJGCl2yciyk
+
+Good morning, alien enthusiasts, and welcome to another angry alien bulletin.
+These three eye atlas updates, they just keep plowing in day after day.
+But then again, I think it's important that we keep all of this properly updated.
+I'm going to provide you folks with as many updates as is necessary as this thing continues to make its strange path through the solar system because it just keeps throwing us new curve balls.
+So, of course, we are waiting for NASA to finally release the photographs that were taken by a number of different spacecraft that are currently orbiting Mars. spacecraft that have instruments with a larger aperture that's just better suited to photograph interplanetary objects than the European Space Agency cameras.
+Also, of course, the Perseverance camera as well that uh managed to somehow grab a really lousy image of three Atlas had to continue to stack image after image as it streaked across the Martian sky in order to make it bright enough to be visible.
+And then, for some reason, they didn't take all of the stacked images and just kind of make a correction for the object's movement across the heavens.
+Instead, it just looked like this bright streak, which gave rise to a lot of theories about it being this enormous cylinder of some kind, which of course it isn't.
+If it were, it would be a cylinder thousands and thousands of kilometers in length.
+And that is something that just about everybody would have seen by now.
+So, all that being the case, we continue to wait on these images.
+But guess what?
+We don't have them yet.
+NASA still hasn't released anything.
+And I'm beginning to find this to be a little bit suspicious because even though we have a government shutdown right now, I do not begin to believe that the folks at JPL, the ones who still work there, that is after this mass layoff that NASA has gone through recently, which by the way I vehemently oppose.
+We need our talented people at NASA to provide us with information.
+Even though I don't always agree with their interpretations, at least we get the information most of the time.
+This time we're not getting anything.
+And I am confident that a number of JPL staff now have these images and have been studying them in their off time.
+There's no question that they haven't.
+And I'm sure they've also circulated them amongst some of their peers to try to interpret what they're looking at.
+And I find it to be very frustrating that after all of these days, we still haven't seen anything public.
+Again, I understand the government's in shutdown and officially these people are not supposed to be downloading these images on their own time and they shouldn't be releasing them in any sort of official capacity.
+But still, it is frustrating because there's little question in my mind that quite a number of JPL staff now have these images and have been taking some time to examine them.
+In any event, all of that having been said, we still do have new imagery from the KEK Observatory from Hawaii.
+A new study has been released regarding these images regarding what was seen because it was a spectrographic analysis.
+For those of you who really want to see just a conventional visual image of three eye atlas, it's doubtful that we're going to see a lot from that because it's surrounded by a coma like a comet.
+And so you have this bright haze surrounding the nucleus which makes it virtually impossible to see what lies beneath.
+We might get an idea of how big it is from the images that we have yet to see from NASA, but we're still not going to see a whole lot of detail.
+The things that are going to be revealed to us, the important details that we're going to get are from spectrographic analyses like this one.
+And let me tell you something, these new discoveries once again suggest that threey Atlas is not a comet.
+At least not a comet in the way that we have seen comets in the past.
+It behaves so unlike a comet in so many ways.
+And at this point, it's time for us to start rewriting our astronomy texts about what comets are.
+If we're going to insist on calling this object a comet, or perhaps we really need to start looking for a new category. [Music] So, first of all, let me give you a quick rundown on the telescope that actually gathered these images.
+It is called the KEK 2 telescope in Hawaii and an altitude azmouth design gives each of the 10 meter telescopes at the KEK observatory the optimal balance of mass and strength.
+These are quite modern instruments.
+Extensive computer analysis determine the greatest strength and stiffness for the least amount of steel about 270 tons per telescope.
+And this is critically important not only for economic reasons.
+A large telescope must remain resistant to the deforming forces of gravity as it tracks objects moving across the night sky.
+Also, they had to chill the interior of these domes to avoid temperature extremes that could induce deformation of the telescopes steel and mirrors.
+And that's a big task, too.
+Both of these domes are kept at a temperature below freezing or at freezing on a regular basis.
+Not an easy thing to do in Hawaii.
+Astronomers use these telescopes in shifts of one to five nights and time allocation committees preapprove all observing.
+So obviously this was regarded as being a pretty important thing to watch.
+Now, telescopes track objects, sometimes for hours, across the sky as the Earth turns.
+This constant but subtle movement results in slight deformationations of the telescope structure despite all engineer precautions.
+And without active computer control correction of the primary mirror, scientific observations would be impossible.
+So for the KEK telescopes, new techniques for manufacturing, polishing, and testing their mirror segments had to be invented, including what it's called stressed mirror polishing.
+Each segment's surface is so smooth that if it were the width of the Earth, imperfections would only be about 1 m tall.
+On the telescope, each segment's feature is kept stable by a system of extremely rigid support structures and adjustable warping harnesses.
+During observing, a computer controlled system of sensors and actuators adjust the position of each segment relative to its neighbors to an accuracy of four nanometers or about the size of a few molecules or 125,000th the diameter of a human hair.
+This twice per second adjustment effectively counters the tug of gravity.
+An amazing amount of scientific equipment and sophistication behind images like this in order to deliver images like this of three Atlas.
+So when you think that this doesn't look all that impressive, that you wish you could see something that looked like an industrial lights and magic spacecraft, the Death Star or a star destroyer or something along those lines, you get an idea of just how difficult it is to capture these types of images of an object that far away.
+And again, keep in mind, even though three Atlas may be pretty large, several kilometers in diameter, perhaps even bigger than that, it's still absolutely tiny.
+If you're trying to observe an object that is hundreds of millions of kilometers away.
+Okay, all of that having been said, let's have a look at the image and what it means.
+A new paper on the interstellar object 3i atlas reports data taken by the kek 2 telescope in Hawaii on August the 24th 2025.
+So still over a month ago and this is when three atlas was at a distance of 2.75 and 2.6 the earth sun separation from the sun and earth respectively.
+As with the Hubble Space Telescope image that was obtained about a month before, the image taken by the KEK cosmic web Imager or KCWI in the wavelength range of 3425 to 0.55 micrometers.
+In other words, the kind of wavelength to where you'll get a spectrographic analysis of what kind of materials are in the coma and involved in this object.
+Well, it shows evidence for a puzzling anti-tail extension.
+Once again, we're seeing a tail pointing at the sun a full month after Hubble spied this strange anomaly for the first time.
+In contrast, from all other known comets, including the interstellar comet 2i Borosov, the observed spectrum of the gas plume around three Atlas shows prominent nickel emission, but once again, no evidence for iron.
+Iron may have shown up in subsequent observations according to other telescopes, but only when it got substantially closer to the sun.
+Once again, this has never happened before.
+Other than three Atlas, this anomaly was only known to exist in industrially produced nickel alloys through the carbonal chemical pathway, which refineses nickel through the formation and decomposition of nickel tetracarbonel or this chemical formula.
+The authors of the new paper postulate that this carbonal process is realized naturally near the nucleus of three I atlas.
+Although they don't really explain how it's happening naturally, they argue that this insitu formation of nickel tetracarbonel predicts that nickel should be strongly concentrated near the nucleus.
+Now, a narrowband image of three eye atlas that revealed the presence of both nickel and cyanide showed a central concentration of nickel relative to cyanide as if there's a direct relationship between these two substances.
+Once again, this is very interesting because cyanide is a molecule related to living organisms whereas nickel is obviously an industrial material.
+That being the case, as I've suggested in previous videos, is this some sort of effort to communicate with us to convey the idea the three eye atlas is a combination of a living and artificial organism.
+In any event, the emissions by the surrounding gas plume extend out to an exponential radius of 600 km for the nickel and 840 km for cyanide.
+The trace mass loss rates from 3II Atlas are only 3.9 grams per second for cyanide and.9 grams per second for nickel.
+That's something that should be appreciated here is the fact that these telescopes can actually detect that little metal escaping from this object.
+Only.9 g per second and yet the telescope can pick it up.
+And that's out of a total mass loss rate of 150 kg per second composed 87% by mass of carbon dioxide, 9% of carbon monoxide, and only 4% of water.
+Now, this has changed recently.
+A huge gush of water was detected coming from three Atlas shortly before it vanished behind the sun.
+And even though people who support the idea three Atlas being a comet would say, "See, there's the water.
+We're finally getting water emissions from the com or in the coma here, which is what we would expect." Well, no, you're not expecting this radical of a shift, a massive gush of water following an almost complete absence of it.
+That's never happened before with any comet in history.
+Now in describing another anomaly, the authors of the paper state that the production rate of nickel relative to cyanide is higher than in two I boros in orders of magnitude above the solar system comet median.
+In other words, two I boros did put out a fair amount of cyanide.
+In that respect, it is similar to three eye atlas, but the nickel production rate that is quite unique.
+The emission profiles of both nickel and cyanide around 3II Atlas are asymmetric with the extension in the solar and antis-olar directions offering clear evidence for an anti-tail.
+Again, these materials somehow are completely defying the solar wind.
+Even though the sun has been incredibly active lately and the solar wind quite powerful, that doesn't seem to be affecting this anti- tail.
+And most remarkably, the white light image of three eye atlas does not show evidence for a familiar commentary tale as expected for dust, which scatters sunlight and is pushed away from the sun by solar radiation pressures.
+So, we have essentially new anomalies to the classification of three Atlas as a familiar comet.
+And the more data we get about it, the more it looks like an outlier, or in my opinion, the less it looks like a comet at all.
+And that's not all.
+The recent KEK observatory findings aren't the only new information on three Atlas that has emerged in recent days.
+According to a separate study featured in the research notes of the AAS or American Astronomical Society, data from NASA's transiting exoplanet survey satellite or test has provided an additional glimpse of the early history of three Atlas.
+That is to say, when it was first entering the solar system, revealing its own oddities based on observations made between May and June of 2025.
+In other words, before 3II Atlas was officially discovered, the researchers analyzed more than 9,000 test images, stacking them into composite frames.
+Their focus was to search for any signs of a visible coma, which was, of course, the envelope of gas and dust that is generally visible around active comets.
+But what they found was surprising.
+Unlike typical comets at this distance, threeey atlas appeared to exhibit a radial profile that was almost identical to four different asteroids.
+In other words, there was no sign of coma in the data they reviewed.
+And yet, the object was still very bright.
+While the team's observations are indeed challenging, they say that their observations also show, as I mentioned before, the threeey atlas appears to be brighter than expected, which means that a small unresolved coma could still be present.
+But here's what I think it might also mean.
+According to their research, if the brightness is coming from the object itself, it means the threeey atlas must be at least 12 to 14 kilometers in diameter.
+Absolutely enormous.
+And once again, an object that is just too big given the dir of smaller objects, interstellar objects that is that we have seen over the last 20 years or so.
+The team suggests that if this activity is sustained, it could mean that dust released from the comet is being ejected at rather low speeds, perhaps as little as 10 m/ second.
+And that's what would form this strange smallsized coma.
+But once again, the astronomers are reaching here.
+They are just trying to find some explanation that would account for the absence of a coma by saying a coma is actually there.
+We just don't see it.
+Unless you actually see a coma or clear evidence of the existence of a coma, you can't say that a coma exists.
+Instead, you need to assume the threeey atlas, at least at this distance, must be an object resembling the other objects that you studied.
+That is to say, the four other asteroids, not a comet that you're somehow inventing that has this new type of coma.
+And this is the main reason that I'm experiencing this increasing frustration with the scientific mainstream with all of these mainstream astronomers who continue to insist the threeey atlas is a comet.
+If it's a comet, then why did it so closely resemble an asteroid when it was entering the solar system?
+If it's a comet, then why does it have an anti-tail and no conventional tail?
+If it's a comet, then why does it spew out all of this cyanide and nickel with no iron?
+Well, at least not until later.
+Again, very unlike a comet.
+Really, when it comes down to it, if it's a comet, then why does it do this enormous list of things that comets don't do?
+Instead of jumping to conclusions, instead of assuming that this must be a comet simply because it kind of looks like a comet, we should wait for more information to come in.
+We should get as close of a look at this object as possible before we leap to conclusions because leaping to conclusions is perhaps the most unscientific thing anyone can do.
+So once again, 3II Atlas continues to scream Techno Signature, at least in my opinion, especially when we're talking about the nickel emissions.
+That is something that in the past we've only seen happen, at least as far as pure nickel residue is concerned, with industrial processes, as we discussed in the video. never seen it in a natural environment in the solar system or elsewhere.
+And that being the case, I think it's worth it to start really looking at a technological possibility for this object.
+Not again, not saying that the whole thing is a giant spacecraft, but instead a modified asteroid or a modified comet, if you will, mostly comprised of natural insitu materials, including some machinery, perhaps even some habitable space.
+There might be enough room in this thing for there to be a substantial population of living organisms.
+Or perhaps three Atlas is a living organism in itself.
+And it's also important to note that just because it's traveling at about 60 km/s right now, that doesn't mean that it was always going that fast.
+It may have reduced speed while it was a substantial distance outside of the solar system so that it could undertake its function to do whatever it was supposed to do presumably to dispatch probes or study promising looking worlds in the Goldilock zone of our planet. and also to examine the moons of Jupiter which are a promising place to look for life and also it would have been in its interest to slow down because there's a lot more debris in the solar system for it to crash into.
+Interstellar space is a much much emptier area.
+It's much easier to avoid hazards in interstellar space.
+But interplanetary space is loaded with asteroids, micrometeoroids, dust, a wide variety of things that could prove extremely hazardous to an object if it were traveling at relativistic speeds.
+So I could understand why it would decelerate as it enters the solar system.
+And if that is the case, then a lot of the assumptions we're making about this object may not be true.
+Its point of origin may not be where we think it is.
+It may not have come from the core of the galaxy, but instead simply approached from that direction because it's a crowded area.
+There are so many stars in the background that it would have been very difficult for us to see it.
+And indeed, we didn't see it until it was well within the confines of the solar system.
+In addition to that, we can't make conclusions about its age either.
+If it decelerated as it entered the solar system, it may not be 7 8 billion years old as we are assuming at the moment might be a lot younger.
+And once again, the only way that we're going to get a good look at this thing to get a good idea of what it really is, well, I already said it, get a good look at it, make a close range flyby with the Juno probe.
+I am convinced that there's enough fuel left in that thing to at least attempt such a maneuver.
+And once again, if we're about to deorbit it and plunge it into Jupiter's atmosphere anyway to burn up, why not just attempt this instead?
+Because the potential for new knowledge is well worth it.
+Thanks very much for watching.
+Please don't forget to like and subscribe.
+And also, please check out the description for the three eye atlas merch that's about to disappear from the store.
+Hope you have an opportunity to pick that up if you want to.
+Anyway, very comfortable garments and also just a fantastic design from Sunline.
+Thanks again and from here in Hong Kong, this is the Angry Astronaut saying stay angry about space. [Music]

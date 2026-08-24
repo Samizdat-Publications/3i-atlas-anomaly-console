@@ -289,12 +289,16 @@ def main():
       "   quoted from the CLAIM block alone will read as the project's own position when it",
       "   is the opposite. Always carry the block heading with the quote.",
       "",
-      "## Not included",
+      "## The claim source",
       "",
-      "The video transcripts that are the claim source are third-party content held in a",
-      "separate private repository, and are not here. Case files quote them only in short",
-      "attributed excerpts, always labelled as auto-caption derived rather than as published",
-      "text.",
+      "The videos these claims come from are transcribed in `data/transcripts/` — 114",
+      "machine transcriptions, plus three consolidated files in `data/transcripts/notebook/`",
+      "sized for notebook ingestion. Provenance and attribution: `data/transcripts/README.md`.",
+      "",
+      "Ingest them AFTER the case files. They record what was *claimed*; every factual check",
+      "in this project runs against primary sources instead. Wording is approximate — these",
+      "are machine transcriptions and proper nouns are frequently mangled (`3I/ATLAS` appears",
+      "as 'three eye atlas', PHIVOLCS as 'Five Vulks'), so never quote them as published text.",
       ""]
     write("00-START-HERE.md", "\n".join(man))
 

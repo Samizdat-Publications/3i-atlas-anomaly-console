@@ -1,0 +1,191 @@
+# New 3I Atlas study changes everything astronomers thought they knew about this strange object!
+# 20260420  https://www.youtube.com/watch?v=p3MVfAY6tjQ
+
+Good evening, everyone.
+It's the Angry Astronaut, and I'm back with the longest, most detailed takedown I've ever done on one object.
+You know me, I've been screaming about 3I Atlas for months now, but it just got a smoking gun paper from Avi Loeb and Tony Scarmato that changes everything.
+We're talking a confirmed interstellar visitor, the third one ever that's been detected with symmetric jets acting like rocket thrusters, non-gravitational acceleration that matches those jets perfectly, and a laundry list of anomalies that scream technology, not dirty snowball.
+Deuterium-loaded exhaust, check.
+Methanol manufacturing signatures, check.
+Jets that laugh at the solar wind, check.
+A precision rendezvous with Jupiter's Hill sphere, check.
+Mysterious pre-perihelion blaze up, check.
+And now, the complete absence of any conventional tail or ion tail for months after perihelion.
+In this deep dive, I'm breaking down Loeb's paper in plain English, then hitting every single anomaly with the real science, the numbers, and why the "it's just a comet" crowd is in full damage control mode.
+If you're new here, smash subscribe and turn on the notifications because we're going long-form because this topic deserves it.
+So, let's get angry and get into the evidence.
+Good evening, alien enthusiasts, and welcome to another Angry Alien Bulletin.
+Once again, I'm recording this in the dead of night, as is pretty much the necessity if you're this far west.
+I am in Colorado Springs, Colorado and if I'm releasing a video in the morning, say perhaps around 11:00 or 12:00, it's already 6:00 or 7:00 in London and even later in Europe.
+So, instead, recording these things late at night is the best strategy.
+Plus, I can release them early to my Patreon folks and other supporters.
+All that having been said though, it's time to talk about 3I Atlas again and this time I'm going to go into more detail.
+This This going to be my most in-depth analysis of 3I Atlas yet.
+And the reason I'm doing this now is because Avi Loeb just released another paper about 3I Atlas detailing symmetrical jets.
+This is something we've known about for some time, but what he was trying to do is tie these symmetrical jets and their configuration, their behavior, etc. to 3I Atlas's non-gravitational NGA.
+NGA is simply motion or acceleration in an object in space that is not caused by gravity.
+Gravity, of course, has the greatest effect on comets, asteroids, etc.
+But, when you get acceleration that cannot be accounted for by gravity, that is called NGA or non-gravitational acceleration.
+Usually caused by cometary outgassing, which can act sort of like a primitive rocket engine.
+However, the symmetrical nature of these jets and the fact that their configuration actually contributed to 3I Atlas's final trajectory and given how useful that trajectory was, all of that looks very artificial.
+But, we're just getting started.
+There are so many other artificial-looking things, techno-signatures if you will, that tie in to the symmetrical jets that I'm going to be analyzing in the course of this video.
+My whole objective is to prove to all of you that 3I Atlas at least might be artificial.
+It might be an asteroid ship.
+In my opinion, it is, or at least something with an artificial point of origin and not just an ordinary comet.
+So, let's get right into this cuz we've got a lot to cover.
+So, first, let's summarize the actual findings of the Loeb Scarmato paper straight from the data.
+This isn't speculation.
+It's Hubble Space Telescope observations spanning 5 months, including a data set from November 30th, 2025. [music] The two scientists applied the Larson-Sekanina rotational gradient filter to strip away the bright, fuzzy coma glow around the nucleus.
+And what was left?
+A crystal-clear symmetrical system of three narrow jets shooting outward exactly 120° apart like the blades of a perfectly balanced propeller, plus one main anti-tail jet pointed roughly sunward.
+That's a clean 3 1 jet configuration.
+The whole pattern rotates in lockstep with the object's 7.2 hour spin period.
+The jets stay narrow and coherent over months.
+And here's the bombshell.
+When you calculate the rocket thrust, [music] gas and dust blasting out one way, the body recoiling the other way per Newton's third law, that is to say, &gt;&gt; [music] &gt;&gt; every action has an equal and opposite reaction, the net force exactly matches the observed non-gravitational acceleration that's been tweaking 3I Atlas's path since discovery. jet two does most of the sideways transverse push.
+Loeb himself notes the symmetry is exactly what aerospace engineers would design [music] for a minimal thruster spacecraft, three side jets for attitude control and steering plus one main for primary propulsion.
+Natural comets have random vents and smeared out activity.
+This is engineered precision, no mystery force just thrust.
+But what about the composition and behavior of that thrust?
+That's where it really stops looking natural.
+Okay, so that's what Avi Loeb actually had to say.
+Now let's talk about some other anomalies that tie into his findings starting off with the deuterium-rich water that was recently detected in 3I Atlas's coma and in these jets.
+So let's talk about the first smoking gun.
+The water in those jets and the coma is absolutely loaded with deuterium.
+James Webb [music] Space Telescope spectroscopy shows a deuterium to hydrogen ratio in the H2O of about .95% that's one deuterium for every 100 hydrogen atoms.
+Doesn't sound like a lot, but that's 30 to 40 times [music] higher than any solar system comet or even Earth's oceans.
+And in [music] methane, it's even crazier.
+A ratio of about 3.3% that's three orders of magnitude above normal.
+Loeb wrote a whole medium piece on this topic.
+Deuterium is the perfect fuel for fusion reactors.
+You [music] fuse deuterium with tritium and get a clean helium plus a neutron for more energy. [music] Natural comets formed in our solar system or even typical interstellar clouds don't concentrate deuterium like this.
+So, [music] think about it.
+If you're building an interstellar asteroid ship and you need on-board fusion power for decades of travel, [music] you stockpile heavy water.
+And when you vent it as exhaust [music] through those jets, boom, deuterium-rich plume.
+The mainstream says that this is exotic formation history.
+I say engine exhaust. [music] This isn't random chemistry.
+This is propellant from a fusion drive.
+Now, next [music] up, Alma telescope data shows that 3I Atlas is bursting with methanol. [music] The methanol to water levels are ridiculously high and the methanol to hydrogen cyanide ratio is 70 to 120 [music] to 1, the opposite of every normal comet we've ever studied.
+Most comets have far more cyanide relative to methanol.
+Methanol doesn't just magically [music] appear in those ratios from primordial ice.
+But, guess what process creates methanol on demand?
+Artificial [music] electrolysis of water and carbon dioxide under controlled conditions.
+Exactly the [music] kind of industrial chemistry you'd run on a fusion-powered ship to generate storable reaction mass or propellant. [music] This isn't the chemistry of a 10 billion-year-old dirty snowball.
+This is [music] manufactured exhaust.
+Alma calls it unusually rich in alcohol, and I call it factory signature.
+And so, here's where the physics [music] gets even more insane.
+In any normal comet, the solar wind should grab ionized gas and yank it into a classic [music] ion tail.
+Loeb's calculations show solar wind ram pressure should stop streaming [music] gas dead at about 5,000 km from the nucleus maximum.
+But these three [music] side jets in the anti-tail, they stay narrow, straight, and coherent far beyond that.
+Many thousands of kilometers out [music] with no smearing and no deflection.
+The anti-tail might be big dust chunks shrugging off the wind, sure, but [music] the side jets contain plenty of ionized gas, yet they too ignore the solar [music] wind like it's not even there.
+That only happens if the gas is screaming out at ridiculously high velocities [music] like plasma exhaust from a high-thrust fusion engine.
+Natural outgassing is slow and diffuse.
+Engineered thrusters produce collimated, high-speed plasma that the solar wind can't touch.
+These jets are acting like [music] fusion plasma drives on full burn. &gt;&gt; [music] &gt;&gt; Okay, so we've covered three anomalies so far.
+Now it's time to go into a lot of depth here.
+A deep dive into anomaly number four, the missing ion tail.
+We've talked about these jets.
+We've talked about the anti-tail that we've seen with 333P Atlas, but what is more important than these strange features that seem to defy the solar wind is the fact that the types of tails that absolutely have to be there, a conventional tail and an ion tail, are simply absent.
+Now here's where the comet crowd really starts sweating bullets, assuming of course they actually pay attention to these facts.
+We've already talked about the jets [music] punching straight through the solar wind like they own the place.
+But what happened after perihelion?
+That's [music] when every normal comet lights up like a Christmas tree with a fat sweeping dust tail [music] and a straight as an arrow ion tail pointing away from the sun.
+As you can see here with this [music] Larson Sakania image of comet Lemon.
+You can see the ion tail and the conventional tail pointing away from the sun the way it's supposed to.
+With 3I Atlas, not even close.
+Perihelion was late October 2025, October 29th through the 30th to be exact at about 1.4 astronomical units.
+For months afterwards, [music] especially the critical first weeks of early November, images [music] from ground observatories and follow-up Hubble data showed something bizarre.
+A compact bright coma that looked more like a teardrop shape blob than a comet.
+Prominent [music] sunward anti-tail jets sticking out towards the sun, plus those three symmetric side jets [music] rotating every 7.2 hours, but no clear conventional [music] anti-solar dust tail and no obvious straight ion tail at all.
+Even in these particular pictures that were captured by the European Space [music] Agency, you can see what appears to be a conventional tail and an ion tail, but the sun is not in the right position.
+Loeb himself [music] highlighted this in his November 2025 medium post titled "No Clear Commentary Tail in Post-Perihelion Images of 3I Atlas".
+He compared fresh images from the Arnaques Observatory in Spain [music] on November 5th, just days after closest approach to normal solar system comets like comet Lemon taken at the same time.
+And as I mentioned before, Lemon shows the textbook tail you would expect. 31 Atlas shows nothing, just a compact source with [music] that weird sunward anti-tail.
+Even into December of and January of 2026, wide-field images revealed enormous collimated structures, anti-tail jets stretching out almost a million kilometers towards the sun, &gt;&gt; [music] &gt;&gt; and a longer tail jet anti- sunward in some frames, but still no broad fan-like dust tail and no classic straight ion [music] tail that you can see in virtually every active comet.
+And get this, the anti-tail isn't [music] made up of the usual microscopic dust, or so they say.
+Multiple papers [music] and Loeb's analysis points out that it must be dominated by very large dust grains, millimeter to decimeter scale, with some estimates saying [music] 1 decimeter or even larger.
+These big boys are too heavy to get easily pushed by radiation pressure into a normal sweeping tail.
+That's the natural theory. [music] Now, stop and think about the physics for a second.
+To explain the observed non-gravitational acceleration via rocket [music] thrust, Loeb's own calculation show that 31 Atlas had to evaporate something like original mass in gas and dust during that close solar pass.
+That's billions of tons of material blasted [music] out.
+In any normal outgassing process, you must get neutral gas molecules that get hit by solar ultraviolet radiation, they get turned into ions, get grabbed by the solar wind, and [music] form a straight ion tail pointing away from the sun.
+And also, a whole lot of fine micron-sized [music] dust particles that radiation pressure sweeps into a curved dust tail.
+This is also anti-sunward.
+Even if the anti-tail is mostly big chunks of dust, [music] some fraction of the outgassing should still produce microscopic dust and easy ionized gas.
+That stuff doesn't just disappear.
+It should be visible for months.
+Yet, for the critical post-perihelion period [music] when activity should have been at its peak, those classic tails are missing or extremely subdued.
+The object looked more like directed rocket plumes than a dirty snowball shedding material in all directions.
+The mainstream tries to hand-wave it away.
+Maybe the gas is low after perihelion [music] or viewing geometry hides it or the methanol and carbon monoxide-rich chemistry [music] just doesn't ionize in the same way.
+Well, maybe.
+But, when you combine this [music] with deuterium overload, the manufactured methanol ratios, the windproof [music] jets, and the precision Jupiter rendezvous, oh, we haven't gotten to that yet.
+Well, talk about that in a second.
+Those excuses start sounding pretty desperate. [music] A fusion-powered asteroid ship, on the other hand, would be designed to do this.
+Engineered exhaust that's tightly collimated, high velocity, and minimized for fine ionized gas and microscopic dust waste.
+You control what gets ejected, how fast and in which direction.
+No messy random clouds of ions and micron dust creating [music] textbook tails.
+Just clean, directed thrust from those symmetric jets and a big, heavy anti-tail of heavier reaction mass or perhaps made up of some kind of nanomachines, as I have suggested in previous videos.
+This isn't just normal commentary behavior, folks.
+This is another piece of the puzzle screaming that 3I Atlas isn't passively sublimating ice like every comet.
+It's actively managing its propulsion, and the missing tails are the smoking gun that nobody in the mainstream wants to talk about.
+And you'd think that all of this would be enough.
+But guess what?
+We're not out of anomalies.
+Once again, Avi Loeb brought up quite a number of anomalies over the course of his analysis of this object.
+I'm only talking about anomalies that have something to do with the jets and the possible propulsion system for 3I Atlas, and we still have a few more to go.
+The non-gravitational acceleration created by these jets wasn't random.
+It fine-tuned the entire trajectory so that on March 16th, 2026, 3I Atlas passed almost exactly [music] at Jupiter's Hill sphere radius, about 53.5 million kilometers.
+It missed it by a mere 60,000 kilometers or so, roughly the distance of our geosynchronous satellites.
+That's the gravitational boundary, by the way, where Jupiter's pull dominates the Sun.
+It's the perfect spot to drop off probes or landers into stable Lagrange points without wasting extra fuel.
+Loeb himself has written about this as a remarkable anomaly.
+The measured non-gravitational acceleration changed the minimum Jupiter distance by just the right amount.
+Natural objects don't perform precision course corrections to hit a gravitational sweet spot like that.
+Ships do, especially if you're seeding a system or deploying hardware.
+And next we have the rapid pre-perihelion brightening.
+As it approached perihelion at about 1.4 astronomical unit, 3I Atlas suddenly brightened like a beast, brightness scaling by several magnitudes, twice the rate of any known comet.
+It even turned bluer than the sun, screaming gas emission.
+The mainstream called it a mystery.
+I call it the ship powering up its main drive.
+The jets ramped up, plasma kicked in, and the whole thing lit up right when it needed maximum thrust for that Jupiter trajectory tweak.
+Post-perihelion data shows the same activity.
+This wasn't passive sublimation, this was active propulsion.
+And there are some bonus anomalies as well.
+The three jets stay perfectly symmetrical and don't smear in spite of the 7.2 hour rotation.
+That's active attitude control.
+The object survived perihelion intact with no breakup.
+Its trajectory is suspiciously aligned with the ecliptic, and it had close passes by Mars and Venus.
+Population statistics say that a 10 to 20 km solid interstellar rock this close should be rarer than hens' teeth.
+Natural comets don't do 120° propeller arrays, deuterium factories, methanol synthesis, windproof plasma jets, missing tails, or precision gravitational rendezvous.
+Every single piece fits a fusion-powered asteroid ship using its symmetrical thruster array for interstellar navigation.
+And now, finally, that we've gone through all of these anomalies, what is my conclusion?
+What is my artificial theory for 3I Atlas, and do I actually have any proof?
+So, let's put it all together.
+Symmetrical 3 1 jets providing exact measured thrust, [music] deuterium-rich water, which is fusion fuel, manufactured methanol, plasma exhaust ignoring the solar wind, and missing conventional commentary tails post perihelion, and also a precision Jupiter Hill sphere rendezvous.
+And on top of that, a pre-perihelion [music] blaze up like a drive ignition.
+This isn't a comet.
+This is a [music] fusion-powered asteroid ship or something similar.
+Possibly autonomous, possibly crewed, using engineered thrusters &gt;&gt; [music] &gt;&gt; for course correction during its long interstellar voyage.
+The non-gravitational acceleration wasn't outgassing, [music] it's propulsion.
+Could it possibly come back?
+Well, fusion plasma drives can be hundreds of times more efficient than traditional chemical [music] rockets. 3I Atlas is massive, though.
+If it is an asteroid ship, even if it's hollowed out, it weighs [music] billions of tons.
+It would be very, very difficult to turn [music] this object around even with the gravitational assistance of a large body like Jupiter, which by the way, it didn't do.
+It simply passed by Jupiter as we expected, although, as I said before, almost an exact [music] rendezvous with the Hill radius.
+But, the mainstream will keep calling it a weird comet.
+I'm calling it what the data [music] screams, alien technology visiting our backyard.
+I hope it comes back, but honestly, given its behaviors [music] it passed through the solar system, I don't think we were ever its goal.
+It ignored us, or really [music] passed on the opposite side of the sun at a very convenient time to hide itself, especially when it was making that [music] particular maneuver, that particular non-gravitational acceleration phenomenon that put it on a new course. [music] All of that was mostly hidden by the sun's glare.
+Other than that, I don't think it was paying any attention to us at all.
+It might have had an interest in Mars, [music] definitely looked like it had an interest in Jupiter, but unfortunately didn't seem to be all that intrigued with us.
+Perhaps 'Oumuamua was an earlier probe, and given how close it passed to us, maybe that was its task, and 3I Atlas had a different task.
+What do you think?
+Is it an alien ship or the most anomalous comet ever?
+Drop your thoughts below.
+Should we demand a probe intercept [music] before it leaves?
+This is theoretically possible still, although we have to build a probe to do it and use an ion engine in order to get it to its destination, but it is possible.
+Please hit like and subscribe, and also share this with every space nerd you know, and also please check the description for various ways to support this content [music] so I can keep bringing it to you.
+Thank you very much for watching, and until [music] next time, stay angry about space. &gt;&gt; [music] &gt;&gt; Oh.

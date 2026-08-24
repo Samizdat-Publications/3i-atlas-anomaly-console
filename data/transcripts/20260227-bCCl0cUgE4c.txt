@@ -1,0 +1,164 @@
+# Extraterrestrial signals discovered across the Galaxy while we watch 3I Atlas!
+# 20260227  https://www.youtube.com/watch?v=bCCl0cUgE4c
+
+Last year I got the VIP tour of the legendary Parks Observatory, that massive 64 m radio dish that's been hunting cosmic secrets since the 1960s.
+Let me tell you something, two things the astronomers dropped on me absolutely fried my brain.
+First of all, not every pulsar is an ordinary pulsar.
+Some of these are called millisecond pulsars, very unusual neutron stars that spin at an unbelievable rate, hundreds of times per second, and most of these are in binary systems, but some of them are not, flying solo through the galaxy as they absolutely should not be.
+And number two, there's this insane double pulsar system where both stars are pulsars.
+One is a millisecond pulsar and the other one is a normal pulsar, and somehow both of these stars survived not one but two supernova.
+Stick with me because this gets wild.
+Today we're diving into what pulsars actually are, why millisecond pulsars are the most precise clocks in the universe, and then finally, the multi-million dollar question, what if some of these aren't natural at all?
+What if a few are engineered by advanced civilizations?
+And to make this mystery even more intriguing, while our attention has been focused on 3I Atlas, another millisecond pulsar has become apparent to our radio telescopes, a pulsar that shouldn't be there at all.
+Good afternoon, alien enthusiasts, and welcome to another angry alien bulletin.
+As you saw in the introduction last year, back in October, it's been some time actually, I had the opportunity to tour the Parks Radio Observatory thanks to the kindly invite of one John Sarkissian who's been working there for a very, very long time, and I learned a lot about radio astronomy that I wasn't aware of prior to that visit.
+In the process of learning about especially pulsars during this visit, I started to get a better impression of just how amazingly unique these objects are and how amazingly useful they are to us for a wide variety of purposes, and perhaps even how useful they might be to an advanced alien civilization.
+And for those of you who have watched my channel in previous videos, you know that I've talked about the possibility of pulsars, or at least some pulsars, being the result of stellar engineering projects rather than 100% natural objects.
+While I do acknowledge that most pulsars, and indeed the creation of pulsars, everything behind that has a natural model that makes a great deal of sense, there are specific kinds of pulsars, millisecond pulsars, that are quite unique and bizarre, and we don't really thoroughly understand how those come into being, and especially how they survive in the long term.
+And those are insanely useful compared to other pulsars, or indeed any other object in the night sky.
+And just recently astronomers have come across even more pulsars that display very strange and unusual characteristics on top of a variety of other astronomical phenomena.
+And interestingly enough, all of this stuff happened in 2025 while 3I Atlas was making its way through the solar system and drawing everybody's attention.
+Everyone was hyper-focused on 3I Atlas and arguing about 3I Atlas while all of these strange phenomena were taking place in the universe around us.
+So what we're going to do in the course of this video, number one, I'm going to show you a little bit of the footage that I captured at Parks.
+I captured a lot there by the way.
+I'm going to be using it in other videos to come.
+We're going to learn a little bit about millisecond pulsars and what makes them so different from ordinary pulsars or any other object in our universe and why they're so incredibly useful.
+And once we understand those facts, then I'm going to take you through some of our more recent discoveries, especially when it comes to millisecond pulsars, but other phenomena as well.
+And I'm going to take you through a collection of unconventional artificial theories when it comes to these objects, because in my opinion, objects like millisecond pulsars are just too insanely useful to have come about entirely by chance.
+Okay, a quick pulsar 101 for the relatively smart folks watching, you know, the ones who actually read the comments.
+A pulsar is what you get when a star 8 to 20 times heavier than our sun goes supernova.
+The core collapses into what is called a neutron star, basically a city-sized ball of neutrons packed denser than an atomic nucleus.
+And so we're talking 1 tsp weighs billions of tons in this amazing object.
+And these objects are spinning insanely fast, sometimes hundreds of times per second, and they have a monstrous magnetic field, trillions of times stronger than Earth's.
+That magnetism, it beams radio waves, x-rays, and even gamma rays out of its magnetic poles like two cosmic searchlights.
+And as it spins, those beams sweep across space like a lighthouse.
+And when one sweeps over Earth, we see a very regular pulse.
+And that's why we call them pulsars.
+Normal pulsars are young, freshly baked from the supernova.
+They spin fast at first, but slow down over thousands to millions of years because they're radiating energy away.
+Their pulses get less precise over time, like a wind-up clock running down.
+And while I was at Parks, Dr.
+Sarkissian told me about millisecond pulsars, which I knew something about prior to that, but he was educating me as to how millisecond pulsars could be used for other astronomical purposes like detecting gravitational waves.
+And the reason they're able to do that is because they are so incredibly precise.
+They spin up to 700 times per second, and their periods are measured to 15 decimal places.
+They're more stable over decades than the best atomic clocks that we have on Earth for long-term measurement.
+So how do they get that fast?
+Because young pulsars are supposed to slow down as they lose energy, right?
+Well, it's because they're recycling.
+Most millisecond pulsars start out as normal pulsars in a binary system.
+They suck material off their companion star like cosmic vampirism, and that angular momentum spins them up like a figure skater pulling in her arms.
+The companion eventually gets whittled down to a white dwarf or gets destroyed completely.
+And so you have a millisecond pulsar, super stable and the perfect clock.
+But here's where it gets bizarre.
+Not all millisecond pulsars are still in binary systems.
+Some of them are isolated, lone wolves cruising the galaxy.
+The standard story is, oh well, the companion star went supernova and the kick blasted the millisecond pulsar out of the system.
+Well, it sounds plausible until you think about it.
+These millisecond pulsars are very old.
+They've been spun up, and if the companion explodes and kicks the system apart, how does the millisecond pulsar survive the blast without getting wrecked or at least slow down?
+And also, if they're deprived of their companion star to feed off of, then why don't they slow down at least because of that?
+Some models say that the companion just gets ablated away slowly like a black widow feeding on its prey, or the system gets disrupted in dense star clusters, but it's not a clean explanation.
+There are isolated millisecond pulsars that don't fit this explanation neatly.
+Now, there's the real mind-bender, and this once again, I learned while I was at Parks, a new discovery called the double pulsar, PSR J0737-3039.
+This thing is the only known system where both neutron stars are active pulsars.
+One is a millisecond pulsar, the recycled one, and the other is a normal younger pulsar.
+They orbit each other in just 2.4 hours.
+They're insanely close to one another.
+Now, to make this system, you need the first star to go supernova and create a normal pulsar, and then it creates from the second star becoming a millisecond pulsar.
+So it feeds off that second star, and then the second star goes supernova creating another pulsar.
+Two full-on core collapse supernova.
+Each one should blast the binary apart with a huge natal kick, hundreds of kilometers per second.
+Statistically, the odds of the system surviving even one of these are low.
+Surviving two supernova blasts?
+Well, astronomers call it a miracle.
+The current best guess is that the second supernova was a weird electron capture or ultra strip type with almost no mass ejection and just a tiny kick.
+And it's possible, but damn, it's incredibly convenient.
+And Parks helped discover quite a few of these millisecond pulsars.
+And as I stood there learning more about them, something occurred to me.
+All of this was just too perfect.
+Okay, so those are the facts about millisecond pulsars and I need to emphasize as far as John Sarkissian is concerned, that's where the conversation ends.
+He does not subscribe to the idea of alien engineering or any sort of artificial involvement with any of the phenomena that we see in the night sky or any of the phenomena that he's been studying for decades at the Parks Radio Observatory.
+And at the end of the video, I'm going to explain to you why I actually understand it why he feels this way and why I respect that.
+But all that having been said, it's time to delve into the most recent discoveries that astronomers have made regarding millisecond pulsars and other bizarre phenomena that they're having a hard time explaining.
+Okay, a peer-reviewed paper that I've talked about before on this channel was written by Clément Vidal and it was published in the International Journal of Astrobiology.
+The title is Pulsar Positioning System: A Quest for Evidence of Extraterrestrial Engineering.
+And Vidal pointed out that millisecond pulsars have two insane properties.
+Number one, they're the most stable clocks in the galaxy, better than anything nature seems to need for random neutron stars.
+Number two, a subset of them, especially the millisecond x-ray pulsars, form the perfect ingredients for a passive galactic positioning system, exactly like our GPS, but on a Milky Way scale.
+Now, there's something called XNAV, x-ray pulsar navigation, and this is actually real technology.
+NASA tested it on the International Space Station and China launched a satellite using this technology.
+With just a few millisecond pulsars, a spacecraft can know its position to kilometers of accuracy anywhere in the galaxy.
+No ground stations, no Earth contact, autonomous forever.
+Think about this for a moment.
+That means any spacecraft traveling between the stars, even if it were traveling at relativistic speeds, could still [music] figure out its exact position by using millisecond pulsars.
+This is an incredibly useful navigational tool, especially if they are positioned in strategic places around the galaxy, which according to this paper, they appear to be.
+Now, there's a recent discovery that was actually made just a few weeks ago in February of 2026, Breakthrough Listen dropped a bombshell.
+Their Galactic Center Survey using the Green Bank Telescope found a strong candidate for a millisecond pulsar sitting right next to Sagittarius A, the supermassive black hole at the absolute core of the Milky Way.
+The first potential millisecond pulsar ever spotted in that chaotic, high radiation zone.
+It's still a candidate and follow-up observations are underway, but the signal is persistent and it checks out.
+So, why does that matter?
+Well, there's another fresh paper from late called Redshifted Civilizations, Galactic Empires, and the Fermi Paradox.
+And incidentally, I mentioned this paper in a previous video of mine when I was talking about the point of origin for 3I Atlas. 3I Atlas is also coming from the galactic core, also coming from this region of the galaxy.
+And in this paper, they lay out how a Kardashev level two civilization, in other words, a civilization that can harness the power of stars by means of alien mega structures, can park itself in a stable orbit right next to Sagittarius A and exploit its massive gravitational time dilation to make the entire galaxy feel like it's traversable in just their lifetime.
+In other words, their perception of time would be 10,000 times faster than our perception of time.
+As a day goes by on their planet or their capital city, whatever you want to call it, 10,000 days pass in the outside galaxy or the outside universe for that matter.
+What that means is probes they launch outward like 3I Atlas would arrive quickly by their clocks.
+Signals coming back would too.
+From our outside perspective, they'd be red-shifted in slow motion, which neatly explains why we don't see them screaming across the sky.
+So, imagine that you're that dilated super civilization living in fast forward next to the black hole.
+What's the single most useful piece of infrastructure you could have in your backyard?
+A rock-solid, ultra-precise millisecond pulsar acting as your master clock and central navigation beacon.
+It gives you a perfect zero point for galactic coordinates, lets you synchronize an empire where outer colonies experience millions of years while you just experience decades and allows you to test various types of scientific experiments in the most extreme gravity well anywhere.
+And we've just found a candidate millisecond pulsar sitting exactly there.
+And by the way, it shouldn't be there.
+Millisecond pulsars are supposed to come from binary systems, remember?
+Secondary stars that they're orbiting and feeding off of.
+According to our best understanding of astronomy, a supermassive black hole should not permit this kind of binary system to exist.
+And we don't see a companion star to this millisecond pulsar, at least not yet.
+But the millisecond pulsar is there and yet the binary companion that should be necessary for it to form isn't there.
+So, here's what Vidal said, "Did this perfect navigation grid just happen by chance or did some advanced civilization engineer or at least modify a bunch of neutron stars into this system?
+Perhaps they spin them up artificially, stabilize the beams, and place them strategically." Older ideas from Paul LaViolette even suggested pulsar positions aren't random.
+They're arranged in patterns that look like beacons.
+Think about it from an alien engineer's perspective.
+You're an interstellar civilization.
+You want your probes, colonies, and ships to navigate the galaxy without relying on fragile infrastructure.
+What do you do?
+You turn the most extreme objects in nature, neutron stars, into eternal, indestructible lighthouses and clocks.
+You make millisecond pulsars.
+Some of them binary for whatever reason, some isolated because you blasted the companion away on purpose.
+And the double pulsar?
+Maybe a test bed or a deliberate we are here sign.
+And even if a fraction are engineered, suddenly all the usefulness makes perfect sense on a galactic scale.
+Ultra-precise timing for their version of pulsar timing arrays, built-in navigation networks for any civilization that figures it out, and maybe even encoded messages in the pulse timing.
+We're using these things ourselves to detect gravitational waves and navigate our own spacecraft.
+What if we're piggybacking on somebody else's galactic infrastructure?
+So, I hope all of you have enjoyed this video and my theories about all of this.
+And by the way, it's not exclusively my theories.
+And people a lot more intelligent than I have written some interesting papers on the subject, especially when it comes to millisecond pulsars.
+But all of that having been said, I would like to address why John Sarkissian and most of his colleagues, either at the Parks Radio Observatory and elsewhere, don't subscribe to the whole artificial and alien theory when it comes to these sorts of bizarre phenomena.
+If you're exploring a natural explanation for a phenomenon that we discover in the universe, that process is very, very detailed.
+It involves a lot of research.
+It involves gathering a lot of facts.
+It involves a lot of debate back and forth as to whether or not your theory actually holds up under peer review.
+And if you come to the conclusion that your natural explanation holds water, that's an incredible discovery.
+Whereas an alien engineering explanation is essentially impossible to disprove.
+It would be very difficult for us to observe an alien machine or an alien stellar engineering project underway and to prove its existence at the incredible distance that we're talking about and the limited instrumentation that we have to observe things like that.
+So, if you hypothesize that an artificial process, a engineering process, be is behind these sorts of things, that's essentially where the discussion ends.
+You can't prove it, you can't disprove it, and so the conversation is over.
+And that's not a very exciting conclusion for a scientist to come to.
+Now, really when it comes down to it though, I think it is possible to at least gather some information about an artificial cause for these things.
+For example, if there is an infrared trace of some kind suggesting an alien mega structure in orbit around a pulsar, or a wobble to the pulsar's rotation that might indicate a large gravitational body that we can't see in close proximity to it, or some flares in the pulsar indicating that it might be getting fed from a source that we can't see, that sort of thing.
+Those sorts of observations would certainly add fuel to an artificial explanation, but again, it would be impossible to prove.
+And astronomers and scientists are not terribly interested in things that are impossible to prove.
+However, as instrumentation improves and our capability to see these phenomena in greater detail gets more and more advanced, I think the potential exists for us to be able to prove these sorts of things.
+And in the meantime, what is the harm in hypothesizing?
+If you can't come up with a natural explanation that fits, then an artificial hypothesis is definitely worthwhile.
+So, we need to broaden our search, broaden our minds, and hopefully one day we'll make an amazing discovery.
+Thank you very much for watching.
+Please don't forget to like and subscribe, and also please consider supporting this channel on Patreon.
+That is how I am able to make these incredible journeys to far away places like the Parks Radio Observatory on the other side of the world.
+It was a unique and fantastic experience.
+I would like to thank the staff at the observatory and John Sarkissian for the opportunity.
+Look forward to seeing you again one day.
+So, until next time, stay angry about space. &gt;&gt; [music]
