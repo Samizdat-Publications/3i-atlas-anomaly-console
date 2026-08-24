@@ -39,8 +39,14 @@ also null (353 vs 354 km). Case F-05 + briefing BR-06. The explanation is the ca
 effect — volcano observatories run fixed sky cameras 24/7, which is why the footage exists. Do
 NOT offer a rotation null for the clustering statistic: rotating every event by one offset
 leaves event-to-event distances unchanged and cannot test it.
-Still unbuilt: NUFORC (Cloudflare 403), which would test the 2013 Cheryl Costa claim he
-raises; and a nuclear-site dataset for the remaining positional claim.
+**NUFORC IS DONE AS ANALYSIS, NOT YET AS A CASE FILE.** nuforc.org still 403s a cloud IP, but
+the public mirror `planetsig/ufo-reports` works (80,332 reports, 1906-2014, with the shape
+field). The 2013 Cheryl Costa claim tests out as: baseline figures NEAR-EXACT (fireball is 7.9%
+of all sightings and ranks 4th of 29 shapes, against her "~7%, 4th of ~30"); the Nov 2013
+elevation REAL but smaller than reported (14.2% through the 11th, not ~20%) and NOT unique —
+14th of 168 months since 2000, with July 2012 at 22.2%. Fireball share is also seasonal (July
+10.8%, December 10.0%). Would be case F-06 + briefing BR-07. Still unbuilt: a nuclear-site
+dataset for the last positional claim.
 
 **TRANSCRIPTS ARE TRACKED IN THIS REPO (owner's decision, 2026-08-23).** 114 of them,
 2025-06-28 to 2026-08-23, ~357k words, in `data/transcripts/` with attribution and a per-video
@@ -194,6 +200,14 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   2I/Borisov 2019-20) → `data/ephemeris.json` → baked to `src/data-ephemeris.js`.
   Computed close approaches match published values (Mars 0.1939 AU 2025-10-03, perihelion
   1.3566 AU 2025-10-29, Earth 1.7978 AU 2025-12-19, Jupiter 0.3588 AU 2026-03-17).
+- **Eyewitness reports:** `python tools/fetch_ams.py` — AMS/IMO public stats, per-month counts
+  binned by HOW MANY PEOPLE reported each event, 2006-present → `data/ams-reports.json`. The
+  numbers ship inside the stats page as `all_series[YEAR]` JS arrays. Unit is PEOPLE, not photons.
+- **Camera photometry:** `python tools/fetch_gmn.py` — Global Meteor Network monthly trajectory
+  summaries streamed and aggregated in flight (100+ MB each, never stored) → `data/gmn-monthly.json`.
+  Network grew 73 → 1,327 stations, so ONLY `frac_m4` is comparable across years.
+- **Volcanoes:** `python tools/fetch_volcanoes.py` — NOAA NCEI, 1,608 positions → `data/volcanoes.json`.
+- **Spatial test:** `python tools/spatial_test.py --save` — Monte Carlo, two nulls → `data/spatial-test.json`.
 - **Fireballs:** `python tools/fetch_fireballs.py` — pulls the whole NASA/JPL CNEOS Fireball API
   table (1,069 rows since 1988-04-15, 883 located) plus Natural Earth 1:110m land (public domain,
   RDP-simplified to ~2,200 vertices) → `data/fireballs.json` + `data/world-land.json` → baked to
@@ -213,6 +227,19 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   23 are SECONDARY (Medium/X/paywall/print/translation — primary text not publicly
   fetchable) and are labelled as such on the quote board rather than presented as verified.
   Per-quote `verify` now flows through bake_content.py into the bundle.
+
+## Exports for outside tools (NotebookLM / Gemini)
+`docs/NOTEBOOKLM-DOSSIER.md` is the self-contained source description: schemas, verification
+taxonomy, method, findings, file manifest, ingestion order, and — deliberately first — a list of
+fields this project does NOT have (no FOIA IDs, no Wayback captures, no numeric credibility
+score), because a notebook told to expect them invents them.
+- `python tools/export_dossier.py` → `dossier/00`-`11`: the corpus as Markdown + CSV (~39k words).
+  Generates its own manifest so counts cannot go stale.
+- `python tools/export_tables.py` → `dossier/12`-`14`: the three quantitative datasets as Markdown
+  tables, because notebooks reject .csv URLs and lose column semantics when they do accept them.
+- `python tools/export_transcripts.py` → `data/transcripts/notebook/`: 114 transcripts batched into
+  3 files, since notebooks cap SOURCE COUNT far below 114 while allowing huge per-source word counts.
+ALL of dossier/ is generated. Edit `data/`, never `dossier/`.
 
 ## Pulling claims from video (tools/fetch_transcripts.py)
 Wraps yt-dlp to bulk-fetch a channel's captions. **Will not run from a cloud session** —
