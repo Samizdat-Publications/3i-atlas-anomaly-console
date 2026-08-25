@@ -33,7 +33,7 @@ Avi Loeb ranked the object 4 on his own 0-10 scale in July 2025, held it at 4 th
 
 ## BR-02 — Are fireballs actually increasing?
 
-**Short answer:** The observation is real and its figures are accurate. Whether the sky changed is not something these datasets can settle — and that is a measurable property of the instruments, not a rhetorical dodge.
+**Short answer:** Four instruments, four biases, and only the bias-corrected statistics are worth comparing. The eyewitness figures are accurate; every measure that normalises for instrument growth is flat — including, now, one that sees daylight.
 
 ### The claim, and why it deserves a straight answer
 
@@ -55,9 +55,17 @@ The Global Meteor Network runs cameras that measure an absolute magnitude for ev
 
 GMN sees nothing in daylight, and several of the most prominent 2026 events were daytime — the Lake Erie bolide at 8:57 a.m. Eastern drew 222 reports across 16 states. Its coverage is concentrated in Europe and North America rather than global. Its brightest bin is small and noisy. So this is not a refutation, and the central observation stands exactly as stated. What has moved is the burden: every measure that corrects for instrument growth is flat, and the cameras built to measure brightness did not record the change.
 
+### The fourth instrument, and the objection it answers
+
+This briefing used to end on a limit it could not resolve: the Global Meteor Network carried the strongest evidence, and GMN is night-blind, while several of 2026's most talked-about events happened in daylight. NASA's Geostationary Lightning Mapper pipeline closes that gap. Staring down from geostationary orbit, day and night are the same to it — 47.3%% of its 11410 published bolide detections are daytime, which is roughly the half of the population a ground camera network never sees. Over the same window, its bright-category share runs 3.00%% in 2026 against a 2.80%% baseline, a factor of 1.07. GMN's figure was 1.07. Two instruments on different physics, one blind to half the clock, agreeing to two decimals.
+
+### And the trap inside it
+
+GLM is not a free win, and the catalog carries a hazard worth naming because it is the kind that quietly ruins this sort of comparison. On 2025-03-06 its pipeline started auto-publishing detections that previously needed a human to review them, so the recent years hold a class of record the earlier ones do not. The intuitive fix — filter to high-confidence events — makes it worse, because review lags behind, so filtering on confidence really filters on how long ago something happened. Running the statistic with and without the auto-published events is the fix that works: the bright SHARE barely moves, the bright COUNT swings hard. That is why the share is quoted and the count is not.
+
 **Case files behind this:** fb/F-03, fb/F-04
 
-**Sources:** <https://fireball.amsmeteors.org/members/imo_fireball_stats/events_per_month_per_year> · <https://globalmeteornetwork.org/data/traj_summary_data/> · <https://cneos.jpl.nasa.gov/fireballs/>
+**Sources:** <https://neo-bolide.ndc.nasa.gov/> · <https://fireball.amsmeteors.org/members/imo_fireball_stats/events_per_month_per_year> · <https://globalmeteornetwork.org/data/traj_summary_data/> · <https://cneos.jpl.nasa.gov/fireballs/>
 
 ---
 

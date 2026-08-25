@@ -97,6 +97,32 @@ def main():
     # MONTHLY series and from one number that is not in it — the share the claim
     # compares against — so both travel, along with the rolling baseline that is
     # the whole point of the chart.
+    # GLM — the daylight-capable instrument. Only the yearly window aggregates and
+    # the day/night split travel; the case argues from those.
+    gpath = os.path.join(ROOT, "data", "glm-bolides.json")
+    glm = None
+    if os.path.exists(gpath):
+        with io.open(gpath, encoding="utf-8") as f:
+            g = json.load(f)
+        def sh(a):
+            return round(100.0 * a["bright"] / a["n"], 4) if a["n"] else None
+        glm = {
+            "count": g["count"], "first": g["first"], "last": g["last"],
+            "window_end": g["window_end"], "regime_change": g["regime_change"],
+            "day_pct": g["daytime"]["day_pct"],
+            "years": [{
+                "y": y["year"], "n": y["window"]["n"], "bright": y["window"]["bright"],
+                "share": sh(y["window"]),
+                "humanShare": (round(100.0 * y["window"]["human_bright"] / y["window"]["human"], 4)
+                               if y["window"]["human"] else None),
+                "day": y["window"]["day"], "night": y["window"]["night"],
+            # 2017-2020 are pipeline ramp-up: the bright share runs 4.7-100% there
+            # purely because the detector was still learning to see faint events.
+            # They are not comparable to the baseline and charting them would
+            # squash the years that are.
+            } for y in g["years"] if y["year"] >= 2021 and y["window"]["n"] >= 100],
+        }
+
     npath = os.path.join(ROOT, "data", "nuforc.json")
     nuforc = None
     if os.path.exists(npath):
@@ -118,6 +144,7 @@ def main():
         "spatial": spatial,
         "spatialNuclear": spatial_nuclear,
         "nuforc": nuforc,
+        "glm": glm,
         "window": "Q1 (January-March), whole months only",
         "baseline": "%d-%d" % (min(BASE), max(BASE)),
         "note": ("Raw counts measure the instruments; the shares and rates measure the sky. "
@@ -132,6 +159,9 @@ def main():
         f.write("window.ATLAS_INSTRUMENTS = ")
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
+    if glm:
+        print("  GLM included: %d detections %s-%s, %d%% daytime, %d comparable years"
+              % (glm["count"], glm["first"], glm["last"], glm["day_pct"], len(glm["years"])))
     if nuforc:
         print("  NUFORC series included: %d months %s-%s, all-time fireball share %.2f%%"
               % (len(nuforc["n"]), nuforc["start"], nuforc["end"], nuforc["baseline"]))

@@ -6,7 +6,20 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-24):** v2.15 merged + deployed (PR #11). v2.16 (nuclear-site test,
+**CURRENT STATE (2026-08-24):** v2.18 is the head. **THE FOURTH INSTRUMENT IS DONE** —
+`tools/fetch_glm.py` pulls NASA's GLM bolide catalog (11410 detections) and F-03 is rewritten from
+three instruments to four. THE ENDPOINT IS `/service/event/public`; the documented
+`/service/event/all` returns a catch-all error, as does every other `/service/*` path — do not
+waste time guessing, the real route is in the site's JS bundle. **47.3% of GLM detections are
+DAYTIME**, which answers F-03's own night-blindness limit. Result: bright share 3.00% in 2026 vs
+2.80% baseline = x1.07, against GMN's x1.07 — two instruments, different physics, same answer.
+**THE TRAP: a publication regime change on 2025-03-06** started auto-publishing events that previously
+needed human review. Do NOT filter on confidenceRating to correct for it — review lags, so that
+filters on recency and produces a spurious x0.65. Run the statistic with and without
+auto-published events: the SHARE survives (x1.07 vs x1.08), the COUNT does not (x1.12 vs x0.71).
+Quote the share, never the count. GLM also drifts in sensitivity where GMN does not (faint share
+29.9% -> 71.4%), so it corroborates rather than stands alone.
+Earlier: v2.15 merged + deployed (PR #11). v2.16 (nuclear-site test,
 F-07 + BR-08, claim coverage closed) and v2.17 both shipped in PR #12. v2.17 adds: boot now
 defaults to the CHASE camera unless a deep link set its own; the event toast carries a
 `▲ ANOMALY` / `◆ MISSION EVENT` kind chip; and the **DISPATCH overlay** (off by default) draws
@@ -102,9 +115,11 @@ distance scale or you will ship a fake null.
 The volcano path was regression-checked byte-for-byte against the shipped `spatial-test.json`
 after every edit — F-05 quotes those figures verbatim. Do that again for any future change.
 
-**NEXT STEP (open):** nothing large is queued. Candidates: a fourth instrument for the rate
-question, per-briefing Video Overview assets (see the NotebookLM notes), or bringing content
-current past 2026-08-18.
+**NEXT STEP (open):** the fourth instrument is done. Remaining candidates: a WIDER NUCLEAR
+TARGET SET for F-07 (research reactors, enrichment, reprocessing, waste storage — the claim is
+about radiation generally, not weapons; only civil power reactors have an open position list, so
+this needs a dataset hunt first), per-briefing Video Overview assets (see the NotebookLM notes),
+or bringing content current past 2026-08-18.
 
 **TRANSCRIPTS ARE TRACKED IN THIS REPO (owner's decision, 2026-08-23).** 114 of them,
 2025-06-28 to 2026-08-23, ~357k words, in `data/transcripts/` with attribution and a per-video
@@ -261,6 +276,10 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
 - **Eyewitness reports:** `python tools/fetch_ams.py` — AMS/IMO public stats, per-month counts
   binned by HOW MANY PEOPLE reported each event, 2006-present → `data/ams-reports.json`. The
   numbers ship inside the stats page as `all_series[YEAR]` JS arrays. Unit is PEOPLE, not photons.
+- **Daylight bolides:** `python tools/fetch_glm.py` — NASA's GLM bolide catalog via
+  `neo-bolide.ndc.nasa.gov/service/event/public` → `data/glm-bolides.json`. The ONLY instrument
+  in the register that sees daytime events. Read the regime-change caveat in its docstring
+  before using any cross-year statistic from it.
 - **Camera photometry:** `python tools/fetch_gmn.py` — Global Meteor Network monthly trajectory
   summaries streamed and aggregated in flight (100+ MB each, never stored) → `data/gmn-monthly.json`.
   Network grew 73 → 1,327 stations, so ONLY `frac_m4` is comparable across years.

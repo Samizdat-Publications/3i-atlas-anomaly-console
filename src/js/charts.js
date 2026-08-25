@@ -576,12 +576,88 @@
     }
   };
 
+  // GLM's bright-bolide share year by year, with the day/night split of its
+  // detections underneath. The split is the point: roughly half of what GLM sees
+  // happens in daylight, and that half is invisible to the Global Meteor Network
+  // — which is the limit F-03 states about itself.
+  CH.glmDaylight = function (cv, big) {
+    const D = (window.ATLAS_INSTRUMENTS || {}).glm;
+    const f = fit(cv), g = f.g, W = f.w, H = f.h;
+    g.clearRect(0, 0, W, H);
+    g.font = (big ? '10px ' : '9px ') + 'ShareTechMono, Consolas, monospace';
+    if (!D || !D.years || !D.years.length) return;
+
+    const Y = D.years, n = Y.length;
+    const padL = 30, padR = big ? 10 : 6, padT = big ? 30 : 18, padB = big ? 46 : 30;
+    const iw = W - padL - padR, ih = (H - padT - padB) * 0.62;   // top: share
+    const bh = (H - padT - padB) * 0.3;                          // bottom: day/night
+    const bTop = padT + ih + (H - padT - padB) * 0.08;
+
+    let yMax = 0;
+    Y.forEach(function (r) { if (r.share > yMax) yMax = r.share; });
+    yMax = Math.ceil(yMax * 1.15) || 5;
+    const bw = iw / n;
+    const X = function (i) { return padL + bw * (i + 0.5); };
+    const Yv = function (v) { return padT + ih * (1 - v / yMax); };
+
+    // baseline mean over the comparison years (all but the last)
+    const base = Y.slice(0, -1).filter(function (r) { return r.y >= 2021; });
+    const mean = base.length ? base.reduce(function (a, r) { return a + r.share; }, 0) / base.length : 0;
+    if (mean) {
+      g.strokeStyle = COL.amber; g.lineWidth = 1.3; g.setLineDash([5, 4]);
+      g.beginPath(); g.moveTo(padL, Yv(mean)); g.lineTo(padL + iw, Yv(mean)); g.stroke();
+      g.setLineDash([]);
+    }
+
+    Y.forEach(function (r, i) {
+      const last = i === n - 1;
+      g.fillStyle = last ? 'rgba(70,255,161,.85)' : 'rgba(52,225,255,.55)';
+      const yy = Yv(r.share);
+      g.fillRect(X(i) - bw * 0.32, yy, bw * 0.64, padT + ih - yy);
+      // day / night split bar
+      const dayN = r.day + r.night;
+      if (dayN) {
+        const dw = bw * 0.64 * (r.day / dayN);
+        g.fillStyle = 'rgba(255,179,71,.75)';
+        g.fillRect(X(i) - bw * 0.32, bTop, dw, bh);
+        g.fillStyle = 'rgba(29,109,140,.85)';
+        g.fillRect(X(i) - bw * 0.32 + dw, bTop, bw * 0.64 - dw, bh);
+      }
+      g.fillStyle = last ? COL.green : 'rgba(255,255,255,.5)';
+      g.fillText(String(r.y), X(i) - 13, H - padB + 26);
+      if (big) {
+        g.fillStyle = 'rgba(255,255,255,.55)';
+        g.fillText(r.share.toFixed(2) + '%', X(i) - 15, yy - 4);
+      }
+    });
+
+    g.fillStyle = 'rgba(255,255,255,.4)';
+    [0, yMax / 2, yMax].forEach(function (v) {
+      g.fillText(v.toFixed(1) + '%', 2, Yv(v) + 3);
+    });
+    g.fillStyle = COL.txt;
+    g.fillText('day / night split of every detection', padL, bTop + bh + 12);
+
+    let lx = padL;
+    [['■ bright share', 'rgba(52,225,255,.75)'], ['--- baseline', COL.amber],
+     ['■ daytime', 'rgba(255,179,71,.85)'], ['■ night', 'rgba(29,109,140,.95)']]
+      .forEach(function (L) {
+        g.fillStyle = L[1]; g.fillText(L[0], lx, 10); lx += g.measureText(L[0]).width + 11;
+      });
+    if (big) {
+      g.fillStyle = COL.txt;
+      g.fillText('GLM SEES DAYLIGHT — ' + D.day_pct + '% OF ITS BOLIDES ARE DAYTIME, THE HALF GMN CANNOT SEE',
+                 padL, 22);
+    }
+  };
+
   CH.dossier = function (kind, cv) {
     if (kind === 'speed-dist') { CH.speedDist(cv); return; }
     if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
     if (kind === 'fireball-instruments') { CH.instruments(cv, true); return; }
     if (kind === 'volcano-dist') { CH.volcanoDist(cv, true); return; }
     if (kind === 'nuclear-dist') { CH.nuclearDist(cv, true); return; }
+    if (kind === 'glm-daylight') { CH.glmDaylight(cv, true); return; }
     if (kind === 'nuforc-share') { CH.nuforcShare(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {

@@ -196,6 +196,7 @@ python tools/fetch_ephemeris.py   # 3 eras of JPL Horizons vectors -> data/ + sr
 python tools/fetch_fireballs.py   # CNEOS bolides + Natural Earth land -> data/ + src/
 python tools/fetch_ams.py         # AMS eyewitness report-count bins -> data/
 python tools/fetch_gmn.py         # Global Meteor Network photometry -> data/
+python tools/fetch_glm.py         # NASA GLM bolide catalog (sees daylight) -> data/
 python tools/fetch_volcanoes.py   # NOAA volcano positions -> data/
 python tools/fetch_nuclear.py     # WRI nuclear reactor positions -> data/
 python tools/fetch_nuforc.py      # NUFORC sighting aggregates -> data/

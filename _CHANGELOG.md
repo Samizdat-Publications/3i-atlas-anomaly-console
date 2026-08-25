@@ -1,5 +1,50 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.18 — 2026-08-24 (the fourth instrument, and the one that sees daylight)
+
+F-03 has always carried its own strongest objection: the Global Meteor Network is where the
+weight of its evidence sits, and GMN is NIGHT-BLIND, while several of 2026's most-discussed
+events were daytime. That limit is now answered rather than merely stated.
+
+- **New `tools/fetch_glm.py`** pulls NASA's Geostationary Lightning Mapper bolide catalog —
+  11410 published detections, 2017-07 to 2026-08 — from the Asteroid Threat Assessment Project's
+  automated pipeline. Aggregates only; the raw payload is 29.5 MB of NASA's catalog.
+- **Finding the endpoint took a detour worth recording.** The published `/service/event/all`
+  path returns `{"success":false,"error":{}}`, as does every other `/service/*` path including
+  ones that cannot exist — a catch-all handler, not a wrong guess. The real public route is
+  **`/service/event/public`**, extracted from the site's own JS bundle.
+- **It sees daylight, and that is the whole point.** Solar elevation computed per event from
+  its time and position: **47.3% of GLM's detections are daytime** (5396 day against 5364 night) —
+  roughly the half of the population a ground camera network never sees.
+- **The result corroborates GMN almost exactly.** Over the like-for-like window of 1 January
+  to 15 August, GLM's bright-category share runs **3.00% in 2026 against a 2021-2025 mean of
+  2.80%**, a factor of **1.07**, against year-to-year scatter of 2.03% to 4.38%. GMN's figure
+  for its comparable window was 1.07. Two instruments on different physics, one blind to half
+  the clock, agreeing to two decimals.
+- **A trap in the catalog was found and walked around, not into.** On **2025-03-06** the pipeline began
+  auto-publishing detections that had previously required human review, so 2025-26 hold a class
+  of record earlier years do not. The intuitive fix — restrict to high-confidence events — makes
+  it worse, because review lags, so filtering on confidence really filters on how recent an event
+  is; that cut alone would have shown a spurious x0.65 collapse. Running the statistic with and
+  without the auto-published events is the fix that works: **the bright SHARE survives (x1.07
+  full vs x1.08 human-published only); the bright COUNT does not (x1.12 vs x0.71)**, because the
+  volume of human-published events fell once auto-publishing took over. The case quotes the
+  share and never the count, and says why.
+- **GLM drifts where GMN does not**, and the case says so: its faint-category share climbs from
+  29.9% in 2019 to 71.4% in 2025 as the pipeline improved at dim events, which depresses the
+  bright fraction for free. GMN's stable median magnitude is what let that confound be ruled out
+  there. So GLM corroborates GMN rather than standing alone. Coverage is the GOES field of view,
+  not global.
+- **F-03 rewritten from three instruments to four**, BR-02 gains two sections, and
+  `docs/two-instrument-problem.md` becomes the four-instrument problem with an update note
+  saying plainly what changed and why.
+- **New `CH.glmDaylight` chart** — bright share per year with the day/night split of every
+  detection underneath, which is the picture no other instrument in the register can draw.
+  Charts 2021 onward only: 2017-2020 are pipeline ramp-up, not comparable, and including them
+  squashed the years that are.
+- `tools/fireball_rate_check.py` now re-derives the GLM figures too, regime split included.
+- 49 cases, 8 briefings.
+
 ## v2.17 — 2026-08-24 (chase on boot, a labelled toast, and the DISPATCH overlay)
 
 Three requests from Stewart, plus two limits added to F-07 that he was right to push on.
