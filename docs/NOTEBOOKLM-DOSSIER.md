@@ -2,7 +2,7 @@
 
 **Purpose of this file:** a self-contained primary-source description of the project's
 datasets, schemas, methods and findings, written for ingestion into a research notebook
-(NotebookLM / Gemini). Generated 2026-08-24 against the v2.16 release.
+(NotebookLM / Gemini). Generated 2026-08-24 against the v2.18 release.
 
 **Repository:** <https://github.com/Samizdat-Publications/3i-atlas-anomaly-console>
 **Branch:** `main` (single active branch; all releases merge here)
@@ -215,7 +215,7 @@ after the Jupiter pass produced nothing unusual. This is not our score; it is a 
 
 ## 3. Full Dataset & Case Records
 
-Record counts as of the v2.16 release:
+Record counts as of the v2.18 release:
 
 | Collection | Count | Location |
 |---|---|---|
@@ -229,6 +229,7 @@ Record counts as of the v2.16 release:
 | Volcano positions | **1,608** | `data/volcanoes.json` |
 | NUFORC sighting reports | **80,332** (aggregated to 172 months) | `data/nuforc.json` |
 | Nuclear reactor positions | **195** in 31 countries | `data/nuclear.json` |
+| GLM bolide detections | **11,410** (47.3% daytime) | `data/glm-bolides.json` |
 | Comparison profiles | 3 objects | `data/research.json` |
 
 ### 3.1 Case-file record structure
@@ -392,7 +393,7 @@ than shipping a case that quotes a number the data no longer supports.
 
 ## 5. Active Analytical Threads & Open Leads
 
-### 5.1 Finding — the 2026 fireball rate: three instruments, three answers
+### 5.1 Finding — the 2026 fireball rate: four instruments, one of which sees daylight
 Window: Q1 (whole months), 2026 vs 2021–2025 mean.
 
 | Measure | 2026 | Baseline | Ratio |
@@ -526,6 +527,7 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 | **P8** | `data/spatial-test.json` | JSON | 4 KB | 1 result set | Monte Carlo output: radii, p-values, clustering, distance histogram. |
 | **P9** | `data/nuforc.json` | JSON | 9 KB | 172 months | NUFORC sighting aggregates 1906–2014. Self-assigned shape labels — see §2.4. |
 | **P10** | `data/spatial-test-nuclear.json` | JSON | 4 KB | 1 result set | Fireball/nuclear-site Monte Carlo. Read its limits before its table. |
+| **P11** | `data/glm-bolides.json` | JSON | 9 KB | 11,410 detections | NASA GLM bolide aggregates 2017–2026. The only daylight-capable instrument here — and see its publication-regime caveat. |
 | S5 | `data/nuclear.json` | JSON | 19 KB | 195 | WRI nuclear reactor positions (input to P10). |
 | S1 | `data/volcanoes.json` | JSON | 188 KB | 1,608 | NOAA volcano positions (input to P8). |
 | S2 | `data/ephemeris.json` | JSON | 384 KB | 3 eras | Heliocentric ecliptic J2000 daily vectors. Numeric; low text value. |
@@ -533,9 +535,9 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 | S4 | `data/provisional-iso-anomalies.json` | JSON | 12 KB | 12 | Superseded fallback drafts. **Do not ingest** — replaced by P2. |
 | D1 | `docs/two-instrument-problem.md` | Markdown | 16 KB | — | Methodological essay: instrument bias, detection floors, the three-instrument result. |
 | D2 | `docs/claim-coverage.md` | Markdown | 8 KB | — | 24-anomaly claim list mapped to case files. |
-| D3 | `_CHANGELOG.md` | Markdown | 36 KB | — | Full development and finding history, v2.5 → v2.16. |
+| D3 | `_CHANGELOG.md` | Markdown | 36 KB | — | Full development and finding history, v2.5 → v2.18. |
 | D4 | `CLAUDE.md` | Markdown | 24 KB | — | Architecture, constraints, and the project's framing rules. |
-| C1 | `tools/*.py` | Python | — | 22 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
+| C1 | `tools/*.py` | Python | — | 23 scripts | Pipelines and tests. **Derivative — ingest only for method verification.** |
 | C2 | `src/data-*.js` | JavaScript | 706 KB | — | **GENERATED. Do not ingest** — duplicates P1–P8 in compiled form. |
 
 ### 6.3 Direct links to primary sources
@@ -549,6 +551,7 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 - P8 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/spatial-test.json>
 - P9 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/nuforc.json>
 - P10 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/spatial-test-nuclear.json>
+- P11 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/data/glm-bolides.json>
 - D1 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/docs/two-instrument-problem.md>
 - D2 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/docs/claim-coverage.md>
 - D4 <https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console/main/CLAUDE.md>
@@ -570,7 +573,7 @@ Eight narrative syntheses and seven analytical cases. Highest information densit
 `P1` → `P2`. The 49 case files with citations and verification verdicts.
 
 **Batch 4 — quantitative substrate.**
-`P5` → `P6` → `P7` → `P8` → `P9` → `P10`. Ingest only after Batch 1, or the normalisation rules in §4.3
+`P5` → `P6` → `P7` → `P8` → `P9` → `P10` → `P11`. Ingest only after Batch 1, or the normalisation rules in §4.3
 will not be applied and raw counts will be misread as trends.
 
 **Optional.** `S1` (volcano positions), `D3` (changelog — useful for provenance of a
@@ -591,12 +594,16 @@ specific finding), `C1` (method verification).
    sentence without its adjacent field will invert the meaning.
 6. The transcript corpus is absent by design (§3.6); quoted excerpts are auto-caption
    derived and labelled as such.
-7. `P9`'s `shape` field is a **witness's own word**, not a measurement. Its "fireball" is a
+7. `P11` (GLM) has a **publication-regime change on 2025-03-06**: auto-published events exist
+   only after it. Do NOT filter on `confidenceRating` to correct for this — human review lags,
+   so that filters on how recent an event is. Compare with and without auto-published events;
+   the bright share survives the split, the bright count does not.
+8. `P9`'s `shape` field is a **witness's own word**, not a measurement. Its "fireball" is a
    different quantity from the one `P5` and `P6` report under that name, and the three
    cannot be pooled or plotted on one axis. See §2.4.
 
 ---
 
-*Generated 2026-08-24 from the v2.16 release. Unofficial and educational. Where a claim is
+*Generated 2026-08-24 from the v2.18 release. Unofficial and educational. Where a claim is
 contested, both readings are given, including limits that cut against the project's own
 conclusions.*

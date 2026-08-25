@@ -1,10 +1,19 @@
-# The Two-Instrument Problem
+# The Four-Instrument Problem
 
 **Why the "2026 fireball surge" can't be settled with the data that exists — and why
 that's a measurable fact about the instruments, not a rhetorical dodge.**
 
-Compiled 2026-08-23. Every number here is reproducible from the two public sources
-listed at the end.
+Compiled 2026-08-23; a fourth instrument added 2026-08-24. Every number here is
+reproducible from the public sources listed at the end.
+
+> **Update, 2026-08-24.** This essay originally closed on a limit it could not
+> resolve: the strongest evidence came from the Global Meteor Network, and GMN is
+> night-blind, while several of 2026's most-discussed events were daytime. NASA's
+> Geostationary Lightning Mapper bolide catalog closes that gap — 47.3% of its
+> 11410 detections are daytime. Over the same window its bright-category share is
+> 3.00% in 2026 against a 2.80% baseline, a factor of 1.07, against GMN's 1.07.
+> The daylight half of the population behaves like the night half. See §Fourth
+> instrument at the end.
 
 ---
 
@@ -324,3 +333,54 @@ the stats page above; the CNEOS figures come from the full API pull kept in
 *Prepared as background for the 3I/ATLAS Anomaly Review Console
 (<https://3i-atlas-anomaly-console.pages.dev>). Unofficial and educational. Where a
 claim is contested, both readings are given.*
+
+
+---
+
+## Fourth instrument — the one that sees daylight (added 2026-08-24)
+
+The Geostationary Lightning Mapper flies on the GOES East and West satellites. It was
+built to map lightning; it turns out to detect bolides, and NASA's Asteroid Threat
+Assessment Project runs an automated detection pipeline over it. For this question it
+combines three properties none of the other three instruments has together:
+
+- **It sees daylight.** From geostationary orbit, day and night are the same to it.
+  **47.3%** of its 11410 published detections are daytime (5396 day against 5364 night) —
+  roughly the half of the population a ground camera network never sees.
+- **It is automated.** A pipeline decides, not a person choosing whether to file,
+  which removes the audience effect that limits the AMS series entirely.
+- **It targets bolides specifically**, so it measures the bright end the claim is
+  about rather than the general meteor flux.
+
+**The result.** Over the like-for-like window of 1 January to 15 August, the
+bright-category share runs **3.00% in 2026 against a 2021-2025 mean of 2.80%** — a
+factor of **1.07**, against year-to-year scatter of 2.03% to 4.38%. GMN's figure for
+its comparable window was 1.07. Two instruments built on different physics, one of them
+blind to half the sky's clock, agreeing to two decimal places.
+
+### The trap inside the catalog
+
+GLM is not a free win. On **2025-03-06** the pipeline began auto-publishing detections that had
+previously required human review, so 2025-26 contain a class of record earlier years do
+not. The intuitive correction — restrict to high-confidence events — makes it worse,
+because review lags, so filtering on confidence really filters on how recently something
+happened. The correction that works is to run the statistic with and without the
+auto-published events:
+
+| statistic | full catalog | human-published only |
+|---|---|---|
+| bright share, 2026 vs baseline | ×1.07 | ×1.08 |
+| bright count, 2026 vs baseline | ×1.12 | ×0.71 |
+
+The **share** survives the regime change. The **count** does not, because the volume of
+human-published events fell once auto-publishing took over. That is why this essay
+quotes the share and never the count.
+
+GLM also drifts in sensitivity in the way GMN does not: its faint-category share climbs
+from 29.9% in 2019 to 71.4% in 2025 as the pipeline improved at dim detections, which
+depresses the bright fraction for free. GMN's stable median magnitude is what let the
+drift confound be ruled out there; here it is present. So GLM corroborates GMN rather
+than standing on its own — and its coverage is the GOES field of view, the Americas and
+neighbouring oceans, not the globe.
+
+Source: <https://neo-bolide.ndc.nasa.gov/> · pipeline `tools/fetch_glm.py`

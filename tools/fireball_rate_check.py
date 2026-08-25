@@ -136,6 +136,32 @@ def rows_in_regions(fb):
     return n
 
 
+def glm_stats(g):
+    """Every GLM figure F-03 quotes, re-derived. The regime split is checked too:
+    if the share stops surviving it, the case's method claim is no longer true."""
+    yrs = {y["year"]: y for y in g["years"]}
+    w = {y: yrs[y]["window"] for y in yrs}
+
+    def sh(a):
+        return 100.0 * a["bright"] / a["n"] if a["n"] else 0.0
+
+    def hsh(a):
+        return 100.0 * a["human_bright"] / a["human"] if a["human"] else 0.0
+
+    base = [sh(w[y]) for y in range(2021, 2026)]
+    hbase = [hsh(w[y]) for y in range(2021, 2026)]
+    return {
+        "count": g["count"], "first": g["first"], "last": g["last"],
+        "day": g["daytime"]["day"], "night": g["daytime"]["night"],
+        "day_pct": g["daytime"]["day_pct"], "regime": g["regime_change"],
+        "s26": sh(w[2026]), "smean": sum(base) / 5.0,
+        "slo": min(base), "shi": max(base),
+        "hs26": hsh(w[2026]), "hsmean": sum(hbase) / 5.0,
+        "faint19": 100.0 * yrs[2019]["all"]["faint"] / yrs[2019]["all"]["n"],
+        "faint25": 100.0 * yrs[2025]["all"]["faint"] / yrs[2025]["all"]["n"],
+    }
+
+
 def nuforc_stats(nf):
     """Every figure case F-06 quotes, re-derived from the archive aggregates."""
     ms = {m["m"]: m for m in nf["months"]}
@@ -270,6 +296,30 @@ def verify(a, g, c, nreg, sp, nf):
         for label, needle in checks:
             if needle not in t3:
                 bad.append("F-03 %s: data says '%s', the case does not" % (label, needle))
+
+    gl = load_optional("glm-bolides.json")
+    if t3 is not None and gl is not None:
+        G = glm_stats(gl)
+        checks = [
+            ("GLM count", "%d of them between %s and %s" % (G["count"], G["first"], G["last"])),
+            ("GLM daytime pct", "%.1f%% of its detections are daytime" % G["day_pct"]),
+            ("GLM day/night", "(%d day against %d night)" % (G["day"], G["night"])),
+            ("GLM 2026 share", "share runs %.2f%% in 2026" % G["s26"]),
+            ("GLM baseline", "2021-2025 mean of %.2f%%" % G["smean"]),
+            ("GLM ratio", "a factor of %.2f" % (G["s26"] / G["smean"])),
+            ("GLM scatter", "scatter of %.2f%% to %.2f%%" % (G["slo"], G["shi"])),
+            ("GLM regime date", "on %s its pipeline began" % G["regime"]),
+            ("GLM human-only", "the share is %.2f%% against %.2f%%, a\nfactor of %.2f"
+                               % (G["hs26"], G["hsmean"], G["hs26"] / G["hsmean"])),
+            ("GLM faint drift", "climbs from %.1f%% in 2019 to %.1f%% in 2025"
+                                % (G["faint19"], G["faint25"])),
+        ]
+        for label, needle in checks:
+            flat = " ".join(needle.split())
+            if flat not in " ".join(t3.split()):
+                bad.append("F-03 %s: data says '%s', the case does not" % (label, flat))
+    elif t3 is not None and gl is None:
+        print("data/glm-bolides.json absent — F-03's GLM figures not checked.")
 
     t4 = case_text("F-04")
     if t4 is None:
