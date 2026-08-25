@@ -1,5 +1,19 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.18.1 — 2026-08-24 (quote attribution)
+
+- **Cases F-03 to F-07 were attributing their quotes to Avi Loeb.** The dossier prefixed every
+  quote with "— A. LOEB ·" regardless of who said it, so the Angry Astronaut's sentences and
+  Cheryl Costa's relayed figures both went out under his name. This is the same bug
+  `claim_label` fixed for the section caption in v2.16 — the caption was closed and the quote
+  line was not. The prefix now appears only where `claim_label` is the default LOEB ASSESSMENT,
+  so his cases keep the attribution and the four that are not his no longer claim it.
+- The first attempt at the fix was also wrong: it tested whether `claim_label` exists, but
+  `bake_content.py` defaults it to `"LOEB ASSESSMENT"`, so the condition was always true and
+  F-01 lost the Loeb attribution it should have had. Checking all four case types in a browser
+  caught it. Putting a real person's name on somebody else's sentence is the one class of error
+  this project can least afford.
+
 ## v2.18 — 2026-08-24 (the fourth instrument, and the one that sees daylight)
 
 F-03 has always carried its own strongest objection: the Global Meteor Network is where the
