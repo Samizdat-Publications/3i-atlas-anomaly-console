@@ -596,7 +596,7 @@
       '<div class="cx-sheet-body">',
       '  <div class="cx-block"><div class="cx-block-label cx-bl-obs">OBSERVATION</div><div class="cx-block-text">' + esc(a.observation) + '</div></div>',
       '  <div class="cx-block cx-b-loeb"><div class="cx-block-label cx-bl-loeb">' + esc(a.claim_label || 'LOEB ASSESSMENT') + '</div><div class="cx-block-text">' + esc(a.loeb_take) + '</div>' +
-        (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">— A. LOEB · ' + esc(a.quote_source || '') + '</span></div>' : '') + '</div>',
+        (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">— ' + esc((a.claim_label === 'LOEB ASSESSMENT' ? 'A. LOEB · ' : '') + (a.quote_source || '')) + '</span></div>' : '') + '</div>',
       '  <div class="cx-block cx-b-off"><div class="cx-block-label cx-bl-off">OFFICIAL EXPLANATION</div><div class="cx-block-text">' + esc(a.official_explanation) + '</div></div>',
       '  <canvas class="cx-dchart" id="cx-dchart"></canvas>',
       refsRow(a.sources),
