@@ -9,6 +9,7 @@
 Real trajectories. Real measurements. Both sides of every argument.
 
 [![Live](https://img.shields.io/badge/live-3i--atlas--anomaly--console.pages.dev-34e1ff?style=flat-square)](https://3i-atlas-anomaly-console.pages.dev)
+[![Landing page](https://img.shields.io/badge/landing-3i--atlas--landing.pages.dev-ffb347?style=flat-square)](https://3i-atlas-landing.pages.dev)
 [![About](https://img.shields.io/badge/about-project%20page-1899bd?style=flat-square)](https://3i-atlas-anomaly-console.pages.dev/about.html)
 [![License](https://img.shields.io/badge/license-MIT-46ffa1?style=flat-square)](LICENSE)
 ![Data](https://img.shields.io/badge/ephemeris-JPL%20Horizons-ffb347?style=flat-square)

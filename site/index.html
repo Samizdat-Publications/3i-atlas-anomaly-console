@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3I/ATLAS Anomaly Console: both sides of every claim</title>
+<meta name="description" content="A mission-control console that tracked interstellar object 3I/ATLAS on real JPL trajectories, logging each anomaly as it happened. Every claim sits beside the official explanation, with sources.">
+<meta name="theme-color" content="#01040a">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="3I/ATLAS Anomaly Console">
+<meta property="og:description" content="A mission-control console that tracked interstellar object 3I/ATLAS on real JPL trajectories, logging each anomaly as it happened.">
+<meta property="og:image" content="https://3i-atlas-landing.pages.dev/media/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://3i-atlas-landing.pages.dev/media/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23041019'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%2334e1ff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23ffb347'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/sharetechmono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#replay">Skip to the tour</a>
+
+<header class="bar">
+  <a class="bar-mark" href="#top" aria-label="3I/ATLAS Anomaly Console, back to the top"><span class="sigil" aria-hidden="true"></span><b>3I/ATLAS CONSOLE</b></a>
+  <nav class="bar-links" aria-label="Sections">
+    <a href="#replay">Replay</a>
+    <a href="#cases">Case files</a>
+    <a href="#briefings">Briefings</a>
+    <a href="#fireballs">Impact map</a>
+    <a href="#making">How it was made</a>
+    <a href="#credits">Credits</a>
+  </nav>
+  <a class="btn btn-small" href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console">Source</a>
+</header>
+
+<main>
+
+<section class="hero wrap" id="top" aria-labelledby="hero-title">
+  <p class="pill"><span class="pill-dot"></span>v1.0: live in your browser</p>
+  <h1 id="hero-title">3I/ATLAS<small>ANOMALY REVIEW CONSOLE</small></h1>
+  <p class="pitch">A mission-control console that tracked interstellar object 3I/ATLAS on real JPL trajectories, logging each anomaly as it happened.</p>
+  <div class="cta">
+    <a class="btn" href="https://3i-atlas-anomaly-console.pages.dev">Open the live dashboard</a>
+    <a class="btn btn-ghost" href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console">Source on GitHub</a>
+  </div>
+  <figure class="monitor hero-monitor">
+    <span class="screen-tag">CAM 01 // REAL TRAJECTORY, THEN CASE A-05</span>
+    <video id="hero-video" muted loop playsinline autoplay preload="auto" poster="media/hero.jpg" aria-label="The console replays the real 3I/ATLAS trajectory through the Mars pass and perihelion, then opens case file A-05 with the claim and the official explanation side by side.">
+      <source src="media/hero.mp4" type="video/mp4">
+    </video>
+  </figure>
+  <p class="hero-note">Runs in any modern browser, on a laptop or a phone. No install, no account. The same console also builds into one offline HTML file.</p>
+</section>
+
+<section class="wrap stats-wrap" aria-label="What is in the console">
+  <div class="stats">
+    <div class="stat"><div class="n">3</div><div class="l">INTERSTELLAR OBJECTS</div></div>
+    <div class="stat"><div class="n">49</div><div class="l">CASE FILES</div></div>
+    <div class="stat"><div class="n">58</div><div class="l">TIMELINE RECORDS</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">QUESTION BRIEFINGS</div></div>
+    <div class="stat"><div class="n">1,069</div><div class="l">LOGGED FIREBALLS</div></div>
+  </div>
+</section>
+
+<section class="wrap premise" aria-labelledby="premise-title">
+  <h2 id="premise-title"><span>THE PREMISE</span></h2>
+  <p class="lead">Three objects have ever been seen arriving from outside the solar system. One of them has drawn a long list of arguments about whether it is only a comet.</p>
+  <p class="body">1I/&#699;Oumuamua passed through in 2017 and sped up on its way out with no visible tail. 2I/Borisov arrived in 2019 and behaved like an ordinary comet. 3I/ATLAS came through in 2025 on the most extreme hyperbolic orbit ever measured, and Harvard astronomer Avi Loeb began publishing a numbered list of things about it he considered anomalous. Most astronomers say it is a comet. The console does not pick for you: it puts each claim next to the mainstream account, with sources, and lets you fly the geometry and judge.</p>
+</section>
+
+<section class="wrap feature" id="replay" aria-labelledby="replay-title">
+  <div class="feature-text">
+    <p class="layer">01 / REPLAY</p>
+    <h2 id="replay-title">Fly the real geometry</h2>
+    <p>Daily state vectors for each object and all eight planets come from the NASA/JPL Horizons system, a separate window for each object's transit. Press play and the clock runs from discovery on 2025-07-01. Amber triangles mark anomaly case files, cyan diamonds mark mission events, and each one toasts when the playhead crosses it.</p>
+    <p>The close approaches are computed from those vectors and match the published values: 3I/ATLAS passes Mars at 0.194 AU on 2025-10-03, reaches perihelion at 1.357 AU on 2025-10-29, and is closest to Earth at 1.798 AU on 2025-12-19. Cameras include free, top-down, chase, from Mars and from the Sun.</p>
+  </div>
+  <figure class="monitor">
+    <span class="screen-tag">CAM 02 // DISCOVERY ONWARD, 30 DAYS PER SECOND</span>
+    <video data-inview muted loop playsinline preload="none" poster="media/replay.jpg" aria-label="The replay clock runs from discovery while the object crosses the inner solar system and anomaly and mission events toast as they are reached.">
+      <source src="media/replay.mp4" type="video/mp4">
+    </video>
+  </figure>
+</section>
+
+<section class="wrap feature flip" id="cases" aria-labelledby="cases-title">
+  <div class="feature-text">
+    <p class="layer">02 / CASE FILES</p>
+    <h2 id="cases-title">Both sides of every claim</h2>
+    <p>Every anomaly is a numbered case file with three parts: the observation, what was measured; the assessment, which is the claim as Avi Loeb made it; and the official explanation, the mainstream account with its own paper trail. Sources are links, and a chip records whether the entry held up when it was checked.</p>
+    <p>The console is fun speculation grounded in real data, not a scoreboard against the people making the claims. Where a dataset cannot speak to a claim, the case says so instead of implying a refutation.</p>
+  </div>
+  <figure class="monitor">
+    <span class="screen-tag">DOSSIER A-05 // SUNWARD ANTI-TAIL</span>
+    <img src="media/shot-case.jpg" alt="Case file A-05, a sunward anti-tail, with the observation, the Loeb assessment and the official explanation stacked in one dossier." loading="lazy" width="1280" height="720">
+  </figure>
+</section>
+
+<section class="wrap feature" id="briefings" aria-labelledby="briefings-title">
+  <div class="feature-text">
+    <p class="layer">03 / BRIEFINGS</p>
+    <h2 id="briefings-title">A way in, by question</h2>
+    <p>Forty-nine dossiers is a wall, so there are eight briefings, each built around one question: is 3I/ATLAS a comet or something else, are fireballs actually increasing, has anything interstellar hit Earth, why is only one of the three visitors contested.</p>
+    <p>A briefing states the question, answers it in a few hundred words, shows the one chart that carries the argument, and hands off to the case files that do the detailed work. Each is a deep link, so a single finding can be sent on its own.</p>
+  </div>
+  <figure class="monitor">
+    <span class="screen-tag">BRIEFINGS // READING MODE</span>
+    <video data-inview muted loop playsinline preload="none" poster="media/briefings.jpg" aria-label="The briefings page scrolls through the comet question and then opens the fireball-rate question with its chart.">
+      <source src="media/briefings.mp4" type="video/mp4">
+    </video>
+  </figure>
+</section>
+
+<section class="wrap feature flip" id="fireballs" aria-labelledby="fireballs-title">
+  <div class="feature-text">
+    <p class="layer">04 / IMPACT MAP</p>
+    <h2 id="fireballs-title">1,069 fireballs, and two disputed rows</h2>
+    <p>Every atmospheric impact that US Government sensors have logged since 1988 is plotted where it burned, with circle area scaling with energy up to Chelyabinsk at 441 kt. Filter by energy or decade, hover a dot for its full CNEOS row, and put IM1 (2014) and IM2 (2017), the two events Loeb argues came from outside the solar system, under a reticle.</p>
+    <p>The catalog publishes no uncertainties on any field, which sits at the center of the IM1 and IM2 dispute, and the console says so wherever those numbers appear.</p>
+  </div>
+  <figure class="monitor">
+    <span class="screen-tag">IMPACT REGISTER // CNEOS</span>
+    <video data-inview muted loop playsinline preload="none" poster="media/fireballs.jpg" aria-label="Energy filters narrow the impact map to the brightest fireballs, then the IM1 and IM2 reticles lock onto the two disputed events.">
+      <source src="media/fireballs.mp4" type="video/mp4">
+    </video>
+  </figure>
+</section>
+
+<section class="wrap gallery" aria-labelledby="gallery-title">
+  <h2 id="gallery-title"><span>FROM THE CONSOLE</span></h2>
+  <div class="shots">
+    <figure><img src="media/shot-track.jpg" alt="The tracking view near perihelion: the object's tail, the planets on their real positions and the timeline of markers underneath." loading="lazy" width="1280" height="720"><figcaption>Tracking view near perihelion, planets on their real positions.</figcaption></figure>
+    <figure><img src="media/shot-1i.jpg" alt="The console re-scoped to 1I/Oumuamua, with its own case files, close approaches and telemetry." loading="lazy" width="1280" height="720"><figcaption>Switch target: the whole console re-scopes to 1I/&#699;Oumuamua.</figcaption></figure>
+    <figure><img src="media/shot-briefings.jpg" alt="The briefings page with eight question cards on the left and the comet question open with its chart." loading="lazy" width="1280" height="720"><figcaption>Briefings: a question, a short answer, one chart.</figcaption></figure>
+    <figure><img src="media/shot-fireballs.jpg" alt="The impact map with the IM1 event selected and its catalog row shown below." loading="lazy" width="1280" height="720"><figcaption>IM1 under the reticle, with its full catalog row.</figcaption></figure>
+  </div>
+  <p class="note">Some charts are labeled as stylized reconstructions of a published result rather than raw data, and the optional DISPATCH overlay is marked three times as an illustration of a claim, not an observation.</p>
+</section>
+
+<section class="wrap making" id="making" aria-labelledby="making-title">
+  <h2 id="making-title"><span>HOW IT WAS MADE</span></h2>
+  <p class="lead">One plain HTML file, no framework, and every number traceable to a script that fetched it.</p>
+  <p class="body">Stewart Gregerson built the console with Claude Code, in short sessions that each pick up from a resume note kept in the repo. The 3D scene is three.js and the sound is a Web Audio synth with no audio files. A Python build step inlines three.js, the font, the ephemeris, the fireball catalog and all the case files into one file of about 1.6 MB with zero external references, so it opens offline by double-click.</p>
+
+  <div class="pillars">
+    <article>
+      <h3>Data by script</h3>
+      <p>Python scripts pull the JPL Horizons vectors, the CNEOS fireball table and the other datasets, then bake them into the bundle. A monthly workflow re-pulls upstream and opens a pull request if anything changed. It never pushes to main, because a row a case file quotes can be revised upstream and a person should read the diff.</p>
+    </article>
+    <article>
+      <h3>Cases that get checked</h3>
+      <p>The original case files, timelines and quotes came from a multi-agent research pass, then each case went through an adversarial fact-check against primary sources. One script re-derives every figure the fireball-rate cases quote and fails the refresh if the catalog moves under them.</p>
+    </article>
+    <article>
+      <h3>Mistakes get written down</h3>
+      <p>The changelog records what broke. In v2.18.1 the dossier was putting Avi Loeb's name on quotes that were not his, so the prefix now appears only on his own cases. The note ends: putting a real person's name on somebody else's sentence is the one class of error this project can least afford.</p>
+    </article>
+  </div>
+
+  <ol class="timeline">
+    <li><time>25 Jul 2026</time><div><b>First commit.</b> A single-file console with the three objects, real Horizons trajectories and the first case files.</div></li>
+    <li><time>26 Jul</time><div><b>v2.3.</b> Deep links to any case, an eight-beat guided tour and search across all three objects.</div></li>
+    <li><time>22 Aug</time><div><b>The fireball register.</b> The CNEOS impact map, cases for IM1 and IM2, touch support, and timeline markers that open full sourced records.</div></li>
+    <li><time>23 Aug</time><div><b>Briefings, and three instruments.</b> A question-led way into the cases, and the fireball-rate claim tested against more than one dataset.</div></li>
+    <li><time>24 Aug</time><div><b>A fourth instrument, the DISPATCH overlay and the attribution fix.</b> NASA's GLM satellite catalog sees daylight, which closes a limit the case had stated against itself.</div></li>
+  </ol>
+  <p class="center"><a class="btn btn-ghost" href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console/blob/main/_CHANGELOG.md">Read the full changelog</a></p>
+</section>
+
+<section class="wrap credits" id="credits" aria-labelledby="credits-title">
+  <h2 id="credits-title"><span>DATA SOURCES AND CREDITS</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Source</th><th scope="col">Used for</th><th scope="col">Terms</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">NASA/JPL Horizons</th><td>Trajectories for 3I/ATLAS, 1I/&#699;Oumuamua, 2I/Borisov and the planets</td><td>Public domain</td></tr>
+        <tr><th scope="row">NASA/JPL CNEOS Fireball Data API</th><td>The impact map: every logged fireball since 1988</td><td>US government data, public domain</td></tr>
+        <tr><th scope="row">Natural Earth</th><td>Land outlines on the impact map</td><td>Public domain</td></tr>
+        <tr><th scope="row">NASA GLM bolide catalog</th><td>Satellite detections that include daytime events</td><td>Public NASA data; detections used as published</td></tr>
+        <tr><th scope="row">Global Meteor Network</th><td>Monthly camera statistics for the fireball-rate cases</td><td>Aggregates only, credited to the network</td></tr>
+        <tr><th scope="row">American Meteor Society</th><td>Eyewitness report counts per month</td><td>Public statistics page; aggregates only</td></tr>
+        <tr><th scope="row">NOAA NCEI volcano locations</th><td>The volcano-proximity test</td><td>US government data</td></tr>
+        <tr><th scope="row">WRI Global Power Plant Database</th><td>Reactor positions for the nuclear-site test</td><td>CC BY 4.0</td></tr>
+        <tr><th scope="row">NUFORC archive (planetsig/ufo-reports mirror)</th><td>The 2013 sighting-share precedent; the mirror ends in 2014</td><td>Aggregates only; raw report text is not kept</td></tr>
+        <tr><th scope="row">three.js</th><td>The 3D scene</td><td>MIT</td></tr>
+        <tr><th scope="row">Share Tech Mono</th><td>The typeface, here and in the console</td><td>SIL Open Font License 1.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Quotations in the case files remain the property of their speakers and publishers and are used briefly, with attribution, for commentary and criticism. The code is MIT.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="pill"><span class="pill-dot"></span>v1.0 (app build 2.18.1)</p>
+    <p>Unofficial simulation built for education and entertainment. Not affiliated with, endorsed by, or produced by NASA, JPL, ESA or any government agency. The Interstellar Object Working Group, its clearance banners and its declassified memoranda are fiction. The ephemerides, measurements, quotations and citations are real and sourced.</p>
+    <p><a href="https://3i-atlas-anomaly-console.pages.dev">Live dashboard</a> &middot; <a href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console">Source on GitHub</a> &middot; <a href="https://github.com/Samizdat-Publications">Samizdat Publications</a></p>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
