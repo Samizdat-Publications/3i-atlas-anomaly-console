@@ -2,6 +2,8 @@
 
 # 3I/ATLAS — Interstellar Anomaly Review Console
 
+![Status: v1.0](https://img.shields.io/badge/status-v1.0-2ea043)
+
 **A mission-control terminal for the only three objects ever seen entering our solar system from interstellar space.**
 
 Real trajectories. Real measurements. Both sides of every argument.
@@ -276,3 +278,7 @@ measurements, quotations and citations are real and sourced.
 
 Licensed MIT — see [LICENSE](LICENSE), which also covers the bundled three.js and Share Tech Mono
 dependencies and the status of quoted material.
+
+## Licence
+
+Code is MIT (see [LICENSE](LICENSE)). Third-party assets listed above (three.js, Share Tech Mono, NASA/JPL data) keep their own licences, as set out in the LICENSE file.

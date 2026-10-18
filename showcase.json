@@ -1,0 +1,28 @@
+{
+  "name": "3I/ATLAS Anomaly Console",
+  "repo": "3i-atlas-anomaly-console",
+  "pitch": "A mission-control terminal for the three interstellar objects: real JPL trajectories and both sides of every anomaly claim.",
+  "status": "v1",
+  "version": "1.0.0",
+  "kind": "dashboard",
+  "started": "2026-07-25",
+  "updated": "2026-08-25",
+  "tech": ["JavaScript", "Three.js", "Web Audio", "JPL Horizons"],
+  "links": {
+    "landing": "https://3i-atlas-anomaly-console.pages.dev",
+    "play": "",
+    "devlog": ""
+  },
+  "hero": {
+    "gif": "",
+    "poster": "public/shots/track.png",
+    "clip": ""
+  },
+  "credits": [
+    { "what": "Ephemeris vectors for 3I/ATLAS, 1I/Oumuamua and 2I/Borisov", "who": "NASA/JPL Horizons", "licence": "Public domain" },
+    { "what": "Fireball impact catalog", "who": "NASA/JPL CNEOS Fireball Data API", "licence": "US government data, public domain" },
+    { "what": "Land outlines", "who": "Natural Earth", "licence": "Public domain" },
+    { "what": "3D scene", "who": "three.js", "licence": "MIT" },
+    { "what": "Share Tech Mono typeface", "who": "Carrois Apostrophe", "licence": "SIL OFL 1.1" }
+  ]
+}
