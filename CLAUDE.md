@@ -5,8 +5,43 @@ A single-file, framework-free "NASA terminal" dashboard about the interstellar o
 register (each case shows Loeb's claim AND the official explanation side by side).
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
-## Resume protocol (usage limits hit often — checkpoint everything)
-**CURRENT STATE (2026-08-24):** v2.18 is the head. **THE FOURTH INSTRUMENT IS DONE** —
+## Resume protocol (usage limits hit often: checkpoint everything)
+**CURRENT STATE (2026-11-01): v2.19 is the head ("is 3I/ATLAS changing course?").** Approved
+plan for v2.19 + v2.20: `C:\Users\stewa\.claude\plans\effervescent-fluttering-falcon.md`. Read
+`_CHANGELOG.md` v2.19 for the full list. The load-bearing facts:
+- **3I IS PINNED TO JPL#54.** Since 2026-10-21 Horizons serves solution #55 for C/2025 N1, a
+  "temporary solution to support JWST Program 13145" (117 obs from 2025-10-03, transverse term of
+  the opposite sign). `tools/jpl_solution.py` holds #54's elements and push and submits them to
+  Horizons as a user-defined object; `fetch_ephemeris.py` uses it for the 3I target. Never go back
+  to `DES=C/2025 N1;` for the shipped path without deciding that on purpose.
+- **THE COUNTERFACTUAL** (`tools/fetch_counterfactual.py`, run AFTER fetch_ephemeris): Horizons
+  integrates 3I from its 2025-05-15 state with the push and without. 126,306 km / 12.7" / total
+  dv 4.2 m/s (1.75 m/s of it speed) on 2026-11-01; 824 km on 2025-07-31. It aborts unless REAL
+  reproduces the shipped path. Feeds the real `acceleration` chart (it used to be Math.random()
+  noise), BR-09, A-10/A-24 and the GRAVITY-ONLY overlay (gap drawn x2000, labelled in pod, banner
+  and toast like DISPATCH).
+- **3I ephemeris now ends 2027-12-31.** Extend END in both fetch_ephemeris.py and
+  fetch_counterfactual.py before then, or NOW stops working.
+- **Content is current to 2026-11-01** (research run `wf_43b27ab0-391`, verified record in
+  `data/research-2026q4.json`). F-04 was NOT given the five new CNEOS rows (Sep-Oct 2026) because
+  the shipped catalog predates them; add them in the next manual data refresh, along with the
+  stranded F-03 AMS drift (the AMS endpoint 503'd on 2026-11-01).
+- **YouTube 429s caption downloads**, even from this machine. `tools/import_transcript.py` imports
+  a transcript fetched through the Firecrawl `youtube-com / videos/video_transcript` capability.
+  Browser-cookie fallbacks are blocked by the permission classifier; do not retry them.
+- **CNEOS has duplicated rows** (5 found: same position and clock time, dates days apart).
+  `spatial_test.py` removes them for clustering only; left in they fake a cluster at p=0.006.
+- **F-07 wider nuclear set**: 150 Wikidata sites (gate = 150, it passed exactly). 100 km excess
+  12 vs 6.2, p=0.017/0.022, the first non-null in the register; framed as a weak signal (one of six
+  tests, gone by 200 km, no single site type carries it). Do not upgrade it to a finding.
+**NEXT STEP (open):** v2.20 quality pass is in progress in the worktree
+`C:\Users\stewa\Documents\Claude\3I ATLAS Anomaly Console v220` on branch `claude/v2.20-quality`
+(UX, accessibility, performance, CI check workflow, em-dash sweep). After it: the monthly refresh
+workflow (low priority, Stewart asks for data updates by hand), the Video Overviews themselves
+(Stewart makes them in NotebookLM from `dossier/briefings/`), and splitting `ui.js`.
+
+**Earlier (2026-08-24):** v2.18 head.
+**STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —
 `tools/fetch_glm.py` pulls NASA's GLM bolide catalog (11410 detections) and F-03 is rewritten from
 three instruments to four. THE ENDPOINT IS `/service/event/public`; the documented
 `/service/event/all` returns a catch-all error, as does every other `/service/*` path — do not
@@ -214,7 +249,8 @@ external refs); the beacon only exists in what Cloudflare serves.
 Manual deploy (wrangler is already logged in locally):
 ```
 python tools/build.py
-npx wrangler pages deploy public --project-name 3i-atlas-anomaly-console --branch main
+cd public
+npx wrangler pages deploy . --project-name 3i-atlas-anomaly-console --branch main
 ```
 `tools/build.py` writes BOTH `_LATEST ...html` and `public/index.html` from the same bytes —
 never edit either by hand. `SITE_URL` at the top of build.py must match the deployed origin
@@ -230,6 +266,16 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
    agents from cache after a cutoff (only failed agents re-run).
 4. **This file is the resume note.** If a task is left half-done, add a "CURRENT STATE /
    NEXT STEP" line at the top of this section before ending the session; remove it when done.
+
+## The showcase landing page (separate project, added 2026-10)
+`site/` is a SECOND, separate landing page built with the Samizdat showcase kit
+(`C:\Users\stewa\Documents\Claude\Github Hub\kit\SHOWCASE.md`), deployed to the Cloudflare
+Pages project `3i-atlas-landing` (https://3i-atlas-landing.pages.dev), not by this repo's CI.
+Build: copy `site/` into `site-dist/` (gitignored), run the kit's `tools/finish-site.mjs site-dist`,
+then `npx --yes wrangler@4 pages deploy site-dist --project-name 3i-atlas-landing --branch main`
+from the repo root. The root `functions/` folder (Safari video byte ranges) belongs to THAT
+project; the console's deploy runs wrangler from inside `public/` so it no longer ships it.
+`showcase.json` is the hub manifest; its `version` is the showcase version (1.0.0), not APP_VERSION.
 
 ## Landing page + screenshots (v2.4)
 - `src/about.html` is the project landing page. build.py copies it to `public/about.html`,
@@ -268,6 +314,13 @@ Stewart's sessions can be cut off by usage limits mid-task. Rules:
   timers (front the tab or the auth prompt takes ~a minute to appear).
 
 ## Data pipelines (all real)
+- **Counterfactual:** `python tools/fetch_counterfactual.py` (after fetch_ephemeris) - 3I with
+  and without its push, both integrated by Horizons from the pinned JPL#54 solution
+  (`tools/jpl_solution.py`) -> `data/counterfactual.json`, ghost path + series baked into
+  `src/data-ephemeris.js` by `fetch_ephemeris.bake_js()`.
+- **Wider nuclear sites:** `python tools/fetch_nuclear_wide.py` - Wikidata (CC0), 150-site gate ->
+  `data/nuclear-wide.json`; then `python tools/spatial_test.py --target nuclear_wide --save`.
+- **Transcripts when YouTube 429s:** `python tools/import_transcript.py <saved.json> --date YYYY-MM-DD`.
 - **Ephemeris:** `python tools/fetch_ephemeris.py` — pulls heliocentric ecliptic J2000 vectors
   from JPL Horizons (3I/ATLAS + 8 planets daily 2025-05-15→2026-12-31; 1I/'Oumuamua 2017;
   2I/Borisov 2019-20) → `data/ephemeris.json` → baked to `src/data-ephemeris.js`.
@@ -353,7 +406,7 @@ at https://github.com/new before that script will run.
 
 ## Stewart's machine — ALWAYS include the `cd`
 Stewart is not a terminal user and works from a Windows laptop. This repo lives at
-`C:\Users\stewa\OneDrive\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
+`C:\Users\stewa\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
 the folder name, so the path must always be quoted or the command silently breaks at "3I".
 
 **Every command block given to him must be copy-paste-runnable on its own**: start it with the

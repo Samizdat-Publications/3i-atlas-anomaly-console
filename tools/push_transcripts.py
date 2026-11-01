@@ -13,7 +13,7 @@ ONE-TIME SETUP: create the empty private repo first at https://github.com/new
 
 Then, from this folder:
 
-    cd "C:\\Users\\stewa\\OneDrive\\Documents\\Claude\\3I ATLAS Anomaly Console"
+    cd "C:\\Users\\stewa\\Documents\\Claude\\3I ATLAS Anomaly Console"
     python tools/push_transcripts.py
 
 Re-run it any time you fetch more; it only pushes what changed.

@@ -2,45 +2,45 @@
 
 Each interstellar object gets its own era: the target body plus all 8 planets
 over that object's transit window, heliocentric ecliptic J2000, AU / AU-day.
-  3i: 3I/ATLAS  (C/2025 N1)  2025-05-15 .. 2026-12-31 @ 1d
+  3i: 3I/ATLAS  (C/2025 N1)  2025-05-15 .. 2027-12-31 @ 1d   (pinned to JPL#54, see jpl_solution.py)
   1i: 1I/'Oumuamua           2017-06-01 .. 2018-08-31 @ 1d
   2i: 2I/Borisov             2019-03-01 .. 2020-12-31 @ 2d
 
 Writes raw responses to data/raw/, a combined data/ephemeris.json (era
 structure + per-era close approaches), and bakes src/data-ephemeris.js.
 
+The 3I target is NOT fetched by designation: Horizons now serves a temporary
+short-arc solution (#55) for it, so the path is generated from the pinned #54
+elements instead. The 3I end date is 2027-12-31 so the NOW button keeps working;
+extend it (and STOP in fetch_counterfactual.py) before that date passes.
+
+Run tools/fetch_counterfactual.py AFTER this: it adds the gravity-only ghost path,
+and bake_js() below folds it in from data/counterfactual.json.
+
 Usage: python tools/fetch_ephemeris.py
 """
-import datetime, json, math, os, sys, time, urllib.parse, urllib.request
+import datetime, json, math, os, sys, time
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from jpl_solution import horizons, jpl54_params  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "raw")
 os.makedirs(RAW, exist_ok=True)
 
-API = "https://ssd.jpl.nasa.gov/api/horizons.api"
-
 PLANETS = [("mercury", "199"), ("venus", "299"), ("earth", "399"), ("mars", "499"),
            ("jupiter", "599"), ("saturn", "699"), ("uranus", "799"), ("neptune", "899")]
 
 ERAS = [
-    ("3i", "DES=C/2025 N1;", "2025-05-15", "2026-12-31", "1 d"),
+    ("3i", "JPL54",          "2025-05-15", "2027-12-31", "1 d"),
     ("1i", "DES=1I;",        "2017-06-01", "2018-08-31", "1 d"),
     ("2i", "DES=2I;",        "2019-03-01", "2020-12-31", "2 d"),
 ]
 
 
 def fetch(command, start, stop, step):
-    params = {
-        "format": "text", "COMMAND": f"'{command}'", "OBJ_DATA": "'NO'",
-        "MAKE_EPHEM": "'YES'", "EPHEM_TYPE": "'VECTORS'", "CENTER": "'500@10'",
-        "REF_PLANE": "'ECLIPTIC'", "REF_SYSTEM": "'J2000'", "VEC_TABLE": "'2'",
-        "OUT_UNITS": "'AU-D'", "CSV_FORMAT": "'YES'",
-        "START_TIME": f"'{start}'", "STOP_TIME": f"'{stop}'", "STEP_SIZE": f"'{step}'",
-    }
-    url = API + "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"User-Agent": "3i-atlas-console/2.0"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return r.read().decode("utf-8", "replace")
+    extra = jpl54_params() if command == "JPL54" else {"COMMAND": f"'{command}'"}
+    return horizons(extra, start, stop, step)
 
 
 def parse_vectors(text):
@@ -121,7 +121,32 @@ def main():
     with open(dest, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
     print(f"\nWrote {dest} ({os.path.getsize(dest) // 1024} KB)")
+    bake_js()
 
+
+def bake_js():
+    """data/ephemeris.json (+ the ghost path from data/counterfactual.json, when
+    present and on the same grid) -> src/data-ephemeris.js."""
+    with open(os.path.join(ROOT, "data", "ephemeris.json"), encoding="utf-8") as f:
+        out = json.load(f)
+    cf_path = os.path.join(ROOT, "data", "counterfactual.json")
+    if os.path.exists(cf_path):
+        with open(cf_path, encoding="utf-8") as f:
+            cf = json.load(f)
+        tgt = out["eras"]["3i"]["objects"]["target"]
+        g = cf.get("ghost") or {}
+        if g.get("start") == tgt["start"] and g.get("n") == tgt["n"]:
+            out["eras"]["3i"]["objects"]["ghost"] = {k: g[k] for k in ("start", "end", "step_days", "n", "pos")}
+            # Exact derived series: positions are rounded to 1e-6 AU (~150 km), too
+            # coarse to difference in the browser while the gap is still small.
+            s = cf["series"]
+            out["eras"]["3i"]["counterfactual"] = {
+                "sep_km": s["sep_km"], "arcsec": s["arcsec"], "dv_ms": s["dv_ms"], "dvv_ms": s["dvv_ms"],
+                "normal_km": [v[2] for v in s["rtn_km"]], "solution": cf["solution_label"],
+                "paper_arcs": cf["paper"]["arcs"], "fetched": cf["fetched"]}
+        else:
+            print("WARNING: data/counterfactual.json is not on the current 3I grid; "
+                  "re-run tools/fetch_counterfactual.py. Ghost path NOT baked.")
     js = os.path.join(ROOT, "src", "data-ephemeris.js")
     with open(js, "w", encoding="utf-8") as f:
         f.write("window.ATLAS_EPHEM=")

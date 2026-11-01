@@ -39,14 +39,28 @@ actual geometry and judge whether the story holds up.
 
 | Target | Era | Cases | Character |
 |---|---|:--:|---|
-| **3I/ATLAS** (C/2025 N1) | 2025–26 | 25 | The active case — CO₂-rich, with a long anomaly register |
+| **3I/ATLAS** (C/2025 N1) | 2025–26 | 26 | The active case — CO₂-rich, with a long anomaly register |
 | **1I/ʻOumuamua** | 2017–18 | 11 | The original — inert, elongated, accelerating with no tail |
 | **2I/Borisov** (C/2019 Q4) | 2019–20 | 5 | The control — an ordinary comet from another star |
-| **CNEOS fireballs** | 1988– | 2 | The impact catalog — two rows argued to be interstellar meteors |
+| **CNEOS fireballs** | 1988– | 7 | The impact catalog: two rows argued to be interstellar meteors, and five claims tested against outside datasets |
 
 ---
 
 ## The views
+
+### Is 3I/ATLAS changing course? (new in v2.19)
+
+A paper posted on 28 October 2026 (Krolikowska, Spada & Dones, arXiv:2610.38485) refits 3I's
+orbit using only observations made far from the Sun, and finds the non-gravitational push is
+real even with the perihelion data thrown away, while the astrometry cannot say what causes
+it. The console now answers the obvious follow-up in kilometres: **JPL Horizons integrates 3I
+twice from its state on 2025-05-15, once with JPL's push and once with it switched off.** On
+2026-11-01 the two paths are about 126,000 km apart, 12.7 arcsec as seen from Earth, with a
+total velocity change of about 4.2 m/s delivered almost entirely within 3 AU of the Sun.
+Briefing **BR-09** walks through it, cases **A-10** and **A-24** carry the update, and the
+**GRAVITY-ONLY** pod draws the gravity-only twin in the tracker (gap exaggerated and labelled).
+`tools/fetch_counterfactual.py` regenerates it and refuses to run if it cannot first reproduce
+the shipped path.
 
 ### Case files — the argument, three ways
 
@@ -65,13 +79,7 @@ energy or decade, hover any dot for its full CNEOS row, and find the two events 
 arrived from outside the solar system — **IM1** (2014-01-08, off Papua New Guinea) and **IM2**
 (2017-03-09, west of Portugal), each under a reticle with its own case file.
 
-**Is the fireball rate rising?** A recurring online claim says NASA's own data shows impacts
-climbing. The register answers it from the shipped catalog: a **detections-per-year** chart in
-the stats rail, and case **F-03**, which computes the rates. The short version — the record
-steps twice (1994, 2000) and is then flat for 26 years, and the ≥1 kt subset, which a
-detection-rate change cannot inflate, runs 4.1 / 4.1 / 3.7 per year across those decades.
-`tools/fireball_rate_check.py` re-derives every figure F-03 quotes and fails the monthly
-refresh if the catalog moves under it.
+**Is the fireball rate rising?** Case **F-03** tests the claim on four instruments with different physics (CNEOS satellites, AMS eyewitness reports, Global Meteor Network cameras, and NASA's daylight-capable GLM bolide catalog), credits the eyewitness figures as accurate, and shows why a growing audience inflates report counts while the camera-measured bright share barely moves. `tools/fireball_rate_check.py` re-derives every figure the fireball cases quote.
 
 The speed histogram is the argument in one picture: the catalog's reported speeds, IM1 and IM2
 marked, and shaded behind them the 10–15 km/s velocity uncertainty Brown & Borovička measured for
@@ -92,7 +100,7 @@ tab in the left rail lists all of them, searchable across every object.
 ### Search across all four registers at once
 
 The case log searches all 49 case files, not just the object you're viewing — and the
-MISSION LOG tab does the same across all 58 timeline records. Searching **`nickel`**
+MISSION LOG tab does the same across every timeline record. Searching **`nickel`**
 returns 3I/ATLAS's anomaly *and* 2I/Borisov's rebuttal — the same measurement, argued two ways,
 side by side. Foreign results are badged by object; clicking one switches target and opens it — including the
 fireball cases, which live in their own register rather than an era.
@@ -121,7 +129,7 @@ fireball cases, which live in their own register rather than an era.
 
 **Offline:** open `public/index.html` — or the identical `_LATEST - 3I-ATLAS Anomaly Console.html` —
 in any modern browser. No server, no install, no network. Everything (three.js, the font, the
-ephemeris, the fireball catalog, all 49 case files) is inlined into one ~1.4 MB file with
+ephemeris, the fireball catalog, every case file) is inlined into one ~1.8 MB file with
 **zero external references**.
 
 Press any key at the boot screen to authenticate; that gesture also unlocks the audio.
@@ -129,17 +137,17 @@ Press <kbd>?</kbd> at any time for the full control legend.
 
 | Key | Action |
 |---|---|
-| <kbd>T</kbd> | **Guided tour** — 9 narrated beats across all three objects and the impact map, ~100s |
+| <kbd>T</kbd> | **Guided tour**: narrated beats across all three objects and the impact map |
 | <kbd>Space</kbd> | Play / pause the replay |
 | <kbd>←</kbd> <kbd>→</kbd> | Step a day (with <kbd>Shift</kbd>, a week) |
 | <kbd>1</kbd>…<kbd>5</kbd> | Track / Anomalies / Compare / Fireballs / Archive |
+| <kbd>N</kbd> | Jump to today's real position |
+| <kbd>M</kbd> <kbd>L</kbd> <kbd>G</kbd> | Mute · labels · grid |
+| <kbd>?</kbd> | Controls and briefing |
 
 On a phone or tablet everything is touch-driven: drag the timeline to scrub, tap a marker to
 jump to it, tap a dot on the impact map to read its row. The side rails become slide-over
 panels via the ◧ / ◨ buttons, and the tour starts from the ▶ button.
-| <kbd>N</kbd> | Jump to today's real position |
-| <kbd>M</kbd> <kbd>L</kbd> <kbd>G</kbd> | Mute · labels · grid |
-| <kbd>?</kbd> | Controls and briefing |
 
 **Try:** the guided tour if you're new; searching `nickel`; the **CHASE** camera around
 perihelion; case **A-05** → *Visualize in tracker* to watch the tail point the wrong way;

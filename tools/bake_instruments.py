@@ -89,6 +89,7 @@ def main():
 
     spatial = spatial_of("spatial-test.json")
     spatial_nuclear = spatial_of("spatial-test-nuclear.json")
+    spatial_nuclear_wide = spatial_of("spatial-test-nuclear-wide.json")
     # The console's existing chart reads .volcanoes; keep the old key alive.
     if spatial:
         spatial["volcanoes"] = spatial["targets"]
@@ -143,6 +144,7 @@ def main():
     payload = {
         "spatial": spatial,
         "spatialNuclear": spatial_nuclear,
+        "spatialNuclearWide": spatial_nuclear_wide,
         "nuforc": nuforc,
         "glm": glm,
         "window": "Q1 (January-March), whole months only",
@@ -165,7 +167,7 @@ def main():
     if nuforc:
         print("  NUFORC series included: %d months %s-%s, all-time fireball share %.2f%%"
               % (len(nuforc["n"]), nuforc["start"], nuforc["end"], nuforc["baseline"]))
-    for tag, sp in (("volcano", spatial), ("nuclear", spatial_nuclear)):
+    for tag, sp in (("volcano", spatial), ("nuclear", spatial_nuclear), ("nuclear-wide", spatial_nuclear_wide)):
         if sp:
             print("  spatial test (%s) included: %d events vs %d targets, %d trials"
                   % (tag, sp["events"], sp["targets"], sp["trials"]))

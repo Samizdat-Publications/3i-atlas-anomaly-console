@@ -11,30 +11,30 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 
 | File | Format | Size | Extent |
 |---|---|---|---|
-| `01-cases-3i-atlas.md` | Markdown | 97 KB | 13497 words |
-| `02-cases-oumuamua-borisov.md` | Markdown | 78 KB | 11213 words |
-| `03-cases-fireballs.md` | Markdown | 37 KB | 6123 words |
-| `04-briefings.md` | Markdown | 27 KB | 4477 words |
-| `05-timeline.md` | Markdown | 41 KB | 5181 words |
-| `06-quotations.md` | Markdown | 9 KB | 1690 words |
+| `01-cases-3i-atlas.md` | Markdown | 127 KB | 18085 words |
+| `02-cases-oumuamua-borisov.md` | Markdown | 79 KB | 11213 words |
+| `03-cases-fireballs.md` | Markdown | 40 KB | 6693 words |
+| `04-briefings.md` | Markdown | 36 KB | 6047 words |
+| `05-timeline.md` | Markdown | 59 KB | 7724 words |
+| `06-quotations.md` | Markdown | 11 KB | 1875 words |
 | `07-cneos-fireballs.csv` | CSV | 48 KB | 1069 rows |
 | `08-ams-reports.csv` | CSV | 79 KB | 1512 rows |
 | `09-gmn-monthly.csv` | CSV | 4 KB | 92 rows |
 | `10-spatial-test.md` | Markdown | 1 KB | 363 words |
 | `11-comparison-profiles.md` | Markdown | 7 KB | 1126 words |
-| `12-cneos-fireballs.md` | Markdown | 68 KB | 17188 words |
+| `12-cneos-fireballs.md` | Markdown | 69 KB | 17188 words |
 | `13-ams-reports.md` | Markdown | 12 KB | 4602 words |
 | `14-gmn-monthly.md` | Markdown | 7 KB | 2074 words |
-| `15-nuforc-sightings.md` | Markdown | 8 KB | 2335 words |
+| `15-nuforc-sightings.md` | Markdown | 9 KB | 2335 words |
 | `16-spatial-test-nuclear.md` | Markdown | 2 KB | 447 words |
 
 ## Ingest in this order
 
-1. **`04-briefings.md`** — six question-led syntheses. Highest density; establishes
+1. **`04-briefings.md`**: 9 question-led syntheses. Highest density; establishes
    what the project found and the vocabulary the rest uses.
 2. **`10-spatial-test.md`** — the statistical method, worked. Short, and it explains
    why the null model matters before any raw count is read.
-3. **`01`–`03` case files** — the 47 records, each carrying a claim and its
+3. **`01`–`03` case files**: the 49 records, each carrying a claim and its
    counter-reading in adjacent labelled blocks.
 4. **`05-timeline.md`, `06-quotations.md`, `11-comparison-profiles.md`** — supporting record.
 5. **`07`–`09` CSVs** — the quantitative substrate. Ingest LAST: without the
@@ -54,10 +54,17 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
    quoted from the CLAIM block alone will read as the project's own position when it
    is the opposite. Always carry the block heading with the quote.
 
+## One notebook per briefing (Video Overviews)
+
+`briefings/BR-0n.md` holds each briefing as a single self-contained source: the
+briefing, the full text of every case file it cites, its sources, and a steering
+prompt for NotebookLM's Video Overview Customize box. One notebook per briefing,
+one file per notebook, keeps each video on its question.
+
 ## The claim source
 
-The videos these claims come from are transcribed in `data/transcripts/` — 114
-machine transcriptions, plus three consolidated files in `data/transcripts/notebook/`
+The videos these claims come from are transcribed in `data/transcripts/`: 119
+machine transcriptions, plus 4 consolidated files in `data/transcripts/notebook/`
 sized for notebook ingestion. Provenance and attribution: `data/transcripts/README.md`.
 
 Ingest them AFTER the case files. They record what was *claimed*; every factual check

@@ -48,6 +48,13 @@
     const X = function (x) { return padL + (x - x0) / (x1 - x0) * iw; };
     const Y = function (y) { return padT + (1 - (y - y0) / (y1 - y0)) * ih; };
 
+    (cfg.bands || []).forEach(function (b) {
+      const xa = X(Math.max(x0, b.x0)), xb = X(Math.min(x1, b.x1));
+      if (xb <= xa) return;
+      g.fillStyle = b.color; g.fillRect(xa, padT, xb - xa, ih);
+      if (b.label) { g.fillStyle = b.text || COL.txt; g.fillText(b.label, xa + 3, padT + ih - 4); }
+    });
+
     g.strokeStyle = COL.grid; g.lineWidth = 1; g.fillStyle = COL.txt;
     (cfg.xTicks || []).forEach(function (tk) {
       const x = X(tk.x);
@@ -417,6 +424,7 @@
   // result — and the first bin, the one the claim is about, sits BELOW chance.
   CH.volcanoDist = function (cv, big) { CH.proximityDist(cv, big, 'spatial'); };
   CH.nuclearDist = function (cv, big) { CH.proximityDist(cv, big, 'spatialNuclear'); };
+  CH.nuclearWideDist = function (cv, big) { CH.proximityDist(cv, big, 'spatialNuclearWide'); };
 
   CH.proximityDist = function (cv, big, key) {
     const D = (window.ATLAS_INSTRUMENTS || {})[key];
@@ -651,19 +659,136 @@
     }
   };
 
+  // Deterministic noise for the schematic charts: they used Math.random(), so the
+  // same case drew a different "spectrum" every time it opened.
+  function seeded(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  // Every chart drawn from a formula rather than a dataset says so on its face.
+  function illustration(cv) {
+    const r = cv.getBoundingClientRect(), g = cv.getContext('2d');
+    const msg = 'ILLUSTRATION OF A PUBLISHED RESULT · NOT DATA';
+    g.font = '9px ShareTechMono, Consolas, monospace';
+    g.fillStyle = 'rgba(255,179,71,.85)';
+    g.fillText(msg, r.width - g.measureText(msg).width - 8, 14);
+  }
+
+  // ---- 3I with and without its push (tools/fetch_counterfactual.py) ----
+  // Real data: JPL Horizons integrated the same arrival state twice, once with
+  // JPL#54's non-gravitational parameters and once with them set to zero.
+  function counterfactual() {
+    const e = (window.ATLAS_EPHEM && window.ATLAS_EPHEM.eras['3i']) || {};
+    return e.counterfactual && e.objects && e.objects.target ? e : null;
+  }
+  function dayOf(iso, start) {
+    return (Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) -
+            Date.UTC(+start.slice(0, 4), +start.slice(5, 7) - 1, +start.slice(8, 10))) / 864e5;
+  }
+  CH.ghostToday = function () {
+    const e = counterfactual();
+    if (!e) return null;
+    const c = e.counterfactual, start = e.objects.target.start;
+    const now = new Date().toISOString().slice(0, 10);
+    const i = Math.max(0, Math.min(c.sep_km.length - 1, Math.round(dayOf(now, start))));
+    return { sep_km: c.sep_km[i], arcsec: c.arcsec[i], dv_ms: c.dv_ms[i], normal_km: c.normal_km[i] };
+  };
+  CH.ghostAt = function (dayIdx) {
+    const e = counterfactual();
+    if (!e) return null;
+    const c = e.counterfactual;
+    const i = Math.max(0, Math.min(c.sep_km.length - 1, Math.round(dayIdx)));
+    return { sep_km: c.sep_km[i], arcsec: c.arcsec[i], dv_ms: c.dv_ms[i], normal_km: c.normal_km[i] };
+  };
+  CH.pushGhost = function (cv) {
+    const e = counterfactual();
+    if (!e) { CH.dossier('lightcurve', cv); return; }
+    const c = e.counterfactual, start = e.objects.target.start, n = c.sep_km.length;
+    const xs = [], sep = [], off = [];
+    for (let i = 0; i < n; i++) { xs.push(i); sep.push(c.sep_km[i] / 1000); off.push(Math.abs(c.normal_km[i]) / 1000); }
+    const A = c.paper_arcs;
+    const ticks = [];
+    ['2025-07-01', '2026-01-01', '2026-07-01', '2027-01-01', '2027-07-01'].forEach(function (d) {
+      ticks.push({ x: dayOf(d, start), label: d.slice(0, 7) });
+    });
+    const today = dayOf(new Date().toISOString().slice(0, 10), start);
+    const ymax = Math.ceil(Math.max.apply(null, sep) / 50) * 50;
+    const narrow = cv.getBoundingClientRect().width < 480;
+    const P = plot(cv, {
+      xMin: 0, xMax: n - 1, yMin: 0, yMax: ymax, padB: 16, padL: 38, yTicks: 4,
+      bands: [
+        { x0: dayOf(A.pre[0], start), x1: dayOf(A.pre[1], start), color: 'rgba(52,225,255,.10)', label: 'PAPER ARC 1', text: COL.cyan },
+        { x0: dayOf(A.post[0], start), x1: dayOf(A.post[1], start), color: 'rgba(52,225,255,.10)', label: 'PAPER ARC 2', text: COL.cyan },
+      ],
+      series: [
+        { xs: xs, ys: sep, color: COL.amber, w: 1.7, label: narrow ? 'GAP TO GRAVITY-ONLY PATH (1000 KM)' : 'DISTANCE FROM THE GRAVITY-ONLY PATH (1000 KM)', labelX: 8, labelY: ymax * 0.80 },
+        { xs: xs, ys: off, color: COL.cyan, w: 1.2, dash: [4, 3], label: narrow ? 'OUT OF PLANE' : 'OF WHICH OUT OF THE ORBITAL PLANE', labelX: 8, labelY: ymax * 0.70 },
+      ],
+      xTicks: ticks,
+      markers: [
+        { x: dayOf('2025-10-29', start), color: COL.amber, label: narrow ? 'q' : 'PERIHELION' },
+        { x: dayOf('2026-03-16', start), color: 'rgba(216,167,111,.8)', label: narrow ? 'J' : 'JUPITER' },
+      ],
+      cursor: today,
+      yFmt: function (v) { return v.toFixed(0) + 'k'; },
+    });
+    const now = CH.ghostToday();
+    if (now && today >= 0 && today < n) {
+      const g = cv.getContext('2d');
+      g.fillStyle = COL.green;
+      const t = 'TODAY ' + now.sep_km.toLocaleString('en-US') + ' KM' + (narrow ? '' : ' · ' + now.arcsec.toFixed(1) + '" FROM EARTH');
+      g.fillText(t, Math.max(40, Math.min(P.X(today) - g.measureText(t).width - 4, cv.getBoundingClientRect().width - g.measureText(t).width - 8)), P.Y(now.sep_km / 1000) - 6);
+    }
+  };
+
+  // ---- the activity law the astrometry cannot pin down ----
+  // Marsden et al. (1973) water-ice law with Horizons' default constants, against
+  // the 1/r^2 law JPL#54 uses, over the distances arXiv:2610.38485 fitted.
+  CH.activityLaw = function (cv) {
+    const xs = [], water = [], inv = [];
+    const ALN = 0.1112620426, R0 = 2.808, M = 2.15, N = 5.093, K = 4.6142;
+    for (let r = 1; r <= 12.0001; r += 0.05) {
+      xs.push(r);
+      water.push(Math.log10(ALN * Math.pow(r / R0, -M) * Math.pow(1 + Math.pow(r / R0, N), -K)));
+      inv.push(Math.log10(1 / (r * r)));
+    }
+    plot(cv, {
+      xMin: 1, xMax: 12, yMin: -10, yMax: 0.3, padB: 16, padL: 38, yTicks: 5,
+      bands: [{ x0: 2.67, x1: 6.1, color: 'rgba(52,225,255,.10)', label: 'WHERE THE PAPER\'S DATA ARE', text: COL.cyan }],
+      series: [
+        { xs: xs, ys: inv, color: COL.amber, w: 1.6, label: '1/r² (JPL#54, CO₂-LIKE)', labelX: 6.4, labelY: -2.3 },
+        { xs: xs, ys: water, color: COL.cyan, w: 1.4, dash: [4, 3], label: 'WATER-ICE (MARSDEN 1973)', labelX: 3.3, labelY: -7.4 },
+      ],
+      xTicks: [{ x: 2.67, label: '2.7' }, { x: 6.1, label: '6.1' }, { x: 9, label: '9' }, { x: 12, label: '12 AU' }],
+      markers: [{ x: 1.356, color: COL.amber, label: 'q' }],
+      yFmt: function (v) { return '1e' + v.toFixed(0); },
+    });
+    const g = cv.getContext('2d');
+    g.fillStyle = COL.txt;
+    g.fillText('PUSH STRENGTH g(r), 1 AT 1 AU · AT 6 AU THE LAWS DIFFER 100-MILLION-FOLD, YET THE FITS TIE', 40, 18);
+  };
+
   CH.dossier = function (kind, cv) {
+    if (kind === 'acceleration') { CH.pushGhost(cv); return; }
+    if (kind === 'activity-law') { CH.activityLaw(cv); return; }
     if (kind === 'speed-dist') { CH.speedDist(cv); return; }
     if (kind === 'fireball-rate') { CH.fireballRate(cv, true); return; }
     if (kind === 'fireball-instruments') { CH.instruments(cv, true); return; }
     if (kind === 'volcano-dist') { CH.volcanoDist(cv, true); return; }
     if (kind === 'nuclear-dist') { CH.nuclearDist(cv, true); return; }
+    if (kind === 'nuclear-wide-dist') { CH.nuclearWideDist(cv, true); return; }
     if (kind === 'glm-daylight') { CH.glmDaylight(cv, true); return; }
     if (kind === 'nuforc-share') { CH.nuforcShare(cv, true); return; }
     buildData();
     if (kind === 'spectrum') {
-      const xs = [], ys = [];
+      const xs = [], ys = [], rnd = seeded(7);
       for (let wl = 336; wl <= 364; wl += 0.14) {
-        let v = 0.06 + Math.random() * 0.035;
+        let v = 0.06 + rnd() * 0.035;
         [[341.48, 0.55], [344.63, 0.7], [345.85, 0.95], [349.30, 0.8], [352.45, 0.6], [356.64, 0.5]].forEach(function (ln) {
           v += ln[1] * Math.exp(-Math.pow((wl - ln[0]) / 0.16, 2));
         });
@@ -680,6 +805,7 @@
         ],
         yFmt: function (v) { return v.toFixed(1); },
       });
+      illustration(cv);
     } else if (kind === 'polarization') {
       const xs = [], normal = [], atlas = [];
       for (let a = 0; a <= 40; a += 0.5) {
@@ -691,27 +817,12 @@
         xMin: 0, xMax: 40, yMin: -10, yMax: 4, padB: 16,
         series: [
           { xs: xs, ys: normal, color: COL.dim, w: 1.2, dash: [4, 3], label: 'TYPICAL COMETS', labelX: 16, labelY: 2.8 },
-          { xs: xs, ys: atlas, color: COL.amber, w: 1.6, label: 'MEASURED', labelX: 6, labelY: -9 },
+          { xs: xs, ys: atlas, color: COL.amber, w: 1.6, label: 'PUBLISHED (SCHEMATIC)', labelX: 6, labelY: -9 },
         ],
         xTicks: [{ x: 10, label: '10°' }, { x: 20, label: '20°' }, { x: 30, label: '30°' }],
         yFmt: function (v) { return v.toFixed(0) + '%'; },
       });
-    } else if (kind === 'acceleration') {
-      const xs = [], grav = [], resid = [];
-      for (let d = -60; d <= 70; d += 1) {
-        xs.push(d);
-        grav.push(0);
-        resid.push(d < -5 ? (Math.random() - 0.5) * 0.15 : (1 - Math.exp(-(d + 5) / 22)) * 2.6 + (Math.random() - 0.5) * 0.18);
-      }
-      plot(cv, {
-        xMin: -60, xMax: 70, yMin: -0.8, yMax: 3.2, padB: 16,
-        series: [
-          { xs: xs, ys: grav, color: COL.dim, w: 1, dash: [4, 3], label: 'GRAVITY-ONLY FIT', labelX: -58, labelY: 0.35 },
-          { xs: xs, ys: resid, color: COL.amber, w: 1.5, label: 'ASTROMETRIC RESIDUAL', labelX: -20, labelY: 2.9 },
-        ],
-        xTicks: [{ x: -30, label: '-30d' }, { x: 0, label: 'PERIHELION' }, { x: 30, label: '+30d' }, { x: 60, label: '+60d' }],
-        yFmt: function (v) { return v.toFixed(1); },
-      });
+      illustration(cv);
     } else if (kind === 'lightcurve') {
       const ca = CX.CA();
       const markers = [];
@@ -767,7 +878,8 @@
         x += it.r * 2 + 92;
       });
       g.fillStyle = COL.txt;
-      g.fillText('NUCLEUS SIZE COMPARISON — THE THREE KNOWN INTERSTELLAR OBJECTS', 12, 16);
+      g.fillText('NUCLEUS SIZE COMPARISON: THE THREE KNOWN INTERSTELLAR OBJECTS', 12, 16);
+      illustration(cv);
     } else {
       CH.dossier('lightcurve', cv);
     }

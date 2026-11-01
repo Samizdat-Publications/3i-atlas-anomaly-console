@@ -23,8 +23,10 @@ def load_payload(path, checkpoint_name):
         d = d["result"]
         if isinstance(d, str):
             d = json.loads(d)
-    with open(os.path.join(ROOT, "data", checkpoint_name), "w", encoding="utf-8") as f:
-        json.dump(d, f, ensure_ascii=False, indent=1)
+        # Only a raw workflow wrapper gets checkpointed. A plain payload is left
+        # byte-for-byte alone: baking used to rewrite research.json every run.
+        with open(os.path.join(ROOT, "data", checkpoint_name), "w", encoding="utf-8") as f:
+            json.dump(d, f, ensure_ascii=False, indent=1)
     return d
 
 
@@ -45,8 +47,13 @@ def map_anomaly(a, obj, provisional=False):
         "official_explanation": a.get("official_explanation"),
         "loeb_scale": a.get("loeb_scale"),
         "viz_hint": a.get("viz_hint") or "lightcurve",
+        # Optional: the dossier chart, when it should differ from the tracker hint
+        # ('none' = no chart rather than another case's picture).
+        "chart": a.get("chart") or "",
         "verify": "PROVISIONAL" if provisional else (a.get("_verify") or "UNCHECKED"),
-        "sources": (a.get("sources") or [])[:4],
+        # Every source ships. This used to keep the first 4, which silently
+        # dropped citations from 23 of 42 cases.
+        "sources": a.get("sources") or [],
     }
 
 
@@ -65,7 +72,7 @@ def map_events(events, obj):
         stem = "E-" + (e2.get("date") or "").replace("-", "")
         seen[stem] = seen.get(stem, 0) + 1
         e2["id"] = stem if seen[stem] == 1 else "%s-%d" % (stem, seen[stem])
-        e2["sources"] = (e.get("sources") or [])[:4]
+        e2["sources"] = e.get("sources") or []
         out.append(e2)
     return out
 
@@ -150,7 +157,7 @@ def main():
             "3i": {
                 "designation": "3I/ATLAS · C/2025 N1",
                 "loebScale": 3, "pillNote": "REVIEW ACTIVE",
-                "loebScaleHistory": "RANK 4 JUL 2025 · HELD 4 DEC 2025 · REDUCED TO 3 MAR 2026 (QUIET JUPITER PASS)",
+                "loebScaleHistory": "RANK 4 JUL 2025 · HELD 4 DEC 2025 · REDUCED TO 3 MAR 2026 (CONDITIONAL ON A QUIET JUPITER PASS) · OCT 2026 SETAI PAPER CARRIES THE PUBLISHED 4 FORWARD WITHOUT RE-EVALUATING IT, AND RATES 3I C0 FOR CONTROL",
                 "anomalyCountNote": "LOEB'S FINAL PUBLISHED TALLY: 22 (2026-03-12) — REGISTER TRACKS " + str(n3) + " GRANULAR CASES · TIMELINE CURRENT TO " + (max((e["date"] for e in timeline if e.get("object") == "3i"), default="—")),
                 "datasetVerify": ("TIMELINE DATASET: %s · COMPARISON DATASET: %s · ANOMALY CASES INDIVIDUALLY FACT-CHECKED" % (tv3, cv3))
                                  if tv3 and cv3 else "DATASET VERIFY PENDING",
@@ -209,6 +216,22 @@ def main():
                     "Briefing %s links to case(s) that do not exist: %s\n"
                     "A dead link in the one surface built for reading is worse than no link."
                     % (b["id"], ", ".join(bad)))
+
+    # Every chart name a case or briefing asks for must exist: charts.js used to
+    # fall back to a lightcurve without a word, so a typo shipped a wrong picture.
+    CHARTS = {"acceleration", "activity-law", "speed-dist", "fireball-rate", "fireball-instruments",
+              "volcano-dist", "nuclear-dist", "nuclear-wide-dist", "glm-daylight", "nuforc-share", "spectrum",
+              "polarization", "lightcurve", "trajectory", "timing", "size", "tail", "other", "none"}
+    bad = ["%s/%s: %s" % (a["object"], a["id"], k) for a in anomalies
+           for k in (a["viz_hint"], a["chart"]) if k and k not in CHARTS]
+    bad += ["%s: %s" % (b["id"], b.get(k)) for b in briefings for k in ("chart", "chart2")
+            if b.get(k) and b[k] not in CHARTS]
+    if bad:
+        raise SystemExit("Unknown chart name(s): " + "; ".join(bad))
+    ids = [a["object"] + "/" + a["id"] for a in anomalies] + [b["id"] for b in briefings]
+    dup = sorted({i for i in ids if ids.count(i) > 1})
+    if dup:
+        raise SystemExit("Duplicate case/briefing id(s): " + ", ".join(dup))
 
     content = {"meta": meta, "anomalies": anomalies, "timeline": timeline,
                "compare": compare, "quotes": quotes, "briefings": briefings}

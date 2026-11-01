@@ -91,8 +91,10 @@
       '    <button class="cx-pod cx-on" data-act="orbits">ORBITS</button>',
       '    <button class="cx-pod" data-act="grid">GRID</button>',
       '    <button class="cx-pod cx-pod-spec" data-act="dispatch">DISPATCH</button>',
+      '    <button class="cx-pod cx-pod-calc" data-act="ghost" id="cx-pod-ghost" title="Where 3I would be with gravity alone: computed by JPL Horizons, separation drawn \u00d7' + CX.scene3d.GHOST_X + '">GRAVITY-ONLY \u00d7' + CX.scene3d.GHOST_X + '</button>',
       '  </div>',
-      '  <div class="cx-specnote" id="cx-specnote">DISPATCH \u2014 ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT.</div>',
+      '  <div class="cx-specnote" id="cx-specnote">DISPATCH: ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT.</div>',
+      '  <div class="cx-calcnote" id="cx-calcnote"></div>',
       '  <div class="cx-toast" id="cx-toast"></div>',
       '  <div class="cx-tour" id="cx-tour"><div class="cx-tour-inner">',
       '    <div class="cx-tour-step" id="cx-tour-step"></div>',
@@ -616,7 +618,11 @@
     syncHash();
     requestAnimationFrame(function () {
       const cv = $('cx-dchart');
-      if (cv) CX.charts.dossier(a.viz_hint || 'lightcurve', cv);
+      // a.chart overrides the tracker hint for the chart only; 'none' (and the
+      // catch-all 'other') draw nothing rather than another case's picture.
+      const kind = a.chart || a.viz_hint || 'lightcurve';
+      if (cv && (kind === 'none' || kind === 'other')) cv.style.display = 'none';
+      else if (cv) CX.charts.dossier(kind, cv);
     });
   }
   UI.openDossier = openDossier;
@@ -638,6 +644,39 @@
     if (row && row[7]) CX.fireballs.focus(row[7]);
   }
 
+  // ---- overlay chrome: pods and banners always follow S.viz ----
+  // (CX.setEra clears the flags; the chrome used to keep showing them.)
+  function syncOverlayChrome() {
+    const pd = document.querySelector('[data-act="dispatch"]');
+    if (pd) pd.classList.toggle('cx-on', !!S.viz.dispatch);
+    const sn = $('cx-specnote');
+    if (sn) sn.classList.toggle('cx-show', !!S.viz.dispatch);
+    const pg = $('cx-pod-ghost');
+    if (pg) { pg.classList.toggle('cx-on', !!S.viz.ghost); pg.style.display = CX.eraData().objects.ghost ? '' : 'none'; }
+    const cn = $('cx-calcnote');
+    if (cn) cn.classList.toggle('cx-show', !!S.viz.ghost);
+    if (S.viz.ghost) renderCalcNote();
+  }
+  UI.syncOverlayChrome = syncOverlayChrome;
+  function renderCalcNote() {
+    const cn = $('cx-calcnote'), g = CX.charts.ghostAt(S.t);
+    if (!cn || !g) return;
+    cn.textContent = 'GRAVITY-ONLY PATH: COMPUTED BY JPL HORIZONS WITH THE PUSH SWITCHED OFF · SEPARATION DRAWN ×' +
+      CX.scene3d.GHOST_X + ' · ' + CX.fmtDate(S.t) + ': ' + g.sep_km.toLocaleString('en-US') + ' KM APART, ' +
+      g.arcsec.toFixed(1) + '" AS SEEN FROM EARTH';
+  }
+  function setGhost(on, announce) {
+    if (on && !CX.eraData().objects.ghost) on = false;
+    S.viz.ghost = on;
+    syncOverlayChrome();
+    if (on && announce) {
+      const now = CX.charts.ghostToday();
+      showToast({ title: 'GRAVITY-ONLY PATH ON · COMPUTED, DRAWN ×' + CX.scene3d.GHOST_X, t: S.t, cls: 'mission',
+        desc: 'The dashed amber path is the same object with its non-gravitational push switched off, integrated by JPL Horizons from its state on 2025-05-15. The real gap is too small to see at this scale, so it is drawn ' + CX.scene3d.GHOST_X + ' times larger.' +
+          (now ? ' Today the real gap is ' + now.sep_km.toLocaleString('en-US') + ' km (' + now.arcsec.toFixed(1) + '" from Earth).' : '') });
+    }
+  }
+
   function visualize(id) {
     const a = CX.eraAnomalies().find(function (x) { return x.id === id; });
     if (!a) return;
@@ -646,6 +685,7 @@
     CX.setT(CX.tOfIso(a.date));
     S.viz.antiTail = a.viz_hint === 'tail';
     S.viz.ecliptic = a.viz_hint === 'trajectory';
+    setGhost(a.viz_hint === 'acceleration', false);
     if (a.viz_hint === 'trajectory') { CX.scene3d.applyPreset('top'); markCam('top'); }
     else if (a.viz_hint === 'tail') { CX.scene3d.applyPreset('chase'); markCam('chase'); }
     else { CX.scene3d.applyPreset('free'); markCam('free'); }
@@ -798,7 +838,8 @@
     if (st.mode) setMode(st.mode);
     else if (S.mode !== 'track') setMode('track');
 
-    S.viz.antiTail = false; S.viz.ecliptic = false;
+    S.viz.antiTail = false; S.viz.ecliptic = false; S.viz.ghost = false;
+    syncOverlayChrome();
     let sub = '';
     if (st.caseKw) {
       const c = findCase(st.era, st.caseKw);
@@ -806,6 +847,7 @@
         CX.setT(CX.tOfIso(c.date));
         if (c.viz_hint === 'tail') S.viz.antiTail = true;
         if (c.viz_hint === 'trajectory') S.viz.ecliptic = true;
+        if (c.viz_hint === 'acceleration') setGhost(true, false);
         sub = ' · CASE ' + c.id;
       }
     } else if (st.date) {
@@ -1125,11 +1167,10 @@
       else if (act === 'labels') { S.labels = !S.labels; btn.classList.toggle('cx-on', S.labels); }
       else if (act === 'orbits') { S.orbits = !S.orbits; btn.classList.toggle('cx-on', S.orbits); }
       else if (act === 'grid') { S.grid = !S.grid; btn.classList.toggle('cx-on', S.grid); }
+      else if (act === 'ghost') setGhost(!S.viz.ghost, true);
       else if (act === 'dispatch') {
         S.viz.dispatch = !S.viz.dispatch;
-        btn.classList.toggle('cx-on', S.viz.dispatch);
-        const n = $('cx-specnote');
-        if (n) n.classList.toggle('cx-show', S.viz.dispatch);
+        syncOverlayChrome();
         if (S.viz.dispatch) {
           showToast({ title: 'DISPATCH OVERLAY ON \u2014 SPECULATIVE', t: S.t, cls: 'anomaly',
             kind: 'anomaly',
@@ -1254,7 +1295,7 @@
     // reactive updates
     const slow = throttle(function () { UI.renderClock(); UI.renderTimeline(); CX.charts.renderRail(); }, 120);
     const anomalyDim = throttle(function () { UI.renderAnomalyList(); }, 900);
-    CX.on('time', function () { slow(); anomalyDim(); });
+    CX.on('time', function () { slow(); anomalyDim(); if (S.viz.ghost) renderCalcNote(); });
     CX.on('eventCross', function (e) {
       showToast(Object.assign({}, e, { kind: e.cls === 'anomaly' ? 'anomaly' : 'mission' }));
       if (e.cls === 'anomaly') CX.audio.anomalyAlert(); else CX.audio.missionEvent();
@@ -1263,6 +1304,7 @@
       $('cx-btn-play').textContent = S.playing ? '⏸' : '▶';
     });
     CX.on('era', function () {
+      syncOverlayChrome();
       buildLeftRail();
       buildRightRail();
       updateEraChrome();

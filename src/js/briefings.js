@@ -59,14 +59,20 @@
       '<div class="cx-brief-id">' + esc(b.id) + ' · ' + esc(b.tag || '') + '</div>' +
       '<h2 class="cx-brief-q">' + esc(b.question) + '</h2>' +
       '<p class="cx-brief-short">' + esc(b.short) + '</p>' +
+      // Optional: a Video Overview made from this briefing's source pack
+      // (dossier/briefings/BR-0n.md). Absent until one is published.
+      (b.video ? '<a class="cx-brief-video" href="' + esc(b.video) + '" target="_blank" rel="noopener noreferrer">▶ WATCH THE BRIEFING</a>' : '') +
       '</div>';
 
     if (b.chart) {
       h += '<figure class="cx-brief-fig"><canvas id="cx-brief-canvas"></canvas></figure>';
     }
 
-    (b.sections || []).forEach(function (s) {
+    // Optional second figure, placed after section `chart2_after` (1-based).
+    const n2 = b.chart2 ? (b.chart2_after || (b.sections || []).length) : -1;
+    (b.sections || []).forEach(function (s, i) {
       h += '<section class="cx-brief-sec"><h3>' + esc(s.h) + '</h3><p>' + esc(s.p) + '</p></section>';
+      if (i + 1 === n2) h += '<figure class="cx-brief-fig"><canvas id="cx-brief-canvas2"></canvas></figure>';
     });
 
     const cases = (b.cases || []).map(caseLabel).filter(Boolean);
@@ -96,12 +102,15 @@
   }
 
   function drawChart(b) {
-    const cv = $('cx-brief-canvas');
-    if (!cv || !b.chart || !CX.charts || !CX.charts.dossier) return;
+    if (!CX.charts || !CX.charts.dossier) return;
     // The pane is still laying out on the frame the markup lands; measuring the
     // canvas before that gives a zero-width chart that never repaints.
     requestAnimationFrame(function () {
-      try { CX.charts.dossier(b.chart, cv); } catch (e) { /* a missing chart is not fatal */ }
+      [['cx-brief-canvas', b.chart], ['cx-brief-canvas2', b.chart2]].forEach(function (c) {
+        const cv = $(c[0]);
+        if (!cv || !c[1]) return;
+        try { CX.charts.dossier(c[1], cv); } catch (e) { console.error('briefing chart ' + c[1], e); }
+      });
     });
   }
 
@@ -127,7 +136,11 @@
     if (b) drawChart(b);
   };
 
+  let resizeTimer = 0;
   window.addEventListener('resize', function () {
-    if (window.CX && CX.S && CX.S.mode === 'briefings') B.refresh();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (window.CX && CX.S && CX.S.mode === 'briefings') B.refresh();
+    }, 150);
   });
 })();

@@ -6,8 +6,13 @@
   "version": "1.0.0",
   "kind": "dashboard",
   "started": "2026-07-25",
-  "updated": "2026-10-18",
-  "tech": ["JavaScript", "Three.js", "Web Audio", "JPL Horizons"],
+  "updated": "2026-11-01",
+  "tech": [
+    "JavaScript",
+    "Three.js",
+    "Web Audio",
+    "JPL Horizons"
+  ],
   "links": {
     "landing": "https://3i-atlas-landing.pages.dev",
     "play": "https://3i-atlas-anomaly-console.pages.dev",
@@ -19,10 +24,65 @@
     "clip": "site/media/hero.mp4"
   },
   "credits": [
-    { "what": "Ephemeris vectors for 3I/ATLAS, 1I/Oumuamua and 2I/Borisov", "who": "NASA/JPL Horizons", "licence": "Public domain" },
-    { "what": "Fireball impact catalog", "who": "NASA/JPL CNEOS Fireball Data API", "licence": "US government data, public domain" },
-    { "what": "Land outlines", "who": "Natural Earth", "licence": "Public domain" },
-    { "what": "3D scene", "who": "three.js", "licence": "MIT" },
-    { "what": "Share Tech Mono typeface", "who": "Carrois Apostrophe", "licence": "SIL OFL 1.1" }
+    {
+      "what": "Ephemeris vectors for 3I/ATLAS, 1I/Oumuamua and 2I/Borisov",
+      "who": "NASA/JPL Horizons",
+      "licence": "Public domain"
+    },
+    {
+      "what": "Fireball impact catalog",
+      "who": "NASA/JPL CNEOS Fireball Data API",
+      "licence": "US government data, public domain"
+    },
+    {
+      "what": "Land outlines",
+      "who": "Natural Earth",
+      "licence": "Public domain"
+    },
+    {
+      "what": "Fireball eyewitness report counts",
+      "who": "American Meteor Society / IMO",
+      "licence": "Public statistics pages, aggregated"
+    },
+    {
+      "what": "Camera meteor photometry",
+      "who": "Global Meteor Network",
+      "licence": "CC BY 4.0"
+    },
+    {
+      "what": "Daylight bolide detections",
+      "who": "NASA GLM bolide catalog (ATAP)",
+      "licence": "US government data, public domain"
+    },
+    {
+      "what": "Volcano positions",
+      "who": "NOAA NCEI",
+      "licence": "US government data, public domain"
+    },
+    {
+      "what": "Nuclear power reactor positions",
+      "who": "World Resources Institute, Global Power Plant Database",
+      "licence": "CC BY 4.0"
+    },
+    {
+      "what": "Other nuclear site positions",
+      "who": "Wikidata",
+      "licence": "CC0"
+    },
+    {
+      "what": "UFO sighting aggregates",
+      "who": "NUFORC archive via planetsig/ufo-reports",
+      "licence": "Aggregates only"
+    },
+    {
+      "what": "3D scene",
+      "who": "three.js",
+      "licence": "MIT"
+    },
+    {
+      "what": "Share Tech Mono typeface",
+      "who": "Carrois Apostrophe",
+      "licence": "SIL OFL 1.1"
+    }
   ]
 }

@@ -295,7 +295,7 @@ intact), one giving each event a fresh longitude.
 No association at any distance, under either null — and the closest bin, the one
 the claim is actually about, comes in *below* chance. The related clustering claim
 fails the same way: median distance from an event to its nearest neighbour is
-353 km against 354 km expected.
+353 km against 357 km expected (figure revised 2026-11-01, after five duplicated catalog rows were removed).
 
 **And the reason the footage is nonetheless striking is the familiar one.** The
 evidence for the volcano claim is webcam video, and active volcanoes are among the

@@ -83,6 +83,18 @@ TARGETS = {
         # drop most events off the end of the chart.
         "hist_max": 6000, "hist_bin": 300,
     },
+    # Everything nuclear that is NOT a power station (tools/fetch_nuclear_wide.py):
+    # research reactors, enrichment, reprocessing, waste, test sites, and the
+    # weapons complex the testimony names. 150 sites, so the same sparse-target
+    # rules as the reactor run: a cap that clears the real distances.
+    "nuclear_wide": {
+        "file": "nuclear-wide.json", "key": "sites", "label": "non-power nuclear site",
+        "provider": "Wikidata", "out": "spatial-test-nuclear-wide.json",
+        "control_label": "the weapons complex and test sites only (the places the testimony names)",
+        "cluster": False,
+        "cap": 20000.0, "trials": 600,
+        "hist_max": 6000, "hist_bin": 300,
+    },
 }
 
 
@@ -91,6 +103,8 @@ def control_subset(target, data):
     if target == "volcanoes":
         codes = set(data.get("recent_codes") or [])
         return [(v["lat"], v["lon"]) for v in data["volcanoes"] if v.get("erupt") in codes]
+    if target == "nuclear_wide":
+        return [(v["lat"], v["lon"]) for v in data["sites"] if v["category"] in ("weapons", "test_site")]
     return [(v["lat"], v["lon"]) for v in data["sites"]
             if v.get("commissioned") and v["commissioned"] <= 1990]
 
@@ -132,11 +146,16 @@ class Index(object):
             for vlat, vlon in self.bands.get(b, ()):
                 if abs(vlat - lat) * 111.0 > best:
                     continue
-                # cheap longitude gate before the trig
+                # Cheap longitude gate before the full haversine. It must be a true
+                # LOWER bound or it skips the real nearest site. From the haversine,
+                # sin^2(d/2R) >= cos(lat1)cos(lat2)sin^2(dlon/2) >= (cos latmax * sin(dlon/2))^2.
+                # (The old gate used dlon*111*cos(lat), the length along the
+                # parallel, which is LONGER than the great circle at high latitude.)
                 dlon = abs(vlon - lon)
                 if dlon > 180:
                     dlon = 360 - dlon
-                if dlon * 111.0 * math.cos(math.radians(lat)) > best:
+                cmax = math.cos(math.radians(max(abs(lat), abs(vlat))))
+                if cmax * math.sin(math.radians(dlon) / 2) > math.sin(min(best, math.pi * R_EARTH) / (2 * R_EARTH)):
                     continue
                 d = hav(lat, lon, vlat, vlon)
                 if d < best:
@@ -196,15 +215,20 @@ def cluster_stats(events):
     Note the ROTATION null is useless here and is not offered: rotating every
     event by the same offset leaves every event-to-event distance exactly as it
     was, so the statistic cannot move. Only the scatter null says anything."""
-    idx = Index(events)
+    # Bucket by index so only the event ITSELF is skipped. Matching on
+    # coordinates also skipped every other event reported at the same rounded
+    # position, i.e. exactly the repeats this statistic exists to count.
+    bands = {}
+    for i, (la, lo) in enumerate(events):
+        bands.setdefault(int(math.floor(la / BAND)), []).append((i, la, lo))
     nn = []
-    for la, lo in events:
+    for i, (la, lo) in enumerate(events):
         best = 20000.0
         span = int(math.ceil(1500.0 / 111.0 / BAND)) + 1
         b0 = int(math.floor(la / BAND))
         for b in range(b0 - span, b0 + span + 1):
-            for ela, elo in idx.bands.get(b, ()):
-                if ela == la and elo == lo:
+            for j, ela, elo in bands.get(b, ()):
+                if j == i:
                     continue                      # itself
                 d = hav(la, lo, ela, elo)
                 if d < best:
@@ -214,6 +238,28 @@ def cluster_stats(events):
     return {"median_nn": nn[len(nn) // 2],
             "pairs_100": sum(1 for d in nn if d <= 100),
             "pairs_50": sum(1 for d in nn if d <= 50)}
+
+
+def catalog_duplicates(rows):
+    """Indices of CNEOS rows that look like duplicated entries of an earlier row:
+    identical coordinates AND the same time of day to within 2 s or the same
+    energy. Found 2026-11-01: e.g. 2002-06-02 and 2002-06-06, both 04:28:20 UTC,
+    8.8 kt, 34.0N 21.0E. Two airbursts do not share a position and a clock time
+    days apart; a mistyped date does. They matter only to the clustering
+    statistic, where each one is a fake "repeat at 0 km"."""
+    def secs(t):
+        h, m, x = t[11:19].split(":")
+        return int(h) * 3600 + int(m) * 60 + int(x)
+    seen, dup = {}, []
+    for i, r in enumerate(rows):
+        key = (r[3], r[4])
+        for j in seen.get(key, ()):
+            q = rows[j]
+            if abs(secs(r[0]) - secs(q[0])) <= 2 or r[2] == q[2]:
+                dup.append(i)
+                break
+        seen.setdefault(key, []).append(i)
+    return dup
 
 
 def main():
@@ -234,6 +280,9 @@ def main():
     fb, vo = load("fireballs.json"), load(T["file"])
     events = [(e[3], e[4]) for e in fb["events"] if e[3] is not None and e[4] is not None]
     allv = [(v["lat"], v["lon"]) for v in vo[T["key"]]]
+    if not allv:
+        sys.exit("ABORT: data/%s holds no %s positions. Every distance would equal the "
+                 "cap and the test would report a fake null." % (T["file"], T["label"]))
     recent = control_subset(args.target, vo)
 
     rng = random.Random(SEED)
@@ -265,16 +314,24 @@ def main():
     # event-to-event and so identical whatever the target is — run it once, under
     # the default target, and do not pay for it again.
     if T["cluster"]:
-      cobs = cluster_stats(events)
+      located = [e for e in fb["events"] if e[3] is not None and e[4] is not None]
+      dups = set(catalog_duplicates(located))
+      cevents = [(e[3], e[4]) for i, e in enumerate(located) if i not in dups]
+      cobs = cluster_stats(cevents)
+      cobs_raw = cluster_stats(events)
       ctr = max(60, args.trials // 6)             # heavier per trial; fewer of them
       cnull = {"median_nn": [], "pairs_100": [], "pairs_50": []}
       for _ in range(ctr):
-        sca = [(e[0], rng.uniform(-180, 180)) for e in events]
+        sca = [(e[0], rng.uniform(-180, 180)) for e in cevents]
         c = cluster_stats(sca)
         for k in cnull:
             cnull[k].append(c[k])
       out["cluster"] = {
         "trials": ctr,
+        "duplicates_removed": len(dups),
+        "duplicate_rows": [located[i][0] for i in sorted(dups)],
+        "with_duplicates": {"pairs_50": cobs_raw["pairs_50"], "pairs_100": cobs_raw["pairs_100"],
+                            "median_nn": cobs_raw["median_nn"]},
         "median_nn": {"observed": cobs["median_nn"],
                       "null_mean": sum(cnull["median_nn"]) / ctr,
                       "p": pvalue(cobs["median_nn"], cnull["median_nn"], "less")},
@@ -324,6 +381,18 @@ def main():
         "null_mean": [round(v / float(hruns), 2) for v in null_acc],
     }
 
+    # Cap guard, BEFORE anything is saved or printed: an event with no target
+    # inside the search cap reports the cap itself as its distance, and enough
+    # of those turn the median into an artifact (the bug that once shipped a
+    # "median 2000 vs 2000, p=1.000" null for nuclear sites).
+    sat = sum(1 for d in obs["nearest"] if d >= T["cap"] - 1e-6)
+    out["median"]["capped_out"] = sat
+    sat_r = sum(1 for d in nr if d >= T["cap"] - 1e-6)
+    out["recent_only"]["capped_out"] = sat_r
+    # Only the share at or above HALF the events can move the median (the
+    # statistic quoted); a few events beyond the cap are censored above it.
+    capped = sat >= len(events) * 0.5
+
     if args.save:
         sp = os.path.join(ROOT, "data", T["out"])
         with open(sp, "w", encoding="utf-8") as f:
@@ -332,7 +401,7 @@ def main():
 
     if args.json:
         json.dump(out, sys.stdout, indent=1)
-        return 0
+        return 2 if capped else 0
 
     print("CNEOS located events: %d    %s %ss: %d (%d in the control subset)"
           % (len(events), T["provider"], T["label"], len(allv), len(recent)))
@@ -346,13 +415,11 @@ def main():
                  d["rotation_mean"], d["rotation_p"],
                  d["scatter_mean"], d["scatter_p"]))
     m = out["median"]
-    sat = sum(1 for d in obs["nearest"] if d >= T["cap"] - 1e-6)
-    out["median"]["capped_out"] = sat
     print("\n  median distance to the nearest %s%s"
           % (T["label"],
-             "   [WARNING: %d of %d events sit at the %.0f km search cap — the median is "
-             "an artifact, not a measurement]" % (sat, len(events), T["cap"])
-             if sat > len(events) * 0.02 else ""))
+             "   [note: %d of %d events have no %s within the %.0f km cap; censored ABOVE "
+             "the median, so it is unaffected]" % (sat, len(events), T["label"], T["cap"])
+             if sat else ""))
     print("    observed %.0f km | rotation null %.0f km p=%.3f | scatter null %.0f km p=%.3f"
           % (m["observed"], m["rotation_mean"], m["rotation_p"],
              m["scatter_mean"], m["scatter_p"]))
@@ -363,6 +430,8 @@ def main():
     if c:
       print("\n  clustering — do events repeat in the same places? (%d trials, scatter null only:" % c["trials"])
       print("  a rotation leaves every event-to-event distance untouched and cannot test this)")
+      print("    %d duplicated catalog rows removed first (same position, same clock time or energy)"
+            % c["duplicates_removed"])
       print("    median nearest-event distance %.0f km vs null %.0f km  p=%.3f"
           % (c["median_nn"]["observed"], c["median_nn"]["null_mean"], c["median_nn"]["p"]))
       print("    events with another within 100 km: %d vs null %.1f  p=%.3f"
@@ -372,6 +441,9 @@ def main():
 
     print("\n  A p above about 0.05 in BOTH null columns means the catalog shows no")
     print("  %s association beyond what the geometry already implies." % T["label"])
+    if capped:
+        print("\nFAIL: %d of %d events sit at the %.0f km cap. Raise this target's cap." % (sat, len(events), T["cap"]))
+        return 2
     return 0
 
 
