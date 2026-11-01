@@ -7,7 +7,7 @@ name a fireball-ish subject and then say something checkable about it, whether
 that is a number, a trend, or a correlation with a place. Small enough to paste
 from a phone; specific enough to check a row of CNEOS against.
 
-    cd "C:\\Users\\stewa\\OneDrive\\Documents\\Claude\\3I ATLAS Anomaly Console"
+    cd "C:\\Users\\stewa\\Documents\\Claude\\3I ATLAS Anomaly Console"
     python tools/transcript_digest.py
 
     python tools/transcript_digest.py --per-video 8      # more from each

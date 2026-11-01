@@ -24,3 +24,9 @@ data/transcripts/.tmp/
 
 # Landing page build output (site/ is the source)
 site-dist/
+
+# Claude Code plugin scratch data (not project content)
+.claude/data/
+
+# Downloaded papers: arXiv licences cover arXiv distribution only, so the repo links instead
+data/papers/

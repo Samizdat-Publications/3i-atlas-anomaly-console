@@ -353,7 +353,7 @@ at https://github.com/new before that script will run.
 
 ## Stewart's machine — ALWAYS include the `cd`
 Stewart is not a terminal user and works from a Windows laptop. This repo lives at
-`C:\Users\stewa\OneDrive\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
+`C:\Users\stewa\Documents\Claude\3I ATLAS Anomaly Console` — note the SPACES in
 the folder name, so the path must always be quoted or the command silently breaks at "3I".
 
 **Every command block given to him must be copy-paste-runnable on its own**: start it with the
