@@ -1,0 +1,68 @@
+name: Check
+
+# Cheap guards for the regressions this project has actually shipped before:
+# generated files out of step with their sources, a JS syntax error, an
+# external reference in the offline file, case text quoting a figure the data
+# no longer supports, and a spatial statistic pinned at its search cap.
+# Runs on every pull request and every push to main. Fetches nothing.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: JavaScript parses
+        run: for f in src/js/*.js; do node --check "$f"; done
+
+      - name: Generated content matches its sources
+        run: |
+          python tools/bake_content.py
+          python tools/bake_instruments.py
+          git diff --exit-code -- src/data-content.js src/data-instruments.js
+
+      - name: Bundle rebuilds byte-identical
+        run: |
+          python tools/build.py
+          git diff --exit-code -- public/index.html src/index.html
+
+      - name: Offline file has zero external references
+        run: |
+          n=$(grep -c -E '(src|href)="https?://' "_LATEST - 3I-ATLAS Anomaly Console.html" || true)
+          echo "external refs: $n"
+          test "$n" = "0"
+
+      - name: Fireball case text matches the data
+        run: python tools/fireball_rate_check.py --quiet
+
+      - name: Spatial statistics are not pinned at their caps
+        run: |
+          python - <<'EOF'
+          import json, glob, sys
+          bad = []
+          for p in glob.glob("data/spatial-test*.json"):
+              t = json.load(open(p))
+              n, cap = t["events"], t["median"].get("capped_out")
+              if cap is None:
+                  bad.append("%s: no capped_out field (re-run tools/spatial_test.py --save)" % p)
+              elif cap >= n * 0.5:
+                  bad.append("%s: %d of %d events at the cap; the median is the cap" % (p, cap, n))
+              print("%s: capped_out %s of %d" % (p, cap, n))
+          sys.exit("\n".join(bad) if bad else 0)
+          EOF

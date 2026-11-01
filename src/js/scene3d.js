@@ -1,5 +1,5 @@
 /* ============================================================
-   SCENE3D — Three.js solar system + the active interstellar object
+   SCENE3D · Three.js solar system + the active interstellar object
    Heliocentric ecliptic J2000 -> scene: x=X, y=Z, z=-Y, 1 AU = 10u
    Era-aware: the target body, its path and its look rebuild when
    the active era ('3i'/'1i'/'2i') changes.
@@ -24,6 +24,7 @@
   let labelEls = {};
   let tween = null;
   let frameT = 0;
+  let cw = 1, ch = 1;
   let eraStep = 1;
 
   const v3 = function (p) { return new THREE.Vector3(p[0] * AUu, p[2] * AUu, -p[1] * AUu); };
@@ -198,18 +199,24 @@
   let ionSeed, dustSeed, antiSeed;
 
   // ---- DISPATCH: an ILLUSTRATION OF A CLAIM, not a measurement ----------------
-  // The coverage argues that 3I/ATLAS released material at its close approaches —
+  // The coverage argues that 3I/ATLAS released material at its close approaches,
   // organics triggered at perihelion, and payload dropped at the Jupiter pass,
   // which came within a fraction of a percent of Jupiter's ~53.5 million km Hill
   // radius, where material can enter Jovian orbit cheaply. No instrument has
   // observed any such release. This draws the claim so it can be looked at; the
   // HUD says so while it is on, and it is OFF by default for that reason.
   const DISPATCH_N = 260;
-  const DISPATCH = [
-    { iso: '2025-10-03', body: 'mars',    label: 'MARS 0.1939 AU' },
-    { iso: '2025-10-29', body: null,      label: 'PERIHELION 1.3566 AU' },
-    { iso: '2026-03-17', body: 'jupiter', label: 'JUPITER 0.3588 AU' },
-  ];
+  // Dates and distances come from the close approaches computed off the shipped
+  // ephemeris, so a re-fetch cannot leave these labels behind.
+  function dispatchTable() {
+    const ca = (CX.EPH.eras['3i'] || {}).close_approaches || {};
+    const row = function (k, body, name) {
+      const c = ca[k];
+      return c ? { iso: c.date, body: body, label: name + ' ' + c.au.toFixed(4) + ' AU' } : null;
+    };
+    return [row('mars', 'mars', 'MARS'), row('sun', null, 'PERIHELION'), row('jupiter', 'jupiter', 'JUPITER')].filter(Boolean);
+  }
+  const DISPATCH = dispatchTable();
   const DISPATCH_SPAN = 26;      // days over which a burst flies out and fades
 
 
@@ -469,8 +476,8 @@
       el.style.display = 'none'; return;
     }
     el.style.display = 'block';
-    el.style.left = ((projV.x + 1) / 2 * container.clientWidth) + 'px';
-    el.style.top = ((-projV.y + 1) / 2 * container.clientHeight) + 'px';
+    el.style.left = ((projV.x + 1) / 2 * cw) + 'px';
+    el.style.top = ((-projV.y + 1) / 2 * ch) + 'px';
     if (subText != null && labelEls[key + '__sub']) labelEls[key + '__sub'].textContent = subText;
   }
   function hideLabel(key) {
@@ -480,6 +487,7 @@
   // ---------- camera ----------
   const FREE_POS = new THREE.Vector3(26, 17, 30);
   function startTween(toPos, toTarget, dur) {
+    if (CX.reducedMotion) { camera.position.copy(toPos); controls.target.copy(toTarget); camera.lookAt(toTarget); tween = null; return; }
     tween = {
       p0: camera.position.clone(), p1: toPos.clone(),
       t0: controls.target.clone(), t1: toTarget.clone(),
@@ -538,7 +546,6 @@
     dispatchPts.geometry.attributes.position.needsUpdate = true;
     dispatchPts.geometry.attributes.color.needsUpdate = true;
     dispatchPts.visible = any;
-    SC.dispatchLive = any;
   }
 
   SC.applyPreset = function (name) {
@@ -555,7 +562,6 @@
       tween = null;
       if (name === 'sun') startTween(new THREE.Vector3(0, 2.2, 0.1), cp, 900);
     }
-    CX.emit('campreset');
   };
 
   function followCamera() {
@@ -678,6 +684,10 @@
     frameT += dtMs * 0.001;
     const hudVisible = S.mode !== 'archive';
     if (hud.style.display !== (hudVisible ? '' : 'none')) hud.style.display = hudVisible ? '' : 'none';
+    // The scene is fully covered in these modes and invisible in a hidden tab;
+    // rendering it anyway re-blurred the overlays every frame for nothing.
+    if (document.hidden || S.mode === 'briefings' || S.mode === 'fireballs' || S.mode === 'archive') return;
+    cw = container.clientWidth; ch = container.clientHeight;   // read once per frame, not once per label
 
     PLANETS.forEach(function (p) {
       planetMeshes[p.key].position.copy(v3(CX.pos(p.key, S.t)));
@@ -729,7 +739,9 @@
     if (!compare && nearD < 1.25) {
       rangeLine.visible = true;
       const pp = v3(CX.pos(nearKey, S.t));
-      rangeLine.geometry.setFromPoints([cp, pp]);
+      const rp = rangeLine.geometry.attributes.position;
+      if (rp && rp.count === 2) { rp.setXYZ(0, cp.x, cp.y, cp.z); rp.setXYZ(1, pp.x, pp.y, pp.z); rp.needsUpdate = true; }
+      else rangeLine.geometry.setFromPoints([cp, pp]);
       const mid = cp.clone().add(pp).multiplyScalar(0.5);
       projV.copy(mid).project(camera);
       if (projV.z < 1) {

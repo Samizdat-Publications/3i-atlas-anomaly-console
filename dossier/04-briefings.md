@@ -11,7 +11,7 @@
 
 ### What is not in dispute
 
-3I/ATLAS is the third confirmed interstellar object, after 1I/ʻOumuamua in 2017 and 2I/Borisov in 2019. Its orbit is unambiguously unbound — it came from outside the solar system and it is leaving. It reached perihelion on 2025-10-29 at 1.3566 AU, passed Mars at 0.1939 AU, and passed Jupiter at 0.3588 AU in March 2026. Those are measured positions, not interpretations, and the console draws its trajectory from JPL Horizons vectors rather than from an artist's idea of one.
+3I/ATLAS is the third confirmed interstellar object, after 1I/ʻOumuamua in 2017 and 2I/Borisov in 2019. Its orbit is unambiguously unbound, it came from outside the solar system and it is leaving. It reached perihelion on 2025-10-29 at 1.3566 AU, passed Mars at 0.1939 AU, and passed Jupiter at 0.3588 AU in March 2026. Those are measured positions, not interpretations, and the console draws its trajectory from JPL Horizons vectors rather than from an artist's idea of one.
 
 ### What is genuinely strange
 
@@ -19,11 +19,11 @@ A cluster of measurements sit far outside the range of ordinary comets. A sunwar
 
 ### Why that is not the same as evidence of design
 
-Almost every anomaly has a cometary explanation that works, and several have more than one. The harder problem is that the anomalies are not independent: a single wrong assumption about the nucleus size, or one unusual formation environment, propagates into many of the individual oddities at once. A tally of 24 or 26 separate anomalies overstates the evidence if one cause produces a dozen of them — and that cuts both ways, because a single unifying mechanism is also exactly what a correct explanation looks like.
+Almost every anomaly has a cometary explanation that works, and several have more than one. The harder problem is that the anomalies are not independent: a single wrong assumption about the nucleus size, or one unusual formation environment, propagates into many of the individual oddities at once. A tally of 24 or 26 separate anomalies overstates the evidence if one cause produces a dozen of them, and that cuts both ways, because a single unifying mechanism is also exactly what a correct explanation looks like.
 
 ### Where the argument actually stands
 
-Avi Loeb ranked the object 4 on his own 0-10 scale in July 2025, held it at 4 that December, and reduced it to 3 in March 2026 after the Jupiter pass produced nothing unusual. That is the person making the strongest published case revising downward on evidence. The mainstream position was never that the object is boring — it is that an extreme natural comet from an old, low-metallicity system explains what has been measured without requiring anything new.
+Avi Loeb ranked the object 4 on his own 0-10 scale in July 2025, held it at 4 that December, and reduced it to 3 in March 2026 after the Jupiter pass produced nothing unusual. That is the person making the strongest published case revising downward on evidence. The mainstream position was never that the object is boring, it is that an extreme natural comet from an old, low-metallicity system explains what has been measured without requiring anything new.
 
 **Case files behind this:** 3i/A-01, 3i/A-05, 3i/A-07, 3i/A-26
 
@@ -33,35 +33,35 @@ Avi Loeb ranked the object 4 on his own 0-10 scale in July 2025, held it at 4 th
 
 ## BR-02 — Are fireballs actually increasing?
 
-**Short answer:** Four instruments, four biases, and only the bias-corrected statistics are worth comparing. The eyewitness figures are accurate; every measure that normalises for instrument growth is flat — including, now, one that sees daylight.
+**Short answer:** Four instruments, four biases, and only the bias-corrected statistics are worth comparing. The eyewitness figures are accurate; every measure that normalises for instrument growth is flat, including, now, one that sees daylight.
 
 ### The claim, and why it deserves a straight answer
 
-Through 2026 a widely-repeated argument holds that fireball activity has surged. The sharpest version of it is worth engaging precisely because it anticipates the obvious objection: not merely that more events were reported, but that events drawing 50 or more eyewitness reports roughly doubled — so the larger, brighter events themselves increased. Checked against the American Meteor Society's own published statistics, those numbers are correct. Q1 2026 logged 25 events in the 51-99 report band against a 2021-2025 mean of 11.8, and 16 above 100 reports against 8.8.
+Through 2026 a widely-repeated argument holds that fireball activity has surged. The sharpest version of it is worth engaging precisely because it anticipates the obvious objection: not merely that more events were reported, but that events drawing 50 or more eyewitness reports roughly doubled, so the larger, brighter events themselves increased. Checked against the American Meteor Society's own published statistics, those numbers are correct. Q1 2026 logged 25 events in the 51-99 report band against a 2021-2025 mean of 11.8, and 16 above 100 reports against 8.8.
 
 ### Why the report count cannot answer it
 
-AMS counts people, not photons. A growing audience does two things at once: it surfaces more events, and it gives each event more reports — which pushes events upward through the report bands. An event drawing 20 reports in 2022 draws 45 in 2026 and leaves the 11-25 band entirely. So a flat middle band is the bias rather than evidence against it. The diagnostic is whether well-witnessed events outgrew the dataset as a whole. They did not: 1.21 times the baseline against 1.23 times for all events.
+AMS counts people, not photons. A growing audience does two things at once: it surfaces more events, and it gives each event more reports, which pushes events upward through the report bands. An event drawing 20 reports in 2022 draws 45 in 2026 and leaves the 11-25 band entirely. So a flat middle band is the bias rather than evidence against it. The diagnostic is whether well-witnessed events outgrew the dataset as a whole. They did not: 1.21 times the baseline against 1.23 times for all events.
 
 ### Why the sensor record cannot answer it either
 
-NASA's CNEOS catalog measures energy directly and cannot be moved by how many people were watching. It shows 2026 at the bottom of an ordinary range. But its smallest entry in 1,069 rows is 0.048 kilotonnes, and almost every event in this argument falls far below that. Across all of 2025 and 2026, only four CNEOS rows fall anywhere in the regions this coverage discusses. The sensors are not staying quiet about these fireballs — with a handful of exceptions they cannot detect them at all.
+NASA's CNEOS catalog measures energy directly and cannot be moved by how many people were watching. It shows 2026 at the bottom of an ordinary range. But its smallest entry in 1,069 rows is 0.048 kilotonnes, and almost every event in this argument falls far below that. Across all of 2025 and 2026, only four CNEOS rows fall anywhere in the regions this coverage discusses. The sensors are not staying quiet about these fireballs, with a handful of exceptions they cannot detect them at all.
 
 ### The instrument that can, and what it found
 
-The Global Meteor Network runs cameras that measure an absolute magnitude for every meteor, with nobody deciding whether to file a report. Its network grew from 73 stations to over 1,300, so raw counts are meaningless across years — but the bright-meteor share is not. That share ran 0.286% in Q1 2026 against a 0.264% five-year mean: a factor of 1.08, inside year-to-year scatter three times wider. The obvious confound was ruled out rather than assumed, since more sensitive cameras would swell the faint end and mask a rise: the median magnitude holds between -0.09 and +0.05 across six years.
+The Global Meteor Network runs cameras that measure an absolute magnitude for every meteor, with nobody deciding whether to file a report. Its network grew from 73 stations to over 1,300, so raw counts are meaningless across years, but the bright-meteor share is not. That share ran 0.286% in Q1 2026 against a 0.264% five-year mean: a factor of 1.08, inside year-to-year scatter three times wider. The obvious confound was ruled out rather than assumed, since more sensitive cameras would swell the faint end and mask a rise: the median magnitude holds between -0.09 and +0.05 across six years.
 
 ### Three limits that cut the other way
 
-GMN sees nothing in daylight, and several of the most prominent 2026 events were daytime — the Lake Erie bolide at 8:57 a.m. Eastern drew 222 reports across 16 states. Its coverage is concentrated in Europe and North America rather than global. Its brightest bin is small and noisy. So this is not a refutation, and the central observation stands exactly as stated. What has moved is the burden: every measure that corrects for instrument growth is flat, and the cameras built to measure brightness did not record the change.
+GMN sees nothing in daylight, and several of the most prominent 2026 events were daytime, the Lake Erie bolide at 8:57 a.m. Eastern drew 222 reports across 16 states. Its coverage is concentrated in Europe and North America rather than global. Its brightest bin is small and noisy. So this is not a refutation, and the central observation stands exactly as stated. What has moved is the burden: every measure that corrects for instrument growth is flat, and the cameras built to measure brightness did not record the change.
 
 ### The fourth instrument, and the objection it answers
 
-This briefing used to end on a limit it could not resolve: the Global Meteor Network carried the strongest evidence, and GMN is night-blind, while several of 2026's most talked-about events happened in daylight. NASA's Geostationary Lightning Mapper pipeline closes that gap. Staring down from geostationary orbit, day and night are the same to it — 47.3%% of its 11410 published bolide detections are daytime, which is roughly the half of the population a ground camera network never sees. Over the same window, its bright-category share runs 3.00%% in 2026 against a 2.80%% baseline, a factor of 1.07. GMN's figure was 1.07. Two instruments on different physics, one blind to half the clock, agreeing to two decimals.
+This briefing used to end on a limit it could not resolve: the Global Meteor Network carried the strongest evidence, and GMN is night-blind, while several of 2026's most talked-about events happened in daylight. NASA's Geostationary Lightning Mapper pipeline closes that gap. Staring down from geostationary orbit, day and night are the same to it, 47.3%% of its 11410 published bolide detections are daytime, which is roughly the half of the population a ground camera network never sees. Over the same window, its bright-category share runs 3.00%% in 2026 against a 2.80%% baseline, a factor of 1.07. GMN's figure was 1.07. Two instruments on different physics, one blind to half the clock, agreeing to two decimals.
 
 ### And the trap inside it
 
-GLM is not a free win, and the catalog carries a hazard worth naming because it is the kind that quietly ruins this sort of comparison. On 2025-03-06 its pipeline started auto-publishing detections that previously needed a human to review them, so the recent years hold a class of record the earlier ones do not. The intuitive fix — filter to high-confidence events — makes it worse, because review lags behind, so filtering on confidence really filters on how long ago something happened. Running the statistic with and without the auto-published events is the fix that works: the bright SHARE barely moves, the bright COUNT swings hard. That is why the share is quoted and the count is not.
+GLM is not a free win, and the catalog carries a hazard worth naming because it is the kind that quietly ruins this sort of comparison. On 2025-03-06 its pipeline started auto-publishing detections that previously needed a human to review them, so the recent years hold a class of record the earlier ones do not. The intuitive fix, filter to high-confidence events, makes it worse, because review lags behind, so filtering on confidence really filters on how long ago something happened. Running the statistic with and without the auto-published events is the fix that works: the bright SHARE barely moves, the bright COUNT swings hard. That is why the share is quoted and the count is not.
 
 **Case files behind this:** fb/F-03, fb/F-04
 
@@ -75,11 +75,11 @@ GLM is not a free win, and the catalog carries a hazard worth naming because it 
 
 ### The two rows
 
-On 2014-01-08 a fireball over the Bismarck Sea was logged at 44.8 km/s — among the fastest entries CNEOS lists. On 2017-03-09 a larger one over the North Atlantic was logged at 36.5 km/s. At those speeds both are gravitationally unbound: they came from outside the solar system. Siraj and Loeb argued the first is interstellar at 99.999% confidence, and in April 2022 the US Space Command chief scientist reviewed the classified data and signed a memo saying the velocity estimate was accurate enough to indicate an interstellar trajectory.
+On 2014-01-08 a fireball over the Bismarck Sea was logged at 44.8 km/s, among the fastest entries CNEOS lists. On 2017-03-09 a larger one over the North Atlantic was logged at 36.5 km/s. At those speeds both are gravitationally unbound: they came from outside the solar system. Siraj and Loeb argued the first is interstellar at 99.999% confidence, and in April 2022 the US Space Command chief scientist reviewed the classified data and signed a memo saying the velocity estimate was accurate enough to indicate an interstellar trajectory.
 
 ### The problem with the only number that matters
 
-Everything rests on the speed, and CNEOS publishes no uncertainties on any field. Brown and Borovička compared USG fireball velocities against events with independent optical or infrasound data and found errors of 10-15 km/s at high speeds. Shave a few km/s off either event and the orbit is bound and ordinary. That also dissolves the separate argument that these bodies were unusually strong, because the strength was inferred from ablation fits that only work at the high assumed speed — two anomalies that are really one measurement.
+Everything rests on the speed, and CNEOS publishes no uncertainties on any field. Brown and Borovička compared USG fireball velocities against events with independent optical or infrasound data and found errors of 10-15 km/s at high speeds. Shave a few km/s off either event and the orbit is bound and ordinary. That also dissolves the separate argument that these bodies were unusually strong, because the strength was inferred from ablation fits that only work at the high assumed speed, two anomalies that are really one measurement.
 
 ### What the expedition found
 
@@ -87,7 +87,7 @@ In 2023 the Galileo Project ran a magnetic sled over the 2014 search box and rec
 
 ### Where it rests
 
-The most sympathetic independent verdict redid the statistics and put the probability of an interstellar origin at 94.1% — significant, and short of the three sigma a discovery claim needs. A survey of every nominally hyperbolic CNEOS entry concluded that without published uncertainties the data cannot confirm or reject an interstellar origin for any of them. The honest summary is not that these events did not happen. It is that a single un-audited catalog, with the error bars withheld, cannot carry a claim this size alone.
+The most sympathetic independent verdict redid the statistics and put the probability of an interstellar origin at 94.1%, significant, and short of the three sigma a discovery claim needs. A survey of every nominally hyperbolic CNEOS entry concluded that without published uncertainties the data cannot confirm or reject an interstellar origin for any of them. The honest summary is not that these events did not happen. It is that a single un-audited catalog, with the error bars withheld, cannot carry a claim this size alone.
 
 **Case files behind this:** fb/F-01, fb/F-02
 
@@ -101,15 +101,15 @@ The most sympathetic independent verdict redid the statistics and put the probab
 
 ### The control case
 
-2I/Borisov arrived in 2019 and behaved like a comet in every respect that was measured — a coma, a tail pointing away from the Sun, a composition inside the range of solar-system comets apart from unusually high carbon monoxide. Nobody argued about it, and its file here is thin by design. It matters enormously anyway: it demonstrates that an object from another star can be completely ordinary, which removes 'it came from far away' as an explanation for strangeness.
+2I/Borisov arrived in 2019 and behaved like a comet in every respect that was measured, a coma, a tail pointing away from the Sun, a composition inside the range of solar-system comets apart from unusually high carbon monoxide. Nobody argued about it, and its file here is thin by design. It matters enormously anyway: it demonstrates that an object from another star can be completely ordinary, which removes 'it came from far away' as an explanation for strangeness.
 
 ### The original argument
 
-1I/ʻOumuamua in 2017 had no coma at all, an extreme elongation, and a non-gravitational acceleration with no visible outgassing to cause it. Bialy and Loeb proposed a thin lightsail. The competing explanations — a hydrogen iceberg, a nitrogen ice fragment, a fractal dust aggregate — each account for the acceleration without any of them being comfortable. It left too fast for anyone to check, which is the whole reason the case never closed.
+1I/ʻOumuamua in 2017 had no coma at all, an extreme elongation, and a non-gravitational acceleration with no visible outgassing to cause it. Bialy and Loeb proposed a thin lightsail. The competing explanations, a hydrogen iceberg, a nitrogen ice fragment, a fractal dust aggregate, each account for the acceleration without any of them being comfortable. It left too fast for anyone to check, which is the whole reason the case never closed.
 
 ### Why 3I is different from both
 
-3I/ATLAS is unambiguously active, which rules out the ʻOumuamua reading directly: it has a coma, jets, and measurable outgassing. But its composition and jet geometry are unlike Borisov's, and unlike any solar-system comet in several specific measurements. So it sits between the two earlier objects rather than resembling either, and it was observed for over a year by Webb, Hubble, ALMA and spacecraft near Mars and Jupiter — which is why its file runs to 26 cases and the others do not.
+3I/ATLAS is unambiguously active, which rules out the ʻOumuamua reading directly: it has a coma, jets, and measurable outgassing. But its composition and jet geometry are unlike Borisov's, and unlike any solar-system comet in several specific measurements. So it sits between the two earlier objects rather than resembling either, and it was observed for over a year by Webb, Hubble, ALMA and spacecraft near Mars and Jupiter, which is why its file runs to 26 cases and the others do not.
 
 ### What the three together suggest
 
@@ -135,11 +135,11 @@ CNEOS lists no event below 0.048 kilotonnes, and only 6 of its 1,069 rows fall u
 
 ### Growing instruments look like changing skies
 
-Three datasets here grew enormously over their own record: US sensor coverage, the eyewitness reporting audience, and a camera network that went from 73 stations to over 1,300. Every one of them produces a rising raw count that has nothing to do with the sky. The fix is always the same — divide by something that grew with it. Bright events as a share of all events. Events above an energy a detection change cannot inflate. Meteors per detection rather than meteors. If a trend survives that division it is worth discussing; if it does not, what grew was the instrument.
+Three datasets here grew enormously over their own record: US sensor coverage, the eyewitness reporting audience, and a camera network that went from 73 stations to over 1,300. Every one of them produces a rising raw count that has nothing to do with the sky. The fix is always the same, divide by something that grew with it. Bright events as a share of all events. Events above an energy a detection change cannot inflate. Meteors per detection rather than meteors. If a trend survives that division it is worth discussing; if it does not, what grew was the instrument.
 
 ### What this console does with that
 
-Every case file gives the claim and the counter-reading side by side, names the primary source, and marks whether the figures were verified against it. Where a claim is stated accurately, the register says so plainly before disagreeing with the inference. Where the data cannot settle something, it says that too instead of implying a verdict it has not earned. The fiction — the clearance banners, the stamps — is decoration. The datasets, the citations and the arithmetic are not.
+Every case file gives the claim and the counter-reading side by side, names the primary source, and marks whether the figures were verified against it. Where a claim is stated accurately, the register says so plainly before disagreeing with the inference. Where the data cannot settle something, it says that too instead of implying a verdict it has not earned. The fiction, the clearance banners, the stamps, is decoration. The datasets, the citations and the arithmetic are not.
 
 **Case files behind this:** fb/F-03, fb/F-01
 
@@ -157,11 +157,11 @@ Most disputes in this register turn on interpretation. This one does not. It is 
 
 ### Getting the null right is the whole test
 
-Comparing against random points scattered over the globe would be wrong. Volcanoes sit on land and cluster in arcs, so any land or latitude bias in the detections would fake an association out of nothing. Two nulls were used instead, both preserving the events' own latitude distribution. The first applies a single random longitude offset to every event at once — keeping the event set's internal clustering perfectly intact, destroying only its alignment with volcano longitudes. The second gives each event a fresh longitude. A thousand trials of each.
+Comparing against random points scattered over the globe would be wrong. Volcanoes sit on land and cluster in arcs, so any land or latitude bias in the detections would fake an association out of nothing. Two nulls were used instead, both preserving the events' own latitude distribution. The first applies a single random longitude offset to every event at once, keeping the event set's internal clustering perfectly intact, destroying only its alignment with volcano longitudes. The second gives each event a fresh longitude. A thousand trials of each.
 
 ### The answer
 
-Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.6. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null — and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 357 km expected, once five rows the catalog lists twice are set aside.
+Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.6. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null, and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 357 km expected, once five rows the catalog lists twice are set aside.
 
 ### Why the footage is still striking
 
@@ -169,7 +169,7 @@ The answer is in the coverage itself, said in passing: 'Five Vulks cameras are r
 
 ### The limit that cuts the other way
 
-Neither the Mayon event of 2026-05-25 nor the bright 2026-06-14 fireball has a CNEOS row at all — both sit below the catalog's 0.048 kt detection floor. The nearest CNEOS row to Mayon in the whole record is 312 km away and dates from 2015. So this test shows that events large enough for satellites to see have no volcano preference; it cannot directly test the smaller events the cameras actually caught. What it does establish is that the association is absent from the one dataset immune to the camera effect, which is where a real physical association should have appeared first.
+Neither the Mayon event of 2026-05-25 nor the bright 2026-06-14 fireball has a CNEOS row at all, both sit below the catalog's 0.048 kt detection floor. The nearest CNEOS row to Mayon in the whole record is 312 km away and dates from 2015. So this test shows that events large enough for satellites to see have no volcano preference; it cannot directly test the smaller events the cameras actually caught. What it does establish is that the association is absent from the one dataset immune to the camera effect, which is where a real physical association should have appeared first.
 
 **Case files behind this:** fb/F-05, fb/F-03
 
@@ -183,23 +183,23 @@ Neither the Mayon event of 2026-05-25 nor the bright 2026-06-14 fireball has a C
 
 ### Why this question has a different dataset behind it
 
-The other fireball briefings argue from instruments: satellite sensors that report kilotonnes, camera networks that report absolute magnitude, eyewitness tallies that report how many people filed. The 2013 precedent comes from none of those. It comes from the National UFO Reporting Center, where every witness picks a SHAPE from a fixed list and 'fireball' is one of the choices. That makes it a record of what people called what they saw — which is the right instrument for a claim about a wave of fireball REPORTS, and the wrong one for a claim about the sky. nuforc.org returns 403 to a datacenter address; the route that works is a 2014 public mirror that geocoded the archive and kept the shape column. It holds 80,332 reports running to 2014-05-08.
+The other fireball briefings argue from instruments: satellite sensors that report kilotonnes, camera networks that report absolute magnitude, eyewitness tallies that report how many people filed. The 2013 precedent comes from none of those. It comes from the National UFO Reporting Center, where every witness picks a SHAPE from a fixed list and 'fireball' is one of the choices. That makes it a record of what people called what they saw, which is the right instrument for a claim about a wave of fireball REPORTS, and the wrong one for a claim about the sky. nuforc.org returns 403 to a datacenter address; the route that works is a 2014 public mirror that geocoded the archive and kept the shape column. It holds 80,332 reports running to 2014-05-08.
 
 ### The claim, and how well it holds up
 
-Cheryl Costa, writing the New York Skies column for the Syracuse New Times, reported in November 2013 that the database had logged about 238 reports by the 11th — an ordinary month by volume — but that roughly 50 of them, near 20%, were fireballs, against a normal share of about 7% ranking fourth among roughly 30 categories. Checked against the archive, the baseline is very nearly exact: fireball is 7.92% of shape-bearing reports and ranks fourth of 29 shapes. The volume is close too — 227 US rows against 'about 238'. The elevation is real: 33 of those 226 shape-bearing US reports are fireballs, 14.6%, roughly double the long-run share.
+Cheryl Costa, writing the New York Skies column for the Syracuse New Times, reported in November 2013 that the database had logged about 238 reports by the 11th, an ordinary month by volume, but that roughly 50 of them, near 20%, were fireballs, against a normal share of about 7% ranking fourth among roughly 30 categories. Checked against the archive, the baseline is very nearly exact: fireball is 7.92% of shape-bearing reports and ranks fourth of 29 shapes. The volume is close too, 227 US rows against 'about 238'. The elevation is real: 33 of those 226 shape-bearing US reports are fireballs, 14.6%, roughly double the long-run share.
 
 ### What the month is being measured against
 
-The 7.92% figure is the average of a century-long archive, and by 2013 it had stopped describing the present. Annual fireball share ran 4.85% in 2004 and 5.86% in 2009, then climbed: 8.56%, 10.72%, 14.54%, 13.97% across 2010 to 2013. Pool the twelve months immediately before the one in question and the fireball share is 14.33%. November 2013 came in at 14.37%. It was not a spike above the baseline that was current — it WAS that baseline. Ranked against all 172 complete months from January 2000 to April 2014 it comes 14th, and July 2012 holds the record at 22.26%.
+The 7.92% figure is the average of a century-long archive, and by 2013 it had stopped describing the present. Annual fireball share ran 4.85% in 2004 and 5.86% in 2009, then climbed: 8.56%, 10.72%, 14.54%, 13.97% across 2010 to 2013. Pool the twelve months immediately before the one in question and the fireball share is 14.33%. November 2013 came in at 14.37%. It was not a spike above the baseline that was current, it WAS that baseline. Ranked against all 172 complete months from January 2000 to April 2014 it comes 14th, and July 2012 holds the record at 22.26%.
 
 ### The part that is actually interesting
 
-The share of UFO reports labelled 'fireball' roughly tripled between 2009 and 2012 and then stayed high. That is a large, real, unexplained change in the record — and it is the kind of change the 2013 column was reaching for. It found the right dataset and pointed at the wrong month, three years late. What NUFORC cannot do is say why the rise happened: a genuine change in the sky, a camera arriving in every pocket, and the word 'fireball' spreading through popular usage would all look identical in a database of self-assigned shape labels. That ambiguity is the same one the AMS eyewitness series has, and it is why the console leans on camera photometry when it wants to know about the sky rather than about the reporters.
+The share of UFO reports labelled 'fireball' roughly tripled between 2009 and 2012 and then stayed high. That is a large, real, unexplained change in the record, and it is the kind of change the 2013 column was reaching for. It found the right dataset and pointed at the wrong month, three years late. What NUFORC cannot do is say why the rise happened: a genuine change in the sky, a camera arriving in every pocket, and the word 'fireball' spreading through popular usage would all look identical in a database of self-assigned shape labels. That ambiguity is the same one the AMS eyewitness series has, and it is why the console leans on camera photometry when it wants to know about the sky rather than about the reporters.
 
 ### Two limits, one of which decides the question
 
-The archive is 81% United States — 65,114 of the 80,332 rows — and it shows. On 2013-02-15, the day Chelyabinsk exploded over Russia and injured more than a thousand people, NUFORC logged 11 reports, 2 of them fireball, and February 2013 finished at 8.08%: among the quietest months of its year. The largest airburst since Tunguska is essentially invisible here, because it happened where the reporters are not. And the mirror stops on 2014-05-08. It can test the 2013 half of a 2013-versus-2026 parallel; it cannot test the 2026 half at all. So the honest answer to the question is: a fireball wave was reported before, the reported figures were sound, the month was ordinary for its time, and the change that WAS in the data arrived years earlier and has never been explained.
+The archive is 81% United States, 65,114 of the 80,332 rows, and it shows. On 2013-02-15, the day Chelyabinsk exploded over Russia and injured more than a thousand people, NUFORC logged 11 reports, 2 of them fireball, and February 2013 finished at 8.08%: among the quietest months of its year. The largest airburst since Tunguska is essentially invisible here, because it happened where the reporters are not. And the mirror stops on 2014-05-08. It can test the 2013 half of a 2013-versus-2026 parallel; it cannot test the 2026 half at all. So the honest answer to the question is: a fireball wave was reported before, the reported figures were sound, the month was ordinary for its time, and the change that WAS in the data arrived years earlier and has never been explained.
 
 **Case files behind this:** fb/F-06, fb/F-03
 
@@ -209,27 +209,27 @@ The archive is 81% United States — 65,114 of the 80,332 rows — and it shows.
 
 ## BR-08 — Do fireballs cluster at nuclear sites?
 
-**Short answer:** The nuclear connection is the best-evidenced positional claim in the subject — and it rests on eyewitness testimony about craft, not on satellite detections of rocks. The catalog can only answer a narrower question, and it mostly answers no.
+**Short answer:** The nuclear connection is the best-evidenced positional claim in the subject, and it rests on eyewitness testimony about craft, not on satellite detections of rocks. The catalog can only answer a narrower question, and it mostly answers no.
 
 ### Why this one is different
 
-Most claims in this register are about a single object or a single dataset. The nuclear connection is neither. It starts in December 1948, when aircrews over New Mexico reported brilliant green objects flying too slowly and too flatly to be meteors, and the Air Force put Dr Lincoln LaPaz — the meteoriticist who had built America's first serious fireball-recovery programme — onto the problem. He concluded they were not ordinary meteors and that they appeared preferentially near Los Alamos, Sandia and Kirtland. Everything since has that shape: the March 1967 Malmstrom episode, Rendlesham beside the Bentwaters weapons store, the interviews Robert Hastings collected from former missile officers. It is a large, specific, first-hand evidentiary base gathered from people with clearances and careers to lose, and it deserves to be taken at full strength rather than waved at.
+Most claims in this register are about a single object or a single dataset. The nuclear connection is neither. It starts in December 1948, when aircrews over New Mexico reported brilliant green objects flying too slowly and too flatly to be meteors, and the Air Force put Dr Lincoln LaPaz, the meteoriticist who had built America's first serious fireball-recovery programme, onto the problem. He concluded they were not ordinary meteors and that they appeared preferentially near Los Alamos, Sandia and Kirtland. Everything since has that shape: the March 1967 Malmstrom episode, Rendlesham beside the Bentwaters weapons store, the interviews Robert Hastings collected from former missile officers. It is a large, specific, first-hand evidentiary base gathered from people with clearances and careers to lose, and it deserves to be taken at full strength rather than waved at.
 
 ### And why this dataset is the wrong instrument for it
 
-Every row in the CNEOS catalog is an atmospheric airburst — a rock arriving at tens of kilometres per second and depositing energy in kilotonnes. The nuclear testimony describes structured objects, frequently hovering, watched from the ground at close range. Those are not the same phenomenon. A null result in a catalog of bolides cannot refute accounts of craft over missile silos, and this briefing does not claim otherwise. Two further limits: the catalog begins on 1988-04-15, forty years after LaPaz's fireballs, so none of his events are in it; and the 195 positions tested are civil POWER REACTORS, while the weapons complex he meant is a few dozen sites with no open positional dataset and far too few for a Monte Carlo.
+Every row in the CNEOS catalog is an atmospheric airburst, a rock arriving at tens of kilometres per second and depositing energy in kilotonnes. The nuclear testimony describes structured objects, frequently hovering, watched from the ground at close range. Those are not the same phenomenon. A null result in a catalog of bolides cannot refute accounts of craft over missile silos, and this briefing does not claim otherwise. Two further limits: the catalog begins on 1988-04-15, forty years after LaPaz's fireballs, so none of his events are in it; and the 195 positions tested are civil POWER REACTORS, while the weapons complex he meant is a few dozen sites with no open positional dataset and far too few for a Monte Carlo.
 
 ### The narrower question, and its answer
 
-What the catalog can answer is whether the population of objects big enough for satellites to see shows any positional preference for nuclear sites. Same two nulls as the volcano test, both preserving each event's own latitude — one rotating the whole set by a single random longitude offset, one redrawing every longitude independently, 600 trials each. Within 100 km: 11 observed against 8.8 expected. Within 500 km: 68 against 71.5 — below chance. Median distance to the nearest reactor: 2682 km observed against 2687 by chance. Nothing.
+What the catalog can answer is whether the population of objects big enough for satellites to see shows any positional preference for nuclear sites. Same two nulls as the volcano test, both preserving each event's own latitude, one rotating the whole set by a single random longitude offset, one redrawing every longitude independently, 600 trials each. Within 100 km: 11 observed against 8.8 expected. Within 500 km: 68 against 71.5, below chance. Median distance to the nearest reactor: 2682 km observed against 2687 by chance. Nothing.
 
 ### The one place something shows up
 
-Within 200 km there are 34 events against 24.8 expected — a 37% excess, reaching p=0.025 under the scatter null. That is reported here rather than buried, because it is in the direction the claim predicts. Two things stop it being a result. Three radii were tested, and one marginal value among three correlated tests is roughly what chance delivers. More telling is the shape: a genuine proximity effect is strongest where the proximity is tightest, and this one is absent at 100 km, present at 200 km, and gone by 500 km. A bump in the middle with nothing at the centre is not what an attraction looks like. Under the conservative null — the one that leaves the events' own clustering intact — it does not reach significance at all, at p=0.070.
+Within 200 km there are 34 events against 24.8 expected, a 37% excess, reaching p=0.025 under the scatter null. That is reported here rather than buried, because it is in the direction the claim predicts. Two things stop it being a result. Three radii were tested, and one marginal value among three correlated tests is roughly what chance delivers. More telling is the shape: a genuine proximity effect is strongest where the proximity is tightest, and this one is absent at 100 km, present at 200 km, and gone by 500 km. A bump in the middle with nothing at the centre is not what an attraction looks like. Under the conservative null, the one that leaves the events' own clustering intact, it does not reach significance at all, at p=0.070.
 
 ### The same selection effect, found twice
 
-F-05 found that fireball footage concentrates at volcanoes because volcano observatories run fixed sky cameras around the clock. The nuclear case has the identical structure and nobody planted it there: LaPaz was employed by the New Mexico installations and based among them, and the observer network reporting to him was their own staff, under standing orders to watch the sky. A 1949 weapons complex was one of the few places on Earth with trained, instructed, cleared people looking up on purpose. That does not make a single report false. It means the geography of the reports is at least partly the geography of the watchers — and the one dataset with no watchers in it does not reproduce the pattern.
+F-05 found that fireball footage concentrates at volcanoes because volcano observatories run fixed sky cameras around the clock. The nuclear case has the identical structure and nobody planted it there: LaPaz was employed by the New Mexico installations and based among them, and the observer network reporting to him was their own staff, under standing orders to watch the sky. A 1949 weapons complex was one of the few places on Earth with trained, instructed, cleared people looking up on purpose. That does not make a single report false. It means the geography of the reports is at least partly the geography of the watchers, and the one dataset with no watchers in it does not reproduce the pattern.
 
 ### The wider target set, and the first result that is not a null
 

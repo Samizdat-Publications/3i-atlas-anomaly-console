@@ -1,4 +1,4 @@
-/* BRIEFINGS — question-led entry points into the register.
+/* BRIEFINGS · question-led entry points into the register.
  *
  * The console is organised by object and case, which is how the DATA is shaped,
  * not how anyone arrives. People come with a question ("are fireballs actually
@@ -7,7 +7,7 @@
  * carries the argument, and then hands off to the case files that do the work.
  *
  * Deep-linkable at #brief/<id> so a single finding can be sent to someone on its
- * own — which is the main way this material actually travels.
+ * own, which is the main way this material actually travels.
  */
 (function () {
   'use strict';
@@ -97,7 +97,7 @@
     }
 
     h += '<div class="cx-brief-foot">Unofficial and educational. Where a claim is contested, ' +
-      'both readings are given — including the limits that cut against the conclusion here.</div>';
+      'both readings are given, including the limits that cut against the conclusion here.</div>';
     return h + '</article>';
   }
 

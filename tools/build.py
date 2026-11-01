@@ -40,6 +40,21 @@ JS_ORDER = [
 ]
 
 
+def write_dev_index():
+    """src/index.html loads the same scripts, in the same order, as the bundle.
+    It used to be maintained by hand and had fallen two files behind, so
+    BRIEFINGS threw and the instrument charts came up empty in dev."""
+    p = os.path.join(SRC, "index.html")
+    with open(p, encoding="utf-8") as f:
+        html = f.read()
+    tags = "\n".join('<script src="%s"></script>' % rel for rel in JS_ORDER)
+    new = re.sub(r'(?:<script src="[^"]+"></script>\s*)+', tags + "\n", html, count=1)
+    if new != html:
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(new)
+        print("Updated src/index.html script list (%d scripts)" % len(JS_ORDER))
+
+
 def read(rel):
     with open(os.path.join(SRC, rel), "r", encoding="utf-8") as f:
         return f.read()
@@ -120,6 +135,15 @@ def main():
     # Offline copy: zero external references, works with no network at all.
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page())
+    # House writing rule: no em dashes in reader-facing text. Verbatim quotations
+    # keep theirs, so this reports rather than fails; the count should only fall.
+    em = chr(0x2014)
+    shipped = sum(1 for a in content["anomalies"] for k in ("title", "observation", "loeb_take", "official_explanation")
+                  for _ in range((a.get(k) or "").count(em)))
+    shipped += sum((e.get("title", "") + e.get("description", "")).count(em) for e in content["timeline"])
+    shipped += sum((b.get("question", "") + b.get("short", "") + "".join(x["h"] + x["p"] for x in b.get("sections", []))).count(em)
+                   for b in content.get("briefings", []))
+    print("Em dashes in shipped case/timeline/briefing prose: %d (quotations exempt)" % shipped)
     print("Built %s (%d KB)" % (OUT, os.path.getsize(OUT) // 1024))
 
     # Cloudflare Pages deploy directory: same bytes + optional analytics beacon.
@@ -157,4 +181,5 @@ def main():
 
 
 if __name__ == "__main__":
+    write_dev_index()
     main()

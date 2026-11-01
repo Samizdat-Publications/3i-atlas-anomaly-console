@@ -1,5 +1,5 @@
 /* ============================================================
-   CHARTS — minimal canvas plotting for telemetry + dossiers
+   CHARTS · minimal canvas plotting for telemetry + dossiers
    Era-aware: telemetry arrays rebuild when the active era changes.
    ============================================================ */
 (function () {
@@ -133,7 +133,6 @@
       });
     }
   }
-  CH.invalidate = function () { builtEra = null; };
 
   function monthTicks() {
     const tks = [];
@@ -182,7 +181,7 @@
   // ---------- CNEOS speed distribution (REAL data, not a stylized illustration) ----------
   // Every catalog row that reports a pre-entry speed, binned. IM1 and IM2 are marked,
   // together with the 10-15 km/s uncertainty band Brown & Borovicka (2023) measured for
-  // USG velocities at high speed — the band is the whole argument, so it is drawn.
+  // USG velocities at high speed, the band is the whole argument, so it is drawn.
   CH.speedDist = function (cv) {
     const D = window.ATLAS_FIREBALLS || { events: [] };
     const f = fit(cv), g = f.g, W = f.w, H = f.h;
@@ -242,7 +241,7 @@
   };
 
   // ---------- CNEOS detections per year (REAL data) ----------
-  // Built to answer one recurring question — "are fireballs increasing?" — from
+  // Built to answer one recurring question, "are fireballs increasing?", from
   // the shipped catalog rather than from impression. Two things make the honest
   // answer visible: the >=1 kt subset is drawn INSIDE each bar (a detection-rate
   // change inflates faint events far more than bright ones, so a flat bright
@@ -267,7 +266,7 @@
       all[y]++;
       if ((e[2] || 0) >= 1) kt1[y]++;
     });
-    // the final year is only partial — say so rather than letting it read as a fall
+    // the final year is only partial, say so rather than letting it read as a fall
     const doy = last ? (Date.UTC(lastYear, +last.slice(5, 7) - 1, +last.slice(8, 10)) -
                         Date.UTC(lastYear, 0, 1)) / 86400000 + 1 : 365;
     const partial = doy < 350;
@@ -332,7 +331,7 @@
     g.fillText('■ PRE-RECORD', padL + (big ? 178 : 138), 9);
     if (big) {
       g.fillStyle = COL.txt;
-      g.fillText('CNEOS DETECTIONS PER YEAR — THE BRIGHT SUBSET IS THE ONE A DETECTION-RATE CHANGE CANNOT INFLATE', padL, 21);
+      g.fillText('CNEOS DETECTIONS PER YEAR · THE BRIGHT SUBSET IS THE ONE A DETECTION-RATE CHANGE CANNOT INFLATE', padL, 21);
     }
   };
 
@@ -340,7 +339,7 @@
   // Three instruments, one axis. Each series is divided by its own 2021-2025
   // baseline mean, so 1.0 is "normal for that instrument" and the shapes can be
   // compared directly. The raw counts are drawn faint behind the normalised
-  // ones: that gap IS the argument — everything that climbs is a count of
+  // ones: that gap IS the argument, everything that climbs is a count of
   // cameras or of people, and everything that corrects for them is flat.
   CH.instruments = function (cv, big) {
     const D = window.ATLAS_INSTRUMENTS;
@@ -414,14 +413,14 @@
     });
     if (big) {
       g.fillStyle = COL.txt;
-      g.fillText('Q1 EACH YEAR, EACH SERIES AGAINST ITS OWN BASELINE — THE RAW COUNTS CLIMB, THE CORRECTED RATES DO NOT', padL, 22);
+      g.fillText('Q1 EACH YEAR, EACH SERIES AGAINST ITS OWN BASELINE · THE RAW COUNTS CLIMB, THE CORRECTED RATES DO NOT', padL, 22);
     }
   };
 
 
   // Distance from each CNEOS fireball to the nearest volcano, observed against
   // what chance produces. Two curves lying on top of each other is the whole
-  // result — and the first bin, the one the claim is about, sits BELOW chance.
+  // result, and the first bin, the one the claim is about, sits BELOW chance.
   CH.volcanoDist = function (cv, big) { CH.proximityDist(cv, big, 'spatial'); };
   CH.nuclearDist = function (cv, big) { CH.proximityDist(cv, big, 'spatialNuclear'); };
   CH.nuclearWideDist = function (cv, big) { CH.proximityDist(cv, big, 'spatialNuclearWide'); };
@@ -470,15 +469,15 @@
 
     let lx = padL;
     const b0 = h.bin_km || 100;
-    [['■ observed', 'rgba(52,225,255,.75)'], ['— chance', COL.amber],
+    [['■ observed', 'rgba(52,225,255,.75)'], ['-- chance', COL.amber],
      ['■ 0-' + b0 + ' km', 'rgba(255,74,94,.85)']].forEach(function (L) {
       g.fillStyle = L[1]; g.fillText(L[0], lx, 10); lx += g.measureText(L[0]).width + 12;
     });
     if (big) {
       g.fillStyle = COL.txt;
       g.fillText(key === 'spatialNuclear'
-        ? 'NO PROXIMITY EFFECT — THE TIGHTEST BIN AND THE WIDEST BOTH SIT AT CHANCE'
-        : 'CNEOS FIREBALLS ARE NO CLOSER TO VOLCANOES THAN CHANCE — THE NEAREST BIN IS BELOW IT',
+        ? 'NO PROXIMITY EFFECT · THE TIGHTEST BIN AND THE WIDEST BOTH SIT AT CHANCE'
+        : 'CNEOS FIREBALLS ARE NO CLOSER TO VOLCANOES THAN CHANCE · THE NEAREST BIN IS BELOW IT',
         padL, 22);
     }
   };
@@ -543,7 +542,7 @@
     }
     g.stroke();
 
-    // the baseline the claim was measured against — flat, and far below
+    // the baseline the claim was measured against, flat, and far below
     g.strokeStyle = COL.red; g.lineWidth = 1.3;
     g.setLineDash([5, 4]);
     g.beginPath(); g.moveTo(padL, Y(D.baseline)); g.lineTo(padL + iw, Y(D.baseline)); g.stroke();
@@ -574,7 +573,7 @@
     for (let v = 0; v <= yMax; v += 5) g.fillText(String(v) + '%', 2, Y(v) + 3);
 
     let lx = padL;
-    [['— monthly', 'rgba(52,225,255,.75)'], ['— rolling 12mo', COL.amber],
+    [['-- monthly', 'rgba(52,225,255,.75)'], ['-- rolling 12mo', COL.amber],
      ['--- all-time ' + D.baseline.toFixed(1) + '%', COL.red]].forEach(function (L) {
       g.fillStyle = L[1]; g.fillText(L[0], lx, 10); lx += g.measureText(L[0]).width + 12;
     });
@@ -587,7 +586,7 @@
   // GLM's bright-bolide share year by year, with the day/night split of its
   // detections underneath. The split is the point: roughly half of what GLM sees
   // happens in daylight, and that half is invisible to the Global Meteor Network
-  // — which is the limit F-03 states about itself.
+  //, which is the limit F-03 states about itself.
   CH.glmDaylight = function (cv, big) {
     const D = (window.ATLAS_INSTRUMENTS || {}).glm;
     const f = fit(cv), g = f.g, W = f.w, H = f.h;
@@ -654,7 +653,7 @@
       });
     if (big) {
       g.fillStyle = COL.txt;
-      g.fillText('GLM SEES DAYLIGHT — ' + D.day_pct + '% OF ITS BOLIDES ARE DAYTIME, THE HALF GMN CANNOT SEE',
+      g.fillText('GLM SEES DAYLIGHT · ' + D.day_pct + '% OF ITS BOLIDES ARE DAYTIME, THE HALF GMN CANNOT SEE',
                  padL, 22);
     }
   };
@@ -801,7 +800,7 @@
         ],
         xTicks: [{ x: 340, label: '340' }, { x: 350, label: '350nm' }, { x: 360, label: '360' }],
         markers: [
-          { x: 344.06, color: 'rgba(52,225,255,.5)', label: '' }, { x: 358.12, color: 'rgba(52,225,255,.5)', label: 'Fe I — NOT DETECTED' },
+          { x: 344.06, color: 'rgba(52,225,255,.5)', label: '' }, { x: 358.12, color: 'rgba(52,225,255,.5)', label: 'Fe I, NOT DETECTED' },
         ],
         yFmt: function (v) { return v.toFixed(1); },
       });
