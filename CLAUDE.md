@@ -5,7 +5,16 @@ A single-file, framework-free "NASA terminal" dashboard about the interstellar o
 register (each case shows Loeb's claim AND the official explanation side by side).
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
-## Resume protocol (usage limits hit often — checkpoint everything)
+## Resume protocol (usage limits hit often: checkpoint everything)
+**IN PROGRESS (2026-11-01): v2.19 on branch `claude/v2.19-changing-course`.** Approved plan:
+`C:\Users\stewa\.claude\plans\effervescent-fluttering-falcon.md`. Done so far: housekeeping,
+5 new transcripts (YouTube 429s the caption endpoint; `tools/import_transcript.py` imports them
+from a captions API instead), `tools/fetch_counterfactual.py` + `tools/jpl_solution.py` (3I is
+PINNED to JPL#54 because Horizons now serves a temporary 117-obs solution #55; ghost path = same
+arrival state, push off; 126,306 km / 12.7" / +1.75 m/s on 2026-11-01), ephemeris extended to
+2027-12-31. Content-refresh Workflow run `wf_43b27ab0-391` (resumable). Next: replace the fake
+`acceleration` chart, GRAVITY-ONLY overlay, A-10/A-24 updates, BR-09, integrity fixes, nuclear
+widening, video kit, deploy.yml, release. Then v2.20 quality pass. Refresh workflow LAST.
 **CURRENT STATE (2026-08-24):** v2.18 is the head. **THE FOURTH INSTRUMENT IS DONE** —
 `tools/fetch_glm.py` pulls NASA's GLM bolide catalog (11410 detections) and F-03 is rewritten from
 three instruments to four. THE ENDPOINT IS `/service/event/public`; the documented

@@ -299,6 +299,55 @@
     "https://datasets.wri.org/dataset/globalpowerplantdatabase",
     "https://www.archives.gov/research/military/air-force/ufos"
    ]
+  },
+  {
+   "id": "BR-09",
+   "question": "Is 3I/ATLAS changing course?",
+   "short": "Yes, in the literal sense: something besides gravity has pushed it about 126,000 km off the path gravity alone would have given it, partly out of its orbital plane, and a new paper shows the push is real even with the perihelion data thrown away. What the data cannot say is what is doing the pushing.",
+   "tag": "ARXIV 2610.38485 · 126,000 KM",
+   "chart": "acceleration",
+   "chart2": "activity-law",
+   "chart2_after": 4,
+   "sections": [
+    {
+     "h": "The claim as made",
+     "p": "On 1 November 2026 The Angry Astronaut built a video on a new paper, arXiv:2610.38485 by Krolikowska, Spada and Dones: 3I/ATLAS is still changing course and still accelerating, far from the Sun, and nobody knows why. His argument runs in steps. On the way in its motion was purely gravitational. After perihelion something began pushing it, at distances where water ice can no longer boil off. The paper's own activity laws cannot tell the possibilities apart. Too little mass was lost, and the gas leaves too slowly, for outgassing to supply the thrust. So the push is internal, and if it never stops, 3I ends up a relativistic projectile. The paper is real, and on its central point he reports it correctly."
+    },
+    {
+     "h": "What the paper actually did",
+     "p": "The authors kept only the observations made far from the Sun: 2,646 positions at 6.1 to 3.49 AU on the way in (May to July 2025) and 1,757 at 2.67 to 6.1 AU on the way out (January to April 2026). They threw out the roughly 4,000 positions nearest perihelion, where any push is strongest. A gravity-only orbit fits the inbound arc cleanly. It fits the outbound arc on its own with a fine rms, but the leftover errors are significantly non-Gaussian, and trimming the tails does not fix that. Fit both arcs at once and gravity alone fails: an rms of 0.328 arcsec where about 0.26 is expected. Add a non-gravitational push and it drops to 0.253-0.255, and the systematic trends vanish. Their conclusion, verbatim: the existence of the acceleration is 'considerably better constrained than its physical origin'."
+    },
+    {
+     "h": "What the push did, in kilometres",
+     "p": "This console now computes it rather than describing it. JPL Horizons integrated 3I from its state on 15 May 2025 twice: once with the non-gravitational push of JPL's full-arc solution #54, once with that push switched off. Same Sun, same planets, same Jupiter. By the end of July 2025 the two paths were only 824 km apart, 0.08 arcsec from Earth, below the 0.25 arcsec measurement noise, which is exactly why the inbound data look purely gravitational. By perihelion the gap was 8,000 km, at the Jupiter pass 46,700 km, at the end of the paper's data 56,300 km. On 1 November 2026 it is about 126,000 km, 12.7 arcsec as seen from Earth, some fifty times the noise; about 18,000 km of that is out of the orbital plane. In all the push changed 3I's velocity by about 4.2 m/s, but only 1.75 m/s of that is extra speed; the rest turned its direction. The chart shows the gap growing, and the GRAVITY-ONLY pod in the tracker draws the twin, with the gap exaggerated 2,000 times so it can be seen at solar-system scale, and labelled so."
+    },
+    {
+     "h": "Where the claim holds",
+     "p": "The push is real, it survives the removal of the near-Sun data, and it is not small next to the measurements. Part of it is a steady push out of the orbital plane: the normal component has the same sign and roughly the same size, -0.69 to -0.83 x1e-8 au/day^2, in every published solution, which is a change of course in the plainest sense. The paper also says the astrometry cannot identify the cause: water-ice and more volatile activity laws fit equally well, and telling them apart would take positions out near 20 AU. And the authors themselves raise the possibility that the leftover non-Gaussian errors mean the push 'varies in magnitude and direction' over the arc. The second chart shows how different those laws are where the data sit, and how little the fits care."
+    },
+    {
+     "h": "Where it stretches",
+     "p": "Three steps go further than the data. 'It began after perihelion': the outbound positions describe an orbit already bent by the push near the Sun, and the paper says so. In the counterfactual the velocity change was 0.3 m/s at the end of July 2025, 2.3 m/s at perihelion and 4.1 m/s by the Jupiter pass, which is 97% of today's total. The push did nearly all its work within about 3 AU of the Sun; the gap keeps widening afterwards because a 4 m/s difference in velocity keeps adding up, not because the object is still being pushed hard. 'Water cannot sublimate out there, so nothing natural can': carbon dioxide sublimates efficiently far beyond water's 2.8 AU turnover, and JWST measured 3I's coma as CO2-dominated (case A-06); the authors call a CO2/CO law the physically motivated reading, while saying plainly the astrometry does not require it. The video's thrust arithmetic starts from a peak acceleration of 1.1e-6 au/day^2. That is JPL's first, superseded estimate (case A-10). The full-arc #54 value is about 3e-8 au/day^2 at perihelion, some 37 times smaller, and every force, energy and power figure built on it shrinks by the same factor. 'If it never stops': every published fit models the push as fading with distance and fits the data that way. In the counterfactual the velocity change has sat flat near 4.2 m/s since early 2026, though that fade is the model's assumption, not a measurement. Whether a constant push could also fit is a test nobody has published."
+    },
+    {
+     "h": "Where is Avi Loeb?",
+     "p": "PENDING_LOEB"
+    }
+   ],
+   "cases": [
+    "3i/A-10",
+    "3i/A-24",
+    "3i/A-16",
+    "3i/A-06",
+    "3i/A-12"
+   ],
+   "sources": [
+    "https://arxiv.org/abs/2610.38485",
+    "https://doi.org/10.1051/0004-6361/202659645",
+    "https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=C%2F2025%20N1",
+    "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
+    "https://www.youtube.com/watch?v=ihnlxrNdhEQ"
+   ]
   }
  ]
 }

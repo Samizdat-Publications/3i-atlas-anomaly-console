@@ -141,7 +141,7 @@ def bake_js():
             # coarse to difference in the browser while the gap is still small.
             s = cf["series"]
             out["eras"]["3i"]["counterfactual"] = {
-                "sep_km": s["sep_km"], "arcsec": s["arcsec"], "dv_ms": s["dv_ms"],
+                "sep_km": s["sep_km"], "arcsec": s["arcsec"], "dv_ms": s["dv_ms"], "dvv_ms": s["dvv_ms"],
                 "normal_km": [v[2] for v in s["rtn_km"]], "solution": cf["solution_label"],
                 "paper_arcs": cf["paper"]["arcs"], "fetched": cf["fetched"]}
         else:

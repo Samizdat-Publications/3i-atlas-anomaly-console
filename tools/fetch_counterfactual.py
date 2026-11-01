@@ -121,11 +121,14 @@ def main():
 
     n = len(real_p)
     assert len(ghost_p) == n == len(paper_p) == len(earth_p), "grids differ"
-    sep_km, dv_ms, ang_as, rtn_km, xc_km = [], [], [], [], []
+    sep_km, dv_ms, dvv_ms, ang_as, rtn_km, xc_km = [], [], [], [], [], []
     for i in range(n):
         d = sub(real_p[i], ghost_p[i])
         sep_km.append(round(norm(d) * AU_KM))
         dv_ms.append(round((norm(real_v[i]) - norm(ghost_v[i])) * AU_KM * 1000 / 86400, 3))
+        # Size of the whole velocity change, direction included: the speed
+        # difference alone understates a push that mostly turns the path.
+        dvv_ms.append(round(norm(sub(real_v[i], ghost_v[i])) * AU_KM * 1000 / 86400, 3))
         R = unit(real_p[i]); N = unit(cross(real_p[i], real_v[i])); T = cross(N, R)
         rtn_km.append([round(dot(d, R) * AU_KM), round(dot(d, T) * AU_KM), round(dot(d, N) * AU_KM)])
         ang_as.append(round(angle(sub(real_p[i], earth_p[i]), sub(ghost_p[i], earth_p[i])) * ARCSEC, 2))
@@ -134,7 +137,7 @@ def main():
     def at(iso):
         i = (datetime.date.fromisoformat(iso) - datetime.date.fromisoformat(START)).days
         i = max(0, min(n - 1, i))
-        return {"date": dates[i], "sep_km": sep_km[i], "dv_ms": dv_ms[i], "arcsec": ang_as[i],
+        return {"date": dates[i], "sep_km": sep_km[i], "dv_ms": dv_ms[i], "dvv_ms": dvv_ms[i], "arcsec": ang_as[i],
                 "rtn_km": rtn_km[i], "crosscheck_km": xc_km[i],
                 "r_au": round(norm(real_p[i]), 3)}
 
@@ -165,7 +168,7 @@ def main():
                   "astrometric_rms_arcsec": 0.25},
         "validation": {"worst_au_vs_shipped": float(f"{worst:.3e}"), "tolerance_au": TOL_AU},
         "start": START, "step_days": 1, "n": n,
-        "series": {"sep_km": sep_km, "dv_ms": dv_ms, "arcsec": ang_as, "rtn_km": rtn_km,
+        "series": {"sep_km": sep_km, "dv_ms": dv_ms, "dvv_ms": dvv_ms, "arcsec": ang_as, "rtn_km": rtn_km,
                    "crosscheck_km": xc_km},
         "milestones": milestones,
         "ghost": {"start": dates[0], "end": dates[-1], "step_days": 1, "n": n,
@@ -176,7 +179,7 @@ def main():
         json.dump(out, f, separators=(",", ":"))
     print(f"Wrote {dest} ({os.path.getsize(dest) // 1024} KB)")
     for k, m in milestones.items():
-        print(f"  {k:13s} {m['date']}  sep {m['sep_km']:>10,} km  dv {m['dv_ms']:>7} m/s  "
+        print(f"  {k:13s} {m['date']}  sep {m['sep_km']:>10,} km  dspeed {m['dv_ms']:>7} m/s  dv {m['dvv_ms']:>6} m/s  "
               f"{m['arcsec']:>8} arcsec  RTN {m['rtn_km']}")
     bake_js()
 

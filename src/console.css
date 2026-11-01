@@ -225,6 +225,19 @@ body {
   opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
 }
 .cx-specnote.cx-show { opacity: .95; }
+/* The gravity-only ghost IS data (JPL Horizons, push switched off) but is drawn
+   exaggerated, so its banner says so and carries the true distance. */
+.cx-pod-calc.cx-on { color: var(--amber); border-color: var(--amber-dim); }
+.cx-calcnote {
+  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+  padding: 4px 12px; border: 1px solid var(--amber-dim); background: rgba(30,18,4,.92);
+  color: var(--amber); font-size: 9px; letter-spacing: 2px; text-align: center;
+  opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
+}
+.cx-calcnote.cx-show { opacity: .95; }
+.cx-calcnote { bottom: 34px; }
+/* both on: the computed banner sits above the speculative one */
+.cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 62px; }
 
 .cx-crosshair {
   position: absolute; left: 50%; top: 50%; width: 44px; height: 44px;
@@ -704,6 +717,11 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   color: var(--cyan); text-shadow: 0 0 10px rgba(52,225,255,.28); font-weight: normal;
 }
 .cx-brief-short { font-size: 13px; line-height: 1.55; color: var(--amber); margin: 0; }
+.cx-brief-video {
+  display: inline-block; margin-top: 10px; padding: 6px 12px; border: 1px solid var(--cyan-dim);
+  color: var(--cyan); font-size: 11px; letter-spacing: 2px; text-decoration: none;
+}
+.cx-brief-video:hover, .cx-brief-video:focus-visible { background: rgba(52,225,255,.08); }
 .cx-brief-fig {
   margin: 0 0 18px; padding: 8px; border: 1px solid var(--line);
   background: rgba(0,0,0,.34);

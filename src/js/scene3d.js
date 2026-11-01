@@ -13,6 +13,12 @@
   let renderer, scene, camera, controls, container, hud;
   let cometGroup, coreSprite, ionPts, dustPts, antiPts, trailFull, trailDone, periMarker;
   let dispatchPts, dispatchSeed;
+  // Gravity-only ghost (tools/fetch_counterfactual.py). The real gap is ~1e-3 AU,
+  // invisible at this scale, so it is drawn exaggerated GHOST_X times and the
+  // chrome says so in three places (pod, banner, toast), as DISPATCH does.
+  const GHOST_X = 2000;
+  let ghostLine = null, ghostDot = null, ghostLink = null, ghostPts = null;
+  SC.GHOST_X = GHOST_X;
   let sunLight, eclipticDisc, gridGroup, rangeLine, rangeTag;
   let compareGroup = null, compareLabels = {};
   let labelEls = {};
@@ -269,7 +275,54 @@
     periMarker.scale.setScalar(0.5);
     scene.add(periMarker);
 
+    ghostLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
+      color: 0xffb347, transparent: true, opacity: 0.9, dashSize: 0.5, gapSize: 0.35, depthWrite: false,
+    }));
+    ghostLine.visible = false;
+    scene.add(ghostLine);
+    ghostDot = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: dot, color: 0xffb347, transparent: true, opacity: 0.95,
+      blending: THREE.AdditiveBlending, depthWrite: false,
+    }));
+    ghostDot.scale.setScalar(0.7);
+    ghostDot.visible = false;
+    scene.add(ghostDot);
+    ghostLink = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]),
+      new THREE.LineBasicMaterial({ color: 0xffb347, transparent: true, opacity: 0.55, depthWrite: false }));
+    ghostLink.visible = false;
+    scene.add(ghostLink);
+
     rebuildTargetPath();
+  }
+
+  // Exaggerated ghost: real + GHOST_X * (ghost - real), day by day.
+  function rebuildGhost() {
+    ghostPts = null;
+    const o = CX.eraData().objects;
+    if (S.era !== '3i' || !o.ghost || !o.target || o.ghost.n !== o.target.n) return;
+    ghostPts = o.target.pos.map(function (r, i) {
+      const g = o.ghost.pos[i];
+      return v3([r[0] + GHOST_X * (g[0] - r[0]), r[1] + GHOST_X * (g[1] - r[1]), r[2] + GHOST_X * (g[2] - r[2])]);
+    });
+    ghostLine.geometry.dispose();
+    ghostLine.geometry = new THREE.BufferGeometry().setFromPoints(ghostPts);
+    ghostLine.computeLineDistances();
+  }
+  SC.hasGhost = function () { return !!ghostPts; };
+
+  function updateGhost(cp, compare) {
+    const on = !!(S.viz.ghost && ghostPts && !compare);
+    ghostLine.visible = on; ghostDot.visible = on; ghostLink.visible = on;
+    if (!on) return;
+    let i = S.t / eraStep;
+    i = Math.max(0, Math.min(ghostPts.length - 1.000001, i));
+    const i0 = Math.floor(i), f = i - i0;
+    const gp = ghostPts[i0].clone().lerp(ghostPts[Math.min(i0 + 1, ghostPts.length - 1)], f);
+    ghostDot.position.copy(gp);
+    const lp = ghostLink.geometry.attributes.position.array;
+    lp[0] = cp.x; lp[1] = cp.y; lp[2] = cp.z; lp[3] = gp.x; lp[4] = gp.y; lp[5] = gp.z;
+    ghostLink.geometry.attributes.position.needsUpdate = true;
+    ghostLine.geometry.setDrawRange(0, Math.max(2, Math.floor(S.t / eraStep) + 1));
   }
 
   function rebuildTargetPath() {
@@ -294,6 +347,7 @@
     if (ca.sun) periMarker.position.copy(v3(CX.pos('target', CX.tOfIso(ca.sun.date))));
 
     if (!look.tails) { ionPts.visible = false; dustPts.visible = false; antiPts.visible = false; }
+    rebuildGhost();
   }
 
   function updateTailSystem(pts, seedArr, cometV, dirMain, spread, len, col0, col1, flow) {
@@ -662,6 +716,7 @@
     trailDone.geometry.setDrawRange(0, Math.max(2, Math.floor(S.t / eraStep) + 1));
 
     updateDispatch(cp);
+    updateGhost(cp, compare);
     eclipticDisc.visible = S.viz.ecliptic;
     gridGroup.visible = S.grid || S.viz.ecliptic;
     scene.traverse(function (o) { if (o.userData.orbit) o.visible = S.orbits; });

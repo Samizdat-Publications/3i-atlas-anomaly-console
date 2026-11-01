@@ -1,0 +1,1415 @@
+{
+ "source": "Wikidata (CC0) via query.wikidata.org; every site keeps its QID",
+ "fetched": "2026-11-01",
+ "classes": {
+  "research_reactor": "?c wdt:P279* wd:Q1438105 . ?i wdt:P31 ?c .",
+  "enrichment": "?i wdt:P31 wd:Q54360657 .",
+  "reprocessing": "?i wdt:P31 wd:Q64785417 .",
+  "waste_repository": "?i wdt:P31 wd:Q21493801 .",
+  "test_site": "?i wdt:P31 wd:Q53732481 .",
+  "other_facility": "?i wdt:P31 wd:Q1739545 . FILTER NOT EXISTS { ?i wdt:P31 wd:Q134447 }",
+  "other_reactor": "?i wdt:P31 wd:Q80877 . FILTER NOT EXISTS { ?i wdt:P31 wd:Q134447 } FILTER NOT EXISTS { ?i wdt:P361 ?pp . ?pp wdt:P31 wd:Q134447 }"
+ },
+ "weapons_named": [
+  "Los Alamos National Laboratory",
+  "Sandia National Laboratories",
+  "Kirtland Air Force Base",
+  "Pantex Plant",
+  "Y-12 National Security Complex",
+  "Hanford Site",
+  "Savannah River Site",
+  "Rocky Flats Plant",
+  "Lawrence Livermore National Laboratory",
+  "Oak Ridge National Laboratory",
+  "Nevada National Security Site",
+  "Malmstrom Air Force Base",
+  "Minot Air Force Base",
+  "Francis E. Warren Air Force Base",
+  "RAF Bentwaters",
+  "RAF Woodbridge"
+ ],
+ "weapons_missing": [],
+ "merge_km": 3.0,
+ "min_sites": 150,
+ "counts": {
+  "weapons": 16,
+  "test_site": 13,
+  "reprocessing": 2,
+  "enrichment": 4,
+  "research_reactor": 68,
+  "other_reactor": 19,
+  "waste_repository": 19,
+  "other_facility": 9
+ },
+ "n": 150,
+ "limits": [
+  "Wikidata is crowd-maintained: coverage is uneven by country, and many research reactors and fuel-cycle facilities have no item or no coordinates. Absence from this list is not absence on Earth.",
+  "Civil power reactors are deliberately excluded; they are F-07's first target set (data/nuclear.json).",
+  "Positions are as recorded on each item; a site's centroid can sit a few km from the facility."
+ ],
+ "sites": [
+  {
+   "name": "Minot Air Force Base",
+   "qid": "Q1114128",
+   "lat": 48.4156,
+   "lon": -101.3577,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Hanford Site",
+   "qid": "Q1284526",
+   "lat": 46.6475,
+   "lon": -119.5986,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q1284526"
+   ]
+  },
+  {
+   "name": "Nevada National Security Site",
+   "qid": "Q1344605",
+   "lat": 37.1167,
+   "lon": -116.05,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q1344605"
+   ]
+  },
+  {
+   "name": "Sandia National Laboratories",
+   "qid": "Q1736748",
+   "lat": 35.0507,
+   "lon": -106.5431,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q135771"
+   ]
+  },
+  {
+   "name": "Francis E. Warren Air Force Base",
+   "qid": "Q1956149",
+   "lat": 41.1442,
+   "lon": -104.8647,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Pantex Plant",
+   "qid": "Q2049862",
+   "lat": 35.3116,
+   "lon": -101.56,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Y-12 National Security Complex",
+   "qid": "Q2061309",
+   "lat": 35.9883,
+   "lon": -84.2547,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Savannah River Site",
+   "qid": "Q2458173",
+   "lat": 33.25,
+   "lon": -81.65,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q139796054",
+    "Q2458173"
+   ]
+  },
+  {
+   "name": "Rocky Flats Plant",
+   "qid": "Q3214504",
+   "lat": 39.8899,
+   "lon": -105.204,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Los Alamos National Laboratory",
+   "qid": "Q379848",
+   "lat": 35.8756,
+   "lon": -106.3242,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q5131495",
+    "Q7090036"
+   ]
+  },
+  {
+   "name": "RAF Bentwaters",
+   "qid": "Q388822",
+   "lat": 52.1278,
+   "lon": 1.435,
+   "country": "United Kingdom",
+   "category": "weapons"
+  },
+  {
+   "name": "Malmstrom Air Force Base",
+   "qid": "Q49356857",
+   "lat": 47.5055,
+   "lon": -111.183,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q956022"
+   ]
+  },
+  {
+   "name": "Lawrence Livermore National Laboratory",
+   "qid": "Q519826",
+   "lat": 37.686,
+   "lon": -121.7095,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Kirtland Air Force Base",
+   "qid": "Q577946",
+   "lat": 35.0403,
+   "lon": -106.6092,
+   "country": "United States",
+   "category": "weapons"
+  },
+  {
+   "name": "Oak Ridge National Laboratory",
+   "qid": "Q714439",
+   "lat": 35.9333,
+   "lon": -84.3167,
+   "country": "United States",
+   "category": "weapons",
+   "also": [
+    "Q5755487",
+    "Q5755487",
+    "Q4133095"
+   ]
+  },
+  {
+   "name": "RAF Woodbridge",
+   "qid": "Q7275687",
+   "lat": 52.0878,
+   "lon": 1.4008,
+   "country": "United Kingdom",
+   "category": "weapons"
+  },
+  {
+   "name": "Salmon Site",
+   "qid": "Q2214815",
+   "lat": 31.1422,
+   "lon": -89.57,
+   "country": "United States",
+   "category": "test_site"
+  },
+  {
+   "name": "Totsky shooting range",
+   "qid": "Q2307093",
+   "lat": 52.5472,
+   "lon": 52.8167,
+   "country": "Soviet Union",
+   "category": "test_site"
+  },
+  {
+   "name": "In Eker",
+   "qid": "Q3149614",
+   "lat": 24.0206,
+   "lon": 5.0819,
+   "country": "Algeria",
+   "category": "test_site"
+  },
+  {
+   "name": "Moruroa",
+   "qid": "Q318446",
+   "lat": -21.8333,
+   "lon": -138.9167,
+   "country": "France",
+   "category": "test_site"
+  },
+  {
+   "name": "Degelen",
+   "qid": "Q4156573",
+   "lat": 49.8078,
+   "lon": 78.1181,
+   "country": "Kazakhstan",
+   "category": "test_site"
+  },
+  {
+   "name": "Area 2",
+   "qid": "Q4788524",
+   "lat": 37.138,
+   "lon": -116.0735,
+   "country": "United States",
+   "category": "test_site"
+  },
+  {
+   "name": "Chagai-II",
+   "qid": "Q5066829",
+   "lat": 28.43,
+   "lon": 63.86,
+   "country": "Pakistan",
+   "category": "test_site"
+  },
+  {
+   "name": "Fangataufa",
+   "qid": "Q506815",
+   "lat": -22.25,
+   "lon": -138.75,
+   "country": "France",
+   "category": "test_site"
+  },
+  {
+   "name": "Punggye-ri Nuclear Test Site",
+   "qid": "Q5306661",
+   "lat": 41.2778,
+   "lon": 129.0872,
+   "country": "North Korea",
+   "category": "test_site"
+  },
+  {
+   "name": "Reggane",
+   "qid": "Q582905",
+   "lat": 26.7,
+   "lon": 0.1667,
+   "country": "Algeria",
+   "category": "test_site"
+  },
+  {
+   "name": "Kapustin Yar",
+   "qid": "Q753201",
+   "lat": 48.5655,
+   "lon": 46.2952,
+   "country": "Russia",
+   "category": "test_site"
+  },
+  {
+   "name": "Semipalatinsk Test Site",
+   "qid": "Q757666",
+   "lat": 50.0277,
+   "lon": 78.9956,
+   "country": "Kazakhstan",
+   "category": "test_site"
+  },
+  {
+   "name": "Sary Shagan",
+   "qid": "Q782082",
+   "lat": 46.3833,
+   "lon": 72.8667,
+   "country": "Kazakhstan",
+   "category": "test_site",
+   "also": [
+    "Q782082"
+   ]
+  },
+  {
+   "name": "Wackersdorf reprocessing plant",
+   "qid": "Q1372727",
+   "lat": 49.3225,
+   "lon": 12.2284,
+   "country": "Germany",
+   "category": "reprocessing",
+   "also": [
+    "Q140265723",
+    "Q140404900",
+    "Q140563793",
+    "Q140265559"
+   ]
+  },
+  {
+   "name": "Magnox Reprocessing Plant",
+   "qid": "Q4834373",
+   "lat": 54.4155,
+   "lon": -3.5017,
+   "country": "United Kingdom",
+   "category": "reprocessing",
+   "also": [
+    "Q137657440",
+    "Q1063567",
+    "Q339443"
+   ]
+  },
+  {
+   "name": "Lanzhou uranium enrichment plant",
+   "qid": "Q135287608",
+   "lat": 36.1507,
+   "lon": 103.5184,
+   "country": "People's Republic of China",
+   "category": "enrichment"
+  },
+  {
+   "name": "Gronau Uranium Enrichment Plant",
+   "qid": "Q2500022",
+   "lat": 52.2154,
+   "lon": 7.0739,
+   "country": "Germany",
+   "category": "enrichment"
+  },
+  {
+   "name": "Ehemalige Uranerzaufbereitungsanlage Ellweiler",
+   "qid": "Q2500027",
+   "lat": 49.6181,
+   "lon": 7.1599,
+   "country": "Germany",
+   "category": "enrichment"
+  },
+  {
+   "name": "Natanz nuclear facility",
+   "qid": "Q6012307",
+   "lat": 33.725,
+   "lon": 51.725,
+   "country": "Iran",
+   "category": "enrichment"
+  },
+  {
+   "name": "CROCUS",
+   "qid": "Q1024300",
+   "lat": 46.5212,
+   "lon": 6.5704,
+   "country": "Switzerland",
+   "category": "research_reactor",
+   "also": [
+    "Q1024300"
+   ]
+  },
+  {
+   "name": "Plum Brook Mock-Up Reactor",
+   "qid": "Q104889685",
+   "lat": 41.3867,
+   "lon": -82.6835,
+   "country": "United States",
+   "category": "research_reactor",
+   "also": [
+    "Q21028294"
+   ]
+  },
+  {
+   "name": "Kharkiv Institute of Physics and Technology Neutron Source",
+   "qid": "Q111846674",
+   "lat": 50.0907,
+   "lon": 36.2515,
+   "country": "Ukraine",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Nigeria research reactor-1",
+   "qid": "Q116769321",
+   "lat": 11.1512,
+   "lon": 7.6546,
+   "country": "Nigeria",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q12299625",
+   "qid": "Q12299625",
+   "lat": 42.6528,
+   "lon": 23.3887,
+   "country": "Bulgaria",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Vulcan Naval Reactor Test Establishment",
+   "qid": "Q123468516",
+   "lat": 58.5762,
+   "lon": -3.7578,
+   "country": "United Kingdom",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Praterreaktor",
+   "qid": "Q124691926",
+   "lat": 48.1968,
+   "lon": 16.413,
+   "country": "Austria",
+   "category": "research_reactor"
+  },
+  {
+   "name": "High-Flux Advanced Neutron Application Reactor",
+   "qid": "Q12622361",
+   "lat": 36.4239,
+   "lon": 127.3703,
+   "country": "South Korea",
+   "category": "research_reactor"
+  },
+  {
+   "name": "AGN-201 Costanza",
+   "qid": "Q126285275",
+   "lat": 38.1064,
+   "lon": 13.351,
+   "country": "Italy",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Forschungsreaktor Hannover",
+   "qid": "Q1425223",
+   "lat": 52.3839,
+   "lon": 9.8047,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Rossendorf research reactor",
+   "qid": "Q1433750",
+   "lat": 51.0584,
+   "lon": 13.9549,
+   "country": "Germany",
+   "category": "research_reactor",
+   "also": [
+    "Q1672842",
+    "Q2167682"
+   ]
+  },
+  {
+   "name": "Forschungs- und Messreaktor Braunschweig",
+   "qid": "Q1438010",
+   "lat": 52.2967,
+   "lon": 10.4639,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Forschungsreaktor 2",
+   "qid": "Q1438093",
+   "lat": 49.0914,
+   "lon": 8.4294,
+   "country": "Germany",
+   "category": "research_reactor",
+   "also": [
+    "Q1789189",
+    "Q2247630"
+   ]
+  },
+  {
+   "name": "Geesthacht research reactor",
+   "qid": "Q1438100",
+   "lat": 53.4044,
+   "lon": 10.4264,
+   "country": "Germany",
+   "category": "research_reactor",
+   "also": [
+    "Q557701",
+    "Q126456832",
+    "Q136968163"
+   ]
+  },
+  {
+   "name": "Ewa reactor",
+   "qid": "Q1438102",
+   "lat": 52.1229,
+   "lon": 21.3442,
+   "country": "Poland",
+   "category": "research_reactor",
+   "also": [
+    "Q1438119"
+   ]
+  },
+  {
+   "name": "Haigerloch research reactor",
+   "qid": "Q1438104",
+   "lat": 48.3672,
+   "lon": 8.8042,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q1438109",
+   "qid": "Q1438109",
+   "lat": 50.9043,
+   "lon": 6.4172,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "AEG Prüfreaktor",
+   "qid": "Q1438110",
+   "lat": 50.0454,
+   "lon": 8.9896,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q1438112",
+   "qid": "Q1438112",
+   "lat": 49.9924,
+   "lon": 8.2373,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q1438115",
+   "qid": "Q1438115",
+   "lat": 48.2239,
+   "lon": 11.5923,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q1438120",
+   "qid": "Q1438120",
+   "lat": 43.6733,
+   "lon": 5.7809,
+   "country": "France",
+   "category": "research_reactor",
+   "also": [
+    "Q16040219",
+    "Q16040238",
+    "Q16040240",
+    "Q16040244",
+    "Q16040246",
+    "Q3411701",
+    "Q6305890",
+    "Q999450",
+    "Q2868859"
+   ]
+  },
+  {
+   "name": "Q15968445",
+   "qid": "Q15968445",
+   "lat": 45.1984,
+   "lon": 5.7015,
+   "country": "France",
+   "category": "research_reactor",
+   "also": [
+    "Q15968505",
+    "Q16040265",
+    "Q3483933"
+   ]
+  },
+  {
+   "name": "Q16040210",
+   "qid": "Q16040210",
+   "lat": 48.7247,
+   "lon": 2.1488,
+   "country": "France",
+   "category": "research_reactor",
+   "also": [
+    "Q16040230",
+    "Q16040248",
+    "Q16040255",
+    "Q16040290",
+    "Q3357241"
+   ]
+  },
+  {
+   "name": "Prototype à terre",
+   "qid": "Q16040258",
+   "lat": 43.6994,
+   "lon": 5.7586,
+   "country": "France",
+   "category": "research_reactor",
+   "also": [
+    "Q16040268",
+    "Q30737822",
+    "Q16040216"
+   ]
+  },
+  {
+   "name": "Strasbourg University reactor",
+   "qid": "Q16040282",
+   "lat": 48.6055,
+   "lon": 7.7172,
+   "country": "France",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Siemens Argonaut Reaktor",
+   "qid": "Q1651536",
+   "lat": 48.2658,
+   "lon": 11.6742,
+   "country": "Germany",
+   "category": "research_reactor",
+   "also": [
+    "Q368333",
+    "Q778208"
+   ]
+  },
+  {
+   "name": "RG-1M",
+   "qid": "Q16656344",
+   "lat": 69.3033,
+   "lon": 88.2448,
+   "country": "Russia",
+   "category": "research_reactor",
+   "also": [
+    "Q16656344"
+   ]
+  },
+  {
+   "name": "Japan Power Demonstration Reactor",
+   "qid": "Q1683189",
+   "lat": 36.4585,
+   "lon": 140.6063,
+   "country": "Japan",
+   "category": "research_reactor"
+  },
+  {
+   "name": "NRX",
+   "qid": "Q1724378",
+   "lat": 46.0517,
+   "lon": -77.3636,
+   "country": "Canada",
+   "category": "research_reactor",
+   "also": [
+    "Q5695490"
+   ]
+  },
+  {
+   "name": "RV-1 nuclear reactor",
+   "qid": "Q17628272",
+   "lat": 10.3975,
+   "lon": -66.9842,
+   "country": "Venezuela",
+   "category": "research_reactor"
+  },
+  {
+   "name": "R1",
+   "qid": "Q1796231",
+   "lat": 59.35,
+   "lon": 18.0681,
+   "country": "Sweden",
+   "category": "research_reactor"
+  },
+  {
+   "name": "ETRR-2",
+   "qid": "Q18208218",
+   "lat": 30.2931,
+   "lon": 31.409,
+   "country": "Egypt",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q19964054",
+   "qid": "Q19964054",
+   "lat": 52.0917,
+   "lon": 13.3101,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q206580",
+   "qid": "Q206580",
+   "lat": 50.8839,
+   "lon": 14.8017,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "University of Massachusetts Lowell Radiation Laboratory",
+   "qid": "Q2075888",
+   "lat": 42.6547,
+   "lon": -71.325,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Jordan Research and Training Reactor",
+   "qid": "Q22948669",
+   "lat": 32.4628,
+   "lon": 35.9728,
+   "country": "Jordan",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Q2305250",
+   "qid": "Q2305250",
+   "lat": 51.2173,
+   "lon": 5.0858,
+   "country": "Belgium",
+   "category": "research_reactor",
+   "also": [
+    "Q2446114",
+    "Q4781389"
+   ]
+  },
+  {
+   "name": "Hoger Onderwijs Reactor",
+   "qid": "Q2450052",
+   "lat": 51.991,
+   "lon": 4.3818,
+   "country": "Netherlands",
+   "category": "research_reactor",
+   "also": [
+    "Q2450052"
+   ]
+  },
+  {
+   "name": "Philippine Research Reactor-1",
+   "qid": "Q25058143",
+   "lat": 14.6603,
+   "lon": 121.0558,
+   "country": "Philippines",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Transient Reactor Test Facility",
+   "qid": "Q25247641",
+   "lat": 43.6865,
+   "lon": -112.76,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "More Hall Annex",
+   "qid": "Q28074807",
+   "lat": 47.6528,
+   "lon": -122.3045,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Advanced Test Reactor",
+   "qid": "Q284035",
+   "lat": 43.5858,
+   "lon": -112.964,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "CIRUS reactor",
+   "qid": "Q3085713",
+   "lat": 19.0078,
+   "lon": 72.9186,
+   "country": "India",
+   "category": "research_reactor",
+   "also": [
+    "Q16820666"
+   ]
+  },
+  {
+   "name": "NUR Reactor",
+   "qid": "Q3421929",
+   "lat": 36.7261,
+   "lon": 3.0056,
+   "country": "Algeria",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Es-Salam nuclear reactor",
+   "qid": "Q3454314",
+   "lat": 35.5832,
+   "lon": 3.1216,
+   "country": "Algeria",
+   "category": "research_reactor",
+   "also": [
+    "Q865432"
+   ]
+  },
+  {
+   "name": "Q3466167",
+   "qid": "Q3466167",
+   "lat": 51.9934,
+   "lon": 5.7204,
+   "country": "Netherlands",
+   "category": "research_reactor"
+  },
+  {
+   "name": "ASTRA",
+   "qid": "Q352410",
+   "lat": 47.9594,
+   "lon": 16.5158,
+   "country": "Austria",
+   "category": "research_reactor"
+  },
+  {
+   "name": "F-1",
+   "qid": "Q4479886",
+   "lat": 55.7961,
+   "lon": 37.4786,
+   "country": "Russia",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Argos nuclear reactor",
+   "qid": "Q47184281",
+   "lat": 41.384,
+   "lon": 2.1163,
+   "country": "Spain",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Chicago Pile 3",
+   "qid": "Q5095738",
+   "lat": 41.7021,
+   "lon": -87.9123,
+   "country": "United States",
+   "category": "research_reactor",
+   "also": [
+    "Q16821679"
+   ]
+  },
+  {
+   "name": "Ghana Research Reactor-1",
+   "qid": "Q52161703",
+   "lat": 5.55,
+   "lon": -0.2,
+   "country": "Ghana",
+   "category": "research_reactor",
+   "also": [
+    "Q52161703"
+   ]
+  },
+  {
+   "name": "HTTR",
+   "qid": "Q5636149",
+   "lat": 36.2663,
+   "lon": 140.5474,
+   "country": "Japan",
+   "category": "research_reactor"
+  },
+  {
+   "name": "High Flux Australian Reactor",
+   "qid": "Q5642030",
+   "lat": -34.0517,
+   "lon": 150.9806,
+   "country": "Australia",
+   "category": "research_reactor",
+   "also": [
+    "Q9026367",
+    "Q989491"
+   ]
+  },
+  {
+   "name": "Tehran Research Reactor",
+   "qid": "Q5916559",
+   "lat": 35.7384,
+   "lon": 51.3881,
+   "country": "Iran",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Arak heavy water reactor",
+   "qid": "Q5973356",
+   "lat": 34.3733,
+   "lon": 49.2407,
+   "country": "Iran",
+   "category": "research_reactor",
+   "also": [
+    "Q135029531"
+   ]
+  },
+  {
+   "name": "JASON reactor",
+   "qid": "Q6107726",
+   "lat": 51.4825,
+   "lon": -0.0062,
+   "country": "United Kingdom",
+   "category": "research_reactor"
+  },
+  {
+   "name": "FiR 1",
+   "qid": "Q65083710",
+   "lat": 60.1877,
+   "lon": 24.8309,
+   "country": "Finland",
+   "category": "research_reactor"
+  },
+  {
+   "name": "MERLIN reactor",
+   "qid": "Q6715421",
+   "lat": 51.38,
+   "lon": -1.1461,
+   "country": "United Kingdom",
+   "category": "research_reactor"
+  },
+  {
+   "name": "MIT Nuclear Research Reactor",
+   "qid": "Q6716310",
+   "lat": 42.3603,
+   "lon": -71.0964,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Pakistan Atomic Research Reactor",
+   "qid": "Q7125528",
+   "lat": 33.6536,
+   "lon": 73.2583,
+   "country": "Pakistan",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Purdue University Reactor Number One",
+   "qid": "Q7261000",
+   "lat": 40.4283,
+   "lon": -86.9114,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "SAFARI-1",
+   "qid": "Q7388510",
+   "lat": -25.8,
+   "lon": 27.95,
+   "country": "South Africa",
+   "category": "research_reactor",
+   "also": [
+    "Q7911711"
+   ]
+  },
+  {
+   "name": "research reactor AKR-2",
+   "qid": "Q778029",
+   "lat": 51.0286,
+   "lon": 13.7269,
+   "country": "Germany",
+   "category": "research_reactor",
+   "also": [
+    "Q778029"
+   ]
+  },
+  {
+   "name": "Universities Research Reactor",
+   "qid": "Q7894454",
+   "lat": 53.4272,
+   "lon": -2.5314,
+   "country": "United Kingdom",
+   "category": "research_reactor"
+  },
+  {
+   "name": "University of Missouri Research Reactor Center",
+   "qid": "Q7895838",
+   "lat": 38.9317,
+   "lon": -92.3419,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Zero Power Physics Reactor",
+   "qid": "Q8069544",
+   "lat": 43.5934,
+   "lon": -112.6546,
+   "country": "United States",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Neutron source BER II",
+   "qid": "Q821507",
+   "lat": 52.4097,
+   "lon": 13.1283,
+   "country": "Germany",
+   "category": "research_reactor"
+  },
+  {
+   "name": "LENA nuclear reactor",
+   "qid": "Q97276462",
+   "lat": 45.1967,
+   "lon": 9.1431,
+   "country": "Italy",
+   "category": "research_reactor"
+  },
+  {
+   "name": "Carolinas–Virginia Tube Reactor",
+   "qid": "Q1044426",
+   "lat": 34.2625,
+   "lon": -81.3292,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Osirak",
+   "qid": "Q12164436",
+   "lat": 33.2083,
+   "lon": 44.525,
+   "country": "Iraq",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Organic Moderated Reactor Experiment",
+   "qid": "Q131438811",
+   "lat": 43.5212,
+   "lon": -112.8955,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "TRIGA Research Reactor Heidelberg",
+   "qid": "Q1438123",
+   "lat": 49.4142,
+   "lon": 8.6725,
+   "country": "Germany",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Celestin",
+   "qid": "Q16040224",
+   "lat": 44.1437,
+   "lon": 4.7128,
+   "country": "France",
+   "category": "other_reactor",
+   "also": [
+    "Q16040271",
+    "Q16040273",
+    "Q16040276",
+    "Q580142"
+   ]
+  },
+  {
+   "name": "SL-1",
+   "qid": "Q2296817",
+   "lat": 43.5182,
+   "lon": -112.824,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "B Reactor",
+   "qid": "Q2472490",
+   "lat": 46.6303,
+   "lon": -119.6472,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Petten nuclear reactor",
+   "qid": "Q2484595",
+   "lat": 52.7864,
+   "lon": 4.675,
+   "country": "Netherlands",
+   "category": "other_reactor"
+  },
+  {
+   "name": "JEEP II",
+   "qid": "Q25431399",
+   "lat": 59.9745,
+   "lon": 11.0521,
+   "country": "Norway",
+   "category": "other_reactor"
+  },
+  {
+   "name": "N-Reactor",
+   "qid": "Q4391462",
+   "lat": 46.6747,
+   "lon": -119.569,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Chicago Pile 5",
+   "qid": "Q5095737",
+   "lat": 41.7057,
+   "lon": -87.9846,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Clinch River Breeder Reactor Project",
+   "qid": "Q5133704",
+   "lat": 35.89,
+   "lon": -84.38,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Ford Nuclear Reactor",
+   "qid": "Q5467879",
+   "lat": 42.2909,
+   "lon": -83.7147,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Halden Reactor",
+   "qid": "Q5641253",
+   "lat": 59.1283,
+   "lon": 11.3844,
+   "country": "Norway",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Lucens reactor",
+   "qid": "Q686884",
+   "lat": 46.6928,
+   "lon": 6.8269,
+   "country": "Switzerland",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Missouri University of Science and Technology Nuclear Reactor",
+   "qid": "Q6879765",
+   "lat": 37.9545,
+   "lon": -91.7725,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "PLUTO reactor",
+   "qid": "Q7119684",
+   "lat": 51.5697,
+   "lon": -1.3281,
+   "country": "United Kingdom",
+   "category": "other_reactor"
+  },
+  {
+   "name": "SM-1",
+   "qid": "Q7391022",
+   "lat": 38.6767,
+   "lon": -77.1444,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Washington State University Reactor",
+   "qid": "Q7972301",
+   "lat": 46.7361,
+   "lon": -117.144,
+   "country": "United States",
+   "category": "other_reactor"
+  },
+  {
+   "name": "Manche storage centre",
+   "qid": "Q1054179",
+   "lat": 49.6778,
+   "lon": -1.8622,
+   "country": "France",
+   "category": "waste_repository",
+   "also": [
+    "Q1411438"
+   ]
+  },
+  {
+   "name": "Q1054187",
+   "qid": "Q1054187",
+   "lat": 48.3958,
+   "lon": 4.6731,
+   "country": "France",
+   "category": "waste_repository",
+   "also": [
+    "Q2945505"
+   ]
+  },
+  {
+   "name": "Q125886973",
+   "qid": "Q125886973",
+   "lat": 49.7086,
+   "lon": 8.4117,
+   "country": "Germany",
+   "category": "waste_repository",
+   "also": [
+    "Q126948634",
+    "Q127155785"
+   ]
+  },
+  {
+   "name": "Q125927284",
+   "qid": "Q125927284",
+   "lat": 53.4308,
+   "lon": 8.478,
+   "country": "Germany",
+   "category": "waste_repository",
+   "also": [
+    "Q127163734",
+    "Q127271487"
+   ]
+  },
+  {
+   "name": "Q125929778",
+   "qid": "Q125929778",
+   "lat": 49.9841,
+   "lon": 10.1847,
+   "country": "Germany",
+   "category": "waste_repository",
+   "also": [
+    "Q130262116"
+   ]
+  },
+  {
+   "name": "Standort-Zwischenlager Brunsbüttel",
+   "qid": "Q126891126",
+   "lat": 53.8916,
+   "lon": 9.2053,
+   "country": "Germany",
+   "category": "waste_repository",
+   "also": [
+    "Q130365600"
+   ]
+  },
+  {
+   "name": "Q127425824",
+   "qid": "Q127425824",
+   "lat": 53.6231,
+   "lon": 9.5295,
+   "country": "Germany",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Q129349121",
+   "qid": "Q129349121",
+   "lat": 51.6392,
+   "lon": 9.3936,
+   "country": "Germany",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Q133733429",
+   "qid": "Q133733429",
+   "lat": 19.7935,
+   "lon": -98.8363,
+   "country": "Mexico",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Low Level Waste Repository",
+   "qid": "Q1340500",
+   "lat": 54.3794,
+   "lon": -3.4569,
+   "country": "United Kingdom",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Radioactive waste repository Alberschwende",
+   "qid": "Q136647194",
+   "lat": 47.4583,
+   "lon": 9.8577,
+   "country": "Austria",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Q139715196",
+   "qid": "Q139715196",
+   "lat": 53.1488,
+   "lon": 12.9905,
+   "country": "Germany",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Centralized Storage Facility",
+   "qid": "Q141444838",
+   "lat": 32.0353,
+   "lon": 35.9483,
+   "country": "Jordan",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Lop Nor / Malan nuclear test site",
+   "qid": "Q1726774",
+   "lat": 41.5448,
+   "lon": 88.712,
+   "country": "People's Republic of China",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Asse II mine",
+   "qid": "Q316980",
+   "lat": 52.1289,
+   "lon": 10.6708,
+   "country": "Germany",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Q319930",
+   "qid": "Q319930",
+   "lat": 53.0333,
+   "lon": 11.342,
+   "country": "Germany",
+   "category": "waste_repository",
+   "also": [
+    "Q757630"
+   ]
+  },
+  {
+   "name": "Maxey Flats",
+   "qid": "Q6795480",
+   "lat": 38.2583,
+   "lon": -83.5694,
+   "country": "United States",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Vaalputs",
+   "qid": "Q7907817",
+   "lat": -30.1314,
+   "lon": 18.57,
+   "country": "South Africa",
+   "category": "waste_repository"
+  },
+  {
+   "name": "Lake Karachay",
+   "qid": "Q827202",
+   "lat": 55.6772,
+   "lon": 60.7994,
+   "country": "Russia",
+   "category": "waste_repository",
+   "also": [
+    "Q612137"
+   ]
+  },
+  {
+   "name": "Rokkasho Reprocessing Plant",
+   "qid": "Q1419531",
+   "lat": 40.9564,
+   "lon": 141.3245,
+   "country": "Japan",
+   "category": "other_facility"
+  },
+  {
+   "name": "Taechon nuclear facility",
+   "qid": "Q1496060",
+   "lat": 39.9278,
+   "lon": 125.5692,
+   "country": "North Korea",
+   "category": "other_facility"
+  },
+  {
+   "name": "Negev Nuclear Research Center",
+   "qid": "Q1752912",
+   "lat": 31.0036,
+   "lon": 35.1467,
+   "country": "Israel",
+   "category": "other_facility"
+  },
+  {
+   "name": "Creys-Malville nuclear site",
+   "qid": "Q3485454",
+   "lat": 45.7581,
+   "lon": 5.4728,
+   "country": "France",
+   "category": "other_facility"
+  },
+  {
+   "name": "West Valley Reprocessing Plant",
+   "qid": "Q3552670",
+   "lat": 42.4506,
+   "lon": -78.6547,
+   "country": "United States",
+   "category": "other_facility"
+  },
+  {
+   "name": "Q3796902",
+   "qid": "Q3796902",
+   "lat": 40.1619,
+   "lon": 16.6415,
+   "country": "Italy",
+   "category": "other_facility"
+  },
+  {
+   "name": "Yongbyon Nuclear Scientific Research Center",
+   "qid": "Q499004",
+   "lat": 39.8,
+   "lon": 125.75,
+   "country": "North Korea",
+   "category": "other_facility"
+  },
+  {
+   "name": "Fordow Uranium Enrichment Plant",
+   "qid": "Q757565",
+   "lat": 34.8856,
+   "lon": 50.9967,
+   "country": "Iran",
+   "category": "other_facility"
+  },
+  {
+   "name": "Sibirskaya Nuclear Power Plant",
+   "qid": "Q839585",
+   "lat": 56.6264,
+   "lon": 84.9056,
+   "country": "Russia",
+   "category": "other_facility"
+  }
+ ]
+}
