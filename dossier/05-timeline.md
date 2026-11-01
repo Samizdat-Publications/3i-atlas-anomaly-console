@@ -5,7 +5,7 @@
 
 ---
 
-## 3I/ATLAS — 28 events
+## 3I/ATLAS — 47 events
 
 ### 2025-05-07 — TESS pre-discovery detections begin
 
@@ -147,7 +147,7 @@ A SETI Institute / Allen Telescope Array search (Sheikh et al., arXiv:2512.18142
 
 - **kind:** `statement`
 
-As the comet faded, Loeb's Medium essay enumerated 22 anomalies across mass/geometry, jet behavior, composition (nickel>iron, unusual isotopes), and trajectory coincidences (including a claimed 0.6%-probability alignment within 9 deg of the 1977 'Wow! Signal' arrival direction), ranking it Level 4 on his own 'Loeb Scale.' Mainstream rebuttals (e.g., Penn State's AstroWright) argued each item is explicable for a natural comet.
+As the comet faded, Loeb's Medium essay enumerated 22 anomalies across mass/geometry, jet behavior, composition (nickel>iron, unusual isotopes), and trajectory coincidences (including a claimed 0.6%-probability alignment within 9 deg of the 1977 'Wow! Signal' arrival direction), describing it as having reached Level 4 on his own 'Loeb Scale' (two days earlier, in a 10 March Q&A, he had said he would reduce it to 3 if nothing unusual happened at Jupiter). Mainstream rebuttals (e.g., Penn State's AstroWright) argued each item is explicable for a natural comet.
 
 **Sources:** <https://avi-loeb.medium.com/3i-atlas-is-fading-away-leaving-us-to-ponder-over-its-22-mysterious-anomalies-8d1318565f13> · <https://sites.psu.edu/astrowright/2025/11/09/loebs-3i-atlas-anomalies-explained/>
 
@@ -171,7 +171,7 @@ ESA released JUICE observations taken in November 2025, days after perihelion, f
 
 - **kind:** `statement`
 
-Loeb's 'Where is 3I/ATLAS Now?' put the comet at ~1 billion km (6.7 AU) from the Sun, well beyond Jupiter, 'heading away from us back to interstellar space' and nearing the detectability horizon; he reorganized his claims into 12 anomaly categories at 'Loeb Scale' Level 4, while conceding the object is leaving without any close inspection.
+Loeb's 'Where is 3I/ATLAS Now?' put the comet at ~1 billion km (6.7 AU) from the Sun, well beyond Jupiter, 'heading away from us back to interstellar space' and nearing the detectability horizon; he reorganized his claims into 12 anomaly categories, recalling the Level 4 he had ranked it at (in the past tense), while conceding the object is leaving without any close inspection.
 
 **Sources:** <https://avi-loeb.medium.com/where-is-3i-atlas-now-58f98865a20a>
 
@@ -230,6 +230,158 @@ In mid-July 2026 3I/ATLAS was about 9.25 AU from the Sun (~1.38 billion km; 10.2
 A multi-band monitoring campaign covering July to September 2025 — Faulkes and Maidanak imaging with SALT and Nordic Optical Telescope spectroscopy — reports a stable reddish colour with no secular variation on the way in, carbon-chain depletion with CN the only prominent molecular emission, and a persistent sunward jet at a position angle of about 280 degrees, read as sustained localized outgassing from a high-latitude active region. That last point bears directly on case A-05: an independent campaign confirms the sunward feature is real and long-lived, and attributes it to a fixed active area rather than anything exotic. Light-scattering modelling matches dense aggregates of organic matter and silicates, with water-ice sublimation too weak to change the optical properties.
 
 **Sources:** <https://arxiv.org/abs/2608.18371>
+
+### 2026-09-01 — HET/VIRUS maps nickel and iron 85,000 km into the coma
+
+- **kind:** `observation`
+
+Cochran and colleagues observed 3I/ATLAS on 2025 December 9 with the VIRUS integral-field spectrograph on the Hobby-Eberly Telescope, sampling the coma every 1,327 km out to about 85,000 km sunward. Alongside the usual cometary molecules the spectra show many very strong Fe I and Ni I lines, which the authors call an important difference from Solar System comets. The averaged log Q(Ni)/Q(Fe) is 0.19 (nickel about 1.5 times iron), similar to values Hutsemekers et al. report at comparable heliocentric distances. The radial profiles fit only if the gas flows out at about half the speed seen in Solar System comets at the same distance (0.3 km/s adopted). Biver et al. have proposed a heavy, CO2-rich gas as the cause, and the authors repeat that suggestion. Accepted in The Planetary Science Journal.
+
+**Sources:** <https://arxiv.org/abs/2609.01785>
+
+### 2026-09-04 — Post-perihelion polarimetry: the extreme negative branch persists and deepens
+
+- **kind:** `observation`
+
+Gray and colleagues extended polarimetry with FORS2 at the VLT, ALFOSC at the Nordic Optical Telescope and FoReRo2 at a 2 m telescope to phase angles of 1 to 30 degrees, the widest coverage obtained for any interstellar object. The unusual polarization survived perihelion unchanged in character, with the R-band minimum now pinned at -2.94% at 5.5 degrees phase and the inversion angle at 16.1 degrees. The curve matches small trans-Neptunian objects (Huya, Ixion, Varuna, 1999 DE9) and the Centaur Pholus, and at 30 degrees 3I is about 3.5 percentage points more polarized than typical high-polarization comets. Modelling favours porous aggregates larger than 10 microns built of weakly absorbing submicron grains, with a dust albedo near 0.7, about ten times that of 67P's dust.
+
+**Sources:** <https://arxiv.org/abs/2609.04932>
+
+### 2026-09-04 — Plasma-tail ions show 3I/ATLAS is nitrogen-rich
+
+- **kind:** `observation`
+
+WEAVE integral-field spectroscopy on the William Herschel Telescope on 2025 November 30 and December 2 detected five ions in the anti-solar tail: N2+, CO+, CO2+, H2O+ and CH+. The N2+/CO+ ratio sets a lower limit of N2/CO > 0.023 +/- 0.001, which the authors call N2-rich compared to Solar System comets and similar to the few N2-rich comets measured. Rosetta's in-situ value for 67P was first ~0.006 and later revised to 0.03. NH2 is still undetected, which points to nitrogen stored as N2 rather than ammonia, the same pattern as C/2016 R2. The authors link it to cold formation conditions, near 20 K by the reasoning applied to 67P.
+
+**Sources:** <https://arxiv.org/abs/2609.05393>
+
+### 2026-09-11 — Astrochemical models: the extreme water D/H fits a metal-poor birth cloud
+
+- **kind:** `statement`
+
+Furuya, Cordiner and colleagues ran gas-ice astrochemical models from molecular cloud to dense core to test whether the water D/H of about 0.01 in 3I/ATLAS fits the low-metallicity origin suggested by its carbon isotopes. Lower metallicity boosts deuteration of H3+ and its transfer into water ice; the observed value is most readily reproduced at half solar metallicity or below and cloud densities near 10^4 per cubic cm, provided the cosmic-ray ionization rate stays below 10^-15 per second. One solar-metallicity parameter set also exceeds 0.01, so low metallicity is favoured rather than required. Accepted in ApJ Letters.
+
+**Sources:** <https://arxiv.org/abs/2609.12370>
+
+### 2026-09-16 — JWST: water ice in the coma before and long after perihelion
+
+- **kind:** `observation`
+
+Protopapa and colleagues report JWST NIRSpec spectra from 2025 August 6, 2025 December 22 and 2026 April 1, at 3.3, 2.4 and 5.7 AU from the Sun. A broad 3 micron water-ice band appears with weak or missing 1.5 and 2.0 micron bands. The best model is submicron-to-micron icy aggregates mixed with refractory material. The band was 77% deep in August and 94% deep in April, when a second population of larger ice-rich grains and a Fresnel-like feature consistent with crystalline ice appeared. The authors allow either crystalline ice at both epochs or a change from amorphous to crystalline. The December spectrum was not modelled because water gas, organics, Ni I emission and warm dust overlap the band, but the authors describe the band shape as largely unchanged between epochs. They place 3I at the refractory-rich end of a continuum running through Solar System comae and mid-sized trans-Neptunian objects.
+
+**Sources:** <https://arxiv.org/abs/2609.19286>
+
+### 2026-09-17 — Thermophysical model ties the late methane to cosmic-ray processing
+
+- **kind:** `statement`
+
+Rawat and Acharyya coupled a nucleus thermophysical model to galactic cosmic-ray processing and ran 12,000 models against the measured H2O, CO, CO2 and CH4 production. The viable models start from a volatile-rich body formed below 20 K beyond the CO snowline and need an effective cosmic-ray exposure of 0.87 to 3.1 billion years. Radiation strips methane from near-surface layers and converts some CO into CO2, while methane trapped deeper in the water ice survives and is released once post-perihelion heating reaches it. The authors treat the pre-perihelion methane signal as a weak constraint because it is blended with ethane bands. Accepted in ApJ.
+
+**Sources:** <https://arxiv.org/abs/2609.19694>
+
+### 2026-09-18 — Indian telescopes: carbon chemistry turns typical after perihelion, nucleus about 0.55 km
+
+- **kind:** `observation`
+
+Ahuja and colleagues monitored 3I/ATLAS after perihelion, from 2025 November 16, with the 0.5, 1.2 and 2.5 m Physical Research Laboratory telescopes, the 2 m Himalayan Chandra Telescope and a 0.132 m refractor. CN, C2 and C3 production rates and ratios moved from carbon-depleted before perihelion to carbon-typical after it, which they attribute to fresh subsurface material. Broadband colours (B-V 1.03, V-R 0.59) stayed nearly constant and consistent with pre-perihelion values. They are redder than the Sun and long-period comets and match ultrared-material-rich Solar System objects. The JPL non-gravitational acceleration, with an outflow speed halved per Biver et al., gives a mass of 4.85 x 10^11 kg from CO2 and 3.66 x 10^11 kg from water, and a nucleus radius of 0.45 to 0.65 km. Published in MNRAS 552.
+
+**Sources:** <https://arxiv.org/abs/2609.22596>
+
+### 2026-09-21 — Survey forecast: LSST may find 0 to 8 more comets like 3I/ATLAS in ten years
+
+- **kind:** `statement`
+
+Albornoz-Montenegro and Fuentes model how the size distribution of interstellar objects sets detection rates in TESS, Pan-STARRS, ATLAS and Rubin's LSST, anchoring the comet population on the single ATLAS detection of 3I/ATLAS. They estimate about 0 to 8 detections of 3I-like comets by LSST in ten years and about one by TESS over its mission, independent of the nucleus size distribution. Fitting 1I/'Oumuamua and 3I/ATLAS from the same size distribution, they suggest planet formation ejects more asteroid-like bodies than comets. Submitted to A&A.
+
+**Sources:** <https://arxiv.org/abs/2609.25488>
+
+### 2026-09-22 — VLT/UVES: a severe ammonia deficit sets 3I apart from Solar System comets
+
+- **kind:** `observation`
+
+Aravind et al. (accepted in A&A) followed the coma with VLT/UVES from August 2025 at 3.14 au to February 2026 at 4.34 au. NH and NH2 are strongly depleted. The C2/CN ratio shows carbon-chain depletion and drifts with distance, which the authors read as a coma effect such as hyperactivity, not a change in composition. Water production rises steeply, with a heliocentric index of 8.47 +/- 0.23. In abundance-ratio space 3I sits outside the canonical Solar System comet cluster. It is nearest the strongly carbon-chain-depleted comets, including the Giacobini-Zinner type, but more depleted in NH and C3 relative to CN, and its unusually high CN/OH ratio sets it apart from that group as well. The authors read this as formation in an exceptionally cold natal environment.
+
+**Sources:** <https://arxiv.org/abs/2609.26577>
+
+### 2026-09-25 — Ammonia as a metallicity clock: 3I's parent star was metal-poor
+
+- **kind:** `discovery`
+
+Hopkins, Bannister, Bitsch, Lintott and Forbes combined a chemical partition model with APOGEE DR17 stellar abundances and found that an interstellar object's ammonia content tracks its parent star's metallicity. Ammonia was not measured directly, so they inferred 3I's NH3/H2O as about 0.001 or less, roughly an order of magnitude below Solar System comets. From that they place its parent star at [Fe/H] between -0.8 and 0.0, which corroborates the velocity- and isotope-based ages by an independent route. The same model predicts 3I should be CO2-poor, the opposite of what was observed. The authors call this inconsistent with observations, offer cosmic-ray conversion of CO to CO2 as a possible explanation, and say it is unclear whether that could work while CO stays at ordinary levels. They also note giant planets are rare around metal-poor stars, so 3I was probably ejected by another mechanism such as a stellar flyby.
+
+**Sources:** <https://arxiv.org/abs/2609.30827>
+
+### 2026-10-04 — Near-opposition polarimetry: the deep negative branch holds, but the dust may be dark
+
+- **kind:** `observation`
+
+Choi et al. measured polarization with the 1.6 m Pirka Telescope down to a phase angle of 0.70 degrees. Their fit to the combined post-perihelion curve gives a minimum of -3.04 +/- 0.028% at 5.98 degrees and an inversion angle of 16.3 degrees. That agrees with Gray et al.'s post-perihelion -2.94% at 5.52 degrees, which Gray et al. attribute mainly to better small-phase coverage than in the first -2.7% fit, not to dust evolution. The branch persisted across perihelion. A visible-to-mid-infrared energy distribution from HST, VLT, SPHEREx and JWST gives dark dust with an effective albedo of about 0.04, a size index of 3.0 to 3.3, and a minor amorphous-silicate component. Dirty water-ice models fail to reproduce the thermal emission. The polarimetry favours a highly porous scattering structure. Gray et al. also favour porous aggregates, but of weakly absorbing grains that make the dust brighter than in typical comets, so what makes the branch this deep is still open.
+
+**Sources:** <https://arxiv.org/abs/2610.04919> · <https://arxiv.org/abs/2609.04932>
+
+### 2026-10-06 — Spada, Krolikowska & Dones published: the push is real, its sideways part is not stable
+
+- **kind:** `observation`
+
+The orbit study first posted in March (arXiv:2603.00782) appears in Astronomy & Astrophysics. Fitting gravity-only, symmetric, delayed-peak and asymmetric outgassing models to the full astrometry, it finds a non-gravitational acceleration is required, and that systematic errors in the data and in the outgassing model exceed the formal fit errors. The transverse component is the least stable parameter, which is the point case A-24 turns on.
+
+**Sources:** <https://doi.org/10.1051/0004-6361/202659645> · <https://arxiv.org/abs/2603.00782>
+
+### 2026-10-12 — Mass-loss audit revised: gas alone took 0.4 to 1.25% of the nucleus
+
+- **kind:** `observation`
+
+Frincke and Seligman's third version (accepted by MNRAS) integrates every published 3I production rate into a gas-only mass loss of 1.83 to 5.77 x 10^10 kg, about 1.7 to 5.2 m of surface, or 0.40 to 1.25% of the initial mass for an assumed 1.3 km radius and 0.5 g/cm3 density. Adding dust at dust-to-gas ratios of 1 to 4 raises the loss to roughly 3.7 x 10^10 to 3.0 x 10^11 kg and erosion beyond 10 m. The authors present all figures as lower limits; earlier versions gave 0.10 to 1.13% (May) and 0.12 to 0.53% (July).
+
+**Sources:** <https://arxiv.org/abs/2606.01377>
+
+### 2026-10-15 — ZTF catches a short-lived icy-grain halo and a blue outer coma
+
+- **kind:** `observation`
+
+Liu, Zhang, Liu and Hui (ApJL 1008, L26) used ZTF imaging to estimate dust mass-loss rates of about 123 to 203 kg/s before perihelion and 596 to 1,412 kg/s after. In late November 2025 the outer coma was anomalously blue and steeply fading, and that structure was gone by 2026 January 18. They model it as icy grains of 5 to 10 microns with about 0.1% absorbing carbon, destroyed over a projected length of 6.4 to 7.2 x 10^4 km.
+
+**Sources:** <https://arxiv.org/abs/2610.21206>
+
+### 2026-10-17 — Loeb adds a machine-control scale and rates 3I/ATLAS C0
+
+- **kind:** `statement`
+
+In a Medium post and a co-authored paper (Volkan Duran, Omer Eldadi and Loeb, posted on his Harvard site, not arXiv), Loeb adds a four-step SETAI Control Scale (C0 to C3) on top of the Loeb Scale. It asks whether an object's recorded behaviour rules out biological direction, scripted automation or adaptive autonomy. Applied to the three known interstellar objects, it leaves every published Loeb Scale level unchanged. 3I/ATLAS keeps the Level 4 that Eldadi et al. assigned in 2025, and the paper states that it carries that level forward only to demonstrate the extension, without re-evaluating it. 3I/ATLAS and 1I/'Oumuamua get C0 because neither showed contingent behaviour. 2I/Borisov, at Level 0, never reaches the control question. The authors say C0 'does not rule out technological origin' and is not a verdict against SETAI. For 3I they name what would raise C: a change in trajectory or attitude timed to a close planetary approach that outgassing models fitted to the rest of the passage do not predict. They also argue that a rendezvous mission would supply the behavioural record interstellar objects have lacked.
+
+**Sources:** <https://avi-loeb.medium.com/extending-the-loeb-scale-to-the-search-for-extraterrestrial-artificial-intelligence-setai-6f7bfc7cf2e3> · <https://lweb.cfa.harvard.edu/~loeb/DEL.pdf>
+
+### 2026-10-23 — Keck and Gemini publish a ten-month benchmark record of 3I
+
+- **kind:** `observation`
+
+Bolin et al. report 14 imaging and 8 spectroscopic optical epochs plus near-infrared data from 2025 July to 2026 May. Colours stay red and unchanged across perihelion (g-r = 0.732 +/- 0.029), and activity falls faster outbound (Afrho proportional to r^-3.34) than it rose inbound (r^-2.10). Dust speeds imply 2.7 x 10^9 to 1.0 x 10^10 kg of 1 micron to 1 mm grains lost, a 0.26 to 0.99 m global layer. The compact sunward feature seen beside an antisolar tail on 2025 August 27 weakened through September. C2/CN nearly doubled, from 0.257 to 0.481, and no water-ice absorption survives their calibration tests.
+
+**Sources:** <https://arxiv.org/abs/2610.32972>
+
+### 2026-10-23 — Deuterated methane published: 14 times 67P
+
+- **kind:** `observation`
+
+Roth, Cordiner and colleagues' JWST measurement of deuterated methane (CH3D) in 3I's coma was published in Nature Astronomy. Methane D/H is 3.33 +/- 0.31%, higher than any methane value measured in the solar system and a factor of 14 +/- 2 above 67P, the only other comet with a CH3D detection. As in 67P, methane is more deuterated than water. The authors read it as ices formed in a cold, low-metallicity environment under strong cosmic-ray irradiation.
+
+**Sources:** <https://arxiv.org/abs/2603.20445> · <https://doi.org/10.1038/s41550-026-03002-5>
+
+### 2026-10-27 — Second JWST/MIRI study: 3I's silicates are almost entirely amorphous
+
+- **kind:** `observation`
+
+Thomas et al. took a JWST/MIRI low-resolution spectrum on 2025 December 16 at 2.21 au. They found a smooth 10-micron silicate feature unlike those of Solar System comets, best fitted by amorphous pyroxene (pyroxene to olivine about 180:1). The best-fitting crystalline fraction is zero with a 5.3% upper limit, in line with Belyakov et al.'s 3.1% from MIRI medium resolution, and a 6.83-micron feature points to aliphatic C-H material. The authors conclude the dust saw little thermal processing, while noting that diffuse interstellar dust is olivine-type, so this is not a simple interstellar-medium match.
+
+**Sources:** <https://arxiv.org/abs/2610.37540>
+
+### 2026-10-28 — The push without the perihelion data: robust detection, cause unconstrained
+
+- **kind:** `observation`
+
+Krolikowska, Spada and Dones refit 3I's orbit using only observations far from the Sun, 6.1 to 3.49 AU inbound and 2.67 to 6.1 AU outbound. Gravity alone fits the inbound arc but cannot fit both arcs together (rms 0.328 against about 0.26 arcsec); every non-gravitational model brings it to about 0.254 and removes the residual trends. Water-ice and more volatile activity laws fit equally well, so the astrometry confirms the push but cannot name its cause. The outbound residuals stay non-Gaussian, which the authors say may mean the push varied in magnitude and direction.
+
+**Sources:** <https://arxiv.org/abs/2610.38485>
 
 ## 1I/'Oumuamua — 16 events
 

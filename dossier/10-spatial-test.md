@@ -11,16 +11,16 @@
 |---|---|---|---|---|---|
 | 100 km | 23 | 32.8 | 0.963 | 32.7 | 0.968 |
 | 200 km | 78 | 82.3 | 0.690 | 81.9 | 0.691 |
-| 500 km | 260 | 250.5 | 0.301 | 250.6 | 0.253 |
-| median nearest volcano | 838 km | 854 km | 0.295 | 853 km | 0.314 |
+| 500 km | 260 | 250.6 | 0.302 | 250.7 | 0.254 |
+| median nearest volcano | 838 km | 854 km | 0.296 | 853 km | 0.315 |
 
 ### Clustering (scatter null only — a rotation leaves every event-to-event distance unchanged and cannot test this)
 
 | Statistic | Observed | Null mean | p |
 |---|---|---|---|
-| median nearest-event distance | 353 km | 354 km | 0.479 |
-| events with another within 100 km | 55 | 46.8 | 0.228 |
-| events with another within 50 km | 14 | 12.5 | 0.431 |
+| median nearest-event distance | 353 km | 357 km | 0.335 |
+| events with another within 100 km | 59 | 46.7 | 0.126 |
+| events with another within 50 km | 18 | 12.4 | 0.174 |
 
 ### Distance histogram (100 km bins)
 
@@ -34,15 +34,15 @@
 | 500 | 59 | 57.5 |
 | 600 | 54 | 55.1 |
 | 700 | 47 | 50.8 |
-| 800 | 53 | 48.8 |
-| 900 | 43 | 45.7 |
-| 1000 | 49 | 45.0 |
-| 1100 | 36 | 41.0 |
-| 1200 | 45 | 39.2 |
-| 1300 | 31 | 35.9 |
-| 1400 | 40 | 31.6 |
-| 1500 | 29 | 28.1 |
+| 800 | 53 | 48.9 |
+| 900 | 43 | 45.8 |
+| 1000 | 49 | 44.9 |
+| 1100 | 36 | 41.1 |
+| 1200 | 45 | 39.3 |
+| 1300 | 31 | 36.1 |
+| 1400 | 41 | 31.7 |
+| 1500 | 28 | 27.9 |
 | 1600 | 32 | 26.6 |
-| 1700 | 23 | 23.3 |
-| 1800 | 20 | 20.8 |
-| 1900 | 8 | 17.2 |
+| 1700 | 23 | 23.4 |
+| 1800 | 21 | 21.1 |
+| 1900 | 10 | 18.2 |

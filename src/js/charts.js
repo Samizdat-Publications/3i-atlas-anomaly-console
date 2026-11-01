@@ -718,6 +718,7 @@
     });
     const today = dayOf(new Date().toISOString().slice(0, 10), start);
     const ymax = Math.ceil(Math.max.apply(null, sep) / 50) * 50;
+    const narrow = cv.getBoundingClientRect().width < 480;
     const P = plot(cv, {
       xMin: 0, xMax: n - 1, yMin: 0, yMax: ymax, padB: 16, padL: 38, yTicks: 4,
       bands: [
@@ -725,13 +726,13 @@
         { x0: dayOf(A.post[0], start), x1: dayOf(A.post[1], start), color: 'rgba(52,225,255,.10)', label: 'PAPER ARC 2', text: COL.cyan },
       ],
       series: [
-        { xs: xs, ys: sep, color: COL.amber, w: 1.7, label: 'DISTANCE FROM THE GRAVITY-ONLY PATH (1000 KM)', labelX: 8, labelY: ymax * 0.80 },
-        { xs: xs, ys: off, color: COL.cyan, w: 1.2, dash: [4, 3], label: 'OF WHICH OUT OF THE ORBITAL PLANE', labelX: 8, labelY: ymax * 0.70 },
+        { xs: xs, ys: sep, color: COL.amber, w: 1.7, label: narrow ? 'GAP TO GRAVITY-ONLY PATH (1000 KM)' : 'DISTANCE FROM THE GRAVITY-ONLY PATH (1000 KM)', labelX: 8, labelY: ymax * 0.80 },
+        { xs: xs, ys: off, color: COL.cyan, w: 1.2, dash: [4, 3], label: narrow ? 'OUT OF PLANE' : 'OF WHICH OUT OF THE ORBITAL PLANE', labelX: 8, labelY: ymax * 0.70 },
       ],
       xTicks: ticks,
       markers: [
-        { x: dayOf('2025-10-29', start), color: COL.amber, label: 'PERIHELION' },
-        { x: dayOf('2026-03-16', start), color: 'rgba(216,167,111,.8)', label: 'JUPITER' },
+        { x: dayOf('2025-10-29', start), color: COL.amber, label: narrow ? 'q' : 'PERIHELION' },
+        { x: dayOf('2026-03-16', start), color: 'rgba(216,167,111,.8)', label: narrow ? 'J' : 'JUPITER' },
       ],
       cursor: today,
       yFmt: function (v) { return v.toFixed(0) + 'k'; },
@@ -740,7 +741,7 @@
     if (now && today >= 0 && today < n) {
       const g = cv.getContext('2d');
       g.fillStyle = COL.green;
-      const t = 'TODAY ' + now.sep_km.toLocaleString('en-US') + ' KM · ' + now.arcsec.toFixed(1) + '" FROM EARTH';
+      const t = 'TODAY ' + now.sep_km.toLocaleString('en-US') + ' KM' + (narrow ? '' : ' · ' + now.arcsec.toFixed(1) + '" FROM EARTH');
       g.fillText(t, Math.max(40, Math.min(P.X(today) - g.measureText(t).width - 4, cv.getBoundingClientRect().width - g.measureText(t).width - 8)), P.Y(now.sep_km / 1000) - 6);
     }
   };
@@ -760,7 +761,7 @@
       xMin: 1, xMax: 12, yMin: -10, yMax: 0.3, padB: 16, padL: 38, yTicks: 5,
       bands: [{ x0: 2.67, x1: 6.1, color: 'rgba(52,225,255,.10)', label: 'WHERE THE PAPER\'S DATA ARE', text: COL.cyan }],
       series: [
-        { xs: xs, ys: inv, color: COL.amber, w: 1.6, label: '1/r² (JPL#54, CO₂-LIKE)', labelX: 6.6, labelY: -0.9 },
+        { xs: xs, ys: inv, color: COL.amber, w: 1.6, label: '1/r² (JPL#54, CO₂-LIKE)', labelX: 6.4, labelY: -2.3 },
         { xs: xs, ys: water, color: COL.cyan, w: 1.4, dash: [4, 3], label: 'WATER-ICE (MARSDEN 1973)', labelX: 3.3, labelY: -7.4 },
       ],
       xTicks: [{ x: 2.67, label: '2.7' }, { x: 6.1, label: '6.1' }, { x: 9, label: '9' }, { x: 12, label: '12 AU' }],

@@ -1,5 +1,70 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.19 - 2026-11-01 (is 3I/ATLAS changing course?)
+
+A new paper, Krolikowska, Spada & Dones (arXiv:2610.38485, 28 Oct 2026), refits 3I's orbit from
+observations made far from the Sun only, and the Angry Astronaut built a video on it the same week:
+"3I Atlas changing course and speeding up!". This release answers the question in kilometres.
+
+- **The push, computed rather than described.** New `tools/fetch_counterfactual.py` has JPL Horizons
+  integrate 3I twice from its state on 2025-05-15: once with JPL's full-arc solution #54 and its
+  non-gravitational push, once with the push switched off. Same planets, same Jupiter. On 2026-11-01
+  the two are 126,306 km apart, 12.7 arcsec as seen from Earth (about fifty times the measurement
+  noise), 18,400 km of it out of the orbital plane. The total velocity change is about 4.2 m/s, of
+  which only 1.75 m/s is extra speed; the rest turned its direction. 97% of it was delivered by the
+  Jupiter pass. By the end of July 2025 the gap was 824 km, below the noise, which is exactly why the
+  paper finds the inbound data purely gravitational. The script refuses to run unless it first
+  reproduces the shipped path (it does, to 8e-7 AU), and cross-checks against the paper's own
+  gravity-only orbit.
+- **3I is now pinned to JPL#54.** On 2026-10-21 Horizons switched C/2025 N1 to solution #55, a
+  "temporary solution to support JWST Program 13145" fitted to 117 observations from October 2025 on,
+  with the transverse term of the opposite sign. Re-running the old fetcher would have swapped the
+  shipped path for it silently. `tools/jpl_solution.py` submits #54's own elements and push to
+  Horizons as a user-defined object instead.
+- **The acceleration chart was fake, and is now real.** It drew an "ASTROMETRIC RESIDUAL" ramp from
+  `Math.random()`, different on every redraw, under A-10, A-24 and BR-01. It now plots the
+  counterfactual, with perihelion, the Jupiter pass and the paper's two data arcs marked. A second
+  new chart shows the activity laws the astrometry cannot tell apart.
+- **GRAVITY-ONLY overlay in the tracker.** Draws the gravity-only twin, its gap exaggerated 2,000
+  times so it can be seen at solar-system scale, and says so on the pod, the banner (with the true
+  km and arcsec for the date on the clock) and the toast. VISUALIZE IN TRACKER on A-10 or A-24 turns
+  it on. One shared reset also fixes the DISPATCH banner, which used to survive an era switch.
+- **New briefing BR-09, "Is 3I/ATLAS changing course?"** The claim as made, credited where it is
+  right (the push is real far from the Sun, partly out of plane, and its cause is unconstrained);
+  where it stretches (the push did nearly all its work near the Sun; CO2 sublimates where water
+  cannot; the video starts from JPL's first, superseded acceleration, about 37 times too large, and
+  its force step slips by 1,000); the mass budget, which is tight but not broken; and "Where is Avi
+  Loeb?", answered from all 56 of his posts in the window, including the test for steering he named
+  on 17 October. A-10 and A-24 carry the paper.
+- **Content current to 2026-11-01.** A research workflow covered 17 new 3I papers, Loeb's posts
+  since August and five new videos, with an adversarial verifier per batch. 19 new timeline events,
+  updates to 14 cases and F-07, 4 verbatim quotes, and 55 new claims mapped in `docs/claim-coverage.md`
+  (no new case files). Full verified record: `data/research-2026q4.json`. The Loeb Scale stays at 3
+  (his conditional March reduction), with the October paper's carried-forward 4 noted beside it.
+- **F-07's wider nuclear target set.** New `tools/fetch_nuclear_wide.py`: 150 non-power sites from
+  Wikidata (research reactors, waste stores, enrichment, reprocessing, test sites, and the weapons
+  laboratories and missile bases the testimony names), behind a 150-site gate. Within 100 km: 12
+  fireballs against 6.2 by chance, p=0.017 and 0.022, the register's first positional result to clear
+  the bar under both nulls. Reported as a weak signal, not a finding: one of six tests, gone by
+  200 km, and carried by no single kind of site.
+- **Statistics fixes, each re-derived and checked.** `spatial_test.py`: the longitude shortcut was not
+  a true lower bound at high latitude (now exact); the cap guard is saved to the JSON and fails the
+  run only when it could move the median; empty target sets abort. The clustering statistic skipped
+  every event that shared coordinates, which turned out to be hiding five CNEOS rows that appear
+  twice (same position and clock time, days apart). Left in, they fake a cluster at p=0.006; removed,
+  clustering is null (353 vs 357 km). F-03 to F-07 re-checked by `tools/fireball_rate_check.py`.
+- **Content integrity.** `bake_content.py` ships every source (it kept four, dropping citations from
+  23 cases), fails on unknown chart names and duplicate ids, and no longer rewrites research.json.
+  Schematic charts are seeded and captioned as illustrations; cases that showed another object's
+  picture show none.
+- **Video Overview kit.** `dossier/briefings/BR-0n.md`: one source pack per briefing with a steering
+  prompt. A briefing with a `video` link shows WATCH THE BRIEFING. Steps in `docs/NOTEBOOKLM-DOSSIER.md`.
+- **Also:** ephemeris extended to 2027-12-31 so NOW keeps working; five new transcripts (YouTube
+  rate-limits captions, so `tools/import_transcript.py` imports them from a captions API, and the
+  fetcher now merges into its index instead of replacing it); deploy runs wrangler from `public/`
+  so the landing page's `functions/` stops riding along; build metadata, landing page and README
+  take counts from the data; every dataset credited, including WRI's CC BY licence.
+
 ## v2.18.1 — 2026-08-24 (quote attribution)
 
 - **Cases F-03 to F-07 were attributing their quotes to Avi Loeb.** The dossier prefixed every

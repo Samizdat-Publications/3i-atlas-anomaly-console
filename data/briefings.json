@@ -266,7 +266,7 @@
    "id": "BR-08",
    "question": "Do fireballs cluster at nuclear sites?",
    "short": "The nuclear connection is the best-evidenced positional claim in the subject — and it rests on eyewitness testimony about craft, not on satellite detections of rocks. The catalog can only answer a narrower question, and it mostly answers no.",
-   "tag": "883 EVENTS · 195 REACTORS",
+   "tag": "883 EVENTS · 195 REACTORS · 150 OTHER SITES",
    "sections": [
     {
      "h": "Why this one is different",
@@ -287,6 +287,10 @@
     {
      "h": "The same selection effect, found twice",
      "p": "F-05 found that fireball footage concentrates at volcanoes because volcano observatories run fixed sky cameras around the clock. The nuclear case has the identical structure and nobody planted it there: LaPaz was employed by the New Mexico installations and based among them, and the observer network reporting to him was their own staff, under standing orders to watch the sky. A 1949 weapons complex was one of the few places on Earth with trained, instructed, cleared people looking up on purpose. That does not make a single report false. It means the geography of the reports is at least partly the geography of the watchers — and the one dataset with no watchers in it does not reproduce the pattern."
+    },
+    {
+     "h": "The wider target set, and the first result that is not a null",
+     "p": "The limit above, that power reactors are not what the testimony means, is now partly lifted. A second target set of 150 non-power sites (research reactors, waste stores, enrichment and reprocessing plants, test sites, and the weapons laboratories and missile bases the accounts name) comes from Wikidata. Within 100 km it gives 12 events against 6.2 expected, p=0.017 and 0.022 under the two nulls: about twice chance, and the first positional test in this register to clear the usual bar under both. Among the twelve: an airburst 31 km from the Nevada test site, one 54 km from Kirtland, and Chelyabinsk 99 km from the Mayak waste lake. It is not yet a finding. With six such tests, one this strong appears by chance about one time in four; the excess is gone by 200 km (20 against 19.5), so the ring from 100 to 200 km is under-filled; and no single kind of site carries it, the weapons complex alone coming closest at 3 against 0.9 (p=0.06) on 16 sites. The honest status is a weak, interesting signal at the one distance where an attraction would show first, in a catalog that can only see rocks. The second chart shows it."
     }
    ],
    "chart": "nuclear-dist",
@@ -298,7 +302,9 @@
     "https://cneos.jpl.nasa.gov/fireballs/",
     "https://datasets.wri.org/dataset/globalpowerplantdatabase",
     "https://www.archives.gov/research/military/air-force/ufos"
-   ]
+   ],
+   "chart2": "nuclear-wide-dist",
+   "chart2_after": 6
   },
   {
    "id": "BR-09",
@@ -327,11 +333,11 @@
     },
     {
      "h": "Where it stretches",
-     "p": "Three steps go further than the data. 'It began after perihelion': the outbound positions describe an orbit already bent by the push near the Sun, and the paper says so. In the counterfactual the velocity change was 0.3 m/s at the end of July 2025, 2.3 m/s at perihelion and 4.1 m/s by the Jupiter pass, which is 97% of today's total. The push did nearly all its work within about 3 AU of the Sun; the gap keeps widening afterwards because a 4 m/s difference in velocity keeps adding up, not because the object is still being pushed hard. 'Water cannot sublimate out there, so nothing natural can': carbon dioxide sublimates efficiently far beyond water's 2.8 AU turnover, and JWST measured 3I's coma as CO2-dominated (case A-06); the authors call a CO2/CO law the physically motivated reading, while saying plainly the astrometry does not require it. The video's thrust arithmetic starts from a peak acceleration of 1.1e-6 au/day^2. That is JPL's first, superseded estimate (case A-10). The full-arc #54 value is about 3e-8 au/day^2 at perihelion, some 37 times smaller, and every force, energy and power figure built on it shrinks by the same factor. 'If it never stops': every published fit models the push as fading with distance and fits the data that way. In the counterfactual the velocity change has sat flat near 4.2 m/s since early 2026, though that fade is the model's assumption, not a measurement. Whether a constant push could also fit is a test nobody has published."
+     "p": "Three steps go further than the data. 'It began after perihelion': the outbound positions describe an orbit already bent by the push near the Sun, and the paper says so. In the counterfactual the velocity change was 0.3 m/s at the end of July 2025, 2.3 m/s at perihelion and 4.1 m/s by the Jupiter pass, which is 97% of today's total. The push did nearly all its work within about 3 AU of the Sun; the gap keeps widening afterwards because a 4 m/s difference in velocity keeps adding up, not because the object is still being pushed hard. 'Water cannot sublimate out there, so nothing natural can': carbon dioxide sublimates efficiently far beyond water's 2.8 AU turnover, and JWST measured 3I's coma as CO2-dominated (case A-06); the authors call a CO2/CO law the physically motivated reading, while saying plainly the astrometry does not require it. The video's thrust arithmetic starts from a peak acceleration of 1.1e-6 au/day^2. That is JPL's first, superseded estimate (case A-10); the full-arc #54 value is about 3e-8 au/day^2 at perihelion, some 37 times smaller. (Its force step also slips by a factor of 1,000: 2.5 billion tonnes at 2.2e-5 m/s^2 is 55 meganewtons, not 55 kilonewtons.) The mass-budget step is closer than it looks. The 'under 1%' figure is real, 0.40 to 1.25% of the mass lost as gas (Frincke and Seligman; the video's '0.04%' is a misreading), and the gas really does leave at half the usual speed, 0.30 km/s (Cochran et al.). But the push in the counterfactual totals about 4.2 m/s, which a perfectly aimed jet at that speed delivers by shedding 1.0 to 1.4% of the mass. Real venting is less efficient, so the budget is tight, a factor of one to a few, but the measured loss is a stated lower limit with the dust not yet counted. Tight is not impossible. 'If it never stops': every published fit models the push as fading with distance and fits the data that way. In the counterfactual the velocity change has sat flat near 4.2 m/s since early 2026, though that fade is the model's assumption, not a measurement. Whether a constant push could also fit is a test nobody has published."
     },
     {
      "h": "Where is Avi Loeb?",
-     "p": "PENDING_LOEB"
+     "p": "The question is fair and has a checkable answer. Every one of Loeb's 56 blog posts between 19 August and 1 November 2026 was read for this briefing, and none mentions the new paper; the three he posted after it went up on 28 October are about cosmic archaeology, UAP storytelling and life on Mars. The video is also right that every post now ends with the line 'Avi Loeb is chair of the UAP Science Advisory Council to the White House, Pentagon, FBI and intelligence agencies'; the council was set up under the Director of National Intelligence. And on 7 October he did argue that six infrared dots in a declassified UAP video were a flock of birds. What the video leaves out is his last word on 3I itself. On 17 October he and two co-authors added a 'control' scale to the Loeb Scale and placed 3I at C0: no behaviour yet that needs active control to explain, which they stress does not rule out a technological origin. They also named the test that would move it up: a change in trajectory or attitude timed to a close planetary approach that outgassing models fitted to the rest of the passage do not predict. That is a sharp, fair test, and it is the right lens for this paper. No published fit reports a Jupiter-timed change; in this console's counterfactual the velocity change stood at 4.08 m/s on the day of the Jupiter pass and 4.13 m/s a month later, smooth through the encounter. Motives are not something these data can speak to."
     }
    ],
    "cases": [
@@ -346,7 +352,10 @@
     "https://doi.org/10.1051/0004-6361/202659645",
     "https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=C%2F2025%20N1",
     "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
-    "https://www.youtube.com/watch?v=ihnlxrNdhEQ"
+    "https://www.youtube.com/watch?v=ihnlxrNdhEQ",
+    "https://arxiv.org/abs/2606.01377",
+    "https://arxiv.org/abs/2609.01785",
+    "https://avi-loeb.medium.com/extending-the-loeb-scale-to-the-search-for-extraterrestrial-artificial-intelligence-setai-6f7bfc7cf2e3"
    ]
   }
  ]

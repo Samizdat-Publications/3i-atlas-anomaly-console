@@ -14,7 +14,7 @@
 | 100 km | 11 | 8.8 | 0.290 | 8.6 | 0.248 |
 | 200 km | 34 | 24.8 | 0.070 | 24.5 | 0.025 |
 | 500 km | 68 | 71.5 | 0.702 | 71.3 | 0.692 |
-| median nearest reactor | 2682 km | 2687 km | 0.592 | 2690 km | 0.448 |
+| median nearest reactor | 2682 km | 2687 km | 0.592 | 2690 km | 0.449 |
 
 The 200 km row is the only one above chance and is reported rather than omitted. It is not treated as a result: three radii were tested, and the shape is wrong for a proximity effect — absent at 100 km, present at 200 km, gone at 500 km.
 
@@ -32,17 +32,17 @@ The 200 km row is the only one above chance and is reported rather than omitted.
 | 900 | 50 | 50.3 |
 | 1200 | 42 | 53.1 |
 | 1500 | 75 | 52.6 |
-| 1800 | 46 | 52.0 |
-| 2100 | 50 | 51.9 |
-| 2400 | 50 | 48.2 |
+| 1800 | 46 | 52.1 |
+| 2100 | 50 | 52.0 |
+| 2400 | 50 | 48.1 |
 | 2700 | 60 | 48.9 |
-| 3000 | 50 | 48.4 |
+| 3000 | 50 | 48.5 |
 | 3300 | 37 | 42.5 |
 | 3600 | 41 | 39.5 |
-| 3900 | 30 | 32.9 |
+| 3900 | 30 | 32.8 |
 | 4200 | 20 | 24.0 |
-| 4500 | 14 | 21.2 |
-| 4800 | 20 | 18.8 |
+| 4500 | 15 | 21.2 |
+| 4800 | 19 | 18.8 |
 | 5100 | 19 | 18.4 |
 | 5400 | 17 | 16.6 |
 | 5700 | 17 | 15.6 |

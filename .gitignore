@@ -30,3 +30,6 @@ site-dist/
 
 # Downloaded papers: arXiv licences cover arXiv distribution only, so the repo links instead
 data/papers/
+
+# Local preview server config for Claude Code
+.claude/launch.json

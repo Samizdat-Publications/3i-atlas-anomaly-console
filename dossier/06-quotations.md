@@ -5,7 +5,7 @@
 
 ---
 
-35 quotations.
+41 quotations.
 
 | Speaker | Date | Camp | Verify | Quote | Source |
 |---|---|---|---|---|---|
@@ -29,6 +29,12 @@
 | Chris Lintott, University of Oxford astronomer | 2025-07 | media | `SECONDARY` | Any suggestion that it's artificial is nonsense on stilts, and is an insult to the exciting work going on to understand this object. | Live Science (Here we go again! Controversial paper...) |
 | Darryl Seligman, Michigan State University astronomer | 2025-07 | media | `SECONDARY` | There have been numerous telescopic observations of 3I/ATLAS demonstrating that it's displaying classical signatures of cometary activity. | Live Science / Newsweek interviews |
 | Karen Meech, University of Hawaii astronomer | 2025-07 | media | `SECONDARY` | You have a piece of another star system that's close enough to home that we can actually study it in detail. | University of Michigan News / phys.org |
+| M. Krolikowska, F. Spada & L. Dones | 2026-10-28 | official | `VERBATIM` | Based solely on astrometric evidence, the existence of nongravitational acceleration in 3I/ATLAS appears to be considerably better constrained than its physical origin. | https://arxiv.org/abs/2610.38485 |
+| The Angry Astronaut (YouTube) | 2026-11-01 | media | `SECONDARY` | Three Atlas is still changing course and it is still accelerating and we have no idea how. | https://www.youtube.com/watch?v=ihnlxrNdhEQ |
+| Cochran, Zeimann, Jehin, Kawakita & McKay | 2026-09-01 | official | `VERBATIM` | the outflow velocity of the gas is half that of comets in our Solar System | https://arxiv.org/abs/2609.01785 |
+| Roth, Cordiner et al. | 2026-10-23 | official | `VERBATIM` | This D/H ratio exceeds any other value for methane measured in the solar system | https://arxiv.org/abs/2603.20445 |
+| Avi Loeb | 2026-10-17 | loeb | `VERBATIM` | the extension leaves every Loeb Scale level in place, including Level 4 for 3I/ATLAS | https://avi-loeb.medium.com/extending-the-loeb-scale-to-the-search-for-extraterrestrial-artificial-intelligence-setai-6f7bfc7cf2e3 |
+| Hopkins, Bannister, Bitsch, Lintott & Forbes (paper) | 2026-09-25 | official | `VERBATIM` | Interestingly, this prediction is inconsistent with observations | https://arxiv.org/abs/2609.30827 |
 | Shmuel Bialy & Abraham Loeb | 2018-11-12 | loeb | `CORRECTED` | Considering an artificial origin, one possibility is that 'Oumuamua is a lightsail, floating in interstellar space as a debris from an advanced technological equipment. | Bialy & Loeb, 'Could Solar Radiation Pressure Explain 'Oumuamua's Peculiar Acceleration?', ApJL 868 L1 (arXiv:1810.11490, posted 2018-10-26) |
 | Shmuel Bialy & Abraham Loeb | 2018-11-12 | loeb | `VERBATIM` | Alternatively, a more exotic scenario is that 'Oumuamua may be a fully operational probe sent intentionally to Earth vicinity by an alien civilization. | Bialy & Loeb, ApJL 868 L1 (arXiv:1810.11490) |
 | Avi Loeb | 2021-01-26 | loeb | `SECONDARY` | 'Oumuamua was like a buoy resting in the expanse of the universe, and our solar system was like a ship that ran into it at high speed. | Loeb, 'Extraterrestrial: The First Sign of Intelligent Life Beyond Earth' (Houghton Mifflin Harcourt) |

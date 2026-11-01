@@ -346,9 +346,9 @@ def main():
     # --- start-here manifest, generated so its counts cannot go stale ------
     files = []
     for fn in sorted(os.listdir(OUT)):
-        if fn.startswith("00-"):
-            continue
         fp = os.path.join(OUT, fn)
+        if fn.startswith("00-") or os.path.isdir(fp):
+            continue
         size = os.path.getsize(fp)
         if fn.endswith(".csv"):
             with io.open(fp, encoding="utf-8") as f:
