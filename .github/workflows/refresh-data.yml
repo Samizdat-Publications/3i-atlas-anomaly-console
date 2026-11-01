@@ -9,11 +9,15 @@ name: Refresh source data
 # Run it by hand any time from the Actions tab; tick "ephemeris" there to also
 # re-pull JPL Horizons (slower, and a much larger diff).
 
+# The monthly schedule is OFF (2026-11-01). It never completed: once blocked by
+# the repo setting that stops Actions opening pull requests, then twice by an
+# AMS 503 killing the whole job. Stewart asks for data updates by hand, so this
+# now runs only on demand. To re-enable, restore:
+#   schedule:
+#     - cron: '17 6 1 * *'
+# and turn on Settings > Actions > General > "Allow GitHub Actions to create
+# and approve pull requests".
 on:
-  schedule:
-    # 06:17 UTC on the 1st. Off the hour on purpose: scheduled runs cluster at
-    # :00 across all of GitHub and get queued behind everyone else's.
-    - cron: '17 6 1 * *'
   workflow_dispatch:
     inputs:
       ephemeris:
@@ -37,23 +41,27 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: '3.x'
+          python-version: '3.13'
 
       - name: Pull the CNEOS fireball catalog
         run: python tools/fetch_fireballs.py
 
       # AMS is small and changes every month; cases F-03 and F-04 argue from it.
+      # Optional sources must not sink the CNEOS refresh: an AMS 503 used to
+      # kill the whole job. A failed optional step leaves its old file in place.
       - name: Pull the AMS eyewitness-report statistics
+        continue-on-error: true
         run: python tools/fetch_ams.py
 
       # GMN is gigabytes upstream. Only the newest month is re-pulled on the
       # monthly run; --refresh-last also re-reads the previous one, which is
       # still filling in as stations upload late.
       - name: Top up the Global Meteor Network summary
+        continue-on-error: true
         run: python tools/fetch_gmn.py --refresh-last
 
       - name: Re-pull the whole Global Meteor Network series
@@ -62,7 +70,11 @@ jobs:
 
       - name: Pull JPL Horizons ephemerides
         if: inputs.ephemeris
-        run: python tools/fetch_ephemeris.py
+        # The counterfactual must follow: it re-validates against the new path
+        # and re-adds the gravity-only ghost that fetch_ephemeris drops.
+        run: |
+          python tools/fetch_ephemeris.py
+          python tools/fetch_counterfactual.py
 
       - name: Re-bake content and rebuild the bundle
         run: |
