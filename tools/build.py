@@ -6,7 +6,7 @@ baked data, and app JS into ONE file at the project root:
 
 Usage: python tools/build.py
 """
-import base64, os, re, time
+import base64, json, os, re, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
@@ -64,11 +64,18 @@ def main():
     site = os.environ.get("SITE_URL", SITE_URL).rstrip("/")
     og_image = (site + "/og-image.png") if site else "og-image.png"
 
+    # Counts come from the baked content, never from prose: the page metadata said
+    # "44 case files" long after there were 49.
+    content = read("data-content.js")
+    content = json.loads(content[content.index("=") + 1:].strip().rstrip(";"))
+    n_cases = len(content["anomalies"])
+    n_3i = sum(1 for a in content["anomalies"] if a.get("object") == "3i")
+
     title = "3I/ATLAS — Interstellar Anomaly Review Console"
     desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
             "on real JPL Horizons trajectories, plus the CNEOS fireball map and its two "
-            "disputed interstellar meteors, with 44 fact-checked case files weighing "
-            "Avi Loeb's anomaly claims against the official explanations.")
+            "disputed interstellar meteors, with %d fact-checked case files weighing "
+            "Avi Loeb's anomaly claims against the official explanations." % n_cases)
     # inline SVG favicon: the console's sigil
     favicon = (
         "data:image/svg+xml,"
@@ -138,7 +145,8 @@ def main():
         if os.path.exists(font_path):
             with open(font_path, "rb") as f:
                 font_uri = "data:font/woff2;base64," + base64.b64encode(f.read()).decode("ascii")
-        about = about.replace("__FONT__", font_uri).replace("__SITE__", SITE_URL)
+        about = (about.replace("__FONT__", font_uri).replace("__SITE__", SITE_URL)
+                 .replace("__CASES_3I__", str(n_3i)).replace("__CASES__", str(n_cases)))
         about = "<!doctype html>\n<html lang=\"en\">\n" + about + "\n</html>\n"
         if beacon:
             about = about.replace("</html>", beacon + "\n</html>")

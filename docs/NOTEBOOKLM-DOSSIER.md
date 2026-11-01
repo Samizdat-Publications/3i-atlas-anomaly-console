@@ -422,12 +422,13 @@ Conclusion recorded as *burden shifted*, not *claim refuted*.
 |---|---|---|---|---|---|
 | 100 km | **23** | 32.8 | 0.963 | 32.7 | 0.968 |
 | 200 km | 78 | 82.3 | 0.690 | 81.9 | 0.691 |
-| 500 km | 260 | 250.5 | 0.301 | 250.6 | 0.253 |
+| 500 km | 260 | 250.6 | 0.302 | 250.7 | 0.254 |
 | median nearest volcano | 838 km | 854 km | 0.295 | 853 km | 0.314 |
 
 Clustering (scatter null only, 166 trials):
-median nearest-event distance **353 km** vs 354 km (p=0.479); events with another within
-100 km **55** vs 46.8 (p=0.228).
+median nearest-event distance **353 km** vs 357 km (p=0.335); events with another within
+100 km **59** vs 46.7 (p=0.126). Five CNEOS rows appear twice (same position and clock time,
+dates days apart) and are removed first; left in, they fake a cluster at p=0.006.
 
 **Reading.** No association at any radius; the nearest bin sits *below* chance. Proposed
 mechanism for the visual impression: volcano observatories operate continuous fixed sky

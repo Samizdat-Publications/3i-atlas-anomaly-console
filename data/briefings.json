@@ -201,7 +201,7 @@
     },
     {
      "h": "The answer",
-     "p": "Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.5. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null — and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 354 km expected."
+     "p": "Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.6. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null — and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 357 km expected, once five rows the catalog lists twice are set aside."
     },
     {
      "h": "Why the footage is still striking",
