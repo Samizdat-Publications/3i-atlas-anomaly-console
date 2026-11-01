@@ -2,17 +2,17 @@
  "channel": "@TheAngryAstronaut",
  "since": "2025-06-20",
  "match": [
-  "fireball",
-  "uap",
+  "3i",
   "atlas",
   "bolide",
-  "meteor",
+  "comet",
+  "fireball",
   "interstellar",
   "loeb",
-  "comet",
-  "3i"
+  "meteor",
+  "uap"
  ],
- "fetched": "2026-08-23",
+ "fetched": "2026-11-01",
  "videos": [
   {
    "id": "_zFhg-ny_oo",
@@ -983,6 +983,51 @@
    "duration": 1795,
    "url": "https://www.youtube.com/watch?v=wD5gQ4kiXwI",
    "file": "20260823-wD5gQ4kiXwI.txt"
+  },
+  {
+   "id": "VCnfmj04nXM",
+   "title": "Two NEW 3I Atlas discoveries!  Now we know NASA was wrong!",
+   "date": "20260910",
+   "url": "https://www.youtube.com/watch?v=VCnfmj04nXM",
+   "file": "20260910-VCnfmj04nXM.txt",
+   "chars": 19262,
+   "via": "captions API (YouTube 429 on direct fetch)"
+  },
+  {
+   "id": "aDADIw2zxoY",
+   "title": "PLANET-SIZED 3I ATLAS discovered in nearby solar system?  Whatever it is, it shouldn't exist!",
+   "date": "20260924",
+   "url": "https://www.youtube.com/watch?v=aDADIw2zxoY",
+   "file": "20260924-aDADIw2zxoY.txt",
+   "chars": 16408,
+   "via": "captions API (YouTube 429 on direct fetch)"
+  },
+  {
+   "id": "X-d5IaAq9bs",
+   "title": "The Fireball UAP Outbreak is over, right?  Right??",
+   "date": "20261012",
+   "url": "https://www.youtube.com/watch?v=X-d5IaAq9bs",
+   "file": "20261012-X-d5IaAq9bs.txt",
+   "chars": 14372,
+   "via": "captions API (YouTube 429 on direct fetch)"
+  },
+  {
+   "id": "5Gt9Soc0m4I",
+   "title": "NOT A COMET!  New 3I Atlas discovery sinks the scientific mainstream!",
+   "date": "20261017",
+   "url": "https://www.youtube.com/watch?v=5Gt9Soc0m4I",
+   "file": "20261017-5Gt9Soc0m4I.txt",
+   "chars": 20370,
+   "via": "captions API (YouTube 429 on direct fetch)"
+  },
+  {
+   "id": "ihnlxrNdhEQ",
+   "title": "NO KIDDING!  3I Atlas changing course and speeding up!  Where is Avi Loeb?",
+   "date": "20261101",
+   "url": "https://www.youtube.com/watch?v=ihnlxrNdhEQ",
+   "file": "20261101-ihnlxrNdhEQ.txt",
+   "chars": 22393,
+   "via": "captions API (YouTube 429 on direct fetch)"
   }
  ]
 }

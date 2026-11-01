@@ -332,6 +332,17 @@ def main():
         index.append(dict(v, file=name, chars=len(text)))
 
     shutil.rmtree(tmp, ignore_errors=True)
+    # Merge with the existing index rather than replacing it: an incremental
+    # run (--since last month) used to shrink a 114-video index to that month.
+    idx_path = os.path.join(OUT, "index.json")
+    if os.path.exists(idx_path):
+        with open(idx_path, encoding="utf-8") as f:
+            old = json.load(f)
+        seen = {v["id"] for v in index}
+        index += [v for v in old.get("videos", []) if v["id"] not in seen
+                  and os.path.exists(os.path.join(OUT, v.get("file", "")))]
+        since = min(filter(None, [since, old.get("since")]))
+        words = sorted(set(words) | set(old.get("match") or []))
     index.sort(key=lambda v: v.get("date") or "")
     with open(os.path.join(OUT, "index.json"), "w", encoding="utf-8") as f:
         json.dump({"channel": args.channel, "since": None if args.all_dates else since,
