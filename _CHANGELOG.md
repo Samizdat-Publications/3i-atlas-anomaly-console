@@ -1,5 +1,42 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.20 - 2026-11-01 (quality pass: correctness, phones, keyboards, speed, CI)
+
+A review of the whole console turned up bugs that had been there since the early releases. None
+of them changes a number; all of them change how it feels to use.
+
+- **Correctness.** The boot could start the app twice (a double-click, or a key then a click
+  inside the fade): two renderers, two frame loops, doubled audio. It now starts once. The replay
+  no longer keeps running, with alert tones, behind a briefing, the fireball map, the archive or a
+  shared link, and Space no longer starts it from a page you are reading. Lists that re-render on a
+  timer (the next-event panel, the case log) no longer swallow clicks. Closing a case opened from a
+  briefing returns to the briefing. Play at the end of the tape rewinds. L and G keep their buttons
+  in step. LOCATE ON IMPACT MAP only appears where there is a catalog row to locate. The SYS clock
+  keeps time while paused. DISPATCH reads its dates and distances from the computed close
+  approaches instead of hard-coding them.
+- **Phones.** The timeline decides tap versus drag when the finger lifts, not when it lands; at
+  phone width the marker hit zones covered most of the track, so nearly every drag opened a record.
+  Slide-over rails close on a selection or a tap outside them, and a case sheet now sits above
+  them. The disclaimer stays visible at every width.
+- **Keyboards and screen readers.** The console had no ARIA at all, and behind the boot
+  screen it was still in the tab order. It is now inert until authentication, and every clickable
+  row (case log, mission log, archive list, close approaches, redaction bars) is a focusable
+  button that Enter or Space activates. Icon buttons are named, toggles report their state, the
+  case sheet is a modal dialog that takes and returns focus, and toasts are announced. Faint text
+  rises from 2.6:1 to 5:1 contrast. With reduced motion requested there is no autoplay, cameras
+  cut instead of swooping, and transitions stop.
+- **Speed.** The 3D scene no longer renders while it is covered (briefings, fireballs, archive) or
+  in a hidden tab, and the audio suspends with the tab. Label placement reads the container size
+  once per frame instead of fifteen times, the range line updates in place, the event list is
+  built once per object, and the timeline canvas is only resized when its box changes.
+- **Upkeep.** `build.py` writes the dev page's script list, which had fallen two files behind.
+  Help and tour counts come from the data. Dead code removed. Em dashes swept from every piece of
+  reader-facing text except verbatim quotations, and the build reports any that come back.
+- **CI.** New `.github/workflows/check.yml` on every pull request and push: JavaScript parses,
+  generated content matches its sources, the bundle rebuilds byte-identical, the offline file has
+  zero external references, the fireball case text matches the data, and no spatial statistic is
+  pinned at its cap.
+
 ## v2.19 - 2026-11-01 (is 3I/ATLAS changing course?)
 
 A new paper, Krolikowska, Spada & Dones (arXiv:2610.38485, 28 Oct 2026), refits 3I's orbit from

@@ -1,5 +1,5 @@
 /* ============================================================
-   CORE — state, time engine, ERA-AWARE ephemeris access, audio
+   CORE · state, time engine, ERA-AWARE ephemeris access, audio
    window.CX is the app namespace. Load order: core, charts,
    scene3d, ui, main.
    Eras: '3i' (ATLAS 2025-26) / '1i' ('Oumuamua 2017-18) / '2i'
@@ -62,6 +62,8 @@
   }
 
   CX.EPOCH = 0; CX.N = 1; CX.NOW_T = null;
+  // prefers-reduced-motion: no autoplay, no camera swoops, slower particles.
+  CX.reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   CX.applyEraClock = function () {
     const e = CX.eraData();
@@ -161,6 +163,12 @@
     AU.master.connect(AU.ctx.destination);
     AU.startHum();
     AU.bleepLoop();
+    // A background tab kept humming. Suspend the whole graph while hidden.
+    document.addEventListener('visibilitychange', function () {
+      if (!AU.ctx) return;
+      if (document.hidden) AU.ctx.suspend();
+      else AU.ctx.resume();
+    });
   };
   AU.setMuted = function (m) {
     if (!AU.master) return;
@@ -226,13 +234,15 @@
   };
 
   // ---------- events (era-scoped mission + anomaly markers) ----------
+  const eventCache = {};
   CX.allEvents = function () {
-    const evs = [];
+    if (eventCache[S.era]) return eventCache[S.era];
+    const evs = eventCache[S.era] = [];
     CX.eraTimeline().forEach(function (e) {
       evs.push({ t: CX.tOfIso(e.date), kind: e.kind || 'observation', title: e.title, desc: e.description, cls: 'mission', src: e });
     });
     CX.eraAnomalies().forEach(function (a) {
-      evs.push({ t: CX.tOfIso(a.date), kind: 'anomaly', title: a.id + ' — ' + a.title, desc: a.observation, cls: 'anomaly', src: a });
+      evs.push({ t: CX.tOfIso(a.date), kind: 'anomaly', title: a.id + ', ' + a.title, desc: a.observation, cls: 'anomaly', src: a });
     });
     evs.sort(function (a, b) { return a.t - b.t; });
     return evs;

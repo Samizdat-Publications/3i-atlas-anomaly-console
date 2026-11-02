@@ -1,9 +1,9 @@
 /* ============================================================
-   MAIN — boot flow + frame loop
+   MAIN · boot flow + frame loop
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.19';
+  window.APP_VERSION = '2.20';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -33,12 +33,14 @@
       // here would throw away the framing the link was shared for.
       if (!deepLinked) CX.scene3d.applyPreset('chase');
 
+      // A shared link is opened to be read, and a reduced-motion user has asked
+      // for stillness: neither gets the replay rolling (or its alert tones).
       setTimeout(function () {
+        if (deepLinked || CX.reducedMotion) return;
         S.playing = true;
         CX.emit('playstate');
-        if (deepLinked) return;
         CX.ui.showToast({
-          title: 'REPLAY ARMED — ' + CX.ERA_META[S.era].label + ' TRANSIT',
+          title: 'REPLAY ARMED · ' + CX.ERA_META[S.era].label + ' TRANSIT',
           t: S.t, cls: 'mission',
           desc: 'SPACE pauses · switch target with 3I / 1I / 2I · press T for the guided tour · ? for controls.',
         });
@@ -52,6 +54,10 @@
         requestAnimationFrame(frame);
       }
       requestAnimationFrame(frame);
+      setInterval(function () {
+        const u = document.getElementById('cx-utc');
+        if (u) u.textContent = 'SYS ' + new Date().toISOString().slice(0, 16).replace('T', ' ') + 'Z';
+      }, 15000);
     });
   }
 

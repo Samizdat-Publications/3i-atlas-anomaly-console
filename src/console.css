@@ -25,7 +25,8 @@
   --red: #ff4a5e;          /* alert */
   --txt: #bfe4f2;
   --txt-dim: #6f93a8;
-  --txt-faint: #3d5a6c;
+  --txt-faint: #62879b;    /* 5:1 on --bg1 (was #3d5a6c, 2.6:1, under WCAG AA) */
+  --dim: #6f93a8;          /* used by the briefings pane; was never defined */
   --mono: 'ShareTechMono', Consolas, 'Courier New', monospace;
   --glow-c: 0 0 6px rgba(52,225,255,.55);
   --glow-a: 0 0 6px rgba(255,179,71,.55);
@@ -63,8 +64,6 @@ body {
   opacity: 0; transition: opacity .8s ease;
 }
 .cx-root.cx-live { opacity: 1; }
-.cx-root.cx-fullcenter { grid-template-columns: 0 1fr 0; }
-.cx-root.cx-fullcenter .cx-left, .cx-root.cx-fullcenter .cx-right { display: none; }
 
 /* ============ TOP BAR ============ */
 .cx-top {
@@ -235,6 +234,13 @@ body {
   opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
 }
 .cx-calcnote.cx-show { opacity: .95; }
+/* keyboard focus is always visible */
+[data-act]:focus-visible, .cx-btn:focus-visible, button:focus-visible, a:focus-visible, .cx-boot-auth:focus-visible {
+  outline: 1px solid var(--cyan); outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
 .cx-calcnote { bottom: 34px; }
 /* both on: the computed banner sits above the speculative one */
 .cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 62px; }
@@ -487,7 +493,6 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   content: ''; position: fixed; inset: 0; z-index: 201; pointer-events: none;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 58%, rgba(0,0,0,.42) 100%);
 }
-.cx-flicker { animation: cx-flick 7s infinite; }
 @keyframes cx-flick {
   0%, 100% { opacity: 1; } 92% { opacity: 1; } 92.5% { opacity: .86; }
   93% { opacity: 1; } 96% { opacity: 1; } 96.3% { opacity: .93; } 96.6% { opacity: 1; }
@@ -507,7 +512,6 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 
 /* reveal animation for panels */
 @keyframes cx-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.cx-rise { animation: cx-rise .45s ease both; }
 
 /* ============ RAIL LOG TABS ============ */
 /* Two registers share one panel: the anomaly case files and the mission log.
@@ -625,7 +629,10 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   body.cx-show-left .cx-left, body.cx-show-right .cx-right { transform: none; }
   .cx-campods { top: auto; bottom: 8px; left: 8px; max-width: 62%; }
   .cx-viewopts { top: 8px; right: 8px; }
-  .cx-disclaimer { display: none; }
+  /* The disclaimer stays at every width (a CLAUDE.md rule); it just shrinks. */
+  .cx-disclaimer { font-size: 7.5px; max-width: 70%; letter-spacing: .5px; opacity: .85; }
+  /* a case sheet opened from a slide-over rail must sit above it */
+  .cx-overlay { z-index: 50; }
   /* narrow: one scrolling column, map given an explicit height so the canvas
      still has a box to measure */
   .cx-fbwrap { display: block; overflow-y: auto; }
@@ -667,10 +674,8 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 
 /* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion: reduce) {
-  .cx-flicker { animation: none; }
   .cx-alert-pill { animation: none; }
   .cx-boot-auth { animation: none; opacity: 1; }
-  .cx-rise { animation: none; }
   .cx-root { transition: none; }
   .cx-left, .cx-right { transition: none; }
 }

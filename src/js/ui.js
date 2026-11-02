@@ -1,5 +1,5 @@
 /* ============================================================
-   UI — DOM skeleton, boot, timeline, dossiers, archive, wiring
+   UI · DOM skeleton, boot, timeline, dossiers, archive, wiring
    Markup is injected via setH() (insertAdjacentHTML) only.
    ============================================================ */
 (function () {
@@ -8,6 +8,57 @@
   const UI = (CX.ui = {});
 
   function setH(node, html) { node.textContent = ''; node.insertAdjacentHTML('beforeend', html); }
+  // Lists that re-render on a timer (next event every 120 ms, the case log every
+  // 900 ms) used to swallow clicks: the element under the pointer was replaced
+  // between press and release, so the click landed on a parent with no data-act.
+  let pressTarget = null;
+  document.addEventListener('pointerdown', function (ev) { pressTarget = ev.target; }, true);
+  document.addEventListener('pointerup', function () { setTimeout(function () { pressTarget = null; }, 0); }, true);
+  document.addEventListener('pointercancel', function () { pressTarget = null; }, true);
+  // Clickable rows are divs (case log, mission log, archive list, close
+  // approaches, redaction bars). Give every [data-act] that is not already a
+  // button or link a role and a tab stop, and name icon-only buttons from their
+  // tooltip, so a keyboard or screen reader can reach what a mouse can.
+  const TOGGLES = { labels: 'labels', orbits: 'orbits', grid: 'grid', dispatch: null, ghost: null, audio: 'audio', crt: 'crt' };
+  function a11yScan(root) {
+    (root.querySelectorAll ? root.querySelectorAll('[data-act]') : []).forEach(function (n) {
+      const tag = n.tagName;
+      if (tag !== 'BUTTON' && tag !== 'A' && !n.hasAttribute('tabindex')) {
+        n.setAttribute('tabindex', '0');
+        if (!n.hasAttribute('role')) n.setAttribute('role', 'button');
+      }
+      if (tag === 'BUTTON' && !n.hasAttribute('aria-label')) {
+        const txt = (n.textContent || '').trim();
+        if (txt.length <= 2 && n.title) n.setAttribute('aria-label', n.title);
+      }
+      if (n.getAttribute('data-act') in TOGGLES) n.setAttribute('aria-pressed', n.classList.contains('cx-on') ? 'true' : 'false');
+    });
+  }
+  function syncPressed() {
+    document.querySelectorAll('[data-act]').forEach(function (n) {
+      if (n.getAttribute('data-act') in TOGGLES) n.setAttribute('aria-pressed', n.classList.contains('cx-on') ? 'true' : 'false');
+    });
+  }
+  new MutationObserver(function (muts) {
+    muts.forEach(function (m) { m.addedNodes.forEach(function (n) { if (n.nodeType === 1) a11yScan(n.parentNode || n); }); });
+  }).observe(document.documentElement, { childList: true, subtree: true });
+  // Enter or Space on a focused non-button control activates it.
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    const n = ev.target;
+    if (!n || !n.getAttribute || !n.hasAttribute('data-act') || n.tagName === 'BUTTON' || n.tagName === 'A') return;
+    ev.preventDefault(); ev.stopPropagation();
+    n.click();
+  }, true);
+
+  function countOf(obj) { return (C.anomalies || []).filter(function (a) { return (a.object || '3i') === obj; }).length; }
+
+  function setHStable(node, html) {
+    if (node._cxHtml === html) return;
+    if (pressTarget && node.contains(pressTarget)) return;
+    node._cxHtml = html;
+    setH(node, html);
+  }
   function el(tag, cls, html) {
     const d = document.createElement(tag);
     if (cls) d.className = cls;
@@ -67,8 +118,8 @@
       '  </div>',
       '  <button class="cx-icobtn cx-railbtn" data-act="rail" data-side="left" title="anomaly log">◧</button>',
       '  <div class="cx-top-spacer"></div>',
-      '  <div class="cx-alert-pill" id="cx-alert">LOEB SCALE ' + esc(meta.loebScale != null ? meta.loebScale : '—') + ' · REVIEW ACTIVE</div>',
-      '  <div class="cx-clockbox"><div class="cx-simdate" id="cx-simdate">—</div><div class="cx-utc" id="cx-utc">—</div></div>',
+      '  <div class="cx-alert-pill" id="cx-alert">LOEB SCALE ' + esc(meta.loebScale != null ? meta.loebScale : '-') + ' · REVIEW ACTIVE</div>',
+      '  <div class="cx-clockbox"><div class="cx-simdate" id="cx-simdate">-</div><div class="cx-utc" id="cx-utc">-</div></div>',
       '  <button class="cx-icobtn cx-railbtn" data-act="rail" data-side="right" title="telemetry">◨</button>',
       '  <button class="cx-icobtn cx-on" id="cx-btn-audio" data-act="audio" title="sound">♪</button>',
       '  <button class="cx-icobtn cx-on" id="cx-btn-crt" data-act="crt" title="CRT effect">▦</button>',
@@ -95,7 +146,7 @@
       '  </div>',
       '  <div class="cx-specnote" id="cx-specnote">DISPATCH: ILLUSTRATION OF A CLAIM, NOT AN OBSERVATION. NOTHING HAS BEEN SEEN LEAVING THIS OBJECT.</div>',
       '  <div class="cx-calcnote" id="cx-calcnote"></div>',
-      '  <div class="cx-toast" id="cx-toast"></div>',
+      '  <div class="cx-toast" id="cx-toast" role="status" aria-live="polite"></div>',
       '  <div class="cx-tour" id="cx-tour"><div class="cx-tour-inner">',
       '    <div class="cx-tour-step" id="cx-tour-step"></div>',
       '    <div class="cx-tour-title" id="cx-tour-title"></div>',
@@ -126,7 +177,7 @@
       '    <div class="cx-doclist" id="cx-doclist"></div>',
       '    <div class="cx-docview" id="cx-docview"></div>',
       '  </div>',
-      '  <div class="cx-overlay" id="cx-overlay"><div class="cx-sheet" id="cx-sheet"></div></div>',
+      '  <div class="cx-overlay" id="cx-overlay" role="dialog" aria-modal="true" aria-label="Record"><div class="cx-sheet" id="cx-sheet"></div></div>',
       '</div>',
       '<div class="cx-right" id="cx-right"></div>',
       '<div class="cx-bottom">',
@@ -179,10 +230,10 @@
       '<div class="cx-panel">',
       '  <div class="cx-panel-title"><span class="cx-tt-accent">◢</span> MISSION STATUS</div>',
       '  <div class="cx-readout-grid">',
-      '    <div class="cx-readout"><div class="cx-ro-label">SUN RANGE</div><div class="cx-ro-value" id="cx-ro-rsun">—</div></div>',
-      '    <div class="cx-readout"><div class="cx-ro-label">EARTH RANGE</div><div class="cx-ro-value" id="cx-ro-rearth">—</div></div>',
-      '    <div class="cx-readout cx-ro-green"><div class="cx-ro-label">VELOCITY</div><div class="cx-ro-value" id="cx-ro-vel">—</div></div>',
-      '    <div class="cx-readout cx-ro-amber"><div class="cx-ro-label">PHASE</div><div class="cx-ro-value" id="cx-ro-phase" style="font-size:13px">—</div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">SUN RANGE</div><div class="cx-ro-value" id="cx-ro-rsun">-</div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">EARTH RANGE</div><div class="cx-ro-value" id="cx-ro-rearth">-</div></div>',
+      '    <div class="cx-readout cx-ro-green"><div class="cx-ro-label">VELOCITY</div><div class="cx-ro-value" id="cx-ro-vel">-</div></div>',
+      '    <div class="cx-readout cx-ro-amber"><div class="cx-ro-label">PHASE</div><div class="cx-ro-value" id="cx-ro-phase" style="font-size:13px">-</div></div>',
       '  </div>',
       '</div>',
       '<div class="cx-panel" style="padding:10px 0 0">',
@@ -192,7 +243,7 @@
       '    <span class="cx-logcount" id="cx-alog-count"></span>',
       '  </div>',
       '  <div class="cx-search" id="cx-search">',
-      '    <input id="cx-q" type="search" autocomplete="off" spellcheck="false" placeholder="search all 3 objects — try &quot;nickel&quot;">',
+      '    <input id="cx-q" type="search" autocomplete="off" spellcheck="false" placeholder="search all 3 objects, try &quot;nickel&quot;">',
       '    <span class="cx-search-x" data-act="q-clear" title="clear">✕</span>',
       '  </div>',
       '  <div class="cx-alog" id="cx-alog"></div>',
@@ -203,23 +254,23 @@
       '</div>',
     ].join('\n'));
     UI.renderAnomalyList();
-    const qi = $('cx-q');            // rail is rebuilt on era switch — keep the query
+    const qi = $('cx-q');            // rail is rebuilt on era switch, keep the query
     if (qi && query) qi.value = query;
     syncSearchPlaceholder();
   }
 
-  // Case search runs across ALL three objects — searching "nickel" should surface
+  // Case search runs across ALL three objects, searching "nickel" should surface
   // both 3I's anomaly and 2I's control-case result, which is half the point.
   let query = '';
   // Which list the rail is showing. The MISSION LOG tab exists because 24% of
-  // timeline records sit outside their era's scrubber window — 1I's story runs to
-  // 2026 while its ephemeris stops in 2018 — so a marker is not a reliable way in.
+  // timeline records sit outside their era's scrubber window, 1I's story runs to
+  // 2026 while its ephemeris stops in 2018, so a marker is not a reliable way in.
   let logTab = 'cases';
   function syncSearchPlaceholder() {
     const qi = $('cx-q');
     if (qi) qi.placeholder = logTab === 'log'
-      ? 'search the mission log — try \u201cperihelion\u201d'
-      : 'search all 3 objects — try \u201cnickel\u201d';
+      ? 'search the mission log, try \u201cperihelion\u201d'
+      : 'search all 3 objects, try \u201cnickel\u201d';
   }
   UI.setLogTab = function (t) {
     if (logTab === t) return;
@@ -249,10 +300,10 @@
       if (cnt) cnt.textContent = list.length + ' ENTRIES';
     }
     if (!list.length) {
-      setH(box, '<div class="cx-nores">NO LOG ENTRY MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
+      setHStable(box, '<div class="cx-nores">NO LOG ENTRY MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
       return;
     }
-    setH(box, list.map(function (e) {
+    setHStable(box, list.map(function (e) {
       const obj = e.object || '3i';
       const foreign = obj !== S.era;
       const em = CX.ERA_META[obj];
@@ -295,10 +346,10 @@
     }
 
     if (!list.length) {
-      setH(box, '<div class="cx-nores">NO CASE MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
+      setHStable(box, '<div class="cx-nores">NO CASE MATCHES &ldquo;' + esc(query.trim()) + '&rdquo;</div>');
       return;
     }
-    setH(box, list.map(function (a) {
+    setHStable(box, list.map(function (a) {
       const obj = a.object || '3i';
       const foreign = obj !== S.era;
       const future = !foreign && CX.tOfIso(a.date) > S.t;
@@ -333,25 +384,25 @@
       '<div class="cx-panel">',
       '  <div class="cx-panel-title"><span class="cx-tt-accent">◧</span> OBJECT DATA</div>',
       '  <div class="cx-readout-grid">',
-      '    <div class="cx-readout"><div class="cx-ro-label">ECCENTRICITY</div><div class="cx-ro-value">' + esc(iso3.eccentricity != null ? iso3.eccentricity : '—') + '</div></div>',
-      '    <div class="cx-readout"><div class="cx-ro-label">INCLINATION</div><div class="cx-ro-value">' + esc(iso3.inclination_deg != null ? iso3.inclination_deg : '—') + '°</div></div>',
-      '    <div class="cx-readout"><div class="cx-ro-label">V-INFINITY</div><div class="cx-ro-value">' + esc(iso3.v_infinity_kms != null ? iso3.v_infinity_kms : '—') + '<small> KM/S</small></div></div>',
-      '    <div class="cx-readout"><div class="cx-ro-label">PERIHELION</div><div class="cx-ro-value">' + esc(iso3.perihelion_au != null ? iso3.perihelion_au : '—') + '<small> AU</small></div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">ECCENTRICITY</div><div class="cx-ro-value">' + esc(iso3.eccentricity != null ? iso3.eccentricity : '-') + '</div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">INCLINATION</div><div class="cx-ro-value">' + esc(iso3.inclination_deg != null ? iso3.inclination_deg : '-') + '°</div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">V-INFINITY</div><div class="cx-ro-value">' + esc(iso3.v_infinity_kms != null ? iso3.v_infinity_kms : '-') + '<small> KM/S</small></div></div>',
+      '    <div class="cx-readout"><div class="cx-ro-label">PERIHELION</div><div class="cx-ro-value">' + esc(iso3.perihelion_au != null ? iso3.perihelion_au : '-') + '<small> AU</small></div></div>',
       '  </div>',
-      '  <div style="margin-top:8px;color:var(--txt-dim);font-size:10.5px">NUCLEUS: ' + esc(iso3.size_estimate || '—') + '</div>',
+      '  <div style="margin-top:8px;color:var(--txt-dim);font-size:10.5px">NUCLEUS: ' + esc(iso3.size_estimate || '-') + '</div>',
       '</div>',
       '<div class="cx-panel">',
       '  <div class="cx-panel-title"><span style="color:var(--amber)">▲</span> LOEB SCALE</div>',
       '  <div class="cx-gauge"><div class="cx-gauge-track"><div class="cx-gauge-fill" style="width:' + Math.min(100, (meta.loebScale || 0) * 10) + '%"></div></div>',
-      '  <div class="cx-gauge-num">' + esc(meta.loebScale != null ? meta.loebScale : '—') + ' / 10</div></div>',
-      '  <div style="color:var(--txt-faint);font-size:10px;margin-top:2px">SELF-DECLARED ODDITY RATING PER A. LOEB — 0 NATURAL … 10 CONFIRMED TECH</div>',
+      '  <div class="cx-gauge-num">' + esc(meta.loebScale != null ? meta.loebScale : '-') + ' / 10</div></div>',
+      '  <div style="color:var(--txt-faint);font-size:10px;margin-top:2px">SELF-DECLARED ODDITY RATING PER A. LOEB · 0 NATURAL … 10 CONFIRMED TECH</div>',
       (meta.loebScaleHistory ? '  <div style="color:var(--amber-dim);font-size:9.5px;margin-top:4px;letter-spacing:.5px">' + esc(meta.loebScaleHistory) + '</div>' : ''),
       (meta.anomalyCountNote ? '  <div style="color:var(--txt-faint);font-size:9.5px;margin-top:4px">' + esc(meta.anomalyCountNote) + '</div>' : ''),
       (meta.datasetVerify ? '  <div style="color:var(--txt-faint);font-size:9.5px;margin-top:4px">FACT-CHECK: ' + esc(meta.datasetVerify) + '</div>' : ''),
       '</div>',
       '<div class="cx-panel" id="cx-nextevent-panel">',
       '  <div class="cx-panel-title"><span class="cx-tt-accent">▹</span> NEXT EVENT</div>',
-      '  <div id="cx-nextevent" style="font-size:12px;color:var(--txt)">—</div>',
+      '  <div id="cx-nextevent" style="font-size:12px;color:var(--txt)">-</div>',
       '</div>',
     ].join('\n'));
   }
@@ -382,11 +433,11 @@
         const id = nxt.src && nxt.src.id;
         const act = id ? ' data-act="' + (isAnom ? 'anomaly' : 'event') + '" data-id="' + esc(id) + '"' +
           (isAnom ? ' data-obj="' + esc(nxt.src.object || '3i') + '"' : '') : '';
-        setH(ne, '<div class="cx-nextev"' + act + '>' +
+        setHStable(ne, '<div class="cx-nextev"' + act + '>' +
           '<span style="color:var(--' + (isAnom ? 'amber' : 'cyan') + ')">' + esc(nxt.title) + '</span>' +
           '<div style="color:var(--txt-faint);font-size:10px">' + CX.fmtDate(nxt.t) + ' · IN ' +
           Math.ceil(nxt.t - S.t) + 'd' + (id ? ' · OPEN RECORD ▸' : '') + '</div></div>');
-      } else setH(ne, '<span style="color:var(--txt-dim)">NO FURTHER SCHEDULED EVENTS — OUTBOUND CRUISE</span>');
+      } else setHStable(ne, '<span style="color:var(--txt-dim)">NO FURTHER SCHEDULED EVENTS · OUTBOUND CRUISE</span>');
     }
   };
 
@@ -396,7 +447,8 @@
     const track = $('cx-tl-track');
     const r = track.getBoundingClientRect();
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    tlCanvas.width = Math.round(r.width * dpr); tlCanvas.height = Math.round(r.height * dpr);
+    const tw = Math.round(r.width * dpr), th = Math.round(r.height * dpr);
+    if (tlCanvas.width !== tw || tlCanvas.height !== th) { tlCanvas.width = tw; tlCanvas.height = th; }
     const g = tlCanvas.getContext('2d');
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     const W = r.width, H = r.height;
@@ -455,8 +507,8 @@
     CX.setT(frac * (CX.N - 1));
   }
   function tlClick(ev, tol) {
-    // Marker hit test. The two kinds are drawn in separate rows — anomaly
-    // triangles above the baseline, mission diamonds below — so the pointer's
+    // Marker hit test. The two kinds are drawn in separate rows, anomaly
+    // triangles above the baseline, mission diamonds below, so the pointer's
     // side decides which row it can hit. Without that, the rows compete for
     // every tap and, at phone width where markers sit ~10px apart, scrubbing
     // by tapping became impossible.
@@ -497,7 +549,7 @@
     const kind = e.kind ? TOAST_KIND[e.kind] : (e.cls === 'anomaly' ? TOAST_KIND.anomaly : '');
     setH(t, (kind ? '<span class="cx-toast-kind">' + esc(kind) + '</span>' : '') +
       esc(e.title) + '<span class="cx-toast-date">' + CX.fmtDate(e.t) +
-      (e.desc ? ' — ' + esc(String(e.desc).slice(0, 110)) + '…' : '') + more + '</span>');
+      (e.desc ? ', ' + esc(String(e.desc).slice(0, 110)) + '…' : '') + more + '</span>');
     t.className = 'cx-toast cx-show' + (e.cls === 'anomaly' ? ' cx-anom' : '');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { t.className = 'cx-toast'; }, 4200);
@@ -517,7 +569,7 @@
 
   // ============ TIMELINE RECORD ============
   // Clicking an anomaly marker has always opened its full case file. Clicking a
-  // mission marker only ever flashed a toast — 110 characters of a description
+  // mission marker only ever flashed a toast, 110 characters of a description
   // that averages 456, with its citations dropped at bake time. Same component,
   // cyan instead of amber, so the two read as siblings rather than clones.
   const EVENT_KIND = {
@@ -560,14 +612,14 @@
       '  <span class="cx-sheet-count">ENTRY ' + (eventIdx + 1) + ' / ' + eventList.length + '</span>',
       '</div>',
     ].join('\n'));
-    $('cx-overlay').classList.add('cx-show');
+    showOverlay();
     syncHash();
   }
   UI.openEvent = openEvent;
 
   let dossierIdx = -1, dossierList = [];
   // Cases live under an object key: '3i'/'1i'/'2i' are eras with an ephemeris,
-  // 'fb' is the CNEOS fireball register, which has none — so opening one of its
+  // 'fb' is the CNEOS fireball register, which has none, so opening one of its
   // files switches MODE rather than era.
   function objCases(obj) {
     return obj === 'fb' ? CX.fireballs.cases()
@@ -598,14 +650,14 @@
       '<div class="cx-sheet-body">',
       '  <div class="cx-block"><div class="cx-block-label cx-bl-obs">OBSERVATION</div><div class="cx-block-text">' + esc(a.observation) + '</div></div>',
       '  <div class="cx-block cx-b-loeb"><div class="cx-block-label cx-bl-loeb">' + esc(a.claim_label || 'LOEB ASSESSMENT') + '</div><div class="cx-block-text">' + esc(a.loeb_take) + '</div>' +
-        (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">— ' + esc((a.claim_label === 'LOEB ASSESSMENT' ? 'A. LOEB · ' : '') + (a.quote_source || '')) + '</span></div>' : '') + '</div>',
+        (a.loeb_quote ? '<div class="cx-quote">“' + esc(a.loeb_quote) + '”<span class="cx-q-src">, ' + esc((a.claim_label === 'LOEB ASSESSMENT' ? 'A. LOEB · ' : '') + (a.quote_source || '')) + '</span></div>' : '') + '</div>',
       '  <div class="cx-block cx-b-off"><div class="cx-block-label cx-bl-off">OFFICIAL EXPLANATION</div><div class="cx-block-text">' + esc(a.official_explanation) + '</div></div>',
       '  <canvas class="cx-dchart" id="cx-dchart"></canvas>',
       refsRow(a.sources),
       '</div>',
       '<div class="cx-sheet-actions">',
       (isFb
-        ? '  <button class="cx-btn cx-btn-amber" data-act="fb-visualize" data-id="' + esc(a.id) + '">◎ LOCATE ON IMPACT MAP</button>'
+        ? (CX.fireballs.rowOfCase(a.id) ? '  <button class="cx-btn cx-btn-amber" data-act="fb-visualize" data-id="' + esc(a.id) + '">◎ LOCATE ON IMPACT MAP</button>' : '')
         : '  <button class="cx-btn cx-btn-amber" data-act="visualize" data-id="' + esc(a.id) + '">◈ VISUALIZE IN TRACKER</button>'),
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="-1">◀ PREV</button>',
       '  <button class="cx-btn cx-btn-ghost" data-act="dossier-nav" data-d="1">NEXT ▶</button>',
@@ -614,7 +666,7 @@
       '  <span class="cx-sheet-count">CASE ' + (dossierIdx + 1) + ' / ' + dossierList.length + '</span>',
       '</div>',
     ].join('\n'));
-    $('cx-overlay').classList.add('cx-show');
+    showOverlay();
     syncHash();
     requestAnimationFrame(function () {
       const cv = $('cx-dchart');
@@ -626,12 +678,18 @@
     });
   }
   UI.openDossier = openDossier;
+  let returnMode = null;
   function closeOverlay() {
+    const wasOpen = $('cx-overlay').classList.contains('cx-show');
     $('cx-overlay').classList.remove('cx-show');
+    if (wasOpen) restoreFocus();
     S.selAnomaly = null;
     S.selEvent = null;
     UI.renderAnomalyList();
-    if (S.mode === 'anomalies') setMode('track');
+    const back = returnMode;
+    returnMode = null;
+    if (back && back !== S.mode) setMode(back);
+    else if (S.mode === 'anomalies') setMode('track');
     syncHash();
   }
 
@@ -658,6 +716,22 @@
     if (S.viz.ghost) renderCalcNote();
   }
   UI.syncOverlayChrome = syncOverlayChrome;
+  // ---- the case / record / help sheet behaves as a modal dialog ----
+  let lastFocus = null;
+  function showOverlay() {
+    const ov = $('cx-overlay');
+    if (!ov.classList.contains('cx-show')) lastFocus = document.activeElement;
+    ov.classList.add('cx-show');
+    requestAnimationFrame(function () {
+      const x = ov.querySelector('.cx-x') || ov.querySelector('button');
+      if (x) try { x.focus(); } catch (e) { /* not fatal */ }
+    });
+  }
+  UI.showOverlay = showOverlay;
+  function restoreFocus() {
+    const f = lastFocus; lastFocus = null;
+    if (f && document.contains(f) && f.focus) try { f.focus(); } catch (e) { /* not fatal */ }
+  }
   function renderCalcNote() {
     const cn = $('cx-calcnote'), g = CX.charts.ghostAt(S.t);
     if (!cn || !g) return;
@@ -689,7 +763,7 @@
     if (a.viz_hint === 'trajectory') { CX.scene3d.applyPreset('top'); markCam('top'); }
     else if (a.viz_hint === 'tail') { CX.scene3d.applyPreset('chase'); markCam('chase'); }
     else { CX.scene3d.applyPreset('free'); markCam('free'); }
-    showToast({ title: a.id + ' — ' + a.title, t: CX.tOfIso(a.date), cls: 'anomaly', desc: a.observation });
+    showToast({ title: a.id + ', ' + a.title, t: CX.tOfIso(a.date), cls: 'anomaly', desc: a.observation });
     CX.audio.anomalyAlert();
   }
 
@@ -769,7 +843,7 @@
   function copyCaseLink(id) {
     const url = recordUrl(id);
     const done = function (ok) {
-      showToast({ title: ok ? 'LINK COPIED TO CLIPBOARD' : 'COPY FAILED — LINK IS IN THE ADDRESS BAR',
+      showToast({ title: ok ? 'LINK COPIED TO CLIPBOARD' : 'COPY FAILED · LINK IS IN THE ADDRESS BAR',
         t: S.t, cls: 'mission', desc: url });
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -785,26 +859,26 @@
     return c || null;
   }
   const TOUR = [
-    { era: '3i', date: '2025-07-01', cam: 'top', ms: 11000, title: 'FIRST CONTACT — 1 JULY 2025',
-      text: 'The ATLAS survey in Chile catches a fast mover. Within days the orbit solution comes back hyperbolic — an eccentricity above 6, the most extreme ever measured. This object is not bound to our Sun. It is passing through, once, and never returning.' },
-    { era: '3i', date: '2025-10-03', cam: 'mars', ms: 11000, title: 'MARS FLYBY — 0.19 AU',
+    { era: '3i', date: '2025-07-01', cam: 'top', ms: 11000, title: 'FIRST CONTACT · 1 JULY 2025',
+      text: 'The ATLAS survey in Chile catches a fast mover. Within days the orbit solution comes back hyperbolic, an eccentricity above 6, the most extreme ever measured. This object is not bound to our Sun. It is passing through, once, and never returning.' },
+    { era: '3i', date: '2025-10-03', cam: 'mars', ms: 11000, title: 'MARS FLYBY · 0.19 AU',
       text: 'It threads past Mars at 29 million km, close enough that orbiters there turned their cameras on it. Loeb noted the path also lines up with Venus and Jupiter, and argued that such an economical tour of the planets looks less like chance than like routing.' },
-    { era: '3i', date: '2025-10-29', cam: 'sun', ms: 11000, title: 'PERIHELION — BEHIND THE SUN',
-      text: 'Closest solar approach, 1.36 AU — and it happens while the object sits directly behind the Sun as seen from Earth. Anything it did here, it did unobserved. The official reading: an unremarkable consequence of orbital geometry.' },
+    { era: '3i', date: '2025-10-29', cam: 'sun', ms: 11000, title: 'PERIHELION · BEHIND THE SUN',
+      text: 'Closest solar approach, 1.36 AU, and it happens while the object sits directly behind the Sun as seen from Earth. Anything it did here, it did unobserved. The official reading: an unremarkable consequence of orbital geometry.' },
     { era: '3i', caseKw: 'anti-tail', cam: 'chase', ms: 11000, title: 'THE TAIL POINTS THE WRONG WAY',
-      text: 'A jet aimed sunward, into the light rather than away from it. Loeb logged it as an anomaly. The mainstream answer is a projection effect from large, slow dust grains — something ordinary comets do too.' },
-    { era: '1i', date: '2017-10-19', cam: 'free', ms: 11000, title: "THE ORIGINAL — 1I/ʻOUMUAMUA, 2017",
-      text: 'Switch targets and notice what is missing. No tail. No coma. Nothing at all. The first interstellar object we ever saw arrived completely inert — and then accelerated anyway.' },
+      text: 'A jet aimed sunward, into the light rather than away from it. Loeb logged it as an anomaly. The mainstream answer is a projection effect from large, slow dust grains, something ordinary comets do too.' },
+    { era: '1i', date: '2017-10-19', cam: 'free', ms: 11000, title: "THE ORIGINAL · 1I/ʻOUMUAMUA, 2017",
+      text: 'Switch targets and notice what is missing. No tail. No coma. Nothing at all. The first interstellar object we ever saw arrived completely inert, and then accelerated anyway.' },
     { era: '1i', caseKw: 'acceleration', cam: 'free', ms: 11000, title: 'PUSHED BY NOTHING',
       text: 'Astrometry showed a push falling off as 1/r², exactly like sunlight or outgassing. But no gas was ever detected. That gap between a real force and no visible cause is what launched the lightsail paper.' },
-    { era: '2i', date: '2019-12-08', cam: 'chase', ms: 11000, title: 'THE CONTROL CASE — 2I/BORISOV',
+    { era: '2i', date: '2019-12-08', cam: 'chase', ms: 11000, title: 'THE CONTROL CASE · 2I/BORISOV',
       text: 'And this is what a normal visitor from another star looks like: a textbook comet, tail streaming dutifully away from the Sun, behaving exactly as physics says it should. Its case file is thin on purpose.' },
     { mode: 'briefings', brief: 'BR-02', ms: 13000, title: 'WHAT THE DATA CAN AND CANNOT SETTLE',
-      text: 'The register is 46 cases deep, which is a lot to read. BRIEFINGS is the way in: five questions, each answered from the data with the counter-reading beside it. This one asks whether fireballs are really increasing, and gets three instruments to disagree with each other in a useful way.' },
+      text: 'The register is ' + (C.anomalies || []).length + ' cases deep, which is a lot to read. BRIEFINGS is the way in: ' + (C.briefings || []).length + ' questions, each answered from the data with the counter-reading beside it. This one asks whether fireballs are really increasing, and gets four instruments to disagree with each other in a useful way.' },
     { mode: 'fireballs', fbFocus: 'IM1', ms: 12000, title: 'AND THE TWO THAT MAY HAVE LANDED',
-      text: 'Every dot is a bolide US Government sensors logged since 1988. Two of them — IM1 off Papua New Guinea, IM2 in the Atlantic — are argued to have arrived from outside the solar system. The catalog that reports them publishes no error bars, which is exactly where the fight is.' },
+      text: 'Every dot is a bolide US Government sensors logged since 1988. Two of them, IM1 off Papua New Guinea, IM2 in the Atlantic, are argued to have arrived from outside the solar system. The catalog that reports them publishes no error bars, which is exactly where the fight is.' },
     { mode: 'compare', cam: 'free', ms: 12000, title: 'THREE VISITORS, THREE STORIES',
-      text: 'All three paths at once. Two of them ordinary enough; one still argued over. Every claim in this console sits beside its official rebuttal — go read them and decide for yourself.' },
+      text: 'All three paths at once. Two of them ordinary enough; one still argued over. Every claim in this console sits beside its official rebuttal, go read them and decide for yourself.' },
   ];
   let tour = null;
   function tourStop(quiet) {
@@ -814,7 +888,7 @@
     if (box) box.classList.remove('cx-on');
     const b = $('cx-btn-tour');
     if (b) b.classList.remove('cx-on');
-    if (!quiet) showToast({ title: 'TOUR ENDED — CONSOLE IS YOURS', t: S.t, cls: 'mission',
+    if (!quiet) showToast({ title: 'TOUR ENDED · CONSOLE IS YOURS', t: S.t, cls: 'mission',
       desc: 'Press ? for controls, or search the case log on the left.' });
   }
   function tourStart() {
@@ -893,15 +967,15 @@
       '    planet positions and close-approach distances are <b>real JPL Horizons data</b>. Each ',
       '    numbered case file states what was observed, <span style="color:var(--amber)">Avi Loeb\'s ',
       '    interpretation</span>, and the <span style="color:var(--green)">official explanation</span> ',
-      '    side by side — so you can weigh both. Every case was individually fact-checked against ',
+      '    side by side, so you can weigh both. Every case was individually fact-checked against ',
       '    primary sources; the chip beside each title shows its verdict.',
       '  </div></div>',
       '  <div class="cx-keys">',
       '    <div><h4>TARGET</h4>',
-      keyRow('3I', 'ATLAS — the 2025-26 visitor, 25 cases'),
-      keyRow('1I', "'Oumuamua — the 2017 original, 11 cases"),
-      keyRow('2I', 'Borisov — the natural control case, 5 items'),
-      keyRow('4', 'CNEOS fireballs — 2 disputed meteor cases'),
+      keyRow('3I', 'ATLAS: the 2025-26 visitor, ' + countOf('3i') + ' cases'),
+      keyRow('1I', "'Oumuamua: the 2017 original, " + countOf('1i') + ' cases'),
+      keyRow('2I', 'Borisov: the natural control case, ' + countOf('2i') + ' items'),
+      keyRow('4', 'CNEOS fireballs: ' + countOf('fb') + ' cases, two disputed meteors and five tested claims'),
       '    </div>',
       '    <div><h4>TIME</h4>',
       keyRow('SPACE', 'play / pause the replay'),
@@ -918,16 +992,16 @@
       keyRow('M', 'mute the mission audio'),
       '    </div>',
       '    <div><h4>SECTIONS</h4>',
-      keyRow('1', 'TRACK — the 3D tracking view'),
-      keyRow('2', 'ANOMALIES — open the case files'),
-      keyRow('3', 'COMPARE — all three paths at once'),
-      keyRow('4', 'FIREBALLS — the CNEOS impact map'),
-      keyRow('5', 'ARCHIVE — declassified documents'),
+      keyRow('1', 'TRACK, the 3D tracking view'),
+      keyRow('2', 'ANOMALIES · open the case files'),
+      keyRow('3', 'COMPARE · all three paths at once'),
+      keyRow('4', 'FIREBALLS · the CNEOS impact map'),
+      keyRow('5', 'ARCHIVE · declassified documents'),
       keyRow('ESC', 'close any open panel'),
       '    </div>',
       '  </div>',
       '  <div class="cx-block" style="margin-top:14px"><div class="cx-block-label cx-bl-obs">START HERE</div>',
-      '  <div class="cx-block-text">New to this? Take the <b style="color:var(--cyan)">guided tour</b> — about 90 seconds, ',
+      '  <div class="cx-block-text">New to this? Take the <b style="color:var(--cyan)">guided tour</b>, about 90 seconds, ',
       '  flying all three objects through their highlights. Otherwise: open case <b>A-05</b> on 3I/ATLAS and press ',
       '  <b style="color:var(--amber)">VISUALIZE IN TRACKER</b> to watch its tail point the wrong way; ',
       '  search <b>&ldquo;nickel&rdquo;</b> in the case log to see the same measurement argued two ways on two ',
@@ -947,7 +1021,7 @@
       '  </div></div>',
       '</div>',
     ].join('\n'));
-    $('cx-overlay').classList.add('cx-show');
+    showOverlay();
   }
   UI.openHelp = openHelp;
 
@@ -966,22 +1040,22 @@
       objs.map(function (o, i) { return '<th class="' + cls[i] + '">' + esc(o.designation) + ' “' + esc(o.name) + '”</th>'; }).join(''),
       '</tr></thead><tbody>',
       row('DISCOVERED', function (o) { return esc(o.discovered); }),
-      row('V-INFINITY', function (o) { return o.v_infinity_kms != null ? o.v_infinity_kms + ' km/s' : '—'; }),
-      row('ECCENTRICITY', function (o) { return o.eccentricity != null ? o.eccentricity : '—'; }),
-      row('INCLINATION', function (o) { return o.inclination_deg != null ? o.inclination_deg + '°' : '—'; }),
-      row('PERIHELION', function (o) { return (o.perihelion_au != null ? o.perihelion_au + ' AU' : '—') + ' · ' + esc(o.perihelion_date || ''); }),
-      row('EARTH C/A', function (o) { return o.closest_earth_au != null ? o.closest_earth_au + ' AU' : '—'; }),
-      row('SIZE', function (o) { return esc(o.size_estimate || '—'); }),
-      row('NATURE', function (o) { return esc(o.nature || '—'); }),
-      row('ODDITIES', function (o) { return (o.weird_notes || []).map(function (w) { return '▸ ' + esc(w); }).join('<br>') || '—'; }),
-      row('LOEB POSITION', function (o) { return esc(o.loeb_position || '—'); }),
+      row('V-INFINITY', function (o) { return o.v_infinity_kms != null ? o.v_infinity_kms + ' km/s' : '-'; }),
+      row('ECCENTRICITY', function (o) { return o.eccentricity != null ? o.eccentricity : '-'; }),
+      row('INCLINATION', function (o) { return o.inclination_deg != null ? o.inclination_deg + '°' : '-'; }),
+      row('PERIHELION', function (o) { return (o.perihelion_au != null ? o.perihelion_au + ' AU' : '-') + ' · ' + esc(o.perihelion_date || ''); }),
+      row('EARTH C/A', function (o) { return o.closest_earth_au != null ? o.closest_earth_au + ' AU' : '-'; }),
+      row('SIZE', function (o) { return esc(o.size_estimate || '-'); }),
+      row('NATURE', function (o) { return esc(o.nature || '-'); }),
+      row('ODDITIES', function (o) { return (o.weird_notes || []).map(function (w) { return '▸ ' + esc(w); }).join('<br>') || '-'; }),
+      row('LOEB POSITION', function (o) { return esc(o.loeb_position || '-'); }),
       '</tbody></table>',
     ].join(''));
   }
 
   // ============ ARCHIVE ============
   function redact(text, hint) {
-    return '<span class="cx-redact" title="' + esc(hint || 'REDACTED — CLICK') + '" data-act="redact">' + esc(text) + '</span>';
+    return '<span class="cx-redact" title="' + esc(hint || 'REDACTED · CLICK') + '" data-act="redact">' + esc(text) + '</span>';
   }
   function buildDocs() {
     const q = (C.quotes || []);
@@ -994,13 +1068,13 @@
       html: function () {
         return ['<div class="cx-doc">',
           '<div class="cx-stamp" style="top:18px;right:22px">SIMULATION</div>',
-          '<div class="cx-stamp cx-stamp-green" style="bottom:26px;left:26px">DECLASSIFIED — FOR FUN</div>',
+          '<div class="cx-stamp cx-stamp-green" style="bottom:26px;left:26px">DECLASSIFIED · FOR FUN</div>',
           '<div class="cx-doc-head"><div class="cx-doc-org">INTERSTELLAR OBJECT WORKING GROUP</div><div class="cx-doc-sub">INTERAGENCY · EYES ONLY (PRETEND)</div></div>',
           '<div class="cx-doc-meta">MEMO 001 · 2025-07-04 · SUBJECT: STANDING UP THE 3I DESK</div>',
           '<p>Following the 2017 passage of 1I/’Oumuamua and the unresolved questions catalogued thereafter, this working group is directed to maintain a running anomaly file on any subsequent interstellar visitor.</p>',
-          '<p>On 1 July 2025 the ATLAS survey (Río Hurtado, Chile) detected a third such object, now designated <b>3I/ATLAS (C/2025 N1)</b>. Its heliocentric excess velocity of ' + redact('~58 km/s', '~58 km/s — fastest ISO recorded') + ' and orbital eccentricity of ' + redact('~6.1', 'e ≈ 6.14, most extreme ever measured') + ' make it the most unambiguous interstellar transit ever recorded.</p>',
-          '<p>The desk will log each claimed anomaly alongside the official assessment, without prejudice. Current 3I tally: <b>' + anomalies.filter(function (a) { return (a.object || '3i') === '3i'; }).length + ' numbered cases</b> (see register for the 1I and 2I files). Loeb-scale standing: <b>' + (meta.loebScale != null ? meta.loebScale : '—') + ' / 10</b>.</p>',
-          '<p>NOTE FOR FILE: this console is an unofficial visualization built for education and entertainment. It is not a NASA/JPL product. The trajectory data, however, is real — JPL Horizons ephemerides.</p>',
+          '<p>On 1 July 2025 the ATLAS survey (Río Hurtado, Chile) detected a third such object, now designated <b>3I/ATLAS (C/2025 N1)</b>. Its heliocentric excess velocity of ' + redact('~58 km/s', '~58 km/s, fastest ISO recorded') + ' and orbital eccentricity of ' + redact('~6.1', 'e ≈ 6.14, most extreme ever measured') + ' make it the most unambiguous interstellar transit ever recorded.</p>',
+          '<p>The desk will log each claimed anomaly alongside the official assessment, without prejudice. Current 3I tally: <b>' + anomalies.filter(function (a) { return (a.object || '3i') === '3i'; }).length + ' numbered cases</b> (see register for the 1I and 2I files). Loeb-scale standing: <b>' + (meta.loebScale != null ? meta.loebScale : '-') + ' / 10</b>.</p>',
+          '<p>NOTE FOR FILE: this console is an unofficial visualization built for education and entertainment. It is not a NASA/JPL product. The trajectory data, however, is real, JPL Horizons ephemerides.</p>',
           '<div class="cx-doc-sig">AUTHORIZED: <span class="cx-hand">the desk</span></div>',
           '</div>'].join('');
       },
@@ -1010,31 +1084,31 @@
       html: function () {
         return ['<div class="cx-doc">',
           '<div class="cx-stamp" style="top:16px;right:20px">ANOMALOUS</div>',
-          '<div class="cx-doc-head"><div class="cx-doc-org">ISO DESK — CASE REGISTER</div><div class="cx-doc-sub">SUMMARY OF CLAIMED DEPARTURES FROM NATURAL BEHAVIOR · ALL THREE VISITORS</div></div>',
+          '<div class="cx-doc-head"><div class="cx-doc-org">ISO DESK · CASE REGISTER</div><div class="cx-doc-sub">SUMMARY OF CLAIMED DEPARTURES FROM NATURAL BEHAVIOR · ALL THREE VISITORS</div></div>',
           ['3i', '1i', '2i'].map(function (obj) {
             const cases = anomalies.filter(function (a) { return (a.object || '3i') === obj; });
             if (!cases.length) return '';
-            return '<p style="letter-spacing:3px;border-bottom:1px solid #1d1a14;margin-top:14px"><b>' + OBJ_NAMES[obj] + ' — ' + cases.length + ' CASES</b></p>' +
+            return '<p style="letter-spacing:3px;border-bottom:1px solid #1d1a14;margin-top:14px"><b>' + OBJ_NAMES[obj] + ', ' + cases.length + ' CASES</b></p>' +
               cases.map(function (a) {
-                return '<p><b>' + esc(a.id) + '</b> · ' + esc(a.date) + ' — <b>' + esc(a.title) + '</b><br>' + esc(a.observation) + '<br><span style="color:#7a5a1e">' + esc((a.claim_label || 'LOEB ASSESSMENT').split(' ')[0]) + ':</span> ' + esc(String(a.loeb_take).slice(0, 180)) + '…<br><span style="color:#2c6a3f">OFFICIAL:</span> ' + esc(String(a.official_explanation).slice(0, 180)) + '…</p>';
+                return '<p><b>' + esc(a.id) + '</b> · ' + esc(a.date) + ', <b>' + esc(a.title) + '</b><br>' + esc(a.observation) + '<br><span style="color:#7a5a1e">' + esc((a.claim_label || 'LOEB ASSESSMENT').split(' ')[0]) + ':</span> ' + esc(String(a.loeb_take).slice(0, 180)) + '…<br><span style="color:#2c6a3f">OFFICIAL:</span> ' + esc(String(a.official_explanation).slice(0, 180)) + '…</p>';
               }).join('');
           }).join(''),
           '</div>'].join('');
       },
     });
     docs.push({
-      title: 'DSN TRACKING LOG — PERIHELION', sub: 'SOLAR CONJUNCTION BLACKOUT',
+      title: 'DSN TRACKING LOG · PERIHELION', sub: 'SOLAR CONJUNCTION BLACKOUT',
       html: function () {
         const lines = [
-          '2025-10-21 04:12Z GOLDSTONE  OPTICAL HANDOFF LOST — SOLAR ELONGATION < 15 DEG',
+          '2025-10-21 04:12Z GOLDSTONE  OPTICAL HANDOFF LOST · SOLAR ELONGATION < 15 DEG',
           '2025-10-24 11:03Z CANBERRA   TARGET IN CONJUNCTION. NO DIRECT OBSERVATION POSSIBLE.',
-          '2025-10-29 11:47Z (COMPUTED) PERIHELION PASSAGE — 1.357 AU — ' + 'BEHIND SOLAR DISK AS SEEN FROM EARTH',
+          '2025-10-29 11:47Z (COMPUTED) PERIHELION PASSAGE · 1.357 AU · ' + 'BEHIND SOLAR DISK AS SEEN FROM EARTH',
           '2025-10-29 11:47Z NOTE       ANY MANEUVER EXECUTED AT PERIHELION WOULD OCCUR PRECISELY WHILE UNOBSERVABLE (SEE CASE FILE)',
           '2025-11-08 02:30Z MADRID     REACQUISITION. OBJECT BRIGHTER THAN PRE-CONJUNCTION MODEL.',
           '2025-11-11 22:14Z SUMMARY    ASTROMETRY SHOWS RESIDUALS VS GRAVITY-ONLY SOLUTION. OUTGASSING FIT APPLIED.',
         ];
         return ['<div class="cx-doc" style="background:#0a1a14;color:#7fd6a8;box-shadow:0 6px 34px rgba(0,0,0,.75)">',
-          '<div class="cx-doc-head" style="border-color:#2c6a3f"><div class="cx-doc-org" style="color:#9fe8c0">DEEP SPACE NETWORK — TRACKING EXCERPT</div><div class="cx-doc-sub" style="color:#4d8a66">REPRODUCED FOR REVIEW · STYLIZED</div></div>',
+          '<div class="cx-doc-head" style="border-color:#2c6a3f"><div class="cx-doc-org" style="color:#9fe8c0">DEEP SPACE NETWORK · TRACKING EXCERPT</div><div class="cx-doc-sub" style="color:#4d8a66">REPRODUCED FOR REVIEW · STYLIZED</div></div>',
           lines.map(function (l) { return '<p style="margin-bottom:6px;font-size:11.5px">' + esc(l) + '</p>'; }).join(''),
           '</div>'].join('');
       },
@@ -1048,7 +1122,7 @@
       const qmeta = (C.meta || {}).quotesVerify || {};
       const counts = qmeta.counts || {};
       docs.push({
-        title: 'QUOTE BOARD — ON THE RECORD',
+        title: 'QUOTE BOARD · ON THE RECORD',
         sub: q.length + ' STATEMENTS · ' + (counts.VERBATIM || 0) + ' VERIFIED VERBATIM',
         html: function () {
           return ['<div class="cx-doc">',
@@ -1059,7 +1133,7 @@
               const v = QV[x.verify] || QV.SECONDARY;
               const chip = '<span style="color:' + v[1] + ';border:1px solid ' + v[1] +
                 ';font-size:8.5px;letter-spacing:1px;padding:0 4px;margin-left:6px;white-space:nowrap">' + v[0] + '</span>';
-              return '<p>“' + esc(x.text) + '”<br><span style="color:' + col + ';font-size:10.5px">— ' +
+              return '<p>“' + esc(x.text) + '”<br><span style="color:' + col + ';font-size:10.5px">, ' +
                 esc(x.speaker) + ' · ' + esc(x.date) + (x.context ? ' · ' + esc(x.context) : '') + '</span>' + chip + '</p>';
             }).join(''),
             '</div>'].join('');
@@ -1079,8 +1153,12 @@
   }
 
   // ============ MODES ============
+  const READING_MODES = { briefings: 1, fireballs: 1, archive: 1 };
+  function pauseReplay() { if (S.playing) { S.playing = false; CX.emit('playstate'); } }
+  UI.pauseReplay = pauseReplay;
   function setMode(m) {
     S.mode = m;
+    if (READING_MODES[m]) pauseReplay();
     const rt = $('cx-root');
     if (rt) rt.setAttribute('data-mode', m);
     document.querySelectorAll('.cx-tab').forEach(function (t) {
@@ -1122,7 +1200,7 @@
       b.classList.toggle('cx-on', b.getAttribute('data-era') === S.era);
     });
     const pill = $('cx-alert');
-    if (pill) pill.textContent = 'LOEB SCALE ' + (om.loebScale != null ? om.loebScale : '—') + ' · ' + (om.pillNote || 'REVIEW ACTIVE');
+    if (pill) pill.textContent = 'LOEB SCALE ' + (om.loebScale != null ? om.loebScale : '-') + ' · ' + (om.pillNote || 'REVIEW ACTIVE');
   }
   UI.updateEraChrome = updateEraChrome;
 
@@ -1139,6 +1217,14 @@
   function wire() {
     document.addEventListener('click', function (ev) {
       const btn = ev.target.closest('[data-act]');
+      const railOpen = document.body.classList.contains('cx-show-left') || document.body.classList.contains('cx-show-right');
+      if (railOpen) {
+        const inRail = ev.target.closest('.cx-left, .cx-right');
+        const a0 = btn && btn.getAttribute('data-act');
+        if (a0 !== 'rail' && (!inRail || a0 === 'anomaly' || a0 === 'event' || a0 === 'approach')) {
+          document.body.classList.remove('cx-show-left', 'cx-show-right');
+        }
+      }
       if (!btn) return;
       const act = btn.getAttribute('data-act');
       if (act !== 'redact') CX.audio.ui();
@@ -1146,6 +1232,7 @@
       else if (act === 'brief') CX.briefings.open(btn.getAttribute('data-brief'));
       else if (act === 'brief-case') {
         const obj = btn.getAttribute('data-obj');
+        returnMode = 'briefings';
         if (obj && obj !== S.era && CX.EPH.eras[obj]) CX.setEra(obj);
         setMode(obj === 'fb' ? 'fireballs' : 'anomalies');
         openDossier(btn.getAttribute('data-case'));
@@ -1159,8 +1246,8 @@
         document.querySelectorAll('[data-act="speed"]').forEach(function (b) { b.classList.toggle('cx-on', b === btn); });
       }
       else if (act === 'now') {
-        if (CX.NOW_T != null) { CX.setT(CX.NOW_T); showToast({ title: 'CURRENT EPOCH — LIVE POSITION', t: CX.NOW_T, cls: 'mission', desc: 'Real position for today from JPL Horizons data.' }); }
-        else { CX.audio.uiLow(); showToast({ title: 'HISTORICAL REPLAY — TARGET NOT IN CURRENT EPOCH', t: S.t, cls: 'mission', desc: 'This object transited in the past; today falls outside its tracked window.' }); }
+        if (CX.NOW_T != null) { CX.setT(CX.NOW_T); showToast({ title: 'CURRENT EPOCH · LIVE POSITION', t: CX.NOW_T, cls: 'mission', desc: 'Real position for today from JPL Horizons data.' }); }
+        else { CX.audio.uiLow(); showToast({ title: 'HISTORICAL REPLAY · TARGET NOT IN CURRENT EPOCH', t: S.t, cls: 'mission', desc: 'This object transited in the past; today falls outside its tracked window.' }); }
       }
       else if (act === 'audio') { S.audio = !S.audio; CX.audio.setMuted(!S.audio); btn.classList.toggle('cx-on', S.audio); }
       else if (act === 'crt') { S.crt = !S.crt; document.body.classList.toggle('cx-crt', S.crt); btn.classList.toggle('cx-on', S.crt); }
@@ -1172,7 +1259,7 @@
         S.viz.dispatch = !S.viz.dispatch;
         syncOverlayChrome();
         if (S.viz.dispatch) {
-          showToast({ title: 'DISPATCH OVERLAY ON \u2014 SPECULATIVE', t: S.t, cls: 'anomaly',
+          showToast({ title: 'DISPATCH OVERLAY ON · SPECULATIVE', t: S.t, cls: 'anomaly',
             kind: 'anomaly',
             desc: 'Draws the claim that material was released at the Mars pass, perihelion and the Jupiter pass. No instrument has observed any such release. Scrub to 2025-10-03, 2025-10-29 or 2026-03-17 to see it.' });
         }
@@ -1218,9 +1305,19 @@
         btn.style.color = '#efe8d0'; btn.style.background = '#3a3226';
         CX.audio.uiLow();
       }
+      syncPressed();
     });
     $('cx-overlay').addEventListener('click', function (ev) {
       if (ev.target === $('cx-overlay')) closeOverlay();
+    });
+    $('cx-overlay').addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Tab') return;
+      const f = [].slice.call($('cx-overlay').querySelectorAll('button, a[href], [tabindex="0"]'))
+        .filter(function (n) { return n.offsetParent !== null; });
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (ev.shiftKey && document.activeElement === first) { ev.preventDefault(); last.focus(); }
+      else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
     });
 
     // Delegated: the left rail (and the search box with it) is rebuilt on era switch.
@@ -1239,24 +1336,38 @@
     // the old handlers were dead on touch. Pointer capture keeps the drag alive
     // when the finger slides outside the track.
     const track = $('cx-tl-track');
-    let tlPointer = null;
+    let tlPointer = null, tlStart = null;
+    // Mouse: decide at press, as before (a mouse is precise). Touch and pen:
+    // decide at RELEASE. At phone width the marker hit zones cover most of the
+    // track, so deciding on touch-down turned nearly every drag into "open this
+    // record". Now a finger that moves more than 8 px is a scrub; one that lifts
+    // where it landed is a tap.
     track.addEventListener('pointerdown', function (ev) {
       if (ev.pointerType === 'mouse' && ev.button !== 0) return;
-      if (tlClick(ev, ev.pointerType === 'mouse' ? 6 : 8)) return;
       tlPointer = ev.pointerId;
-      tlDragging = true;
       try { track.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
-      tlScrub(ev);
+      if (ev.pointerType === 'mouse') {
+        if (tlClick(ev, 6)) { tlPointer = null; return; }
+        tlDragging = true;
+        tlScrub(ev);
+      } else {
+        tlStart = { x: ev.clientX, y: ev.clientY };
+      }
       ev.preventDefault();
     });
     track.addEventListener('pointermove', function (ev) {
-      if (!tlDragging || ev.pointerId !== tlPointer) return;
+      if (ev.pointerId !== tlPointer) return;
+      if (!tlDragging && tlStart && Math.abs(ev.clientX - tlStart.x) + Math.abs(ev.clientY - tlStart.y) > 8) tlDragging = true;
+      if (!tlDragging) return;
       tlScrub(ev);
       ev.preventDefault();
     });
     function tlRelease(ev) {
       if (ev && tlPointer != null && ev.pointerId !== tlPointer) return;
-      tlDragging = false; tlPointer = null;
+      if (ev && ev.type === 'pointerup' && tlStart && !tlDragging) {
+        if (!tlClick(ev, 10)) tlScrub(ev);
+      }
+      tlDragging = false; tlPointer = null; tlStart = null;
     }
     track.addEventListener('pointerup', tlRelease);
     track.addEventListener('pointercancel', tlRelease);
@@ -1265,7 +1376,11 @@
       if (!S.booted) return;
       if (ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA')) return;
       const k = ev.key;
-      if (k === ' ') { ev.preventDefault(); togglePlay(); }
+      if (k === ' ') {
+        if (ev.target && ev.target.closest && ev.target.closest('button, a, [role="button"], [tabindex]')) return;
+        if (READING_MODES[S.mode]) return;      // let Space scroll the page it is reading
+        ev.preventDefault(); togglePlay();
+      }
       else if (k === 'ArrowRight') CX.setT(S.t + (ev.shiftKey ? 7 : 1));
       else if (k === 'ArrowLeft') CX.setT(S.t - (ev.shiftKey ? 7 : 1));
       else if (k === '1') setMode('track');
@@ -1274,8 +1389,8 @@
       else if (k === '4') setMode('fireballs');
       else if (k === '5') setMode('archive');
       else if (k === 'n' || k === 'N') { if (CX.NOW_T != null) CX.setT(CX.NOW_T); }
-      else if (k === 'l' || k === 'L') { S.labels = !S.labels; }
-      else if (k === 'g' || k === 'G') { S.grid = !S.grid; }
+      else if (k === 'l' || k === 'L') { S.labels = !S.labels; syncToggle('labels', S.labels); }
+      else if (k === 'g' || k === 'G') { S.grid = !S.grid; syncToggle('grid', S.grid); }
       else if (k === 'm' || k === 'M') { S.audio = !S.audio; CX.audio.setMuted(!S.audio); $('cx-btn-audio').classList.toggle('cx-on', S.audio); }
       else if (k === '?' || k === '/') { ev.preventDefault(); openHelp(); }
       else if (k === 't' || k === 'T') tourStart();
@@ -1311,17 +1426,23 @@
       UI.renderClock();
       UI.renderTimeline();
       CX.charts.renderRail();
-      S.playing = true;
-      CX.emit('playstate');
+      if (!READING_MODES[S.mode] && S.mode !== 'anomalies' && !CX.reducedMotion) { S.playing = true; CX.emit('playstate'); }
       const em = CX.ERA_META[S.era];
-      showToast({ title: 'TARGET SWITCHED — ' + em.label + ' · ' + em.sub, t: S.t, cls: 'mission',
+      showToast({ title: 'TARGET SWITCHED · ' + em.label + ' · ' + em.sub, t: S.t, cls: 'mission',
         desc: 'Replay armed from discovery. Timeline, anomaly log and telemetry now scoped to this object.' });
     });
   }
   function togglePlay() {
+    // At the end of the tape, play means "from the top", not "nothing happens".
+    if (!S.playing && S.t >= CX.N - 1.5) CX.setT(CX.tOfIso(CX.ERA_META[S.era].discovery));
     S.playing = !S.playing;
     CX.emit('playstate');
   }
+  function syncToggle(act, on) {
+    const b = document.querySelector('[data-act="' + act + '"]');
+    if (b) { b.classList.toggle('cx-on', !!on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  }
+  UI.syncToggle = syncToggle;
 
   // ============ BOOT ============
   UI.boot = function (onDone) {
@@ -1331,7 +1452,7 @@
       '  <div class="cx-boot-log" id="cx-boot-log"></div>',
       '  <div class="cx-boot-auth" id="cx-boot-auth">▮ TAP OR PRESS ANY KEY TO AUTHENTICATE ▮</div>',
       '</div>',
-      '<div class="cx-boot-skip" id="cx-boot-skip">TAP HERE OR PRESS ESC — SKIP SEQUENCE</div>',
+      '<div class="cx-boot-skip" id="cx-boot-skip">TAP HERE OR PRESS ESC · SKIP SEQUENCE</div>',
     ].join(''));
     document.body.appendChild(boot);
     const log = $('cx-boot-log');
@@ -1340,7 +1461,7 @@
       ['cx-bl-dim', 'FIRMWARE 5.11.2 · CLEARANCE CHANNEL: TS//SAP-ATLAS (SIMULATED)'],
       ['', '&nbsp;'],
       ['', 'INITIALIZING SUBSYSTEMS'],
-      ['bar', 'EPHEMERIS CORE ......... JPL HORIZONS BAKE 2026-07-17'],
+      ['bar', 'EPHEMERIS CORE ......... JPL HORIZONS, SOLUTION JPL#54'],
       ['bar', 'RENDER PIPELINE ........ WEBGL / 3-BODY VISUAL STACK'],
       ['bar', 'ANOMALY REGISTER ....... CASE FILES MOUNTED'],
       ['bar', 'IMPACT REGISTER ........ CNEOS FIREBALL CATALOG'],
@@ -1351,16 +1472,30 @@
       ['cx-bl-ok', '  CANBERRA ............. LOCK'],
       ['cx-bl-ok', '  MADRID ............... LOCK'],
       ['', '&nbsp;'],
-      ['cx-bl-warn', 'TARGET 3I/ATLAS · C/2025 N1 — INTERSTELLAR · OUTBOUND'],
+      ['cx-bl-warn', 'TARGET 3I/ATLAS · C/2025 N1 · INTERSTELLAR · OUTBOUND'],
       ['cx-bl-warn', 'ANOMALY REVIEW STATUS: ACTIVE'],
     ];
-    let i = 0, done = false;
+    let i = 0, done = false, went = false;
+    // Until authentication the console is behind the boot screen but was still
+    // in the tab order: Tab+Enter reached controls whose scene did not exist yet.
+    const root = $('cx-root');
+    if (root) root.inert = true;
     function finish(skipAll) {
       if (done) return;
       done = true;
       const auth = $('cx-boot-auth');
       auth.classList.add('cx-ready');
+      auth.setAttribute('role', 'button');
+      auth.setAttribute('tabindex', '0');
+      try { auth.focus(); } catch (e) { /* not fatal */ }
       function go() {
+        // A double-click, or a key then a click inside the 750 ms fade, used to
+        // run onDone twice: two renderers, two frame loops, doubled audio.
+        if (went) return;
+        went = true;
+        auth.removeEventListener('click', go);
+        if (root) root.inert = false;
+        try { sessionStorage.setItem('cx-booted', '1'); } catch (e) { /* storage may be blocked */ }
         window.removeEventListener('keydown', keyGo, true);
         boot.style.transition = 'opacity .7s';
         boot.style.opacity = '0';
@@ -1401,6 +1536,11 @@
     window.addEventListener('keydown', skip);
     const skipBtn = $('cx-boot-skip');
     if (skipBtn) skipBtn.addEventListener('click', skipAll);
-    next();
+    // Shared links and return visits skip straight to the one click that unlocks
+    // audio; the full sequence is for a first arrival.
+    let seen = false;
+    try { seen = sessionStorage.getItem('cx-booted') === '1'; } catch (e) { /* storage may be blocked */ }
+    if (seen || location.hash.length > 1 || CX.reducedMotion) skipAll();
+    else next();
   };
 })();

@@ -11,17 +11,17 @@ the raw JSON in `data/`: the JSON is the machine format, and a notebook reading
 
 | File | Format | Size | Extent |
 |---|---|---|---|
-| `01-cases-3i-atlas.md` | Markdown | 127 KB | 18085 words |
-| `02-cases-oumuamua-borisov.md` | Markdown | 79 KB | 11213 words |
-| `03-cases-fireballs.md` | Markdown | 40 KB | 6693 words |
-| `04-briefings.md` | Markdown | 36 KB | 6047 words |
-| `05-timeline.md` | Markdown | 59 KB | 7724 words |
+| `01-cases-3i-atlas.md` | Markdown | 127 KB | 18005 words |
+| `02-cases-oumuamua-borisov.md` | Markdown | 79 KB | 11157 words |
+| `03-cases-fireballs.md` | Markdown | 40 KB | 6616 words |
+| `04-briefings.md` | Markdown | 36 KB | 6004 words |
+| `05-timeline.md` | Markdown | 58 KB | 7646 words |
 | `06-quotations.md` | Markdown | 11 KB | 1875 words |
 | `07-cneos-fireballs.csv` | CSV | 48 KB | 1069 rows |
 | `08-ams-reports.csv` | CSV | 79 KB | 1512 rows |
 | `09-gmn-monthly.csv` | CSV | 4 KB | 92 rows |
 | `10-spatial-test.md` | Markdown | 1 KB | 363 words |
-| `11-comparison-profiles.md` | Markdown | 7 KB | 1126 words |
+| `11-comparison-profiles.md` | Markdown | 7 KB | 1110 words |
 | `12-cneos-fireballs.md` | Markdown | 69 KB | 17188 words |
 | `13-ams-reports.md` | Markdown | 12 KB | 4602 words |
 | `14-gmn-monthly.md` | Markdown | 7 KB | 2074 words |

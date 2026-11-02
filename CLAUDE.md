@@ -34,11 +34,16 @@ plan for v2.19 + v2.20: `C:\Users\stewa\.claude\plans\effervescent-fluttering-fa
 - **F-07 wider nuclear set**: 150 Wikidata sites (gate = 150, it passed exactly). 100 km excess
   12 vs 6.2, p=0.017/0.022, the first non-null in the register; framed as a weak signal (one of six
   tests, gone by 200 km, no single site type carries it). Do not upgrade it to a finding.
-**NEXT STEP (open):** v2.20 quality pass is in progress in the worktree
-`C:\Users\stewa\Documents\Claude\3I ATLAS Anomaly Console v220` on branch `claude/v2.20-quality`
-(UX, accessibility, performance, CI check workflow, em-dash sweep). After it: the monthly refresh
-workflow (low priority, Stewart asks for data updates by hand), the Video Overviews themselves
-(Stewart makes them in NotebookLM from `dossier/briefings/`), and splitting `ui.js`.
+**v2.20 (2026-11-01)** is the quality pass on top: boot guard, inert-until-auth, replay pauses
+in reading modes, stable re-render (no lost clicks), tap-vs-drag decided on release, ARIA and
+keyboard reachability, modal sheet, reduced motion, hidden-scene render skip, em-dash sweep, and
+`.github/workflows/check.yml` (CI guards; keep it green). `build.py` now WRITES
+`src/index.html`'s script list from `JS_ORDER`: add new scripts there, not by hand.
+**NEXT STEP (open):** the monthly refresh workflow (low priority; Stewart asks for data updates
+by hand, and the cron is still on and still failing until that is done), the Video Overviews
+themselves (Stewart makes them in NotebookLM from `dossier/briefings/`), splitting `ui.js` along
+its seams (boot, tour, archive, routing, timeline, an action map for `wire()`), and the next manual
+data refresh (new CNEOS rows for F-04, AMS for F-03).
 
 **Earlier (2026-08-24):** v2.18 head.
 **STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —

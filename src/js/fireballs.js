@@ -1,5 +1,5 @@
 /* ============================================================
-   FIREBALLS — the CNEOS atmospheric-impact register.
+   FIREBALLS · the CNEOS atmospheric-impact register.
    A world map of every bolide US Government sensors have logged
    since 1988, plus the two rows Avi Loeb argues are interstellar
    meteors (IM1 2014-01-08, IM2 2017-03-09).
@@ -16,7 +16,7 @@
   const EV = D.events || [];
   const RINGS = (D.land && D.land.rings) || [];
 
-  // event tuple layout — keep in sync with tools/fetch_fireballs.py
+  // event tuple layout, keep in sync with tools/fetch_fireballs.py
   const T_DATE = 0, T_ENERGY = 1, T_KT = 2, T_LAT = 3, T_LON = 4, T_ALT = 5, T_VEL = 6, T_TAG = 7;
 
   const ENERGY_STEPS = [
@@ -50,9 +50,6 @@
   FB.shown = function () { return EV.filter(passes); };
   FB.cases = function () {
     return (CX.CONTENT.anomalies || []).filter(function (a) { return a.object === 'fb'; });
-  };
-  FB.byTag = function (tag) {
-    return EV.find(function (e) { return e[T_TAG] === tag; }) || null;
   };
   // case id -> the catalog row it is about (F-01 is IM1, F-02 is IM2), matched on date
   FB.rowOfCase = function (id) {
@@ -188,7 +185,7 @@
     const below = m.y0 + h + 24 <= H;
     const ly = below ? m.y0 + h + 18 : m.y0 + h - 9;
     let lx = below ? m.x0 + (w - total) / 2 : m.x0 + 9;
-    if (!below) {                       // sitting on the map — give it a backing
+    if (!below) {                       // sitting on the map, give it a backing
       g.fillStyle = 'rgba(2,11,19,.82)';
       g.fillRect(lx - 5, ly - 13, total + 10, 18);
     }
@@ -229,15 +226,15 @@
       '<b>' + esc(e[T_DATE]) + ' UTC</b>',
       esc(Math.abs(e[T_LAT]).toFixed(1) + '°' + (e[T_LAT] < 0 ? 'S' : 'N') + ' ' +
           Math.abs(e[T_LON]).toFixed(1) + '°' + (e[T_LON] < 0 ? 'W' : 'E')),
-      'IMPACT ENERGY <b style="color:' + tierColor(e[T_KT] || 0) + '">' + esc(e[T_KT] != null ? e[T_KT] + ' kt' : '—') + '</b>',
-      'RADIATED ' + esc(e[T_ENERGY] != null ? e[T_ENERGY] + '×10¹⁰ J' : '—'),
-      'ALT ' + esc(e[T_ALT] != null ? e[T_ALT] + ' km' : '—'),
+      'IMPACT ENERGY <b style="color:' + tierColor(e[T_KT] || 0) + '">' + esc(e[T_KT] != null ? e[T_KT] + ' kt' : '-') + '</b>',
+      'RADIATED ' + esc(e[T_ENERGY] != null ? e[T_ENERGY] + '×10¹⁰ J' : '-'),
+      'ALT ' + esc(e[T_ALT] != null ? e[T_ALT] + ' km' : '-'),
       'SPEED ' + esc(e[T_VEL] != null ? e[T_VEL] + ' km/s' : 'NOT REPORTED'),
     ];
     if (e[T_TAG]) {
       const c = FB.cases().find(function (a) { return a.date === e[T_DATE].slice(0, 10); });
       parts.push('<span class="cx-fb-tag" data-act="fb-case" data-id="' + esc(c ? c.id : '') + '">▲ ' +
-        esc(e[T_TAG]) + ' — OPEN CASE FILE</span>');
+        esc(e[T_TAG]) + ' · OPEN CASE FILE</span>');
     }
     return parts.join('<span class="cx-fb-sep">·</span>');
   }
@@ -247,7 +244,7 @@
     if (!box) return;
     const e = F.hover != null ? EV[F.hover] : (F.sel != null ? EV[F.sel] : null);
     if (!e) {
-      CX.ui.setH(box, '<span class="cx-fb-hint">HOVER OR CLICK AN IMPACT — ' +
+      CX.ui.setH(box, '<span class="cx-fb-hint">HOVER OR CLICK AN IMPACT · ' +
         FB.shown().length + ' OF ' + (D.meta.located || 0) + ' LOCATED EVENTS SHOWN</span>');
       return;
     }
@@ -281,7 +278,7 @@
       '  </div>',
       '  <div class="cx-fb-note">' + esc(meta.count || 0) + ' ROWS SINCE ' + esc((meta.first || '').slice(0, 4)) +
         ' · ' + esc(meta.located || 0) + ' WITH A REPORTED POSITION · SOURCE ' + esc(String(meta.source || 'CNEOS').toUpperCase()) +
-        ', PULLED ' + esc(meta.fetched || '—') + '. CNEOS PUBLISHES NO UNCERTAINTIES ON ANY FIELD.</div>',
+        ' · PULLED ' + esc(meta.fetched || '-') + '. CNEOS PUBLISHES NO UNCERTAINTIES ON ANY FIELD.</div>',
       '</div>',
       '<div class="cx-panel">',
       '  <div class="cx-panel-title"><span class="cx-tt-accent">▲</span> EXTREMES IN VIEW</div>',
@@ -307,7 +304,7 @@
           '<div class="cx-a-name">' + esc(a.title) + '</div>' +
           '<div class="cx-a-date">' + esc(row ? row[T_TAG] : a.date.slice(2)) + '</div></div>';
       }).join(''),
-      '  <div class="cx-fb-note">BOTH ARE CATALOG ROWS, NOT TELESCOPE TARGETS. NEITHER HAS BEEN CONFIRMED INTERSTELLAR OUTSIDE THE CATALOG THAT REPORTED IT — OPEN A FILE FOR BOTH SIDES.</div>',
+      '  <div class="cx-fb-note">BOTH ARE CATALOG ROWS, NOT TELESCOPE TARGETS. NEITHER HAS BEEN CONFIRMED INTERSTELLAR OUTSIDE THE CATALOG THAT REPORTED IT · OPEN A FILE FOR BOTH SIDES.</div>',
       '</div>',
     ].join('\n'));
     const cv = $('cx-fb-speed');
@@ -353,7 +350,7 @@
     FB.refresh();
     const e = EV[i];
     CX.ui.showToast({
-      title: tag + ' — CNEOS ' + e[T_DATE].slice(0, 10), t: S.t, cls: 'anomaly',
+      title: tag + ' · CNEOS ' + e[T_DATE].slice(0, 10), t: S.t, cls: 'anomaly',
       desc: e[T_VEL] + ' km/s, ' + e[T_KT] + ' kt, ' + e[T_ALT] + ' km altitude. Claimed interstellar; disputed.',
     });
   };
@@ -369,7 +366,7 @@
   FB.wire = function () {
     const cv = $('cx-fb-map');
     if (!cv) return;
-    // Hover is a mouse/stylus idea — a finger has no hover state, so touch
+    // Hover is a mouse/stylus idea, a finger has no hover state, so touch
     // selects on tap instead and the readout shows the selection.
     cv.addEventListener('pointermove', function (ev) {
       if (ev.pointerType === 'touch') return;
