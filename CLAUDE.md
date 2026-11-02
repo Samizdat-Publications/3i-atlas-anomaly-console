@@ -18,7 +18,7 @@ Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer
   figures, the F-07 subset figures (research reactors / weapons / test sites: one
   `spatial_test.run` per subset, same SEED, 600 trials), BR-06/BR-08 or the docs: grep for those.
 - **AMS 503s** on its stats pages (2026-10-01, 11-01, 11-02) while the rest of amsmeteors.org is
-  up. v2.21 ships the 2026-09-01 AMS pull taken from the stranded `data-refresh/2026-09-01`
+  up. v2.21 ships the 2026-09-01 AMS pull taken from the (since deleted) `data-refresh/2026-09-01`
   branch, the newest real AMS data available (the Wayback copy is from March). Retry next time.
 - **2026-11-02 result:** CNEOS 1,069 -> 1,074 rows, latest 2026-10-04; one new row (0.67 kt over
   Manitoba) is inside the F-04 regions, so F-04 now says FIVE. GLM 11,611 detections, 2026 bright
@@ -59,8 +59,10 @@ keyboard reachability, modal sheet, reduced motion, hidden-scene render skip, em
 `src/index.html`'s script list from `JS_ORDER`: add new scripts there, not by hand.
 **NEXT STEP (open):** the Video Overviews themselves (Stewart makes them in NotebookLM from
 `dossier/briefings/`), splitting `ui.js` along its seams (boot, tour, archive, routing, timeline,
-an action map for `wire()`), a fresh AMS pull once its stats pages answer again, and deleting the
-stranded `data-refresh/2026-09-01` branch (its AMS file is now in main).
+an action map for `wire()`), and a fresh AMS pull once its stats pages answer again.
+Cleaned up 2026-11-02: the `data-refresh/2026-09-01` branch (its AMS file is in main) and the
+v2.20 worktree are deleted. An older remote branch `claude/scheduled-data-refresh` (2026-08,
+"Automate the monthly data refresh") still exists; Stewart has not decided on it.
 
 **Earlier (2026-08-24):** v2.18 head.
 **STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —
