@@ -5,44 +5,44 @@
 
 ---
 
-883 located CNEOS events against 1608 NOAA volcano positions, 1000 trials per null.
+888 located CNEOS events against 1608 NOAA volcano positions, 1000 trials per null.
 
 | Within | Observed | Rotation null | p | Scatter null | p |
 |---|---|---|---|---|---|
-| 100 km | 23 | 32.8 | 0.963 | 32.7 | 0.968 |
-| 200 km | 78 | 82.3 | 0.690 | 81.9 | 0.691 |
-| 500 km | 260 | 250.6 | 0.302 | 250.7 | 0.254 |
-| median nearest volcano | 838 km | 854 km | 0.296 | 853 km | 0.315 |
+| 100 km | 23 | 33.0 | 0.972 | 33.0 | 0.979 |
+| 200 km | 79 | 82.9 | 0.683 | 82.7 | 0.705 |
+| 500 km | 261 | 252.7 | 0.307 | 252.1 | 0.266 |
+| median nearest volcano | 844 km | 856 km | 0.342 | 857 km | 0.329 |
 
 ### Clustering (scatter null only — a rotation leaves every event-to-event distance unchanged and cannot test this)
 
 | Statistic | Observed | Null mean | p |
 |---|---|---|---|
-| median nearest-event distance | 353 km | 357 km | 0.335 |
-| events with another within 100 km | 59 | 46.7 | 0.126 |
-| events with another within 50 km | 18 | 12.4 | 0.174 |
+| median nearest-event distance | 349 km | 356 km | 0.305 |
+| events with another within 100 km | 59 | 46.4 | 0.096 |
+| events with another within 50 km | 18 | 12.7 | 0.210 |
 
 ### Distance histogram (100 km bins)
 
 | Bin start (km) | Observed | Expected by chance |
 |---|---|---|
-| 0 | 23 | 32.8 |
-| 100 | 55 | 49.4 |
-| 200 | 57 | 55.3 |
-| 300 | 64 | 55.9 |
-| 400 | 61 | 57.8 |
-| 500 | 59 | 57.5 |
-| 600 | 54 | 55.1 |
-| 700 | 47 | 50.8 |
-| 800 | 53 | 48.9 |
-| 900 | 43 | 45.8 |
-| 1000 | 49 | 44.9 |
-| 1100 | 36 | 41.1 |
-| 1200 | 45 | 39.3 |
-| 1300 | 31 | 36.1 |
-| 1400 | 41 | 31.7 |
-| 1500 | 28 | 27.9 |
-| 1600 | 32 | 26.6 |
-| 1700 | 23 | 23.4 |
-| 1800 | 21 | 21.1 |
-| 1900 | 10 | 18.2 |
+| 0 | 23 | 33.3 |
+| 100 | 56 | 50.1 |
+| 200 | 57 | 55.9 |
+| 300 | 64 | 56.3 |
+| 400 | 61 | 57.2 |
+| 500 | 59 | 58.0 |
+| 600 | 54 | 55.5 |
+| 700 | 47 | 51.9 |
+| 800 | 53 | 48.8 |
+| 900 | 44 | 45.6 |
+| 1000 | 49 | 44.6 |
+| 1100 | 36 | 41.3 |
+| 1200 | 45 | 39.6 |
+| 1300 | 32 | 35.8 |
+| 1400 | 41 | 32.4 |
+| 1500 | 28 | 27.8 |
+| 1600 | 32 | 26.4 |
+| 1700 | 24 | 23.6 |
+| 1800 | 21 | 21.0 |
+| 1900 | 10 | 18.5 |

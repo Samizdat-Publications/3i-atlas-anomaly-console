@@ -85,6 +85,8 @@ def main():
     content = json.loads(content[content.index("=") + 1:].strip().rstrip(";"))
     n_cases = len(content["anomalies"])
     n_3i = sum(1 for a in content["anomalies"] if a.get("object") == "3i")
+    with open(os.path.join(ROOT, "data", "fireballs.json"), encoding="utf-8") as f:
+        n_fireballs = json.load(f)["count"]
 
     title = "3I/ATLAS — Interstellar Anomaly Review Console"
     desc = ("Track all three interstellar objects — 3I/ATLAS, 1I/'Oumuamua and 2I/Borisov — "
@@ -170,7 +172,8 @@ def main():
             with open(font_path, "rb") as f:
                 font_uri = "data:font/woff2;base64," + base64.b64encode(f.read()).decode("ascii")
         about = (about.replace("__FONT__", font_uri).replace("__SITE__", SITE_URL)
-                 .replace("__CASES_3I__", str(n_3i)).replace("__CASES__", str(n_cases)))
+                 .replace("__CASES_3I__", str(n_3i)).replace("__CASES__", str(n_cases))
+                 .replace("__FIREBALLS__", "{:,}".format(n_fireballs)))
         about = "<!doctype html>\n<html lang=\"en\">\n" + about + "\n</html>\n"
         if beacon:
             about = about.replace("</html>", beacon + "\n</html>")

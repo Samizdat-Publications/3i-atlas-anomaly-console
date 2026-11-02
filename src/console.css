@@ -186,6 +186,7 @@ body {
 
 .cx-campods {
   position: absolute; top: 10px; left: 12px; display: flex; gap: 4px; flex-wrap: wrap;
+  max-width: calc(50% - 18px);
 }
 .cx-pod {
   padding: 4px 10px 3px; font-size: 10px; letter-spacing: 1.5px; cursor: pointer;
@@ -194,7 +195,12 @@ body {
 }
 .cx-pod:hover { color: var(--txt); border-color: var(--line-hi); }
 .cx-pod.cx-on { color: var(--cyan); border-color: var(--cyan-dim); text-shadow: var(--glow-c); }
-.cx-viewopts { position: absolute; top: 10px; right: 12px; display: flex; gap: 4px; }
+/* Each bar gets half the scene and wraps: unbounded, the overlay row (five toggles since
+   GRAVITY-ONLY) ran over the camera row at ordinary desktop widths. */
+.cx-viewopts {
+  position: absolute; top: 10px; right: 12px; display: flex; gap: 4px;
+  flex-wrap: wrap; justify-content: flex-end; max-width: calc(50% - 18px);
+}
 
 .cx-toast {
   position: absolute; top: 52px; left: 50%; transform: translateX(-50%) translateY(-8px);
@@ -218,7 +224,7 @@ body {
    a measurement. */
 .cx-pod-spec.cx-on { color: var(--amber); border-color: var(--amber-dim); text-shadow: 0 0 8px rgba(255,179,71,.5); }
 .cx-specnote {
-  position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
   padding: 4px 12px; border: 1px dashed var(--amber-dim); background: rgba(30,18,4,.92);
   color: var(--amber); font-size: 9px; letter-spacing: 2.5px; text-align: center;
   opacity: 0; transition: opacity .3s; pointer-events: none; max-width: 84%;
@@ -241,9 +247,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
-.cx-calcnote { bottom: 34px; }
+.cx-calcnote { bottom: 48px; }   /* clears the three-line disclaimer */
 /* both on: the computed banner sits above the speculative one */
-.cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 62px; }
+.cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 76px; }
 
 .cx-crosshair {
   position: absolute; left: 50%; top: 50%; width: 44px; height: 44px;
@@ -627,10 +633,18 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
   }
   .cx-right { left: auto; right: 0; transform: translateX(105%); }
   body.cx-show-left .cx-left, body.cx-show-right .cx-right { transform: none; }
-  .cx-campods { top: auto; bottom: 8px; left: 8px; max-width: 62%; }
-  .cx-viewopts { top: 8px; right: 8px; }
+  /* Bottom of the scene, from the edge up: the disclaimer on its own full-width strip,
+     the camera row above it, the overlay banners above that. Side by side, the camera
+     row and the disclaimer ran into each other at every narrow width. */
+  .cx-campods { top: auto; bottom: 34px; left: 8px; max-width: 62%; }
+  .cx-viewopts { top: 8px; right: 8px; max-width: 62%; }
   /* The disclaimer stays at every width (a CLAUDE.md rule); it just shrinks. */
-  .cx-disclaimer { font-size: 7.5px; max-width: 70%; letter-spacing: .5px; opacity: .85; }
+  .cx-disclaimer, .cx-root[data-mode="fireballs"] .cx-disclaimer {
+    font-size: 7.5px; left: 8px; right: 8px; bottom: 4px; max-width: none;
+    text-align: center; letter-spacing: .5px; opacity: .85;
+  }
+  .cx-specnote, .cx-calcnote { bottom: 112px; }
+  .cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 170px; }
   /* a case sheet opened from a slide-over rail must sit above it */
   .cx-overlay { z-index: 50; }
   /* narrow: one scrolling column, map given an explicit height so the canvas

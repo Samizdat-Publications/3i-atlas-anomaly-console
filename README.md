@@ -71,7 +71,7 @@ whether the entry survived fact-checking unchanged, and references link out.
 
 ![A case file](public/shots/case.png)
 
-### Fireballs — 1,069 atmospheric impacts, and two disputed rows
+### Fireballs: 1,074 atmospheric impacts, and two disputed rows
 
 Every bolide US Government sensors have logged since 1988, plotted where it burned: circle area
 scales with impact energy, from sub-kiloton flashes up to **Chelyabinsk at 441 kt**. Filter by

@@ -109,7 +109,7 @@ file's own `fields` key:
 | 6 | `vel_kms` | number \| null | km/s | Pre-entry speed. Present for a minority of rows. |
 | 7 | `tag` | string \| null | `IM1` \| `IM2` \| null | Assigned **by date at fetch time**, never transcribed, so a catalog revision propagates. |
 
-Top-level: `count` 1069, `located` 883, `first` 1988-04-15, `last` 2026-08-15.
+Top-level: `count` 1074, `located` 888, `first` 1988-04-15, `last` 2026-10-04.
 **No uncertainties are published by CNEOS on any field.** This is the single most important
 property of the dataset and the basis of most disputes about it (§4.4).
 
@@ -223,7 +223,7 @@ Record counts as of the v2.18 release:
 | Timeline events | **58** (3I 28 · 1I 16 · 2I 14) | `data/research.json`, `data/research-iso.json` |
 | Sourced quotations | **35** (3I 20 · ISO 15) | same |
 | Briefings (narrative syntheses) | **8** | `data/briefings.json` |
-| CNEOS fireball rows | **1,069** (883 with position) | `data/fireballs.json` |
+| CNEOS fireball rows | **1,074** (888 with position) | `data/fireballs.json` |
 | AMS report-bin records | 21 years × 12 months × 6 bins | `data/ams-reports.json` |
 | GMN monthly aggregates | **92** months | `data/gmn-monthly.json` |
 | Volcano positions | **1,608** | `data/volcanoes.json` |
@@ -338,7 +338,7 @@ raw count that has nothing to do with the sky. The invariant rule:
 | GMN | meteors at absolute magnitude ≤ −4 as a **share** of all detections |
 
 ### 4.4 Detection-floor rule
-CNEOS lists **no event below 0.048 kt**; only 6 of 1,069 rows fall below 0.073 kt.
+CNEOS lists **no event below 0.048 kt**; only 6 of 1,074 rows fall below 0.073 kt.
 Therefore:
 - absence of a CNEOS row is **not** evidence an event did not occur;
 - a claim about sub-0.05 kt events cannot be confirmed *or* refuted by CNEOS.
@@ -416,18 +416,18 @@ excess. **Stated limits that cut the other way:** GMN is night-blind and several
 Conclusion recorded as *burden shifted*, not *claim refuted*.
 
 ### 5.2 Finding — fireball/volcano proximity: no association
-883 located CNEOS events vs 1,608 NOAA volcanoes; 1,000 Monte Carlo trials per null.
+888 located CNEOS events vs 1,608 NOAA volcanoes; 1,000 Monte Carlo trials per null.
 
 | Within | Observed | Rotation null | p | Scatter null | p |
 |---|---|---|---|---|---|
-| 100 km | **23** | 32.8 | 0.963 | 32.7 | 0.968 |
-| 200 km | 78 | 82.3 | 0.690 | 81.9 | 0.691 |
-| 500 km | 260 | 250.6 | 0.302 | 250.7 | 0.254 |
-| median nearest volcano | 838 km | 854 km | 0.295 | 853 km | 0.314 |
+| 100 km | **23** | 33.0 | 0.972 | 33.0 | 0.979 |
+| 200 km | 79 | 82.9 | 0.683 | 82.7 | 0.705 |
+| 500 km | 261 | 252.7 | 0.307 | 252.1 | 0.266 |
+| median nearest volcano | 844 km | 856 km | 0.342 | 857 km | 0.329 |
 
 Clustering (scatter null only, 166 trials):
-median nearest-event distance **353 km** vs 357 km (p=0.335); events with another within
-100 km **59** vs 46.7 (p=0.126). Five CNEOS rows appear twice (same position and clock time,
+median nearest-event distance **349 km** vs 356 km (p=0.305); events with another within
+100 km **59** vs 46.4 (p=0.096). Five CNEOS rows appear twice (same position and clock time,
 dates days apart) and are removed first; left in, they fake a cluster at p=0.006.
 
 **Reading.** No association at any radius; the nearest bin sits *below* chance. Proposed
@@ -495,7 +495,7 @@ canonical files so the two cannot drift.
 | `dossier/04-briefings.md` | 8 question-led syntheses |
 | `dossier/05-timeline.md` | 58 events with citations |
 | `dossier/06-quotations.md` | 35 quotations with verification status |
-| `dossier/07-cneos-fireballs.csv` | 1,069 rows, named columns |
+| `dossier/07-cneos-fireballs.csv` | 1,074 rows, named columns |
 | `dossier/08-ams-reports.csv` | 1,512 rows, long format |
 | `dossier/09-gmn-monthly.csv` | 92 months, incl. the bias-resistant bright fraction |
 | `dossier/10-spatial-test.md` | Monte Carlo output and distance histogram |
@@ -522,7 +522,7 @@ https://raw.githubusercontent.com/Samizdat-Publications/3i-atlas-anomaly-console
 | **P2** | `data/research-iso.json` | JSON | 128 KB | 16 cases · 30 events · 15 quotes | 1I/ʻOumuamua and 2I/Borisov corpora. |
 | **P3** | `data/fireball-cases.json` | JSON | 36 KB | 7 cases | Fireball register analyses incl. the three-instrument, volcano, NUFORC and nuclear-site tests. |
 | **P4** | `data/briefings.json` | JSON | 28 KB | 8 | Narrative syntheses; the interpretive layer over the case files. |
-| **P5** | `data/fireballs.json` | JSON | 64 KB | 1,069 rows | CNEOS atmospheric impacts 1988–2026. Positional arrays — see §2.1. |
+| **P5** | `data/fireballs.json` | JSON | 64 KB | 1,074 rows | CNEOS atmospheric impacts 1988–2026. Positional arrays — see §2.1. |
 | **P6** | `data/ams-reports.json` | JSON | 16 KB | 21 years × 12 × 6 | Eyewitness report-count bins 2006–2026. |
 | **P7** | `data/gmn-monthly.json` | JSON | 20 KB | 92 months | Camera photometry aggregates 2019–2026. |
 | **P8** | `data/spatial-test.json` | JSON | 4 KB | 1 result set | Monte Carlo output: radii, p-values, clustering, distance histogram. |

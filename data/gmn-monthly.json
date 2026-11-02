@@ -1185,20 +1185,59 @@
    "per_station": 75.8
   },
   "202608": {
-   "n": 116203,
+   "n": 161432,
    "counts": {
-    "m0": 75784,
-    "m2": 16608,
-    "m4": 1206,
-    "m6": 50
+    "m0": 102526,
+    "m2": 21513,
+    "m4": 1576,
+    "m6": 59
    },
-   "stations": 1251,
-   "median_absmag": -0.52,
-   "frac_m4": 0.010378,
-   "per_station": 92.9
+   "stations": 1308,
+   "median_absmag": -0.46,
+   "frac_m4": 0.009763,
+   "per_station": 123.4
+  },
+  "202609": {
+   "n": 86843,
+   "counts": {
+    "m0": 45380,
+    "m2": 7223,
+    "m4": 352,
+    "m6": 11
+   },
+   "stations": 1258,
+   "median_absmag": -0.07,
+   "frac_m4": 0.004053,
+   "per_station": 69.0
+  },
+  "202610": {
+   "n": 126577,
+   "counts": {
+    "m0": 64278,
+    "m2": 9902,
+    "m4": 547,
+    "m6": 19
+   },
+   "stations": 1242,
+   "median_absmag": -0.02,
+   "frac_m4": 0.004321,
+   "per_station": 101.9
+  },
+  "202611": {
+   "n": 1917,
+   "counts": {
+    "m0": 1010,
+    "m2": 135,
+    "m4": 3,
+    "m6": 0
+   },
+   "stations": 537,
+   "median_absmag": -0.06,
+   "frac_m4": 0.001565,
+   "per_station": 3.6
   }
  },
- "fetched": "2026-08-23",
+ "fetched": "2026-11-02",
  "note": "Monthly aggregates of GMN meteor trajectories. The network grew enormously over this period, so RAW COUNTS ARE NOT COMPARABLE ACROSS YEARS. Use frac_m4 (bright meteors as a share of all detections), which is insensitive to how many cameras were running.",
  "columns_verified": "2026-08-23 (absmag=76, mass=79, stations=85)"
 }

@@ -52,7 +52,7 @@
     },
     {
      "h": "Why the sensor record cannot answer it either",
-     "p": "NASA's CNEOS catalog measures energy directly and cannot be moved by how many people were watching. It shows 2026 at the bottom of an ordinary range. But its smallest entry in 1,069 rows is 0.048 kilotonnes, and almost every event in this argument falls far below that. Across all of 2025 and 2026, only four CNEOS rows fall anywhere in the regions this coverage discusses. The sensors are not staying quiet about these fireballs, with a handful of exceptions they cannot detect them at all."
+     "p": "NASA's CNEOS catalog measures energy directly and cannot be moved by how many people were watching. It shows 2026 at the bottom of an ordinary range. But its smallest entry in 1,074 rows is 0.048 kilotonnes, and almost every event in this argument falls far below that. Across all of 2025 and 2026, only four CNEOS rows fall anywhere in the regions this coverage discusses. The sensors are not staying quiet about these fireballs, with a handful of exceptions they cannot detect them at all."
     },
     {
      "h": "The instrument that can, and what it found",
@@ -160,11 +160,11 @@
    "sections": [
     {
      "h": "A catalog is not a census",
-     "p": "The CNEOS fireball record contains 1,069 rows going back to 1988, and the count per year steps sharply upward in 1994 and again around 2000 before going flat for 26 years. Those early years are not quiet years; they are years with almost no reporting, because the satellite record these detections come from begins in the mid-1990s. CNEOS says as much itself: not all fireballs are reported, and the agency does not independently verify the events. A record whose own publisher says it is incomplete cannot be read as a measurement of the sky."
+     "p": "The CNEOS fireball record contains 1,074 rows going back to 1988, and the count per year steps sharply upward in 1994 and again around 2000 before going flat for 26 years. Those early years are not quiet years; they are years with almost no reporting, because the satellite record these detections come from begins in the mid-1990s. CNEOS says as much itself: not all fireballs are reported, and the agency does not independently verify the events. A record whose own publisher says it is incomplete cannot be read as a measurement of the sky."
     },
     {
      "h": "Detection floors decide arguments",
-     "p": "CNEOS lists no event below 0.048 kilotonnes, and only 6 of its 1,069 rows fall under 0.073. That floor is where a great many arguments quietly live. A skeptic cannot cite sensor silence about events the sensors cannot detect; a proponent cannot cite confirmation from an instrument that never saw the events in question. The gap between what eyewitnesses can see and what sensors can measure is roughly 0.001 to 0.05 kilotonnes wide, and it is a property of the hardware rather than a debating position."
+     "p": "CNEOS lists no event below 0.048 kilotonnes, and only 6 of its 1,074 rows fall under 0.073. That floor is where a great many arguments quietly live. A skeptic cannot cite sensor silence about events the sensors cannot detect; a proponent cannot cite confirmation from an instrument that never saw the events in question. The gap between what eyewitnesses can see and what sensors can measure is roughly 0.001 to 0.05 kilotonnes wide, and it is a property of the hardware rather than a debating position."
     },
     {
      "h": "Growing instruments look like changing skies",
@@ -188,12 +188,12 @@
   {
    "id": "BR-06",
    "question": "Do fireballs really come down at volcanoes?",
-   "short": "Tested directly against 883 located events and 1,608 volcanoes: no association at any distance, under either null model. The nearest bin sits below chance. But the reason the footage looks so convincing is worth understanding.",
+   "short": "Tested directly against 888 located events and 1,608 volcanoes: no association at any distance, under either null model. The nearest bin sits below chance. But the reason the footage looks so convincing is worth understanding.",
    "tag": "ORIGINAL ANALYSIS",
    "sections": [
     {
      "h": "Why this claim is testable rather than arguable",
-     "p": "Most disputes in this register turn on interpretation. This one does not. It is a positional claim, and both halves are already published: the console ships 883 CNEOS fireballs with coordinates, and NOAA lists 1,608 volcano positions. Either the events fall closer to volcanoes than chance allows, or they do not, and a Monte Carlo settles it. Nobody appears to have run it, which is the main reason it is here."
+     "p": "Most disputes in this register turn on interpretation. This one does not. It is a positional claim, and both halves are already published: the console ships 888 CNEOS fireballs with coordinates, and NOAA lists 1,608 volcano positions. Either the events fall closer to volcanoes than chance allows, or they do not, and a Monte Carlo settles it. Nobody appears to have run it, which is the main reason it is here."
     },
     {
      "h": "Getting the null right is the whole test",
@@ -201,7 +201,7 @@
     },
     {
      "h": "The answer",
-     "p": "Within 100 km of a volcano: 23 events observed, 32.8 expected by chance. Within 200 km: 78 against 82.3. Within 500 km: 260 against 250.6. Median distance to the nearest volcano: 838 km observed, 854 km by chance. Nothing significant anywhere, under either null, and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 353 km against 357 km expected, once five rows the catalog lists twice are set aside."
+     "p": "Within 100 km of a volcano: 23 events observed, 33.0 expected by chance. Within 200 km: 79 against 82.9. Within 500 km: 261 against 252.7. Median distance to the nearest volcano: 844 km observed, 856 km by chance. Nothing significant anywhere, under either null, and the closest bin, the one the claim is actually about, comes in below chance rather than above it. The related 'three in the same place' clustering claim fails the same way: the median distance from an event to its nearest neighbour is 349 km against 356 km expected, once five rows the catalog lists twice are set aside."
     },
     {
      "h": "Why the footage is still striking",
@@ -266,7 +266,7 @@
    "id": "BR-08",
    "question": "Do fireballs cluster at nuclear sites?",
    "short": "The nuclear connection is the best-evidenced positional claim in the subject, and it rests on eyewitness testimony about craft, not on satellite detections of rocks. The catalog can only answer a narrower question, and it mostly answers no.",
-   "tag": "883 EVENTS · 195 REACTORS · 150 OTHER SITES",
+   "tag": "888 EVENTS · 195 REACTORS · 150 OTHER SITES",
    "sections": [
     {
      "h": "Why this one is different",
@@ -278,11 +278,11 @@
     },
     {
      "h": "The narrower question, and its answer",
-     "p": "What the catalog can answer is whether the population of objects big enough for satellites to see shows any positional preference for nuclear sites. Same two nulls as the volcano test, both preserving each event's own latitude, one rotating the whole set by a single random longitude offset, one redrawing every longitude independently, 600 trials each. Within 100 km: 11 observed against 8.8 expected. Within 500 km: 68 against 71.5, below chance. Median distance to the nearest reactor: 2682 km observed against 2687 by chance. Nothing."
+     "p": "What the catalog can answer is whether the population of objects big enough for satellites to see shows any positional preference for nuclear sites. Same two nulls as the volcano test, both preserving each event's own latitude, one rotating the whole set by a single random longitude offset, one redrawing every longitude independently, 600 trials each. Within 100 km: 11 observed against 8.4 expected. Within 500 km: 68 against 71.7, below chance. Median distance to the nearest reactor: 2685 km observed against 2694 by chance. Nothing."
     },
     {
      "h": "The one place something shows up",
-     "p": "Within 200 km there are 34 events against 24.8 expected, a 37% excess, reaching p=0.025 under the scatter null. That is reported here rather than buried, because it is in the direction the claim predicts. Two things stop it being a result. Three radii were tested, and one marginal value among three correlated tests is roughly what chance delivers. More telling is the shape: a genuine proximity effect is strongest where the proximity is tightest, and this one is absent at 100 km, present at 200 km, and gone by 500 km. A bump in the middle with nothing at the centre is not what an attraction looks like. Under the conservative null, the one that leaves the events' own clustering intact, it does not reach significance at all, at p=0.070."
+     "p": "Within 200 km there are 34 events against 24.2 expected, a 41% excess, reaching p=0.033 under the scatter null. That is reported here rather than buried, because it is in the direction the claim predicts. Two things stop it being a result. Three radii were tested, and one marginal value among three correlated tests is roughly what chance delivers. More telling is the shape: a genuine proximity effect is strongest where the proximity is tightest, and this one is absent at 100 km, present at 200 km, and gone by 500 km. A bump in the middle with nothing at the centre is not what an attraction looks like. Under the conservative null, the one that leaves the events' own clustering intact, it does not reach significance at all, at p=0.068."
     },
     {
      "h": "The same selection effect, found twice",
@@ -290,7 +290,7 @@
     },
     {
      "h": "The wider target set, and the first result that is not a null",
-     "p": "The limit above, that power reactors are not what the testimony means, is now partly lifted. A second target set of 150 non-power sites (research reactors, waste stores, enrichment and reprocessing plants, test sites, and the weapons laboratories and missile bases the accounts name) comes from Wikidata. Within 100 km it gives 12 events against 6.2 expected, p=0.017 and 0.022 under the two nulls: about twice chance, and the first positional test in this register to clear the usual bar under both. Among the twelve: an airburst 31 km from the Nevada test site, one 54 km from Kirtland, and Chelyabinsk 99 km from the Mayak waste lake. It is not yet a finding. With six such tests, one this strong appears by chance about one time in four; the excess is gone by 200 km (20 against 19.5), so the ring from 100 to 200 km is under-filled; and no single kind of site carries it, the weapons complex alone coming closest at 3 against 0.9 (p=0.06) on 16 sites. The honest status is a weak, interesting signal at the one distance where an attraction would show first, in a catalog that can only see rocks. The second chart shows it."
+     "p": "The limit above, that power reactors are not what the testimony means, is now partly lifted. A second target set of 150 non-power sites (research reactors, waste stores, enrichment and reprocessing plants, test sites, and the weapons laboratories and missile bases the accounts name) comes from Wikidata. Within 100 km it gives 12 events against 6.0 expected, p=0.008 and 0.015 under the two nulls: about twice chance, and the first positional test in this register to clear the usual bar under both. Among the twelve: an airburst 31 km from the Nevada test site, one 54 km from Kirtland, and Chelyabinsk 99 km from the Mayak waste lake. It is not yet a finding. With six such tests, at least one clears the usual bar by chance about one time in four; the excess is gone by 200 km (20 against 19.4), so the ring from 100 to 200 km is under-filled; and no single kind of site carries it, the weapons complex alone coming closest at 3 against 0.8 (p=0.04 and 0.06) on 16 sites. The honest status is a weak, interesting signal at the one distance where an attraction would show first, in a catalog that can only see rocks. The second chart shows it."
     }
    ],
    "chart": "nuclear-dist",

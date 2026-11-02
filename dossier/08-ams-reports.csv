@@ -584,7 +584,7 @@ year,month,bin,bin_definition,events
 2014,7,one,Events with only one report,178
 2014,8,one,Events with only one report,260
 2014,9,one,Events with only one report,295
-2014,10,one,Events with only one report,241
+2014,10,one,Events with only one report,242
 2014,11,one,Events with only one report,313
 2014,12,one,Events with only one report,237
 2014,1,2_10,Events with 1< number of reports <= 10,95
@@ -874,7 +874,7 @@ year,month,bin,bin_definition,events
 2018,9,one,Events with only one report,374
 2018,10,one,Events with only one report,422
 2018,11,one,Events with only one report,535
-2018,12,one,Events with only one report,442
+2018,12,one,Events with only one report,443
 2018,1,2_10,Events with 1< number of reports <= 10,109
 2018,2,2_10,Events with 1< number of reports <= 10,117
 2018,3,2_10,Events with 1< number of reports <= 10,118
@@ -1299,7 +1299,7 @@ year,month,bin,bin_definition,events
 2024,2,one,Events with only one report,321
 2024,3,one,Events with only one report,337
 2024,4,one,Events with only one report,316
-2024,5,one,Events with only one report,352
+2024,5,one,Events with only one report,353
 2024,6,one,Events with only one report,356
 2024,7,one,Events with only one report,418
 2024,8,one,Events with only one report,664
@@ -1318,7 +1318,7 @@ year,month,bin,bin_definition,events
 2024,9,2_10,Events with 1< number of reports <= 10,258
 2024,10,2_10,Events with 1< number of reports <= 10,272
 2024,11,2_10,Events with 1< number of reports <= 10,248
-2024,12,2_10,Events with 1< number of reports <= 10,279
+2024,12,2_10,Events with 1< number of reports <= 10,278
 2024,1,11_25,Events with 10< number of reports <= 25,26
 2024,2,11_25,Events with 10< number of reports <= 25,16
 2024,3,11_25,Events with 10< number of reports <= 25,26
@@ -1330,7 +1330,7 @@ year,month,bin,bin_definition,events
 2024,9,11_25,Events with 10< number of reports <= 25,27
 2024,10,11_25,Events with 10< number of reports <= 25,32
 2024,11,11_25,Events with 10< number of reports <= 25,23
-2024,12,11_25,Events with 10< number of reports <= 25,23
+2024,12,11_25,Events with 10< number of reports <= 25,24
 2024,1,26_50,Events with 25< number of reports <= 50,6
 2024,2,26_50,Events with 25< number of reports <= 50,8
 2024,3,26_50,Events with 25< number of reports <= 50,3
@@ -1374,7 +1374,7 @@ year,month,bin,bin_definition,events
 2025,5,one,Events with only one report,370
 2025,6,one,Events with only one report,497
 2025,7,one,Events with only one report,547
-2025,8,one,Events with only one report,687
+2025,8,one,Events with only one report,691
 2025,9,one,Events with only one report,612
 2025,10,one,Events with only one report,720
 2025,11,one,Events with only one report,1044
@@ -1439,27 +1439,27 @@ year,month,bin,bin_definition,events
 2025,10,100_plus,Events with more than 100 reports,6
 2025,11,100_plus,Events with more than 100 reports,8
 2025,12,100_plus,Events with more than 100 reports,6
-2026,1,one,Events with only one report,538
+2026,1,one,Events with only one report,539
 2026,2,one,Events with only one report,417
-2026,3,one,Events with only one report,647
+2026,3,one,Events with only one report,646
 2026,4,one,Events with only one report,545
 2026,5,one,Events with only one report,491
 2026,6,one,Events with only one report,671
-2026,7,one,Events with only one report,770
-2026,8,one,Events with only one report,1081
-2026,9,one,Events with only one report,0
+2026,7,one,Events with only one report,774
+2026,8,one,Events with only one report,1479
+2026,9,one,Events with only one report,8
 2026,10,one,Events with only one report,0
 2026,11,one,Events with only one report,0
 2026,12,one,Events with only one report,0
 2026,1,2_10,Events with 1< number of reports <= 10,191
 2026,2,2_10,Events with 1< number of reports <= 10,155
-2026,3,2_10,Events with 1< number of reports <= 10,312
+2026,3,2_10,Events with 1< number of reports <= 10,313
 2026,4,2_10,Events with 1< number of reports <= 10,244
 2026,5,2_10,Events with 1< number of reports <= 10,204
 2026,6,2_10,Events with 1< number of reports <= 10,268
 2026,7,2_10,Events with 1< number of reports <= 10,293
-2026,8,2_10,Events with 1< number of reports <= 10,376
-2026,9,2_10,Events with 1< number of reports <= 10,0
+2026,8,2_10,Events with 1< number of reports <= 10,489
+2026,9,2_10,Events with 1< number of reports <= 10,3
 2026,10,2_10,Events with 1< number of reports <= 10,0
 2026,11,2_10,Events with 1< number of reports <= 10,0
 2026,12,2_10,Events with 1< number of reports <= 10,0
@@ -1470,7 +1470,7 @@ year,month,bin,bin_definition,events
 2026,5,11_25,Events with 10< number of reports <= 25,16
 2026,6,11_25,Events with 10< number of reports <= 25,34
 2026,7,11_25,Events with 10< number of reports <= 25,35
-2026,8,11_25,Events with 10< number of reports <= 25,25
+2026,8,11_25,Events with 10< number of reports <= 25,39
 2026,9,11_25,Events with 10< number of reports <= 25,0
 2026,10,11_25,Events with 10< number of reports <= 25,0
 2026,11,11_25,Events with 10< number of reports <= 25,0
@@ -1482,7 +1482,7 @@ year,month,bin,bin_definition,events
 2026,5,26_50,Events with 25< number of reports <= 50,14
 2026,6,26_50,Events with 25< number of reports <= 50,7
 2026,7,26_50,Events with 25< number of reports <= 50,11
-2026,8,26_50,Events with 25< number of reports <= 50,9
+2026,8,26_50,Events with 25< number of reports <= 50,15
 2026,9,26_50,Events with 25< number of reports <= 50,0
 2026,10,26_50,Events with 25< number of reports <= 50,0
 2026,11,26_50,Events with 25< number of reports <= 50,0
@@ -1494,7 +1494,7 @@ year,month,bin,bin_definition,events
 2026,5,51_99,Events with 50< number of reports < 100,3
 2026,6,51_99,Events with 50< number of reports < 100,6
 2026,7,51_99,Events with 50< number of reports < 100,6
-2026,8,51_99,Events with 50< number of reports < 100,7
+2026,8,51_99,Events with 50< number of reports < 100,9
 2026,9,51_99,Events with 50< number of reports < 100,0
 2026,10,51_99,Events with 50< number of reports < 100,0
 2026,11,51_99,Events with 50< number of reports < 100,0
@@ -1506,7 +1506,7 @@ year,month,bin,bin_definition,events
 2026,5,100_plus,Events with more than 100 reports,1
 2026,6,100_plus,Events with more than 100 reports,8
 2026,7,100_plus,Events with more than 100 reports,2
-2026,8,100_plus,Events with more than 100 reports,3
+2026,8,100_plus,Events with more than 100 reports,5
 2026,9,100_plus,Events with more than 100 reports,0
 2026,10,100_plus,Events with more than 100 reports,0
 2026,11,100_plus,Events with more than 100 reports,0
