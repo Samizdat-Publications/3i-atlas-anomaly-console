@@ -61,8 +61,7 @@ keyboard reachability, modal sheet, reduced motion, hidden-scene render skip, em
 `dossier/briefings/`), splitting `ui.js` along its seams (boot, tour, archive, routing, timeline,
 an action map for `wire()`), and a fresh AMS pull once its stats pages answer again.
 Cleaned up 2026-11-02: the `data-refresh/2026-09-01` branch (its AMS file is in main) and the
-v2.20 worktree are deleted. An older remote branch `claude/scheduled-data-refresh` (2026-08,
-"Automate the monthly data refresh") still exists; Stewart has not decided on it.
+v2.20 worktree are deleted, and so is `claude/scheduled-data-refresh` (2026-08, already merged).
 
 **Earlier (2026-08-24):** v2.18 head.
 **STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —
