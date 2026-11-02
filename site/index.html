@@ -57,9 +57,9 @@
   <div class="stats">
     <div class="stat"><div class="n">3</div><div class="l">INTERSTELLAR OBJECTS</div></div>
     <div class="stat"><div class="n">49</div><div class="l">CASE FILES</div></div>
-    <div class="stat"><div class="n">58</div><div class="l">TIMELINE RECORDS</div></div>
-    <div class="stat"><div class="n">8</div><div class="l">QUESTION BRIEFINGS</div></div>
-    <div class="stat"><div class="n">1,069</div><div class="l">LOGGED FIREBALLS</div></div>
+    <div class="stat"><div class="n">77</div><div class="l">TIMELINE RECORDS</div></div>
+    <div class="stat"><div class="n">9</div><div class="l">QUESTION BRIEFINGS</div></div>
+    <div class="stat"><div class="n">1,074</div><div class="l">LOGGED FIREBALLS</div></div>
   </div>
 </section>
 
@@ -101,7 +101,7 @@
   <div class="feature-text">
     <p class="layer">03 / BRIEFINGS</p>
     <h2 id="briefings-title">A way in, by question</h2>
-    <p>Forty-nine dossiers is a wall, so there are eight briefings, each built around one question: is 3I/ATLAS a comet or something else, are fireballs actually increasing, has anything interstellar hit Earth, why is only one of the three visitors contested.</p>
+    <p>Forty-nine dossiers is a wall, so there are nine briefings, each built around one question: is 3I/ATLAS a comet or something else, is it changing course, are fireballs actually increasing, has anything interstellar hit Earth, why is only one of the three visitors contested.</p>
     <p>A briefing states the question, answers it in a few hundred words, shows the one chart that carries the argument, and hands off to the case files that do the detailed work. Each is a deep link, so a single finding can be sent on its own.</p>
   </div>
   <figure class="monitor">
@@ -115,7 +115,7 @@
 <section class="wrap feature flip" id="fireballs" aria-labelledby="fireballs-title">
   <div class="feature-text">
     <p class="layer">04 / IMPACT MAP</p>
-    <h2 id="fireballs-title">1,069 fireballs, and two disputed rows</h2>
+    <h2 id="fireballs-title">1,074 fireballs, and two disputed rows</h2>
     <p>Every atmospheric impact that US Government sensors have logged since 1988 is plotted where it burned, with circle area scaling with energy up to Chelyabinsk at 441 kt. Filter by energy or decade, hover a dot for its full CNEOS row, and put IM1 (2014) and IM2 (2017), the two events Loeb argues came from outside the solar system, under a reticle.</p>
     <p>The catalog publishes no uncertainties on any field, which sits at the center of the IM1 and IM2 dispute, and the console says so wherever those numbers appear.</p>
   </div>
@@ -127,15 +127,27 @@
   </figure>
 </section>
 
+<section class="wrap feature" id="course" aria-labelledby="course-title">
+  <div class="feature-text">
+    <p class="layer">05 / CHANGING COURSE</p>
+    <h2 id="course-title">The push, measured in kilometres</h2>
+    <p>3I/ATLAS is not following the path gravity alone would give it. A 2026 paper finds the extra push even in observations taken far from the Sun, and cannot say what causes it. So the console asks JPL Horizons to fly the object twice from May 2025, once with the push and once with it switched off, and draws the difference.</p>
+    <p>By November 2026 the two paths are about 126,000 km apart, part of it out of the original orbital plane. The gravity-only path is drawn with the gap exaggerated two thousand times and is labelled that way on the button, on a banner and in a toast, with the true distance beside it.</p>
+  </div>
+  <figure class="monitor">
+    <span class="screen-tag">OVERLAY // GRAVITY-ONLY PATH</span>
+    <img src="media/shot-course.jpg" alt="The tracking view at perihelion with the gravity-only overlay on: a dashed amber path beside the real one, and a banner giving the real separation in kilometres and arcseconds." loading="lazy" width="1280" height="720">
+  </figure>
+</section>
 <section class="wrap gallery" aria-labelledby="gallery-title">
   <h2 id="gallery-title"><span>FROM THE CONSOLE</span></h2>
   <div class="shots">
     <figure><img src="media/shot-track.jpg" alt="The tracking view near perihelion: the object's tail, the planets on their real positions and the timeline of markers underneath." loading="lazy" width="1280" height="720"><figcaption>Tracking view near perihelion, planets on their real positions.</figcaption></figure>
     <figure><img src="media/shot-1i.jpg" alt="The console re-scoped to 1I/Oumuamua, with its own case files, close approaches and telemetry." loading="lazy" width="1280" height="720"><figcaption>Switch target: the whole console re-scopes to 1I/&#699;Oumuamua.</figcaption></figure>
-    <figure><img src="media/shot-briefings.jpg" alt="The briefings page with eight question cards on the left and the comet question open with its chart." loading="lazy" width="1280" height="720"><figcaption>Briefings: a question, a short answer, one chart.</figcaption></figure>
+    <figure><img src="media/shot-push.jpg" alt="The briefings page with the question cards on the left and the changing-course briefing open, its chart showing the gap between the real path and the gravity-only path growing to 126,661 km." loading="lazy" width="1280" height="720"><figcaption>Briefings: a question, a short answer, one chart.</figcaption></figure>
     <figure><img src="media/shot-fireballs.jpg" alt="The impact map with the IM1 event selected and its catalog row shown below." loading="lazy" width="1280" height="720"><figcaption>IM1 under the reticle, with its full catalog row.</figcaption></figure>
   </div>
-  <p class="note">Some charts are labeled as stylized reconstructions of a published result rather than raw data, and the optional DISPATCH overlay is marked three times as an illustration of a claim, not an observation.</p>
+  <p class="note">Some charts are labeled as stylized reconstructions of a published result rather than raw data, and the optional DISPATCH overlay is marked three times as an illustration of a claim, not an observation. The gravity-only overlay is computed, not imagined, and is labelled as drawn to an exaggerated scale.</p>
 </section>
 
 <section class="wrap making" id="making" aria-labelledby="making-title">
@@ -146,7 +158,7 @@
   <div class="pillars">
     <article>
       <h3>Data by script</h3>
-      <p>Python scripts pull the JPL Horizons vectors, the CNEOS fireball table and the other datasets, then bake them into the bundle. A monthly workflow re-pulls upstream and opens a pull request if anything changed. It never pushes to main, because a row a case file quotes can be revised upstream and a person should read the diff.</p>
+      <p>Python scripts pull the JPL Horizons vectors, the CNEOS fireball table and the other datasets, then bake them into the bundle. A refresh is run by hand and lands as a pull request, never straight to main, because a row a case file quotes can be revised upstream and a person should read the diff. A check on every pull request rebuilds the bundle and fails if a generated file drifts from its source.</p>
     </article>
     <article>
       <h3>Cases that get checked</h3>
@@ -164,6 +176,8 @@
     <li><time>22 Aug</time><div><b>The fireball register.</b> The CNEOS impact map, cases for IM1 and IM2, touch support, and timeline markers that open full sourced records.</div></li>
     <li><time>23 Aug</time><div><b>Briefings, and three instruments.</b> A question-led way into the cases, and the fireball-rate claim tested against more than one dataset.</div></li>
     <li><time>24 Aug</time><div><b>A fourth instrument, the DISPATCH overlay and the attribution fix.</b> NASA's GLM satellite catalog sees daylight, which closes a limit the case had stated against itself.</div></li>
+    <li><time>1 Nov</time><div><b>Is it changing course?</b> A new paper finds the push far from the Sun. JPL Horizons runs the orbit again with the push switched off, and the console draws the gap. A wider nuclear-site test turns up the register's first weak signal.</div></li>
+    <li><time>2 Nov</time><div><b>Keyboards, phones and a data refresh.</b> A quality pass for screen readers, touch and speed, then every dataset pulled fresh.</div></li>
   </ol>
   <p class="center"><a class="btn btn-ghost" href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console/blob/main/_CHANGELOG.md">Read the full changelog</a></p>
 </section>
@@ -182,6 +196,7 @@
         <tr><th scope="row">American Meteor Society</th><td>Eyewitness report counts per month</td><td>Public statistics page; aggregates only</td></tr>
         <tr><th scope="row">NOAA NCEI volcano locations</th><td>The volcano-proximity test</td><td>US government data</td></tr>
         <tr><th scope="row">WRI Global Power Plant Database</th><td>Reactor positions for the nuclear-site test</td><td>CC BY 4.0</td></tr>
+        <tr><th scope="row">Wikidata</th><td>Research reactors, test sites, waste stores and the weapons complex, for the wider nuclear-site test</td><td>CC0</td></tr>
         <tr><th scope="row">NUFORC archive (planetsig/ufo-reports mirror)</th><td>The 2013 sighting-share precedent; the mirror ends in 2014</td><td>Aggregates only; raw report text is not kept</td></tr>
         <tr><th scope="row">three.js</th><td>The 3D scene</td><td>MIT</td></tr>
         <tr><th scope="row">Share Tech Mono</th><td>The typeface, here and in the console</td><td>SIL Open Font License 1.1</td></tr>
@@ -195,7 +210,7 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p class="pill"><span class="pill-dot"></span>v1.0 (app build 2.18.1)</p>
+    <p class="pill"><span class="pill-dot"></span>v1.0 (app build 2.21)</p>
     <p>Unofficial simulation built for education and entertainment. Not affiliated with, endorsed by, or produced by NASA, JPL, ESA or any government agency. The Interstellar Object Working Group, its clearance banners and its declassified memoranda are fiction. The ephemerides, measurements, quotations and citations are real and sourced.</p>
     <p><a href="https://3i-atlas-anomaly-console.pages.dev">Live dashboard</a> &middot; <a href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console">Source on GitHub</a> &middot; <a href="https://github.com/Samizdat-Publications">Samizdat Publications</a></p>
   </div>

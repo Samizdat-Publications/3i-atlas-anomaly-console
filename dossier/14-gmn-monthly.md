@@ -4,7 +4,7 @@
 
 Camera-measured meteor trajectories with **absolute magnitudes**. No human decides
 whether an event is filed, which is what makes this the tiebreaker instrument.
-**92 months, 201901 to 202608.**
+**95 months, 201901 to 202611.**
 
 ## Read this before using the numbers
 
@@ -30,7 +30,7 @@ whether an event is filed, which is what makes this the tiebreaker instrument.
 | 2023 | 451903 | 899 | 1634 | 0.3616% | -0.09 |
 | 2024 | 705964 | 1023 | 2547 | 0.3608% | -0.04 |
 | 2025 | 962803 | 1327 | 3306 | 0.3434% | -0.01 |
-| 2026 | 540305 | 1251 | 2372 | 0.4390% | -0.04 |
+| 2026 | 800871 | 1308 | 3644 | 0.4550% | -0.04 |
 
 ## Monthly detail
 
@@ -127,4 +127,7 @@ whether an event is filed, which is what makes this the tiebreaker instrument.
 | 2026-05 | 63419 | 1166 | +0.08 | 30272 | 3963 | 151 | 2 | 0.2381% |
 | 2026-06 | 60014 | 1167 | +0.13 | 27743 | 3468 | 139 | 3 | 0.2316% |
 | 2026-07 | 91617 | 1208 | -0.04 | 47115 | 6468 | 310 | 7 | 0.3384% |
-| 2026-08 | 116203 | 1251 | -0.52 | 75784 | 16608 | 1206 | 50 | 1.0378% |
+| 2026-08 | 161432 | 1308 | -0.46 | 102526 | 21513 | 1576 | 59 | 0.9763% |
+| 2026-09 | 86843 | 1258 | -0.07 | 45380 | 7223 | 352 | 11 | 0.4053% |
+| 2026-10 | 126577 | 1242 | -0.02 | 64278 | 9902 | 547 | 19 | 0.4321% |
+| 2026-11 | 1917 | 537 | -0.06 | 1010 | 135 | 3 | 0 | 0.1565% |

@@ -6,7 +6,27 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often: checkpoint everything)
-**CURRENT STATE (2026-11-01): v2.19 is the head ("is 3I/ATLAS changing course?").** Approved
+**CURRENT STATE (2026-11-02): v2.21 is the head, a manual data refresh on top of v2.20.**
+- **How to refresh (Stewart asks by hand; the cron is off):** `fetch_fireballs.py`,
+  `fetch_ams.py`, `fetch_glm.py`, `fetch_gmn.py --refresh-last`, then `fetch_ephemeris.py` and
+  `fetch_counterfactual.py` in that order, then `spatial_test.py --target X --save` for volcanoes,
+  nuclear and nuclear_wide, then `fireball_rate_check.py`. THE QUICK WAY TO REWRITE STALE CASE
+  TEXT: `fireball_rate_check.py --needles` prints every figure it looks for as JSON. Run it once
+  against the previous commit's data (`git show HEAD:data/<file>` into a temp folder beside a copy
+  of the tool) and once against the new data; the two lists zip into an old -> new map. It strips
+  thousands commas, so "1,069" in prose counts as 1069. It does NOT cover the nuclear_wide
+  figures, the F-07 subset figures (research reactors / weapons / test sites: one
+  `spatial_test.run` per subset, same SEED, 600 trials), BR-06/BR-08 or the docs: grep for those.
+- **AMS 503s** on its stats pages (2026-10-01, 11-01, 11-02) while the rest of amsmeteors.org is
+  up. v2.21 ships the 2026-09-01 AMS pull taken from the stranded `data-refresh/2026-09-01`
+  branch, the newest real AMS data available (the Wayback copy is from March). Retry next time.
+- **2026-11-02 result:** CNEOS 1,069 -> 1,074 rows, latest 2026-10-04; one new row (0.67 kt over
+  Manitoba) is inside the F-04 regions, so F-04 now says FIVE. GLM 11,611 detections, 2026 bright
+  share x1.09 (human-only x1.13) against GMN's x1.07. Every spatial figure moved slightly with 888
+  located events; no conclusion changed. Wider nuclear set now 12 vs 6.0, p=0.008/0.015;
+  weapons-only subset 3 vs 0.8, p=0.042 rotation / 0.057 scatter. Still a weak signal.
+
+**v2.19 (2026-11-01): "is 3I/ATLAS changing course?".** Approved
 plan for v2.19 + v2.20: `C:\Users\stewa\.claude\plans\effervescent-fluttering-falcon.md`. Read
 `_CHANGELOG.md` v2.19 for the full list. The load-bearing facts:
 - **3I IS PINNED TO JPL#54.** Since 2026-10-21 Horizons serves solution #55 for C/2025 N1, a
@@ -23,27 +43,24 @@ plan for v2.19 + v2.20: `C:\Users\stewa\.claude\plans\effervescent-fluttering-fa
 - **3I ephemeris now ends 2027-12-31.** Extend END in both fetch_ephemeris.py and
   fetch_counterfactual.py before then, or NOW stops working.
 - **Content is current to 2026-11-01** (research run `wf_43b27ab0-391`, verified record in
-  `data/research-2026q4.json`). F-04 was NOT given the five new CNEOS rows (Sep-Oct 2026) because
-  the shipped catalog predates them; add them in the next manual data refresh, along with the
-  stranded F-03 AMS drift (the AMS endpoint 503'd on 2026-11-01).
+  `data/research-2026q4.json`). The five Sep-Oct 2026 CNEOS rows went in with v2.21.
 - **YouTube 429s caption downloads**, even from this machine. `tools/import_transcript.py` imports
   a transcript fetched through the Firecrawl `youtube-com / videos/video_transcript` capability.
   Browser-cookie fallbacks are blocked by the permission classifier; do not retry them.
 - **CNEOS has duplicated rows** (5 found: same position and clock time, dates days apart).
   `spatial_test.py` removes them for clustering only; left in they fake a cluster at p=0.006.
 - **F-07 wider nuclear set**: 150 Wikidata sites (gate = 150, it passed exactly). 100 km excess
-  12 vs 6.2, p=0.017/0.022, the first non-null in the register; framed as a weak signal (one of six
+  12 vs 6.0, p=0.008/0.015 as of v2.21, the first non-null in the register; framed as a weak signal (one of six
   tests, gone by 200 km, no single site type carries it). Do not upgrade it to a finding.
 **v2.20 (2026-11-01)** is the quality pass on top: boot guard, inert-until-auth, replay pauses
 in reading modes, stable re-render (no lost clicks), tap-vs-drag decided on release, ARIA and
 keyboard reachability, modal sheet, reduced motion, hidden-scene render skip, em-dash sweep, and
 `.github/workflows/check.yml` (CI guards; keep it green). `build.py` now WRITES
 `src/index.html`'s script list from `JS_ORDER`: add new scripts there, not by hand.
-**NEXT STEP (open):** the monthly refresh workflow (low priority; Stewart asks for data updates
-by hand, and the cron is still on and still failing until that is done), the Video Overviews
-themselves (Stewart makes them in NotebookLM from `dossier/briefings/`), splitting `ui.js` along
-its seams (boot, tour, archive, routing, timeline, an action map for `wire()`), and the next manual
-data refresh (new CNEOS rows for F-04, AMS for F-03).
+**NEXT STEP (open):** the Video Overviews themselves (Stewart makes them in NotebookLM from
+`dossier/briefings/`), splitting `ui.js` along its seams (boot, tour, archive, routing, timeline,
+an action map for `wire()`), a fresh AMS pull once its stats pages answer again, and deleting the
+stranded `data-refresh/2026-09-01` branch (its AMS file is now in main).
 
 **Earlier (2026-08-24):** v2.18 head.
 **STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —
@@ -349,7 +366,7 @@ project; the console's deploy runs wrangler from inside `public/` so it no longe
   with them.
 - **Spatial test:** `python tools/spatial_test.py --save` — Monte Carlo, two nulls → `data/spatial-test.json`.
 - **Fireballs:** `python tools/fetch_fireballs.py` — pulls the whole NASA/JPL CNEOS Fireball API
-  table (1,069 rows since 1988-04-15, 883 located) plus Natural Earth 1:110m land (public domain,
+  table (1,074 rows since 1988-04-15, 888 located, as of 2026-11-02) plus Natural Earth 1:110m land (public domain,
   RDP-simplified to ~2,200 vertices) → `data/fireballs.json` + `data/world-land.json` → baked to
   `src/data-fireballs.js` (~94 KB). IM1/IM2 are tagged BY DATE from the live rows — never
   transcribed — so a CNEOS revision propagates. Their case text is `data/fireball-cases.json`.

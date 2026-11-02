@@ -1,5 +1,45 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.21 - 2026-11-02 (data refresh: five new fireballs, every figure re-derived)
+
+Every upstream dataset pulled fresh, by hand, and every figure the case files quote re-derived
+from it. No conclusion changed. Several numbers did, and the case text now says so.
+
+- **CNEOS: 1,069 rows to 1,074**, latest 2026-10-04. One of the five new rows, 0.67 kt over
+  northern Manitoba on 2026-09-11, falls in the regions F-04 discusses, so F-04 now counts FIVE
+  rows there, not four. It is listed, not argued: it has not been matched to a public sighting.
+  F-03's CNEOS line now runs 1 January to 4 October: 23 events against a 2016-2025 range of
+  19 to 35.
+- **GLM: 11,611 detections**, through 2026-10-06. The 2026 bright share is now x1.09 against
+  the 2021-2025 mean (x1.13 on human-reviewed events only), against GMN's x1.07. F-03 used to
+  say the two instruments agreed "to two decimal places"; they now land within two hundredths of
+  each other, and the sentence says that instead.
+- **GMN:** August re-pulled in full and September and October added. Q1 and January-to-July
+  figures unchanged (x1.08, x1.07).
+- **AMS:** the stats pages returned 503 again (the fourth time since October) while the rest of
+  the AMS site was up. This release ships the 2026-09-01 AMS pull that the stranded automatic
+  refresh made, the newest real AMS data that exists. F-03's Q1 share moves from 1.715% to 1.714%.
+- **Spatial tests re-run on 888 located events.** Volcanoes: 23 vs 33.0 within 100 km, median
+  844 vs 856 km, still no association; clustering 349 vs 356 km. Power reactors: 200 km excess
+  now 34 vs 24.2, a 41% excess, p=0.033 scatter / 0.068 rotation, still a non-result. Wider
+  nuclear set: 12 vs 6.0 within 100 km, p=0.008 and 0.015, slightly stronger. Its subsets were
+  recomputed: the weapons complex alone is 3 vs 0.8, p=0.042 under rotation but 0.057 under
+  scatter, so no single kind of site clears both nulls. F-07 and BR-08 still call it a weak
+  signal. Their "one time in four" sentence now says what it means: with six tests, at least one
+  clears p=0.05 by chance about one time in four.
+- **Horizons:** ephemeris and counterfactual re-run; no close approach moved. The gap between
+  3I's real path and its gravity-only twin is 126,661 km on 2026-11-02.
+- **Layout, found while capturing the landing page:** at ordinary desktop widths the overlay
+  toggles (five since GRAVITY-ONLY) ran over the camera buttons; each row now gets half the scene
+  and wraps. The overlay banners sat on the disclaimer and now clear it. On narrow screens the
+  camera row and the disclaimer collided; the disclaimer now has its own full-width strip at the
+  bottom, with the camera row and the banners stacked above it. Checked at 1280, 884 and 412 px.
+- **Tooling:** `fireball_rate_check.py --needles` prints every figure the check looks for, so a
+  refresh can map old figures to new ones mechanically. `about.html` reads its fireball count
+  from the data. The showcase landing page is current: nine briefings, 77 timeline records,
+  1,074 fireballs, the changing-course release, Wikidata credited, and the refresh described as
+  it now runs (by hand, as a pull request).
+
 ## v2.20 - 2026-11-01 (quality pass: correctness, phones, keyboards, speed, CI)
 
 A review of the whole console turned up bugs that had been there since the early releases. None

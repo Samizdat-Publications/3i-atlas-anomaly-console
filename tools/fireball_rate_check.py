@@ -294,6 +294,7 @@ def verify(a, g, c, nreg, sp, nf):
                                                           "{:,}".format(g["stations_max"]).replace(",", ""))),
         ]
         for label, needle in checks:
+            NEEDLES.append(("F-03", label, needle))
             if needle not in t3:
                 bad.append("F-03 %s: data says '%s', the case does not" % (label, needle))
 
@@ -316,6 +317,7 @@ def verify(a, g, c, nreg, sp, nf):
         ]
         for label, needle in checks:
             flat = " ".join(needle.split())
+            NEEDLES.append(("F-03", label, flat))
             if flat not in " ".join(t3.split()):
                 bad.append("F-03 %s: data says '%s', the case does not" % (label, flat))
     elif t3 is not None and gl is None:
@@ -330,6 +332,7 @@ def verify(a, g, c, nreg, sp, nf):
             ("region row count", "%s CNEOS rows" % words.get(nreg, str(nreg))),
             ("catalog median", "median is %.3f kt" % c["median"]),
         ]:
+            NEEDLES.append(("F-04", label, needle))
             if needle not in t4:
                 bad.append("F-04 %s: data says '%s', the case does not" % (label, needle))
         # the two matched rows must still read exactly as the case states
@@ -371,6 +374,7 @@ def verify(a, g, c, nreg, sp, nf):
             ("pairs within 100 km", "%d events having another within 100 km against %.1f"
                                     % (cl["pairs_100"]["observed"], cl["pairs_100"]["null_mean"])),
         ]:
+            NEEDLES.append(("F-05", label, needle))
             if needle not in t5:
                 bad.append("F-05 %s: data says '%s', the case does not" % (label, needle))
 
@@ -417,6 +421,7 @@ def verify(a, g, c, nreg, sp, nf):
                                   spn["recent_only"]["median"])),
         ]:
             flat = " ".join(needle.split())
+            NEEDLES.append(("F-07", label, flat))
             if flat not in " ".join(t7.split()):
                 bad.append("F-07 %s: data says '%s', the case does not" % (label, flat))
 
@@ -460,6 +465,7 @@ def verify(a, g, c, nreg, sp, nf):
             checks.append(("%s share" % shape,
                            "%s (%.1f%%)" % (pretty, sh[shape]["share"])))
         for label, needle in checks:
+            NEEDLES.append(("F-06", label, needle))
             if needle not in t6:
                 bad.append("F-06 %s: data says '%s', the case does not" % (label, needle))
 
@@ -472,8 +478,14 @@ def verify(a, g, c, nreg, sp, nf):
     return 0
 
 
+# Every (case, label, figure) the checks looked for, filled in by verify().
+# --needles prints them as JSON: run it on the old data and the new, and the
+# two lists line up into an old -> new map for rewriting the case text.
+NEEDLES = []
+
+
 def main():
-    quiet = "--quiet" in sys.argv
+    quiet = "--quiet" in sys.argv or "--needles" in sys.argv
     argparse.ArgumentParser(description=__doc__).parse_known_args()
     fb, ams, gmn = load("fireballs.json"), load("ams-reports.json"), load("gmn-monthly.json")
     a, g, c = ams_stats(ams), gmn_stats(gmn), cneos_stats(fb)
@@ -483,7 +495,10 @@ def main():
     nf = nuforc_stats(raw) if raw else None
     if not quiet:
         report(a, g, c, nreg, sp, nf)
-    return verify(a, g, c, nreg, sp, nf)
+    rc = verify(a, g, c, nreg, sp, nf)
+    if "--needles" in sys.argv:
+        print(json.dumps(NEEDLES, ensure_ascii=False))
+    return rc
 
 
 if __name__ == "__main__":

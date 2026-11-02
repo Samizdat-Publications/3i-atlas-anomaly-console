@@ -7,42 +7,42 @@
 
 **What this cannot do.** Every CNEOS row is an atmospheric airburst. The nuclear-connection claim rests on eyewitness accounts of structured craft at guarded installations. Those are different phenomena, and a null here does not refute that testimony. The catalog also begins 1988-04-15, forty years after the 1948-51 green fireballs that started the claim, and the positions tested are civil POWER REACTORS rather than the weapons complex the original claim was about.
 
-883 located CNEOS events against 195 WRI nuclear reactor positions, 600 trials per null, 20000 km search cap.
+888 located CNEOS events against 195 WRI nuclear reactor positions, 600 trials per null, 20000 km search cap.
 
 | Within | Observed | Rotation null | p | Scatter null | p |
 |---|---|---|---|---|---|
-| 100 km | 11 | 8.8 | 0.290 | 8.6 | 0.248 |
-| 200 km | 34 | 24.8 | 0.070 | 24.5 | 0.025 |
-| 500 km | 68 | 71.5 | 0.702 | 71.3 | 0.692 |
-| median nearest reactor | 2682 km | 2687 km | 0.592 | 2690 km | 0.449 |
+| 100 km | 11 | 8.4 | 0.230 | 8.8 | 0.263 |
+| 200 km | 34 | 24.2 | 0.068 | 24.7 | 0.033 |
+| 500 km | 68 | 71.7 | 0.719 | 72.1 | 0.725 |
+| median nearest reactor | 2685 km | 2694 km | 0.566 | 2693 km | 0.451 |
 
 The 200 km row is the only one above chance and is reported rather than omitted. It is not treated as a result: three radii were tested, and the shape is wrong for a proximity effect — absent at 100 km, present at 200 km, gone at 500 km.
 
 ### Control — reactors commissioned by 1990 only (85 of 195)
 
-22 events within 200 km, median 3266 km.
+22 events within 200 km, median 3267 km.
 
 ### Distance histogram (300 km bins)
 
 | Bin start (km) | Observed | Expected by chance |
 |---|---|---|
-| 0 | 51 | 40.1 |
-| 300 | 34 | 45.9 |
-| 600 | 48 | 49.0 |
-| 900 | 50 | 50.3 |
-| 1200 | 42 | 53.1 |
-| 1500 | 75 | 52.6 |
-| 1800 | 46 | 52.1 |
-| 2100 | 50 | 52.0 |
-| 2400 | 50 | 48.1 |
-| 2700 | 60 | 48.9 |
-| 3000 | 50 | 48.5 |
-| 3300 | 37 | 42.5 |
-| 3600 | 41 | 39.5 |
-| 3900 | 30 | 32.8 |
+| 0 | 51 | 40.2 |
+| 300 | 34 | 45.8 |
+| 600 | 48 | 48.8 |
+| 900 | 51 | 51.2 |
+| 1200 | 42 | 51.9 |
+| 1500 | 76 | 54.0 |
+| 1800 | 46 | 53.2 |
+| 2100 | 50 | 51.8 |
+| 2400 | 50 | 47.8 |
+| 2700 | 60 | 48.2 |
+| 3000 | 50 | 49.8 |
+| 3300 | 37 | 42.4 |
+| 3600 | 41 | 40.4 |
+| 3900 | 31 | 33.7 |
 | 4200 | 20 | 24.0 |
-| 4500 | 15 | 21.2 |
-| 4800 | 19 | 18.8 |
-| 5100 | 19 | 18.4 |
+| 4500 | 15 | 21.0 |
+| 4800 | 19 | 19.3 |
+| 5100 | 19 | 18.3 |
 | 5400 | 17 | 16.6 |
-| 5700 | 17 | 15.6 |
+| 5700 | 17 | 16.2 |

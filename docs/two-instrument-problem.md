@@ -144,13 +144,13 @@ at the top end.
 
 ## The floor
 
-The CNEOS catalog contains 1,069 rows spanning 1988-04-15 to 2026-08-15. Its energy
+The CNEOS catalog contains 1,074 rows spanning 1988-04-15 to 2026-10-04. Its energy
 distribution has a hard bottom:
 
 - **minimum energy in the entire catalog: 0.048 kt**
 - 5th percentile: 0.078 kt
 - median: 0.200 kt
-- **only 6 rows out of 1,069 fall below 0.073 kt**
+- **only 6 rows out of 1,074 fall below 0.073 kt**
 
 For scale: 0.05 kt is 50 tons of TNT equivalent. Essentially every event driving the
 AMS excess is *far* below that. The August 2026 Pacific Northwest bolide — one of the
@@ -276,7 +276,7 @@ The rate question is not the only place this structure appears. The other
 recurring claim in the same coverage is spatial: that bright fireballs keep
 coming down at volcanoes, too often to be chance.
 
-That one is directly testable, and has now been tested — 883 located CNEOS events
+That one is directly testable, and has now been tested: 888 located CNEOS events
 against 1,608 NOAA volcano positions, 1,000 Monte Carlo trials per null model.
 The null matters as much as it did before: scattering random points over the globe
 would be wrong, because volcanoes sit on land and cluster in arcs, so any land or
@@ -287,15 +287,15 @@ intact), one giving each event a fresh longitude.
 
 | Within | observed | expected by chance |
 |---|---|---|
-| 100 km | **23** | 32.8 |
-| 200 km | 78 | 82.3 |
-| 500 km | 260 | 250.5 |
-| median nearest volcano | 838 km | 854 km |
+| 100 km | **23** | 33.0 |
+| 200 km | 79 | 82.9 |
+| 500 km | 261 | 252.7 |
+| median nearest volcano | 844 km | 856 km |
 
 No association at any distance, under either null — and the closest bin, the one
 the claim is actually about, comes in *below* chance. The related clustering claim
 fails the same way: median distance from an event to its nearest neighbour is
-353 km against 357 km expected (figure revised 2026-11-01, after five duplicated catalog rows were removed).
+349 km against 356 km expected (figures revised 2026-11-02 for the five new catalog rows; first revised 2026-11-01, after five duplicated catalog rows were removed).
 
 **And the reason the footage is nonetheless striking is the familiar one.** The
 evidence for the volcano claim is webcam video, and active volcanoes are among the
