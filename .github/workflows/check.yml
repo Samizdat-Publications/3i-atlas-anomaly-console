@@ -48,6 +48,9 @@ jobs:
           echo "external refs: $n"
           test "$n" = "0"
 
+      - name: Now-tracking block matches data/tracking.json
+        run: python tools/update_tracking.py --check
+
       - name: Fireball case text matches the data
         run: python tools/fireball_rate_check.py --quiet
 

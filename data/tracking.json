@@ -1,0 +1,29 @@
+{
+  "_note": "Hand-kept. The newest source each running thread has been built into the console. After adding data from a newer video or post, edit this file and run: python tools/update_tracking.py",
+  "content_current_to": "2026-11-01",
+  "angry_astronaut": {
+    "who": "The Angry Astronaut",
+    "where": "YouTube",
+    "channel_url": "https://www.youtube.com/@TheAngryAstronaut",
+    "video_id": "ihnlxrNdhEQ",
+    "title": "NO KIDDING!  3I Atlas changing course and speeding up!  Where is Avi Loeb?",
+    "url": "https://www.youtube.com/watch?v=ihnlxrNdhEQ",
+    "date": "2026-11-01",
+    "used_in": [
+      {"label": "briefing BR-09", "hash": "#brief/BR-09"},
+      {"label": "case A-10", "hash": "#3i/A-10"},
+      {"label": "case A-24", "hash": "#3i/A-24"}
+    ]
+  },
+  "loeb": {
+    "who": "Avi Loeb",
+    "where": "Medium",
+    "channel_url": "https://avi-loeb.medium.com/",
+    "title": "The Pomegranates That Seeded Life in the Universe",
+    "url": "https://avi-loeb.medium.com/the-pomegranates-that-seeded-life-in-the-universe-fcb29dce1428",
+    "date": "2026-10-21",
+    "used_in": [
+      {"label": "case A-26", "hash": "#3i/A-26"}
+    ]
+  }
+}

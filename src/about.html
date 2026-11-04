@@ -54,6 +54,17 @@ a { color:var(--cyan); }
 .bar a.lnk { color:var(--txt-dim); text-decoration:none; font-size:12px; letter-spacing:1.5px; }
 .bar a.lnk:hover { color:var(--cyan); }
 
+/* ---- now tracking (written by tools/update_tracking.py) ---- */
+.tracking { margin:0 auto 34px; max-width:860px; padding:14px 18px 12px; border:1px solid var(--line-hi);
+  border-left:3px solid var(--amber); background:linear-gradient(180deg,#061a28,#030d16); }
+.tracking-k { font-size:11px; letter-spacing:3px; color:var(--amber); margin-bottom:6px; }
+.tracking-lede { font-size:13.5px; color:var(--txt-dim); margin-bottom:8px; }
+.tracking ul { list-style:none; display:grid; gap:7px; padding:0; margin:0; }
+.tracking li { font-size:13.5px; line-height:1.55; padding-left:16px; position:relative; }
+.tracking li::before { content: ''; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; background: var(--cyan-dim); }
+.tracking b a { color:var(--txt); text-decoration:none; }
+.tracking a { overflow-wrap:anywhere; }
+.tracking a.tracking-src { color:var(--amber); }
 /* ---- hero ---- */
 .hero { padding:76px 0 54px; text-align:center; }
 .kicker { font-size:11px; letter-spacing:5px; color:var(--cyan-dim); margin-bottom:16px; }
@@ -170,6 +181,17 @@ footer a { color:var(--cyan-dim); }
       <a class="btn ghost" href="https://github.com/Samizdat-Publications/3i-atlas-anomaly-console">VIEW SOURCE</a>
     </div>
   </div>
+
+  <!-- tracking:start -->
+<aside class="tracking" aria-labelledby="tracking-title">
+  <p class="tracking-k" id="tracking-title">NOW TRACKING &middot; UPDATED 1 NOVEMBER 2026</p>
+  <p class="tracking-lede">This console follows two running sources on 3I/ATLAS and the fireball claims, and checks each new claim against the data as it comes in.</p>
+  <ul>
+    <li><b><a href="https://www.youtube.com/@TheAngryAstronaut">The Angry Astronaut</a></b> on YouTube: now including data through <a class="tracking-src" href="https://www.youtube.com/watch?v=ihnlxrNdhEQ">NO KIDDING! 3I Atlas changing course and speeding up! Where is Avi Loeb?</a> (1 November 2026), built into <a href="/#brief/BR-09">briefing BR-09</a>, <a href="/#3i/A-10">case A-10</a> and <a href="/#3i/A-24">case A-24</a>.</li>
+    <li><b><a href="https://avi-loeb.medium.com/">Avi Loeb</a></b> on Medium: through <a class="tracking-src" href="https://avi-loeb.medium.com/the-pomegranates-that-seeded-life-in-the-universe-fcb29dce1428">The Pomegranates That Seeded Life in the Universe</a> (21 October 2026), built into <a href="/#3i/A-26">case A-26</a>.</li>
+  </ul>
+</aside>
+<!-- tracking:end -->
 
   <div class="stats">
     <div class="stat"><div class="n">3</div><div class="l">INTERSTELLAR OBJECTS</div></div>

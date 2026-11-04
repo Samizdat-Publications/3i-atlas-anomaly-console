@@ -1,9 +1,9 @@
-# Transcript corpus — provenance and attribution
+# Transcript corpus: provenance and attribution
 
 ## What this is
 
-Auto-generated captions from **114 YouTube videos** by the channel **Angry Astronaut**,
-covering 2025-06-28 to 2026-08-23 — roughly 357,055 words.
+Auto-generated captions from **119 YouTube videos** by the channel **Angry Astronaut**,
+covering 2025-06-28 to 2026-11-01, roughly 372,225 words.
 
 They are the **claim source** for this project: the register exists to test claims made
 in these videos against primary data, and publishing the analysis without the source
@@ -25,7 +25,7 @@ issue or contact the repository owner and they will be deleted.**
   proper nouns are frequently mangled (`3I/ATLAS` appears as "three eye atlas", PHIVOLCS
   as "Five Vulks"), and punctuation is inferred. Never quote them as published text.
 - **Not evidence.** They record what was *claimed*. Every factual check in this project
-  runs against primary sources — JPL, NOAA, AMS, GMN, refereed literature — never against
+  runs against primary sources (JPL, NOAA, AMS, GMN, refereed literature), never against
   a transcript.
 - **Not endorsed by the channel.** No affiliation.
 
@@ -37,12 +37,12 @@ against the primary source, the case says so plainly before engaging with the in
 
 ## Files
 
-- `*.txt` — 114 individual transcripts, named `YYYYMMDD-<videoid>.txt`.
-- `notebook/` — the same corpus consolidated into 3 files for research-notebook ingestion,
-  which caps the number of sources far below 114.
-- `index.json` — fetch metadata, written by `tools/fetch_transcripts.py`.
+- `*.txt`: 119 individual transcripts, named `YYYYMMDD-<videoid>.txt`.
+- `notebook/`: the same corpus consolidated into 4 files for research-notebook ingestion,
+  which caps the number of sources far below 119.
+- `index.json`: fetch metadata, written by `tools/fetch_transcripts.py`.
 
-Regenerate with `tools/fetch_transcripts.py` (must run from a residential connection —
+Regenerate with `tools/fetch_transcripts.py` (must run from a residential connection:
 YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 
 ## Index
@@ -58,7 +58,7 @@ YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 | 2025-07-29 | Game Changing UFO Discovery!  Astronomers, Dr. Beatriz Villarroel, detect more UAP in orbit! | <https://www.youtube.com/watch?v=uGSLeyt9YBI> |
 | 2025-07-31 | Avi Loeb is NOT a fraud!  PLUS, we missed Oumuamua, but we can intercept 3I Atlas! | <https://www.youtube.com/watch?v=Q1FHZ8oLmUQ> |
 | 2025-08-02 | Stranger than Oumuamua UPDATE!  What will happen if 3I Atlas hits the Earth? | <https://www.youtube.com/watch?v=21EH7ttGqJo> |
-| 2025-08-04 | Unbelievable!  UFO Journalist Ross Coulthart against 3I Atlas intercept!  He's wrong!  Here's wh | <https://www.youtube.com/watch?v=B6O7nuJcmpY> |
+| 2025-08-04 | Unbelievable!  UFO Journalist Ross Coulthart against 3I Atlas intercept!  He's wrong!  Here's why: | <https://www.youtube.com/watch?v=B6O7nuJcmpY> |
 | 2025-08-09 | 3I Atlas gets stranger!  What kind of comet has no water and a halo "force field"? | <https://www.youtube.com/watch?v=kF6_-BG0ZFs> |
 | 2025-08-13 | New UAP footage!  The Pentagon spots UFOs over Africa in three new video clips! | <https://www.youtube.com/watch?v=FqgsKJnNcpQ> |
 | 2025-08-14 | UFO research UPDATE!  Is there a connection between a 1954 Mass UAP sighting and UFOs in orbit? | <https://www.youtube.com/watch?v=rgg-SaTxwMw> |
@@ -69,9 +69,9 @@ YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 | 2025-08-31 | 3I Atlas UPDATE!  Signs of artificial metal detected! | <https://www.youtube.com/watch?v=SV6Ae6AQfcc> |
 | 2025-09-04 | As 3I Atlas closes in on Mars, here's how YOU can look for UAP in the Martian skies! | <https://www.youtube.com/watch?v=NXxoAi_VJFg> |
 | 2025-09-08 | 3I Atlas Propulsion?  How to travel 20 light years a month!  The Enzmann Echolance! | <https://www.youtube.com/watch?v=55sqAQ1_NQ4> |
-| 2025-09-10 | Aliens:1  USAF:0 - UFO shrugs off Hellfire Missile!  This was the most important UAP Hearing yet | <https://www.youtube.com/watch?v=t2_2HjYYsRE> |
+| 2025-09-10 | Aliens:1  USAF:0 - UFO shrugs off Hellfire Missile!  This was the most important UAP Hearing yet! | <https://www.youtube.com/watch?v=t2_2HjYYsRE> |
 | 2025-09-14 | Seven reasons that 3I Atlas is not a comet! | <https://www.youtube.com/watch?v=qDYY_NC3pAU> |
-| 2025-09-21 | How is Angry right about 3I Atlas when so many astronomers think he's wrong?  It's happened befo | <https://www.youtube.com/watch?v=lfrmItbvTC0> |
+| 2025-09-21 | How is Angry right about 3I Atlas when so many astronomers think he's wrong?  It's happened before! | <https://www.youtube.com/watch?v=lfrmItbvTC0> |
 | 2025-09-25 | 3I Atlas slowing down?  Strongest evidence for Alien Origin yet! | <https://www.youtube.com/watch?v=YsrCCGMifIE> |
 | 2025-09-28 | Will the Sun destroy 3I Atlas?  Solar Mega-Storm hits interstellar visitor! | <https://www.youtube.com/watch?v=411b3kxktfk> |
 | 2025-10-01 | 3I Atlas may have sent the WOW Signal!  But why? | <https://www.youtube.com/watch?v=8rOlwJ3mQQ8> |
@@ -80,7 +80,7 @@ YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 | 2025-10-13 | 3I Atlas is listening to us, reacting and communicating!  Shocking new theory! | <https://www.youtube.com/watch?v=hOeH3Qgxjz4> |
 | 2025-10-15 | Are Alien theories about 3I Atlas "pseudoscience" or just UNPOPULAR science? | <https://www.youtube.com/watch?v=ZQ3SMwbMwlY> |
 | 2025-10-17 | New 3I Atlas images unveiled!  This thing isn't a comet! | <https://www.youtube.com/watch?v=zJGCl2yciyk> |
-| 2025-10-23 | 3I Atlas changes course??  For the first time, Asteroid Warning network tracks interstellar obje | <https://www.youtube.com/watch?v=L4ornNuoSr4> |
+| 2025-10-23 | 3I Atlas changes course??  For the first time, Asteroid Warning network tracks interstellar object! | <https://www.youtube.com/watch?v=L4ornNuoSr4> |
 | 2025-10-27 | Has 3I Atlas been here before?  NEW DISCOVERY from Dr. Beatriz Villarroel! | <https://www.youtube.com/watch?v=ybhXsCxOHh8> |
 | 2025-10-30 | NEW 3I ATLAS PHOTOS!  PLUS, what is China hiding about this interstellar visitor?? | <https://www.youtube.com/watch?v=y75GDefg8M8> |
 | 2025-10-31 | 3I Atlas changes course!!  (But it's not headed for Earth.) | <https://www.youtube.com/watch?v=favWG-v1tTE> |
@@ -123,7 +123,7 @@ YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 | 2026-02-27 | Extraterrestrial signals discovered across the Galaxy while we watch 3I Atlas! | <https://www.youtube.com/watch?v=bCCl0cUgE4c> |
 | 2026-03-01 | NEW 3I Atlas photos prove that Angry was wrong!  Or was he?? | <https://www.youtube.com/watch?v=bv6jY1ozfWY> |
 | 2026-03-02 | It's happening again!  New Jersey UFO Outbreak underway!  New UAP footage! | <https://www.youtube.com/watch?v=L_M88wkX8Eg> |
-| 2026-03-04 | I'm ANGRY at UFO skeptics Feynman, Degrasse Tyson!  They're WRONG about Aliens, Interstellar Tra | <https://www.youtube.com/watch?v=RQ2R2WfYULw> |
+| 2026-03-04 | I'm ANGRY at UFO skeptics Feynman, Degrasse Tyson!  They're WRONG about Aliens, Interstellar Travel! | <https://www.youtube.com/watch?v=RQ2R2WfYULw> |
 | 2026-03-06 | NASA was wrong!  3I Atlas is changing course!  10 days to Jupiter! | <https://www.youtube.com/watch?v=dM5xh5qMan8> |
 | 2026-03-10 | Artificial drive detected on 3I Atlas? | <https://www.youtube.com/watch?v=4Rv0zfSME8k> |
 | 2026-03-14 | Finally!  We have proof of fusion power on 3I Atlas! | <https://www.youtube.com/watch?v=xSq-VGjknmE> |
@@ -163,3 +163,8 @@ YouTube blocks datacenter IPs) and `tools/export_transcripts.py`.
 | 2026-08-10 | FBI unveils ENORMOUS UFO and new UAP Hotspot in the American Southwest! | <https://www.youtube.com/watch?v=xPI4tmREfis> |
 | 2026-08-16 | NO ONE SAW THIS UFO ON MARS until now!!  Jellyfish UAP photographed by Curiosity! | <https://www.youtube.com/watch?v=Ij9bzUcDWkU> |
 | 2026-08-23 | The Fireball UFO Outbreak isn't over!  Not even close! | <https://www.youtube.com/watch?v=wD5gQ4kiXwI> |
+| 2026-09-10 | Two NEW 3I Atlas discoveries!  Now we know NASA was wrong! | <https://www.youtube.com/watch?v=VCnfmj04nXM> |
+| 2026-09-24 | PLANET-SIZED 3I ATLAS discovered in nearby solar system?  Whatever it is, it shouldn't exist! | <https://www.youtube.com/watch?v=aDADIw2zxoY> |
+| 2026-10-12 | The Fireball UAP Outbreak is over, right?  Right?? | <https://www.youtube.com/watch?v=X-d5IaAq9bs> |
+| 2026-10-17 | NOT A COMET!  New 3I Atlas discovery sinks the scientific mainstream! | <https://www.youtube.com/watch?v=5Gt9Soc0m4I> |
+| 2026-11-01 | NO KIDDING!  3I Atlas changing course and speeding up!  Where is Avi Loeb? | <https://www.youtube.com/watch?v=ihnlxrNdhEQ> |
