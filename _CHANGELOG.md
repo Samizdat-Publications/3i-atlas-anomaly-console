@@ -1,5 +1,19 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.22 docs - 2026-11-04 (now tracking: the newest video and post, at the top of every page)
+
+- **A "Now tracking" block** at the top of the README, the about page and the landing page names
+  the newest Angry Astronaut video and Avi Loeb post built into the console, each a clickable
+  link to the original, with links to the briefing and cases it went into. It is written from
+  `data/tracking.json` by the new `tools/update_tracking.py`, which refuses a video whose
+  transcript is not in the repo; CI fails if any page falls out of step.
+- **README brought current:** the briefings and the v2.22 camera changes are described, the
+  acceleration chart is no longer called an illustration (it has plotted real Horizons output
+  since v2.19), refreshes are described as run by hand, the new tools are listed, counts are
+  updated (77 timeline records, 9 briefings), and the em dashes are gone.
+- **The transcript index** (`data/transcripts/README.md`) now lists all 119 videos to
+  2026-11-01; it had stopped at 114 and 2026-08-23.
+
 ## v2.22 - 2026-11-04 (every camera takes the mouse, and a first-visit intro)
 
 - **Drag and zoom work in every camera view.** CHASE, FROM MARS and FROM SUN used to lock the

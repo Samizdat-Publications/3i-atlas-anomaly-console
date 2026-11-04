@@ -206,3 +206,19 @@ tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* "Now tracking": the newest video and post built into the console, written by
+   tools/update_tracking.py from data/tracking.json. */
+.tracking {
+  margin: 28px auto 0; max-width: 900px; padding: 16px 20px 14px; text-align: left;
+  border: 1px solid var(--line-hi); border-left: 3px solid var(--amber);
+  background: linear-gradient(180deg, #061a28, #030d16);
+}
+.tracking-k { font-size: 12px; letter-spacing: 3px; color: var(--amber); margin-bottom: 6px; }
+.tracking-lede { font-size: 15px; color: var(--txt-dim); margin-bottom: 8px; }
+.tracking ul { list-style: none; display: grid; gap: 8px; }
+.tracking li { font-size: 15px; line-height: 1.55; padding-left: 16px; position: relative; }
+.tracking li::before { content: ''; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; background: var(--cyan-dim); }
+.tracking b a { color: var(--txt); text-decoration: none; }
+.tracking a { color: var(--cyan); overflow-wrap: anywhere; }
+.tracking a.tracking-src { color: var(--amber); }

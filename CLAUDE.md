@@ -11,6 +11,12 @@ Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer
 carries it with the object; re-picking the preset restores the script), `applyPreset` lights its own
 pod via `CX.ui.markCam`, and a first-visit intro card (`UI.showIntro`, localStorage `cx-intro-v1`,
 skipped on deep links) replaces the REPLAY ARMED toast on a first visit.
+**NOW TRACKING (2026-11-04, Stewart's purpose for the whole project):** the console exists to follow
+The Angry Astronaut's videos and Avi Loeb's posts. `data/tracking.json` names the newest of each
+that is built in (video 2026-11-01 ihnlxrNdhEQ, Loeb 2026-10-21); `python tools/update_tracking.py`
+writes it into README.md, src/about.html and site/index.html between `tracking:start/end`
+markers and refreshes data/transcripts/README.md. UPDATE IT EVERY TIME new videos or posts go
+in, then rebuild and redeploy the landing page. CI runs it with `--check`.
 **v2.21 (2026-11-02): a manual data refresh on top of v2.20.**
 - **How to refresh (Stewart asks by hand; the cron is off):** `fetch_fireballs.py`,
   `fetch_ams.py`, `fetch_glm.py`, `fetch_gmn.py --refresh-last`, then `fetch_ephemeris.py` and
