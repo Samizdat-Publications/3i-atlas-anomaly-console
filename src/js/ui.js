@@ -158,6 +158,7 @@
       '      <button class="cx-btn cx-btn-ghost" data-act="tour-stop">EXIT TOUR (ESC)</button>',
       '    </div>',
       '  </div></div>',
+      '  <div class="cx-intro" id="cx-intro" role="dialog" aria-labelledby="cx-intro-title" aria-hidden="true"></div>',
       '  <div class="cx-briefwrap" id="cx-briefwrap" style="display:none">',
       '    <div class="cx-brief-rail" id="cx-brief-rail"></div>',
       '    <div class="cx-brief-pane" id="cx-brief-pane"></div>',
@@ -893,6 +894,7 @@
   }
   function tourStart() {
     if (tour) { tourStop(true); return; }
+    introClose();
     closeOverlay();
     tour = { i: -1, timer: null };
     $('cx-tour').classList.add('cx-on');
@@ -985,7 +987,7 @@
       keyRow('N', "jump to today's real position (3I only)"),
       '    </div>',
       '    <div><h4>VIEW</h4>',
-      keyRow('drag', 'orbit the camera (FREE / TOP-DOWN)'),
+      keyRow('drag', 'orbit the camera, in every view (CHASE, MARS and SUN keep following)'),
       keyRow('wheel', 'zoom in and out'),
       keyRow('L', 'labels on / off'),
       keyRow('G', 'distance grid on / off'),
@@ -1024,6 +1026,58 @@
     showOverlay();
   }
   UI.openHelp = openHelp;
+
+  // ============ FIRST-VISIT INTRO ============
+  // One card along the lower third on a first visit, so the view explains itself
+  // before anyone has to click around. Remembered per browser; a failed storage
+  // read just means it shows again.
+  const INTRO_KEY = 'cx-intro-v1';
+  function introSeen() {
+    try { return localStorage.getItem(INTRO_KEY) === '1'; } catch (e) { return false; }
+  }
+  function introRow(cap, txt) {
+    return '<div class="cx-intro-way"><b>' + esc(cap) + '</b><span>' + esc(txt) + '</span></div>';
+  }
+  UI.showIntro = function () {
+    if (introSeen()) return false;
+    const box = $('cx-intro');
+    setH(box, [
+      '<div class="cx-tour-inner">',
+      '  <div class="cx-tour-step">WELCOME TO THE CONSOLE</div>',
+      '  <div class="cx-tour-title" id="cx-intro-title">3I/ATLAS, THE THIRD OBJECT EVER SEEN ARRIVING FROM ANOTHER STAR</div>',
+      '  <div class="cx-tour-text">This replays its real path through the solar system on JPL Horizons data and logs each ',
+      '  anomaly on the date it was reported: <span style="color:var(--amber)">amber</span> timeline markers are anomalies, ',
+      '  <span style="color:var(--cyan)">cyan</span> ones are mission events. Every claim sits beside the official explanation, ',
+      '  so you can weigh both.</div>',
+      '  <div class="cx-intro-ways">',
+      introRow('DRAG · SCROLL', 'Rotate and zoom the view, in every camera.'),
+      introRow('CAMERAS', 'FREE, TOP-DOWN, CHASE, FROM MARS and FROM SUN, on the buttons over the scene.'),
+      introRow('TIMELINE', 'Drag the bar to move through time. Tap a marker to read that record.'),
+      introRow('BRIEFINGS', (C.briefings || []).length + ' questions, each answered from the data. The best way in.'),
+      '  </div>',
+      '  <div class="cx-tour-btns">',
+      '    <button class="cx-btn" data-act="intro-tour">▶ TAKE THE 90-SECOND TOUR</button>',
+      '    <button class="cx-btn cx-btn-ghost" data-act="intro-close">START EXPLORING</button>',
+      '    <span class="cx-spacer"></span>',
+      '    <button class="cx-btn cx-btn-ghost" data-act="intro-help">ALL CONTROLS (?)</button>',
+      '  </div>',
+      '</div>',
+    ].join('\n'));
+    box.classList.add('cx-on');
+    box.setAttribute('aria-hidden', 'false');
+    const first = box.querySelector('[data-act="intro-close"]');
+    if (first) first.focus({ preventScroll: true });
+    return true;
+  };
+  function introClose() {
+    const box = $('cx-intro');
+    if (!box || !box.classList.contains('cx-on')) return false;
+    box.classList.remove('cx-on');
+    box.setAttribute('aria-hidden', 'true');
+    try { localStorage.setItem(INTRO_KEY, '1'); } catch (e) { /* shows again next visit */ }
+    return true;
+  }
+  UI.closeIntro = introClose;
 
   // ============ COMPARE ============
   function renderCompare() {
@@ -1158,6 +1212,7 @@
   UI.pauseReplay = pauseReplay;
   function setMode(m) {
     S.mode = m;
+    if (m !== 'track') introClose();
     if (READING_MODES[m]) pauseReplay();
     const rt = $('cx-root');
     if (rt) rt.setAttribute('data-mode', m);
@@ -1185,6 +1240,7 @@
   }
   UI.setMode = setMode;
 
+  UI.markCam = markCam;
   function markCam(name) {
     document.querySelectorAll('[data-act="cam"]').forEach(function (b) {
       b.classList.toggle('cx-on', b.getAttribute('data-cam') === name);
@@ -1278,6 +1334,9 @@
       else if (act === 'approach') { CX.setT(CX.tOfIso(btn.getAttribute('data-date'))); }
       else if (act === 'doc') { S.selDoc = Number(btn.getAttribute('data-i')); renderArchive(); }
       else if (act === 'help') openHelp();
+      else if (act === 'intro-close') introClose();
+      else if (act === 'intro-tour') { introClose(); tourStart(); }
+      else if (act === 'intro-help') { introClose(); openHelp(); }
       else if (act === 'rail') {
         const side = btn.getAttribute('data-side');
         const cls = side === 'left' ? 'cx-show-left' : 'cx-show-right';
@@ -1397,7 +1456,7 @@
       else if (k === 'Escape') {
         document.body.classList.remove('cx-show-left', 'cx-show-right');
         if (tour) tourStop();
-        else closeOverlay();
+        else if (!introClose()) closeOverlay();
       }
     });
 

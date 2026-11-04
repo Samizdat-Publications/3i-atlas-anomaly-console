@@ -1,5 +1,23 @@
 # Changelog — 3I/ATLAS Anomaly Console
 
+## v2.22 - 2026-11-04 (every camera takes the mouse, and a first-visit intro)
+
+- **Drag and zoom work in every camera view.** CHASE, FROM MARS and FROM SUN used to lock the
+  mouse out entirely, and CHASE is the view the console opens in, so a first visitor could not
+  move anything and had no hint that the other views existed. Now a drag or a wheel in any of
+  them hands the framing to the viewer: the camera keeps their angle and distance and carries it
+  along with the object, re-centring on it so the drag orbits the object itself. Picking a camera
+  again restores its scripted framing. A drag also ends a camera flight in progress instead of
+  fighting it, and the scene shows a grab cursor.
+- **The camera buttons now light the view you are actually in.** The page opened in CHASE with
+  FREE highlighted. The highlight now follows the camera whoever moved it (boot, a case file, the
+  tour, a target switch).
+- **A one-card intro on a first visit**, along the lower third of the 3D view: what the replay
+  shows, what the amber and cyan markers mean, and four ways in (drag and scroll, the cameras, the
+  timeline, BRIEFINGS), with buttons for the 90-second tour, the full controls, or straight in.
+  The replay keeps running behind it. It is remembered per browser, never shown over a shared
+  deep link, closes with Esc, and on a phone sits between the overlay row and the camera row.
+
 ## v2.21 - 2026-11-02 (data refresh: five new fireballs, every figure re-derived)
 
 Every upstream dataset pulled fresh, by hand, and every figure the case files quote re-derived

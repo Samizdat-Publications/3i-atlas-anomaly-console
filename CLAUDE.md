@@ -6,7 +6,12 @@ register (each case shows Loeb's claim AND the official explanation side by side
 Built for Stewart, for fun. Clearly labeled unofficial/educational in the footer.
 
 ## Resume protocol (usage limits hit often: checkpoint everything)
-**CURRENT STATE (2026-11-02): v2.21 is the head, a manual data refresh on top of v2.20.**
+**CURRENT STATE (2026-11-04): v2.22 is the head.** Every camera preset now takes the mouse
+(`FOLLOW` / `userOrbit` in scene3d.js: a drag in CHASE, MARS or SUN keeps the viewer's framing and
+carries it with the object; re-picking the preset restores the script), `applyPreset` lights its own
+pod via `CX.ui.markCam`, and a first-visit intro card (`UI.showIntro`, localStorage `cx-intro-v1`,
+skipped on deep links) replaces the REPLAY ARMED toast on a first visit.
+**v2.21 (2026-11-02): a manual data refresh on top of v2.20.**
 - **How to refresh (Stewart asks by hand; the cron is off):** `fetch_fireballs.py`,
   `fetch_ams.py`, `fetch_glm.py`, `fetch_gmn.py --refresh-last`, then `fetch_ephemeris.py` and
   `fetch_counterfactual.py` in that order, then `spatial_test.py --target X --save` for volcanoes,

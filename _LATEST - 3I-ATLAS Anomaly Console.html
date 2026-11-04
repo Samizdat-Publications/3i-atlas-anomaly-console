@@ -189,7 +189,8 @@ body {
 /* ============ CENTER / 3D ============ */
 .cx-center { grid-area: center; position: relative; overflow: hidden; background: var(--bg0); }
 .cx-center canvas { display: block; }
-#cx-gl { position: absolute; inset: 0; }
+#cx-gl { position: absolute; inset: 0; cursor: grab; }
+#cx-gl:active { cursor: grabbing; }
 
 /* HUD overlay in 3D view */
 .cx-hud { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
@@ -601,6 +602,22 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 .cx-tour-btns { display: flex; gap: 6px; margin-top: 9px; align-items: center; }
 .cx-tour-btns .cx-spacer { flex: 1; }
 
+/* First-visit intro: the tour's card, held along the lower third until dismissed.
+   visibility (not just opacity) keeps its buttons out of the tab order when closed. */
+.cx-intro {
+  position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%) translateY(10px);
+  width: min(760px, 94%); z-index: 46; opacity: 0; pointer-events: none; visibility: hidden;
+  transition: opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+}
+.cx-intro.cx-on {
+  opacity: 1; transform: translateX(-50%); pointer-events: auto; visibility: visible;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.cx-intro-ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 18px; margin-top: 10px; }
+.cx-intro-way { font-size: 11.5px; line-height: 1.45; color: var(--txt-dim); }
+.cx-intro-way b { display: block; font-weight: normal; font-size: 9.5px; letter-spacing: 2px; color: var(--cyan); }
+.cx-intro .cx-tour-btns { flex-wrap: wrap; }
+
 /* ============ HELP / KEY LEGEND ============ */
 .cx-keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 16px 22px; }
 .cx-keys h4 {
@@ -663,6 +680,11 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
     text-align: center; letter-spacing: .5px; opacity: .85;
   }
   .cx-specnote, .cx-calcnote { bottom: 112px; }
+  /* above the camera row, which sits at the bottom of the scene at this width */
+  .cx-intro, .cx-intro.cx-on {
+    left: 8px; right: 8px; width: auto; bottom: 104px; transform: none;
+    max-height: calc(100% - 200px); overflow-y: auto;
+  }
   .cx-specnote.cx-show ~ .cx-calcnote.cx-show { bottom: 170px; }
   /* a case sheet opened from a slide-over rail must sit above it */
   .cx-overlay { z-index: 50; }
@@ -825,6 +847,10 @@ table.cx-cmp .cx-cmp-3i { color: var(--amber); }
 .cx-tab[data-tab="briefings"].cx-on {
   background: rgba(255,179,71,.2); color: #ffe1b0;
   border-color: rgba(255,179,71,.75);
+}
+
+@media (max-width: 560px) {
+  .cx-intro-ways { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -3566,6 +3592,11 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
 
   // ---------- camera ----------
   const FREE_POS = new THREE.Vector3(26, 17, 30);
+  // The three presets that ride along with the target. Every preset takes the
+  // mouse; in these, a drag or wheel hands the framing to the viewer and the
+  // camera then carries their angle and distance along with the object.
+  const FOLLOW = { chase: true, mars: true, sun: true };
+  let userOrbit = false, lastCp = null;
   function startTween(toPos, toTarget, dur) {
     if (CX.reducedMotion) { camera.position.copy(toPos); controls.target.copy(toTarget); camera.lookAt(toTarget); tween = null; return; }
     tween = {
@@ -3630,18 +3661,19 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
 
   SC.applyPreset = function (name) {
     S.camPreset = name;
+    userOrbit = false; lastCp = null;
+    controls.enabled = true;
     const cp = v3(CX.pos('target', S.t));
     if (name === 'free') {
-      controls.enabled = true;
       startTween(FREE_POS, new THREE.Vector3(0, 0, 0));
     } else if (name === 'top') {
-      controls.enabled = true;
       startTween(new THREE.Vector3(0.01, 300, 0.01), new THREE.Vector3(0, 0, 0));
     } else {
-      controls.enabled = false;
       tween = null;
       if (name === 'sun') startTween(new THREE.Vector3(0, 2.2, 0.1), cp, 900);
     }
+    // The pods follow the camera, whoever moved it: boot, a case file, the tour.
+    if (CX.ui && CX.ui.markCam) CX.ui.markCam(name);
   };
 
   function followCamera() {
@@ -3663,9 +3695,20 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       desiredPos = cp.clone().normalize().multiplyScalar(2.6).add(new THREE.Vector3(0, 0.9, 0));
       desiredTgt = cp;
     } else return;
-    camera.position.lerp(desiredPos, 0.055);
-    controls.target.lerp(desiredTgt, 0.09);
-    camera.lookAt(controls.target);
+    if (userOrbit) {
+      // Keep the viewer's angle and distance, carried along by the object's
+      // motion, and settle the pivot onto the object so the drag orbits it.
+      if (lastCp) {
+        const d = cp.clone().sub(lastCp);
+        camera.position.add(d); controls.target.add(d);
+      }
+      controls.target.lerp(cp, 0.08);
+    } else {
+      camera.position.lerp(desiredPos, 0.055);
+      controls.target.lerp(desiredTgt, 0.09);
+      camera.lookAt(controls.target);
+    }
+    lastCp = cp;
   }
 
   // ---------- era switch ----------
@@ -3695,6 +3738,12 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
     controls.dampingFactor = 0.06;
     controls.minDistance = 0.6;
     controls.maxDistance = 1400;
+    // A drag or wheel takes over: it ends any camera flight in progress, and in a
+    // following preset it switches from the scripted framing to the viewer's own.
+    controls.addEventListener('start', function () {
+      tween = null;
+      if (FOLLOW[S.camPreset]) userOrbit = true;
+    });
 
     scene.add(new THREE.AmbientLight(0x2a3d52, 0.55));
     sunLight = new THREE.PointLight(0xfff2d8, 2.2, 0, 2);
@@ -4588,6 +4637,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       '      <button class="cx-btn cx-btn-ghost" data-act="tour-stop">EXIT TOUR (ESC)</button>',
       '    </div>',
       '  </div></div>',
+      '  <div class="cx-intro" id="cx-intro" role="dialog" aria-labelledby="cx-intro-title" aria-hidden="true"></div>',
       '  <div class="cx-briefwrap" id="cx-briefwrap" style="display:none">',
       '    <div class="cx-brief-rail" id="cx-brief-rail"></div>',
       '    <div class="cx-brief-pane" id="cx-brief-pane"></div>',
@@ -5323,6 +5373,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
   }
   function tourStart() {
     if (tour) { tourStop(true); return; }
+    introClose();
     closeOverlay();
     tour = { i: -1, timer: null };
     $('cx-tour').classList.add('cx-on');
@@ -5415,7 +5466,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       keyRow('N', "jump to today's real position (3I only)"),
       '    </div>',
       '    <div><h4>VIEW</h4>',
-      keyRow('drag', 'orbit the camera (FREE / TOP-DOWN)'),
+      keyRow('drag', 'orbit the camera, in every view (CHASE, MARS and SUN keep following)'),
       keyRow('wheel', 'zoom in and out'),
       keyRow('L', 'labels on / off'),
       keyRow('G', 'distance grid on / off'),
@@ -5454,6 +5505,58 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
     showOverlay();
   }
   UI.openHelp = openHelp;
+
+  // ============ FIRST-VISIT INTRO ============
+  // One card along the lower third on a first visit, so the view explains itself
+  // before anyone has to click around. Remembered per browser; a failed storage
+  // read just means it shows again.
+  const INTRO_KEY = 'cx-intro-v1';
+  function introSeen() {
+    try { return localStorage.getItem(INTRO_KEY) === '1'; } catch (e) { return false; }
+  }
+  function introRow(cap, txt) {
+    return '<div class="cx-intro-way"><b>' + esc(cap) + '</b><span>' + esc(txt) + '</span></div>';
+  }
+  UI.showIntro = function () {
+    if (introSeen()) return false;
+    const box = $('cx-intro');
+    setH(box, [
+      '<div class="cx-tour-inner">',
+      '  <div class="cx-tour-step">WELCOME TO THE CONSOLE</div>',
+      '  <div class="cx-tour-title" id="cx-intro-title">3I/ATLAS, THE THIRD OBJECT EVER SEEN ARRIVING FROM ANOTHER STAR</div>',
+      '  <div class="cx-tour-text">This replays its real path through the solar system on JPL Horizons data and logs each ',
+      '  anomaly on the date it was reported: <span style="color:var(--amber)">amber</span> timeline markers are anomalies, ',
+      '  <span style="color:var(--cyan)">cyan</span> ones are mission events. Every claim sits beside the official explanation, ',
+      '  so you can weigh both.</div>',
+      '  <div class="cx-intro-ways">',
+      introRow('DRAG · SCROLL', 'Rotate and zoom the view, in every camera.'),
+      introRow('CAMERAS', 'FREE, TOP-DOWN, CHASE, FROM MARS and FROM SUN, on the buttons over the scene.'),
+      introRow('TIMELINE', 'Drag the bar to move through time. Tap a marker to read that record.'),
+      introRow('BRIEFINGS', (C.briefings || []).length + ' questions, each answered from the data. The best way in.'),
+      '  </div>',
+      '  <div class="cx-tour-btns">',
+      '    <button class="cx-btn" data-act="intro-tour">▶ TAKE THE 90-SECOND TOUR</button>',
+      '    <button class="cx-btn cx-btn-ghost" data-act="intro-close">START EXPLORING</button>',
+      '    <span class="cx-spacer"></span>',
+      '    <button class="cx-btn cx-btn-ghost" data-act="intro-help">ALL CONTROLS (?)</button>',
+      '  </div>',
+      '</div>',
+    ].join('\n'));
+    box.classList.add('cx-on');
+    box.setAttribute('aria-hidden', 'false');
+    const first = box.querySelector('[data-act="intro-close"]');
+    if (first) first.focus({ preventScroll: true });
+    return true;
+  };
+  function introClose() {
+    const box = $('cx-intro');
+    if (!box || !box.classList.contains('cx-on')) return false;
+    box.classList.remove('cx-on');
+    box.setAttribute('aria-hidden', 'true');
+    try { localStorage.setItem(INTRO_KEY, '1'); } catch (e) { /* shows again next visit */ }
+    return true;
+  }
+  UI.closeIntro = introClose;
 
   // ============ COMPARE ============
   function renderCompare() {
@@ -5588,6 +5691,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
   UI.pauseReplay = pauseReplay;
   function setMode(m) {
     S.mode = m;
+    if (m !== 'track') introClose();
     if (READING_MODES[m]) pauseReplay();
     const rt = $('cx-root');
     if (rt) rt.setAttribute('data-mode', m);
@@ -5615,6 +5719,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
   }
   UI.setMode = setMode;
 
+  UI.markCam = markCam;
   function markCam(name) {
     document.querySelectorAll('[data-act="cam"]').forEach(function (b) {
       b.classList.toggle('cx-on', b.getAttribute('data-cam') === name);
@@ -5708,6 +5813,9 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       else if (act === 'approach') { CX.setT(CX.tOfIso(btn.getAttribute('data-date'))); }
       else if (act === 'doc') { S.selDoc = Number(btn.getAttribute('data-i')); renderArchive(); }
       else if (act === 'help') openHelp();
+      else if (act === 'intro-close') introClose();
+      else if (act === 'intro-tour') { introClose(); tourStart(); }
+      else if (act === 'intro-help') { introClose(); openHelp(); }
       else if (act === 'rail') {
         const side = btn.getAttribute('data-side');
         const cls = side === 'left' ? 'cx-show-left' : 'cx-show-right';
@@ -5827,7 +5935,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       else if (k === 'Escape') {
         document.body.classList.remove('cx-show-left', 'cx-show-right');
         if (tour) tourStop();
-        else closeOverlay();
+        else if (!introClose()) closeOverlay();
       }
     });
 
@@ -5982,7 +6090,7 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.21';
+  window.APP_VERSION = '2.22';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -6015,10 +6123,13 @@ window.ATLAS_INSTRUMENTS = {"spatial":{"events":888,"targets":1608,"trials":1000
       // A shared link is opened to be read, and a reduced-motion user has asked
       // for stillness: neither gets the replay rolling (or its alert tones).
       setTimeout(function () {
+        // A first visit gets the intro card instead of the toast; the replay still
+        // rolls behind it, since watching the object move is what the card describes.
+        const intro = !deepLinked && CX.ui.showIntro();
         if (deepLinked || CX.reducedMotion) return;
         S.playing = true;
         CX.emit('playstate');
-        CX.ui.showToast({
+        if (!intro) CX.ui.showToast({
           title: 'REPLAY ARMED · ' + CX.ERA_META[S.era].label + ' TRANSIT',
           t: S.t, cls: 'mission',
           desc: 'SPACE pauses · switch target with 3I / 1I / 2I · press T for the guided tour · ? for controls.',

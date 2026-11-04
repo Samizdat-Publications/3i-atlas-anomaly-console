@@ -486,6 +486,11 @@
 
   // ---------- camera ----------
   const FREE_POS = new THREE.Vector3(26, 17, 30);
+  // The three presets that ride along with the target. Every preset takes the
+  // mouse; in these, a drag or wheel hands the framing to the viewer and the
+  // camera then carries their angle and distance along with the object.
+  const FOLLOW = { chase: true, mars: true, sun: true };
+  let userOrbit = false, lastCp = null;
   function startTween(toPos, toTarget, dur) {
     if (CX.reducedMotion) { camera.position.copy(toPos); controls.target.copy(toTarget); camera.lookAt(toTarget); tween = null; return; }
     tween = {
@@ -550,18 +555,19 @@
 
   SC.applyPreset = function (name) {
     S.camPreset = name;
+    userOrbit = false; lastCp = null;
+    controls.enabled = true;
     const cp = v3(CX.pos('target', S.t));
     if (name === 'free') {
-      controls.enabled = true;
       startTween(FREE_POS, new THREE.Vector3(0, 0, 0));
     } else if (name === 'top') {
-      controls.enabled = true;
       startTween(new THREE.Vector3(0.01, 300, 0.01), new THREE.Vector3(0, 0, 0));
     } else {
-      controls.enabled = false;
       tween = null;
       if (name === 'sun') startTween(new THREE.Vector3(0, 2.2, 0.1), cp, 900);
     }
+    // The pods follow the camera, whoever moved it: boot, a case file, the tour.
+    if (CX.ui && CX.ui.markCam) CX.ui.markCam(name);
   };
 
   function followCamera() {
@@ -583,9 +589,20 @@
       desiredPos = cp.clone().normalize().multiplyScalar(2.6).add(new THREE.Vector3(0, 0.9, 0));
       desiredTgt = cp;
     } else return;
-    camera.position.lerp(desiredPos, 0.055);
-    controls.target.lerp(desiredTgt, 0.09);
-    camera.lookAt(controls.target);
+    if (userOrbit) {
+      // Keep the viewer's angle and distance, carried along by the object's
+      // motion, and settle the pivot onto the object so the drag orbits it.
+      if (lastCp) {
+        const d = cp.clone().sub(lastCp);
+        camera.position.add(d); controls.target.add(d);
+      }
+      controls.target.lerp(cp, 0.08);
+    } else {
+      camera.position.lerp(desiredPos, 0.055);
+      controls.target.lerp(desiredTgt, 0.09);
+      camera.lookAt(controls.target);
+    }
+    lastCp = cp;
   }
 
   // ---------- era switch ----------
@@ -615,6 +632,12 @@
     controls.dampingFactor = 0.06;
     controls.minDistance = 0.6;
     controls.maxDistance = 1400;
+    // A drag or wheel takes over: it ends any camera flight in progress, and in a
+    // following preset it switches from the scripted framing to the viewer's own.
+    controls.addEventListener('start', function () {
+      tween = null;
+      if (FOLLOW[S.camPreset]) userOrbit = true;
+    });
 
     scene.add(new THREE.AmbientLight(0x2a3d52, 0.55));
     sunLight = new THREE.PointLight(0xfff2d8, 2.2, 0, 2);
