@@ -62,6 +62,8 @@ keyboard reachability, modal sheet, reduced motion, hidden-scene render skip, em
 an action map for `wire()`), and a fresh AMS pull once its stats pages answer again.
 Cleaned up 2026-11-02: the `data-refresh/2026-09-01` branch (its AMS file is in main) and the
 v2.20 worktree are deleted, and so is `claude/scheduled-data-refresh` (2026-08, already merged).
+On 2026-11-04 every other fully merged branch went too (12 on GitHub, 2 local, each checked for
+zero commits main lacks). The repo now has `main` and nothing else; cut new work from it.
 
 **Earlier (2026-08-24):** v2.18 head.
 **STATE AS OF 2026-08-24 (superseded, kept for its notes):** v2.18 was the head. **THE FOURTH INSTRUMENT IS DONE** —
