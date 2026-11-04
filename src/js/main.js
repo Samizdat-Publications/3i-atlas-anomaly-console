@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   'use strict';
-  window.APP_VERSION = '2.21';
+  window.APP_VERSION = '2.22';
 
   function start() {
     const CX = window.CX, S = CX.S;
@@ -36,10 +36,13 @@
       // A shared link is opened to be read, and a reduced-motion user has asked
       // for stillness: neither gets the replay rolling (or its alert tones).
       setTimeout(function () {
+        // A first visit gets the intro card instead of the toast; the replay still
+        // rolls behind it, since watching the object move is what the card describes.
+        const intro = !deepLinked && CX.ui.showIntro();
         if (deepLinked || CX.reducedMotion) return;
         S.playing = true;
         CX.emit('playstate');
-        CX.ui.showToast({
+        if (!intro) CX.ui.showToast({
           title: 'REPLAY ARMED · ' + CX.ERA_META[S.era].label + ' TRANSIT',
           t: S.t, cls: 'mission',
           desc: 'SPACE pauses · switch target with 3I / 1I / 2I · press T for the guided tour · ? for controls.',
